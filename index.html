@@ -313,6 +313,39 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .cc{width:100%;max-width:300px}
   .prg-wrap{padding:20px 16px}
 }
+
+/* HERO SHOCK LINE */
+.hshock{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:18px;opacity:.9;animation:fu .7s ease both}
+
+/* PROGRAMME INTRO */
+.prog-intro{font-size:14px;color:var(--wd);line-height:1.85;font-weight:300;max-width:720px;margin-bottom:28px;padding:18px 24px;background:var(--gd2);border-left:2px solid var(--g);border-radius:0 6px 6px 0}
+
+/* PAIEMENT BLOC */
+.pmt-bloc{max-width:560px;margin:0 auto;padding:42px 44px;background:var(--ns);border:1px solid var(--b);border-radius:13px;position:relative;overflow:hidden}
+.pmt-bloc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.pmt-icon{font-size:26px;margin-bottom:16px}
+.pmt-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,26px);font-weight:600;color:var(--g);margin-bottom:14px}
+
+/* CANDIDATURE FORM */
+.cform{max-width:540px;margin:0 auto 40px;padding:36px 40px;background:#0A1628;border:1px solid var(--b);border-radius:12px;text-align:left}
+.cform-lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--g);display:block;margin-bottom:16px}
+.cform-steps{list-style:none;counter-reset:steps;margin-bottom:16px}
+.cform-steps li{counter-increment:steps;display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--wd);line-height:1.7;margin-bottom:10px;font-weight:300}
+.cform-steps li::before{content:counter(steps);min-width:22px;height:22px;background:var(--gd);border:1px solid var(--b);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--g);flex-shrink:0;margin-top:2px}
+.cform-note{font-size:12px;font-style:italic;color:var(--wd2);margin-bottom:28px;padding-top:8px;border-top:1px solid var(--b2)}
+.cform-fields{display:flex;flex-direction:column;gap:14px}
+.cform-field{display:flex;flex-direction:column;gap:6px}
+.cform-flbl{font-size:11px;font-weight:500;color:var(--wd);letter-spacing:.5px}
+.cform-inp{background:var(--ns);border:1px solid var(--b);border-radius:6px;padding:11px 14px;color:var(--w);font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.cform-inp:focus{border-color:var(--g)}
+.cform-inp option{background:var(--ns);color:var(--w)}
+.cform-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;border-radius:4px;border:none;cursor:pointer;transition:all .35s;box-shadow:0 6px 24px rgba(201,168,76,.28);margin-top:6px;width:100%}
+.cform-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,168,76,.42)}
+
+@media(max-width:880px){
+  .pmt-bloc{padding:28px 20px}
+  .cform{padding:24px 18px}
+}
 </style>
 </head>
 <body>
@@ -358,6 +391,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   </div>
   <div class="htl"></div>
   <div class="hc">
+    <p class="hshock">En 2025, attendre la fin du mois c'est un choix.</p>
     <div class="hbadge"><div class="bd"></div><span>Mentorat Trading Premium</span></div>
     <h1>Apprendre le trading<br>comme un vrai<br><em>professionnel.</em></h1>
     <p class="hs">DDN Academy, c'est un mentorat sérieux pour apprendre une vraie méthode de trading. Pas des signaux, pas des rêves. Une compétence réelle.</p>
@@ -404,7 +438,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="gb"></div>
     </div>
     <div class="rv d1">
-      <p class="dc" style="margin-bottom:16px">Le trading, c'est l'achat et la vente d'actifs financiers (devises, indices, matières premières) dans l'objectif de générer un profit sur la différence de prix.</p>
+      <p class="dc" style="margin-bottom:16px">Le trading, c'est l'achat et la vente de produits financiers (devises, indices, matières premières) sur les marchés, dans l'objectif de générer un profit sur la différence de prix.</p>
       <p class="dc">Contrairement à ce qu'on voit sur les réseaux, ce n'est pas une loterie. C'est une discipline qui s'apprend, qui se pratique, et qui demande de la méthode, de la rigueur et une vraie gestion du risque.</p>
     </div>
   </div>
@@ -475,11 +509,11 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <p class="ch-p">Atteindre <span class="ch-n">10 000 euros</span> par mois en une semaine ? C'est TikTok. C'est le discours des arnaqueurs. Oublie ça.</p>
     <p class="ch-p">La réalité est différente, et elle est bien plus intéressante sur le long terme.</p>
     <p class="ch-p">Avec de la régularité et une méthode solide, atteindre <span class="ch-n">1 000</span> à <span class="ch-n">2 000 euros</span> par mois est un objectif accessible relativement tôt dans la progression. Pas garanti, pas immédiat, mais accessible.</p>
-    <p class="ch-p">Ce qui rend ce domaine différent des autres, c'est la scalabilité. Plus ton capital augmente, plus tes résultats suivent proportionnellement. Un trader régulier qui progresse ne plafonne pas comme un salarié. Il n'y a pas de plafond de verre, pas de patron qui décide de ton augmentation. Ce sont tes résultats qui parlent.</p>
+    <p class="ch-p">Ce qui rend ce domaine différent des autres, c'est que plus tu progresses, plus tes gains peuvent augmenter. Plus ton capital augmente, plus tes résultats suivent proportionnellement. Un trader régulier qui progresse ne plafonne pas comme un salarié. Il n'y a pas de plafond de verre, pas de patron qui décide de ton augmentation. Ce sont tes résultats qui parlent.</p>
     <p class="ch-p">Et contrairement à ce qu'on entend souvent, trader sérieusement ne veut pas dire passer <span class="ch-n">8 heures</span> par jour devant un graphique. C'est un mythe. Ce qui compte, c'est la régularité, pas la quantité de temps. Une heure bien utilisée vaut mieux que huit heures de mauvaises décisions prises sous le stress.</p>
     <p class="ch-p"><span class="ch-n">1 000 euros</span> par mois, puis <span class="ch-n">2 000</span>, puis <span class="ch-n">5 000</span>, puis <span class="ch-n">10 000</span>. Ce n'est pas une promesse. C'est une trajectoire. Celle que la discipline et la méthode permettent.</p>
   </div>
-  <p class="rv d4" style="text-align:center;font-style:italic;font-size:13px;color:var(--wd2);margin-top:40px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7">Tout ça est possible. Rien n'est garanti. Ce que DDN Academy t'apporte, c'est la méthode. Le reste dépend de toi.</p>
+  <p class="rv d4" style="text-align:center;font-style:italic;font-size:13px;color:var(--wd2);margin-top:40px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7">Ce que DDN Academy t'apporte, c'est une méthode claire, un accompagnement réel et quelqu'un qui répond présent à chaque étape. Le reste vient naturellement quand les bases sont solides.</p>
 </div>
 
 <!-- DIVIDER -->
@@ -550,8 +584,8 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
       <div class="tl-step">
         <div class="tl-num">06<div class="tl-ico">🏆</div></div>
-        <div class="tl-t">Autonomie</div>
-        <div class="tl-d">Tu trades de façon indépendante avec ta propre méthode. C'est l'objectif final.</div>
+        <div class="tl-t">Tu es prêt.</div>
+        <div class="tl-d">Tu trades seul, avec toutes les bases. Mais le groupe privé reste accessible. Tu n'es jamais vraiment seul.</div>
       </div>
     </div>
   </div>
@@ -564,22 +598,23 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="rv"><span class="lbl">Le Programme</span><h2>Ce que tu<br><em>vas apprendre.</em></h2><div class="gb"></div></div>
       <div class="rv d1"><p class="dc">10 cours en appel de groupe pour construire une base solide. Chaque session t'apporte une compétence concrète, applicable immédiatement sur les marchés.</p></div>
     </div>
+    <p class="prog-intro rv d2">Chaque module est pensé pour que tu ne sois jamais largué. On avance à ton rythme, et tu ne passes à l'étape suivante que quand tu es prêt.</p>
     <div class="mg rv">
       <div class="md"><div class="mn">Module 01</div><div class="mt">Les fondamentaux du marché</div><div class="md2">Comment fonctionne réellement le marché. Les bases que 80 % des traders ignorent.</div></div>
       <div class="md"><div class="mn">Module 02</div><div class="mt">Ma stratégie personnelle</div><div class="md2">La méthode complète que j'utilise depuis 4 ans. Expliquée, décomposée, enseignée.</div></div>
       <div class="md"><div class="mn">Module 03</div><div class="mt">Lecture des prix & structure</div><div class="md2">Analyser un graphique proprement. Identifier les zones clés et les opportunités réelles.</div></div>
-      <div class="md"><div class="mn">Module 04</div><div class="mt">Gestion du risque</div><div class="md2">Protéger son capital. La règle numéro 1 que les traders profitables appliquent.</div></div>
-      <div class="md"><div class="mn">Module 05</div><div class="mt">Psychologie du trading</div><div class="md2">Gérer les émotions, les pertes, la pression. Le facteur le plus sous-estimé.</div></div>
+      <div class="md"><div class="mn">Module 04</div><div class="mt">Gestion du risque <span style="color:var(--wd);font-size:11px;font-weight:300">(ne jamais perdre plus que prévu)</span></div><div class="md2">Protéger son capital. La règle numéro 1 que les traders profitables appliquent.</div></div>
+      <div class="md"><div class="mn">Module 05</div><div class="mt">Psychologie du trading <span style="color:var(--wd);font-size:11px;font-weight:300">(garder la tête froide)</span></div><div class="md2">Gérer les émotions, les pertes, la pression. Le facteur le plus sous-estimé.</div></div>
       <div class="md"><div class="mn">Module 06</div><div class="mt">Analyse des trades</div><div class="md2">Comment réviser ses positions, améliorer sa stratégie et progresser rapidement.</div></div>
-      <div class="md"><div class="mn">Module 07</div><div class="mt">Phase démo obligatoire</div><div class="md2">Appliquer la méthode sans risquer de capital réel. Valider ses skills avant le live.</div></div>
+      <div class="md"><div class="mn">Module 07</div><div class="mt">Phase démo obligatoire <span style="color:var(--wd);font-size:11px;font-weight:300">(s'entraîner sans argent réel)</span></div><div class="md2">Appliquer la méthode sans risquer de capital réel. Valider ses acquis avant le live.</div></div>
       <div class="md"><div class="mn">Sessions 08 → 10</div><div class="mt">Suivi & perfectionnement</div><div class="md2">Feedback personnalisé, correction en temps réel, affinage de ta méthode propre.</div></div>
     </div>
     <div class="px rv d1">
       <div class="pi"><span class="ei">👥</span>Groupe privé d'élèves</div>
       <div class="pi"><span class="ei">📊</span>Suivi personnalisé</div>
       <div class="pi"><span class="ei">🎯</span>Autonomie totale</div>
-      <div class="pi"><span class="ei">🔒</span>Phase démo sécurisée</div>
-      <div class="pi"><span class="ei">🧠</span>Psychologie du trading</div>
+      <div class="pi"><span class="ei">🔒</span>Phase démo <small style="opacity:.6">(sans argent réel)</small></div>
+      <div class="pi"><span class="ei">🧠</span>Psychologie du trading <small style="opacity:.6">(garder la tête froide)</small></div>
       <div class="pi"><span class="ei">⚡</span>Accès direct au mentor</div>
     </div>
   </div>
@@ -611,7 +646,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
         <p class="ab">J'ai 20 ans. Je suis en 3ème année de kinésithérapie à Madrid.</p>
         <p class="ab">Le trading ne m'a pas rendu riche du jour au lendemain. Ce qu'il m'a donné, c'est quelque chose de plus concret : une indépendance réelle. Aujourd'hui je finance mes études à l'étranger, mon loyer, mes voyages. Pas grâce à mes parents, pas grâce à un job étudiant classique. Grâce à une compétence que j'ai apprise, affinée, et que j'applique tous les jours.</p>
         <p class="ab">Je publie mes trades en public sur Instagram depuis plus d'un an. Pas pour paraître. La transparence est le seul standard qui compte dans ce domaine.</p>
-        <p class="ab">Mon objectif avec DDN Academy n'est pas de créer des élèves qui dépendent de moi. C'est de former des personnes capables de faire ce que je fais : analyser, décider, gérer. Seuls.</p>
+        <p class="ab">Mon objectif avec DDN Academy n'est pas de créer des élèves qui dépendent de moi. C'est de t'accompagner étape par étape, jusqu'à ce que tu sois capable de prendre tes décisions seul. Et je reste là jusqu'à ce qu'on y soit.</p>
         <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener" class="igl">
           <div class="ii"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
           Voir mes trades — @laddn.trd
@@ -695,7 +730,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>Combien de temps avant de voir des résultats ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
-        <div class="fq-a"><div class="fq-ai">Honnêtement : ça dépend de toi. Le trading est une vraie compétence, pas un raccourci. La plupart des élèves sérieux commencent à lire le marché correctement après les premières sessions. Les résultats constants viennent avec la pratique et la discipline.</div></div>
+        <div class="fq-a"><div class="fq-ai">Ça dépend de chacun, et c'est normal. Certains élèves commencent à être réguliers en quelques semaines, d'autres prennent plus de temps. L'avantage du suivi personnalisé c'est qu'on ajuste ensemble selon où tu en es. Tu n'es pas livré à toi-même avec juste des vidéos.</div></div>
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>La garantie remboursement est vraiment réelle ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
@@ -720,11 +755,22 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <div class="gs">🛡️</div>
     <h3>Garantie Satisfait ou Remboursé</h3>
     <p class="gt">Si tu assistes à tous les cours, appliques la méthode correctement et respectes les règles, et qu'aucun résultat ne suit, je te rembourse. Sans discussion. C'est un engagement, pas un argument marketing.</p>
+    <p class="gt" style="margin-bottom:18px;font-style:italic;color:var(--w)">Je ne te laisse pas te débrouiller seul face aux marchés. Si tu fais ta part, je fais la mienne. C'est ça l'engagement.</p>
     <div class="gcs">
       <div class="gci">Présence à tous les cours</div>
       <div class="gci">Application de la méthode</div>
       <div class="gci">Respect des règles</div>
     </div>
+  </div>
+</div>
+
+<!-- PAIEMENT -->
+<div class="sec" style="background:var(--nm);text-align:center;padding-top:0">
+  <div class="pmt-bloc rv d1">
+    <div class="pmt-icon">💳</div>
+    <h3 class="pmt-title">Paiement en plusieurs fois disponible.</h3>
+    <p class="gt">Pour rendre l'accès au mentorat accessible à tous, un paiement en plusieurs fois est possible. Contacte-moi directement pour en discuter.</p>
+    <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="bg" style="display:inline-flex;margin-top:8px;font-size:11px;padding:12px 26px">En savoir plus <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </div>
 
@@ -763,6 +809,43 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <a href="mailto:laddnfx@gmail.com" class="cc"><span style="font-size:20px">✉️</span><div><div class="ci2">Email</div><div class="cv">laddnfx@gmail.com</div></div></a>
   </div>
   <div class="rv d2">
+    <div class="cform">
+      <p class="cform-lbl">Comment ça se passe quand tu postules ?</p>
+      <ol class="cform-steps">
+        <li>Tu remplis le court formulaire ci-dessous.</li>
+        <li>On échange en quelques messages pour voir si le mentorat correspond à ce que tu cherches.</li>
+        <li>Si c'est le cas, on démarre ensemble.</li>
+      </ol>
+      <p class="cform-note">Pas d'appel de vente. Pas de pression. Juste une discussion.</p>
+      <div class="cform-fields">
+        <div class="cform-field">
+          <label class="cform-flbl" for="cf-prenom">Ton prénom</label>
+          <input class="cform-inp" id="cf-prenom" type="text" placeholder="Ex : Lucas" autocomplete="given-name">
+        </div>
+        <div class="cform-field">
+          <label class="cform-flbl" for="cf-niveau">Tu connais déjà le trading ?</label>
+          <select class="cform-inp" id="cf-niveau">
+            <option value="" disabled selected>Choisis une option</option>
+            <option value="Pas du tout">Pas du tout</option>
+            <option value="J'ai quelques notions">J'ai quelques notions</option>
+            <option value="J'ai déjà essayé">J'ai déjà essayé</option>
+          </select>
+        </div>
+        <div class="cform-field">
+          <label class="cform-flbl" for="cf-objectif">Ce qui t'attire le plus dans le trading</label>
+          <select class="cform-inp" id="cf-objectif">
+            <option value="" disabled selected>Choisis une option</option>
+            <option value="Gagner de l'argent supplémentaire">Gagner de l'argent supplémentaire</option>
+            <option value="Devenir indépendant financièrement">Devenir indépendant financièrement</option>
+            <option value="Apprendre quelque chose de concret">Apprendre quelque chose de concret</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <button class="cform-btn" id="cf-send" type="button">Envoyer ma candidature <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="rv d3">
     <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="cb">Postuler maintenant <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </div></div>
@@ -870,6 +953,18 @@ window.addEventListener('load',function(){
   document.body.style.transition='opacity .6s ease';
   document.body.style.opacity='1';
 });
+
+// FORMULAIRE CANDIDATURE
+var cfBtn = document.getElementById('cf-send');
+if(cfBtn){
+  cfBtn.addEventListener('click', function(){
+    var prenom = document.getElementById('cf-prenom').value.trim() || 'Prénom non renseigné';
+    var niveau = document.getElementById('cf-niveau').value || 'Non précisé';
+    var objectif = document.getElementById('cf-objectif').value || 'Non précisé';
+    var msg = 'Bonjour, je m\'appelle ' + prenom + '. Mon niveau en trading : ' + niveau + '. Ce qui m\'attire : ' + objectif + '. Je souhaite en savoir plus sur le mentorat DDN Academy.';
+    window.open('https://wa.me/+33769124005?text=' + encodeURIComponent(msg), '_blank');
+  });
+}
 </script>
 </body>
 </html>
