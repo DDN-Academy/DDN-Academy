@@ -188,6 +188,14 @@ h2 em{font-style:italic;color:var(--g)}
 .igl:hover{border-color:var(--g);background:rgba(201,168,76,.18);color:var(--g)}
 .ii{width:20px;height:20px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
+/* CHIFFRES BLOC */
+.ch-bloc{max-width:720px;margin:48px auto 0;padding:40px 44px;background:var(--nm);border:1px solid var(--b);border-radius:12px;position:relative}
+.ch-bloc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.ch-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-weight:600;color:var(--w);margin-bottom:24px}
+.ch-p{font-size:13px;color:var(--wd);line-height:1.9;font-weight:300;margin-bottom:14px}
+.ch-p:last-child{margin-bottom:0}
+.ch-n{color:var(--g);font-weight:600}
+
 /* APPORT SECTION */
 .ap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
 .ap-card{padding:36px 30px;background:var(--ns);border:1px solid var(--b);border-radius:10px;transition:all .35s}
@@ -275,6 +283,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .ph{grid-template-columns:1fr;gap:24px;margin-bottom:36px}
   .tg{grid-template-columns:1fr}
   .ap-grid{grid-template-columns:1fr}
+  .ch-bloc{padding:28px 20px}
   .dg{grid-template-columns:1fr;gap:20px}
   .tl-grid{grid-template-columns:repeat(2,1fr);gap:28px}
   .tl-line{display:none}
@@ -351,7 +360,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="hc">
     <div class="hbadge"><div class="bd"></div><span>Mentorat Trading Premium</span></div>
     <h1>Apprendre le trading<br>comme un vrai<br><em>professionnel.</em></h1>
-    <p class="hs">DDN Academy, c'est un mentorat sérieux pour apprendre une vraie méthode de trading — pas des signaux, pas des rêves. Une compétence réelle.</p>
+    <p class="hs">DDN Academy, c'est un mentorat sérieux pour apprendre une vraie méthode de trading. Pas des signaux, pas des rêves. Une compétence réelle.</p>
     <div class="ha">
       <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="bg">Postuler au mentorat <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <span class="bgh" data-scroll="programme">Voir le programme <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -395,7 +404,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="gb"></div>
     </div>
     <div class="rv d1">
-      <p class="dc" style="margin-bottom:16px">Le trading, c'est l'achat et la vente d'actifs financiers — devises, indices, matières premières — dans l'objectif de générer un profit sur la différence de prix.</p>
+      <p class="dc" style="margin-bottom:16px">Le trading, c'est l'achat et la vente d'actifs financiers (devises, indices, matières premières) dans l'objectif de générer un profit sur la différence de prix.</p>
       <p class="dc">Contrairement à ce qu'on voit sur les réseaux, ce n'est pas une loterie. C'est une discipline qui s'apprend, qui se pratique, et qui demande de la méthode, de la rigueur et une vraie gestion du risque.</p>
     </div>
   </div>
@@ -442,7 +451,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <h2>Ce que ça peut<br><em>t'apporter.</em></h2>
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--g);margin:8px 0 28px">Sans te vendre du rêve.</p>
     <div class="gb" style="margin:0 auto 0"></div>
-    <p class="dc" style="margin:28px auto 0">Le trading n'est pas un raccourci. C'est une compétence. Comme toute compétence sérieuse, elle prend du temps à acquérir — et elle peut changer ta vie si tu l'apprends correctement.</p>
+    <p class="dc" style="margin:28px auto 0">Le trading n'est pas un raccourci. C'est une compétence. Comme toute compétence sérieuse, elle prend du temps à acquérir. Elle peut changer ta vie si tu l'apprends correctement.</p>
   </div>
   <div class="ap-grid">
     <div class="ap-card rv d1">
@@ -453,15 +462,24 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <div class="ap-card rv d2">
       <div class="ap-icon">🌍</div>
       <div class="ap-title">Une liberté concrète</div>
-      <p class="ap-text">Financer ses études. Voyager. Vivre à l'étranger. Être indépendant à 20 ans. Ce n'est pas un rêve vendu sur Instagram — c'est ce que permet une vraie compétence financière appliquée sérieusement.</p>
+      <p class="ap-text">Financer ses études. Voyager. Vivre à l'étranger. Être indépendant à 20 ans. Ce n'est pas un rêve vendu sur Instagram. C'est ce que permet une vraie compétence financière appliquée sérieusement.</p>
     </div>
     <div class="ap-card rv d3">
       <div class="ap-icon">🧠</div>
       <div class="ap-title">Une compréhension du monde</div>
-      <p class="ap-text">Comprendre les marchés, c'est comprendre comment l'économie fonctionne réellement. C'est une vision que très peu de gens ont — et qui change ta façon de voir les opportunités autour de toi.</p>
+      <p class="ap-text">Comprendre les marchés, c'est comprendre comment l'économie fonctionne réellement. C'est une vision que très peu de gens ont, et qui change ta façon de voir les opportunités autour de toi.</p>
     </div>
   </div>
-  <p class="rv d2" style="text-align:center;font-style:italic;font-size:13px;color:var(--wd2);margin-top:48px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7">Tout ça est possible. Rien n'est garanti. Ce que DDN Academy t'apporte, c'est la méthode — le reste dépend de toi.</p>
+  <div class="ch-bloc rv d3">
+    <div class="ch-title">Parlons chiffres.</div>
+    <p class="ch-p">Atteindre <span class="ch-n">10 000 euros</span> par mois en une semaine ? C'est TikTok. C'est le discours des arnaqueurs. Oublie ça.</p>
+    <p class="ch-p">La réalité est différente, et elle est bien plus intéressante sur le long terme.</p>
+    <p class="ch-p">Avec de la régularité et une méthode solide, atteindre <span class="ch-n">1 000</span> à <span class="ch-n">2 000 euros</span> par mois est un objectif accessible relativement tôt dans la progression. Pas garanti, pas immédiat, mais accessible.</p>
+    <p class="ch-p">Ce qui rend ce domaine différent des autres, c'est la scalabilité. Plus ton capital augmente, plus tes résultats suivent proportionnellement. Un trader régulier qui progresse ne plafonne pas comme un salarié. Il n'y a pas de plafond de verre, pas de patron qui décide de ton augmentation. Ce sont tes résultats qui parlent.</p>
+    <p class="ch-p">Et contrairement à ce qu'on entend souvent, trader sérieusement ne veut pas dire passer <span class="ch-n">8 heures</span> par jour devant un graphique. C'est un mythe. Ce qui compte, c'est la régularité, pas la quantité de temps. Une heure bien utilisée vaut mieux que huit heures de mauvaises décisions prises sous le stress.</p>
+    <p class="ch-p"><span class="ch-n">1 000 euros</span> par mois, puis <span class="ch-n">2 000</span>, puis <span class="ch-n">5 000</span>, puis <span class="ch-n">10 000</span>. Ce n'est pas une promesse. C'est une trajectoire. Celle que la discipline et la méthode permettent.</p>
+  </div>
+  <p class="rv d4" style="text-align:center;font-style:italic;font-size:13px;color:var(--wd2);margin-top:40px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7">Tout ça est possible. Rien n'est garanti. Ce que DDN Academy t'apporte, c'est la méthode. Le reste dépend de toi.</p>
 </div>
 
 <!-- DIVIDER -->
@@ -591,9 +609,9 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
         <div class="gb"></div>
         <p class="aq">"Je ne veux pas que mes élèves me suivent. Je veux qu'ils n'aient plus besoin de moi."</p>
         <p class="ab">J'ai 20 ans. Je suis en 3ème année de kinésithérapie à Madrid.</p>
-        <p class="ab">Le trading ne m'a pas rendu riche du jour au lendemain. Ce qu'il m'a donné, c'est quelque chose de plus concret : une indépendance réelle. Aujourd'hui je finance mes études à l'étranger, mon loyer, mes voyages — pas grâce à mes parents, pas grâce à un job étudiant classique. Grâce à une compétence que j'ai apprise, affinée, et que j'applique tous les jours.</p>
-        <p class="ab">Je publie mes trades en public sur Instagram depuis plus d'un an. Pas pour paraître — parce que la transparence est le seul standard qui compte dans ce domaine.</p>
-        <p class="ab">Mon objectif avec DDN Academy n'est pas de créer des élèves qui dépendent de moi. C'est de former des personnes capables de faire ce que je fais — analyser, décider, gérer. Seuls.</p>
+        <p class="ab">Le trading ne m'a pas rendu riche du jour au lendemain. Ce qu'il m'a donné, c'est quelque chose de plus concret : une indépendance réelle. Aujourd'hui je finance mes études à l'étranger, mon loyer, mes voyages. Pas grâce à mes parents, pas grâce à un job étudiant classique. Grâce à une compétence que j'ai apprise, affinée, et que j'applique tous les jours.</p>
+        <p class="ab">Je publie mes trades en public sur Instagram depuis plus d'un an. Pas pour paraître. La transparence est le seul standard qui compte dans ce domaine.</p>
+        <p class="ab">Mon objectif avec DDN Academy n'est pas de créer des élèves qui dépendent de moi. C'est de former des personnes capables de faire ce que je fais : analyser, décider, gérer. Seuls.</p>
         <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener" class="igl">
           <div class="ii"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
           Voir mes trades — @laddn.trd
@@ -609,7 +627,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="rv" style="text-align:center;max-width:520px;margin:0 auto 0"><span class="lbl">Témoignages</span><h2>Ce qu'ils<br><em>en disent.</em></h2><div class="gb" style="margin:20px auto 0"></div></div>
   <div class="tm-grid">
     <div class="tm-card rv d1">
-      <p class="tm-quote">Honnêtement au début j'étais sceptique. Maintenant je comprends ce que je fais sur un graphique et pourquoi. C'est ça qui change tout.</p>
+      <p class="tm-quote">Au début j'y croyais moyen. Maintenant je comprends vraiment ce que je fais sur un graphique. C'est con mais c'est ça qui change tout pour moi.</p>
       <div class="tm-author">
         <div class="tm-av">E</div>
         <div>
@@ -619,7 +637,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
     </div>
     <div class="tm-card rv d2">
-      <p class="tm-quote">J'ai failli partir sur une autre formation deux fois moins chère. Contente de ne pas l'avoir fait. La qualité du suivi n'a rien à voir.</p>
+      <p class="tm-quote">J'ai failli aller ailleurs pour payer moins cher. Contente de pas l'avoir fait. Le suivi ici c'est vraiment pas la même chose.</p>
       <div class="tm-author">
         <div class="tm-av">A</div>
         <div>
@@ -629,7 +647,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
     </div>
     <div class="tm-card rv d3">
-      <p class="tm-quote">La phase démo m'a sauvé. J'aurais cramé mon capital en 2 semaines si j'avais commencé directement en réel. Maintenant je sais pourquoi j'entre et pourquoi je sors.</p>
+      <p class="tm-quote">La phase démo m'a clairement sauvé. Si j'avais commencé directement en réel j'aurais tout perdu en quelques semaines. Maintenant au moins je sais ce que je fais.</p>
       <div class="tm-author">
         <div class="tm-av">A</div>
         <div>
@@ -639,7 +657,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
     </div>
     <div class="tm-card rv d1">
-      <p class="tm-quote">C'est pas magique, faut bosser. Mais les bases sont solides et le suivi est là quand t'as besoin.</p>
+      <p class="tm-quote">C'est pas magique hein, faut vraiment bosser. Mais les bases sont là et quand t'as une question tu as une réponse. C'est ce que je cherchais.</p>
       <div class="tm-author">
         <div class="tm-av">L</div>
         <div>
@@ -649,7 +667,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
     </div>
     <div class="tm-card rv d2">
-      <p class="tm-quote">Le fait qu'il publie ses propres trades sur Instagram m'a convaincu. C'est rare dans ce milieu.</p>
+      <p class="tm-quote">Ce qui m'a convaincu c'est qu'il poste ses propres trades sur Instagram. Dans ce milieu tout le monde se cache, lui non.</p>
       <div class="tm-author">
         <div class="tm-av">I</div>
         <div>
@@ -669,19 +687,19 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <div class="fq-wrap">
       <div class="fq-item">
         <div class="fq-q"><span>Est-ce que j'ai besoin de capital pour commencer ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
-        <div class="fq-a"><div class="fq-ai">Non. Le programme commence sur compte de démonstration. Aucun dépôt réel n'est nécessaire pour débuter. Tu passes en capital réel uniquement lorsque tu maîtrises la méthode — et c'est toi qui décides du montant.</div></div>
+        <div class="fq-a"><div class="fq-ai">Non. Le programme commence sur compte de démonstration. Aucun dépôt réel n'est nécessaire pour débuter. Tu passes en capital réel uniquement lorsque tu maîtrises la méthode, et c'est toi qui décides du montant.</div></div>
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>Vous donnez des signaux ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
-        <div class="fq-a"><div class="fq-ai">Jamais. DDN Academy t'apprend à analyser et décider par toi-même. Les signaux créent de la dépendance — l'objectif ici est l'exact opposé : ton autonomie totale. Tu appliques ta propre lecture du marché, pas celle de quelqu'un d'autre.</div></div>
+        <div class="fq-a"><div class="fq-ai">Jamais. DDN Academy t'apprend à analyser et décider par toi-même. Les signaux créent de la dépendance. L'objectif ici est l'exact opposé : ton autonomie totale. Tu appliques ta propre lecture du marché, pas celle de quelqu'un d'autre.</div></div>
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>Combien de temps avant de voir des résultats ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
-        <div class="fq-a"><div class="fq-ai">Honnêtement : ça dépend de toi. Le trading est une vraie compétence — pas un raccourci. La plupart des élèves sérieux commencent à lire le marché correctement après les premières sessions. Les résultats constants viennent avec la pratique et la discipline.</div></div>
+        <div class="fq-a"><div class="fq-ai">Honnêtement : ça dépend de toi. Le trading est une vraie compétence, pas un raccourci. La plupart des élèves sérieux commencent à lire le marché correctement après les premières sessions. Les résultats constants viennent avec la pratique et la discipline.</div></div>
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>La garantie remboursement est vraiment réelle ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
-        <div class="fq-a"><div class="fq-ai">Oui. Si tu assistes à tous les cours, appliques correctement la méthode et respectes les règles — et qu'aucun résultat ne suit — tu es remboursé. Les conditions sont là pour éviter les abus, pas pour t'exclure. C'est une garantie sérieuse.</div></div>
+        <div class="fq-a"><div class="fq-ai">Oui. Si tu assistes à tous les cours, appliques correctement la méthode et respectes les règles, et qu'aucun résultat ne suit, tu es remboursé. Les conditions sont là pour éviter les abus, pas pour t'exclure. C'est une garantie sérieuse.</div></div>
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>C'est quoi la phase démo ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
@@ -701,7 +719,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="gc rv d1">
     <div class="gs">🛡️</div>
     <h3>Garantie Satisfait ou Remboursé</h3>
-    <p class="gt">Si tu assistes à tous les cours, appliques la méthode correctement et respectes les règles — et qu'aucun résultat ne suit — je te rembourse. Sans discussion. C'est un engagement, pas un argument marketing.</p>
+    <p class="gt">Si tu assistes à tous les cours, appliques la méthode correctement et respectes les règles, et qu'aucun résultat ne suit, je te rembourse. Sans discussion. C'est un engagement, pas un argument marketing.</p>
     <div class="gcs">
       <div class="gci">Présence à tous les cours</div>
       <div class="gci">Application de la méthode</div>
@@ -719,7 +737,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="gb" style="margin:20px auto 0"></div>
     </div>
     <div class="rv d1">
-      <p class="why-text">Les places dans chaque cohorte sont volontairement limitées. Pas comme argument de vente — mais parce qu'un suivi de qualité demande du temps et de l'attention pour chaque élève.</p>
+      <p class="why-text">Les places dans chaque cohorte sont volontairement limitées. Pas comme argument de vente. Un suivi de qualité demande du temps et de l'attention pour chaque élève.</p>
       <p class="why-text">La prochaine cohorte accueille un nombre restreint de candidats. Si tu lis cette page en ce moment, c'est peut-être le bon moment pour agir.</p>
       <div class="why-pills">
         <div class="why-pill"><span>◆</span> Places limitées par cohorte</div>
