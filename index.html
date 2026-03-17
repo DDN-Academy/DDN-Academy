@@ -188,6 +188,14 @@ h2 em{font-style:italic;color:var(--g)}
 .igl:hover{border-color:var(--g);background:rgba(201,168,76,.18);color:var(--g)}
 .ii{width:20px;height:20px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
+/* APPORT SECTION */
+.ap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.ap-card{padding:36px 30px;background:var(--ns);border:1px solid var(--b);border-radius:10px;transition:all .35s}
+.ap-card:hover{transform:translateY(-4px);border-color:var(--g);box-shadow:0 16px 40px rgba(5,13,26,.7)}
+.ap-icon{font-size:30px;margin-bottom:18px}
+.ap-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--g);margin-bottom:12px}
+.ap-text{font-size:13px;color:var(--wd);line-height:1.8;font-weight:300}
+
 /* TESTIMONIALS */
 #temoignages{background:var(--n)}
 .tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
@@ -200,6 +208,9 @@ h2 em{font-style:italic;color:var(--g)}
 .tm-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gl));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--n)}
 .tm-name{font-size:13px;font-weight:600;color:var(--w)}
 .tm-meta{font-size:11px;color:var(--g);font-weight:400;margin-top:2px}
+.tm-more{text-align:center;font-size:12px;font-style:italic;color:var(--wd2);margin-top:36px}
+.tm-more a{color:var(--g);text-decoration:none;transition:opacity .3s}
+.tm-more a:hover{opacity:.7}
 
 /* FAQ */
 #faq{background:var(--nm)}
@@ -263,6 +274,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .hst{gap:22px;margin-top:40px}
   .ph{grid-template-columns:1fr;gap:24px;margin-bottom:36px}
   .tg{grid-template-columns:1fr}
+  .ap-grid{grid-template-columns:1fr}
   .dg{grid-template-columns:1fr;gap:20px}
   .tl-grid{grid-template-columns:repeat(2,1fr);gap:28px}
   .tl-line{display:none}
@@ -270,7 +282,8 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .px{grid-template-columns:1fr 1fr;gap:10px}
   .ag{grid-template-columns:1fr;gap:36px}
   .pf{aspect-ratio:1/1.1;max-width:380px}
-  .tm-grid{grid-template-columns:1fr;gap:16px}
+  .tm-grid{grid-template-columns:1fr;gap:14px}
+  .ap-grid{grid-template-columns:1fr;gap:14px}
   .gc{padding:36px 20px}
   .ch{flex-direction:column;align-items:center}
   footer{padding:28px 20px;flex-direction:column;text-align:center}
@@ -338,7 +351,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="hc">
     <div class="hbadge"><div class="bd"></div><span>Mentorat Trading Premium</span></div>
     <h1>Apprendre le trading<br>comme un vrai<br><em>professionnel.</em></h1>
-    <p class="hs">DDN Academy — un mentorat sérieux pour maîtriser les marchés. Pas des signaux, pas de dépôt, pas de promesses. Une compétence réelle.</p>
+    <p class="hs">DDN Academy, c'est un mentorat sérieux pour apprendre une vraie méthode de trading — pas des signaux, pas des rêves. Une compétence réelle.</p>
     <div class="ha">
       <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="bg">Postuler au mentorat <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <span class="bgh" data-scroll="programme">Voir le programme <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
@@ -417,6 +430,38 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="cl">Sessions de formation en groupe</div>
     </div>
   </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="dv"></div>
+
+<!-- CE QUE CA PEUT T'APPORTER -->
+<div id="apport" class="sec" style="background:var(--nm)">
+  <div class="rv" style="text-align:center;max-width:600px;margin:0 auto">
+    <span class="lbl">La vraie valeur</span>
+    <h2>Ce que ça peut<br><em>t'apporter.</em></h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--g);margin:8px 0 28px">Sans te vendre du rêve.</p>
+    <div class="gb" style="margin:0 auto 0"></div>
+    <p class="dc" style="margin:28px auto 0">Le trading n'est pas un raccourci. C'est une compétence. Comme toute compétence sérieuse, elle prend du temps à acquérir — et elle peut changer ta vie si tu l'apprends correctement.</p>
+  </div>
+  <div class="ap-grid">
+    <div class="ap-card rv d1">
+      <div class="ap-icon">💰</div>
+      <div class="ap-title">Une source de revenus réelle</div>
+      <p class="ap-text">Pas un salaire fixe garanti. Mais une capacité à générer des revenus depuis n'importe où, à n'importe quelle heure, sans patron et sans plafond. Ce que tu en fais dépend uniquement de toi.</p>
+    </div>
+    <div class="ap-card rv d2">
+      <div class="ap-icon">🌍</div>
+      <div class="ap-title">Une liberté concrète</div>
+      <p class="ap-text">Financer ses études. Voyager. Vivre à l'étranger. Être indépendant à 20 ans. Ce n'est pas un rêve vendu sur Instagram — c'est ce que permet une vraie compétence financière appliquée sérieusement.</p>
+    </div>
+    <div class="ap-card rv d3">
+      <div class="ap-icon">🧠</div>
+      <div class="ap-title">Une compréhension du monde</div>
+      <p class="ap-text">Comprendre les marchés, c'est comprendre comment l'économie fonctionne réellement. C'est une vision que très peu de gens ont — et qui change ta façon de voir les opportunités autour de toi.</p>
+    </div>
+  </div>
+  <p class="rv d2" style="text-align:center;font-style:italic;font-size:13px;color:var(--wd2);margin-top:48px;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7">Tout ça est possible. Rien n'est garanti. Ce que DDN Academy t'apporte, c'est la méthode — le reste dépend de toi.</p>
 </div>
 
 <!-- DIVIDER -->
@@ -519,25 +564,6 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="pi"><span class="ei">🧠</span>Psychologie du trading</div>
       <div class="pi"><span class="ei">⚡</span>Accès direct au mentor</div>
     </div>
-    <div class="prg-wrap rv d2">
-      <div class="prg-title">Ce que tu vas maîtriser</div>
-      <div class="prg-item">
-        <div class="prg-header"><span class="prg-label">Analyse technique</span><span class="prg-val">95%</span></div>
-        <div class="prg-track"><div class="prg-bar" data-width="95"></div></div>
-      </div>
-      <div class="prg-item">
-        <div class="prg-header"><span class="prg-label">Gestion du risque</span><span class="prg-val">100%</span></div>
-        <div class="prg-track"><div class="prg-bar" data-width="100"></div></div>
-      </div>
-      <div class="prg-item">
-        <div class="prg-header"><span class="prg-label">Psychologie du trading</span><span class="prg-val">90%</span></div>
-        <div class="prg-track"><div class="prg-bar" data-width="90"></div></div>
-      </div>
-      <div class="prg-item">
-        <div class="prg-header"><span class="prg-label">Discipline & autonomie</span><span class="prg-val">100%</span></div>
-        <div class="prg-track"><div class="prg-bar" data-width="100"></div></div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -563,10 +589,11 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="rv"><span class="lbl">À propos</span>
         <h2>Un trader.<br>Pas un <em>vendeur.</em></h2>
         <div class="gb"></div>
-        <p class="aq">"Mon objectif n'est pas de créer des gens qui dépendent de mes signaux. Mon objectif, c'est de créer des traders autonomes."</p>
-        <p class="ab">Je trade depuis plus de 4 ans. J'ai construit ma stratégie par moi-même, l'ai affinée, testée, et appliquée sur les marchés réels — pas sur un compte simulé fictif présenté en screenshot.</p>
-        <p class="ab">Depuis plus d'un an, je publie mes analyses et mes trades en temps réel sur Instagram. Tout est vérifiable. La transparence est le seul standard qui compte dans ce domaine.</p>
-        <p class="ab">En 2024, j'ai commencé à former mes premiers élèves. Pas parce que j'avais besoin de "vendre un produit" — parce que j'avais une vraie méthode à transmettre. Une méthode qui m'a rendu autonome, et qui peut en faire autant pour toi.</p>
+        <p class="aq">"Je ne veux pas que mes élèves me suivent. Je veux qu'ils n'aient plus besoin de moi."</p>
+        <p class="ab">J'ai 20 ans. Je suis en 3ème année de kinésithérapie à Madrid.</p>
+        <p class="ab">Le trading ne m'a pas rendu riche du jour au lendemain. Ce qu'il m'a donné, c'est quelque chose de plus concret : une indépendance réelle. Aujourd'hui je finance mes études à l'étranger, mon loyer, mes voyages — pas grâce à mes parents, pas grâce à un job étudiant classique. Grâce à une compétence que j'ai apprise, affinée, et que j'applique tous les jours.</p>
+        <p class="ab">Je publie mes trades en public sur Instagram depuis plus d'un an. Pas pour paraître — parce que la transparence est le seul standard qui compte dans ce domaine.</p>
+        <p class="ab">Mon objectif avec DDN Academy n'est pas de créer des élèves qui dépendent de moi. C'est de former des personnes capables de faire ce que je fais — analyser, décider, gérer. Seuls.</p>
         <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener" class="igl">
           <div class="ii"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
           Voir mes trades — @laddn.trd
@@ -582,36 +609,57 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="rv" style="text-align:center;max-width:520px;margin:0 auto 0"><span class="lbl">Témoignages</span><h2>Ce qu'ils<br><em>en disent.</em></h2><div class="gb" style="margin:20px auto 0"></div></div>
   <div class="tm-grid">
     <div class="tm-card rv d1">
-      <p class="tm-quote">En 3 mois j'ai appris à lire un graphique proprement. Avant je perdais de l'argent sans comprendre pourquoi. Maintenant j'ai une méthode.</p>
+      <p class="tm-quote">Honnêtement au début j'étais sceptique. Maintenant je comprends ce que je fais sur un graphique et pourquoi. C'est ça qui change tout.</p>
       <div class="tm-author">
-        <div class="tm-av">T</div>
+        <div class="tm-av">E</div>
         <div>
-          <div class="tm-name">Théo</div>
+          <div class="tm-name">Evan</div>
+          <div class="tm-meta">3 mois dans le mentorat</div>
+        </div>
+      </div>
+    </div>
+    <div class="tm-card rv d2">
+      <p class="tm-quote">J'ai failli partir sur une autre formation deux fois moins chère. Contente de ne pas l'avoir fait. La qualité du suivi n'a rien à voir.</p>
+      <div class="tm-author">
+        <div class="tm-av">A</div>
+        <div>
+          <div class="tm-name">Alix</div>
+          <div class="tm-meta">5 mois dans le mentorat</div>
+        </div>
+      </div>
+    </div>
+    <div class="tm-card rv d3">
+      <p class="tm-quote">La phase démo m'a sauvé. J'aurais cramé mon capital en 2 semaines si j'avais commencé directement en réel. Maintenant je sais pourquoi j'entre et pourquoi je sors.</p>
+      <div class="tm-author">
+        <div class="tm-av">A</div>
+        <div>
+          <div class="tm-name">Ahmed</div>
+          <div class="tm-meta">2 mois dans le mentorat</div>
+        </div>
+      </div>
+    </div>
+    <div class="tm-card rv d1">
+      <p class="tm-quote">C'est pas magique, faut bosser. Mais les bases sont solides et le suivi est là quand t'as besoin.</p>
+      <div class="tm-author">
+        <div class="tm-av">L</div>
+        <div>
+          <div class="tm-name">Lenny</div>
           <div class="tm-meta">4 mois dans le mentorat</div>
         </div>
       </div>
     </div>
     <div class="tm-card rv d2">
-      <p class="tm-quote">Ce qui m'a convaincu, c'est que les trades sont publics depuis plus d'un an. Pas de screenshot triés sur le volet. Du vrai.</p>
+      <p class="tm-quote">Le fait qu'il publie ses propres trades sur Instagram m'a convaincu. C'est rare dans ce milieu.</p>
       <div class="tm-author">
-        <div class="tm-av">K</div>
+        <div class="tm-av">I</div>
         <div>
-          <div class="tm-name">Karim</div>
-          <div class="tm-meta">2 mois dans le mentorat</div>
-        </div>
-      </div>
-    </div>
-    <div class="tm-card rv d3">
-      <p class="tm-quote">La phase démo m'a sauvé. J'aurais brûlé mon capital en live sans ça. Le suivi personnalisé fait vraiment la différence.</p>
-      <div class="tm-author">
-        <div class="tm-av">A</div>
-        <div>
-          <div class="tm-name">Alexandre</div>
-          <div class="tm-meta">5 mois dans le mentorat</div>
+          <div class="tm-name">Ilyes</div>
+          <div class="tm-meta">6 mois dans le mentorat</div>
         </div>
       </div>
     </div>
   </div>
+  <p class="tm-more rv d3">Et beaucoup d'autres témoignages sur Instagram → <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener">@laddn.trd</a></p>
 </div>
 
 <!-- FAQ -->
