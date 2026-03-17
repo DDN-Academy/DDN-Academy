@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8C97A"/>
+      <stop offset="50%" style="stop-color:#C9A84C"/>
+      <stop offset="100%" style="stop-color:#A8883A"/>
+    </linearGradient>
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:transparent"/>
+      <stop offset="30%" style="stop-color:#C9A84C"/>
+      <stop offset="70%" style="stop-color:#E8C97A"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="#050D1A"/>
+
+  <!-- Outer ring - thin gold -->
+  <circle cx="300" cy="270" r="195" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.4"/>
+
+  <!-- Inner ring -->
+  <circle cx="300" cy="270" r="178" fill="none" stroke="url(#gold)" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- Corner marks - top left -->
+  <line x1="145" y1="135" x2="175" y2="135" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="145" y1="135" x2="145" y2="165" stroke="#C9A84C" stroke-width="1.5"/>
+
+  <!-- Corner marks - top right -->
+  <line x1="455" y1="135" x2="425" y2="135" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="455" y1="135" x2="455" y2="165" stroke="#C9A84C" stroke-width="1.5"/>
+
+  <!-- Corner marks - bottom left -->
+  <line x1="145" y1="405" x2="175" y2="405" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="145" y1="405" x2="145" y2="375" stroke="#C9A84C" stroke-width="1.5"/>
+
+  <!-- Corner marks - bottom right -->
+  <line x1="455" y1="405" x2="425" y2="405" stroke="#C9A84C" stroke-width="1.5"/>
+  <line x1="455" y1="405" x2="455" y2="375" stroke="#C9A84C" stroke-width="1.5"/>
+
+  <!-- Central diamond shape -->
+  <polygon points="300,115 355,270 300,425 245,270" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.3"/>
+
+  <!-- D shape left - geometric -->
+  <path d="M 218 195
+             L 218 345
+             L 248 345
+             Q 318 345 318 270
+             Q 318 195 248 195
+             Z"
+        fill="none" stroke="url(#gold)" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Inner D cutout detail -->
+  <path d="M 240 218
+             L 240 322
+             Q 294 322 294 270
+             Q 294 218 240 218
+             Z"
+        fill="#050D1A" opacity="0.01"/>
+
+  <!-- N shape - center -->
+  <line x1="330" y1="195" x2="330" y2="345" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="330" y1="195" x2="382" y2="345" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="382" y1="195" x2="382" y2="345" stroke="url(#gold)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Top horizontal accent line -->
+  <line x1="180" y1="180" x2="420" y2="180" stroke="url(#goldLine)" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Bottom horizontal accent line -->
+  <line x1="180" y1="360" x2="420" y2="360" stroke="url(#goldLine)" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- ACADEMY text -->
+  <text x="300" y="445"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="22"
+        font-weight="400"
+        fill="#C9A84C"
+        text-anchor="middle"
+        letter-spacing="10">ACADEMY</text>
+
+  <!-- DDN subtle text below ACADEMY -->
+  <text x="300" y="472"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="10"
+        fill="#C9A84C"
+        text-anchor="middle"
+        letter-spacing="6"
+        opacity="0.5">TRADING MENTORSHIP</text>
+
+  <!-- Bottom thin gold line -->
+  <line x1="230" y1="483" x2="370" y2="483" stroke="url(#goldLine)" stroke-width="0.7" opacity="0.5"/>
+
+  <!-- Four small diamond accents at cardinal points of circle -->
+  <polygon points="300,73 304,82 300,91 296,82" fill="#C9A84C" opacity="0.6"/>
+  <polygon points="300,449 304,458 300,467 296,458" fill="#C9A84C" opacity="0.6"/>
+  <polygon points="103,270 112,274 121,270 112,266" fill="#C9A84C" opacity="0.6"/>
+  <polygon points="479,270 488,274 497,270 488,266" fill="#C9A84C" opacity="0.6"/>
+
+</svg>
