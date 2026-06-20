@@ -278,12 +278,27 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 .qbl:hover{border-color:var(--g);background:var(--gd);color:var(--g)}
 .qbi{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-/* MENTORAT SOLO */
-.solobg{background:var(--n)}
-.solo-top{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.solo-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--b);background:var(--gd);padding:7px 16px;border-radius:100px;margin-bottom:18px}
-.solo-badge span{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gl)}
-.solo-note{font-size:12px;color:var(--wd2);font-style:italic;max-width:280px;text-align:right}
+/* FORMULES (comparatif groupe / solo) */
+.pj{max-width:900px;margin:0 auto 48px;padding:22px 28px;background:var(--gd);border:1px solid var(--b);border-radius:10px;font-size:13px;color:var(--wd);line-height:1.8;font-weight:300;text-align:center}
+.pj strong{color:var(--gl);font-weight:600}
+.of-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.of-card{padding:40px 34px;background:var(--ns);border:1px solid var(--b);border-radius:14px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all .35s}
+.of-card:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(5,13,26,.7)}
+.of-card-solo{border-color:var(--g);background:linear-gradient(160deg,var(--ns) 0%,rgba(201,168,76,.07) 100%)}
+.of-card-solo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.of-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--g);background:var(--gd);border:1px solid var(--b);padding:6px 14px;border-radius:100px;margin-bottom:20px;align-self:flex-start}
+.of-badge-solo{color:var(--n);background:linear-gradient(135deg,var(--g),var(--gl));border-color:transparent}
+.of-icon{font-size:30px;margin-bottom:14px}
+.of-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--w);margin-bottom:8px}
+.of-card h3 span{font-size:12px;color:var(--g);font-weight:500;margin-left:8px;text-transform:uppercase;letter-spacing:1px}
+.of-sub{font-size:12px;color:var(--g);font-weight:500;margin-bottom:24px;line-height:1.6}
+.of-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:32px;flex-grow:1}
+.of-list li{font-size:13px;color:var(--wd);line-height:1.65;font-weight:300;padding-left:24px;position:relative}
+.of-list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--g);font-weight:700}
+.of-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;padding:15px 28px;border-radius:4px;transition:all .35s;border:1px solid var(--g);color:var(--g)}
+.of-cta:hover{background:var(--gd)}
+.of-cta-solo{background:linear-gradient(135deg,var(--g),var(--gl));color:var(--n);border-color:transparent;box-shadow:0 8px 28px rgba(201,168,76,.3)}
+.of-cta-solo:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(201,168,76,.45)}
 
 /* RESPONSIVE */
 @media(max-width:880px){
@@ -312,8 +327,8 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .cts{flex-wrap:wrap;gap:32px;justify-content:center}
   .prg-wrap{padding:24px 20px}
   .qb{padding:20px 20px}
-  .solo-top{flex-direction:column;align-items:flex-start}
-  .solo-note{text-align:left;max-width:none}
+  .of-grid{grid-template-columns:1fr;gap:18px}
+  .pj{padding:18px 20px;font-size:12.5px}
 }
 @media(max-width:460px){
   h1{font-size:34px}
@@ -329,6 +344,8 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .wa,.ig{width:46px;height:46px}
   .ig{bottom:80px}
   .qbl{width:100%;max-width:260px;justify-content:center}
+  .of-card{padding:30px 22px}
+  .of-cta{width:100%}
 }
 </style>
 </head>
@@ -354,8 +371,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <ul class="nl">
     <li><a data-scroll="trading">Le trading</a></li>
     <li><a data-scroll="different">La différence</a></li>
-    <li><a data-scroll="programme">Programme</a></li>
-    <li><a data-scroll="solo">Mentorat Solo</a></li>
+    <li><a data-scroll="programme">Nos Formules</a></li>
     <li><a data-scroll="about">À propos</a></li>
     <li><a data-scroll="contact" class="nc">Postuler</a></li>
   </ul>
@@ -366,8 +382,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 <div class="mm" id="mm">
   <a data-scroll="trading" class="ml">Le trading</a>
   <a data-scroll="different" class="ml">La différence</a>
-  <a data-scroll="programme" class="ml">Programme</a>
-  <a data-scroll="solo" class="ml">Mentorat Solo</a>
+  <a data-scroll="programme" class="ml">Nos Formules</a>
   <a data-scroll="about" class="ml">À propos</a>
   <a data-scroll="guarantee" class="ml">Garantie</a>
   <a data-scroll="contact" class="ml mct">Postuler</a>
@@ -387,7 +402,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <p class="hs">DDN Academy, c'est un mentorat sérieux pour apprendre une vraie méthode de trading — pas des signaux, pas des rêves. Une compétence réelle.</p>
     <div class="ha">
       <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="bg">Postuler au mentorat <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <span class="bgh" data-scroll="programme">Voir le programme <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      <span class="bgh" data-scroll="programme">Voir les formules <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
     </div>
     <div class="hst">
       <div><div class="sn" data-count="4">0</div><div class="sl">Années de trading</div></div>
@@ -585,8 +600,46 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 <div id="programme" class="sec" style="background:var(--nm)">
   <div style="max-width:1280px;margin:0 auto">
     <div class="ph">
-      <div class="rv"><span class="lbl">Le Programme</span><h2>Ce que tu<br><em>vas apprendre.</em></h2><div class="gb"></div></div>
-      <div class="rv d1"><p class="dc">10 cours en appel de groupe pour construire une base solide. Chaque session t'apporte une compétence concrète, applicable immédiatement sur les marchés.</p></div>
+      <div class="rv"><span class="lbl">Nos Formules</span><h2>Deux chemins.<br><em>Un seul résultat.</em></h2><div class="gb"></div></div>
+      <div class="rv d1"><p class="dc">Que tu apprennes entouré ou en accompagnement 100% individuel, chaque formule est construite pour t'amener au même point : devenir un trader autonome, capable de gérer seul.</p></div>
+    </div>
+
+    <div class="pj rv d1"><p>💡 <strong>Pourquoi les deux formules n'ont pas le même tarif ?</strong> En groupe, je partage mon temps et mon énergie entre plusieurs élèves qui démarrent au même niveau — ce qui rend l'accompagnement plus accessible. En solo, 100% de mon temps, de mon attention et de mon énergie sont consacrés à une seule personne : toi. Résultat direct : une progression plus rapide et un suivi plus poussé, pour une disponibilité forcément plus rare.</p></div>
+
+    <div class="of-grid rv d2">
+      <div class="of-card">
+        <div class="of-badge">Idéal pour démarrer</div>
+        <div class="of-icon">👥</div>
+        <h3>Mentorat Groupe</h3>
+        <div class="of-sub">Tarif sur demande — le format le plus accessible</div>
+        <ul class="of-list">
+          <li>10 sessions structurées pour construire une base solide, étape par étape</li>
+          <li>Une dynamique stimulante : tu avances avec d'autres élèves qui démarrent au même point que toi</li>
+          <li>Tu n'es jamais seul face aux doutes — le groupe privé reste actif entre les sessions</li>
+          <li>Un suivi qui reste personnalisé malgré le format collectif</li>
+          <li>Le moyen le plus accessible de démarrer sérieusement, sans exploser ton budget</li>
+        </ul>
+        <a href="https://wa.me/+33769124005?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20mentorat%20en%20groupe." target="_blank" rel="noopener" class="of-cta">Postuler au mentorat groupe</a>
+      </div>
+      <div class="of-card of-card-solo">
+        <div class="of-badge of-badge-solo">Places extrêmement limitées</div>
+        <div class="of-icon">⚡</div>
+        <h3>Mentorat Solo <span>1-to-1</span></h3>
+        <div class="of-sub">Tarif sur demande — investissement plus élevé, accompagnement 100% dédié</div>
+        <ul class="of-list">
+          <li>100% de mon temps et de mon énergie consacrés à une seule personne : toi</li>
+          <li>Une progression nettement plus rapide — chaque session calibrée sur tes besoins du moment</li>
+          <li>Un programme sur-mesure, ajusté en temps réel selon tes résultats et tes blocages</li>
+          <li>Accès direct et prioritaire à moi, même en dehors des sessions prévues</li>
+          <li>Un accompagnement confidentiel, pensé uniquement pour ton parcours</li>
+        </ul>
+        <a href="https://wa.me/+33769124005?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20mentorat%20individuel." target="_blank" rel="noopener" class="of-cta of-cta-solo">Postuler au mentorat individuel</a>
+      </div>
+    </div>
+
+    <div class="rv d2" style="text-align:center;max-width:640px;margin:70px auto 0">
+      <span class="lbl">Le programme groupe, en détail</span>
+      <h2 style="margin-top:6px">Ce que tu vas <em>apprendre.</em></h2>
     </div>
     <div class="mg rv">
       <div class="md"><div class="mn">Module 01</div><div class="mt">Les fondamentaux du marché</div><div class="md2">Comment fonctionne réellement le marché. Les bases que 80 % des traders ignorent.</div></div>
@@ -611,39 +664,6 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 
 <!-- DIVIDER -->
 <div class="dv"></div>
-
-<!-- MENTORAT SOLO -->
-<div id="solo" class="sec solobg">
-  <div class="solo-top rv">
-    <div>
-      <div class="solo-badge"><span>Mentorat 100% individuel</span></div>
-      <h2>Juste toi.<br>Juste <em>moi.</em></h2>
-      <div class="gb"></div>
-      <p class="dc">Pour ceux qui veulent aller plus loin, plus vite, avec un accompagnement entièrement personnalisé. Pas de groupe, pas de dilution — un parcours construit uniquement pour toi, avec un accès direct à moi à chaque étape.</p>
-    </div>
-    <p class="solo-note">Places extrêmement limitées — je ne peux suivre que quelques personnes en individuel à la fois.</p>
-  </div>
-  <div class="ap-grid">
-    <div class="ap-card rv d1">
-      <div class="ap-icon">🎯</div>
-      <div class="ap-title">Un programme taillé pour toi</div>
-      <p class="ap-text">Ton parcours s'adapte à ton niveau, ton rythme et tes objectifs réels. Pas un programme générique suivi par 50 personnes en même temps.</p>
-    </div>
-    <div class="ap-card rv d2">
-      <div class="ap-icon">📞</div>
-      <div class="ap-title">Des appels en tête-à-tête</div>
-      <p class="ap-text">Des sessions 1-to-1 directement avec moi. Tes trades, tes blocages, tes questions — traités en direct, sans attendre un cours collectif.</p>
-    </div>
-    <div class="ap-card rv d3">
-      <div class="ap-icon">⚡</div>
-      <div class="ap-title">Une ligne directe avec moi</div>
-      <p class="ap-text">Un accès prioritaire pour toutes tes questions, même en dehors des sessions prévues. Tu n'es jamais seul face à une décision.</p>
-    </div>
-  </div>
-  <div class="rv d2" style="text-align:center;margin-top:48px">
-    <a href="https://wa.me/+33769124005?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20mentorat%20individuel." target="_blank" rel="noopener" class="bg">Postuler au mentorat individuel <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-  </div>
-</div>
 
 <!-- DIVIDER -->
 <div class="dv"></div>
@@ -770,7 +790,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
       <div class="fq-item">
         <div class="fq-q"><span>Quelle différence entre le mentorat en groupe et le mentorat individuel ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
-        <div class="fq-a"><div class="fq-ai">Le mentorat groupe te donne la méthode complète en 10 sessions collectives, avec un groupe privé d'élèves. Le mentorat individuel va plus loin : un parcours 100% personnalisé, des appels en tête-à-tête avec moi, et un accès prioritaire pour toutes tes questions. C'est pour ceux qui veulent un accompagnement plus rapide et plus poussé.</div></div>
+        <div class="fq-a"><div class="fq-ai">Le mentorat groupe te donne la méthode complète en 10 sessions collectives, avec un groupe privé d'élèves qui avancent au même rythme que toi — une dynamique stimulante, à un tarif plus accessible. Le mentorat individuel va plus loin : un parcours 100% personnalisé, des appels en tête-à-tête avec moi, et un accès prioritaire pour toutes tes questions. Comme je consacre 100% de mon temps à une seule personne, la progression est plus rapide — et le tarif est en conséquence plus élevé. Les deux formules mènent au même résultat ; le choix dépend de ton rythme et de ton budget. Écris-moi en DM pour connaître les tarifs et trouver la formule qui te correspond.</div></div>
       </div>
     </div>
   </div>
