@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DDN Academy — Mentorat Trading Premium</title>
-<meta name="description" content="DDN Academy : mentorat trading premium. Apprenez une vraie méthode, pas des signaux. Fondé par un trader de 20 ans, 4 ans d'expérience, trades publics sur Instagram.">
+<meta name="description" content="DDN Academy : mentorat trading premium. Apprenez une vraie méthode, pas des signaux. Fondé par un trader de 20 ans, 4 ans d'expérience, suivi personnalisé en groupe ou en individuel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -265,6 +265,26 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 .wa{position:fixed;bottom:26px;right:26px;z-index:200;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(37,211,102,.38);text-decoration:none;transition:all .35s}
 .wa:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,.52)}
 
+/* INSTAGRAM FLOAT */
+.ig{position:fixed;bottom:92px;right:26px;z-index:200;width:54px;height:54px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(220,39,67,.38);text-decoration:none;transition:all .35s}
+.ig:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(220,39,67,.52)}
+
+/* QUICK CONTACT BANNER */
+.qb{background:var(--ns);border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:26px 56px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center}
+.qbt{font-size:13px;color:var(--wd);font-weight:300;max-width:480px}
+.qbt strong{color:var(--g);font-weight:600}
+.qba{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.qbl{display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border:1px solid var(--b);border-radius:100px;text-decoration:none;color:var(--w);font-size:12px;font-weight:500;transition:all .3s;background:var(--n)}
+.qbl:hover{border-color:var(--g);background:var(--gd);color:var(--g)}
+.qbi{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* MENTORAT SOLO */
+.solobg{background:var(--n)}
+.solo-top{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.solo-badge{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--b);background:var(--gd);padding:7px 16px;border-radius:100px;margin-bottom:18px}
+.solo-badge span{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gl)}
+.solo-note{font-size:12px;color:var(--wd2);font-style:italic;max-width:280px;text-align:right}
+
 /* RESPONSIVE */
 @media(max-width:880px){
   nav{padding:14px 20px}nav.sc{padding:10px 20px}
@@ -291,6 +311,9 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .dv{margin:0 20px}
   .cts{flex-wrap:wrap;gap:32px;justify-content:center}
   .prg-wrap{padding:24px 20px}
+  .qb{padding:20px 20px}
+  .solo-top{flex-direction:column;align-items:flex-start}
+  .solo-note{text-align:left;max-width:none}
 }
 @media(max-width:460px){
   h1{font-size:34px}
@@ -303,6 +326,9 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   .why-pills{flex-direction:column;align-items:center}
   .cc{width:100%;max-width:300px}
   .prg-wrap{padding:20px 16px}
+  .wa,.ig{width:46px;height:46px}
+  .ig{bottom:80px}
+  .qbl{width:100%;max-width:260px;justify-content:center}
 }
 </style>
 </head>
@@ -317,6 +343,11 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- INSTAGRAM FLOAT -->
+<a href="https://www.instagram.com/ddn75._/" target="_blank" rel="noopener" class="ig" aria-label="Instagram">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg>
+</a>
+
 <!-- NAV -->
 <nav id="nv">
   <div class="logo" data-scroll="hero"><div class="lm">DDN</div><span class="lt">DDN <em>Academy</em></span></div>
@@ -324,6 +355,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <li><a data-scroll="trading">Le trading</a></li>
     <li><a data-scroll="different">La différence</a></li>
     <li><a data-scroll="programme">Programme</a></li>
+    <li><a data-scroll="solo">Mentorat Solo</a></li>
     <li><a data-scroll="about">À propos</a></li>
     <li><a data-scroll="contact" class="nc">Postuler</a></li>
   </ul>
@@ -335,6 +367,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <a data-scroll="trading" class="ml">Le trading</a>
   <a data-scroll="different" class="ml">La différence</a>
   <a data-scroll="programme" class="ml">Programme</a>
+  <a data-scroll="solo" class="ml">Mentorat Solo</a>
   <a data-scroll="about" class="ml">À propos</a>
   <a data-scroll="guarantee" class="ml">Garantie</a>
   <a data-scroll="contact" class="ml mct">Postuler</a>
@@ -359,9 +392,9 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
     <div class="hst">
       <div><div class="sn" data-count="4">0</div><div class="sl">Années de trading</div></div>
       <div class="ss"></div>
-      <div><div class="sn">1 an+</div><div class="sl">Trades publics Instagram</div></div>
+      <div><div class="sn" data-count="10">0</div><div class="sl">Sessions de mentorat</div></div>
       <div class="ss"></div>
-      <div><div class="sn">100%</div><div class="sl">Transparence vérifiable</div></div>
+      <div><div class="sn">100%</div><div class="sl">Suivi personnalisé</div></div>
     </div>
   </div>
 </section>
@@ -371,7 +404,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="ti"><span class="td">◆</span>Aucun signal donné</div>
   <div class="ti"><span class="td">◆</span>Aucun dépôt requis</div>
   <div class="ti"><span class="td">◆</span>Stratégie personnelle enseignée</div>
-  <div class="ti"><span class="td">◆</span>Transparence totale sur Instagram</div>
+  <div class="ti"><span class="td">◆</span>Accès direct au mentor</div>
   <div class="ti"><span class="td">◆</span>Garantie satisfait ou remboursé</div>
   <div class="ti"><span class="td">◆</span>Formation gestion du risque</div>
   <div class="ti"><span class="td">◆</span>Groupe privé d'élèves</div>
@@ -379,12 +412,21 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   <div class="ti"><span class="td">◆</span>Aucun signal donné</div>
   <div class="ti"><span class="td">◆</span>Aucun dépôt requis</div>
   <div class="ti"><span class="td">◆</span>Stratégie personnelle enseignée</div>
-  <div class="ti"><span class="td">◆</span>Transparence totale sur Instagram</div>
+  <div class="ti"><span class="td">◆</span>Accès direct au mentor</div>
   <div class="ti"><span class="td">◆</span>Garantie satisfait ou remboursé</div>
   <div class="ti"><span class="td">◆</span>Formation gestion du risque</div>
   <div class="ti"><span class="td">◆</span>Groupe privé d'élèves</div>
   <div class="ti"><span class="td">◆</span>Autonomie totale sur les marchés</div>
 </div></div>
+
+<!-- QUICK CONTACT BANNER -->
+<div class="qb">
+  <p class="qbt"><strong>Une question avant d'aller plus loin ?</strong> Écris-moi directement, je réponds personnellement.</p>
+  <div class="qba">
+    <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="qbl"><span class="qbi" style="background:#25D366"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>WhatsApp</a>
+    <a href="https://www.instagram.com/ddn75._/" target="_blank" rel="noopener" class="qbl"><span class="qbi" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></span>Instagram</a>
+  </div>
+</div>
 
 <!-- TRADING INTRO -->
 <div id="trading" class="sec">
@@ -488,7 +530,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
         <li><span class="ic">✓</span>Tu apprends à analyser le marché toi-même</li>
         <li><span class="ic">✓</span>Ma stratégie complète enseignée, pas imposée</li>
         <li><span class="ic">✓</span>Aucun dépôt requis. Zéro affiliation cachée.</li>
-        <li><span class="ic">✓</span>Mes trades publics sur Instagram depuis plus d'1 an</li>
+        <li><span class="ic">✓</span>Un accompagnement individuel possible, pas qu'un groupe</li>
         <li><span class="ic">✓</span>Phase démo obligatoire avant tout capital réel</li>
         <li><span class="ic">✓</span>Objectif : ton autonomie totale sur les marchés</li>
       </ul>
@@ -570,6 +612,42 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 <!-- DIVIDER -->
 <div class="dv"></div>
 
+<!-- MENTORAT SOLO -->
+<div id="solo" class="sec solobg">
+  <div class="solo-top rv">
+    <div>
+      <div class="solo-badge"><span>Mentorat 100% individuel</span></div>
+      <h2>Juste toi.<br>Juste <em>moi.</em></h2>
+      <div class="gb"></div>
+      <p class="dc">Pour ceux qui veulent aller plus loin, plus vite, avec un accompagnement entièrement personnalisé. Pas de groupe, pas de dilution — un parcours construit uniquement pour toi, avec un accès direct à moi à chaque étape.</p>
+    </div>
+    <p class="solo-note">Places extrêmement limitées — je ne peux suivre que quelques personnes en individuel à la fois.</p>
+  </div>
+  <div class="ap-grid">
+    <div class="ap-card rv d1">
+      <div class="ap-icon">🎯</div>
+      <div class="ap-title">Un programme taillé pour toi</div>
+      <p class="ap-text">Ton parcours s'adapte à ton niveau, ton rythme et tes objectifs réels. Pas un programme générique suivi par 50 personnes en même temps.</p>
+    </div>
+    <div class="ap-card rv d2">
+      <div class="ap-icon">📞</div>
+      <div class="ap-title">Des appels en tête-à-tête</div>
+      <p class="ap-text">Des sessions 1-to-1 directement avec moi. Tes trades, tes blocages, tes questions — traités en direct, sans attendre un cours collectif.</p>
+    </div>
+    <div class="ap-card rv d3">
+      <div class="ap-icon">⚡</div>
+      <div class="ap-title">Une ligne directe avec moi</div>
+      <p class="ap-text">Un accès prioritaire pour toutes tes questions, même en dehors des sessions prévues. Tu n'es jamais seul face à une décision.</p>
+    </div>
+  </div>
+  <div class="rv d2" style="text-align:center;margin-top:48px">
+    <a href="https://wa.me/+33769124005?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20mentorat%20individuel." target="_blank" rel="noopener" class="bg">Postuler au mentorat individuel <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="dv"></div>
+
 <!-- ABOUT -->
 <div id="about" class="abg secf"><div class="secfi">
   <div class="ag">
@@ -581,7 +659,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
         <div class="cbr"></div>
         <div class="pt">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--g)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <div><div class="tla">Trades publics depuis</div><div class="tv">+ 1 an sur Instagram</div></div>
+          <div><div class="tla">Mentor depuis</div><div class="tv">+ 1 an</div></div>
         </div>
       </div>
     </div>
@@ -592,11 +670,11 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
         <p class="aq">"Je ne veux pas que mes élèves me suivent. Je veux qu'ils n'aient plus besoin de moi."</p>
         <p class="ab">J'ai 20 ans. Je suis en 3ème année de kinésithérapie à Madrid.</p>
         <p class="ab">Le trading ne m'a pas rendu riche du jour au lendemain. Ce qu'il m'a donné, c'est quelque chose de plus concret : une indépendance réelle. Aujourd'hui je finance mes études à l'étranger, mon loyer, mes voyages — pas grâce à mes parents, pas grâce à un job étudiant classique. Grâce à une compétence que j'ai apprise, affinée, et que j'applique tous les jours.</p>
-        <p class="ab">Je publie mes trades en public sur Instagram depuis plus d'un an. Pas pour paraître — parce que la transparence est le seul standard qui compte dans ce domaine.</p>
+        <p class="ab">La transparence, je la vis avec mes élèves au quotidien : mes trades, mes erreurs, mes ajustements — je partage tout avec ceux que j'accompagne, en direct, dans le groupe privé.</p>
         <p class="ab">Mon objectif avec DDN Academy n'est pas de créer des élèves qui dépendent de moi. C'est de former des personnes capables de faire ce que je fais — analyser, décider, gérer. Seuls.</p>
-        <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener" class="igl">
+        <a href="https://www.instagram.com/ddn75._/" target="_blank" rel="noopener" class="igl">
           <div class="ii"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
-          Voir mes trades — @laddn.trd
+          Me suivre sur Instagram — @ddn75._
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -649,7 +727,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
     </div>
     <div class="tm-card rv d2">
-      <p class="tm-quote">Le fait qu'il publie ses propres trades sur Instagram m'a convaincu. C'est rare dans ce milieu.</p>
+      <p class="tm-quote">Le fait qu'il partage ses propres trades avec moi et qu'il explique chaque décision m'a convaincu. C'est rare d'avoir un suivi aussi direct.</p>
       <div class="tm-author">
         <div class="tm-av">I</div>
         <div>
@@ -659,7 +737,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       </div>
     </div>
   </div>
-  <p class="tm-more rv d3">Et beaucoup d'autres témoignages sur Instagram → <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener">@laddn.trd</a></p>
+  <p class="tm-more rv d3">Et beaucoup d'autres témoignages sur Instagram → <a href="https://www.instagram.com/ddn75._/" target="_blank" rel="noopener">@ddn75._</a></p>
 </div>
 
 <!-- FAQ -->
@@ -690,6 +768,10 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
       <div class="fq-item">
         <div class="fq-q"><span>Combien de places sont disponibles ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
         <div class="fq-a"><div class="fq-ai">Les cohortes sont volontairement limitées en nombre. Je préfère avoir moins d'élèves et leur offrir un suivi de qualité plutôt que de prendre tout le monde. Contacte-moi directement pour connaître les disponibilités actuelles.</div></div>
+      </div>
+      <div class="fq-item">
+        <div class="fq-q"><span>Quelle différence entre le mentorat en groupe et le mentorat individuel ?</span><div class="fq-ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></div></div>
+        <div class="fq-a"><div class="fq-ai">Le mentorat groupe te donne la méthode complète en 10 sessions collectives, avec un groupe privé d'élèves. Le mentorat individuel va plus loin : un parcours 100% personnalisé, des appels en tête-à-tête avec moi, et un accès prioritaire pour toutes tes questions. C'est pour ceux qui veulent un accompagnement plus rapide et plus poussé.</div></div>
       </div>
     </div>
   </div>
@@ -741,7 +823,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
   </div>
   <div class="ch rv d1">
     <a href="https://wa.me/+33769124005" target="_blank" rel="noopener" class="cc"><span style="font-size:20px">💬</span><div><div class="ci2">WhatsApp</div><div class="cv">+33 7 69 12 40 05</div></div></a>
-    <a href="https://www.instagram.com/laddn.trd" target="_blank" rel="noopener" class="cc"><span style="font-size:20px">📸</span><div><div class="ci2">Instagram</div><div class="cv">@laddn.trd</div></div></a>
+    <a href="https://www.instagram.com/ddn75._/" target="_blank" rel="noopener" class="cc"><span style="font-size:20px">📸</span><div><div class="ci2">Instagram</div><div class="cv">@ddn75._</div></div></a>
     <a href="mailto:laddnfx@gmail.com" class="cc"><span style="font-size:20px">✉️</span><div><div class="ci2">Email</div><div class="cv">laddnfx@gmail.com</div></div></a>
   </div>
   <div class="rv d2">
@@ -752,7 +834,7 @@ footer{background:var(--n);border-top:1px solid var(--b);padding:36px 56px;displ
 <!-- FOOTER -->
 <footer>
   <div class="logo" style="cursor:default"><div class="lm" style="width:30px;height:30px;font-size:11px">DDN</div><span class="lt" style="font-size:14px">DDN <em>Academy</em></span></div>
-  <p class="fc">© 2025 DDN Academy. Tous droits réservés.</p>
+  <p class="fc">© 2026 DDN Academy. Tous droits réservés.</p>
   <p class="fd">Le trading implique un risque de perte en capital. Les performances passées ne garantissent pas les résultats futurs. DDN Academy est un service de formation et non de conseil en investissement.</p>
 </footer>
 
