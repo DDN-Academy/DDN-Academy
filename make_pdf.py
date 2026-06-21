@@ -68,6 +68,25 @@ h2("21 annees - 20 gagnantes")
 rows=[[y["year"],y["n"],f'{y["wr"]}%',y["pf"],f'{"+" if y["totR"]>=0 else ""}{y["totR"]} R'] for y in Y]
 table(["Annee","Trades","Reussite","Profit Factor","Resultat R"],rows,[40,30,35,40,40],colors={4})
 
+M=R.get("monthly");
+if M:
+    L=M["last12"]
+    h2("Statistiques mensuelles (sur 254 mois)")
+    table(["Repere mensuel","Valeur"],
+      [["Mois median (typique)",f'+{M["R_median"]} R'],
+       ["Mois moyen",f'+{M["R_mean"]} R'],
+       ["Fourchette habituelle (50% des mois)",f'+{M["q1"]} R  a  +{M["q3"]} R'],
+       ["Mois gagnants",f'{M["pct_pos"]} %  (~1 sur 5 rouge)'],
+       ["Meilleur / pire mois",f'+{M["best"]} R  /  {M["worst"]} R'],
+       ["Trades par mois",f'~{M["trades_median"]}']],[110,72],colors={1})
+    h2(f'Moyenne mensuelle - derniere annee ({L["period"]})')
+    table(["Repere (12 derniers mois)","Valeur"],
+      [["Moyenne par mois",f'+{L["R_mean"]} R  (mediane +{L["R_median"]} R)'],
+       ["Total sur 12 mois",f'+{L["R_total"]} R'],
+       ["Mois gagnants",f'{L["pct_pos"]} %  (9/12)'],
+       ["Meilleur / pire mois",f'+{L["best"]} R  /  {L["worst"]} R'],
+       ["Trades par mois",f'~{L["trades_mean"]}']],[110,72],colors={1})
+
 # caveats
 pdf.ln(4); pdf.set_font("Helvetica","",7.6); pdf.set_text_color(120,90,30); pdf.set_fill_color(250,247,240)
 pdf.multi_cell(0,3.7,

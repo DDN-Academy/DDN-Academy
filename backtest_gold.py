@@ -101,7 +101,20 @@ print("Test (>=2018):", json.dumps(stats(t[t['date'].dt.year>=2018])))
 print("\nPar annee:")
 for y in Y: print(f"  {y['year']}  n={y['n']:>4}  WR={y['wr']:>4}%  PF={y['pf']:>4}  R={y['totR']:>7}")
 # equity curve (mensuelle) pour le site
-t2=t.copy(); t2['ym']=t2['date'].dt.to_period('M').astype(str)
+t2=t.copy(); t2['ymp']=t2['date'].dt.to_period('M'); t2['ym']=t2['ymp'].astype(str)
+mR=t2.groupby('ymp')['R'].sum(); mN=t2.groupby('ymp')['R'].size()
+l12R=mR.tail(12); l12N=mN.tail(12)
+monthly=dict(months=int(len(mR)), R_mean=round(mR.mean(),2), R_median=round(mR.median(),2),
+    R_std=round(mR.std(),2), pct_pos=round((mR>0).mean()*100,1),
+    best=round(mR.max(),1), worst=round(mR.min(),1),
+    q1=round(mR.quantile(.25),1), q3=round(mR.quantile(.75),1),
+    trades_mean=round(mN.mean(),1), trades_median=int(mN.median()),
+    last12=dict(period=f"{mR.index[-12]} -> {mR.index[-1]}",
+        R_mean=round(l12R.mean(),2), R_median=round(l12R.median(),2),
+        R_total=round(l12R.sum(),1), pct_pos=round((l12R>0).mean()*100,1),
+        best=round(l12R.max(),1), worst=round(l12R.min(),1),
+        trades_mean=round(l12N.mean(),1)))
+print("\nMENSUEL:", json.dumps(monthly))
 eqm=t2.groupby('ym')['R'].sum().cumsum()
 print("\nEQUITY_MENSUELLE_R:", json.dumps([[k,round(v,1)] for k,v in eqm.items()]))
 
@@ -112,7 +125,7 @@ print("\n===== CONTROLE 5m->15m 2025 ====="); print(json.dumps(stats(t5)))
 
 # sauvegarde JSON pour le site
 json.dump(dict(params=P, cost_pts=COST_PTS, all=S, train=stats(t[t['date'].dt.year<=2017]),
-    test=stats(t[t['date'].dt.year>=2018]), yearly=Y, ctrl_2025=stats(t5),
+    test=stats(t[t['date'].dt.year>=2018]), yearly=Y, ctrl_2025=stats(t5), monthly=monthly,
     equity_monthly=[[k,round(v,1)] for k,v in eqm.items()]),
     open("data/backtest_results.json","w"), indent=2)
 print("\n[OK] results.json ecrit")

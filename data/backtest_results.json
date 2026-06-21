@@ -222,6 +222,29 @@
     "trades_per_day": 1.77,
     "ret_pct": 36.1
   },
+  "monthly": {
+    "months": 254,
+    "R_mean": 8.39,
+    "R_median": 7.79,
+    "R_std": 12.11,
+    "pct_pos": 78.3,
+    "best": 48.0,
+    "worst": -37.2,
+    "q1": 1.2,
+    "q3": 15.1,
+    "trades_mean": 31.6,
+    "trades_median": 32,
+    "last12": {
+      "period": "2024-08 -> 2025-07",
+      "R_mean": 5.64,
+      "R_median": 6.31,
+      "R_total": 67.7,
+      "pct_pos": 75.0,
+      "best": 22.2,
+      "worst": -16.5,
+      "trades_mean": 29.5
+    }
+  },
   "equity_monthly": [
     [
       "2004-06",

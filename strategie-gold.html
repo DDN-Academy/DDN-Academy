@@ -434,6 +434,30 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="#E15554" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4M12 16.5h.01" stroke="#E15554" stroke-width="1.8" stroke-linecap="round"/></svg>
     <p><span class="nt">Conséquence directe sur ton compte prop firm</span>18 pertes d'affilée, ça arrive. Un drawdown de −33 R, ça arrive. <strong>Si tu risques trop par trade, ce drawdown normal te fait exploser le trailing drawdown.</strong> C'est pour ça que le money management (taille minuscule + coupe-circuits) n'est pas optionnel : il transforme un système gagnant-mais-volatil en système <em>survivable</em>. Tout est chiffré dans la section Money Management.</p>
   </div>
+  <h3><span class="num">◷</span> Sur 1 mois — à quoi t'attendre</h3>
+  <p>Calculé sur les <strong>254 mois</strong> réels (21 ans). En clair : un mois normal te rapporte autour de <strong>+8 R</strong>, mais ce n'est pas lisse.</p>
+  <div class="grid g4">
+    <div class="stat"><div class="k">Mois médian (typique)</div><div class="v green">+7,8 R</div><div class="s">la moitié des mois font mieux</div></div>
+    <div class="stat"><div class="k">Mois moyen</div><div class="v green">+8,4 R</div><div class="s">tiré par les gros mois</div></div>
+    <div class="stat"><div class="k">Mois gagnants</div><div class="v">78 %</div><div class="s">≈ 1 mois sur 5 est rouge</div></div>
+    <div class="stat"><div class="k">Trades / mois</div><div class="v">~32</div><div class="s">≈ 1,8 / jour</div></div>
+  </div>
+  <table class="tbl">
+    <tr><th>Repère mensuel</th><th>Valeur (R)</th><th>Traduction si 1 R = 100 $</th></tr>
+    <tr><td>Fourchette habituelle (50 % des mois)</td><td class="mono">+1 R à +15 R</td><td class="mono">+100 $ à +1 500 $</td></tr>
+    <tr><td>Meilleur mois (21 ans)</td><td class="mono tg">+48 R</td><td class="mono tg">+4 800 $</td></tr>
+    <tr><td>Pire mois (21 ans, année 2005)</td><td class="mono tr">−37 R</td><td class="mono tr">−3 700 $</td></tr>
+  </table>
+
+  <h4 style="color:var(--g)">Sur la dernière année disponible (août 2024 → juil. 2025)</h4>
+  <div class="grid g4">
+    <div class="stat"><div class="k">Moyenne / mois</div><div class="v green">+5,6 R</div><div class="s">médiane +6,3 R</div></div>
+    <div class="stat"><div class="k">Total 12 mois</div><div class="v green">+67,7 R</div><div class="s">si 1R=100$ → +6 770 $</div></div>
+    <div class="stat"><div class="k">Mois gagnants</div><div class="v">75 %</div><div class="s">9 mois verts sur 12</div></div>
+    <div class="stat"><div class="k">Meilleur / pire mois</div><div class="v">+22 / −17</div><div class="s">en R</div></div>
+  </div>
+  <div class="note warn"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="#E15554" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4M12 16.5h.01" stroke="#E15554" stroke-width="1.8" stroke-linecap="round"/></svg><p><span class="nt">Ne calque pas ton mental sur la moyenne</span>« +8 R/mois » est une <strong>moyenne longue</strong>, pas une rente mensuelle. Tu auras des mois à +1 R, des mois rouges (~1 sur 5), puis un gros mois qui rattrape tout. La dernière année (+5,6 R/mois) était sous la moyenne et reste très correcte. Juge sur 6-12 mois, jamais sur 1. Les coupe-circuits (−3 R/jour, −6 R/semaine), absents du backtest, adoucissent en réel les pires mois.</p></div>
+
   <p style="font-size:12px;color:var(--wd2);margin-top:20px">Données : XAUUSD spot 15 min (proxy fidèle du MGC) comme source principale, confirmé sur un 2ᵉ jeu 5 min. Résultats nets de coûts estimés. Le passé ne garantit pas le futur — voir la section Adaptation pour le protocole si l'edge se dégrade.</p>
 </section>
 
