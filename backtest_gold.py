@@ -354,9 +354,23 @@ def build_pdf(tr, m, capital, period, out):
     # ---- page 1 : synthese ----
     pdf.add_page(); header("Backtest - Protocole Gold (A1/B1) - MGC")
     pdf.set_font("Helvetica", "", 9); pdf.set_text_color(*GREY)
-    pdf.multi_cell(0, 5, f"Instrument: MGC Micro Gold  |  Capital: {capital:,.0f} $  |  Risque/trade: 0.4%  "
-                         f"|  Periode: {period}\nMecanisation A1/B1 du protocole. Resultats specifiques a cet "
-                         f"encodage et aux donnees fournies.")
+    pdf.multi_cell(0, 5, f"Capital: {capital:,.0f} $  |  Risque/trade: 0.4%  |  Periode: {period}  |  TF execution: 5 min")
+    pdf.ln(1)
+    pdf.set_font("Helvetica", "", 7.5); pdf.set_text_color(120,90,30)
+    pdf.set_fill_color(250,247,240)
+    notes = (
+        "NOTES & LIMITES (a lire) :\n"
+        "- Donnees : XAUUSD spot 5 min (proxy du MGC), source publique tierce (GitHub), "
+        f"periode {period} uniquement (~8 mois, annee 2025). Echantillon court, non multi-annees.\n"
+        "- Resultats BRUTS : commissions, spread et slippage NON modelises. Avec couts reels, "
+        "un profit factor faible peut devenir negatif.\n"
+        "- Fuseau des horodatages non certifie -> suppose UTC. Les classements par SESSION et par "
+        "HEURE en dependent et sont donnes sous cette reserve.\n"
+        "- Strategie = encodage 100% mecanique du protocole A1/B1 (en partie discretionnaire a l'origine). "
+        "Resultats specifiques a cet encodage.\n"
+        "- Facteur de confluence DXY : non disponible (aucun fichier DXY fourni) -> non comptabilise, non invente."
+    )
+    pdf.multi_cell(0, 3.6, notes, fill=True)
     pdf.set_text_color(0,0,0)
     h2("1-8. Synthese globale")
     kv("1. Nombre total de trades", m["n"])
