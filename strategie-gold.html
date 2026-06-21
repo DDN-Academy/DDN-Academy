@@ -558,6 +558,81 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     </div>
   </div>
 
+  <h3><span class="num">◎</span> Zoom débutant : l'ATR, le stop et la sortie avec de VRAIS chiffres</h3>
+  <p>On va prendre un exemple unique et le suivre jusqu'au bout. Imaginons que tu <strong>achètes l'or à 2400</strong> et que l'ATR affiche <strong>4</strong>. Tout va découler de là.</p>
+
+  <h4>Étape A — C'est quoi l'ATR ? (le chiffre qui dit « combien ça bouge »)</h4>
+  <p>L'ATR est juste <strong>un nombre affiché sur ton graphique</strong> par l'indicateur. Il te dit <strong>de combien de points une bougie bouge en moyenne</strong>. Si ATR = 4, une bougie « normale » de 15 minutes fait environ 4 points de haut. Petit ATR = marché calme. Grand ATR = marché agité.</p>
+  <figure>
+    <svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <rect x="30" y="60" width="150" height="56" rx="8" fill="#0F141C" stroke="#D4AF37"/>
+      <text x="105" y="84" fill="#9AA4B2" font-size="11" text-anchor="middle">indicateur ATR</text>
+      <text x="105" y="106" fill="#D4AF37" font-size="20" text-anchor="middle" font-weight="bold">4.0</text>
+      <text x="215" y="92" fill="#9AA4B2" font-size="22">→</text>
+      <text x="250" y="40" fill="#E8EAED" font-size="11">veut dire : « une bougie normale fait ~4 points de haut »</text>
+      <!-- candle with height arrow -->
+      <line x1="330" y1="70" x2="330" y2="150" stroke="#5A6575"/>
+      <rect x="322" y="86" width="16" height="48" fill="#3FB68B"/>
+      <line x1="375" y1="86" x2="375" y2="134" stroke="#D4AF37" stroke-width="1.4"/>
+      <path d="M375 86 l-4 6 h8 z" fill="#D4AF37"/><path d="M375 134 l-4 -6 h8 z" fill="#D4AF37"/>
+      <text x="385" y="114" fill="#D4AF37" font-size="11">≈ 4 points = 1 ATR</text>
+      <text x="250" y="168" fill="#9AA4B2" font-size="10">Tu n'as RIEN à calculer : tu lis juste le nombre que l'indicateur affiche au moment d'entrer.</text>
+    </svg>
+    <figcaption>L'ATR = la « taille typique » d'une bougie en ce moment. C'est l'unité avec laquelle on va mesurer le stop. Ici : ATR = 4 points.</figcaption>
+  </figure>
+
+  <h4>Étape B — Placer ton stop (= 1 × ATR sous ton entrée)</h4>
+  <p>Le stop, c'est le prix où tu sors automatiquement si ça tourne mal. La règle : <strong>1 × ATR sous ton prix d'achat</strong>. Ici : ATR = 4, donc stop = <code>2400 − 4 = 2396</code>. Cette distance (4 points) est ton <strong>1 R</strong> : la somme que tu risques.</p>
+  <figure>
+    <svg viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <!-- entry line -->
+      <line x1="60" y1="70" x2="700" y2="70" stroke="#3FB68B" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <circle cx="200" cy="70" r="5" fill="#3FB68B"/>
+      <text x="215" y="66" fill="#3FB68B" font-size="11" font-weight="bold">ACHAT à 2400</text>
+      <!-- stop line -->
+      <line x1="60" y1="140" x2="700" y2="140" stroke="#E15554" stroke-width="1.6" stroke-dasharray="6 4"/>
+      <text x="215" y="158" fill="#E15554" font-size="11" font-weight="bold">STOP à 2396  (2400 − 4)</text>
+      <!-- distance arrow -->
+      <line x1="120" y1="70" x2="120" y2="140" stroke="#D4AF37" stroke-width="1.4"/>
+      <path d="M120 70 l-4 6 h8 z" fill="#D4AF37"/><path d="M120 140 l-4 -6 h8 z" fill="#D4AF37"/>
+      <text x="128" y="108" fill="#D4AF37" font-size="10">1 × ATR = 4 pts = 1 R</text>
+      <text x="60" y="186" fill="#9AA4B2" font-size="10">Si le prix descend jusqu'à 2396 → tu sors avec −1 R, et tu n'y retournes pas. Petite perte, contrôlée.</text>
+    </svg>
+    <figcaption>Pour une VENTE (short), c'est l'inverse : stop = 1 × ATR AU-DESSUS de ton entrée. Le bracket order place ce stop tout seul dès que tu entres.</figcaption>
+  </figure>
+
+  <h4>Étape C — Sortir : le stop suiveur, pas à pas</h4>
+  <p>On ne met <strong>pas</strong> d'objectif de gain. À la place, on <strong>remonte le stop derrière le prix</strong> au fur et à mesure qu'il monte, à une distance de <strong>1,5 × ATR</strong> (ici 1,5 × 4 = <strong>6 points</strong>). Le stop ne <em>redescend jamais</em> : il monte ou il reste. On sort le jour où le prix le touche.</p>
+  <figure>
+    <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <!-- price path up then down -->
+      <polyline points="60,190 130,160 200,120 280,150 360,90 440,120 520,60 600,95 660,130" fill="none" stroke="#C4CBD4" stroke-width="2"/>
+      <text x="60" y="205" fill="#9AA4B2" font-size="9">le prix (monte… puis redescend)</text>
+      <!-- trailing stop staircase -->
+      <polyline points="200,200 280,200 360,156 440,156 520,126 600,126 660,126" fill="none" stroke="#E0A93B" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="360" y="178" fill="#E0A93B" font-size="9">le stop suiveur monte par paliers (6 pts sous le plus-haut)</text>
+      <!-- exit point where price meets stop -->
+      <circle cx="630" cy="126" r="6" fill="none" stroke="#E15554" stroke-width="2.5"/>
+      <text x="560" y="150" fill="#E15554" font-size="11" font-weight="bold">SORTIE ici</text>
+      <text x="560" y="164" fill="#9AA4B2" font-size="9">le prix retombe et touche le stop</text>
+      <circle cx="200" cy="120" r="4" fill="#3FB68B"/><text x="150" y="112" fill="#3FB68B" font-size="9">entrée</text>
+      <text x="60" y="228" fill="#3FB68B" font-size="10">Résultat : tu sors bien plus haut que ton entrée → gros gain. Si le prix était retombé tout de suite → petite perte (−1 R).</text>
+    </svg>
+    <figcaption>L'escalier doré = ton stop qui grimpe derrière le prix. Tu ne décides rien : tu sors quand le prix le touche. C'est ce mécanisme qui « laisse courir » les gagnants.</figcaption>
+  </figure>
+  <p>Le même exemple, chiffre par chiffre :</p>
+  <table class="tbl">
+    <tr><th>Ce que fait le prix</th><th>Ton stop devient</th><th>Ce que ça veut dire</th></tr>
+    <tr><td>Tu achètes à <span class="mono">2400</span></td><td class="mono">2396</td><td>Risque max = 4 pts = <strong>1 R</strong></td></tr>
+    <tr><td>Le prix monte à <span class="mono">2406</span></td><td class="mono tg">2400</td><td>(2406 − 6) Tu ne peux <strong>plus perdre</strong> : stop = ton prix d'achat</td></tr>
+    <tr><td>Le prix monte à <span class="mono">2412</span></td><td class="mono tg">2406</td><td>(2412 − 6) Gain déjà sécurisé : +6 pts garantis</td></tr>
+    <tr><td>Le prix redescend et touche <span class="mono">2406</span></td><td class="mono">— sortie —</td><td><strong class="tg">Tu sors : +6 pts = +1,5 R</strong> ✔</td></tr>
+  </table>
+  <div class="note do"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="nt">Tu n'as même pas à le faire à la main</span>Sur la plupart des plateformes, choisis l'ordre <strong>« Trailing Stop » (stop suiveur)</strong> et règle la distance sur <strong>1,5 × ATR</strong> (ici 6 points) : il suit le prix tout seul. Sinon, remonte simplement ton stop à « plus-haut − 6 » à la fin de chaque bougie de 15 min.</p></div>
+
+  <h4>L'autre façon de sortir : l'heure</h4>
+  <p>Si à <strong>20h00 (heure de Paris)</strong> tu es encore en position (le stop n'a pas été touché), tu <strong>fermes au marché</strong> avec le bouton « tout fermer ». On ne garde jamais une position la nuit. Donc tu sors <strong>soit</strong> parce que le stop suiveur est touché, <strong>soit</strong> parce qu'il est 20h. Jamais autrement.</p>
+
   <h3><span class="num">⚙</span> Les réglages exacts (à recopier tels quels)</h3>
   <div class="kv">
     <dt>Instrument</dt><dd>Gold : MGC/GC (futures) ou XAUUSD/GOLD (CFD/spot) — toute plateforme</dd>
