@@ -131,6 +131,15 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
 .kv dt{color:var(--wd2);font-size:12px;letter-spacing:.5px;text-transform:uppercase;padding-top:2px}
 .kv dd{color:var(--w);font-family:var(--mono);font-size:13.5px}
 .divider{height:1px;background:var(--line2);margin:40px 0}
+.gloss{margin:16px 0;border:1px solid var(--line2);border-radius:12px;overflow:hidden}
+.gloss .gi{padding:13px 18px;border-bottom:1px solid var(--line2)}
+.gloss .gi:last-child{border-bottom:none}
+.gloss .gi:nth-child(even){background:rgba(255,255,255,.012)}
+.gloss .gt{color:var(--gl);font-weight:650;font-size:14.5px}
+.gloss .gt em{color:var(--wd2);font-weight:400;font-style:normal;font-size:12px;font-family:var(--mono)}
+.gloss .gd{color:#C4CBD4;font-size:13.5px;margin-top:3px}
+.gloss .ga{color:var(--wd);font-size:12.5px;margin-top:4px;padding-left:14px;border-left:2px solid var(--line)}
+.subh{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);font-weight:600;margin:30px 0 4px}
 .chk{list-style:none;padding:0}.chk li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line2);align-items:flex-start}
 .chk li::before{display:none}
 .chk .cb{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--g);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;color:var(--g);font-size:12px}
@@ -187,6 +196,7 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <a data-go="adaptation"><span class="ix">⟳</span> Adaptation</a>
   </div></div>
   <div class="navgrp"><div class="navgrp-t">Référence</div><div class="nav">
+    <a data-go="glossaire"><span class="ix">✦</span> Glossaire visuel</a>
     <a data-go="memo"><span class="ix">▣</span> Mémo express</a>
   </div></div>
 </aside>
@@ -234,6 +244,11 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   <div class="note info">
     <svg class="ni" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B8DEF" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="#5B8DEF" stroke-width="2" stroke-linecap="round"/></svg>
     <p><span class="nt">C'est quoi un « R » ?</span>Tout est mesuré en <strong>R</strong> = le risque que tu mets sur un trade. Si tu risques 100 € et que tu gagnes 200 €, tu as fait <strong>+2 R</strong>. Avantage : <strong>la stratégie marche pour n'importe quel compte</strong> (100 € ou 100 000 €) — tu adaptes juste la valeur de 1 R. Le backtest est tout en R pour cette raison.</p>
+  </div>
+
+  <div class="note do">
+    <svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p><span class="nt">Débutant complet ? Suis cet ordre</span>1) Lis cette page. 2) Tout terme technique qui te bloque est expliqué dans le <strong>Glossaire visuel</strong> (menu de gauche, avec schémas). 3) Va dans <strong>Démarrage rapide</strong> pour installer et calculer ta taille. 4) Apprends les <strong>5 règles</strong>. Tu n'as besoin de rien d'autre.</p>
   </div>
 </section>
 
@@ -859,6 +874,148 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <div class="fstep"><div class="fdot">3</div><div class="fbody"><b>Patience statistique</b><p>On ne juge jamais sur &lt;30 trades. 18 pertes d'affilée font partie du système — ce n'est PAS un signal d'arrêt.</p></div></div>
   </div>
   <div class="note do"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="nt">Règle d'humilité</span>Le marché n'a aucune obligation de continuer à payer. Quand les données (100+ trades) disent que l'edge est mort, on écoute les données — pas son ego. Mais on n'abandonne jamais sur une série de pertes : la patience est elle-même un avantage que la foule n'a pas.</p></div>
+</section>
+
+<!-- ============ GLOSSAIRE ============ -->
+<section class="page" id="glossaire">
+  <div class="eyebrow">Comprendre chaque mot</div>
+  <h2 class="ttl">Glossaire visuel</h2>
+  <p class="lead">Chaque terme technique utilisé dans ce document, expliqué comme à un débutant complet, avec une analogie. Les 5 concepts les plus importants ont un schéma. Si un mot te bloque quelque part, il est ici.</p>
+
+  <div class="subh">① Les bases du marché</div>
+  <div class="gloss">
+    <div class="gi"><div class="gt">Or / Gold <em>XAUUSD · MGC · GC</em></div><div class="gd">Le métal précieux que tu trades. XAUUSD = l'or en « spot » ; MGC/GC = l'or en contrats à terme (futures).</div></div>
+    <div class="gi"><div class="gt">Future / Contrat à terme <em>futures</em></div><div class="gd">Un contrat standardisé pour acheter ou vendre l'or. C'est ce qu'on trade sur Tradovate.</div><div class="ga">Comme réserver aujourd'hui le prix d'une marchandise à livrer plus tard.</div></div>
+    <div class="gi"><div class="gt">Micro-future <em>MGC</em></div><div class="gd">Une version « mini » du contrat futures, ~10× plus petite. Parfaite pour le retail car le risque par contrat est faible.</div></div>
+    <div class="gi"><div class="gt">CFD / Spot</div><div class="gd">D'autres façons de trader l'or (sur MT4/MT5, cTrader). Le prix suit l'or en direct, sans contrat à terme.</div></div>
+    <div class="gi"><div class="gt">Long / Short</div><div class="gd"><strong>Long</strong> = tu paries que ça monte (acheter). <strong>Short</strong> = tu paries que ça baisse (vendre à découvert).</div></div>
+    <div class="gi"><div class="gt">Lot / Contrat</div><div class="gd">L'unité de quantité que tu trades. 2 contrats = 2× le gain ET 2× la perte.</div></div>
+    <div class="gi"><div class="gt">Point / Tick</div><div class="gd">Les petites unités de variation du prix. Sur MGC : 1 point = 10 $ ; 1 tick = 1/10 de point = 1 $.</div></div>
+  </div>
+
+  <div class="subh">② Lire un graphique</div>
+  <div class="gloss">
+    <div class="gi"><div class="gt">Bougie / Chandelier <em>candlestick</em></div><div class="gd">Un rectangle qui résume le prix sur une période : où il a ouvert, fermé, et les extrêmes touchés.</div></div>
+    <div class="gi"><div class="gt">Corps / Mèche</div><div class="gd">Le <strong>corps</strong> = entre l'ouverture et la clôture. La <strong>mèche</strong> (trait fin) = jusqu'où le prix est monté/descendu avant de revenir. Une longue mèche = le prix a été « rejeté ».</div></div>
+    <div class="gi"><div class="gt">Timeframe / Unité de temps <em>TF</em></div><div class="gd">La durée que représente une bougie. On utilise le <strong>15 min</strong> : chaque bougie = 15 minutes de marché.</div></div>
+    <div class="gi"><div class="gt">Plus-haut / Plus-bas <em>high / low</em></div><div class="gd">Le point le plus haut (ou le plus bas) atteint sur une période donnée.</div></div>
+    <div class="gi"><div class="gt">Niveau</div><div class="gd">Un prix précis où le marché réagit souvent (ex : le plus-haut des 4 dernières heures). C'est ce qu'on guette pour la cassure.</div></div>
+  </div>
+
+  <div class="subh">③ Les indicateurs (les 2 outils du graphique)</div>
+  <figure>
+    <svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <text x="20" y="22" fill="#D4AF37" font-size="12" font-weight="bold">EMA 200 — la ligne de tendance lissée</text>
+      <polyline points="30,120 60,100 90,128 120,92 150,110 180,70 210,96 240,58 270,84 300,50 330,72 360,40 390,60 420,34" fill="none" stroke="#9AA4B2" stroke-width="1.4"/>
+      <polyline points="30,128 90,118 150,106 210,92 270,78 330,62 390,48 420,42" fill="none" stroke="#D4AF37" stroke-width="2.5"/>
+      <text x="430" y="40" fill="#9AA4B2" font-size="9">le prix (zigzague)</text>
+      <text x="430" y="58" fill="#D4AF37" font-size="9">l'EMA (lisse la tendance)</text>
+      <text x="30" y="160" fill="#3FB68B" font-size="10">Prix AU-DESSUS de l'EMA = tendance haussière → on achète.</text>
+      <text x="30" y="174" fill="#E15554" font-size="10">Prix EN-DESSOUS = tendance baissière → on vend.</text>
+    </svg>
+    <figcaption>L'EMA (moyenne mobile exponentielle) est juste une moyenne du prix récent, qui « lisse » le bruit pour montrer la direction de fond. La marée, pas les vaguelettes.</figcaption>
+  </figure>
+  <figure>
+    <svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <text x="20" y="22" fill="#D4AF37" font-size="12" font-weight="bold">ATR — la taille moyenne d'une bougie (= volatilité)</text>
+      <!-- small candle -->
+      <line x1="120" y1="70" x2="120" y2="120" stroke="#9AA4B2" stroke-width="1.5"/>
+      <rect x="112" y="85" width="16" height="22" fill="#3FB68B"/>
+      <line x1="100" y1="70" x2="100" y2="120" stroke="#5A6575"/><line x1="96" y1="70" x2="104" y2="70" stroke="#5A6575"/><line x1="96" y1="120" x2="104" y2="120" stroke="#5A6575"/>
+      <text x="60" y="98" fill="#9AA4B2" font-size="9" text-anchor="middle">petite</text>
+      <!-- big candle -->
+      <line x1="320" y1="40" x2="320" y2="150" stroke="#9AA4B2" stroke-width="1.5"/>
+      <rect x="312" y="60" width="16" height="70" fill="#E15554"/>
+      <line x1="300" y1="40" x2="300" y2="150" stroke="#5A6575"/><line x1="296" y1="40" x2="304" y2="40" stroke="#5A6575"/><line x1="296" y1="150" x2="304" y2="150" stroke="#5A6575"/>
+      <text x="270" y="98" fill="#9AA4B2" font-size="9" text-anchor="middle">grande</text>
+      <text x="400" y="90" fill="#D4AF37" font-size="11">ATR = la moyenne de ces hauteurs</text>
+      <text x="400" y="108" fill="#9AA4B2" font-size="9.5">Petit ATR = marché calme. Grand ATR = ça bouge fort.</text>
+      <text x="400" y="126" fill="#9AA4B2" font-size="9.5">On l'utilise pour placer le stop à la bonne distance.</text>
+    </svg>
+    <figcaption>L'ATR (Average True Range) mesure « à quel point ça bouge » en ce moment. Stop = 1 × ATR : plus le marché est agité, plus le stop est large (logique) ; plus il est calme, plus il est serré.</figcaption>
+  </figure>
+  <div class="gloss">
+    <div class="gi"><div class="gt">EMA 200 <em>moyenne mobile exponentielle</em></div><div class="gd">Une ligne qui lisse le prix des 200 dernières bougies pour révéler la tendance de fond (voir schéma).</div></div>
+    <div class="gi"><div class="gt">ATR <em>Average True Range</em></div><div class="gd">La taille moyenne des bougies = la volatilité. Sert à dimensionner le stop (voir schéma).</div></div>
+    <div class="gi"><div class="gt">DXY <em>indice du dollar</em></div><div class="gd">Mesure la force du dollar US. Le Gold et le dollar bougent souvent en sens inverse : dollar ↑ → or ↓.</div></div>
+    <div class="gi"><div class="gt">VIX <em>indice de la peur</em></div><div class="gd">Mesure le stress des marchés. VIX très haut = panique = volatilité extrême → on lève le pied.</div></div>
+  </div>
+
+  <div class="subh">④ La stratégie — les actions</div>
+  <div class="gloss">
+    <div class="gi"><div class="gt">Tendance <em>trend</em></div><div class="gd">Un marché qui avance clairement dans un sens (que des plus-hauts plus hauts, ou plus-bas plus bas).</div></div>
+    <div class="gi"><div class="gt">Range / Plat</div><div class="gd">Un marché qui stagne : va-et-vient horizontal, sans direction. La stratégie évite ces moments.</div></div>
+    <div class="gi"><div class="gt">Cassure <em>breakout</em></div><div class="gd">Quand le prix franchit un niveau important (ex : le plus-haut des 4 dernières heures). Souvent le début d'un mouvement → notre signal d'entrée.</div></div>
+    <div class="gi"><div class="gt">Stop / Stop loss</div><div class="gd">Un ordre automatique qui te sort si le prix va contre toi. Il limite ta perte, point final.</div><div class="ga">Comme un disjoncteur : ça coupe avant que ça brûle.</div></div>
+    <div class="gi"><div class="gt">Trailing stop <em>stop suiveur</em></div><div class="gd">Un stop qui remonte tout seul derrière le prix quand le trade va bien : il sécurise les gains tout en laissant courir.</div></div>
+    <div class="gi"><div class="gt">Take profit / Objectif</div><div class="gd">Un ordre qui te sort en gain à un prix fixé. Ici on n'en met PAS : on laisse courir avec le trailing.</div></div>
+    <div class="gi"><div class="gt">Bracket / OCO</div><div class="gd">Un « pack » d'ordres posés ensemble en un clic : ton entrée + ton stop (+ éventuellement objectif).</div></div>
+    <div class="gi"><div class="gt">Spread</div><div class="gd">Le petit écart entre le prix d'achat et de vente. Un mini-coût payé à chaque trade.</div></div>
+    <div class="gi"><div class="gt">Slippage</div><div class="gd">La différence entre le prix visé et le prix réellement obtenu, quand le marché bouge vite. Inclus dans nos coûts estimés.</div></div>
+  </div>
+
+  <div class="subh">⑤ Mesurer la performance</div>
+  <figure>
+    <svg viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <text x="20" y="22" fill="#D4AF37" font-size="12" font-weight="bold">Le « R » — ton unité de risque</text>
+      <rect x="60" y="100" width="70" height="40" fill="rgba(225,85,84,.25)" stroke="#E15554"/><text x="95" y="125" fill="#E15554" font-size="12" text-anchor="middle" font-weight="bold">−1 R</text>
+      <text x="95" y="158" fill="#9AA4B2" font-size="9" text-anchor="middle">ce que tu risques</text>
+      <text x="150" y="125" fill="#9AA4B2" font-size="14">→</text>
+      <rect x="180" y="100" width="70" height="40" fill="rgba(63,182,139,.20)" stroke="#3FB68B"/><text x="215" y="125" fill="#3FB68B" font-size="12" text-anchor="middle" font-weight="bold">+1 R</text>
+      <rect x="260" y="78" width="70" height="62" fill="rgba(63,182,139,.28)" stroke="#3FB68B"/><text x="295" y="113" fill="#3FB68B" font-size="12" text-anchor="middle" font-weight="bold">+2 R</text>
+      <rect x="340" y="50" width="70" height="90" fill="rgba(63,182,139,.36)" stroke="#3FB68B"/><text x="375" y="100" fill="#3FB68B" font-size="12" text-anchor="middle" font-weight="bold">+3 R</text>
+      <text x="450" y="90" fill="#E8EAED" font-size="11">Tu risques toujours 1 R.</text>
+      <text x="450" y="108" fill="#E8EAED" font-size="11">Un gagnant peut rapporter 2 R, 3 R…</text>
+      <text x="450" y="126" fill="#9AA4B2" font-size="9.5">Avantage : marche pour n'importe quel compte.</text>
+    </svg>
+    <figcaption>1 R = la somme que tu risques sur un trade. Tout se compte en R pour comparer les trades entre eux, peu importe la taille du compte (1 R = 50 €, 100 € ou 1 000 €, la logique est identique).</figcaption>
+  </figure>
+  <figure>
+    <svg viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <text x="20" y="22" fill="#D4AF37" font-size="12" font-weight="bold">Profit Factor — gains ÷ pertes</text>
+      <rect x="120" y="40" width="80" height="100" fill="rgba(63,182,139,.25)" stroke="#3FB68B"/><text x="160" y="95" fill="#3FB68B" font-size="13" text-anchor="middle" font-weight="bold">Gains</text><text x="160" y="113" fill="#3FB68B" font-size="11" text-anchor="middle">144</text>
+      <rect x="280" y="70" width="80" height="70" fill="rgba(225,85,84,.22)" stroke="#E15554"/><text x="320" y="100" fill="#E15554" font-size="13" text-anchor="middle" font-weight="bold">Pertes</text><text x="320" y="118" fill="#E15554" font-size="11" text-anchor="middle">100</text>
+      <text x="420" y="80" fill="#E8EAED" font-size="13">144 ÷ 100 = <tspan fill="#D4AF37" font-weight="bold">1,44</tspan></text>
+      <text x="420" y="102" fill="#9AA4B2" font-size="10">Au-dessus de 1 = rentable.</text>
+      <text x="420" y="120" fill="#9AA4B2" font-size="10">1,44 = tu gagnes 1,44 € pour 1 € perdu.</text>
+    </svg>
+    <figcaption>Le Profit Factor compare tout ce que tu gagnes à tout ce que tu perds. Notre stratégie : 1,44 sur 21 ans (1,41 hors échantillon).</figcaption>
+  </figure>
+  <figure>
+    <svg viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <text x="20" y="22" fill="#D4AF37" font-size="12" font-weight="bold">Drawdown — la baisse depuis le plus-haut</text>
+      <line x1="40" y1="150" x2="730" y2="150" stroke="#5A6575"/>
+      <polyline points="50,130 130,90 200,70 260,110 330,140 400,120 470,80 560,50 650,60 720,35" fill="none" stroke="#3FB68B" stroke-width="2"/>
+      <circle cx="200" cy="70" r="4" fill="#D4AF37"/><text x="180" y="60" fill="#D4AF37" font-size="9">plus-haut</text>
+      <circle cx="330" cy="140" r="4" fill="#E15554"/><text x="330" y="158" fill="#E15554" font-size="9" text-anchor="middle">creux</text>
+      <line x1="265" y1="70" x2="265" y2="140" stroke="#E15554" stroke-width="1.4" stroke-dasharray="4 3"/>
+      <text x="272" y="110" fill="#E15554" font-size="10">drawdown = cette chute</text>
+      <text x="430" y="120" fill="#9AA4B2" font-size="9.5">Toute stratégie a des drawdowns. Le nôtre : jusqu'à −33 R.</text>
+    </svg>
+    <figcaption>Le drawdown mesure la pire baisse de ton capital entre un sommet et le creux qui suit. C'est la « douleur maximale » à encaisser. Le money management sert justement à la rendre survivable.</figcaption>
+  </figure>
+  <div class="gloss">
+    <div class="gi"><div class="gt">R <em>unité de risque</em></div><div class="gd">Ton risque sur un trade = 1 R. Gagner 2 R = gagner 2× ce que tu risquais (voir schéma).</div></div>
+    <div class="gi"><div class="gt">Win rate <em>taux de réussite</em></div><div class="gd">Le % de trades gagnants. 40 % = 4 gagnants sur 10. Faible win rate = normal en suivi de tendance.</div></div>
+    <div class="gi"><div class="gt">Profit Factor <em>PF</em></div><div class="gd">Total des gains ÷ total des pertes. Au-dessus de 1 = rentable (voir schéma).</div></div>
+    <div class="gi"><div class="gt">Espérance <em>expectancy</em></div><div class="gd">Le gain moyen par trade, en R. +0,27 R = chaque trade rapporte 0,27 R en moyenne sur le long terme.</div></div>
+    <div class="gi"><div class="gt">Drawdown <em>DD</em></div><div class="gd">La baisse de ton capital depuis son plus-haut (voir schéma). Mesure la pire douleur.</div></div>
+    <div class="gi"><div class="gt">Série de pertes <em>losing streak</em></div><div class="gd">Nombre de trades perdants d'affilée. Inévitable : la nôtre va jusqu'à 18. Ça ne veut PAS dire que le système est cassé.</div></div>
+    <div class="gi"><div class="gt">Backtest</div><div class="gd">Tester la stratégie sur l'historique passé pour mesurer si elle aurait gagné. La nôtre : 21 ans.</div></div>
+    <div class="gi"><div class="gt">Hors échantillon <em>out-of-sample</em></div><div class="gd">Tester sur des données jamais utilisées pour construire la stratégie. Si ça marche encore = preuve que ce n'est pas « truqué ».</div></div>
+  </div>
+
+  <div class="subh">⑥ Le monde prop firm</div>
+  <div class="gloss">
+    <div class="gi"><div class="gt">Prop firm</div><div class="gd">Une société qui te prête son capital pour trader. Tu gardes une grosse part des gains (souvent 80-90 %).</div></div>
+    <div class="gi"><div class="gt">Challenge / Évaluation</div><div class="gd">Le test à réussir pour prouver que tu es rentable ET discipliné, avant d'avoir le vrai compte.</div></div>
+    <div class="gi"><div class="gt">Compte financé <em>funded</em></div><div class="gd">Le vrai compte de la prop firm, débloqué après avoir réussi le challenge.</div></div>
+    <div class="gi"><div class="gt">Trailing drawdown</div><div class="gd">Une perte max qui SUIT ton plus-haut. Si tu montes puis rechutes trop, tu échoues — d'où la taille minuscule.</div><div class="ga">Comme un filet de sécurité qui monte avec toi : il ne te laisse jamais retomber trop bas.</div></div>
+    <div class="gi"><div class="gt">Limite journalière</div><div class="gd">La perte max autorisée en une seule journée. Notre coupe-circuit −3 R reste en-dessous.</div></div>
+    <div class="gi"><div class="gt">Coupe-circuit <em>circuit breaker</em></div><div class="gd">Nos règles d'arrêt automatiques (−3 R/jour, −6 R/semaine) qui t'empêchent d'exploser ton compte sur une mauvaise série.</div></div>
+  </div>
+
+  <div class="note do"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="nt">Plus aucun mot ne doit te bloquer</span>Si tu lis une section et qu'un terme te freine, reviens ici. Une stratégie qu'on comprend à 100 % est une stratégie qu'on exécute avec calme — et le calme, c'est la moitié du métier.</p></div>
 </section>
 
 <!-- ============ MEMO ============ -->
