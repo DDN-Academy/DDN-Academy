@@ -168,6 +168,7 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   </div>
   <div class="navgrp"><div class="navgrp-t">Cadre</div><div class="nav">
     <a data-go="accueil" class="active"><span class="ix">◆</span> Principe central</a>
+    <a data-go="demarrage"><span class="ix">▶</span> Démarrage rapide</a>
     <a data-go="backtest"><span class="ix">▤</span> Preuve : le backtest</a>
     <a data-go="fondations"><span class="ix">▦</span> Les 15 fondations</a>
   </div></div>
@@ -234,6 +235,94 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <svg class="ni" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B8DEF" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="#5B8DEF" stroke-width="2" stroke-linecap="round"/></svg>
     <p><span class="nt">C'est quoi un « R » ?</span>Tout est mesuré en <strong>R</strong> = le risque que tu mets sur un trade. Si tu risques 100 € et que tu gagnes 200 €, tu as fait <strong>+2 R</strong>. Avantage : <strong>la stratégie marche pour n'importe quel compte</strong> (100 € ou 100 000 €) — tu adaptes juste la valeur de 1 R. Le backtest est tout en R pour cette raison.</p>
   </div>
+</section>
+
+<!-- ============ DEMARRAGE RAPIDE ============ -->
+<section class="page" id="demarrage">
+  <div class="eyebrow">Tout prêt — zéro réflexion</div>
+  <h2 class="ttl">Démarrage rapide</h2>
+  <p class="lead">Suis cette page dans l'ordre. À la fin, tu sais exactement quoi installer, comment calculer ta taille (automatiquement), et quoi faire minute par minute. Aucun calcul mental, aucune décision floue.</p>
+
+  <h3><span class="num">1</span> Jour 1 — régler Tradovate (10 min, une seule fois)</h3>
+  <div class="card gold">
+    <div class="flow">
+      <div class="fstep"><div class="fdot">A</div><div class="fbody"><b>Ouvrir le bon graphique</b><p>Symbole <code>MGC</code> · unité de temps <code>15 min</code>. C'est le seul graphique dont tu as besoin.</p></div></div>
+      <div class="fstep"><div class="fdot">B</div><div class="fbody"><b>Ajouter 2 indicateurs</b><p>Bouton « Indicateurs » du graphique → ajoute <mark>EMA (Exponential Moving Average), période 200</mark>, puis <mark>ATR (Average True Range), période 40</mark>. C'est tout.</p></div></div>
+      <div class="fstep"><div class="fdot">C</div><div class="fbody"><b>Configurer l'ordre type</b><p>Dans les réglages d'ordre, choisis <strong>Bracket</strong> (entrée + stop). Active si possible le <strong>Trailing Stop</strong>. Crée une <strong>hotkey « Flatten »</strong> (tout fermer) pour la clôture de 20h.</p></div></div>
+      <div class="fstep"><div class="fdot">D</div><div class="fbody"><b>Mettre le DXY à côté</b><p>Ouvre un petit graphique <code>DXY</code> (dollar) en mini-fenêtre. Un seul coup d'œil avant d'entrer.</p></div></div>
+    </div>
+  </div>
+
+  <h3><span class="num">2</span> Calculateur de position — entre 2 chiffres, lis le résultat</h3>
+  <div class="card" style="border-color:var(--line)">
+    <div class="grid g2" style="gap:18px">
+      <div>
+        <label style="display:block;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--wd2);margin-bottom:6px">Perte max autorisée de ton compte ($)</label>
+        <input id="cDD" type="number" inputmode="decimal" value="2500" style="width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--w);font-size:16px;font-family:var(--mono);outline:none">
+        <span style="font-size:11px;color:var(--wd2)">= le trailing drawdown / perte max de ta prop firm</span>
+      </div>
+      <div>
+        <label style="display:block;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--wd2);margin-bottom:6px">ATR actuel (en points, lu sur le graphique)</label>
+        <input id="cATR" type="number" inputmode="decimal" value="4.0" step="0.1" style="width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:13px 14px;color:var(--w);font-size:16px;font-family:var(--mono);outline:none">
+        <span style="font-size:11px;color:var(--wd2)">= la valeur de l'indicateur ATR au moment d'entrer</span>
+      </div>
+    </div>
+    <div class="grid g4" style="margin-top:22px">
+      <div class="stat"><div class="k">Ton 1 R</div><div class="v" id="oR">—</div><div class="s">risque par trade</div></div>
+      <div class="stat"><div class="k">Contrats MGC</div><div class="v green" id="oC">—</div><div class="s">taille à trader</div></div>
+      <div class="stat"><div class="k">Risque réel / trade</div><div class="v" id="oRisk">—</div><div class="s">si stop touché</div></div>
+      <div class="stat"><div class="k">Stop (distance)</div><div class="v" id="oStop">—</div><div class="s">1 × ATR en $/contrat</div></div>
+    </div>
+    <div class="grid g3" style="margin-top:14px">
+      <div class="stat"><div class="k">Stop journalier (−3 R)</div><div class="v red" id="oDay">—</div><div class="s">atteint → écran fermé</div></div>
+      <div class="stat"><div class="k">Stop hebdo (−6 R)</div><div class="v red" id="oWeek">—</div><div class="s">→ pause jusqu'à lundi</div></div>
+      <div class="stat"><div class="k">Objectif jour (+4 R)</div><div class="v green" id="oTgt">—</div><div class="s">atteint → on arrête</div></div>
+    </div>
+    <p id="oWarn" style="margin-top:14px;font-size:13px"></p>
+  </div>
+  <div class="note info"><svg class="ni" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B8DEF" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="#5B8DEF" stroke-width="2" stroke-linecap="round"/></svg><p><span class="nt">Comment l'utiliser</span>Une fois par jour, regarde la valeur de l'ATR sur ton graphique, tape-la ici (la perte autorisée ne change pas). Le nombre de <strong>contrats</strong> à trader s'affiche tout seul. Tu n'as plus jamais à calculer quoi que ce soit.</p></div>
+
+  <h3><span class="num">3</span> Anti-sèche taille (si tu préfères une table)</h3>
+  <table class="tbl">
+    <tr><th>Perte autorisée</th><th>1 R</th><th>ATR 3 pts</th><th>ATR 4 pts</th><th>ATR 5 pts</th><th>ATR 6 pts</th></tr>
+    <tr><td class="mono">1 500 $</td><td class="mono">62 $</td><td class="mono tg">2</td><td class="mono tg">1</td><td class="mono tg">1</td><td class="mono tg">1</td></tr>
+    <tr><td class="mono">2 500 $</td><td class="mono">104 $</td><td class="mono tg">3</td><td class="mono tg">2</td><td class="mono tg">2</td><td class="mono tg">1</td></tr>
+    <tr><td class="mono">4 000 $</td><td class="mono">166 $</td><td class="mono tg">5</td><td class="mono tg">4</td><td class="mono tg">3</td><td class="mono tg">2</td></tr>
+    <tr><td class="mono">6 000 $</td><td class="mono">250 $</td><td class="mono tg">8</td><td class="mono tg">6</td><td class="mono tg">5</td><td class="mono tg">4</td></tr>
+  </table>
+  <p style="font-size:12px;color:var(--wd2)">Nombre de contrats MGC (arrondi vers le bas). 1 R = perte autorisée × 0,5 ÷ 12. Contrats = 1 R ÷ (ATR × 10 $).</p>
+
+  <h3><span class="num">4</span> La carte du jour — colle-la sur ton écran</h3>
+  <figure>
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <defs><marker id="dr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#D4AF37"/></marker></defs>
+      <rect x="20" y="20" width="720" height="40" rx="9" fill="rgba(91,141,239,.10)" stroke="#5B8DEF" stroke-opacity=".5"/>
+      <text x="380" y="45" fill="#5B8DEF" font-size="12" text-anchor="middle" font-weight="bold">13h45 — Suis-je en état ? (≥6/10, pas de news majeure dans 2 min) — sinon STOP</text>
+      <line x1="380" y1="60" x2="380" y2="78" stroke="#D4AF37" marker-end="url(#dr)"/>
+      <rect x="20" y="80" width="720" height="40" rx="9" fill="rgba(212,175,55,.10)" stroke="#D4AF37" stroke-opacity=".5"/>
+      <text x="380" y="105" fill="#D4AF37" font-size="12" text-anchor="middle" font-weight="bold">Prix au-dessus de l'EMA 200 ? → j'ACHÈTE.  En-dessous ? → je VENDS.</text>
+      <line x1="380" y1="120" x2="380" y2="138" stroke="#D4AF37" marker-end="url(#dr)"/>
+      <rect x="20" y="140" width="720" height="40" rx="9" fill="rgba(212,175,55,.06)" stroke="#D4AF37" stroke-opacity=".4"/>
+      <text x="380" y="165" fill="#E8EAED" font-size="12" text-anchor="middle">14h-17h : une bougie casse le plus-haut/bas des 16 dernières ? + DXY pas contre → j'ENTRE</text>
+      <line x1="380" y1="180" x2="380" y2="198" stroke="#D4AF37" marker-end="url(#dr)"/>
+      <rect x="20" y="200" width="720" height="40" rx="9" fill="rgba(63,182,139,.10)" stroke="#3FB68B" stroke-opacity=".5"/>
+      <text x="380" y="225" fill="#3FB68B" font-size="12" text-anchor="middle" font-weight="bold">Bracket : stop 1×ATR + trailing 1,5×ATR. Puis JE NE TOUCHE PLUS RIEN.</text>
+      <line x1="380" y1="240" x2="380" y2="258" stroke="#D4AF37" marker-end="url(#dr)"/>
+      <rect x="20" y="260" width="720" height="34" rx="9" fill="rgba(225,85,84,.08)" stroke="#E15554" stroke-opacity=".5"/>
+      <text x="380" y="282" fill="#E15554" font-size="11.5" text-anchor="middle" font-weight="bold">STOP si : −3 R jour · +4 R atteint · 20h (flatten). Max 3 trades.</text>
+    </svg>
+    <figcaption>Cinq cases, de haut en bas. Tu ne descends à la case suivante que si la précédente est validée. C'est toute ta journée.</figcaption>
+  </figure>
+
+  <h3><span class="num">5</span> Ton journal — prêt à copier dans Google Sheets</h3>
+  <p>Copie ces colonnes dans un Google Sheets (gratuit). Une ligne par trade. Le bouton ci-dessous copie l'en-tête tout prêt.</p>
+  <div class="card" style="padding:16px">
+    <code id="jhead" style="display:block;white-space:pre-wrap;font-size:12px;line-height:1.8">Date	Heure	Sens (vs EMA)	Entrée	Stop	ATR (pts)	Contrats	Sortie	Résultat (R)	Règles suivies ? (O/N)	Émotion	Note</code>
+    <button id="copyJ" class="gbtn" style="margin-top:14px;max-width:240px">Copier l'en-tête</button>
+    <span id="copyOk" style="margin-left:12px;color:var(--green);font-size:13px;opacity:0;transition:.2s">Copié ✓</span>
+  </div>
+
+  <div class="note do"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="nt">Et c'est tout</span>Setup fait une fois, calculateur pour la taille, carte du jour pour l'exécution, journal pour mesurer. Tu n'as plus qu'à répéter la même chose chaque jour. La régularité, pas l'intensité, fait le résultat.</p></div>
 </section>
 
 <!-- ============ BACKTEST ============ -->
@@ -813,6 +902,48 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     clock.innerHTML='Paris '+paris+' · <b style="color:'+(on?'#3FB68B':'#5A6575')+'">'+state+'</b>';
   }catch(e){clock.textContent=''}}
   tick();setInterval(tick,20000);
+
+  // ===== calculateur de position =====
+  var cDD=document.getElementById('cDD'),cATR=document.getElementById('cATR');
+  function money(x){return Math.round(x).toLocaleString('fr-FR')+' $';}
+  function calc(){
+    if(!cDD)return;
+    var DD=parseFloat(cDD.value),ATR=parseFloat(cATR.value);
+    var oR=document.getElementById('oR'),oC=document.getElementById('oC'),oRisk=document.getElementById('oRisk'),
+        oStop=document.getElementById('oStop'),oDay=document.getElementById('oDay'),oWeek=document.getElementById('oWeek'),
+        oTgt=document.getElementById('oTgt'),oWarn=document.getElementById('oWarn');
+    if(!(DD>0)||!(ATR>0)){[oR,oC,oRisk,oStop,oDay,oWeek,oTgt].forEach(function(e){e.textContent='—';});oWarn.textContent='';return;}
+    var R=Math.floor(DD*0.5/12);
+    var stopPerC=ATR*10;
+    var contracts=Math.floor(R/stopPerC);
+    var realRisk=contracts*stopPerC;
+    oR.textContent=money(R);
+    oC.textContent=contracts;
+    oStop.textContent=money(stopPerC)+'/c';
+    if(contracts<1){
+      oC.textContent='0';oRisk.textContent='—';oDay.textContent='—';oWeek.textContent='—';oTgt.textContent='—';
+      oWarn.style.color='#E15554';
+      oWarn.innerHTML='⚠ L\'ATR est trop élevé pour la taille de ton compte : 1 contrat dépasserait ton risque. <b>Attends que la volatilité baisse</b> (ATR plus petit) ou ne prends pas ce trade.';
+      return;
+    }
+    oRisk.textContent=money(realRisk);
+    oDay.textContent='−'+money(3*realRisk);
+    oWeek.textContent='−'+money(6*realRisk);
+    oTgt.textContent='+'+money(4*realRisk);
+    oWarn.style.color='#9AA4B2';
+    oWarn.innerHTML='Tu trades <b style="color:#F0D97A">'+contracts+' contrat'+(contracts>1?'s':'')+' MGC</b>. Si le stop est touché tu perds ~'+money(realRisk)+' (≈ 1 R). Pose le bracket avec un stop à '+ATR.toFixed(1)+' points.';
+  }
+  if(cDD){cDD.addEventListener('input',calc);cATR.addEventListener('input',calc);calc();}
+
+  // ===== copier en-tete journal =====
+  var copyJ=document.getElementById('copyJ');
+  if(copyJ){copyJ.addEventListener('click',function(){
+    var txt=document.getElementById('jhead').textContent;
+    var ok=document.getElementById('copyOk');
+    function done(){ok.style.opacity='1';setTimeout(function(){ok.style.opacity='0';},1800);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done);}
+    else{try{var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);done();}catch(e){}}
+  });}
 })();
 </script>
 </body>
