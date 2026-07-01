@@ -191,6 +191,8 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   </div></div>
   <div class="navgrp"><div class="navgrp-t">Survie & opération</div><div class="nav">
     <a data-go="risque"><span class="ix">⚖</span> Money management</a>
+    <a data-go="parcours"><span class="ix">⇥</span> Challenge → financé</a>
+    <a data-go="erreurs"><span class="ix">✕</span> Erreurs qui ruinent</a>
     <a data-go="psycho"><span class="ix">◉</span> Protocole psycho</a>
     <a data-go="routine"><span class="ix">◷</span> Routine quotidienne</a>
     <a data-go="journal"><span class="ix">✎</span> Journalisation</a>
@@ -1009,6 +1011,51 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <div class="fstep"><div class="fdot">3</div><div class="fbody"><b>Patience statistique</b><p>On ne juge jamais sur &lt;30 trades. 18 pertes d'affilée font partie du système — ce n'est PAS un signal d'arrêt.</p></div></div>
   </div>
   <div class="note do"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="nt">Règle d'humilité</span>Le marché n'a aucune obligation de continuer à payer. Quand les données (100+ trades) disent que l'edge est mort, on écoute les données — pas son ego. Mais on n'abandonne jamais sur une série de pertes : la patience est elle-même un avantage que la foule n'a pas.</p></div>
+</section>
+
+<!-- ============ PARCOURS ============ -->
+<section class="page" id="parcours">
+  <div class="eyebrow">La feuille de route</div>
+  <h2 class="ttl">Du challenge au compte financé durable</h2>
+  <p class="lead">Trois phases, dans l'ordre. On ne saute jamais une étape. Le but n'est pas d'aller vite : c'est de ne jamais exploser.</p>
+
+  <div class="flow">
+    <div class="fstep"><div class="fdot">0</div><div class="fbody"><b>Phase 0 — Démo (2 à 4 semaines)</b><p>Exécute <strong>20 à 30 trades en démo</strong> sur MGC, en suivant les 5 règles à la lettre. Objectif : <strong>&gt;90 % de « règles suivies »</strong> dans ton journal — PAS le profit. Vérifie que tes coûts réels (spread + commission) collent à l'hypothèse. Tu ne passes en réel que quand l'exécution est mécanique.</p></div></div>
+    <div class="fstep"><div class="fdot">1</div><div class="fbody"><b>Phase 1 — Le challenge</b><p>Note d'abord <strong>tes 3 chiffres exacts</strong> (sur ton contrat) : objectif de profit, perte max (trailing DD), et l'éventuelle règle de constance. Traduis-les en R. Puis vise <strong>+0,5 à +1 R par jour en moyenne</strong>, sans jamais courir après l'objectif. Taille fixe, coupe-circuits actifs. Le challenge se passe en semaines, pas en jours.</p></div></div>
+    <div class="fstep"><div class="fdot">2</div><div class="fbody"><b>Phase 2 — Le compte financé</b><p>1er mois : <strong>1 R réduit de 30 %</strong> pour prouver ta régularité sans risque. Prends des <strong>retraits réguliers</strong> (ne laisse pas le profit gonfler ton ego ni ta taille). Ensuite : exactement la même chose, indéfiniment. La performance vient de la répétition, pas de l'intensité.</p></div></div>
+  </div>
+
+  <h3><span class="num">▣</span> Traduire ton challenge en R (exemple)</h3>
+  <p>Remplace par les chiffres exacts de <strong>ton</strong> plan. Exemple avec un compte où 1 R = 100 $ :</p>
+  <table class="tbl">
+    <tr><th>Ta règle prop firm</th><th>Exemple</th><th>En R</th><th>Ce que ça veut dire</th></tr>
+    <tr><td>Objectif de profit</td><td class="mono">+4 000 $</td><td class="mono tg">+40 R</td><td>~5 mois au rythme moyen (+8 R/mois). Ne force pas.</td></tr>
+    <tr><td>Perte max (trailing DD)</td><td class="mono">2 500 $</td><td class="mono tr">25 R</td><td>Ton drawdown historique (−33 R) DOIT rester bloqué par les coupe-circuits.</td></tr>
+    <tr><td>Limite journalière</td><td class="mono">1 000 $</td><td class="mono">10 R</td><td>Ton stop −3 R reste très en-dessous. ✔</td></tr>
+  </table>
+  <div class="note warn"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="#E15554" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4M12 16.5h.01" stroke="#E15554" stroke-width="1.8" stroke-linecap="round"/></svg><p><span class="nt">Le piège mortel du challenge</span>Vouloir finir vite en augmentant la taille. C'est comme ça que 90 % échouent. Ton objectif quotidien n'est pas un montant — c'est <strong>« ai-je suivi mes règles ? »</strong>. Le profit est une conséquence, jamais une cible.</p></div>
+</section>
+
+<!-- ============ ERREURS ============ -->
+<section class="page" id="erreurs">
+  <div class="eyebrow">Ce qui tue les comptes</div>
+  <h2 class="ttl">Les erreurs qui explosent un compte</h2>
+  <p class="lead">Presque personne n'échoue à cause de mauvais setups. On échoue à cause de ces erreurs. Bonne nouvelle : le système en bloque chacune <em>mécaniquement</em>, si tu le respectes.</p>
+  <table class="tbl">
+    <tr><th>L'erreur</th><th>Pourquoi c'est fatal</th><th>Comment le système la bloque</th></tr>
+    <tr><td>Taille trop grosse</td><td>Une série de pertes normale (−33 R) explose le compte</td><td class="tg">1 R = perte max × 0,5 ÷ 12 (taille minuscule, formule fixe)</td></tr>
+    <tr><td>Revenge trading</td><td>Après une perte, on double pour « se refaire » → spirale</td><td class="tg">Stop −3 R/jour → plateforme fermée physiquement</td></tr>
+    <tr><td>Couper les gagnants</td><td>Sortir à +1 R détruit le ratio 2,2:1 = tout l'avantage</td><td class="tg">Aucune sortie manuelle : seul le trailing décide</td></tr>
+    <tr><td>Élargir le stop</td><td>« Ça va revenir » → une perte contrôlée devient énorme</td><td class="tg">Bracket automatique, stop posé à l'entrée, interdit de le reculer</td></tr>
+    <tr><td>Sur-trader</td><td>Trop de trades = fatigue = erreurs = frais qui grignotent</td><td class="tg">Max 3 trades/jour, fenêtre 14h-17h, puis écran fermé</td></tr>
+    <tr><td>Trader sur les news</td><td>Spread énorme + mouvement violent imprévisible</td><td class="tg">No-trade ±15 min autour des événements rouges USD</td></tr>
+    <tr><td>Trader contre la tendance</td><td>On se bat contre le courant = pertes en série</td><td class="tg">Filtre EMA 200 : jamais dans le sens inverse</td></tr>
+    <tr><td>Entrer sur une mèche</td><td>Fausse cassure → stop touché immédiatement</td><td class="tg">On attend la CLÔTURE de la bougie, jamais la mèche</td></tr>
+    <tr><td>Augmenter la taille après un gain</td><td>Sur-confiance → un gros trade annule des semaines</td><td class="tg">1 R ne change jamais, quel que soit le résultat</td></tr>
+    <tr><td>Garder une position la nuit</td><td>Gap d'ouverture = perte incontrôlable</td><td class="tg">Clôture forcée à 20h, aucune position overnight</td></tr>
+    <tr><td>Trader fatigué / énervé</td><td>Décisions émotionnelles = rupture des règles</td><td class="tg">Score d'état /10 &lt; 6 → no-trade</td></tr>
+  </table>
+  <div class="note key"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" stroke="#D4AF37" stroke-width="1.5"/></svg><p><span class="nt">La seule chose à retenir</span>Tu n'as pas besoin d'être parfait. Tu as besoin de <strong>ne pas faire ces 11 erreurs</strong>. Le système est conçu pour te les rendre impossibles — à condition que tu ne le contournes pas « juste cette fois ». Le « juste cette fois » est l'ennemi n°1.</p></div>
 </section>
 
 <!-- ============ GLOSSAIRE ============ -->
