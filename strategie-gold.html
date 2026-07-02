@@ -184,6 +184,7 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   <div class="navgrp"><div class="navgrp-t">La stratégie</div><div class="nav">
     <a data-go="strategie"><span class="ix">★</span> La stratégie en 5 règles</a>
     <a data-go="journee"><span class="ix">☀</span> Une journée type A→Z</a>
+    <a data-go="exemples"><span class="ix">◫</span> Exemples de trades réels</a>
     <a data-go="timeframes"><span class="ix">≡</span> Hiérarchie des TF</a>
     <a data-go="regimes"><span class="ix">◳</span> Régimes de marché</a>
     <a data-go="intermarches"><span class="ix">⇄</span> Intermarchés</a>
@@ -486,36 +487,24 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   <h2 class="ttl">Les 15 fondations</h2>
   <p class="lead">Chaque fondation est une contrainte. Si un élément de la stratégie viole une fondation, c'est l'élément qui est faux. Tout le système en découle.</p>
 
-  <h3><span class="num">1</span> Contraintes retail — point zéro</h3>
-  <p>Capital prop firm : <strong>trailing drawdown</strong>, limite journalière, pression d'évaluation. Exécution imparfaite : spreads variables, slippage, dépendance broker. Humain seul, fatigable. <strong>La stratégie a été choisie justement parce qu'elle survit à ça</strong> (peu de trades, gros R, coupe-circuits).</p>
-  <h3><span class="num">2</span> Nature observable du Gold</h3>
-  <p>On n'utilise que du <strong>visible</strong> : prix, moyenne mobile, plus-hauts/plus-bas, ATR (taille des bougies), heure. Zéro hypothèse sur l'invisible institutionnel. Tout est mesurable sur le graphique.</p>
-  <h3><span class="num">3</span> Macro accessible</h3>
-  <p>Calendrier économique public. On ne trade pas dans les <code>±2 min</code> autour d'une donnée à fort impact. La tendance qui survit à une news est une tendance confirmée → la stratégie en profite naturellement après digestion.</p>
-  <h3><span class="num">4</span> Relations intermarchés visibles</h3>
-  <p>DXY comme filtre de bon sens (détail en section Intermarchés). Le filtre EMA 200 capture déjà l'essentiel de l'information macro de façon mécanique.</p>
-  <h3><span class="num">5</span> Temporalité humaine réelle</h3>
-  <p>Fenêtre d'entrée <strong>14h-17h Paris</strong> (Londres/NY). Entrées concentrées sur 3h, exits gérés par trailing automatique. Compatible avec 2-3h/jour sans dégradation.</p>
-  <h3><span class="num">6</span> Microstructure version retail</h3>
-  <p>« Cassure du plus-haut récent » et « ATR » = comportements de prix visibles. Aucune donnée Level-2/3 inexistante pour le retail.</p>
-  <h3><span class="num">7</span> Régimes de marché observables</h3>
-  <p>Le filtre EMA 200 sépare déjà tendance vs absence de tendance. Section Régimes : quand le marché est plat/chaotique, la stratégie prend mécaniquement moins de trades.</p>
-  <h3><span class="num">8</span> Réalité prop firm</h3>
-  <p>Impossible d'absorber 18 pertes d'affilée à grosse taille. D'où risque/trade minuscule + stop jour −3 R + stop semaine −6 R. <strong>Survivable d'abord, rentable ensuite.</strong></p>
-  <h3><span class="num">9</span> Facteur humain</h3>
-  <p><strong>5 règles, 0 jugement.</strong> Une stratégie simple exécutée parfaitement bat une stratégie géniale exécutée nerveusement. Protocole anti-biais mécanique en section Psycho.</p>
-  <h3><span class="num">10</span> Mesurabilité personnelle</h3>
-  <p>Chaque trade est enregistrable (section Journal) avec des champs exacts. Le système se mesure et s'améliore seul.</p>
-  <h3><span class="num">11</span> Validation réaliste</h3>
-  <p>Testé sur <strong>8 026 trades / 21 ans</strong>, hors échantillon + dataset indépendant. Minimum 30 occurrences avant toute conclusion : ici on en a des milliers.</p>
-  <h3><span class="num">12</span> Environnement d'exécution humain</h3>
-  <p>Spécifique Tradovate/MGC : ordre bracket avec stop + trailing, hotkey « flatten ». Routine pré/post détaillée en section Routine.</p>
-  <h3><span class="num">13</span> Gestion du risque retail</h3>
-  <p>Tout chiffré : % par trade, formule de taille MGC, coupe-circuits, protocole de récupération. La discipline remplace le capital d'un fonds.</p>
-  <h3><span class="num">14</span> Adaptation continue</h3>
-  <p>Protocole pour détecter la dégradation (Profit Factor sur fenêtre glissante) et réagir sans émotion. La stratégie n'est jamais une vérité éternelle.</p>
-  <h3><span class="num">15</span> Méta-réalité retail</h3>
-  <p>Conçue pour un cerveau humain, seul, avec une exécution imparfaite. But final : <strong>robustesse personnelle et durable</strong>, pas la perfection théorique.</p>
+  <table class="tbl">
+    <tr><th>#</th><th>Fondation</th><th>En une phrase</th></tr>
+    <tr><td class="mono">1</td><td><b>Contraintes retail</b></td><td>Trailing DD, slippage, trader seul : la stratégie est bâtie pour y <strong>survivre</strong>.</td></tr>
+    <tr><td class="mono">2</td><td><b>Gold observable</b></td><td>On ne trade que le visible (prix, EMA, ATR, heure). Zéro « smart money ».</td></tr>
+    <tr><td class="mono">3</td><td><b>Macro accessible</b></td><td>Pas de trade autour des news ; on profite de la tendance après digestion.</td></tr>
+    <tr><td class="mono">4</td><td><b>Intermarchés</b></td><td>DXY = filtre de bon sens ; l'EMA 200 capte déjà l'essentiel de la macro.</td></tr>
+    <tr><td class="mono">5</td><td><b>Temps humain</b></td><td>Fenêtre 14h-17h, exits automatiques : tient dans 2-3h/jour.</td></tr>
+    <tr><td class="mono">6</td><td><b>Microstructure retail</b></td><td>Cassure + ATR = prix visible. Aucune donnée Level-2/3 requise.</td></tr>
+    <tr><td class="mono">7</td><td><b>Régimes</b></td><td>L'EMA 200 filtre tendance vs plat ; moins de trades quand c'est plat.</td></tr>
+    <tr><td class="mono">8</td><td><b>Réalité prop firm</b></td><td>Risque minuscule + stop −3 R/jour, −6 R/semaine. Survivable d'abord.</td></tr>
+    <tr><td class="mono">9</td><td><b>Facteur humain</b></td><td>5 règles, 0 jugement. Simple et exécuté bat génial et nerveux.</td></tr>
+    <tr><td class="mono">10</td><td><b>Mesurable</b></td><td>Chaque trade se journalise ; le système se mesure et s'améliore seul.</td></tr>
+    <tr><td class="mono">11</td><td><b>Validé</b></td><td>8 026 trades / 21 ans, hors échantillon + dataset indépendant.</td></tr>
+    <tr><td class="mono">12</td><td><b>Exécution</b></td><td>Bracket + trailing + bouton « tout fermer ». Routine pré/post.</td></tr>
+    <tr><td class="mono">13</td><td><b>Risque chiffré</b></td><td>% fixe, formule de taille, coupe-circuits, protocole de récupération.</td></tr>
+    <tr><td class="mono">14</td><td><b>Adaptation</b></td><td>On détecte la dégradation (PF glissant) et on réagit sans émotion.</td></tr>
+    <tr><td class="mono">15</td><td><b>Méta-réalité</b></td><td>Faite pour un humain seul et imparfait : robustesse durable, pas perfection.</td></tr>
+  </table>
 </section>
 
 <!-- ============ STRATEGIE ============ -->
@@ -718,6 +707,72 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   </div>
 
   <div class="note key"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" stroke="#D4AF37" stroke-width="1.5"/></svg><p><span class="nt">Le cas le plus fréquent : 0 trade</span>Beaucoup de jours, aucune cassure valable n'arrive dans ta fenêtre. <strong>Tu fermes l'écran sans avoir tradé, et c'est une journée parfaite.</strong> Ne force jamais un trade pour « avoir tradé ». La patience fait partie de l'avantage.</p></div>
+</section>
+
+<!-- ============ EXEMPLES ============ -->
+<section class="page" id="exemples">
+  <div class="eyebrow">Ça donne quoi en vrai</div>
+  <h2 class="ttl">Exemples de trades réels</h2>
+  <p class="lead">Trois vrais trades tirés du backtest 21 ans (dates et prix <strong>réels</strong>), pour voir la mécanique. Le schéma montre la forme du trade ; les chiffres sont exacts.</p>
+
+  <h3><span class="num">1</span> Un gagnant qui court — <span style="color:var(--green)">+5,1 R</span></h3>
+  <figure>
+    <svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <line x1="40" y1="50" x2="690" y2="50" stroke="#9AA4B2" stroke-dasharray="4 3"/>
+      <text x="44" y="44" fill="#9AA4B2" font-size="9">plus-bas des 16 bougies (cassé vers le bas)</text>
+      <polyline points="60,60 130,55 180,70 240,80 320,72 400,100 480,110 560,128 640,138" fill="none" stroke="#E15554" stroke-width="2"/>
+      <circle cx="180" cy="70" r="5" fill="#E15554"/><text x="188" y="66" fill="#E15554" font-size="9" font-weight="bold">VENTE 1253,4</text>
+      <polyline points="180,44 240,44 320,60 400,74 480,90 560,108 640,118" fill="none" stroke="#E0A93B" stroke-width="1.4" stroke-dasharray="5 3"/>
+      <text x="330" y="52" fill="#E0A93B" font-size="9">le stop suiveur descend derrière le prix</text>
+      <circle cx="640" cy="120" r="6" fill="none" stroke="#3FB68B" stroke-width="2.5"/>
+      <text x="520" y="150" fill="#3FB68B" font-size="10" font-weight="bold">SORTIE 1240,2 → +5,1 R</text>
+    </svg>
+    <figcaption><b>11/11/2016 · Vente · Entrée 1253,4 → Sortie 1240,2 · +5,09 R.</b> Tendance baissière, cassure du plus-bas, le trailing a laissé courir 13 points. <strong>Un seul trade comme ça paie ~5 perdants.</strong></figcaption>
+  </figure>
+
+  <h3><span class="num">2</span> Un gagnant normal — <span style="color:var(--green)">+1,6 R</span></h3>
+  <figure>
+    <svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <line x1="40" y1="95" x2="690" y2="95" stroke="#9AA4B2" stroke-dasharray="4 3"/>
+      <polyline points="60,100 140,96 200,90 280,70 360,66 440,52 520,60 600,44 660,40" fill="none" stroke="#3FB68B" stroke-width="2"/>
+      <circle cx="200" cy="90" r="5" fill="#3FB68B"/><text x="150" y="84" fill="#3FB68B" font-size="9" font-weight="bold">ACHAT 662,7</text>
+      <circle cx="600" cy="44" r="6" fill="none" stroke="#3FB68B" stroke-width="2.5"/>
+      <text x="500" y="34" fill="#3FB68B" font-size="10" font-weight="bold">SORTIE 665,9 → +1,6 R</text>
+    </svg>
+    <figcaption><b>23/05/2006 · Achat · 662,7 → 665,9 · +1,62 R.</b> Le cas le plus fréquent quand on gagne : un mouvement modeste, +1 à +2 R. Rien d'héroïque, et c'est très bien.</figcaption>
+  </figure>
+
+  <h3><span class="num">3</span> Un perdant coupé net — <span style="color:var(--red)">−1,0 R</span></h3>
+  <figure>
+    <svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <line x1="40" y1="70" x2="690" y2="70" stroke="#9AA4B2" stroke-dasharray="4 3"/>
+      <line x1="40" y1="40" x2="690" y2="40" stroke="#E15554" stroke-dasharray="4 3"/>
+      <text x="500" y="34" fill="#E15554" font-size="9">stop (1 × ATR au-dessus)</text>
+      <polyline points="60,72 140,74 200,66 280,58 360,50 430,42" fill="none" stroke="#E15554" stroke-width="2"/>
+      <circle cx="140" cy="74" r="5" fill="#E15554"/><text x="150" y="90" fill="#E15554" font-size="9" font-weight="bold">VENTE 867,2</text>
+      <circle cx="430" cy="42" r="6" fill="none" stroke="#E15554" stroke-width="2.5"/>
+      <text x="440" y="58" fill="#E15554" font-size="10" font-weight="bold">STOP touché 869,5 → −1,0 R</text>
+    </svg>
+    <figcaption><b>06/04/2009 · Vente · 867,2 → 869,5 · −1,0 R.</b> La cassure a échoué, le prix est reparti contre. Stop touché, perte limitée à 1 R, on passe au suivant sans émotion. <strong>6 fois sur 10 ça finit comme ça — c'est normal et prévu.</strong></figcaption>
+  </figure>
+
+  <h3><span class="num">4</span> Le faux signal / jour sans trade — <span style="color:var(--wd)">0 R</span></h3>
+  <figure>
+    <svg viewBox="0 0 720 150" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+      <line x1="40" y1="70" x2="690" y2="70" stroke="#9AA4B2" stroke-dasharray="4 3"/>
+      <text x="44" y="64" fill="#9AA4B2" font-size="9">niveau</text>
+      <g stroke="#C4CBD4"><line x1="180" y1="80" x2="180" y2="110"/><line x1="260" y1="78" x2="260" y2="108"/></g>
+      <rect x="173" y="88" width="14" height="18" fill="#9AA4B2"/><rect x="253" y="86" width="14" height="18" fill="#9AA4B2"/>
+      <line x1="360" y1="40" x2="360" y2="95" stroke="#E15554"/>
+      <rect x="352" y="74" width="16" height="18" fill="#E15554"/>
+      <text x="376" y="52" fill="#E15554" font-size="9">la mèche dépasse…</text>
+      <text x="376" y="90" fill="#E15554" font-size="9">…mais clôture EN-DESSOUS</text>
+      <text x="40" y="135" fill="#9AA4B2" font-size="10">Pas de clôture valable au-dessus → on n'entre PAS → résultat 0.</text>
+    </svg>
+    <figcaption>Beaucoup de journées finissent ainsi : une mèche taquine le niveau mais la bougie referme dessous. Aucun trade, aucune perte. <strong>C'est une journée parfaitement réussie.</strong></figcaption>
+  </figure>
+
+  <div class="note info"><svg class="ni" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B8DEF" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="#5B8DEF" stroke-width="2" stroke-linecap="round"/></svg><p><span class="nt">Honnêteté</span>Trades 1-3 = vrais, extraits du backtest 21 ans (dates et prix exacts) ; le schéma est une représentation simplifiée. Le backtest n'inclut pas le filtre news : en réel, tu écartes <strong>en plus</strong> les setups collés à un événement rouge (CPI/NFP/FOMC).</p></div>
 </section>
 
 <!-- ============ TIMEFRAMES ============ -->
