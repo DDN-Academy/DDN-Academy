@@ -4,152 +4,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Protocole Gold — La Tendance Porteuse (MGC / FundedNext)</title>
+<title>Protocole Gold · La Tendance Porteuse — Système complet & outils de session</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A0E14;--bg2:#0F141C;--bg3:#141B26;--card:#121A26;
-  --g:#D4AF37;--gl:#F0D97A;--gd:rgba(212,175,55,.10);
-  --w:#E8EAED;--wd:#9AA4B2;--wd2:#5A6575;
-  --line:rgba(212,175,55,.16);--line2:rgba(255,255,255,.06);
-  --green:#3FB68B;--red:#E15554;--blue:#5B8DEF;--amber:#E0A93B;
-  --mono:'SF Mono',ui-monospace,'Cascadia Code','Roboto Mono',Consolas,monospace;
+  --bg:#07090D;--bg2:#0C0F15;--bg3:#12161F;--card:#0E121A;--card2:#141926;
+  --g:#D9B45B;--gl:#F2DA9C;--gd:rgba(217,180,91,.10);--gd2:rgba(217,180,91,.05);
+  --w:#EDEFF3;--wd:#98A2B3;--wd2:#5B6472;
+  --line:rgba(217,180,91,.18);--line2:rgba(255,255,255,.065);
+  --green:#34C08F;--red:#E8595A;--blue:#6B97F2;--amber:#E3A93E;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,Consolas,monospace;
+  --sh:0 18px 50px rgba(0,0,0,.45);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--w);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:15px}
+body{font-family:var(--sans);background:var(--bg);color:var(--w);line-height:1.65;-webkit-font-smoothing:antialiased;font-size:15.5px}
+::selection{background:rgba(217,180,91,.25)}
 ::-webkit-scrollbar{width:9px;height:9px}
 ::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:5px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb{background:#1a2030;border-radius:5px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:#242c40}
 
-/* LOGIN */
-#gate{position:fixed;inset:0;z-index:1000;background:
-  radial-gradient(ellipse 80% 60% at 50% -10%,rgba(212,175,55,.10),transparent 60%),
-  radial-gradient(ellipse 60% 50% at 50% 110%,rgba(91,141,239,.06),transparent 60%),var(--bg);
-  display:flex;align-items:center;justify-content:center;padding:24px}
-.gbox{width:100%;max-width:400px;text-align:center;animation:rise .8s cubic-bezier(.2,.8,.2,1)}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.gmark{width:60px;height:60px;margin:0 auto 26px;border-radius:14px;background:linear-gradient(140deg,var(--g),#B8902E);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(212,175,55,.25)}
-.gmark svg{width:32px;height:32px}
-.gbox h1{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:10px}
-.gbox p{color:var(--wd);font-size:13px;margin-bottom:30px;letter-spacing:.3px}
-.ginput input{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:15px 16px;color:var(--w);font-size:15px;letter-spacing:1px;text-align:center;transition:.25s;outline:none;font-family:var(--mono);margin-bottom:14px}
-.ginput input:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--gd)}
-.gbtn{width:100%;background:linear-gradient(135deg,var(--g),#C49B2C);color:#0A0E14;border:none;border-radius:10px;padding:15px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.25s}
-.gbtn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,175,55,.3)}
+/* ================= LOGIN ================= */
+#gate{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background:
+  radial-gradient(ellipse 90% 55% at 50% -12%,rgba(217,180,91,.13),transparent 62%),
+  radial-gradient(ellipse 55% 45% at 50% 112%,rgba(107,151,242,.07),transparent 60%),var(--bg)}
+#gate::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.028) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent)}
+.gbox{width:100%;max-width:410px;text-align:center;animation:rise .9s cubic-bezier(.2,.8,.2,1);position:relative;z-index:2}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.gmark{width:64px;height:64px;margin:0 auto 26px;border-radius:17px;background:linear-gradient(140deg,var(--gl),var(--g) 45%,#9C7A2E);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 48px rgba(217,180,91,.28),inset 0 1px 0 rgba(255,255,255,.35)}
+.gmark svg{width:34px;height:34px}
+.gbox h1{font-family:var(--serif);font-size:26px;letter-spacing:.5px;color:var(--w);font-weight:600;margin-bottom:6px}
+.gbox h1 em{font-style:italic;color:var(--gl)}
+.gbox p{color:var(--wd);font-size:13px;margin-bottom:30px;letter-spacing:.4px}
+.ginput input{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px;color:var(--w);font-size:15px;letter-spacing:1px;text-align:center;transition:.25s;outline:none;font-family:var(--mono);margin-bottom:14px}
+.ginput input:focus{border-color:var(--g);box-shadow:0 0 0 4px var(--gd)}
+.gbtn{width:100%;background:linear-gradient(135deg,var(--gl),var(--g) 55%,#B8923C);color:#0B0D10;border:none;border-radius:12px;padding:16px;font-size:13.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.25s;font-family:var(--sans)}
+.gbtn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(217,180,91,.32)}
+.gbtn:active{transform:none}
 .gerr{color:var(--red);font-size:12.5px;margin-top:14px;min-height:18px;opacity:0;transition:.2s}
 .gerr.show{opacity:1}
-.gfoot{margin-top:30px;font-size:11px;color:var(--wd2);line-height:1.7}
+.gfoot{margin-top:32px;font-size:11px;color:var(--wd2);line-height:1.8;letter-spacing:.3px}
 .shake{animation:shk .4s}
 @keyframes shk{0%,100%{transform:none}20%,60%{transform:translateX(-9px)}40%,80%{transform:translateX(9px)}}
 
+/* ================= SHELL ================= */
 #app{display:none}#app.on{display:block}
 .shell{display:flex;min-height:100vh}
-aside{position:fixed;top:0;left:0;bottom:0;width:268px;background:var(--bg2);border-right:1px solid var(--line2);overflow-y:auto;z-index:50;padding:0 0 40px}
-.brand{display:flex;align-items:center;gap:12px;padding:22px 22px 20px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:2}
-.bmark{width:38px;height:38px;border-radius:10px;background:linear-gradient(140deg,var(--g),#B8902E);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.bmark svg{width:21px;height:21px}
-.btext b{display:block;font-size:14px;letter-spacing:1px}
-.btext span{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-top:2px}
-.navgrp{padding:18px 14px 4px}
-.navgrp-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--wd2);padding:0 10px 8px;font-weight:600}
-.nav a{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:8px;color:var(--wd);text-decoration:none;font-size:13.5px;transition:.18s;cursor:pointer;line-height:1.3}
-.nav a .ix{width:18px;flex-shrink:0;opacity:.7;text-align:center}
+aside{position:fixed;top:0;left:0;bottom:0;width:278px;background:linear-gradient(180deg,var(--bg2),#0A0D13);border-right:1px solid var(--line2);overflow-y:auto;z-index:50;padding:0 0 48px}
+.brand{display:flex;align-items:center;gap:13px;padding:24px 22px 20px;border-bottom:1px solid var(--line2);position:sticky;top:0;background:var(--bg2);z-index:2}
+.bmark{width:40px;height:40px;border-radius:11px;background:linear-gradient(140deg,var(--gl),var(--g) 50%,#9C7A2E);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.bmark svg{width:22px;height:22px}
+.btext b{display:block;font-family:var(--serif);font-size:16px;letter-spacing:.4px;font-weight:600}
+.btext span{display:block;font-size:9.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--g);margin-top:2px;font-weight:600}
+.navgrp{padding:20px 14px 2px}
+.navgrp-t{font-size:9.5px;letter-spacing:2.6px;text-transform:uppercase;color:var(--wd2);padding:0 12px 9px;font-weight:700}
+.nav a{display:flex;align-items:center;gap:11px;padding:8.5px 12px;border-radius:9px;color:var(--wd);text-decoration:none;font-size:13.5px;font-weight:500;transition:.18s;cursor:pointer;line-height:1.3}
+.nav a .ix{width:19px;flex-shrink:0;opacity:.6;text-align:center;font-size:12px}
 .nav a:hover{background:var(--bg3);color:var(--w)}
-.nav a.active{background:var(--gd);color:var(--gl);box-shadow:inset 2px 0 0 var(--g)}
+.nav a.active{background:linear-gradient(90deg,var(--gd),transparent);color:var(--gl);box-shadow:inset 2.5px 0 0 var(--g)}
 .nav a.active .ix{opacity:1}
-main{margin-left:268px;flex:1;min-width:0}
-.topbar{position:sticky;top:0;z-index:40;background:rgba(10,14,20,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line2);padding:13px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.crumb{font-size:12px;color:var(--wd)}.crumb b{color:var(--g)}
+main{margin-left:278px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(7,9,13,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line2);padding:13px 42px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.crumb{font-size:12px;color:var(--wd);letter-spacing:.4px}
+.crumb b{color:var(--g);font-weight:600}
 .tb-right{display:flex;align-items:center;gap:16px}
-.clock{font-family:var(--mono);font-size:12.5px;color:var(--wd)}
-.logout{background:none;border:1px solid var(--line2);color:var(--wd);padding:7px 14px;border-radius:7px;font-size:12px;cursor:pointer;transition:.2s}
+.clock{font-family:var(--mono);font-size:12px;color:var(--wd)}
+.logout{background:none;border:1px solid var(--line2);color:var(--wd);padding:7px 15px;border-radius:8px;font-size:12px;cursor:pointer;transition:.2s;font-family:var(--sans)}
 .logout:hover{border-color:var(--red);color:var(--red)}
 .hamb{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:4px;padding:4px}
 .hamb span{width:22px;height:2px;background:var(--w);border-radius:2px}
-.wrap{max-width:1000px;margin:0 auto;padding:46px 40px 120px}
-section.page{display:none;animation:fade .4s}section.page.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:16px}
-.eyebrow::before{content:'';width:24px;height:1px;background:var(--g)}
-h2.ttl{font-size:30px;font-weight:700;letter-spacing:-.5px;line-height:1.15;margin-bottom:14px}
-.lead{font-size:16px;color:var(--wd);max-width:760px;margin-bottom:6px}
-h3{font-size:19px;font-weight:650;margin:38px 0 14px;display:flex;align-items:center;gap:10px}
-h3 .num{width:26px;height:26px;border-radius:7px;background:var(--gd);color:var(--g);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;font-family:var(--mono)}
-h4{font-size:15px;font-weight:650;margin:24px 0 10px}
-p{margin-bottom:13px;color:#C4CBD4}
+.wrap{max-width:1020px;margin:0 auto;padding:52px 44px 130px}
+section.page{display:none;animation:fade .45s}section.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:45}.scrim.on{display:block}
+
+/* ================= TYPO ================= */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--g);font-weight:700;margin-bottom:16px}
+.eyebrow::before{content:'';width:26px;height:1px;background:linear-gradient(90deg,var(--g),transparent)}
+h2.ttl{font-family:var(--serif);font-size:34px;font-weight:600;letter-spacing:-.3px;line-height:1.12;margin-bottom:15px}
+.lead{font-size:16.5px;color:var(--wd);max-width:770px;margin-bottom:8px;line-height:1.7}
+h3{font-family:var(--serif);font-size:21px;font-weight:600;margin:42px 0 15px;letter-spacing:-.1px;display:flex;align-items:center;gap:11px}
+h3 .num{width:27px;height:27px;border-radius:8px;background:var(--gd);border:1px solid var(--line);color:var(--g);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;font-family:var(--mono)}
+h4{font-size:15px;font-weight:650;margin:24px 0 10px;font-family:var(--sans)}
+p{margin-bottom:13px;color:#C6CCD6}
 ul,ol{margin:0 0 14px;padding-left:4px;list-style:none}
-li{position:relative;padding-left:22px;margin-bottom:8px;color:#C4CBD4}
-li::before{content:'';position:absolute;left:4px;top:9px;width:6px;height:6px;border-radius:2px;background:var(--g);transform:rotate(45deg)}
+li{position:relative;padding-left:23px;margin-bottom:8px;color:#C6CCD6}
+li::before{content:'';position:absolute;left:4px;top:9.5px;width:6px;height:6px;border-radius:2px;background:var(--g);transform:rotate(45deg)}
 ol{counter-reset:o}ol>li{padding-left:30px}
 ol>li::before{counter-increment:o;content:counter(o);background:none;width:auto;height:auto;top:0;left:2px;color:var(--g);font-family:var(--mono);font-size:12px;font-weight:700;transform:none;border-radius:0}
 strong,b{color:var(--w);font-weight:650}
-code{font-family:var(--mono);background:var(--bg3);padding:2px 7px;border-radius:5px;font-size:.86em;color:var(--gl);border:1px solid var(--line2)}
-mark{background:var(--gd);color:var(--gl);padding:1px 5px;border-radius:4px;font-weight:600}
-.card{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:24px;margin:18px 0}
-.card.gold{border-color:var(--line);background:linear-gradient(180deg,rgba(212,175,55,.05),transparent)}
+code{font-family:var(--mono);background:var(--bg3);padding:2px 7px;border-radius:6px;font-size:.84em;color:var(--gl);border:1px solid var(--line2)}
+mark{background:var(--gd);color:var(--gl);padding:1px 6px;border-radius:5px;font-weight:600}
+.divider{height:1px;background:var(--line2);margin:44px 0}
+.subh{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--g);font-weight:700;margin:32px 0 6px}
+
+/* ================= COMPONENTS ================= */
+.card{background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:26px;margin:18px 0}
+.card.gold{border-color:var(--line);background:linear-gradient(180deg,var(--gd2),transparent 55%),var(--card)}
 .grid{display:grid;gap:16px}
 .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-@media(max-width:880px){.g2,.g3,.g4{grid-template-columns:1fr}}
-.stat{background:var(--bg2);border:1px solid var(--line2);border-radius:12px;padding:18px}
-.stat .k{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--wd2);margin-bottom:8px}
-.stat .v{font-size:24px;font-weight:700;color:var(--g);font-family:var(--mono);letter-spacing:-.5px}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.stat{background:var(--bg2);border:1px solid var(--line2);border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(217,180,91,.35),transparent)}
+.stat .k{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--wd2);margin-bottom:9px;font-weight:600}
+.stat .v{font-size:25px;font-weight:700;color:var(--g);font-family:var(--mono);letter-spacing:-.5px}
 .stat .v.green{color:var(--green)}.stat .v.red{color:var(--red)}
-.stat .s{font-size:11.5px;color:var(--wd);margin-top:4px}
-.note{border-radius:12px;padding:16px 18px;margin:18px 0;border:1px solid;display:flex;gap:13px;align-items:flex-start}
-.note .ni{flex-shrink:0;width:20px;height:20px;margin-top:1px}
+.stat .s{font-size:11.5px;color:var(--wd);margin-top:5px}
+.note{border-radius:14px;padding:17px 19px;margin:18px 0;border:1px solid;display:flex;gap:14px;align-items:flex-start}
+.note .ni{flex-shrink:0;width:20px;height:20px;margin-top:2px}
 .note p{margin:0;font-size:14px}
-.note .nt{font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;display:block}
-.note.do{background:rgba(63,182,139,.07);border-color:rgba(63,182,139,.3)}.note.do .nt{color:var(--green)}
-.note.warn{background:rgba(225,85,84,.07);border-color:rgba(225,85,84,.3)}.note.warn .nt{color:var(--red)}
-.note.info{background:rgba(91,141,239,.07);border-color:rgba(91,141,239,.3)}.note.info .nt{color:var(--blue)}
-.note.key{background:var(--gd);border-color:var(--line)}.note.key .nt{color:var(--g)}
-.tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;border-radius:12px;overflow:hidden;border:1px solid var(--line2)}
-.tbl th{background:var(--bg2);text-align:left;padding:12px 14px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--g);font-weight:600;border-bottom:1px solid var(--line)}
-.tbl td{padding:11px 14px;border-bottom:1px solid var(--line2);color:#C4CBD4;vertical-align:top}
+.note .nt{font-weight:700;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:6px;display:block}
+.note.do{background:rgba(52,192,143,.06);border-color:rgba(52,192,143,.28)}.note.do .nt{color:var(--green)}
+.note.warn{background:rgba(232,89,90,.06);border-color:rgba(232,89,90,.28)}.note.warn .nt{color:var(--red)}
+.note.info{background:rgba(107,151,242,.06);border-color:rgba(107,151,242,.28)}.note.info .nt{color:var(--blue)}
+.note.key{background:var(--gd2);border-color:var(--line)}.note.key .nt{color:var(--g)}
+.tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px;border-radius:14px;overflow:hidden;border:1px solid var(--line2)}
+.tbl th{background:var(--bg2);text-align:left;padding:12px 15px;font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--g);font-weight:700;border-bottom:1px solid var(--line)}
+.tbl td{padding:11px 15px;border-bottom:1px solid var(--line2);color:#C6CCD6;vertical-align:top}
 .tbl tr:last-child td{border-bottom:none}
-.tbl td.mono,.tbl .mono{font-family:var(--mono);color:var(--gl)}
+.tbl tr:hover td{background:rgba(255,255,255,.015)}
+.tbl td.mono,.tbl .mono{font-family:var(--mono);color:var(--gl);font-size:12.5px}
 .tbl .tg{color:var(--green);font-weight:600}.tbl .tr{color:var(--red);font-weight:600}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:600}
-.pill.p1{background:rgba(225,85,84,.12);color:var(--red)}.pill.p2{background:rgba(224,169,59,.12);color:var(--amber)}
-.pill.p3{background:rgba(63,182,139,.12);color:var(--green)}.pill.pb{background:rgba(91,141,239,.12);color:var(--blue)}.pill.pg{background:var(--gd);color:var(--g)}
-figure{margin:22px 0;background:var(--bg2);border:1px solid var(--line2);border-radius:14px;padding:22px;overflow:hidden}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.3px}
+.pill.p1{background:rgba(232,89,90,.12);color:var(--red)}.pill.p2{background:rgba(227,169,62,.12);color:var(--amber)}
+.pill.p3{background:rgba(52,192,143,.12);color:var(--green)}.pill.pb{background:rgba(107,151,242,.12);color:var(--blue)}.pill.pg{background:var(--gd);color:var(--g)}
+figure{margin:22px 0;background:var(--bg2);border:1px solid var(--line2);border-radius:16px;padding:24px;overflow:hidden}
 figure svg{width:100%;height:auto;display:block}
-figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;line-height:1.6}
-.hero{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);padding:46px 40px;margin-bottom:36px;background:radial-gradient(ellipse 70% 100% at 0% 0%,rgba(212,175,55,.10),transparent 55%),var(--bg2)}
-.hero h2{font-size:36px;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;font-weight:750}
-.hero h2 em{font-style:normal;color:var(--g)}
-.hero p{font-size:16.5px;color:var(--wd);max-width:680px}
-.herometa{display:flex;gap:30px;margin-top:28px;flex-wrap:wrap}
-.herometa div b{display:block;font-size:20px;color:var(--g);font-family:var(--mono);font-weight:700}
-.herometa div span{font-size:11px;color:var(--wd2);letter-spacing:1px;text-transform:uppercase}
+figcaption{margin-top:15px;font-size:12.5px;color:var(--wd);text-align:center;line-height:1.65}
+.hero{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);padding:50px 44px;margin-bottom:38px;background:
+  radial-gradient(ellipse 75% 110% at 0% 0%,rgba(217,180,91,.12),transparent 58%),
+  radial-gradient(ellipse 50% 80% at 100% 100%,rgba(107,151,242,.05),transparent 55%),var(--card)}
+.hero h2{font-family:var(--serif);font-size:40px;line-height:1.12;letter-spacing:-.5px;margin-bottom:18px;font-weight:600}
+.hero h2 em{font-style:italic;color:var(--gl)}
+.hero p{font-size:16.5px;color:var(--wd);max-width:700px}
+.herometa{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
+.herometa div b{display:block;font-size:22px;color:var(--g);font-family:var(--mono);font-weight:700}
+.herometa div span{font-size:10.5px;color:var(--wd2);letter-spacing:1.2px;text-transform:uppercase}
 .flow{display:flex;flex-direction:column;margin:18px 0}
-.fstep{display:flex;gap:16px;position:relative;padding-bottom:18px}
-.fstep:not(:last-child)::before{content:'';position:absolute;left:17px;top:38px;bottom:-2px;width:2px;background:var(--line)}
-.fdot{width:36px;height:36px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--mono);font-weight:700;color:var(--g);font-size:14px;z-index:1}
-.fbody{flex:1;padding-top:4px}.fbody b{display:block;margin-bottom:3px}.fbody p{margin:0;font-size:13.5px;color:var(--wd)}
-.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:14px 0;font-size:14px}
-.kv dt{color:var(--wd2);font-size:12px;letter-spacing:.5px;text-transform:uppercase;padding-top:2px}
-.kv dd{color:var(--w);font-family:var(--mono);font-size:13.5px}
-.divider{height:1px;background:var(--line2);margin:40px 0}
-.gloss{margin:16px 0;border:1px solid var(--line2);border-radius:12px;overflow:hidden}
-.gloss .gi{padding:13px 18px;border-bottom:1px solid var(--line2)}
+.fstep{display:flex;gap:17px;position:relative;padding-bottom:19px}
+.fstep:not(:last-child)::before{content:'';position:absolute;left:18px;top:40px;bottom:-2px;width:2px;background:linear-gradient(180deg,var(--line),transparent)}
+.fdot{width:38px;height:38px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--mono);font-weight:700;color:var(--g);font-size:14px;z-index:1}
+.fbody{flex:1;padding-top:5px}.fbody b{display:block;margin-bottom:3px}.fbody p{margin:0;font-size:13.5px;color:var(--wd)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:14px 0;font-size:14px}
+.kv dt{color:var(--wd2);font-size:11.5px;letter-spacing:.6px;text-transform:uppercase;padding-top:2px;font-weight:600}
+.kv dd{color:var(--w);font-family:var(--mono);font-size:13px}
+.chk{list-style:none;padding:0}.chk li{display:flex;gap:13px;padding:12px 0;border-bottom:1px solid var(--line2);align-items:flex-start}
+.chk li::before{display:none}
+.chk .cb{width:21px;height:21px;border-radius:7px;border:1.5px solid var(--g);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;color:var(--g);font-size:12px}
+.chk .cx b{display:block;margin-bottom:2px}.chk .cx span{font-size:13px;color:var(--wd)}
+.gloss{margin:16px 0;border:1px solid var(--line2);border-radius:14px;overflow:hidden}
+.gloss .gi{padding:14px 19px;border-bottom:1px solid var(--line2)}
 .gloss .gi:last-child{border-bottom:none}
-.gloss .gi:nth-child(even){background:rgba(255,255,255,.012)}
+.gloss .gi:nth-child(even){background:rgba(255,255,255,.014)}
 .gloss .gt{color:var(--gl);font-weight:650;font-size:14.5px}
 .gloss .gt em{color:var(--wd2);font-weight:400;font-style:normal;font-size:12px;font-family:var(--mono)}
-.gloss .gd{color:#C4CBD4;font-size:13.5px;margin-top:3px}
-.gloss .ga{color:var(--wd);font-size:12.5px;margin-top:4px;padding-left:14px;border-left:2px solid var(--line)}
-.subh{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);font-weight:600;margin:30px 0 4px}
-.chk{list-style:none;padding:0}.chk li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line2);align-items:flex-start}
-.chk li::before{display:none}
-.chk .cb{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--g);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;color:var(--g);font-size:12px}
-.chk .cx b{display:block;margin-bottom:2px}.chk .cx span{font-size:13px;color:var(--wd)}
+.gloss .gd{color:#C6CCD6;font-size:13.5px;margin-top:3px}
+.gloss .ga{color:var(--wd);font-size:12.5px;margin-top:5px;padding-left:14px;border-left:2px solid var(--line)}
+
+/* ================= TOOLS (cockpit / carnet / simulateur) ================= */
+.fldrow{display:grid;gap:12px;margin:14px 0}
+.fr2{grid-template-columns:1fr 1fr}.fr3{grid-template-columns:repeat(3,1fr)}.fr4{grid-template-columns:repeat(4,1fr)}.fr5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.fr2,.fr3,.fr4,.fr5{grid-template-columns:1fr 1fr}}
+.fld label{display:block;font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--wd2);margin-bottom:6px;font-weight:600}
+.fld input,.fld select{width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:10px;padding:11px 12px;color:var(--w);font-size:14px;font-family:var(--mono);outline:none;transition:.2s;-webkit-appearance:none;appearance:none}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,var(--wd) 50%),linear-gradient(135deg,var(--wd) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.fld input:focus,.fld select:focus{border-color:var(--g);box-shadow:0 0 0 3px var(--gd)}
+.fld .hint{font-size:10.5px;color:var(--wd2);margin-top:4px;display:block;letter-spacing:.2px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gl),var(--g) 55%,#B8923C);color:#0B0D10;border:none;border-radius:10px;padding:12px 22px;font-size:13px;font-weight:700;letter-spacing:.8px;cursor:pointer;transition:.22s;font-family:var(--sans)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(217,180,91,.28)}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--g)}
+.btn.ghost:hover{background:var(--gd);box-shadow:none}
+.btn.danger{background:none;border:1px solid rgba(232,89,90,.4);color:var(--red)}
+.btn.danger:hover{background:rgba(232,89,90,.1);box-shadow:none}
+.btn.sm{padding:8px 14px;font-size:12px}
+.jwrap{overflow-x:auto;border:1px solid var(--line2);border-radius:14px;margin:16px 0}
+.jtable{width:100%;border-collapse:collapse;font-size:12.5px;min-width:760px}
+.jtable th{background:var(--bg2);text-align:left;padding:10px 12px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--g);font-weight:700;border-bottom:1px solid var(--line);white-space:nowrap}
+.jtable td{padding:9px 12px;border-bottom:1px solid var(--line2);color:#C6CCD6;font-family:var(--mono);font-size:12px;white-space:nowrap}
+.jtable tr:last-child td{border-bottom:none}
+.jtable .del{color:var(--wd2);cursor:pointer;border:none;background:none;font-size:15px;padding:2px 7px;border-radius:6px;transition:.15s}
+.jtable .del:hover{color:var(--red);background:rgba(232,89,90,.1)}
+.rw{color:var(--green);font-weight:700}.rl{color:var(--red);font-weight:700}
+.gatechk{list-style:none;padding:0;margin:14px 0}
+.gatechk li{display:flex;align-items:flex-start;gap:13px;padding:13px 15px;border:1px solid var(--line2);border-radius:12px;margin-bottom:9px;cursor:pointer;transition:.18s;background:var(--bg2)}
+.gatechk li::before{display:none}
+.gatechk li:hover{border-color:var(--line)}
+.gatechk li.on{border-color:rgba(52,192,143,.45);background:rgba(52,192,143,.06)}
+.gatechk .box{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--wd2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent;transition:.18s;margin-top:1px}
+.gatechk li.on .box{border-color:var(--green);color:var(--green);background:rgba(52,192,143,.12)}
+.gatechk .gx b{display:block;font-size:14px;margin-bottom:1px}
+.gatechk .gx span{font-size:12px;color:var(--wd)}
+.gostate{border-radius:14px;padding:20px;text-align:center;font-weight:700;font-size:16px;letter-spacing:1.5px;margin:16px 0;border:1px solid;font-family:var(--sans)}
+.gostate.no{background:rgba(232,89,90,.07);border-color:rgba(232,89,90,.35);color:var(--red)}
+.gostate.go{background:rgba(52,192,143,.08);border-color:rgba(52,192,143,.4);color:var(--green)}
+.gostate small{display:block;font-weight:500;font-size:12px;letter-spacing:.3px;margin-top:6px;color:var(--wd)}
+.livebar{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+.livebar .lb{flex:1;min-width:150px;background:var(--bg2);border:1px solid var(--line2);border-radius:13px;padding:14px 16px}
+.livebar .lb .k{font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--wd2);font-weight:700;margin-bottom:6px}
+.livebar .lb .v{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--w)}
+.empty{padding:34px;text-align:center;color:var(--wd2);font-size:13.5px;border:1px dashed var(--line2);border-radius:14px;margin:16px 0}
+
 @media(max-width:960px){
-  aside{transform:translateX(-100%);transition:.3s}aside.open{transform:none;box-shadow:0 0 60px rgba(0,0,0,.6)}
-  main{margin-left:0}.hamb{display:flex}.wrap{padding:32px 20px 100px}.topbar{padding:13px 20px}
-  .hero{padding:32px 22px}.hero h2{font-size:26px}h2.ttl{font-size:23px}
+  aside{transform:translateX(-100%);transition:.3s}aside.open{transform:none;box-shadow:0 0 70px rgba(0,0,0,.65)}
+  main{margin-left:0}.hamb{display:flex}.wrap{padding:34px 20px 110px}.topbar{padding:13px 20px}
+  .hero{padding:34px 24px}.hero h2{font-size:29px}h2.ttl{font-size:26px}
+  .herometa{gap:22px}
 }
-.scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:45}.scrim.on{display:block}
+
 </style>
 </head>
 <body>
@@ -158,8 +224,8 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
 <div id="gate">
   <div class="gbox">
     <div class="gmark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" fill="#0A0E14"/><path d="M8.5 12.5l2.5 2.5 4.5-5" stroke="#0A0E14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <h1>Protocole Gold</h1>
-    <p>La Tendance Porteuse — accès privé</p>
+    <h1>Protocole <em>Gold</em></h1>
+    <p>La Tendance Porteuse · Système complet, backtest 21 ans & outils de session — accès privé</p>
     <form id="gform" autocomplete="off">
       <div class="ginput"><input id="gpass" type="password" placeholder="Mot de passe" spellcheck="false"></div>
       <button class="gbtn" type="submit">Déverrouiller</button>
@@ -175,31 +241,37 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <div class="bmark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" fill="#0A0E14"/><path d="M8.5 12.5l2.5 2.5 4.5-5" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="btext"><b>Protocole Gold</b><span>MGC · FundedNext</span></div>
   </div>
-  <div class="navgrp"><div class="navgrp-t">Cadre</div><div class="nav">
-    <a data-go="accueil" class="active"><span class="ix">◆</span> Principe central</a>
-    <a data-go="demarrage"><span class="ix">▶</span> Démarrage rapide</a>
-    <a data-go="backtest"><span class="ix">▤</span> Preuve : le backtest</a>
-    <a data-go="fondations"><span class="ix">▦</span> Les 15 fondations</a>
+  <div class="navgrp"><div class="navgrp-t">Outils live</div><div class="nav">
+    <a data-go="cockpit"><span class="ix">⌖</span> Cockpit de session</a>
+    <a data-go="carnet"><span class="ix">✎</span> Mon carnet de trades</a>
+    <a data-go="simulateur"><span class="ix">∿</span> Simulateur de variance</a>
   </div></div>
-  <div class="navgrp"><div class="navgrp-t">La stratégie</div><div class="nav">
+  <div class="navgrp"><div class="navgrp-t">Comprendre</div><div class="nav">
+    <a data-go="accueil" class="active"><span class="ix">◆</span> Principe central</a>
+    <a data-go="backtest"><span class="ix">▤</span> Preuve : le backtest</a>
     <a data-go="strategie"><span class="ix">★</span> La stratégie en 5 règles</a>
     <a data-go="journee"><span class="ix">☀</span> Une journée type A→Z</a>
     <a data-go="exemples"><span class="ix">◫</span> Exemples de trades réels</a>
+    <a data-go="demarrage"><span class="ix">▶</span> Démarrage rapide</a>
+  </div></div>
+  <div class="navgrp"><div class="navgrp-t">Maîtriser</div><div class="nav">
+    <a data-go="risque"><span class="ix">⚖</span> Money management</a>
     <a data-go="timeframes"><span class="ix">≡</span> Hiérarchie des TF</a>
     <a data-go="regimes"><span class="ix">◳</span> Régimes de marché</a>
     <a data-go="intermarches"><span class="ix">⇄</span> Intermarchés</a>
     <a data-go="notrade"><span class="ix">⊘</span> Conditions no-trade</a>
-  </div></div>
-  <div class="navgrp"><div class="navgrp-t">Survie & opération</div><div class="nav">
-    <a data-go="risque"><span class="ix">⚖</span> Money management</a>
-    <a data-go="parcours"><span class="ix">⇥</span> Challenge → financé</a>
     <a data-go="erreurs"><span class="ix">✕</span> Erreurs qui ruinent</a>
     <a data-go="psycho"><span class="ix">◉</span> Protocole psycho</a>
+  </div></div>
+  <div class="navgrp"><div class="navgrp-t">Opérer</div><div class="nav">
     <a data-go="routine"><span class="ix">◷</span> Routine quotidienne</a>
-    <a data-go="journal"><span class="ix">✎</span> Journalisation</a>
+    <a data-go="journal"><span class="ix">▤</span> Guide de journalisation</a>
+    <a data-go="parcours"><span class="ix">⇥</span> Challenge → financé</a>
     <a data-go="adaptation"><span class="ix">⟳</span> Adaptation</a>
+    <a data-go="fondations"><span class="ix">▦</span> Les 15 fondations</a>
   </div></div>
   <div class="navgrp"><div class="navgrp-t">Référence</div><div class="nav">
+    <a data-go="faq"><span class="ix">?</span> FAQ terrain</a>
     <a data-go="glossaire"><span class="ix">✦</span> Glossaire visuel</a>
     <a data-go="memo"><span class="ix">▣</span> Mémo express</a>
   </div></div>
@@ -226,13 +298,28 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
       <div><b>1,44</b><span>Profit Factor 20 ans</span></div>
       <div><b>+2 132 R</b><span>gain total (unités de risque)</span></div>
       <div><b>20/21</b><span>années gagnantes</span></div>
-      <div><b>~1,8</b><span>trades / jour</span></div>
+      <div><b>3</b><span>outils live intégrés</span></div>
     </div>
   </div>
 
   <div class="note key">
     <svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" stroke="#D4AF37" stroke-width="1.5"/></svg>
     <p><span class="nt">À lire en premier — la vérité</span>La plupart des « stratégies miracle » sont du flan : jolies sur 3 mois, mortes en réel. Celle-ci a été <strong>cherchée dans 20 ans de données</strong>, testée <strong>hors échantillon</strong> (2018-2025) et confirmée sur un <strong>second jeu de données indépendant</strong>. Ce n'est pas une promesse de richesse : c'est un avantage statistique <strong>petit mais réel et durable</strong>, conçu pour survivre à un compte prop firm.</p>
+  </div>
+
+  <div class="grid g3">
+    <div class="card gold" style="cursor:pointer" onclick="document.querySelector('.nav a[data-go=cockpit]').click()">
+      <div class="pill pg">Outil 1</div><h4 style="margin-top:12px">⌖ Cockpit de session</h4>
+      <p style="font-size:13px;color:var(--wd);margin:0">L'écran unique à garder ouvert en tradant : checklist des 5 portes, calcul de taille, limites du jour en direct.</p>
+    </div>
+    <div class="card gold" style="cursor:pointer" onclick="document.querySelector('.nav a[data-go=carnet]').click()">
+      <div class="pill pg">Outil 2</div><h4 style="margin-top:12px">✎ Carnet de trades</h4>
+      <p style="font-size:13px;color:var(--wd);margin:0">Saisie en 20 s, R automatique, stats en direct, courbe de capital, export CSV. Comparé au backtest en continu.</p>
+    </div>
+    <div class="card gold" style="cursor:pointer" onclick="document.querySelector('.nav a[data-go=simulateur]').click()">
+      <div class="pill pg">Outil 3</div><h4 style="margin-top:12px">∿ Simulateur de variance</h4>
+      <p style="font-size:13px;color:var(--wd);margin:0">500 futurs possibles simulés avec les vraies probabilités : vois ce qui est normal avant de le vivre.</p>
+    </div>
   </div>
 
   <h3><span class="num">①</span> L'idée, expliquée comme à un débutant</h3>
@@ -254,6 +341,52 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#3FB68B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <p><span class="nt">Débutant complet ? Suis cet ordre</span>1) Lis cette page. 2) Tout terme technique qui te bloque est expliqué dans le <strong>Glossaire visuel</strong> (menu de gauche, avec schémas). 3) Va dans <strong>Démarrage rapide</strong> pour installer et calculer ta taille. 4) Apprends les <strong>5 règles</strong>. Tu n'as besoin de rien d'autre.</p>
   </div>
+</section>
+
+<!-- ============ COCKPIT ============ -->
+<section class="page" id="cockpit">
+  <div class="eyebrow">L'écran unique de ta session</div>
+  <h2 class="ttl">Cockpit de session</h2>
+  <p class="lead">Garde cette page ouverte pendant ta fenêtre 14h-17h. Elle contient tout : l'état de la session, ta checklist d'entrée, le calcul de taille, et tes limites du jour reliées à ton carnet. Rien d'autre à ouvrir.</p>
+
+  <div class="livebar">
+    <div class="lb"><div class="k">Heure Paris</div><div class="v" id="ckClock">--:--</div></div>
+    <div class="lb"><div class="k">État session</div><div class="v" id="ckState" style="font-size:15px">—</div></div>
+    <div class="lb"><div class="k">Trades aujourd'hui</div><div class="v" id="ckN">0 / 3</div></div>
+    <div class="lb"><div class="k">R aujourd'hui</div><div class="v" id="ckRd">0.0</div></div>
+    <div class="lb"><div class="k">R cette semaine</div><div class="v" id="ckRw">0.0</div></div>
+  </div>
+  <div class="gostate no" id="ckLimits" style="display:none"></div>
+
+  <h3><span class="num">1</span> Checklist des 5 portes — coche seulement si c'est VRAI</h3>
+  <ul class="gatechk" id="gates">
+    <li data-g="0"><span class="box">✓</span><span class="gx"><b>Fenêtre</b><span>Il est entre 14h00 et 17h00 (Paris), et aucune news rouge USD dans les 15 min.</span></span></li>
+    <li data-g="1"><span class="box">✓</span><span class="gx"><b>Marée</b><span>Le prix est clairement du bon côté de l'EMA 200 (au-dessus pour un achat, en-dessous pour une vente).</span></span></li>
+    <li data-g="2"><span class="box">✓</span><span class="gx"><b>Cassure</b><span>Une bougie 15 min a CLÔTURÉ au-delà du plus-haut/bas des 16 dernières bougies (pas juste une mèche).</span></span></li>
+    <li data-g="3"><span class="box">✓</span><span class="gx"><b>DXY</b><span>Le dollar ne part pas violemment contre mon trade au même moment.</span></span></li>
+    <li data-g="4"><span class="box">✓</span><span class="gx"><b>Taille</b><span>J'ai lu l'ATR, calculé mes contrats ci-dessous, et je connais mon prix de stop exact.</span></span></li>
+  </ul>
+  <div class="gostate no" id="goState">NO-TRADE<small>Coche les 5 portes une par une. Une seule manquante = pas de trade.</small></div>
+  <button class="btn ghost sm" id="gateReset">Réinitialiser la checklist</button>
+
+  <h3><span class="num">2</span> Taille de position — 3 chiffres, résultat immédiat</h3>
+  <div class="card">
+    <div class="fldrow fr3">
+      <div class="fld"><label>Perte max autorisée ($)</label><input id="kDD" type="number" inputmode="decimal" value="2500"><span class="hint">drawdown de ta prop firm (mémorisé)</span></div>
+      <div class="fld"><label>ATR actuel (points)</label><input id="kATR" type="number" step="0.1" inputmode="decimal" value="4.0"><span class="hint">lis le nombre sur ton graphique</span></div>
+      <div class="fld"><label>Valeur d'1 point ($)</label><input id="kPV" type="number" step="0.5" inputmode="decimal" value="10"><span class="hint">MGC=10 · GC=100 · 0,1 lot≈10 (mémorisé)</span></div>
+    </div>
+    <div class="grid g4" style="margin-top:14px">
+      <div class="stat"><div class="k">Contrats / lots</div><div class="v green" id="kC">—</div><div class="s">à trader maintenant</div></div>
+      <div class="stat"><div class="k">Ton 1 R</div><div class="v" id="kR">—</div><div class="s">risque par trade</div></div>
+      <div class="stat"><div class="k">Distance stop</div><div class="v" id="kS">—</div><div class="s">1 × ATR, en points</div></div>
+      <div class="stat"><div class="k">Distance trailing</div><div class="v" id="kT">—</div><div class="s">1,5 × ATR, en points</div></div>
+    </div>
+    <p id="kMsg" style="margin-top:12px;font-size:13px;color:var(--wd)"></p>
+  </div>
+
+  <h3><span class="num">3</span> Après le trade — 30 secondes</h3>
+  <p>Dès que ta position est fermée (stop suiveur touché ou 20h), va dans <strong>Mon carnet de trades</strong> et enregistre-la. Les compteurs du haut (trades, R jour, R semaine) se mettent à jour automatiquement et verrouillent le cockpit si une limite est atteinte. <strong>C'est le système qui te protège, pas ta volonté.</strong></p>
 </section>
 
 <!-- ============ DEMARRAGE RAPIDE ============ -->
@@ -772,6 +905,25 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
     <figcaption>Beaucoup de journées finissent ainsi : une mèche taquine le niveau mais la bougie referme dessous. Aucun trade, aucune perte. <strong>C'est une journée parfaitement réussie.</strong></figcaption>
   </figure>
 
+  
+  <h3><span class="num">5</span> Les 10 derniers trades du backtest — bruts, non triés</h3>
+  <p>Voici la fin de l'historique telle quelle (juillet 2025), sans sélection. C'est à ça que ressemble la vraie vie du système : des petites pertes en série, puis un gagnant qui paie tout.</p>
+  <table class="tbl">
+    <tr><th>Date</th><th>Sens</th><th>Entrée → Sortie</th><th>Résultat</th></tr>
+    <tr><td class="mono">04/07/2025</td><td>Vente</td><td class="mono">3331,6 → 3334,5</td><td class="mono tr">−1,10 R</td></tr>
+    <tr><td class="mono">04/07/2025</td><td>Vente</td><td class="mono">3331,4 → 3334,7</td><td class="mono tr">−1,09 R</td></tr>
+    <tr><td class="mono">08/07/2025</td><td>Vente</td><td class="mono">3320,1 → 3323,8</td><td class="mono tr">−1,08 R</td></tr>
+    <tr><td class="mono">08/07/2025</td><td>Vente</td><td class="mono">3319,1 → 3294,2</td><td class="mono tg">+6,16 R</td></tr>
+    <tr><td class="mono">09/07/2025</td><td>Achat</td><td class="mono">3308,8 → 3308,2</td><td class="mono tr">−0,20 R</td></tr>
+    <tr><td class="mono">10/07/2025</td><td>Vente</td><td class="mono">3318,0 → 3316,2</td><td class="mono tg">+0,39 R</td></tr>
+    <tr><td class="mono">11/07/2025</td><td>Achat</td><td class="mono">3350,2 → 3346,4</td><td class="mono tr">−1,08 R</td></tr>
+    <tr><td class="mono">11/07/2025</td><td>Achat</td><td class="mono">3350,2 → 3351,9</td><td class="mono tg">+0,34 R</td></tr>
+    <tr><td class="mono">11/07/2025</td><td>Achat</td><td class="mono">3358,4 → 3354,0</td><td class="mono tr">−1,07 R</td></tr>
+    <tr><td class="mono">11/07/2025</td><td>Achat</td><td class="mono">3359,1 → 3361,7</td><td class="mono tg">+0,51 R</td></tr>
+    <tr><td colspan="3"><b>Somme des 10 (6 perdants, 4 gagnants)</b></td><td class="mono tg"><b>+1,79 R</b></td></tr>
+  </table>
+  <div class="note do"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#34C08F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><p><span class="nt">Lis bien cette table</span>6 pertes sur 10, et pourtant <strong>+1,79 R au total</strong> : UN seul trade (+6,16 R) a payé toutes les pertes et le profit. Si tu avais « sécurisé » ce trade à +1 R, la séquence entière serait perdante. C'est toute la stratégie en une table.</p></div>
+
   <div class="note info"><svg class="ni" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5B8DEF" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="#5B8DEF" stroke-width="2" stroke-linecap="round"/></svg><p><span class="nt">Honnêteté</span>Trades 1-3 = vrais, extraits du backtest 21 ans (dates et prix exacts) ; le schéma est une représentation simplifiée. Le backtest n'inclut pas le filtre news : en réel, tu écartes <strong>en plus</strong> les setups collés à un événement rouge (CPI/NFP/FOMC).</p></div>
 </section>
 
@@ -1113,6 +1265,110 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   <div class="note key"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" stroke="#D4AF37" stroke-width="1.5"/></svg><p><span class="nt">La seule chose à retenir</span>Tu n'as pas besoin d'être parfait. Tu as besoin de <strong>ne pas faire ces 11 erreurs</strong>. Le système est conçu pour te les rendre impossibles — à condition que tu ne le contournes pas « juste cette fois ». Le « juste cette fois » est l'ennemi n°1.</p></div>
 </section>
 
+<!-- ============ CARNET ============ -->
+<section class="page" id="carnet">
+  <div class="eyebrow">Ton journal, intégré et automatique</div>
+  <h2 class="ttl">Mon carnet de trades</h2>
+  <p class="lead">Saisis chaque trade en 20 secondes : le carnet calcule le R tout seul, tient tes statistiques, trace ta courbe de capital et te compare au backtest. Les données restent <strong>dans ton navigateur</strong> (personne d'autre n'y a accès) — exporte régulièrement en CSV pour sauvegarde.</p>
+
+  <h3><span class="num">1</span> Ajouter un trade</h3>
+  <div class="card">
+    <div class="fldrow fr4">
+      <div class="fld"><label>Date</label><input id="jDate" type="date"></div>
+      <div class="fld"><label>Sens</label><select id="jDir"><option value="L">Achat (long)</option><option value="S">Vente (short)</option></select></div>
+      <div class="fld"><label>Entrée</label><input id="jEntry" type="number" step="0.1" inputmode="decimal" placeholder="3320.1"></div>
+      <div class="fld"><label>Stop initial</label><input id="jStop" type="number" step="0.1" inputmode="decimal" placeholder="3316.1"></div>
+    </div>
+    <div class="fldrow fr4">
+      <div class="fld"><label>Sortie</label><input id="jExit" type="number" step="0.1" inputmode="decimal" placeholder="3312.5"></div>
+      <div class="fld"><label>Contrats / lots</label><input id="jSize" type="number" step="1" inputmode="numeric" placeholder="2"></div>
+      <div class="fld"><label>Règles suivies ?</label><select id="jRules"><option value="O">Oui — plan respecté</option><option value="N">Non — écart au plan</option></select></div>
+      <div class="fld"><label>État émotionnel</label><select id="jEmo"><option>Calme</option><option>Stressé</option><option>FOMO</option><option>Fatigué</option><option>Euphorique</option><option>Frustré</option></select></div>
+    </div>
+    <div class="fldrow" style="grid-template-columns:1fr">
+      <div class="fld"><label>Note (optionnel)</label><input id="jNote" type="text" maxlength="120" placeholder="ex : cassure propre après pullback, DXY confirmait"></div>
+    </div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px">
+      <button class="btn" id="jAdd">Enregistrer le trade</button>
+      <span id="jPreview" style="font-family:var(--mono);font-size:13px;color:var(--wd)"></span>
+    </div>
+    <p id="jErr" style="color:var(--red);font-size:13px;margin:10px 0 0;min-height:18px"></p>
+  </div>
+
+  <h3><span class="num">2</span> Tes statistiques (calculées en direct)</h3>
+  <div class="grid g4">
+    <div class="stat"><div class="k">Trades</div><div class="v" id="sN">0</div><div class="s">min 30 avant de juger</div></div>
+    <div class="stat"><div class="k">Réussite</div><div class="v" id="sWR">—</div><div class="s">référence backtest : ~40 %</div></div>
+    <div class="stat"><div class="k">Profit Factor</div><div class="v" id="sPF">—</div><div class="s">référence : 1,44</div></div>
+    <div class="stat"><div class="k">Espérance / trade</div><div class="v" id="sEXP">—</div><div class="s">référence : +0,27 R</div></div>
+  </div>
+  <div class="grid g4">
+    <div class="stat"><div class="k">Total</div><div class="v" id="sTOT">—</div><div class="s">en R, net</div></div>
+    <div class="stat"><div class="k">Respect des règles</div><div class="v" id="sADH">—</div><div class="s">objectif : &gt; 95 %</div></div>
+    <div class="stat"><div class="k">Meilleur / pire</div><div class="v" id="sBW" style="font-size:17px">—</div><div class="s">en R</div></div>
+    <div class="stat"><div class="k">Série de pertes max</div><div class="v" id="sLS">—</div><div class="s">18 = déjà vu dans le backtest</div></div>
+  </div>
+
+  <h3><span class="num">3</span> Ta courbe de capital (en R)</h3>
+  <figure style="padding:18px"><svg id="eqSvg" viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg"></svg>
+  <figcaption id="eqCap">Ajoute des trades pour voir ta courbe. Juge la pente sur 30+ trades, jamais sur 5.</figcaption></figure>
+
+  <h3><span class="num">4</span> Historique</h3>
+  <div class="jwrap"><table class="jtable"><thead><tr><th>Date</th><th>Sens</th><th>Entrée</th><th>Stop</th><th>Sortie</th><th>Taille</th><th>R</th><th>Règles</th><th>Émotion</th><th>Note</th><th></th></tr></thead><tbody id="jBody"></tbody></table></div>
+  <div class="empty" id="jEmpty">Aucun trade enregistré pour l'instant. Ton premier trade démarre la machine.</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+    <button class="btn ghost sm" id="jExport">Exporter en CSV</button>
+    <button class="btn danger sm" id="jWipe">Tout effacer</button>
+  </div>
+  <div class="note warn" style="margin-top:20px"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="#E8595A" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4M12 16.5h.01" stroke="#E8595A" stroke-width="1.8" stroke-linecap="round"/></svg><p><span class="nt">Sauvegarde</span>Les données vivent dans CE navigateur : si tu vides son cache ou changes d'appareil, elles disparaissent. <strong>Exporte le CSV chaque semaine</strong> (dimanche, pendant ta revue).</p></div>
+</section>
+
+<!-- ============ SIMULATEUR ============ -->
+<section class="page" id="simulateur">
+  <div class="eyebrow">Comprendre la variance avant qu'elle te fasse peur</div>
+  <h2 class="ttl">Simulateur de variance</h2>
+  <p class="lead">Même un système gagnant traverse des passages laids. Ce simulateur rejoue des centaines de « futurs possibles » avec les probabilités réelles du backtest (40 % de réussite, gagnant moyen +2,2 R, perdant −1,0 R). Regarde ce qui est <em>normal</em> — pour ne pas paniquer quand ça t'arrivera.</p>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin:18px 0">
+    <button class="btn" data-sim="50">Simuler 50 trades</button>
+    <button class="btn" data-sim="100">Simuler 100 trades</button>
+    <button class="btn ghost" data-sim="300">Simuler 300 trades</button>
+  </div>
+
+  <figure style="padding:18px"><svg id="simSvg" viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg"></svg>
+  <figcaption id="simCap">Clique un bouton : chaque ligne = un futur possible de ton compte (500 simulés, 30 affichés).</figcaption></figure>
+
+  <div class="grid g4" id="simStats" style="display:none">
+    <div class="stat"><div class="k">Futurs gagnants</div><div class="v green" id="mPos">—</div><div class="s">% des 500 simulations</div></div>
+    <div class="stat"><div class="k">Résultat médian</div><div class="v" id="mMed">—</div><div class="s">moitié font mieux / moins bien</div></div>
+    <div class="stat"><div class="k">Pire série de pertes</div><div class="v red" id="mStreak">—</div><div class="s">médiane → maximum observé</div></div>
+    <div class="stat"><div class="k">Pire drawdown</div><div class="v red" id="mDD">—</div><div class="s">médiane → maximum observé</div></div>
+  </div>
+
+  <div class="note key"><svg class="ni" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z" stroke="#D9B45B" stroke-width="1.5"/></svg><p><span class="nt">Ce que ce simulateur t'apprend</span>1) Des séries de <strong>6 à 12 pertes d'affilée arrivent dans presque tous les futurs</strong> — subir ça ne veut PAS dire que le système est cassé. 2) Sur 50 trades, certains futurs sont rouges même avec un système gagnant : c'est pour ça qu'on juge sur 100+. 3) La taille minuscule (1 R petit) existe précisément pour traverser ces creux sans exploser. <em>Modèle simplifié à partir des stats du backtest — la réalité sera dans le même esprit, pas identique.</em></p></div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="page" id="faq">
+  <div class="eyebrow">Les vraies questions du terrain</div>
+  <h2 class="ttl">FAQ — ce qui arrive vraiment, et quoi faire</h2>
+  <p class="lead">Les situations concrètes que tu vas rencontrer, avec la réponse ferme du protocole. Pas de « ça dépend ».</p>
+  <div class="gloss">
+    <div class="gi"><div class="gt">J'ai raté l'entrée, le prix est déjà parti. Je cours après ?</div><div class="gd"><strong>Non, jamais.</strong> Entrer en retard = stop plus loin ou R dégradé. Tu attends la prochaine cassure valide. Il y en aura ~32 ce mois-ci — en rater une ne coûte rien, courir après coûte cher.</div></div>
+    <div class="gi"><div class="gt">Internet / la plateforme coupe pendant que je suis en position ?</div><div class="gd">C'est pour ça que le <strong>bracket est posé dès l'entrée</strong> : ton stop vit sur le serveur du broker, pas sur ton écran. Coupure = tu es protégé. Reconnecte-toi, vérifie la position, reprends. Sans bracket posé, tu n'aurais jamais dû être en position.</div></div>
+    <div class="gi"><div class="gt">Le prix a « sauté » mon stop (gap) et je perds plus que 1 R ?</div><div class="gd">Rare en séance liquide (14h-20h), possible autour des news — d'où le filtre news. Si ça arrive : accepte la perte, note-la au carnet telle quelle, et vérifie que tu n'étais pas dans une fenêtre interdite. Une perte de 1,3 R de temps en temps est absorbée par le système.</div></div>
+    <div class="gi"><div class="gt">Deux cassures valides en même temps (achat puis vente) ?</div><div class="gd">Impossible par construction : le sens est verrouillé par l'EMA 200. Une seule direction est autorisée à la fois. Si le prix traverse l'EMA dans la journée → marché indécis → prudence, voire plus de trade ce jour.</div></div>
+    <div class="gi"><div class="gt">Mon ATR affiche un chiffre différent d'une autre plateforme ?</div><div class="gd">Normal : lissages et sources diffèrent légèrement. Utilise <strong>toujours la même plateforme</strong> avec ATR 40 / SMA et reste cohérent. Un écart de 0,2 point ne change pas le trade ; la cohérence, si.</div></div>
+    <div class="gi"><div class="gt">Puis-je trader un autre créneau que 14h-17h ?</div><div class="gd">Le backtest a testé d'autres fenêtres : <strong>14h-17h Paris est la meilleure</strong> (overlap Londres/NY). Les autres créneaux dégradent le Profit Factor. Si tu ne peux vraiment pas, la fenêtre 16h-19h Paris reste positive mais plus faible — et surtout n'invente pas un créneau non testé.</div></div>
+    <div class="gi"><div class="gt">Je suis à −2 R aujourd'hui et je vois un setup parfait ?</div><div class="gd">Tu peux le prendre : la limite est −3 R. S'il perd, tu es à −3 R → terminé, écran fermé. « Parfait » ne veut rien dire — chaque setup validé a exactement les mêmes ~40 % de chances.</div></div>
+    <div class="gi"><div class="gt">Le contrat MGC « roule » (rollover), je fais quoi ?</div><div class="gd">Tous les 2 mois environ, le volume passe au contrat suivant. <strong>Trade toujours le contrat le plus liquide</strong> (front month, ta plateforme l'indique). Jamais de position ouverte pendant le roulement — de toute façon tu es flat chaque soir à 20h.</div></div>
+    <div class="gi"><div class="gt">Quand est-ce que j'augmente la taille ?</div><div class="gd">Jamais « parce que ça va bien ». Le 1 R suit mécaniquement ta perte max autorisée : si ton compte/palier grandit, la formule (perte max × 0,5 ÷ 12) grandit avec. C'est la seule augmentation autorisée.</div></div>
+    <div class="gi"><div class="gt">Au bout de combien de temps je sais si JE suis rentable ?</div><div class="gd">100 trades minimum (~3 mois au rythme normal) avec &gt;95 % de règles suivies. Avant ça, ton échantillon ne prouve rien — dans un sens comme dans l'autre. Le carnet te donne la comparaison en direct avec la référence.</div></div>
+    <div class="gi"><div class="gt">Un jour férié US, un vendredi après-midi calme… je trade ?</div><div class="gd">Volume faible = cassures molles = pièges. Jours fériés US et veilles de fêtes : <strong>no-trade</strong>. Le vendredi normal reste tradable (c'est statistiquement un jour comme un autre sur 21 ans), mais respecte les portes.</div></div>
+    <div class="gi"><div class="gt">Et si le système s'arrête de marcher un jour ?</div><div class="gd">C'est prévu : la section <strong>Adaptation</strong> définit les seuils objectifs (PF &lt; 1,0 sur 100 trades AVEC bonne exécution → réduire, auditer, suspendre). Tu n'auras pas à le « sentir » : tes chiffres le diront.</div></div>
+  </div>
+</section>
+
 <!-- ============ GLOSSAIRE ============ -->
 <section class="page" id="glossaire">
   <div class="eyebrow">Comprendre chaque mot</div>
@@ -1382,5 +1638,259 @@ figcaption{margin-top:14px;font-size:12.5px;color:var(--wd);text-align:center;li
   });}
 })();
 </script>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function num(v){var x=parseFloat(v);return isFinite(x)?x:NaN;}
+function todayStr(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function mondayStr(){var d=new Date();var day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function fmtR(x){return (x>0?"+":"")+x.toFixed(2);}
+
+/* ===== réglages persistants (calculateur cockpit) ===== */
+var kDD=$("kDD"),kATR=$("kATR"),kPV=$("kPV");
+try{
+  if(localStorage.getItem("pg_dd")&&kDD)kDD.value=localStorage.getItem("pg_dd");
+  if(localStorage.getItem("pg_pv")&&kPV)kPV.value=localStorage.getItem("pg_pv");
+}catch(e){}
+function kCalc(){
+  if(!kDD)return;
+  var DD=num(kDD.value),ATR=num(kATR.value),PV=num(kPV.value);
+  try{localStorage.setItem("pg_dd",kDD.value);localStorage.setItem("pg_pv",kPV.value);}catch(e){}
+  var C=$("kC"),R=$("kR"),S=$("kS"),T=$("kT"),M=$("kMsg");
+  if(!(DD>0)||!(ATR>0)||!(PV>0)){C.textContent="—";R.textContent="—";S.textContent="—";T.textContent="—";M.textContent="";return;}
+  var oneR=Math.floor(DD*0.5/12), per=ATR*PV, n=Math.floor(oneR/per);
+  R.textContent=oneR.toLocaleString("fr-FR")+" $";
+  S.textContent=ATR.toFixed(1)+" pts";
+  T.textContent=(1.5*ATR).toFixed(1)+" pts";
+  if(n<1){C.textContent="0";M.style.color="#E8595A";
+    M.textContent="⚠ 1 unité dépasse ton risque : attends un ATR plus petit ou passe sur un instrument plus petit (micro / 0,01 lot).";return;}
+  C.textContent=n;M.style.color="#98A2B3";
+  M.innerHTML="Tu trades <b style='color:#F2DA9C'>"+n+" contrat"+(n>1?"s":"")+"</b> — perte si stop ≈ "+(n*per).toLocaleString("fr-FR")+" $ (1 R). Stop à "+ATR.toFixed(1)+" pts, trailing à "+(1.5*ATR).toFixed(1)+" pts.";
+}
+if(kDD){[kDD,kATR,kPV].forEach(function(el){el.addEventListener("input",kCalc);});kCalc();}
+
+/* ===== carnet de trades ===== */
+var KEY="pg_trades_v1";
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||"[]");}catch(e){return[];}}
+function save(t){try{localStorage.setItem(KEY,JSON.stringify(t));}catch(e){}}
+function calcR(dir,entry,stop,exit){
+  var risk=dir==="L"?entry-stop:stop-entry;
+  if(!(risk>0))return null;
+  var g=dir==="L"?exit-entry:entry-exit;
+  return Math.round(g/risk*100)/100;
+}
+function stats(t){
+  var n=t.length;if(!n)return null;
+  var rs=t.map(function(x){return x.r;});
+  var wins=rs.filter(function(r){return r>0;}),losses=rs.filter(function(r){return r<=0;});
+  var gp=wins.reduce(function(a,b){return a+b;},0),gl=-losses.reduce(function(a,b){return a+b;},0);
+  var tot=rs.reduce(function(a,b){return a+b;},0);
+  var ls=0,cur=0;rs.forEach(function(r){cur=r<=0?cur+1:0;if(cur>ls)ls=cur;});
+  return{n:n,wr:wins.length/n*100,pf:gl>0?gp/gl:Infinity,exp:tot/n,tot:tot,
+    adh:t.filter(function(x){return x.rules==="O";}).length/n*100,
+    best:Math.max.apply(null,rs),worst:Math.min.apply(null,rs),ls:ls};
+}
+function render(){
+  var t=load().slice().sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:a.id-b.id;});
+  var body=$("jBody");if(!body)return;
+  body.innerHTML="";
+  $("jEmpty").style.display=t.length?"none":"block";
+  t.slice().reverse().forEach(function(x){
+    var tr=document.createElement("tr");
+    tr.innerHTML="<td>"+x.date+"</td><td>"+(x.dir==="L"?"Achat":"Vente")+"</td><td>"+x.entry+"</td><td>"+x.stop+"</td><td>"+x.exit+"</td><td>"+x.size+"</td>"+
+      "<td class='"+(x.r>0?"rw":"rl")+"'>"+fmtR(x.r)+" R</td><td>"+(x.rules==="O"?"✓":"<span class='rl'>✗</span>")+"</td><td>"+x.emo+"</td><td style='white-space:normal;max-width:220px'>"+(x.note||"")+"</td>"+
+      "<td><button class='del' data-id='"+x.id+"' title='Supprimer'>×</button></td>";
+    body.appendChild(tr);
+  });
+  body.querySelectorAll(".del").forEach(function(b){b.addEventListener("click",function(){
+    if(!confirm("Supprimer ce trade ?"))return;
+    save(load().filter(function(x){return x.id!==+b.getAttribute("data-id");}));render();
+  });});
+  var s=stats(t);
+  $("sN").textContent=s?s.n:"0";
+  $("sWR").textContent=s?s.wr.toFixed(1)+" %":"—";
+  $("sPF").textContent=s?(isFinite(s.pf)?s.pf.toFixed(2):"∞"):"—";
+  $("sEXP").textContent=s?fmtR(s.exp)+" R":"—";
+  $("sTOT").textContent=s?fmtR(s.tot)+" R":"—";
+  $("sTOT").className="v "+(s&&s.tot>0?"green":s&&s.tot<0?"red":"");
+  $("sADH").textContent=s?s.adh.toFixed(0)+" %":"—";
+  $("sADH").className="v "+(s&&s.adh>=95?"green":s&&s.adh<90?"red":"");
+  $("sBW").textContent=s?fmtR(s.best)+" / "+fmtR(s.worst):"—";
+  $("sLS").textContent=s?s.ls:"—";
+  drawEquity(t);
+  cockpitLive(t);
+}
+function drawEquity(t){
+  var svg=$("eqSvg");if(!svg)return;
+  svg.innerHTML="";
+  if(t.length<2){$("eqCap").textContent="Ajoute des trades pour voir ta courbe. Juge la pente sur 30+ trades, jamais sur 5.";return;}
+  var eq=[0],c=0;t.forEach(function(x){c+=x.r;eq.push(c);});
+  var mn=Math.min(0,Math.min.apply(null,eq)),mx=Math.max(0,Math.max.apply(null,eq));
+  if(mx-mn<1){mx+=1;mn-=1;}
+  var W=760,H=220,L=46,Rp=14,T=16,B=26;
+  function X(i){return L+(W-L-Rp)*i/(eq.length-1);}
+  function Y(v){return T+(H-T-B)*(1-(v-mn)/(mx-mn));}
+  var g="";
+  g+="<line x1='"+L+"' y1='"+Y(0)+"' x2='"+(W-Rp)+"' y2='"+Y(0)+"' stroke='#5B6472' stroke-dasharray='4 3'/>";
+  g+="<text x='"+(L-6)+"' y='"+(Y(0)+4)+"' fill='#98A2B3' font-size='10' text-anchor='end' font-family='monospace'>0</text>";
+  g+="<text x='"+(L-6)+"' y='"+(T+8)+"' fill='#98A2B3' font-size='10' text-anchor='end' font-family='monospace'>"+mx.toFixed(0)+"R</text>";
+  var pts=eq.map(function(v,i){return X(i).toFixed(1)+","+Y(v).toFixed(1);}).join(" ");
+  var last=eq[eq.length-1];
+  g+="<polyline points='"+pts+"' fill='none' stroke='"+(last>=0?"#34C08F":"#E8595A")+"' stroke-width='2.4'/>";
+  g+="<circle cx='"+X(eq.length-1)+"' cy='"+Y(last)+"' r='4.5' fill='"+(last>=0?"#34C08F":"#E8595A")+"'/>";
+  svg.innerHTML=g;
+  $("eqCap").textContent="Ta courbe sur "+t.length+" trades : "+fmtR(last)+" R cumulés. Référence backtest : pente moyenne +0,27 R par trade.";
+}
+var jAdd=$("jAdd");
+function preview(){
+  if(!$("jEntry"))return;
+  var r=calcR($("jDir").value,num($("jEntry").value),num($("jStop").value),num($("jExit").value));
+  $("jPreview").textContent=(r===null||isNaN(r))?"":"→ Résultat : "+fmtR(r)+" R";
+  $("jPreview").style.color=r>0?"#34C08F":"#E8595A";
+}
+if(jAdd){
+  $("jDate").value=todayStr();
+  ["jEntry","jStop","jExit"].forEach(function(id){$(id).addEventListener("input",preview);});
+  $("jDir").addEventListener("change",preview);
+  jAdd.addEventListener("click",function(){
+    var e=$("jErr");e.textContent="";
+    var entry=num($("jEntry").value),stop=num($("jStop").value),exit=num($("jExit").value),size=num($("jSize").value);
+    var dir=$("jDir").value,date=$("jDate").value;
+    if(!date){e.textContent="Choisis la date.";return;}
+    if(isNaN(entry)||isNaN(stop)||isNaN(exit)){e.textContent="Entrée, stop et sortie sont obligatoires (en points de prix).";return;}
+    var r=calcR(dir,entry,stop,exit);
+    if(r===null){e.textContent=dir==="L"?"Pour un achat, le stop doit être SOUS l'entrée.":"Pour une vente, le stop doit être AU-DESSUS de l'entrée.";return;}
+    if(Math.abs(r)>25){e.textContent="R = "+fmtR(r)+" : vérifie tes prix, ça semble improbable.";return;}
+    var t=load();
+    t.push({id:Date.now(),date:date,dir:dir,entry:entry,stop:stop,exit:exit,size:isNaN(size)?"":size,
+      r:r,rules:$("jRules").value,emo:$("jEmo").value,note:($("jNote").value||"").slice(0,120)});
+    save(t);
+    ["jEntry","jStop","jExit","jSize","jNote"].forEach(function(id){$(id).value="";});
+    $("jPreview").textContent="";render();
+  });
+  $("jExport").addEventListener("click",function(){
+    var t=load();if(!t.length){alert("Aucun trade à exporter.");return;}
+    var rows=[["date","sens","entree","stop","sortie","taille","R","regles","emotion","note"]];
+    t.forEach(function(x){rows.push([x.date,x.dir,x.entry,x.stop,x.exit,x.size,x.r,x.rules,x.emo,(x.note||"").replace(/[;\n]/g," ")]);});
+    var csv=rows.map(function(r){return r.join(";");}).join("\n");
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(new Blob(["﻿"+csv],{type:"text/csv;charset=utf-8"}));
+    a.download="carnet-gold-"+todayStr()+".csv";document.body.appendChild(a);a.click();a.remove();
+  });
+  $("jWipe").addEventListener("click",function(){
+    if(!confirm("Effacer TOUS les trades ? (exporte d'abord en CSV)"))return;
+    if(!confirm("Vraiment sûr ? Cette action est définitive."))return;
+    save([]);render();
+  });
+}
+
+/* ===== cockpit : live + portes ===== */
+function cockpitLive(t){
+  if(!$("ckN"))return;
+  t=t||load();
+  var td=todayStr(),mo=mondayStr();
+  var day=t.filter(function(x){return x.date===td;});
+  var wk=t.filter(function(x){return x.date>=mo&&x.date<=td;});
+  var rd=day.reduce(function(a,b){return a+b.r;},0),rw=wk.reduce(function(a,b){return a+b.r;},0);
+  $("ckN").textContent=day.length+" / 3";
+  $("ckRd").textContent=fmtR(rd);$("ckRd").style.color=rd>0?"#34C08F":rd<0?"#E8595A":"#EDEFF3";
+  $("ckRw").textContent=fmtR(rw);$("ckRw").style.color=rw>0?"#34C08F":rw<0?"#E8595A":"#EDEFF3";
+  var lim=$("ckLimits"),msg="";
+  if(rd<=-3)msg="🛑 STOP JOURNALIER ATTEINT ("+fmtR(rd)+" R) — écran fermé jusqu'à demain.";
+  else if(rw<=-6)msg="🛑 STOP HEBDOMADAIRE ATTEINT ("+fmtR(rw)+" R) — pause jusqu'à lundi.";
+  else if(day.length>=3)msg="🛑 3 TRADES AUJOURD'HUI — plafond atteint, on arrête.";
+  else if(rd>=4)msg="✅ OBJECTIF +4 R ATTEINT ("+fmtR(rd)+" R) — on sécurise, on arrête.";
+  lim.style.display=msg?"block":"none";lim.textContent=msg;
+  lim.className="gostate "+(rd>=4?"go":"no");
+  window.__pgBlocked=!!msg;
+  evalGates();
+}
+var gates=$("gates"),gState={};
+function evalGates(){
+  var go=$("goState");if(!go)return;
+  var all=[0,1,2,3,4].every(function(i){return gState[i];});
+  if(window.__pgBlocked){go.className="gostate no";go.innerHTML="NO-TRADE<small>Une limite du jour est atteinte (voir bandeau ci-dessus). La discipline d'abord.</small>";return;}
+  if(all){go.className="gostate go";go.innerHTML="GO — POSE TON BRACKET<small>Rituel 10 secondes, ordre complet (entrée + stop + trailing), puis tu ne touches plus rien.</small>";}
+  else{var left=5-[0,1,2,3,4].filter(function(i){return gState[i];}).length;
+    go.className="gostate no";go.innerHTML="NO-TRADE<small>"+left+" porte"+(left>1?"s":"")+" restante"+(left>1?"s":"")+". Une seule manquante = pas de trade.</small>";}
+}
+if(gates){
+  gates.querySelectorAll("li").forEach(function(li){
+    li.addEventListener("click",function(){
+      var i=+li.getAttribute("data-g");gState[i]=!gState[i];
+      li.classList.toggle("on",gState[i]);evalGates();
+    });
+  });
+  $("gateReset").addEventListener("click",function(){
+    gState={};gates.querySelectorAll("li").forEach(function(li){li.classList.remove("on");});evalGates();
+  });
+  evalGates();
+}
+function ckTick(){
+  if(!$("ckClock"))return;
+  try{
+    var now=new Date();
+    $("ckClock").textContent=now.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Paris"});
+    var pH=parseInt(now.toLocaleTimeString("fr-FR",{hour:"2-digit",hour12:false,timeZone:"Europe/Paris"}),10);
+    var el=$("ckState");
+    if(pH>=14&&pH<17){el.textContent="Fenêtre ACTIVE";el.style.color="#34C08F";}
+    else if(pH>=17&&pH<20){el.textContent="Gestion (sorties)";el.style.color="#E3A93E";}
+    else{el.textContent="Hors fenêtre";el.style.color="#5B6472";}
+  }catch(e){}
+}
+ckTick();setInterval(ckTick,20000);
+
+/* ===== simulateur de variance ===== */
+function sampleWin(){var r=Math.random();if(r<.5)return .1+Math.random()*1.4;if(r<.8)return 1.5+Math.random()*1.5;if(r<.95)return 3+Math.random()*3;return 6+Math.random()*6;}
+function runSim(nT){
+  var RUNS=500,curves=[],finals=[],streaks=[],dds=[];
+  for(var k=0;k<RUNS;k++){
+    var eq=[0],c=0,peak=0,dd=0,ls=0,cur=0;
+    for(var i=0;i<nT;i++){
+      var r=Math.random()<.401?sampleWin():-(0.75+Math.random()*0.5);
+      c+=r;eq.push(c);
+      if(c>peak)peak=c;if(peak-c>dd)dd=peak-c;
+      cur=r<=0?cur+1:0;if(cur>ls)ls=cur;
+    }
+    finals.push(c);streaks.push(ls);dds.push(dd);
+    if(k<30)curves.push(eq);
+  }
+  function med(a){var s=a.slice().sort(function(x,y){return x-y;});return s[Math.floor(s.length/2)];}
+  var pos=finals.filter(function(f){return f>0;}).length/RUNS*100;
+  $("simStats").style.display="grid";
+  $("mPos").textContent=pos.toFixed(0)+" %";
+  $("mMed").textContent=fmtR(med(finals))+" R";
+  $("mMed").style.color=med(finals)>0?"#34C08F":"#E8595A";
+  $("mStreak").textContent=med(streaks)+" → "+Math.max.apply(null,streaks);
+  $("mDD").textContent="−"+med(dds).toFixed(0)+" → −"+Math.max.apply(null,dds).toFixed(0)+" R";
+  // draw
+  var svg=$("simSvg");var W=760,H=260,L=46,Rp=14,T=14,B=26;
+  var allv=[];curves.forEach(function(cv){allv=allv.concat(cv);});
+  var mn=Math.min(0,Math.min.apply(null,allv)),mx=Math.max(1,Math.max.apply(null,allv));
+  function X(i){return L+(W-L-Rp)*i/nT;}
+  function Y(v){return T+(H-T-B)*(1-(v-mn)/(mx-mn));}
+  var g="<line x1='"+L+"' y1='"+Y(0)+"' x2='"+(W-Rp)+"' y2='"+Y(0)+"' stroke='#5B6472' stroke-dasharray='4 3'/>";
+  g+="<text x='"+(L-6)+"' y='"+(Y(0)+4)+"' fill='#98A2B3' font-size='10' text-anchor='end' font-family='monospace'>0</text>";
+  curves.forEach(function(cv){
+    var last=cv[cv.length-1];
+    var col=last>=0?"rgba(52,192,143,.34)":"rgba(232,89,90,.4)";
+    g+="<polyline fill='none' stroke='"+col+"' stroke-width='1.1' points='"+cv.map(function(v,i){return X(i).toFixed(1)+","+Y(v).toFixed(1);}).join(" ")+"'/>";
+  });
+  // median-final curve highlighted
+  var mF=med(finals),best=0,bd=1e9;
+  curves.forEach(function(cv,i){var d=Math.abs(cv[cv.length-1]-mF);if(d<bd){bd=d;best=i;}});
+  g+="<polyline fill='none' stroke='#F2DA9C' stroke-width='2.6' points='"+curves[best].map(function(v,i){return X(i).toFixed(1)+","+Y(v).toFixed(1);}).join(" ")+"'/>";
+  svg.innerHTML=g;
+  $("simCap").textContent=nT+" trades × 500 futurs simulés (30 affichés, doré = trajectoire médiane). "+pos.toFixed(0)+"% finissent positifs ; des séries de "+med(streaks)+"+ pertes arrivent dans un futur médian.";
+}
+document.querySelectorAll("[data-sim]").forEach(function(b){
+  b.addEventListener("click",function(){runSim(+b.getAttribute("data-sim"));});
+});
+
+render();
+})();
+</script>
+
 </body>
 </html>
