@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Thème sombre "terminal de trading" ─────────────────────────────────── */
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-950 text-fg antialiased;
+  background-image:
+    radial-gradient(1200px 500px at 80% -10%, rgba(79, 140, 255, 0.07), transparent),
+    radial-gradient(900px 400px at 10% 110%, rgba(47, 220, 139, 0.05), transparent);
+  background-attachment: fixed;
+}
+
+/* Champs de formulaire */
+.field {
+  @apply w-full rounded-lg border border-ink-700 bg-ink-800 px-3 py-2 text-sm text-fg
+    placeholder:text-fg-faint outline-none transition-colors
+    focus:border-accent focus:ring-1 focus:ring-accent;
+}
+
+.field-label {
+  @apply mb-1 block text-xs font-medium uppercase tracking-wider text-fg-muted;
+}
+
+/* Boutons */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
+    transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+.btn-primary {
+  @apply btn bg-accent text-white hover:bg-accent/85;
+}
+.btn-ghost {
+  @apply btn border border-ink-700 bg-transparent text-fg hover:bg-ink-800;
+}
+.btn-danger {
+  @apply btn border border-loss/40 bg-transparent text-loss hover:bg-loss/10;
+}
+
+/* Cartes */
+.card {
+  @apply rounded-xl border border-ink-700 bg-ink-900 p-5 shadow-card;
+}
+
+/* Tableaux */
+.table-terminal {
+  @apply w-full border-collapse text-sm;
+}
+.table-terminal th {
+  @apply border-b border-ink-700 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wider text-fg-muted;
+}
+.table-terminal td {
+  @apply border-b border-ink-800 px-3 py-2 font-mono text-[13px];
+}
+.table-terminal tbody tr:hover {
+  @apply bg-ink-800/50;
+}
