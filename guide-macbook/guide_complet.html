@@ -1,0 +1,899 @@
+<meta charset="utf-8">
+<title>Mon MacBook, ma rampe de lancement — Guide complet</title>
+<style>
+/* ============ PALETTE : bleu nuit + or/ambre ============ */
+/* navy #101E38 · navy2 #1B2C4F · gold #C0912F · gold-light #E8D5A8
+   ink #22293A · muted #5D6675 · cream #F7F3EA · line #E3DCCB */
+
+@page {
+  size: A4;
+  margin: 22mm 18mm 20mm 18mm;
+  @bottom-left {
+    content: "Mon MacBook, ma rampe de lancement";
+    font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+    font-size: 7.5pt; color: #9AA3B2; letter-spacing: 0.5pt;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+    font-size: 8.5pt; color: #C0912F; font-weight: bold;
+  }
+}
+@page cover { margin: 0; background: #101E38;
+  @bottom-left { content: none; } @bottom-right { content: none; } }
+@page intro  { @bottom-left { content: none; } }
+
+html { font-size: 10pt; }
+body {
+  font-family: 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  color: #22293A; line-height: 1.62; margin: 0;
+}
+
+/* ============ COUVERTURE ============ */
+.cover { page: cover; width: 100%; height: 297mm; background: #101E38; color: #fff; position: relative; }
+.cover-inner { padding: 40mm 22mm 0 22mm; }
+.cover .kicker {
+  color: #C0912F; font-size: 10pt; letter-spacing: 4pt; text-transform: uppercase;
+  font-weight: bold; margin-bottom: 10mm; }
+.cover h1 { font-size: 33pt; line-height: 1.18; margin: 0 0 7mm 0; font-weight: bold; color: #FFFFFF; }
+.cover h1 .gold { color: #E0B54E; }
+.cover .subtitle { font-size: 13pt; color: #C7D0E0; line-height: 1.55; margin-bottom: 14mm; max-width: 150mm; }
+.cover .tagline {
+  border-left: 1.2mm solid #C0912F; padding: 3mm 0 3mm 6mm;
+  font-size: 11.5pt; font-style: italic; color: #E8D5A8; max-width: 140mm; }
+.cover .meta { position: absolute; bottom: 20mm; left: 22mm; right: 22mm;
+  border-top: 0.35mm solid #2E3F63; padding-top: 5mm;
+  font-size: 8.5pt; color: #8B96AC; letter-spacing: 1pt; }
+.cover .meta .who { color: #C7D0E0; font-size: 9.5pt; letter-spacing: 0.3pt; margin-bottom: 1.5mm; }
+.cover-rule { width: 28mm; height: 1.4mm; background: #C0912F; margin-bottom: 12mm; }
+
+/* ============ TITRES ============ */
+h1.phase {
+  page-break-before: always;
+  background: #101E38; color: #fff;
+  padding: 7mm 7mm 6.2mm 7mm; border-radius: 2.5mm;
+  font-size: 16.5pt; line-height: 1.3; margin: 0 0 7mm 0;
+  border-bottom: 1.6mm solid #C0912F;
+}
+h1.phase .phasenum {
+  display: block; color: #E0B54E; font-size: 9pt; letter-spacing: 3pt;
+  text-transform: uppercase; margin-bottom: 2mm; font-weight: bold; }
+h2 { font-size: 12.5pt; color: #101E38; margin: 8mm 0 3mm 0;
+  padding-bottom: 1.6mm; border-bottom: 0.5mm solid #E3DCCB; page-break-after: avoid; }
+h2 .no { color: #C0912F; }
+h3 { font-size: 10.5pt; color: #1B2C4F; margin: 5.5mm 0 2mm 0; page-break-after: avoid; }
+p { margin: 0 0 3.2mm 0; text-align: justify; }
+strong { color: #101E38; }
+em { color: #4A5568; }
+
+/* ============ LISTES ============ */
+ul, ol { margin: 0 0 3.5mm 0; padding-left: 6.5mm; }
+li { margin-bottom: 1.7mm; }
+ol.steps { counter-reset: step; list-style: none; padding-left: 0; }
+ol.steps > li {
+  counter-increment: step; position: relative; padding-left: 10.5mm;
+  margin-bottom: 2.6mm; min-height: 6.5mm; }
+ol.steps > li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0.4mm;
+  width: 6.2mm; height: 6.2mm; line-height: 6.2mm;
+  background: #101E38; color: #E0B54E; font-weight: bold; font-size: 9pt;
+  text-align: center; border-radius: 50%; }
+
+/* ============ ENCADRÉS ============ */
+.box { border-radius: 2mm; padding: 3.6mm 4.5mm 3.2mm 4.5mm; margin: 4mm 0;
+  page-break-inside: avoid; font-size: 9.6pt; }
+.box .box-title { font-weight: bold; font-size: 8.6pt; letter-spacing: 1.6pt;
+  text-transform: uppercase; margin-bottom: 1.6mm; }
+.box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+.warn { background: #FBF0EC; border-left: 1.3mm solid #B4552D; }
+.warn .box-title { color: #B4552D; }
+.tip { background: #FBF6E9; border-left: 1.3mm solid #C0912F; }
+.tip .box-title { color: #A67A20; }
+.cost { background: #EEF4EF; border-left: 1.3mm solid #3E7C59; }
+.cost .box-title { color: #3E7C59; }
+.action { background: #EDF1F8; border-left: 1.3mm solid #1B2C4F; }
+.action .box-title { color: #1B2C4F; }
+
+/* ============ TABLEAUX ============ */
+table { width: 100%; border-collapse: collapse; margin: 3.5mm 0 5mm 0; font-size: 9.2pt; }
+th { background: #101E38; color: #E0B54E; text-align: left;
+  padding: 2.4mm 3mm; font-size: 8.8pt; letter-spacing: 0.4pt; }
+td { padding: 2.2mm 3mm; vertical-align: top; border-bottom: 0.25mm solid #E3DCCB; }
+tr:nth-child(even) td { background: #F7F3EA; }
+table .ok { color: #3E7C59; font-weight: bold; }
+table .no2 { color: #B4552D; font-weight: bold; }
+td.k, th.k { white-space: nowrap; }
+.small { font-size: 8.6pt; color: #5D6675; }
+
+/* ============ GLOSSAIRE ============ */
+.gloss { margin: 0 0 2.8mm 0; padding: 2.6mm 3.5mm; background: #F7F3EA;
+  border-radius: 1.8mm; page-break-inside: avoid; }
+.gloss b { color: #101E38; }
+.gloss .g-tag { color: #A67A20; font-weight: bold; }
+
+/* ============ SOMMAIRE ============ */
+.toc { page: intro; }
+.toc h1 { font-size: 20pt; color: #101E38; margin: 6mm 0 2mm 0; }
+.toc .toc-sub { color: #5D6675; margin-bottom: 8mm; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0 0 3.4mm 0; page-break-inside: avoid; }
+.toc a { text-decoration: none; color: #22293A; display: block; position: relative;
+  border-bottom: 0.3mm dotted #C9C2B2; padding-bottom: 1.8mm; padding-right: 14mm; }
+.toc a .t-num { display: inline-block; width: 20mm; color: #C0912F; font-weight: bold;
+  white-space: nowrap; font-size: 9pt; }
+.toc a .t-label { font-weight: bold; font-size: 11pt; color: #101E38; }
+.toc a .t-desc { display: block; padding-left: 20mm; font-size: 8.8pt; color: #5D6675; }
+.toc a::after { content: target-counter(attr(href), page);
+  position: absolute; right: 0; top: 0.5mm;
+  color: #C0912F; font-weight: bold; font-size: 10.5pt; }
+
+/* ============ RÉSUMÉ D'OUVERTURE ============ */
+.promise { page: intro; page-break-before: always; }
+.promise h1 { font-size: 19pt; color: #101E38; margin: 6mm 0 5mm 0; }
+.promise .lead { font-size: 11pt; line-height: 1.75; }
+.promise .lead .n { color: #C0912F; font-weight: bold; }
+
+/* ============ CHECKLISTS ============ */
+.check { list-style: none; padding: 0; }
+.check li { padding: 1.9mm 0 1.9mm 9mm; position: relative;
+  border-bottom: 0.25mm solid #E3DCCB; margin: 0; }
+.check li::before { content: "\2610"; position: absolute; left: 0; top: 1.4mm;
+  color: #C0912F; font-size: 12pt; font-family: 'DejaVu Sans', sans-serif; }
+
+/* divers */
+.kbd { font-family: 'DejaVu Sans Mono', monospace; background: #EDF1F8;
+  border: 0.25mm solid #C7D0E0; border-radius: 1mm; padding: 0.2mm 1.6mm;
+  font-size: 8.6pt; color: #1B2C4F; white-space: nowrap; }
+.pill { display: inline-block; background: #101E38; color: #E0B54E;
+  border-radius: 5mm; padding: 0.4mm 3mm; font-size: 8.2pt; font-weight: bold;
+  letter-spacing: 0.8pt; }
+.free { color: #3E7C59; font-weight: bold; }
+.paid { color: #B4552D; font-weight: bold; }
+hr.sep { border: none; border-top: 0.4mm solid #E3DCCB; margin: 6mm 0; }
+.avoid-break { page-break-inside: avoid; }
+</style>
+
+<!-- ================= COUVERTURE ================= -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="kicker">Guide personnel &nbsp;·&nbsp; macOS de zéro</div>
+    <div class="cover-rule"></div>
+    <h1>Mon MacBook,<br>ma <span class="gold">rampe de lancement</span></h1>
+    <p class="subtitle">Prendre en main, sécuriser, optimiser et exploiter à fond un MacBook&nbsp;Pro M1
+    (8&nbsp;Go / 256&nbsp;Go) — du premier déballage jusqu'aux compétences qui préparent
+    l'EDHEC, le trading professionnel et la suite.</p>
+    <div class="tagline">« La machine ne fait pas la réussite. Mais bien maîtrisée, elle enlève
+    tous les freins entre toi et tes objectifs. »</div>
+    <div class="meta">
+      <div class="who">Édition personnalisée — Étudiant L1 Économie-Gestion (Aix-Marseille) · Trader futures Gold (MGC) · Objectif EDHEC AST2</div>
+      JUILLET 2026 &nbsp;·&nbsp; 9 PHASES &nbsp;·&nbsp; 2 CHECKLISTS IMPRIMABLES &nbsp;·&nbsp; 100 % ADAPTÉ À UN BUDGET ÉTUDIANT
+    </div>
+  </div>
+</div>
+
+<!-- ================= PROMESSE ================= -->
+<div class="promise">
+  <h1>Ce que ce guide va t'apporter</h1>
+  <p class="lead">
+  <span class="n">1.</span> En une journée, tu passes de « je n'ai jamais touché un Mac » à une machine configurée, chiffrée, sauvegardée et protégée contre le vol — sans rien casser.<br>
+  <span class="n">2.</span> Tu comprends macOS en profondeur (Finder, Dock, Spotlight, gestes, raccourcis) au lieu de le subir, et tu évites les 15 pièges classiques du débutant.<br>
+  <span class="n">3.</span> Ta machine 8&nbsp;Go / 256&nbsp;Go reste fluide pendant 3 ans et plus, grâce à des habitudes précises de mémoire, de stockage et de batterie.<br>
+  <span class="n">4.</span> Tu installes une stack logicielle quasi 100&nbsp;% gratuite, taillée pour tes études, ton trading Gold sur Tradovate et ton usage intensif de l'IA.<br>
+  <span class="n">5.</span> Tu transformes ce MacBook en levier de carrière : Excel finance, données, automatisation, plan de montée en compétence sur 12 mois — réaliste, études d'abord.
+  </p>
+  <div class="tip box" style="margin-top:8mm">
+    <div class="box-title">Comment utiliser ce guide</div>
+    <p>Suis les phases <strong>dans l'ordre</strong> : les phases 0 à 3 se font le jour de la réception (2 à 3 heures, tranquillement). Les phases 4 à 7 s'étalent sur la première semaine. La phase 8 est ton programme des 12 prochains mois. Deux checklists imprimables t'attendent en fin de document.</p>
+  </div>
+</div>
+
+<!-- ================= SOMMAIRE ================= -->
+<div class="toc" style="page-break-before: always;">
+  <h1>Sommaire</h1>
+  <p class="toc-sub">Neuf phases, du jour de la réception aux mois qui suivent. Les numéros de page sont à droite ; dans la version numérique, chaque ligne est cliquable.</p>
+  <ol>
+    <li><a href="#phase0"><span class="t-num">Phase 0</span><span class="t-label">Glossaire débutant — les 25 mots du Mac</span><span class="t-desc">Le mini-dictionnaire à lire en 10 minutes avant tout le reste.</span></a></li>
+    <li><a href="#phase1"><span class="t-num">Phase 1</span><span class="t-label">Premier démarrage — le jour de la réception</span><span class="t-desc">Déballage, assistant de configuration pas à pas, réglages vitaux (Touch ID, FileVault, Localiser).</span></a></li>
+    <li><a href="#phase2"><span class="t-num">Phase 2</span><span class="t-label">Comprendre macOS de zéro</span><span class="t-desc">Bureau, Dock, Finder, Spotlight, gestes du trackpad, raccourcis, installer/désinstaller, les 15 erreurs à éviter.</span></a></li>
+    <li><a href="#phase3"><span class="t-num">Phase 3</span><span class="t-label">Sécurité, sauvegarde, longévité, anti-vol</span><span class="t-desc">Chiffrement, stratégie de sauvegarde petit budget, plan anti-vol d'étudiant mobile, batterie 3 ans.</span></a></li>
+    <li><a href="#phase4"><span class="t-num">Phase 4</span><span class="t-label">Optimisation spéciale 8 Go de RAM</span><span class="t-desc">Moniteur d'activité, habitudes anti-saturation, réglages qui allègent, ce qu'il ne faut jamais installer.</span></a></li>
+    <li><a href="#phase5"><span class="t-num">Phase 5</span><span class="t-label">Stack logicielle personnalisée</span><span class="t-desc">Études, trading Gold/Tradovate, IA, productivité — gratuit d'abord, chaque coût signalé.</span></a></li>
+    <li><a href="#phase6"><span class="t-num">Phase 6</span><span class="t-label">Système d'organisation</span><span class="t-desc">Arborescence durable, nommage des fichiers, stratégie cloud 256 Go, mode Concentration révisions.</span></a></li>
+    <li><a href="#phase7"><span class="t-num">Phase 7</span><span class="t-label">Ergonomie &amp; santé</span><span class="t-desc">Posture, écran, pauses — tenir des heures d'études et de trading sans t'abîmer.</span></a></li>
+    <li><a href="#phase8"><span class="t-num">Phase 8</span><span class="t-label">Exploiter la machine pour tes ambitions</span><span class="t-desc">Excel finance, données, automatisation, IA : plan de montée en compétence sur 12 mois.</span></a></li>
+    <li><a href="#checklists"><span class="t-num">Annexes</span><span class="t-label">Checklists imprimables</span><span class="t-desc">Checklist « Jour 1 » et checklist « Routine mensuelle ».</span></a></li>
+  </ol>
+</div>
+<!-- ================= PHASE 0 ================= -->
+<h1 class="phase" id="phase0"><span class="phasenum">Phase 0 · 10 minutes de lecture</span>Glossaire débutant — les 25 mots du Mac</h1>
+
+<p>Avant de toucher à quoi que ce soit, lis ce mini-dictionnaire. Ces 25 termes reviennent partout dans le guide (et dans tout ce que tu liras sur macOS). Une phrase chacun, pas plus. Tu peux revenir à cette page à tout moment.</p>
+
+<div class="gloss"><span class="g-tag">01</span> — <b>macOS</b> : le système d'exploitation du Mac, l'équivalent de Windows sur PC ou d'Android/iOS sur téléphone.</div>
+<div class="gloss"><span class="g-tag">02</span> — <b>Bureau</b> : l'écran principal que tu vois après le démarrage, ta « table de travail » où s'affichent les fenêtres.</div>
+<div class="gloss"><span class="g-tag">03</span> — <b>Dock</b> : la barre d'icônes en bas de l'écran, qui sert à lancer tes applications préférées et à voir celles qui sont ouvertes.</div>
+<div class="gloss"><span class="g-tag">04</span> — <b>Finder</b> : l'application (icône visage bleu qui sourit) qui permet d'explorer tes fichiers et dossiers — l'équivalent de l'Explorateur Windows.</div>
+<div class="gloss"><span class="g-tag">05</span> — <b>Barre des menus</b> : la fine bande tout en haut de l'écran (menu , Fichier, Édition…) qui change selon l'application active.</div>
+<div class="gloss"><span class="g-tag">06</span> — <b>Spotlight</b> : le moteur de recherche universel du Mac (loupe en haut à droite, ou touches <span class="kbd">⌘ + Espace</span>) : il trouve fichiers, apps, définitions, conversions en une seconde.</div>
+<div class="gloss"><span class="g-tag">07</span> — <b>Centre de contrôle</b> : le panneau en haut à droite (icône avec deux curseurs) qui regroupe Wi-Fi, Bluetooth, luminosité, volume, Concentration.</div>
+<div class="gloss"><span class="g-tag">08</span> — <b>Mission Control</b> : la vue d'ensemble de toutes tes fenêtres ouvertes (glisse trois doigts vers le haut sur le trackpad).</div>
+<div class="gloss"><span class="g-tag">09</span> — <b>Spaces (bureaux multiples)</b> : plusieurs bureaux virtuels côte à côte — par exemple un bureau « Études » et un bureau « Trading » entre lesquels tu bascules d'un geste.</div>
+<div class="gloss"><span class="g-tag">10</span> — <b>Launchpad</b> : la grille de toutes tes applications, comme l'écran d'accueil d'un iPhone.</div>
+<div class="gloss"><span class="g-tag">11</span> — <b>Réglages Système</b> : l'application (icône engrenage) où se règlent tous les paramètres du Mac — l'équivalent du Panneau de configuration Windows.</div>
+<div class="gloss"><span class="g-tag">12</span> — <b>Identifiant Apple (compte Apple)</b> : ton compte personnel gratuit chez Apple (adresse e-mail + mot de passe) qui débloque iCloud, l'App Store, Localiser, etc.</div>
+<div class="gloss"><span class="g-tag">13</span> — <b>iCloud</b> : le cloud d'Apple — 5 Go gratuits pour synchroniser tes fichiers, photos, mots de passe et sauvegardes entre appareils.</div>
+<div class="gloss"><span class="g-tag">14</span> — <b>Trousseau iCloud</b> : le gestionnaire de mots de passe intégré et gratuit d'Apple, qui retient et remplit tes mots de passe pour toi.</div>
+<div class="gloss"><span class="g-tag">15</span> — <b>Touch ID</b> : le capteur d'empreinte digitale (touche en haut à droite du clavier) pour déverrouiller le Mac et valider des achats sans taper de mot de passe.</div>
+<div class="gloss"><span class="g-tag">16</span> — <b>FileVault</b> : le chiffrement intégral du disque — si on te vole le Mac, tes données sont illisibles sans ton mot de passe.</div>
+<div class="gloss"><span class="g-tag">17</span> — <b>Localiser (Find My)</b> : le service qui permet de géolocaliser, verrouiller ou effacer ton Mac à distance s'il est perdu ou volé.</div>
+<div class="gloss"><span class="g-tag">18</span> — <b>Time Machine</b> : le système de sauvegarde automatique intégré : branché à un disque externe, il garde un historique complet de ton Mac.</div>
+<div class="gloss"><span class="g-tag">19</span> — <b>AirDrop</b> : l'envoi sans fil instantané de fichiers/photos entre appareils Apple proches (Mac ↔ iPhone notamment).</div>
+<div class="gloss"><span class="g-tag">20</span> — <b>Handoff / Continuité</b> : la famille de fonctions qui fait travailler Mac et iPhone ensemble : commencer un texte sur l'un, le finir sur l'autre, copier ici / coller là-bas.</div>
+<div class="gloss"><span class="g-tag">21</span> — <b>App Store</b> : la boutique officielle d'applications d'Apple — le moyen le plus sûr d'installer un logiciel.</div>
+<div class="gloss"><span class="g-tag">22</span> — <b>Fichier .dmg</b> : le format d'installation des logiciels téléchargés hors App Store — une « image disque » qu'on ouvre, dont on glisse l'app dans le dossier Applications, puis qu'on éjecte.</div>
+<div class="gloss"><span class="g-tag">23</span> — <b>Gatekeeper</b> : le gardien de sécurité de macOS qui bloque l'ouverture des logiciels non vérifiés ou dangereux.</div>
+<div class="gloss"><span class="g-tag">24</span> — <b>Moniteur d'activité</b> : l'application qui montre en direct ce qui consomme mémoire, processeur et énergie — ton tableau de bord vital avec 8 Go de RAM.</div>
+<div class="gloss"><span class="g-tag">25</span> — <b>Corbeille</b> : là où vont les fichiers supprimés (à droite du Dock) — rien n'est vraiment effacé tant qu'elle n'est pas vidée.</div>
+
+<div class="tip box">
+  <div class="box-title">Astuce</div>
+  <p>Le symbole <span class="kbd">⌘</span> (« cmd », touche Commande, à côté de la barre d'espace) est LA touche du Mac : elle remplace le <em>Ctrl</em> de Windows dans presque tous les raccourcis. <span class="kbd">⌘ + C</span> pour copier, <span class="kbd">⌘ + V</span> pour coller. Les autres symboles que tu croiseras : <span class="kbd">⌥</span> Option (alt), <span class="kbd">⇧</span> Majuscule, <span class="kbd">⌃</span> Contrôle.</p>
+</div>
+<!-- ================= PHASE 1 ================= -->
+<h1 class="phase" id="phase1"><span class="phasenum">Phase 1 · Jour de la réception · 1 h 30 à 2 h</span>Premier démarrage — pas à pas, sans stress</h1>
+
+<h2><span class="no">1.1</span> Déballage et première charge</h2>
+<ol class="steps">
+  <li><strong>Ouvre le carton sur une table propre et sèche</strong> (pas sur un lit : les fibres et l'électricité statique, on évite). Garde le carton et les emballages au moins 30 jours — indispensables en cas de retour, et utiles pour la revente plus tard.</li>
+  <li>Tu trouves : le MacBook, un câble USB-C vers MagSafe (ou USB-C/USB-C selon le modèle) et un adaptateur secteur. C'est tout, c'est normal.</li>
+  <li><strong>Branche le chargeur</strong> : l'adaptateur au mur, le câble au Mac (côté gauche). Un petit voyant orange s'allume sur le connecteur MagSafe. Tu peux utiliser le Mac immédiatement pendant qu'il charge — inutile d'attendre une « première charge complète », les batteries modernes n'en ont pas besoin.</li>
+  <li><strong>Allume-le</strong> : ouvre simplement l'écran — il démarre tout seul. S'il ne se passe rien, appuie sur la touche en haut à droite du clavier (c'est le bouton d'alimentation, qui est aussi le capteur Touch ID).</li>
+</ol>
+
+<div class="warn box">
+  <div class="box-title">⚠ Avertissement</div>
+  <p>Ne colle jamais rien sur les ouïes d'aération et ne pose pas le Mac allumé sur une couette ou un coussin : la chaleur est l'ennemi n°1 de la durée de vie. Table, bureau, ou support — toujours une surface dure.</p>
+</div>
+
+<h2><span class="no">1.2</span> L'assistant de configuration Apple, écran par écran</h2>
+<p>Au premier allumage, macOS lance un assistant. Voici <strong>chaque écran</strong>, ce qu'il faut choisir, et pourquoi. Tu peux prendre ton temps : rien n'est irréversible ici, tout se modifie plus tard dans Réglages Système.</p>
+
+<table>
+  <tr><th class="k">Écran</th><th>Quoi faire</th><th>Pourquoi</th></tr>
+  <tr><td class="k"><b>Langue &amp; pays</b></td><td>Français, France.</td><td>Détermine clavier, format des dates, boutique App Store.</td></tr>
+  <tr><td class="k"><b>Accessibilité</b></td><td>« Pas maintenant ».</td><td>Tout se règle plus tard (on y revient en Phase 7).</td></tr>
+  <tr><td class="k"><b>Wi-Fi</b></td><td>Choisis ton réseau, saisis le mot de passe de la box.</td><td>Obligatoire pour créer le compte Apple et activer la machine.</td></tr>
+  <tr><td class="k"><b>Données &amp; confidentialité</b></td><td>Lis en diagonale, continue.</td><td>Simple information sur l'usage des données par Apple.</td></tr>
+  <tr><td class="k"><b>Migration</b></td><td>« Ne pas transférer d'informations » si tu pars de zéro (ton cas probable — voir 1.3).</td><td>On configure proprement, sans importer du désordre.</td></tr>
+  <tr><td class="k"><b>Identifiant Apple</b></td><td><b>Crée un compte gratuit</b> (voir encadré ci-dessous), ou connecte-toi si tu en as déjà un via un iPhone.</td><td>Indispensable : App Store, iCloud, Localiser, Trousseau.</td></tr>
+  <tr><td class="k"><b>Conditions générales</b></td><td>Accepter.</td><td>Pas le choix de toute façon.</td></tr>
+  <tr><td class="k"><b>Compte utilisateur</b></td><td>Ton prénom, un <b>mot de passe fort que tu n'oublieras jamais</b> + une indication discrète.</td><td>C'est LE mot de passe maître du Mac (déverrouillage, installations, FileVault). Note-le sur papier, rangé chez toi.</td></tr>
+  <tr><td class="k"><b>Touch ID</b></td><td><b>Configure-le maintenant</b> : pose le doigt plusieurs fois comme indiqué.</td><td>Déverrouillage instantané sans taper le mot de passe. Ajoute un 2ᵉ doigt plus tard (Réglages → Touch ID).</td></tr>
+  <tr><td class="k"><b>Apple Pay</b></td><td>« Configurer plus tard ».</td><td>Optionnel, aucune urgence.</td></tr>
+  <tr><td class="k"><b>Temps d'écran</b></td><td>« Configurer plus tard ».</td><td>Inutile sur Mac pour ton usage.</td></tr>
+  <tr><td class="k"><b>Siri</b></td><td>Active si tu veux, sans la dictée « Améliorer Siri ».</td><td>Peut servir ; refuse le partage d'enregistrements audio.</td></tr>
+  <tr><td class="k"><b>Analyse / diagnostic</b></td><td><b>Décoche</b> « Partager avec les développeurs ».</td><td>Zéro impact pour toi, autant limiter l'envoi de données.</td></tr>
+  <tr><td class="k"><b>Apparence</b></td><td>« Auto » (clair le jour, sombre le soir).</td><td>Confort visuel — modifiable à tout moment.</td></tr>
+</table>
+
+<div class="action box">
+  <div class="box-title">✓ Créer ton identifiant Apple (gratuit, 5 minutes)</div>
+  <ol class="steps">
+    <li>Sur l'écran « Identifiant Apple » de l'assistant, clique « Créer un identifiant Apple gratuit ».</li>
+    <li>Utilise ton adresse e-mail personnelle actuelle (<em>lunys.gad@gmail.com</em> convient parfaitement) — évite de créer une nouvelle adresse @icloud.com comme identifiant principal : garde une adresse que tu contrôles déjà.</li>
+    <li>Date de naissance réelle (sert à la récupération de compte), mot de passe <b>différent</b> de celui du Mac.</li>
+    <li>Numéro de téléphone : mets ton vrai numéro. C'est lui qui sert à la <b>validation en deux étapes</b> — la double sécurité qui rend ton compte quasi impiratable. Ne saute pas cette étape.</li>
+    <li>Un code à 6 chiffres arrive par SMS : saisis-le, c'est terminé.</li>
+  </ol>
+  <p><b>Coût : 0 €.</b> L'identifiant Apple est 100 % gratuit et inclut 5 Go d'iCloud.</p>
+</div>
+
+<h2><span class="no">1.3</span> Migration : tu pars d'où ?</h2>
+<h3>Cas A — Tu pars de zéro (recommandé, et probablement ton cas)</h3>
+<p>Choisis « Ne pas transférer d'informations » dans l'assistant. Tes documents importants (cours, journaux de trades, captures) se récupèrent ensuite à la main : c'est plus propre et ça évite d'importer des années de désordre.</p>
+<ul>
+  <li><b>Depuis un téléphone Android ou un iPhone</b> : tes fichiers passent par le cloud. Installe-toi, puis ouvre <em>drive.google.com</em> (ou WhatsApp Web, ou ta boîte mail) dans Safari et télécharge ce dont tu as besoin. Photos : Google Photos ou câble USB.</li>
+  <li><b>Depuis un vieux PC Windows</b> : le plus simple avec peu de fichiers = une clé USB (le Mac lit les clés Windows sans rien installer), ou Google Drive dans les deux sens.</li>
+</ul>
+<h3>Cas B — Tu as un vieux PC avec beaucoup de données</h3>
+<p>Apple fournit « Assistant migration » pour Windows (gratuit, à installer sur le PC depuis le site d'Apple) : il transfère documents, images et contacts par le Wi-Fi. Compte 1 à 3 h. Fais-le <em>après</em> la configuration initiale via Finder → Applications → Utilitaires → Assistant migration.</p>
+<div class="tip box">
+  <div class="box-title">Astuce budget stockage</div>
+  <p>Avec 256 Go, <b>n'importe pas ta photothèque complète ni de vieilles archives</b> sur le Mac. Laisse-les sur Google Drive/Photos ou sur une clé USB. Le Mac doit rester léger dès le premier jour (stratégie complète en Phase 6).</p>
+</div>
+
+<h2><span class="no">1.4</span> Les 5 réglages vitaux à faire immédiatement</h2>
+<p>Une fois sur le Bureau, ouvre <b>Réglages Système</b> (icône engrenage dans le Dock, ou menu  en haut à gauche → Réglages Système) et fais ces cinq choses, dans l'ordre. Durée totale : 15 minutes.</p>
+
+<ol class="steps">
+  <li><b>Active FileVault (chiffrement du disque).</b> Réglages Système → Confidentialité et sécurité → FileVault → Activer. Choisis « Autoriser mon compte iCloud à déverrouiller mon disque » (le plus simple pour un débutant). Le chiffrement se fait en arrière-plan, tu peux continuer à travailler.
+    <div class="warn box" style="margin-top:2mm"><div class="box-title">⚠ Irréversible si mal géré</div><p>FileVault rend le disque illisible sans ton mot de passe de session ou ta clé de secours. Si tu choisis l'option « clé de secours » au lieu d'iCloud, <b>note cette clé sur papier</b> et range-la chez tes parents. Sans mot de passe ET sans clé : données définitivement perdues. C'est le but (anti-vol), mais ça doit protéger les voleurs de tes données, pas toi.</p></div></li>
+  <li><b>Active Localiser mon Mac.</b> Réglages Système → [ton nom] en haut → iCloud → « Localiser mon Mac » → Activer (autorise la localisation si demandé). C'est ta principale arme anti-vol : géolocalisation, verrouillage et effacement à distance (détails Phase 3).</li>
+  <li><b>Vérifie les mises à jour macOS.</b> Réglages Système → Général → Mise à jour de logiciels. Installe tout ce qui est proposé (30-60 min parfois, laisse tourner). Active « Mises à jour automatiques » — y compris « Installer les réponses de sécurité ». Un Mac à jour = 90 % de la sécurité.</li>
+  <li><b>Verrouillage automatique.</b> Réglages Système → Écran verrouillé : « Exiger le mot de passe après » → <b>immédiatement</b> ; « Éteindre l'écran après » → 5 min sur batterie. En bibliothèque universitaire, un Mac qui se verrouille seul, c'est non négociable.</li>
+  <li><b>Active le pare-feu.</b> Réglages Système → Réseau → Coupe-feu → Activer. Zéro entretien ensuite.</li>
+</ol>
+
+<h2><span class="no">1.5</span> Accepter ou refuser ? Le récap des demandes</h2>
+<table>
+  <tr><th>Demande</th><th class="k">Réponse</th><th>Pourquoi</th></tr>
+  <tr><td>Validation en deux étapes de l'identifiant Apple</td><td class="k ok">ACCEPTER</td><td>Ta meilleure protection de compte. Jamais la refuser.</td></tr>
+  <tr><td>FileVault, Localiser, mises à jour auto</td><td class="k ok">ACCEPTER</td><td>Le trio sécurité/anti-vol/santé du système.</td></tr>
+  <tr><td>Siri « Améliorer Siri et Dictée » (envoi d'audio)</td><td class="k no2">REFUSER</td><td>Aucun bénéfice pour toi.</td></tr>
+  <tr><td>Partage d'analyses avec Apple et les développeurs</td><td class="k no2">REFUSER</td><td>Données envoyées pour rien.</td></tr>
+  <tr><td>Publicités personnalisées Apple</td><td class="k no2">REFUSER</td><td>Réglages → Confidentialité → Publicité Apple → décocher.</td></tr>
+  <tr><td>« Photos iCloud » (synchro photos)</td><td class="k no2">PLUS TARD</td><td>Avec 5 Go gratuits et 256 Go de disque, réfléchis d'abord (Phase 6).</td></tr>
+  <tr><td>Apple Pay, Temps d'écran</td><td class="k">Plus tard</td><td>Optionnels, aucun impact.</td></tr>
+</table>
+
+<div class="action box">
+  <div class="box-title">✓ Fin de la Phase 1 — état de la machine</div>
+  <p>Mac allumé et à jour · compte Apple créé avec double validation · Touch ID actif · disque chiffré (FileVault) · Localiser activé · verrouillage auto immédiat · pare-feu actif. <b>Ton Mac est déjà plus sécurisé que celui de 90 % des utilisateurs.</b> La checklist imprimable « Jour 1 » en fin de guide reprend tout ça case par case.</p>
+</div>
+<!-- ================= PHASE 2 ================= -->
+<h1 class="phase" id="phase2"><span class="phasenum">Phase 2 · Première semaine · à ton rythme</span>Comprendre macOS de zéro</h1>
+
+<h2><span class="no">2.1</span> La carte mentale de l'écran</h2>
+<p>Tout macOS tient en six zones. Une fois qu'elles sont claires, tu ne seras plus jamais perdu :</p>
+<ol class="steps">
+  <li><b>La barre des menus</b> (bande tout en haut). À gauche : le menu  (éteindre, redémarrer, Réglages Système) puis les menus de l'application <em>active</em> (Fichier, Édition…). <em>Différence clé avec Windows :</em> les menus ne sont pas dans la fenêtre de l'app, ils sont toujours en haut de l'écran. À droite : Wi-Fi, batterie, heure, Spotlight (loupe) et Centre de contrôle.</li>
+  <li><b>Le Dock</b> (barre du bas). Tes apps favorites à gauche, un point sous celles qui sont ouvertes, et à droite : dossiers récents + Corbeille. Ajouter une app : glisse-la depuis Applications. Retirer : glisse l'icône hors du Dock jusqu'à voir « Supprimer ».</li>
+  <li><b>Le Bureau</b> : la surface derrière les fenêtres. Conseil d'entrée : garde-le <b>vide</b> — un bureau couvert de fichiers, c'est le désordre de Windows qui recommence.</li>
+  <li><b>Le Finder</b> : ouvre-le (visage souriant du Dock). Barre latérale gauche = tes accès rapides (Documents, Téléchargements, iCloud, AirDrop). <span class="kbd">⌘ + N</span> ouvre une nouvelle fenêtre, la barre d'espace donne un <b>aperçu instantané</b> de n'importe quel fichier sans l'ouvrir (Quick Look — magique pour parcourir des PDF de cours).</li>
+  <li><b>Spotlight</b> : appuie sur <span class="kbd">⌘ + Espace</span>, tape trois lettres, Entrée. C'est LE réflexe n°1 du Mac : lancer une app, retrouver un fichier, convertir « 250 usd en eur », calculer « 1250*0.02 » (pratique pour un sizing rapide). Tu n'iras presque jamais chercher une app à la souris.</li>
+  <li><b>Mission Control &amp; les bureaux multiples</b> : trois doigts vers le haut sur le trackpad = vue d'ensemble de toutes les fenêtres. En haut de cette vue, clique « + » pour créer un 2ᵉ bureau. Recommandation immédiate : <b>Bureau 1 = Études, Bureau 2 = Trading</b>. Bascule avec trois doigts gauche/droite. Cerveau rangé, écran rangé.</li>
+</ol>
+
+<h2><span class="no">2.2</span> Les gestes du trackpad, du plus au moins utile</h2>
+<p>Le trackpad du Mac est le meilleur du marché — c'est lui qui remplace la souris ET une partie des raccourcis. Dans l'ordre d'importance :</p>
+<table>
+  <tr><th class="k">#</th><th>Geste</th><th>Effet</th></tr>
+  <tr><td class="k">1</td><td>Clic à deux doigts</td><td><b>Clic droit</b> (menu contextuel) — le geste que tu feras 100 fois par jour.</td></tr>
+  <tr><td class="k">2</td><td>Glisser à deux doigts</td><td>Défilement (pages web, PDF, graphiques TradingView).</td></tr>
+  <tr><td class="k">3</td><td>Balayage 3 doigts gauche/droite</td><td>Changer de bureau (Études ↔ Trading) ou d'app en plein écran.</td></tr>
+  <tr><td class="k">4</td><td>Balayage 3 doigts vers le haut</td><td>Mission Control : toutes les fenêtres d'un coup d'œil.</td></tr>
+  <tr><td class="k">5</td><td>Pincer / écarter 2 doigts</td><td>Zoom (graphique Gold, PDF de cours, images).</td></tr>
+  <tr><td class="k">6</td><td>Toucher à 3 doigts sur un mot</td><td>Définition + traduction instantanée (activer : Réglages → Trackpad → « Rechercher »). Précieux en anglais financier.</td></tr>
+  <tr><td class="k">7</td><td>Balayage 2 doigts depuis le bord droit</td><td>Ouvre le centre de notifications (agenda, rappels).</td></tr>
+  <tr><td class="k">8</td><td>Pouce + 3 doigts qui s'écartent</td><td>Afficher le Bureau.</td></tr>
+</table>
+<div class="tip box">
+  <div class="box-title">Astuce</div>
+  <p>Va dans Réglages Système → Trackpad et active <b>« Toucher pour cliquer »</b> : un simple effleurement vaut un clic. Monte aussi la vitesse du curseur. Ces deux réglages changent la vie.</p>
+</div>
+
+<h2><span class="no">2.3</span> Les raccourcis clavier à mémoriser (15 jours pour tous les ancrer)</h2>
+<table>
+  <tr><th class="k">Raccourci</th><th>Action</th><th class="k">Priorité</th></tr>
+  <tr><td class="k"><span class="kbd">⌘ + Espace</span></td><td>Spotlight — tout lancer, tout trouver</td><td class="k">Jour 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + C / V / X</span></td><td>Copier / coller / couper</td><td class="k">Jour 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + Z</span></td><td>Annuler (⇧⌘Z pour rétablir)</td><td class="k">Jour 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + S</span></td><td>Enregistrer</td><td class="k">Jour 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + Tab</span></td><td>Basculer entre applications ouvertes</td><td class="k">Jour 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + Q</span></td><td><b>Quitter vraiment</b> une app (voir 2.5 — vital avec 8 Go)</td><td class="k">Jour 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + W</span></td><td>Fermer la fenêtre/l'onglet (sans quitter l'app)</td><td class="k">Sem. 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + T</span></td><td>Nouvel onglet (navigateur, Finder)</td><td class="k">Sem. 1</td></tr>
+  <tr><td class="k"><span class="kbd">⇧ + ⌘ + 4</span></td><td>Capture d'écran d'une zone — ton outil n°1 pour archiver les trades</td><td class="k">Sem. 1</td></tr>
+  <tr><td class="k"><span class="kbd">⇧ + ⌘ + 5</span></td><td>Menu complet de capture (écran entier, fenêtre, <b>vidéo</b>)</td><td class="k">Sem. 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + F</span></td><td>Rechercher dans la page / le document</td><td class="k">Sem. 1</td></tr>
+  <tr><td class="k">Barre d'espace (dans Finder)</td><td>Quick Look : aperçu instantané d'un fichier</td><td class="k">Sem. 1</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + ⌫</span></td><td>Mettre le fichier sélectionné à la Corbeille</td><td class="k">Sem. 2</td></tr>
+  <tr><td class="k"><span class="kbd">⌥ + ⌘ + Échap</span></td><td>Forcer à quitter une app bloquée (= Ctrl+Alt+Suppr du Mac)</td><td class="k">Sem. 2</td></tr>
+  <tr><td class="k"><span class="kbd">⌃ + ⌘ + Q</span></td><td>Verrouiller l'écran immédiatement (réflexe bibliothèque !)</td><td class="k">Sem. 2</td></tr>
+  <tr><td class="k"><span class="kbd">⌘ + ,</span></td><td>Ouvrir les réglages de l'app en cours</td><td class="k">Sem. 2</td></tr>
+</table>
+
+<h2><span class="no">2.4</span> Installer et désinstaller un logiciel (les 2 méthodes)</h2>
+<h3>Méthode 1 — App Store (la plus sûre)</h3>
+<ol class="steps">
+  <li>Ouvre l'App Store (Dock ou Spotlight), cherche l'app, clique « Obtenir » puis valide avec Touch ID.</li>
+  <li>L'app apparaît dans le Launchpad et le dossier Applications. C'est tout — pas d'assistant d'installation, pas de « Suivant, Suivant, Terminer » comme sous Windows.</li>
+</ol>
+<h3>Méthode 2 — Fichier .dmg téléchargé sur le site officiel de l'éditeur</h3>
+<ol class="steps">
+  <li>Télécharge le .dmg <b>uniquement depuis le site officiel</b> (jamais depuis des sites de téléchargement type « telecharger.com » — c'est la première source de malwares sur Mac).</li>
+  <li>Double-clique le .dmg : une petite fenêtre s'ouvre avec l'icône de l'app et un alias du dossier Applications.</li>
+  <li><b>Glisse l'icône de l'app sur « Applications »</b>. C'est ça, l'installation. Ne lance pas l'app depuis la fenêtre du .dmg.</li>
+  <li>Éjecte l'image disque (clic droit sur l'icône blanche apparue sur le Bureau/barre latérale → Éjecter), puis supprime le .dmg des Téléchargements.</li>
+  <li>Au premier lancement, macOS demande « êtes-vous sûr de vouloir l'ouvrir ? » (c'est Gatekeeper) : confirme si la source était officielle.</li>
+</ol>
+<h3>Désinstaller</h3>
+<p>Va dans Applications, glisse l'app à la Corbeille, vide la Corbeille. Pour un ménage parfait (préférences et caches inclus), utilise <b>AppCleaner</b> (gratuit — présenté en Phase 5) : tu y glisses l'app, il liste tous les fichiers associés, tu supprimes tout d'un coup.</p>
+<div class="warn box">
+  <div class="box-title">⚠ Différences avec Windows à intégrer</div>
+  <ul>
+    <li>Pas de « Programmes et fonctionnalités », pas de registre, pas de désinstallateur : une app = un fichier dans Applications.</li>
+    <li>La croix rouge d'une fenêtre <b>ne quitte pas l'app</b> (elle reste en mémoire) — c'est <span class="kbd">⌘ + Q</span> qui quitte.</li>
+    <li>Pas besoin d'antivirus tiers : Gatekeeper + XProtect (intégrés) suffisent si tu installes depuis des sources officielles.</li>
+  </ul>
+</div>
+
+<h2><span class="no">2.5</span> Si tu as un iPhone : le duo Mac + iPhone</h2>
+<p>Connecte le même identifiant Apple sur les deux appareils et active Bluetooth + Wi-Fi. Tu obtiens gratuitement :</p>
+<ul>
+  <li><b>AirDrop</b> : envoie une capture de trade ou un PDF de l'iPhone au Mac en 2 secondes (sur iPhone : Partager → AirDrop → ton Mac ; sur Mac, les fichiers arrivent dans Téléchargements).</li>
+  <li><b>Presse-papier universel</b> : copie un texte sur l'iPhone, colle-le directement sur le Mac (<span class="kbd">⌘ + V</span>), et inversement. Aucun réglage : ça marche dès que les deux sont proches.</li>
+  <li><b>Handoff</b> : commence un mail/une note sur un appareil, continue sur l'autre (icône qui apparaît dans le Dock).</li>
+  <li><b>Messages et appels sur Mac</b> : tes SMS/iMessage et appels passent sur le Mac — pratique pour les codes de validation Tradovate/FundedNext reçus par SMS.</li>
+  <li><b>Recopie de l'écran iPhone</b> et <b>appareil photo de continuité</b> (l'iPhone sert de webcam de qualité pour tes oraux/entretiens en visio).</li>
+</ul>
+<p class="small">Si tu es sur Android : pas d'équivalent natif. Utilise Google Drive/Photos pour les fichiers et WhatsApp Web pour les messages — ça couvre 90 % des besoins.</p>
+
+<h2><span class="no">2.6</span> Les 15 erreurs classiques du débutant Mac</h2>
+<table>
+  <tr><th class="k">#</th><th>Erreur</th><th>Le bon réflexe</th></tr>
+  <tr><td class="k">1</td><td>Croire que la croix rouge ferme l'app</td><td>Elle ferme la fenêtre ; l'app tourne encore. <span class="kbd">⌘+Q</span> pour quitter (crucial avec 8 Go).</td></tr>
+  <tr><td class="k">2</td><td>Lancer les apps depuis le fichier .dmg</td><td>Toujours glisser l'app dans Applications, puis éjecter le .dmg.</td></tr>
+  <tr><td class="k">3</td><td>Utiliser le Bureau comme fourre-tout</td><td>Tout fichier a un dossier (arborescence en Phase 6).</td></tr>
+  <tr><td class="k">4</td><td>Installer un antivirus ou un « cleaner » (CleanMyMac, MacKeeper…)</td><td>Inutiles, chers, et gourmands en RAM. macOS se protège et s'entretient seul.</td></tr>
+  <tr><td class="k">5</td><td>Ne jamais vider la Corbeille ni les Téléchargements</td><td>Routine mensuelle (Phase 3) — vital avec 256 Go.</td></tr>
+  <tr><td class="k">6</td><td>Ignorer les mises à jour macOS</td><td>Les faire dans la semaine ; c'est 90 % de ta sécurité.</td></tr>
+  <tr><td class="k">7</td><td>Débrancher une clé USB sans l'éjecter</td><td>Clic droit → Éjecter d'abord, sinon risque de corruption.</td></tr>
+  <tr><td class="k">8</td><td>Chercher les apps à la souris dans le Launchpad</td><td><span class="kbd">⌘ + Espace</span> puis 3 lettres : dix fois plus rapide.</td></tr>
+  <tr><td class="k">9</td><td>Télécharger les logiciels hors sites officiels</td><td>App Store ou site de l'éditeur, rien d'autre.</td></tr>
+  <tr><td class="k">10</td><td>Forcer l'extinction en maintenant le bouton</td><td>Menu  → Éteindre. Le forçage, uniquement si tout est figé.</td></tr>
+  <tr><td class="k">11</td><td>Laisser 40 onglets Chrome ouverts en permanence</td><td>Avec 8 Go, c'est LA cause n°1 de ralentissement (Phase 4).</td></tr>
+  <tr><td class="k">12</td><td>Ne pas configurer de sauvegarde « parce que ça va »</td><td>Un vol ou un café renversé = cours + journaux de trades perdus. Phase 3, non négociable.</td></tr>
+  <tr><td class="k">13</td><td>Saisir son mot de passe à chaque fois au lieu de Touch ID</td><td>Touch ID partout : déverrouillage, App Store, mots de passe web.</td></tr>
+  <tr><td class="k">14</td><td>Confondre Ctrl et ⌘</td><td>Sur Mac, quasiment tout ce que Windows fait avec Ctrl se fait avec ⌘.</td></tr>
+  <tr><td class="k">15</td><td>Paniquer quand une app « ne répond plus »</td><td><span class="kbd">⌥ + ⌘ + Échap</span> → sélectionner l'app → Forcer à quitter. Le Mac, lui, va bien.</td></tr>
+</table>
+<!-- ================= PHASE 3 ================= -->
+<h1 class="phase" id="phase3"><span class="phasenum">Phase 3 · Semaine 1 · 1 h de mise en place</span>Sécurité, sauvegarde, longévité, anti-vol</h1>
+
+<h2><span class="no">3.1</span> Sécurité complète — l'état des lieux</h2>
+<p>Si tu as suivi la Phase 1, l'essentiel est déjà fait. Voici le tableau de bord complet, à vérifier une fois puis à oublier :</p>
+<table>
+  <tr><th>Protection</th><th>Où</th><th class="k">État visé</th></tr>
+  <tr><td>Chiffrement du disque (FileVault)</td><td>Réglages → Confidentialité et sécurité</td><td class="k ok">Activé</td></tr>
+  <tr><td>Mot de passe de session fort + Touch ID</td><td>Réglages → Touch ID et mot de passe</td><td class="k ok">Fait</td></tr>
+  <tr><td>Verrouillage auto immédiat après veille</td><td>Réglages → Écran verrouillé</td><td class="k ok">Immédiat</td></tr>
+  <tr><td>Pare-feu</td><td>Réglages → Réseau → Coupe-feu</td><td class="k ok">Activé</td></tr>
+  <tr><td>Validation en deux étapes du compte Apple</td><td>Réglages → [ton nom] → Connexion et sécurité</td><td class="k ok">Activée</td></tr>
+  <tr><td>Mises à jour automatiques</td><td>Réglages → Général → Mise à jour de logiciels</td><td class="k ok">Activées</td></tr>
+  <tr><td>Mots de passe uniques par site (Trousseau)</td><td>Safari les propose automatiquement</td><td class="k ok">Systématique</td></tr>
+</table>
+<div class="warn box">
+  <div class="box-title">⚠ Règle d'or trading</div>
+  <p>Tes comptes <b>FundedNext</b> et <b>Tradovate</b> donnent accès à du capital réel. Pour eux : mot de passe unique généré par le Trousseau, <b>double authentification activée</b> sur chaque plateforme (dans leurs réglages de compte), et jamais de connexion depuis un Wi-Fi public sans réfléchir. Un compte prop firm compromis, c'est potentiellement ton évaluation ou ton payout envolés.</p>
+</div>
+
+<h2><span class="no">3.2</span> Stratégie de sauvegarde spéciale « étudiant, 256 Go »</h2>
+<p>Règle universelle : une donnée qui n'existe qu'à un seul endroit est une donnée déjà à moitié perdue. Ta stratégie en deux niveaux, adaptée à ton budget :</p>
+
+<h3>Niveau 1 — Le vital dans le cloud, en continu (0 € à 0,99 €/mois)</h3>
+<ol class="steps">
+  <li>Active <b>iCloud Drive</b> pour Bureau et Documents : Réglages → [ton nom] → iCloud → iCloud Drive → « Dossiers Bureau et Documents ». Tout ce que tu enregistres est copié dans le cloud automatiquement.</li>
+  <li>Les <b>5 Go gratuits</b> suffisent au début (des cours en PDF et des tableurs, c'est léger). Quand c'est plein : <b>iCloud+ 50 Go à 0,99 €/mois</b> — le meilleur euro que tu dépenseras.</li>
+  <li>Double filet gratuit : garde un dossier « Archives » sur <b>Google Drive (15 Go gratuits)</b> pour les vieux semestres et les gros fichiers froids.</li>
+</ol>
+<h3>Niveau 2 — Time Machine sur disque externe (quand tu peux : ~55-65 €, une fois)</h3>
+<ol class="steps">
+  <li>Achète un disque dur externe USB-C de 1 To (Toshiba, WD, Seagate : <b>55 à 65 €</b> neuf ; c'est un investissement, pas une urgence du jour 1 — mets-le sur ta liste de cadeaux).</li>
+  <li>Branche-le : macOS propose de l'utiliser pour Time Machine. Accepte, choisis « Chiffrer la sauvegarde » (mot de passe à noter).</li>
+  <li>Ensuite : branche le disque <b>une fois par semaine</b> pendant que tu travailles. Time Machine sauvegarde tout seul, avec historique (tu peux retrouver la version d'un fichier d'il y a 3 semaines).</li>
+</ol>
+<div class="cost box">
+  <div class="box-title">€ Récapitulatif des coûts sauvegarde</div>
+  <ul>
+    <li>iCloud 5 Go : <b>0 €</b> · iCloud+ 50 Go : <b>0,99 €/mois</b> · 200 Go : 2,99 €/mois (inutile pour l'instant)</li>
+    <li>Google Drive 15 Go : <b>0 €</b></li>
+    <li>Disque externe 1 To pour Time Machine : <b>≈ 60 € une seule fois</b> (différable)</li>
+    <li><b>Total recommandé la 1ʳᵉ année : 0,99 €/mois + un disque quand possible.</b></li>
+  </ul>
+</div>
+
+<h2><span class="no">3.3</span> Plan anti-vol — étudiant mobile, campus, cafés</h2>
+<h3>Prévention (à faire maintenant)</h3>
+<ul>
+  <li><b>Localiser mon Mac activé</b> (fait en Phase 1) : il active aussi le <b>verrouillage d'activation</b> — un Mac volé ne peut pas être réinitialisé ni réutilisé sans TON compte Apple. Il perd presque toute valeur à la revente : c'est dissuasif.</li>
+  <li><b>FileVault activé</b> : le voleur a le matériel, jamais tes données (cours, journaux, identifiants).</li>
+  <li>Réflexe <span class="kbd">⌃ + ⌘ + Q</span> (verrouiller) dès que tu quittes ta place en bibliothèque — même 2 minutes.</li>
+  <li>Ne laisse jamais le Mac visible dans une voiture ; en café, garde-le en contact visuel ou range-le.</li>
+  <li>Note quelque part (chez toi) le <b>numéro de série</b> : menu  → À propos de ce Mac. Indispensable pour la plainte et l'assurance.</li>
+  <li>Vérifie ton assurance habitation étudiante : beaucoup couvrent le vol d'ordinateur portable (option « appareils nomades », souvent 2-5 €/mois — lis ton contrat avant de payer quoi que ce soit en plus).</li>
+</ul>
+<h3>Si le Mac est volé (dans cet ordre, sans attendre)</h3>
+<ol class="steps">
+  <li>Depuis ton téléphone ou n'importe quel navigateur : <b>icloud.com/find</b> → connecte-toi → sélectionne ton Mac.</li>
+  <li>Active <b>« Marquer comme perdu »</b> : le Mac se verrouille avec un code et affiche ton numéro de téléphone à l'écran.</li>
+  <li>Si tu vois sa position : <b>n'y va jamais toi-même</b> — donne la position à la police.</li>
+  <li>Dépose plainte (commissariat ou pré-plainte en ligne) avec le numéro de série.</li>
+  <li>Change immédiatement les mots de passe critiques depuis un autre appareil : compte Apple, e-mail, Tradovate, FundedNext, banque.</li>
+  <li>Si tu perds espoir de le récupérer : bouton <b>« Effacer ce Mac »</b> dans Localiser. Tes données distantes (iCloud) restent intactes ; le Mac devient une brique inutilisable pour le voleur.</li>
+</ol>
+
+<h2><span class="no">3.4</span> Routine d'entretien mensuelle (10 minutes)</h2>
+<p>macOS n'a besoin ni de défragmentation ni de logiciel de nettoyage. Dix minutes par mois suffisent — la checklist imprimable en fin de guide reprend ces points :</p>
+<ol class="steps">
+  <li>Vide le dossier <b>Téléchargements</b> (trie : à classer / à supprimer).</li>
+  <li>Vide la <b>Corbeille</b> (clic droit sur son icône → Vider).</li>
+  <li>Vérifie le stockage : Réglages → Général → Stockage. Objectif : <b>au moins 40 Go libres en permanence</b> (en dessous de 20 Go, macOS ralentit vraiment).</li>
+  <li>Fais les <b>mises à jour</b> macOS et App Store en attente.</li>
+  <li>Ouvre le Moniteur d'activité (Phase 4) et repère une éventuelle app anormalement gourmande.</li>
+  <li><b>Redémarre le Mac</b> (beaucoup ne le font jamais : un redémarrage mensuel purge les caches mémoire).</li>
+  <li>Branche le disque Time Machine si tu en as un.</li>
+</ol>
+
+<h2><span class="no">3.5</span> Batterie : la faire durer 3 ans et plus</h2>
+<ul>
+  <li><b>Active la recharge optimisée</b> : Réglages → Batterie → (i) à côté de « Santé de la batterie » → « Recharge optimisée ». Le Mac apprend tes horaires et évite de rester à 100 % branché toute la nuit.</li>
+  <li>La zone de confort d'une batterie lithium : <b>entre 20 % et 80 %</b>. Pas besoin d'être obsessionnel — la recharge optimisée gère — mais évite les extrêmes répétés (0 % profond, 100 % permanent).</li>
+  <li><b>La chaleur tue la batterie</b> plus que les cycles : jamais de charge en plein soleil, jamais sur une couette, jamais dans une voiture l'été.</li>
+  <li>Si le Mac reste branché des semaines au bureau : débranche-le une à deux fois par semaine pour le faire respirer entre 30 et 80 %.</li>
+  <li>Contrôle annuel : Réglages → Batterie → Santé de la batterie. Au-dessus de 80 % de capacité maximale, tout va bien. (Le M1 est par ailleurs extrêmement économe : 15-18 h d'autonomie réelle en usage cours + navigateur.)</li>
+  <li>En amphi, baisse la luminosité à 50-60 % : c'est le premier poste de consommation.</li>
+</ul>
+<div class="tip box">
+  <div class="box-title">Astuce longévité générale</div>
+  <p>Les trois habitudes qui font durer un MacBook : <b>chaleur maîtrisée</b> (surface dure, aération), <b>stockage jamais saturé</b> (40 Go libres), <b>mises à jour faites</b>. C'est tout. Le M1 chauffe très peu (son ventilateur se déclenche rarement) et n'a aucune pièce mécanique fragile : bien traité, 5 à 7 ans de vie sont réalistes — 3 ans, c'est très confortable.</p>
+</div>
+<!-- ================= PHASE 4 ================= -->
+<h1 class="phase" id="phase4"><span class="phasenum">Phase 4 · Semaine 1 · à relire souvent</span>Optimisation spéciale 8 Go de RAM</h1>
+
+<p>Parlons franchement : 8 Go, c'est le point faible de ta machine. La bonne nouvelle : le M1 gère la mémoire remarquablement bien (mémoire unifiée + compression), et <b>ton</b> usage réel — navigateur, tableur, PDF, Tradovate en web — tient parfaitement dans 8 Go <em>à condition d'adopter les habitudes de cette phase</em>. Ce sont elles qui feront la différence entre un Mac fluide pendant 3 ans et un Mac qui rame au bout de 6 mois.</p>
+
+<h2><span class="no">4.1</span> Le Moniteur d'activité : ton tableau de bord mémoire</h2>
+<ol class="steps">
+  <li>Ouvre-le : <span class="kbd">⌘ + Espace</span> → tape « moni » → Entrée. Clique l'onglet <b>« Mémoire »</b>.</li>
+  <li>Ignore les gros chiffres du tableau. Regarde <b>une seule chose</b>, en bas : le graphique <b>« Pression sur la mémoire »</b>.</li>
+</ol>
+<table>
+  <tr><th class="k">Couleur</th><th>Signification</th><th>Action</th></tr>
+  <tr><td class="k ok">VERT</td><td>Tout va bien, même si « mémoire utilisée » paraît élevée (macOS remplit la RAM exprès : une RAM pleine mais verte, c'est normal et sain).</td><td>Aucune. Continue à travailler.</td></tr>
+  <tr><td class="k" style="color:#A67A20; font-weight:bold">JAUNE</td><td>macOS compresse la mémoire et commence à écrire sur le disque (swap). Ça tient, mais ça chauffe.</td><td>Quitte (⌘Q) les apps inutiles, ferme les onglets morts.</td></tr>
+  <tr><td class="k no2">ROUGE</td><td>Saturation : le disque sert de RAM de secours, tout ralentit, la machine s'use plus vite.</td><td>Quitte tout sauf l'essentiel ; redémarre si ça persiste.</td></tr>
+</table>
+<div class="tip box">
+  <div class="box-title">Astuce</div>
+  <p>Les deux premières semaines, garde un œil sur la pression mémoire pendant tes sessions type (cours + IA + Tradovate). Tu verras concrètement ce qui la fait monter — en général : trop d'onglets. Ensuite tu n'auras même plus besoin de vérifier, les réflexes seront pris.</p>
+</div>
+
+<h2><span class="no">4.2</span> Les habitudes qui font tout (classées par impact)</h2>
+<ol class="steps">
+  <li><b>Quitte vraiment les apps que tu n'utilises pas</b> : <span class="kbd">⌘ + Q</span>, pas la croix rouge. Une app avec un point sous son icône du Dock occupe de la RAM. Vise ≤ 4-5 apps ouvertes.</li>
+  <li><b>Discipline d'onglets</b> : un navigateur = ta plus grosse consommation. Règle des 10 onglets max ; utilise les <b>groupes d'onglets</b> (un groupe « Cours », un groupe « Trading ») et les favoris au lieu de garder des pages « au cas où ». Un onglet fermé se rouvre en 2 secondes (<span class="kbd">⌘ + ⇧ + T</span>).</li>
+  <li><b>Un seul navigateur à la fois</b>. Safari pour tout le quotidien (le plus économe en RAM et en batterie, de loin) ; Chrome uniquement pour ta session Tradovate si besoin — et quitte-le après (stratégie détaillée en Phase 5).</li>
+  <li><b>Sessions par contexte</b> : le matin cours → quitte les outils de trading. Session de trading → quitte Word/Notion. Les bureaux multiples (Phase 2) rendent ça naturel.</li>
+  <li><b>Redémarre une fois par semaine</b> : purge le swap et les fuites mémoire des navigateurs.</li>
+  <li><b>Garde 40 Go de libre sur le disque</b> : la mémoire de secours (swap) vit sur le disque ; un disque plein = plus de soupape = machine qui rame. Stockage et RAM sont liés.</li>
+</ol>
+
+<h2><span class="no">4.3</span> Réglages système qui allègent la charge</h2>
+<ul>
+  <li><b>Éléments d'ouverture</b> : Réglages → Général → Ouverture — supprime tout ce qui se lance au démarrage sans raison (chaque app installée essaiera de s'y glisser ; vise zéro ou presque).</li>
+  <li><b>Réduire les animations</b> : Réglages → Accessibilité → Affichage → « Réduire les animations » + « Réduire la transparence ». Gain léger mais réel, interface plus nette.</li>
+  <li><b>Safari plutôt que Chrome</b> par défaut (c'est un réglage à part entière : ~2 à 3 fois moins de RAM par onglet).</li>
+  <li><b>Limite les extensions de navigateur</b> à 2-3 maximum : chacune tourne en permanence dans chaque onglet.</li>
+  <li><b>Pas d'apps en barre de menus</b> qui tournent en permanence (météo, monitoring…) sauf besoin réel.</li>
+  <li>Fond d'écran statique (pas de fonds dynamiques/vidéo).</li>
+</ul>
+
+<h2><span class="no">4.4</span> À ne PAS installer / faire avec 8 Go et 256 Go</h2>
+<table>
+  <tr><th>À éviter</th><th>Pourquoi</th><th>Alternative</th></tr>
+  <tr><td>Machines virtuelles, Windows (Parallels), Docker</td><td>Dévorent RAM et disque ; inutilisables confortablement à 8 Go.</td><td>Tout ton usage est natif ou web ; si un jour il te faut du lourd → cloud (Colab, GitHub Codespaces).</td></tr>
+  <tr><td>Antivirus tiers, CleanMyMac, MacKeeper</td><td>Processus permanents, RAM gaspillée, abonnements chers, bénéfice nul.</td><td>Gatekeeper + XProtect (intégrés) + la routine mensuelle.</td></tr>
+  <tr><td>3-4 apps Electron ouvertes en même temps (Discord + Slack + Spotify + Notion…)</td><td>Chacune est un mini-Chrome : 300-500 Mo pièce.</td><td>Versions web dans un onglet Safari, ouvertes au besoin.</td></tr>
+  <tr><td>Jeux lourds, montage vidéo 4K, gros logiciels créatifs</td><td>Pas le rôle de cette machine ; disque et RAM inadaptés.</td><td>Ce Mac est ta machine de travail : études, trading, IA.</td></tr>
+  <tr><td>Synchroniser toute une photothèque ou des vidéos sur le disque</td><td>256 Go partent très vite.</td><td>Photos/vidéos dans le cloud ou sur disque externe (Phase 6).</td></tr>
+  <tr><td>Installer « pour tester » sans désinstaller</td><td>Le disque s'encombre app par app.</td><td>Règle : pas utilisée depuis 1 mois → AppCleaner.</td></tr>
+</table>
+
+<div class="action box">
+  <div class="box-title">✓ En résumé — le contrat 8 Go</div>
+  <p>Safari par défaut · ≤ 10 onglets · ⌘Q systématique · une tâche = un contexte · redémarrage hebdo · 40 Go libres · rien qui tourne en permanence. Respecte ce contrat et ton M1 restera étonnamment rapide — c'est une excellente puce bridée seulement par les excès qu'on lui impose.</p>
+</div>
+<!-- ================= PHASE 5 ================= -->
+<h1 class="phase" id="phase5"><span class="phasenum">Phase 5 · Semaines 1-2 · installe au fur et à mesure des besoins</span>Stack logicielle personnalisée — gratuit d'abord</h1>
+
+<p>Principe directeur pour ton profil et ta machine : <b>peu d'applications, presque tout en gratuit, le web plutôt que les apps lourdes</b>. N'installe pas tout d'un coup : commence par le « kit de base », puis ajoute quand le besoin réel apparaît. Chaque prix indiqué est le tarif France constaté à l'été 2026 — revérifie au moment d'acheter.</p>
+
+<div class="action box">
+  <div class="box-title">✓ Le kit de base (jour 2, 30 minutes, 0 €)</div>
+  <p><b>Rectangle</b> (fenêtres), <b>AppCleaner</b> (désinstallation propre) — deux .dmg depuis leurs sites officiels. Tout le reste ci-dessous s'active dans le navigateur ou est déjà sur le Mac.</p>
+</div>
+
+<h2><span class="no">5.1</span> ÉTUDES — Licence Éco-Gestion, puis prépa AST2</h2>
+<table>
+  <tr><th>Besoin</th><th>Outil recommandé</th><th class="k">Prix</th><th>Pourquoi pour toi</th></tr>
+  <tr><td>Traitement de texte</td><td><b>Google Docs</b> (navigateur) + <b>Pages</b> (préinstallé)</td><td class="k free">0 €</td><td>Docs = travail à plusieurs sur les exposés, sauvegarde auto dans le cloud (rien à perdre). Pages pour les beaux documents.</td></tr>
+  <tr><td><b>Tableur</b> (central en éco-gestion)</td><td><b>Excel</b> — via ton université, sinon Excel Web ; <b>Google Sheets</b> en complément</td><td class="k free">0 €*</td><td>Excel est LA compétence finance : c'est lui qu'il faut apprendre (Phase 8). *AMU fournit généralement Microsoft 365 gratuit aux étudiants avec l'adresse @etu.univ-amu.fr — vérifie à la rentrée sur l'ENT. Sinon : Excel Web gratuit, ou M365 Personnel à 10 €/mois (99 €/an) — n'achète pas avant d'avoir vérifié l'offre étudiante.</td></tr>
+  <tr><td>Prise de notes de cours</td><td><b>Notion</b> (web ou app) ou <b>Obsidian</b></td><td class="k free">0 €</td><td>Notion : bases de données (fiches par matière, suivi de révisions, dashboard prépa EDHEC) ; offre Éducation gratuite avec l'e-mail étudiant. Obsidian : plus léger, fichiers stockés en local, parfait 8 Go. Choisis-en UN et tiens-le.</td></tr>
+  <tr><td>Lecture / annotation PDF</td><td><b>Aperçu</b> (préinstallé)</td><td class="k free">0 €</td><td>Surlignage, annotation, signature, fusion de PDF : tout est déjà là. N'installe pas Adobe Acrobat (lourd et cher).</td></tr>
+  <tr><td>Bibliographie (dossiers, mémoire)</td><td><b>Zotero</b></td><td class="k free">0 €</td><td>Collecte les références en un clic, génère la bibliographie aux normes. 300 Mo de synchro gratuits — largement assez.</td></tr>
+  <tr><td>Mémorisation (partiels, vocabulaire, AST2)</td><td><b>Anki</b></td><td class="k free">0 €</td><td>Répétition espacée : l'outil le plus efficace pour les définitions d'éco, l'anglais financier et plus tard le TAGE MAGE/GMAT. Gratuit sur Mac.</td></tr>
+</table>
+
+<h2><span class="no">5.2</span> TRADING — Gold (MGC), Tradovate, FundedNext</h2>
+<table>
+  <tr><th>Besoin</th><th>Outil recommandé</th><th class="k">Prix</th><th>Pourquoi pour toi</th></tr>
+  <tr><td>Plateforme d'exécution</td><td><b>Tradovate web</b> dans <b>Chrome</b></td><td class="k free">0 €</td><td>Tradovate est optimisé pour Chrome ; garde Chrome UNIQUEMENT pour le trading (profil dédié, aucune extension parasite). Safari reste ton navigateur de tous les jours — ce découpage protège aussi ta RAM (Phase 4).</td></tr>
+  <tr><td>Graphiques / analyse</td><td><b>TradingView</b> plan Free (web)</td><td class="k free">0 €</td><td>Graphiques Gold de qualité, alertes (limitées mais suffisantes), replay basique. Le plan Essential (≈ 14,95 $/mois) attend que ton trading le finance — pas avant.</td></tr>
+  <tr><td>Journal de trades</td><td><b>Google Sheets</b> — ton modèle maison</td><td class="k free">0 €</td><td>Tu fais déjà du risk management chiffré : un Sheets à toi (date, setup, R prévu/réalisé, screenshots liés, notes d'exécution) bat un outil payant type TradeZella (≈ 29 $/mois) tant que le volume reste raisonnable. Et le construire = monter en compétence tableur (Phase 8).</td></tr>
+  <tr><td>Tableur risk management</td><td>Le même Sheets (onglet dédié)</td><td class="k free">0 €</td><td>Calculateur de position MGC : risque € par trade → nombre de contrats selon le stop en ticks (1 tick MGC = 0,10 $ = 1 $/contrat). Formules simples, zéro erreur de sizing sous pression.</td></tr>
+  <tr><td>Captures &amp; annotation de graphiques</td><td><span class="kbd">⇧⌘4</span> + <b>Aperçu</b></td><td class="k free">0 €</td><td>Capture de zone native, annotation (flèches, texte) dans Aperçu. Classement automatique : Phase 6. Pas besoin de CleanShot X (29 $).</td></tr>
+  <tr><td>Backtest manuel</td><td>TradingView (replay) + Sheets de résultats</td><td class="k free">0 €</td><td>Le replay Free est limité mais utilisable ; consigne chaque trade simulé dans le même format que ton journal réel. Backtest programmé : Phase 8 (Python/Colab).</td></tr>
+</table>
+<div class="warn box">
+  <div class="box-title">⚠ Discipline de poste de trading</div>
+  <p>Pendant une session : <b>Bureau 2 uniquement</b>, Chrome avec 2 onglets (Tradovate + TradingView), mode Concentration activé (Phase 6), rien d'autre. Un Mac qui rame ou une notification au moment de cliquer, c'est un risque opérationnel réel sur un compte financé — la fluidité fait partie du risk management.</p>
+</div>
+
+<h2><span class="no">5.3</span> IA — ton usage intensif, sans alourdir la machine</h2>
+<table>
+  <tr><th>Besoin</th><th>Outil</th><th class="k">Prix</th><th>Pourquoi pour toi</th></tr>
+  <tr><td>Claude au quotidien</td><td><b>claude.ai dans Safari → « Ajouter au Dock »</b> (Fichier → Ajouter au Dock)</td><td class="k free">0 €</td><td>Crée une « web app » avec sa propre icône et sa propre fenêtre, sans installer Electron : le meilleur des deux mondes pour 8 Go. Fais pareil pour ChatGPT.</td></tr>
+  <tr><td>Abonnements IA</td><td>Versions gratuites d'abord ; UN seul abonnement payant si besoin réel</td><td class="k">0 € → ≈ 20 €/mois</td><td>Claude Pro ≈ 20 €/mois, ChatGPT Plus ≈ 23 €/mois. Règle budget : commence gratuit ; si l'IA devient centrale (fiches, code, analyse de trades), un SEUL abonnement, celui que tu utilises le plus. Jamais les deux.</td></tr>
+  <tr><td>Organisation des conversations</td><td>Projets/dossiers intégrés aux plateformes</td><td class="k free">0 €</td><td>Crée des conversations dédiées durables : « Fiches Macro L1 », « Revue de trades hebdo », « Anglais financier ». Une conversation par usage récurrent = contexte conservé, réponses meilleures.</td></tr>
+  <tr><td>Dictée vocale</td><td>Dictée macOS (intégrée)</td><td class="k free">0 €</td><td>Réglages → Clavier → Dictée : dicte tes prompts et notes en français ou anglais, deux fois plus vite que taper.</td></tr>
+  <tr><td>Extensions navigateur</td><td>Maximum 2-3, uniquement si besoin prouvé</td><td class="k free">0 €</td><td>Un bloqueur de pub léger pour Safari (AdGuard pour Safari, gratuit) est le seul quasi indispensable. Chaque extension consomme de la RAM dans chaque onglet.</td></tr>
+</table>
+
+<h2><span class="no">5.4</span> PRODUCTIVITÉ — fichiers, temps, mots de passe, cloud</h2>
+<table>
+  <tr><th>Besoin</th><th>Outil</th><th class="k">Prix</th><th>Pourquoi pour toi</th></tr>
+  <tr><td>Fichiers &amp; cloud</td><td><b>Finder + iCloud Drive</b> (+ Google Drive web en archive)</td><td class="k">0 € → 0,99 €/mois</td><td>Stratégie complète en Phase 6 : iCloud pour le vivant, Drive pour l'archive froide.</td></tr>
+  <tr><td>Calendrier</td><td><b>Calendrier Apple</b> connecté à ton compte Google</td><td class="k free">0 €</td><td>Emploi du temps fac + sessions de trading + échéances au même endroit, synchronisé avec le téléphone. Réglages → Comptes internet → Google.</td></tr>
+  <tr><td>Tâches</td><td><b>Rappels Apple</b> (ou Todoist Free si tu préfères)</td><td class="k free">0 €</td><td>Simple, intégré, synchronisé iPhone. Ne sur-outille pas la gestion de tâches : une liste « Fac », une liste « Trading », une liste « Perso ».</td></tr>
+  <tr><td>Mots de passe</td><td><b>Trousseau iCloud</b> (app « Mots de passe »)</td><td class="k free">0 €</td><td>Génère et remplit des mots de passe uniques partout, protégé par Touch ID. Alternative si tu veux du multi-plateforme hors Apple : Bitwarden (gratuit). Un seul gestionnaire, pas deux.</td></tr>
+  <tr><td>Gestion des fenêtres</td><td><b>Rectangle</b></td><td class="k free">0 €</td><td>Colle les fenêtres à gauche/droite au clavier (cours à gauche, Claude à droite). Le manque de « Snap » à la Windows est le premier réflexe qui te manquera — Rectangle le comble.</td></tr>
+  <tr><td>Désinstallation propre</td><td><b>AppCleaner</b></td><td class="k free">0 €</td><td>Supprime une app ET ses résidus. Essentiel pour la règle « pas utilisée depuis 1 mois → dehors ».</td></tr>
+  <tr><td>Bureautique hors-ligne de secours</td><td><b>LibreOffice</b> (seulement si besoin réel)</td><td class="k free">0 €</td><td>Si un prof exige des .docx/.xlsx hors-ligne et que tu n'as pas l'offre M365 d'AMU. Sinon, ne l'installe pas : 1,5 Go de disque.</td></tr>
+</table>
+
+<div class="cost box">
+  <div class="box-title">€ Budget logiciel total — scénario réaliste</div>
+  <ul>
+    <li><b>Mois 1 : 0 €.</b> Tout le kit fonctionne en gratuit.</li>
+    <li><b>Régime de croisière : 0,99 €/mois</b> (iCloud+ 50 Go), soit <b>moins de 12 €/an</b>.</li>
+    <li>Options si et seulement si justifiées : 1 abonnement IA ≈ 20 €/mois · M365 Personnel 10 €/mois (uniquement si AMU ne le fournit pas ET qu'Excel Web ne suffit plus) · TradingView Essential ≈ 14,95 $/mois (à faire financer par tes payouts, jamais par ta bourse).</li>
+  </ul>
+</div>
+<!-- ================= PHASE 6 ================= -->
+<h1 class="phase" id="phase6"><span class="phasenum">Phase 6 · Semaine 2 · 45 minutes de mise en place</span>Système d'organisation — fichiers, cloud, concentration</h1>
+
+<h2><span class="no">6.1</span> L'arborescence de dossiers (à créer une fois, à garder 5 ans)</h2>
+<p>Dans le Finder, ouvre <b>Documents</b> et crée cette structure (clic droit → Nouveau dossier). Les numéros forcent l'ordre d'affichage et rendent le classement instinctif :</p>
+<table>
+  <tr><th class="k">Dossier</th><th>Contenu</th></tr>
+  <tr><td class="k"><b>01-Études</b></td><td>Un sous-dossier par année (<em>L1-2026-2027</em>), puis par matière (<em>Macro</em>, <em>Micro</em>, <em>Compta</em>, <em>Maths</em>, <em>Anglais</em>…). Dans chaque matière : <em>Cours</em>, <em>TD</em>, <em>Fiches</em>, <em>Annales</em>.</td></tr>
+  <tr><td class="k"><b>02-Trading</b></td><td><em>Journal</em> (exports du Sheets), <em>Captures</em> (une sous-arborescence par mois : <em>2026-09</em>…), <em>Backtests</em>, <em>Docs-FundedNext</em> (contrats, règles, certificats de payout), <em>Stratégie</em> (tes plans écrits).</td></tr>
+  <tr><td class="k"><b>03-Projets</b></td><td>Prépa AST2/EDHEC (dossier dédié dès maintenant : notes, échéances, TAGE MAGE), apprentissage Python, side-projects.</td></tr>
+  <tr><td class="k"><b>04-Perso</b></td><td>Administratif (<em>CROUS-Bourse</em>, <em>Logement</em>, <em>Banque</em>, <em>Santé</em>), CV, documents d'identité scannés.</td></tr>
+  <tr><td class="k"><b>05-Archives</b></td><td>Tout ce qui est terminé (semestres validés, vieux projets). C'est ce dossier qu'on déporte vers Google Drive quand le disque se remplit.</td></tr>
+</table>
+<div class="tip box">
+  <div class="box-title">Astuce</div>
+  <p>Règle des 5 secondes : si tu mets plus de 5 secondes à savoir où ranger un fichier, l'arborescence est trop compliquée. Celle-ci est volontairement plate — résiste à l'envie de créer des sous-sous-sous-dossiers.</p>
+</div>
+
+<h2><span class="no">6.2</span> Convention de nommage</h2>
+<p>Format : <b>AAAA-MM-JJ_sujet_détail_v1</b>. Exemples :</p>
+<ul>
+  <li><span class="kbd">2026-09-15_macro_TD3_corrige.pdf</span></li>
+  <li><span class="kbd">2026-09-15_MGC_long_+2R.png</span> (capture de trade : date, instrument, sens, résultat)</li>
+  <li><span class="kbd">2026-10_journal-trading.xlsx</span> · <span class="kbd">2027-01_CV_EDHEC_v2.pdf</span></li>
+</ul>
+<p>Pourquoi la date en premier : le tri alphabétique devient un tri chronologique, et Spotlight retrouve tout. Jamais d'accents ni d'espaces dans les noms si tu peux (préfère <span class="kbd">_</span> et <span class="kbd">-</span>) : ça évite tout problème de compatibilité cloud/web. Bannis pour toujours : <em>« Document final VRAI dernier (2).docx »</em>.</p>
+
+<h2><span class="no">6.3</span> Stratégie cloud — ne jamais saturer 256 Go</h2>
+<p>Ton disque de 256 Go réels ≈ <b>230 Go utilisables</b>, dont ~25 Go pour macOS et ~15-20 Go d'applications. Il te reste ~185 Go, et l'objectif est de <b>toujours garder ≥ 40 Go libres</b> (Phase 4). Le plan :</p>
+<ol class="steps">
+  <li><b>Le vivant sur le Mac + iCloud</b> : Documents et Bureau synchronisés (Phase 3). Ton année en cours pèse quelques Go au maximum — aucun souci.</li>
+  <li><b>« Optimiser le stockage du Mac »</b> : Réglages → [ton nom] → iCloud → active l'option. macOS garde dans le cloud les fichiers rarement ouverts et ne conserve en local que les récents (icône nuage à côté du fichier = il se télécharge au clic). C'est l'arme secrète des petits disques.</li>
+  <li><b>Le froid sur Google Drive (15 Go gratuits)</b> : chaque fin de semestre, déplace le contenu terminé vers <em>05-Archives</em> puis téléverse-le sur drive.google.com et supprime-le du Mac.</li>
+  <li><b>Photos et vidéos : PAS sur le Mac.</b> Elles restent sur ton téléphone/Google Photos. C'est la première cause de disque saturé chez les étudiants.</li>
+  <li>Contrôle mensuel : Réglages → Général → Stockage (déjà dans la routine de la Phase 3).</li>
+</ol>
+
+<h2><span class="no">6.4</span> Workflow quotidien type</h2>
+<table>
+  <tr><th class="k">Moment</th><th>Sur le Mac</th></tr>
+  <tr><td class="k">Matin (avant les cours)</td><td>Ouvre Calendrier + Rappels (2 min) : la journée est cadrée. Bureau 1 « Études » : Notion/Obsidian + PDF du cours.</td></tr>
+  <tr><td class="k">En cours / TD</td><td>Notes dans Notion. Documents du prof → directement dans <em>01-Études/[matière]/Cours</em> avec le bon nom. Zéro fichier sur le Bureau.</td></tr>
+  <tr><td class="k">Session trading (selon les horaires du Gold que tu trades)</td><td>Bureau 2 : Chrome (Tradovate + TradingView), mode Concentration « Trading » ON. Après la session : captures nommées et classées, journal rempli <b>le jour même</b>, ⌘Q sur Chrome.</td></tr>
+  <tr><td class="k">Soir (10 min)</td><td>Vide Téléchargements, classe ce qui traîne, prépare la liste de demain. L'IA en fin de journée : « résume-moi ce cours », « quiz sur ce chapitre ».</td></tr>
+  <tr><td class="k">Dimanche (20 min)</td><td>Revue de la semaine : trades de la semaine dans le journal, fiches à jour, redémarrage du Mac, Time Machine si tu as le disque.</td></tr>
+</table>
+
+<h2><span class="no">6.5</span> Mode « Concentration révisions » — configuration pas à pas</h2>
+<ol class="steps">
+  <li>Réglages Système → <b>Concentration</b> → « + » → <b>Personnalisé</b> → nomme-le « Révisions », choisis une icône (livre) et une couleur.</li>
+  <li><b>Personnes autorisées</b> : personne, ou uniquement tes parents. <b>Apps autorisées</b> : Calendrier, Rappels. Tout le reste est réduit au silence.</li>
+  <li>Active <b>« Partager sur tous les appareils »</b> : le mode coupe aussi ton iPhone — c'est là que se joue la vraie concentration.</li>
+  <li>Ajoute un <b>déclenchement automatique</b> : par horaire (ex. 18 h-20 h en semaine) — il s'activera sans dépendre de ta volonté.</li>
+  <li>Crée un second mode « <b>Trading</b> » sur le même principe : pendant une session, seule une alerte TradingView mérite de te déranger. Activation manuelle : Centre de contrôle → Concentration → Trading.</li>
+</ol>
+<div class="tip box">
+  <div class="box-title">Astuce anti-distraction ultime</div>
+  <p>Pendant les révisions, mets l'app de prise de notes en <b>plein écran</b> (flèche verte de la fenêtre) : plus de Dock, plus de barre de menus, plus de tentation. Trois doigts vers la gauche pour revenir. Combiné au mode Concentration, c'est ta « salle d'examen » portative.</p>
+</div>
+<!-- ================= PHASE 7 ================= -->
+<h1 class="phase" id="phase7"><span class="phasenum">Phase 7 · Dès la première semaine · pour des années</span>Ergonomie &amp; santé — durer autant que la machine</h1>
+
+<p>Entre les cours, les révisions, le trading et l'IA, tu vas passer 6 à 10 heures par jour devant cet écran de 13 pouces. À 20 ans on ne sent rien ; à 25 on paie la nuque, les poignets et les yeux. Cette phase coûte 0 € et vaut plus que n'importe quel logiciel.</p>
+
+<h2><span class="no">7.1</span> Posture et installation</h2>
+<ol class="steps">
+  <li><b>Le haut de l'écran à hauteur des yeux</b> quand tu travailles longtemps à un bureau. Un portable posé à plat impose de baisser la tête ~30° : c'est la « text neck ». Solution étudiante à 0 € : une pile de livres stable sous le Mac (ou un support à ~20 € plus tard) — mais alors il te faut idéalement un clavier/souris externes d'occasion (~20-30 €). Alternative sans matériel : alterne les positions et fais des pauses strictes (7.3).</li>
+  <li><b>Avant-bras posés</b>, poignets droits (pas cassés vers le haut), épaules relâchées. Le bord de la table ne doit pas couper les poignets.</li>
+  <li><b>Pieds à plat, dos contre le dossier.</b> Le canapé et le lit sont des positions d'appoint (30 min max), pas des postes de travail.</li>
+  <li><b>Distance écran : 50-70 cm</b> (une longueur de bras).</li>
+</ol>
+
+<h2><span class="no">7.2</span> Écran et confort visuel (réglages précis)</h2>
+<ul>
+  <li><b>Luminosité</b> : adaptée à la pièce — l'écran ne doit être ni un phare dans le noir, ni pâle en plein jour. Laisse « Ajuster automatiquement » activé (Réglages → Écrans).</li>
+  <li><b>Night Shift</b> : Réglages → Écrans → Night Shift → « Du coucher au lever du soleil ». L'écran devient chaud le soir : moins de fatigue, meilleur sommeil (important si tu trades des sessions tardives).</li>
+  <li><b>True Tone</b> : laisse activé (adapte les blancs à la lumière ambiante).</li>
+  <li><b>Taille du texte</b> : si tu plisses les yeux, agrandis — Réglages → Écrans → choisis une résolution « Plus grand », et <span class="kbd">⌘ +</span> dans le navigateur. Aucune médaille pour qui lit en tout petit.</li>
+  <li><b>Mode sombre</b> : confortable le soir, mais en plein jour le mode clair est souvent plus lisible pour les longs textes. « Auto » (déjà choisi en Phase 1) fait bien le travail.</li>
+  <li>Jamais l'écran face à une fenêtre (reflets) ni dos à une fenêtre (contre-jour) : la lumière doit venir de côté.</li>
+</ul>
+
+<h2><span class="no">7.3</span> Pauses : la règle 20-20-20 et les vraies coupures</h2>
+<ul>
+  <li><b>20-20-20</b> : toutes les 20 minutes, regarde à 20 pieds (~6 m) pendant 20 secondes. C'est le clignement et la mise au point au loin qui reposent l'œil.</li>
+  <li><b>5 minutes debout par heure</b> : eau, fenêtre, étirements nuque/épaules. Programme un rappel récurrent (Rappels) ou cale-les sur tes changements d'activité.</li>
+  <li>Technique Pomodoro pour les révisions : 25 min à fond (mode Concentration) / 5 min de vraie pause <em>loin de l'écran</em>. Quatre cycles = une session solide.</li>
+  <li>Après une session de trading perdante : ferme l'écran, sors marcher 10 minutes <em>avant</em> de remplir le journal. C'est de l'ergonomie mentale — et ça protège ton capital des trades de revanche.</li>
+</ul>
+
+<h2><span class="no">7.4</span> Réglages d'accessibilité et de confort utiles à tous</h2>
+<table>
+  <tr><th>Réglage</th><th>Où</th><th>Intérêt</th></tr>
+  <tr><td>Réduire les animations + transparence</td><td>Accessibilité → Affichage</td><td>Interface plus nette et plus légère (déjà fait en Phase 4).</td></tr>
+  <tr><td>Pointeur plus grand / plus contrasté</td><td>Accessibilité → Affichage → Pointeur</td><td>On perd moins le curseur sur un 13".</td></tr>
+  <tr><td>Zoom écran ponctuel</td><td>Accessibilité → Zoom → « Faire défiler avec modificateur »</td><td>⌃ + deux doigts : zoom immédiat sur un détail de graphique ou un tableau dense.</td></tr>
+  <tr><td>Sous-titres en direct (anglais)</td><td>Accessibilité → Sous-titres en direct</td><td>Sous-titre les vidéos/podcasts anglais — allié discret pour l'anglais financier.</td></tr>
+  <tr><td>Dictée</td><td>Clavier → Dictée</td><td>Notes et prompts à la voix, repose les poignets.</td></tr>
+  <tr><td>« Secouer pour localiser »</td><td>Trackpad → options du pointeur</td><td>Secoue le curseur : il grossit — on le retrouve toujours.</td></tr>
+</table>
+
+<div class="action box">
+  <div class="box-title">✓ Installation type « soirée révisions » (0 €)</div>
+  <p>Mac surélevé ou pauses strictes · lumière de côté (lampe de bureau) · Night Shift actif · mode Concentration « Révisions » ON · bouteille d'eau à portée · téléphone dans une autre pièce (le mode Concentration partagé le rend muet de toute façon). Trois heures efficaces valent six heures avachies.</p>
+</div>
+<!-- ================= PHASE 8 ================= -->
+<h1 class="phase" id="phase8"><span class="phasenum">Phase 8 · Les 12 prochains mois · le cœur du projet</span>Exploiter la machine pour tes ambitions</h1>
+
+<p>Récapitulons qui tu es : L1 Éco-Gestion à Aix-Marseille, cap sur l'AST2 et le master Finance de l'EDHEC, trader Gold financé chez FundedNext, utilisateur intensif d'IA, bilingue, ambition France → Dubaï. Ce MacBook peut être trois choses : une machine à cours, une machine à trader, et — c'est là que peu de gens vont — <b>une machine à construire un avantage compétitif</b>. Cette phase est honnête : elle distingue ce qui se fait avec 2-3 h/semaine de ce qui exige un vrai engagement. <b>Tes études restent prioritaires : tout ce qui suit se plie devant un partiel.</b></p>
+
+<h2><span class="no">8.1</span> Les 5 compétences à développer sur cette machine (par ordre de retour sur investissement)</h2>
+
+<h3>1. Excel/Sheets niveau finance — le socle absolu <span class="pill">2-3 h/sem · faisable dès maintenant</span></h3>
+<p>C'est LA compétence n°1 en finance : stages, AST2, entretiens EDHEC, analyste junior — tout passe par le tableur. Et tu as un avantage : ton trading te fournit des données réelles à travailler.</p>
+<ol class="steps">
+  <li><b>Mois 1-2</b> : construis ton journal de trades toi-même dans Sheets — SOMME.SI, MOYENNE.SI, RECHERCHEV/RECHERCHEX, mise en forme conditionnelle, validation de données. Objectif : winrate, R moyen, espérance par setup, calculés automatiquement.</li>
+  <li><b>Mois 3-4</b> : tableaux croisés dynamiques (performance par heure de la journée, par jour de semaine, par setup) et graphiques propres (courbe d'équité, distribution des R).</li>
+  <li><b>Mois 5-6</b> : ton calculateur de risque MGC avancé (risque % du compte → contrats selon stop en ticks, respect des règles FundedNext : drawdown maximal, perte journalière) + un premier modèle « finance » simple : intérêts composés, simulation d'épargne, tableau d'amortissement.</li>
+  <li>Ressources 0 € : cours et exercices avec l'IA comme tuteur (« explique-moi les TCD avec un exemple sur ce journal de trades »), chaîne YouTube type Excel-Pratique, modèles gratuits.</li>
+</ol>
+
+<h3>2. L'IA comme levier d'études — la compétence déjà commencée <span class="pill">0 h en plus · s'intègre au quotidien</span></h3>
+<ul>
+  <li><b>Le cycle gagnant</b> : cours en PDF → « fais-moi une fiche structurée » → « génère 20 questions d'examen dessus » → tu réponds → « corrige et note-moi ». C'est de l'apprentissage actif, deux fois plus efficace que relire.</li>
+  <li>Crée des conversations projets durables (Phase 5) : une par matière, une pour la veille EDHEC/AST2, une pour la revue de trading hebdomadaire (colle tes stats Sheets, demande une analyse critique de ta discipline).</li>
+  <li><b>Garde-fou d'honnêteté</b> : l'IA fabrique des fiches, mais c'est TOI qui passes le partiel. Règle : jamais de fiche IA sans l'avoir retravaillée à la main ; l'IA vérifie ta compréhension, elle ne la remplace pas.</li>
+</ul>
+
+<h3>3. Anglais financier — ton billet pour l'EDHEC et Dubaï <span class="pill">2 h/sem · faisable dès maintenant</span></h3>
+<ul>
+  <li>Bascule progressivement ta consommation sur l'anglais : macOS peut rester en français, mais ta veille (Bloomberg, Financial Times édition gratuite, podcasts <em>Chat with Traders</em>, <em>Odd Lots</em>) passe en VO — sous-titres en direct de macOS en appui (Phase 7).</li>
+  <li>Anki (Phase 5) : un paquet « Vocabulaire finance EN » alimenté chaque semaine (10 cartes) — hedge, yield, drawdown, leverage… En un an : ~500 termes ancrés, exactement ce que testent les admissions et les entretiens.</li>
+  <li>Une conversation IA hebdomadaire <em>en anglais</em> sur tes trades ou l'actu macro : c'est un partenaire de conversation gratuit et disponible à 2 h du matin.</li>
+</ul>
+
+<h3>4. Données &amp; Python — le multiplicateur <span class="pill">Engagement réel : 3-4 h/sem pendant 6 mois minimum</span></h3>
+<p>Soyons clairs : Python n'est pas indispensable pour réussir ta L1 ni ton AST2. Mais en master finance puis en poste (surtout à Dubaï, où les desks sont très quantitatifs), « sait manipuler des données » sépare les candidats. Et ton trading est le terrain d'entraînement parfait.</p>
+<ol class="steps">
+  <li><b>Où coder avec 8 Go</b> : dans le cloud — <b>Google Colab (gratuit)</b> exécute Python dans le navigateur, zéro installation, zéro RAM locale. C'est l'outil idéal pour ta machine.</li>
+  <li><b>Trimestre 1 (si tu t'y mets)</b> : bases du langage (variables, boucles, fonctions) — 30 min/jour, l'IA comme tuteur ligne par ligne.</li>
+  <li><b>Trimestre 2</b> : pandas sur TES données — importe l'export CSV de ton journal, recalcule winrate/espérance, trace ta courbe d'équité en 15 lignes.</li>
+  <li><b>Trimestre 3</b> : télécharge l'historique du Gold (yfinance, gratuit) et backteste une règle simple. Tu comprendras viscéralement pourquoi le backtest rigoureux bat l'intuition.</li>
+  <li>Si après un mois d'essai ça ne prend pas : arrête sans culpabiliser et réinvestis les heures dans Excel — qui reste roi en finance d'entreprise.</li>
+</ol>
+
+<h3>5. Écrire et se rendre visible <span class="pill">1 h/sem · sous-coté, énorme à 3 ans</span></h3>
+<ul>
+  <li>Dès cette année, tiens dans Notion un <b>document « Preuves »</b> : tes stats de trading (réelles, datées), tes analyses macro, tes projets. En entretien AST2, un candidat qui montre 18 mois de journal de trading discipliné et une analyse chiffrée de son propre edge est inoubliable.</li>
+  <li>LinkedIn propre dès la L1 (photo correcte, parcours, « finance de marché & trading systématique ») : les stages de L2/L3 se jouent là.</li>
+  <li>Plus tard (pas avant d'être à l'aise) : publier une analyse par mois — sur le Gold, sur le risk management en prop firm. Écrire clarifie la pensée ; être lu crée des opportunités.</li>
+</ul>
+
+<h2><span class="no">8.2</span> Usages puissants auxquels tu n'as probablement pas pensé</h2>
+<table>
+  <tr><th>Usage</th><th>Comment</th><th class="k">Effort</th></tr>
+  <tr><td><b>Le Mac comme simulateur d'entretien</b></td><td>Enregistre-toi (⇧⌘5, vidéo) en train de pitcher « pourquoi l'EDHEC » ou de défendre un trade en anglais ; regarde-toi, ou fais transcrire et critiquer par l'IA. Brutal et incroyablement efficace.</td><td class="k">Faible</td></tr>
+  <tr><td><b>Raccourcis Apple (app intégrée)</b></td><td>Automatisations sans code : un raccourci « Fin de session trading » qui ouvre ton journal, crée le dossier de captures du jour et coupe le mode Concentration. Commence par un seul.</td><td class="k">Faible</td></tr>
+  <tr><td><b>Ton tableau de bord de vie dans Notion</b></td><td>Une page : objectifs de l'année, suivi des matières, stats de trading, budget étudiant (bourse, dépenses). Revue le dimanche en 10 min. La liberté financière commence par voir ses chiffres.</td><td class="k">Faible</td></tr>
+  <tr><td><b>Veille automatisée</b></td><td>Calendrier économique (FOMC, NFP, CPI — les rendez-vous qui font bouger le Gold) directement abonné dans Calendrier Apple ; plus jamais surpris par une annonce en pleine position.</td><td class="k">Faible</td></tr>
+  <tr><td><b>Le double écran gratuit avec un iPad</b></td><td>Si un jour tu as accès à un iPad : Sidecar en fait un second écran sans fil (cours à gauche, notes à droite). Ne l'achète pas pour ça — mais sache-le.</td><td class="k">—</td></tr>
+  <tr><td><b>Git/GitHub pour tout versionner</b></td><td>Si tu prends la voie Python : tes scripts et backtests sur GitHub (gratuit). C'est le CV technique de la finance moderne — et une preuve de sérieux de plus au dossier.</td><td class="k">Moyen</td></tr>
+</table>
+
+<h2><span class="no">8.3</span> Plan de montée en compétence sur 12 mois</h2>
+<p>Hypothèses réalistes : <b>3 à 5 h/semaine hors études</b>, moins en période de partiels (décembre, mai — le plan le prévoit). Rythme conçu pour être tenu, pas pour impressionner.</p>
+<table>
+  <tr><th class="k">Période</th><th>Priorité machine</th><th>Livrable concret en fin de période</th></tr>
+  <tr><td class="k"><b>Été 2026</b><br><span class="small">(avant la rentrée)</span></td><td>Phases 0 à 7 de ce guide · journal de trades v1 dans Sheets · routines installées.</td><td>Mac maîtrisé et sécurisé ; journal opérationnel avec winrate et R moyen automatiques.</td></tr>
+  <tr><td class="k"><b>Sept-Oct 2026</b></td><td>Rythme de la fac d'abord. Cycle IA-fiches-quiz rodé sur chaque matière · 10 cartes Anki EN/semaine.</td><td>Système d'études qui tourne tout seul ; premières fiches de chaque matière.</td></tr>
+  <tr><td class="k"><b>Nov-Déc 2026</b></td><td>Excel mois 3-4 (TCD, graphiques) · <b>pause totale hors études pendant les partiels</b>.</td><td>Dashboard de trading : performance par setup/heure/jour, courbe d'équité. Partiels assurés.</td></tr>
+  <tr><td class="k"><b>Jan-Fév 2027</b></td><td>Décision Python : un mois d'essai sur Colab (30 min/jour) · sinon Excel avancé (modèle d'intérêts composés, simulateur de drawdown).</td><td>Verdict Python honnête + premier script OU premier modèle financier Excel.</td></tr>
+  <tr><td class="k"><b>Mars-Avr 2027</b></td><td>Si Python : pandas sur ton journal · Si Excel : calculateur FundedNext complet (règles de drawdown intégrées) · LinkedIn en ligne.</td><td>Courbe d'équité générée par script ou classeur de niveau professionnel ; profil visible.</td></tr>
+  <tr><td class="k"><b>Mai-Juin 2027</b></td><td><b>Partiels d'abord.</b> Ensuite : bilan annuel chiffré (études, trading, compétences) avec l'IA.</td><td>L1 validée (l'objectif n°1) + document « Preuves » : 12 mois de journal, dashboards, ~500 cartes Anki.</td></tr>
+  <tr><td class="k"><b>Été 2027</b></td><td>Projet ambitieux au choix : backtest Gold complet en Python, OU dossier AST2 anticipé (TAGE MAGE/GMAT : diagnostic + plan), OU premier article publié.</td><td>Une pièce maîtresse de plus au dossier EDHEC — et deux ans d'avance sur les autres candidats.</td></tr>
+</table>
+
+<div class="warn box">
+  <div class="box-title">⚠ Le mot honnête de la fin</div>
+  <p>Ce plan ne fera pas de toi un quant en un an, ne garantit ni l'EDHEC ni des payouts réguliers, et aucun outil de ce guide ne remplace le travail en amphi ni la discipline devant le graphique. Ce qu'il garantit si tu le suis : une machine qui ne te freinera jamais, des compétences que 95 % des L1 n'auront pas, et des preuves tangibles à présenter le jour où ça compte. La régularité bat l'intensité — 3 heures par semaine pendant 12 mois valent mieux que 30 heures en septembre puis plus rien.</p>
+</div>
+<!-- ================= CHECKLISTS ================= -->
+<h1 class="phase" id="checklists"><span class="phasenum">Annexes · à imprimer</span>Checklist « Jour 1 » — le jour de la réception</h1>
+<p class="small">Coche au fur et à mesure. Tout est détaillé dans les Phases 1 et 3. Durée totale : 2 à 3 heures, sans se presser.</p>
+
+<h3>Matériel &amp; premier contact</h3>
+<ul class="check">
+  <li>Déballer sur une surface propre et dure — garder le carton 30 jours</li>
+  <li>Brancher le chargeur, ouvrir l'écran (il démarre seul)</li>
+  <li>Noter le numéro de série ( → À propos de ce Mac) sur un papier rangé chez soi</li>
+</ul>
+<h3>Assistant de configuration</h3>
+<ul class="check">
+  <li>Langue française, pays France, Wi-Fi connecté</li>
+  <li>Migration : « Ne pas transférer d'informations » (départ propre)</li>
+  <li>Créer l'identifiant Apple gratuit + <b>validation en deux étapes par SMS</b></li>
+  <li>Mot de passe de session fort — noté sur papier, rangé en lieu sûr</li>
+  <li>Touch ID configuré (ajouter un 2ᵉ doigt plus tard)</li>
+  <li>Refuser : partage d'analyses, « Améliorer Siri », publicité personnalisée</li>
+</ul>
+<h3>Les 5 réglages vitaux (Réglages Système)</h3>
+<ul class="check">
+  <li><b>FileVault activé</b> (Confidentialité et sécurité) — déverrouillage via compte iCloud</li>
+  <li><b>Localiser mon Mac activé</b> ([ton nom] → iCloud)</li>
+  <li><b>Mises à jour macOS</b> installées + mises à jour automatiques activées</li>
+  <li><b>Verrouillage immédiat</b> après veille (Écran verrouillé)</li>
+  <li><b>Pare-feu activé</b> (Réseau → Coupe-feu)</li>
+</ul>
+<h3>Confort immédiat</h3>
+<ul class="check">
+  <li>Trackpad : « Toucher pour cliquer » + vitesse du curseur augmentée</li>
+  <li>iCloud Drive : synchronisation Bureau + Documents activée</li>
+  <li>Tester : <span class="kbd">⌘ + Espace</span> (Spotlight) · <span class="kbd">⇧⌘4</span> (capture) · <span class="kbd">⌃⌘Q</span> (verrouiller)</li>
+  <li>Si iPhone : même identifiant Apple, tester AirDrop</li>
+  <li>Créer les 2 bureaux (Mission Control) : Études / Trading</li>
+</ul>
+
+<hr class="sep">
+
+<h1 class="phase" style="page-break-before: always;"><span class="phasenum">Annexes · à imprimer</span>Checklist « Routine mensuelle » — 10 minutes</h1>
+<p class="small">Le 1ᵉʳ de chaque mois, par exemple. Détails en Phase 3.4 et Phase 4.</p>
+<ul class="check">
+  <li>Vider le dossier <b>Téléchargements</b> (classer ou supprimer)</li>
+  <li>Vider la <b>Corbeille</b></li>
+  <li>Vérifier le stockage (Réglages → Général → Stockage) : <b>≥ 40 Go libres</b></li>
+  <li>Si &lt; 40 Go : déplacer <em>05-Archives</em> vers Google Drive, supprimer du Mac</li>
+  <li>Installer les <b>mises à jour</b> macOS et App Store en attente</li>
+  <li>Moniteur d'activité → Mémoire : pression verte en usage normal ?</li>
+  <li>Apps non utilisées depuis 1 mois → désinstaller avec AppCleaner</li>
+  <li>Réglages → Général → Ouverture : rien d'inutile au démarrage</li>
+  <li><b>Redémarrer le Mac</b></li>
+  <li>Sauvegarde <b>Time Machine</b> (si disque externe) — sinon vérifier qu'iCloud est à jour et sous quota</li>
+  <li>Batterie : brancher/débrancher sainement cette semaine ; 1 fois par an, vérifier la santé de la batterie (≥ 80 %)</li>
+  <li>Bonus trading : archiver les captures du mois dans <em>02-Trading/Captures/AAAA-MM</em> et exporter le journal en PDF</li>
+</ul>
+
+<div class="cover" style="page-break-before: always; height: 296mm;">
+  <div class="cover-inner" style="padding-top: 110mm;">
+    <div class="kicker">Dernière page</div>
+    <div class="cover-rule"></div>
+    <h1 style="font-size: 24pt;">La machine est prête.<br><span class="gold">À toi de jouer.</span></h1>
+    <p class="subtitle" style="margin-top: 8mm;">Un Mac sécurisé, fluide et organisé n'est qu'un outil.<br>
+    Ce qui fera la différence entre Aix-Marseille et l'EDHEC, entre un compte d'évaluation et des payouts réguliers,
+    c'est la régularité avec laquelle tu t'assiéras devant — préparé, concentré, et sans excuse technique.</p>
+    <div class="meta"><div class="who">Guide personnalisé · Juillet 2026 · Bonne route.</div></div>
+  </div>
+</div>
