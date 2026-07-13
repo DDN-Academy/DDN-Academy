@@ -1,0 +1,651 @@
+<title>Le Figuier Bleu — Bistrot provençal · Flayosc</title>
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --plaster:#EAE3D9; --surface:#F3EDE4; --surface-2:#E3DBCE;
+    --ink:#23191F; --muted:#6E6166;
+    --line:rgba(35,25,31,.14); --line-strong:rgba(35,25,31,.28);
+    --accent:#1C4C61;        /* bleu de faïence */
+    --accent-soft:#2E6D86;
+    --fig:#A9536A;           /* chair de figue */
+    --olive:#68744F;
+    --ochre:#B4842F;
+    --shadow:rgba(35,25,31,.16);
+    --hero-1:#1C4C61; --hero-2:#7A3F55; --hero-3:#2A3A2E;
+    --serif:"Hoefler Text","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:1180px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --plaster:#191118; --surface:#211722; --surface-2:#2A1E29;
+      --ink:#EEE4DE; --muted:#A99BA0;
+      --line:rgba(238,228,222,.14); --line-strong:rgba(238,228,222,.3);
+      --accent:#5FAAC7; --accent-soft:#7EC0D9;
+      --fig:#D3899A; --olive:#9EAC7E; --ochre:#D8AC55;
+      --shadow:rgba(0,0,0,.5);
+      --hero-1:#12303d; --hero-2:#3d1f2b; --hero-3:#151f18;
+    }
+  }
+  :root[data-theme="light"]{
+    --plaster:#EAE3D9; --surface:#F3EDE4; --surface-2:#E3DBCE;
+    --ink:#23191F; --muted:#6E6166;
+    --line:rgba(35,25,31,.14); --line-strong:rgba(35,25,31,.28);
+    --accent:#1C4C61; --accent-soft:#2E6D86; --fig:#A9536A; --olive:#68744F; --ochre:#B4842F;
+    --shadow:rgba(35,25,31,.16);
+    --hero-1:#1C4C61; --hero-2:#7A3F55; --hero-3:#2A3A2E;
+  }
+  :root[data-theme="dark"]{
+    --plaster:#191118; --surface:#211722; --surface-2:#2A1E29;
+    --ink:#EEE4DE; --muted:#A99BA0;
+    --line:rgba(238,228,222,.14); --line-strong:rgba(238,228,222,.3);
+    --accent:#5FAAC7; --accent-soft:#7EC0D9; --fig:#D3899A; --olive:#9EAC7E; --ochre:#D8AC55;
+    --shadow:rgba(0,0,0,.5);
+    --hero-1:#12303d; --hero-2:#3d1f2b; --hero-3:#151f18;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0}
+  .page{
+    background:var(--plaster); color:var(--ink);
+    font-family:var(--sans); font-size:1.0625rem; line-height:1.7;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    transition:background .5s ease,color .5s ease;
+  }
+  h1,h2,h3{font-family:var(--serif); font-weight:500; text-wrap:balance; margin:0}
+  p{margin:0}
+  a{color:inherit}
+  .eyebrow{
+    font-family:var(--sans); text-transform:uppercase; letter-spacing:.24em;
+    font-size:.72rem; font-weight:600; color:var(--accent);
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(1.25rem,5vw,3rem)}
+  .section{padding:clamp(4.5rem,10vw,8rem) 0}
+
+  /* ============ DEMO BADGE ============ */
+  .demo-badge{
+    position:fixed; z-index:60; left:50%; bottom:1.1rem; transform:translateX(-50%);
+    background:var(--ink); color:var(--plaster);
+    font-family:var(--sans); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+    padding:.5rem .95rem; border-radius:999px; font-weight:600;
+    box-shadow:0 6px 24px var(--shadow); opacity:.9; pointer-events:none;
+    display:flex; gap:.5rem; align-items:center; white-space:nowrap;
+  }
+  .demo-badge::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--ochre)}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.85rem clamp(1.25rem,5vw,3rem);
+    transition:background .4s ease,box-shadow .4s ease,padding .4s ease,border-color .4s;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:color-mix(in srgb,var(--plaster) 86%,transparent);
+    backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2);
+    border-bottom:1px solid var(--line); box-shadow:0 8px 30px -20px var(--shadow);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; font-family:var(--serif)}
+  .brand .glyph{width:26px; height:26px; flex:0 0 auto}
+  .brand .name{font-size:1.18rem; letter-spacing:.01em}
+  .brand .name b{font-weight:600; font-style:italic; color:var(--accent)}
+  .nav-links{display:flex; align-items:center; gap:2rem}
+  .nav-links a{text-decoration:none; font-size:.82rem; letter-spacing:.1em; text-transform:uppercase; font-weight:500; color:var(--muted); transition:color .25s}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{
+    font-family:var(--sans); font-weight:600; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase;
+    padding:.72rem 1.35rem; border-radius:999px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--plaster); cursor:pointer; text-decoration:none;
+    display:inline-flex; align-items:center; gap:.5rem; transition:transform .2s ease,box-shadow .2s ease,background .2s;
+    white-space:nowrap;
+  }
+  :root[data-theme="dark"] .btn,@media (prefers-color-scheme:dark){.btn{color:#12232b}}
+  .btn:hover{transform:translateY(-2px); box-shadow:0 12px 24px -12px var(--accent)}
+  .btn.ghost{background:transparent; color:var(--ink); border-color:var(--line-strong)}
+  .btn.ghost:hover{border-color:var(--accent); color:var(--accent); box-shadow:none}
+  .nav-toggle{display:none}
+  @media (max-width:860px){
+    .nav-links{display:none}
+  }
+
+  /* ============ HERO ============ */
+  .hero{position:relative; min-height:100svh; display:flex; align-items:center; overflow:hidden}
+  #hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
+  .hero-veil{
+    position:absolute; inset:0; z-index:1;
+    background:
+      radial-gradient(120% 90% at 78% 18%, transparent 30%, color-mix(in srgb,var(--plaster) 55%,transparent) 100%),
+      linear-gradient(180deg, color-mix(in srgb,var(--plaster) 20%,transparent) 0%, transparent 22%, transparent 70%, var(--plaster) 100%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2; width:100%}
+  .hero-eyebrow{display:flex; align-items:center; gap:.8rem; margin-bottom:1.4rem}
+  .hero-eyebrow .rule{height:1px; width:clamp(2rem,7vw,4.5rem); background:var(--accent); opacity:.7}
+  .hero h1{
+    font-size:clamp(3.2rem,11.5vw,9rem); line-height:.92; letter-spacing:-.01em;
+    margin:0 0 1.5rem;
+  }
+  .hero h1 .blue{font-style:italic; color:var(--accent)}
+  .hero .lede{max-width:30ch; font-size:clamp(1.05rem,2vw,1.3rem); color:var(--muted); line-height:1.6}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2.3rem}
+  .scroll-cue{
+    position:absolute; z-index:2; bottom:2rem; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:.6rem;
+    font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+  }
+  .scroll-cue .dot{width:1px; height:38px; background:linear-gradient(var(--accent),transparent); animation:cue 2.4s ease-in-out infinite}
+  @keyframes cue{0%,100%{transform:scaleY(.4); transform-origin:top; opacity:.4}50%{transform:scaleY(1); opacity:1}}
+  @media (prefers-reduced-motion:reduce){.scroll-cue .dot{animation:none}}
+
+  /* fig-leaf glyph reuse */
+  .leaf-mark{color:var(--olive)}
+
+  /* ============ STORY ============ */
+  .story{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,5rem); align-items:center}
+  @media (max-width:820px){.story{grid-template-columns:1fr}}
+  .story-figure{position:relative; aspect-ratio:4/5; border-radius:280px 280px 14px 14px; overflow:hidden; box-shadow:0 30px 60px -30px var(--shadow); border:1px solid var(--line)}
+  .story-figure .scene{position:absolute; inset:0}
+  .story-figure figcaption{
+    position:absolute; left:1.1rem; bottom:1.1rem; right:1.1rem; z-index:3;
+    color:#F3EDE4; font-family:var(--serif); font-style:italic; font-size:1.05rem;
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
+  }
+  .story h2{font-size:clamp(2.1rem,4.5vw,3.3rem); line-height:1.05; margin-bottom:1.5rem}
+  .story .body p+p{margin-top:1.1rem}
+  .dropcap::first-letter{
+    font-family:var(--serif); float:left; font-size:4.4rem; line-height:.78; padding:.35rem .5rem 0 0;
+    color:var(--fig); font-style:italic;
+  }
+  .signature{margin-top:1.8rem; font-family:var(--serif); font-style:italic; font-size:1.35rem; color:var(--accent)}
+  .signature small{display:block; font-family:var(--sans); font-style:normal; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-top:.35rem}
+
+  /* ============ MENU ============ */
+  .menu{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .menu-head{text-align:center; max-width:44ch; margin:0 auto clamp(2.5rem,6vw,4rem)}
+  .menu-head h2{font-size:clamp(2.1rem,4.5vw,3.3rem); margin:.7rem 0 1rem}
+  .menu-head p{color:var(--muted)}
+  .menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,4.5rem)}
+  @media (max-width:780px){.menu-grid{grid-template-columns:1fr; gap:2.5rem}}
+  .menu-col h3{
+    font-size:1.5rem; color:var(--accent); display:flex; align-items:baseline; gap:.8rem; margin-bottom:1.5rem;
+  }
+  .menu-col h3::after{content:""; flex:1; height:1px; background:var(--line-strong)}
+  .dish{margin-bottom:1.5rem}
+  .dish-top{display:flex; align-items:baseline; gap:.5rem}
+  .dish-name{font-family:var(--serif); font-size:1.14rem; font-weight:500}
+  .dish-lead{flex:1; border-bottom:1.5px dotted var(--line-strong); transform:translateY(-4px); min-width:1.5rem}
+  .dish-price{font-family:var(--serif); font-variant-numeric:tabular-nums; color:var(--fig); font-size:1.08rem}
+  .dish-desc{font-size:.92rem; color:var(--muted); margin-top:.25rem; max-width:42ch}
+  .dish .veg{font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--olive); font-weight:700; border:1px solid color-mix(in srgb,var(--olive) 45%,transparent); border-radius:4px; padding:.05rem .3rem; vertical-align:middle}
+  .menu-note{
+    text-align:center; margin-top:clamp(2.5rem,6vw,4rem); padding-top:2rem; border-top:1px solid var(--line);
+    font-family:var(--serif); font-style:italic; color:var(--muted); font-size:1.05rem;
+  }
+  .menu-note b{color:var(--ink); font-style:normal}
+
+  /* ============ AMBIANCE / GALLERY ============ */
+  .amb-head{max-width:46ch; margin-bottom:clamp(2.5rem,6vw,3.5rem)}
+  .amb-head h2{font-size:clamp(2.1rem,4.5vw,3.3rem); margin:.7rem 0 1rem}
+  .amb-head p{color:var(--muted)}
+  .arches{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(.8rem,2vw,1.4rem)}
+  @media (max-width:900px){.arches{grid-template-columns:repeat(2,1fr)}}
+  .arch{
+    position:relative; aspect-ratio:3/5; border-radius:999px 999px 12px 12px; overflow:hidden;
+    box-shadow:0 24px 44px -28px var(--shadow); border:1px solid var(--line);
+    transform:translateY(0); transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;
+  }
+  .arch:hover{transform:translateY(-8px); box-shadow:0 34px 54px -26px var(--shadow)}
+  .arch .scene{position:absolute; inset:0}
+  .arch .cap{position:absolute; left:0; right:0; bottom:0; z-index:4; padding:1rem .95rem;
+    background:linear-gradient(transparent,rgba(12,8,10,.72));
+    color:#F3EDE4; font-family:var(--serif); font-style:italic; font-size:1rem; letter-spacing:.01em}
+  .arch .cap small{display:block; font-family:var(--sans); font-style:normal; font-size:.64rem; letter-spacing:.18em; text-transform:uppercase; opacity:.8; margin-bottom:.15rem}
+  @media (max-width:900px){.arch:nth-child(3),.arch:nth-child(4){display:none}}
+
+  /* scenes built purely in CSS */
+  .sc-court{background:
+     radial-gradient(120% 60% at 50% 12%, #f2d9a0, transparent 60%),
+     linear-gradient(180deg,#e9c987 0%, #c98f6a 45%, #7a3f55 100%);}
+  .sc-court::after{content:""; position:absolute; inset:auto 0 0 0; height:46%;
+     background:repeating-linear-gradient(90deg, rgba(28,76,97,.85) 0 14px, rgba(28,76,97,.7) 14px 20px); opacity:.9}
+  .sc-lav{background:linear-gradient(180deg,#bcd0e6 0%, #cdb7d6 34%, #7c6aa0 60%, #5a4b7a 100%)}
+  .sc-lav::after{content:""; position:absolute; inset:52% 0 0 0;
+     background:repeating-linear-gradient(180deg, rgba(90,75,122,.0) 0 6px, rgba(74,58,106,.55) 6px 12px)}
+  .sc-olive{background:radial-gradient(90% 70% at 30% 20%, #cdd6ad, transparent 60%), linear-gradient(180deg,#9fae7c,#5d6a45 70%,#3a4430)}
+  .sc-olive::after{content:""; position:absolute; inset:0; background:
+     radial-gradient(circle at 30% 30%, rgba(58,68,48,.5) 0 3px, transparent 4px),
+     radial-gradient(circle at 62% 46%, rgba(58,68,48,.5) 0 3px, transparent 4px),
+     radial-gradient(circle at 44% 66%, rgba(58,68,48,.5) 0 4px, transparent 5px),
+     radial-gradient(circle at 72% 72%, rgba(180,132,47,.7) 0 4px, transparent 5px); opacity:.8}
+  .sc-table{background:linear-gradient(180deg,#3a1f2c 0%, #7a3f55 55%, #b4842f 130%)}
+  .sc-table::after{content:""; position:absolute; inset:0;
+     background:radial-gradient(60% 30% at 50% 78%, rgba(244,222,150,.85), transparent 70%),
+     radial-gradient(8% 5% at 40% 60%, rgba(255,214,120,.9), transparent 70%),
+     radial-gradient(8% 5% at 60% 55%, rgba(255,214,120,.85), transparent 70%)}
+
+  /* ============ INFO / FIND US ============ */
+  .info{background:var(--surface); border-top:1px solid var(--line)}
+  .info-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(2rem,6vw,4.5rem); align-items:center}
+  @media (max-width:820px){.info-grid{grid-template-columns:1fr}}
+  .info h2{font-size:clamp(2rem,4.5vw,3rem); margin-bottom:1.6rem}
+  .hours{list-style:none; margin:0 0 2rem; padding:0}
+  .hours li{display:flex; justify-content:space-between; gap:1rem; padding:.7rem 0; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums}
+  .hours li span:first-child{color:var(--muted)}
+  .hours li.closed span:last-child{color:var(--fig)}
+  .contact-line{display:flex; align-items:center; gap:.7rem; margin-bottom:.7rem; font-size:1.02rem}
+  .contact-line svg{color:var(--accent); flex:0 0 auto}
+  .map{
+    position:relative; aspect-ratio:1/1; border-radius:18px; overflow:hidden; border:1px solid var(--line);
+    box-shadow:0 24px 50px -30px var(--shadow);
+    background:
+      linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,
+      linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px,
+      var(--surface-2);
+  }
+  .map .road{position:absolute; background:var(--line-strong)}
+  .map .r1{top:38%; left:-5%; right:-5%; height:10px; transform:rotate(-6deg)}
+  .map .r2{top:-5%; bottom:-5%; left:44%; width:8px; transform:rotate(8deg)}
+  .map .r3{top:60%; left:-5%; right:-5%; height:5px; transform:rotate(4deg); opacity:.6}
+  .map .pin{position:absolute; top:40%; left:46%; transform:translate(-50%,-100%); color:var(--fig); filter:drop-shadow(0 6px 10px var(--shadow))}
+  .map .pin::after{content:""; position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); width:16px; height:5px; border-radius:50%; background:var(--shadow)}
+  .map .place{position:absolute; bottom:1rem; left:1rem; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:.6rem .9rem; font-size:.8rem; font-weight:600; box-shadow:0 8px 20px -12px var(--shadow)}
+
+  /* ============ RESERVATION ============ */
+  .reserve{position:relative; overflow:hidden}
+  .reserve .glow{position:absolute; inset:0; z-index:0;
+    background:radial-gradient(60% 80% at 50% 120%, color-mix(in srgb,var(--accent) 26%,transparent), transparent 70%)}
+  .reserve-inner{position:relative; z-index:1; max-width:640px; margin:0 auto; text-align:center}
+  .reserve h2{font-size:clamp(2.2rem,5vw,3.6rem); margin:.8rem 0 1rem}
+  .reserve p.sub{color:var(--muted); max-width:44ch; margin:0 auto 2.6rem}
+  form{display:grid; grid-template-columns:1fr 1fr; gap:1rem; text-align:left}
+  .field{display:flex; flex-direction:column; gap:.4rem}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .field input,.field select{
+    font-family:var(--sans); font-size:1rem; color:var(--ink);
+    background:var(--surface); border:1px solid var(--line-strong); border-radius:10px; padding:.85rem .95rem;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .field input:focus,.field select:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+  form .btn{grid-column:1/-1; justify-content:center; padding:1rem; font-size:.86rem; margin-top:.4rem}
+  .toast{
+    position:fixed; z-index:80; left:50%; top:1.2rem; transform:translate(-50%,-140%);
+    background:var(--accent); color:var(--plaster); padding:.85rem 1.3rem; border-radius:999px;
+    font-size:.9rem; font-weight:600; box-shadow:0 14px 40px -12px var(--accent);
+    transition:transform .5s cubic-bezier(.2,.8,.2,1); display:flex; gap:.6rem; align-items:center;
+  }
+  :root[data-theme="dark"] .toast,@media (prefers-color-scheme:dark){.toast{color:#12232b}}
+  .toast.show{transform:translate(-50%,0)}
+  @media (max-width:560px){form{grid-template-columns:1fr}}
+
+  /* ============ FOOTER ============ */
+  .foot{background:var(--ink); color:var(--plaster); padding:clamp(3rem,7vw,5rem) 0 2rem}
+  :root[data-theme="light"] .foot,@media (prefers-color-scheme:light){.foot{color:#F3EDE4}}
+  .foot .wrap{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2.5rem}
+  @media (max-width:760px){.foot .wrap{grid-template-columns:1fr 1fr}}
+  @media (max-width:480px){.foot .wrap{grid-template-columns:1fr}}
+  .foot .brand .name{color:#F3EDE4}
+  .foot .brand .name b{color:var(--accent-soft)}
+  .foot p{color:color-mix(in srgb,#F3EDE4 66%,transparent); font-size:.92rem; margin-top:1rem; max-width:32ch}
+  .foot h4{font-family:var(--sans); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ochre); margin:0 0 1.1rem}
+  .foot ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem}
+  .foot ul a{color:color-mix(in srgb,#F3EDE4 78%,transparent); text-decoration:none; font-size:.92rem; transition:color .2s}
+  .foot ul a:hover{color:#F3EDE4}
+  .foot-base{border-top:1px solid rgba(243,237,228,.16); margin-top:2.5rem; padding-top:1.6rem;
+    display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-size:.78rem; color:color-mix(in srgb,#F3EDE4 55%,transparent)}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none; transition:none}}
+</style>
+
+<div class="page">
+
+  <div class="demo-badge">Site de démonstration · établissement fictif</div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Le Figuier Bleu, accueil">
+      <svg class="glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 3c-2.4 3.1-1.6 5.6.2 7.3 1.7-2 1.9-4.4-.2-7.3Z" fill="currentColor" style="color:var(--olive)"/>
+        <path d="M16 12c-3.7 0-6.6 3.1-6.6 6.9 0 4.6 4 8.4 6.6 10.1 2.6-1.7 6.6-5.5 6.6-10.1C22.6 15.1 19.7 12 16 12Z" fill="currentColor" style="color:var(--accent)"/>
+        <circle cx="13.4" cy="18.4" r="1" fill="var(--plaster)"/><circle cx="18.4" cy="17.4" r="1" fill="var(--plaster)"/><circle cx="16" cy="21.4" r="1" fill="var(--plaster)"/>
+      </svg>
+      <span class="name">Le Figuier <b>Bleu</b></span>
+    </a>
+    <div class="nav-links">
+      <a href="#histoire">La maison</a>
+      <a href="#carte">La carte</a>
+      <a href="#ambiance">L'ambiance</a>
+      <a href="#trouver">Nous trouver</a>
+    </div>
+    <a href="#reserver" class="btn">Réserver</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-veil"></div>
+    <div class="hero-inner">
+      <div class="wrap">
+        <div class="hero-eyebrow">
+          <span class="rule"></span>
+          <span class="eyebrow">Bistrot provençal · Flayosc, Haut-Var</span>
+        </div>
+        <h1>La Provence,<br>à l'ombre du <span class="blue">figuier</span>.</h1>
+        <p class="lede">Une cuisine du marché, cueillie le matin même, servie sous les platanes d'un village perché à deux pas de Draguignan.</p>
+        <div class="hero-cta">
+          <a href="#reserver" class="btn">Réserver une table</a>
+          <a href="#carte" class="btn ghost">Découvrir la carte</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Descendre</span><span class="dot"></span></div>
+  </header>
+
+  <!-- STORY -->
+  <section class="section" id="histoire">
+    <div class="wrap story">
+      <figure class="story-figure reveal">
+        <div class="scene sc-court"></div>
+        <figcaption>La terrasse, place des Platanes</figcaption>
+      </figure>
+      <div class="story-text reveal">
+        <span class="eyebrow">La maison depuis 1998</span>
+        <h2>Trois générations, une même table.</h2>
+        <div class="body">
+          <p class="dropcap">Au cœur de Flayosc, le Figuier Bleu porte le nom de l'arbre centenaire qui ombrage sa cour. Ici, on cuisine ce que la terre du Haut-Var veut bien donner ce jour-là : l'agneau des collines, les légumes du maraîcher d'à côté, l'huile du moulin voisin et le poisson remonté de la côte le matin.</p>
+          <p>Pas de carte figée : une ardoise qui change au rythme des saisons et de l'humeur du mistral. On y vient pour un déjeuner au soleil, on y reste pour un dîner qui s'étire jusqu'aux étoiles.</p>
+        </div>
+        <p class="signature">Camille &amp; Théo Brémond
+          <small>Chefs &amp; propriétaires</small>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section menu" id="carte">
+    <div class="wrap">
+      <div class="menu-head reveal">
+        <span class="eyebrow">Le menu du marché · 34 € · 3 services</span>
+        <h2>La carte de la saison</h2>
+        <p>Une sélection courte, changeante, dressée chaque matin selon les arrivages. Voici celle d'aujourd'hui.</p>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-col reveal">
+          <h3>Pour commencer</h3>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Tomates anciennes &amp; burrata</span><span class="dish-lead"></span><span class="dish-price">14</span></div>
+            <p class="dish-desc">Tomates du maraîcher, burrata des Pouilles, basilic du jardin, huile de Flayosc. <span class="veg">Végé</span></p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Velouté de courgettes fleurs</span><span class="dish-lead"></span><span class="dish-price">12</span></div>
+            <p class="dish-desc">Émulsion au parmesan, éclats d'amande torréfiée, huile de menthe.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Pissaladière revisitée</span><span class="dish-lead"></span><span class="dish-price">13</span></div>
+            <p class="dish-desc">Oignons doux confits, anchois de Collioure, olives de Nyons.</p>
+          </div>
+
+          <h3 style="margin-top:2.6rem">Les desserts</h3>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Figue rôtie au miel de romarin</span><span class="dish-lead"></span><span class="dish-price">11</span></div>
+            <p class="dish-desc">Du figuier de la cour, glace au fromage frais, tuile aux amandes.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Tarte au citron de Menton</span><span class="dish-lead"></span><span class="dish-price">10</span></div>
+            <p class="dish-desc">Meringue brûlée au chalumeau, sablé au thym citron.</p>
+          </div>
+        </div>
+
+        <div class="menu-col reveal">
+          <h3>Les plats</h3>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Agneau des collines, 7 heures</span><span class="dish-lead"></span><span class="dish-price">26</span></div>
+            <p class="dish-desc">Épaule confite au thym, jus corsé, gnocchis à la sauge, légumes du soleil.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Loup de Méditerranée</span><span class="dish-lead"></span><span class="dish-price">28</span></div>
+            <p class="dish-desc">Pêche du jour rôtie sur peau, fenouil braisé, vierge aux agrumes.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Risotto d'épeautre du plateau</span><span class="dish-lead"></span><span class="dish-price">21</span></div>
+            <p class="dish-desc">Petit épeautre de Haute-Provence, champignons, vieux comté. <span class="veg">Végé</span></p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Daube provençale de bœuf</span><span class="dish-lead"></span><span class="dish-price">24</span></div>
+            <p class="dish-desc">Mijotée au vin des Côtes de Provence, écorce d'orange, macaronade.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-top"><span class="dish-name">Le grand aïoli du vendredi</span><span class="dish-lead"></span><span class="dish-price">25</span></div>
+            <p class="dish-desc">Morue, légumes vapeur, œuf, bulots &amp; l'aïoli maison. Servi le vendredi midi.</p>
+          </div>
+        </div>
+      </div>
+      <p class="menu-note reveal">Une allergie, un régime particulier&nbsp;? <b>Dites-le nous</b> — la cuisine s'adapte toujours.</p>
+    </div>
+  </section>
+
+  <!-- AMBIANCE -->
+  <section class="section" id="ambiance">
+    <div class="wrap">
+      <div class="amb-head reveal">
+        <span class="eyebrow">L'art de vivre</span>
+        <h2>On y vient pour manger. On y revient pour l'instant.</h2>
+        <p>Une cour à l'ombre, des volets bleus, le chant des cigales et le temps qui ralentit. Le Figuier Bleu, c'est d'abord une parenthèse.</p>
+      </div>
+      <div class="arches">
+        <figure class="arch reveal"><div class="scene sc-court"></div><figcaption class="cap"><small>La cour</small>Déjeuner sous les platanes</figcaption></figure>
+        <figure class="arch reveal"><div class="scene sc-lav"></div><figcaption class="cap"><small>Aux alentours</small>Les champs de lavande</figcaption></figure>
+        <figure class="arch reveal"><div class="scene sc-olive"></div><figcaption class="cap"><small>Notre garde-manger</small>L'oliveraie du moulin</figcaption></figure>
+        <figure class="arch reveal"><div class="scene sc-table"></div><figcaption class="cap"><small>Le soir venu</small>Dîner aux chandelles</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="section info" id="trouver">
+    <div class="wrap info-grid">
+      <div class="reveal">
+        <span class="eyebrow">Nous trouver</span>
+        <h2>Horaires &amp; accès</h2>
+        <ul class="hours">
+          <li><span>Mardi — Jeudi</span><span>12h00 – 14h00 · 19h00 – 22h00</span></li>
+          <li><span>Vendredi — Samedi</span><span>12h00 – 14h30 · 19h00 – 23h00</span></li>
+          <li><span>Dimanche</span><span>12h00 – 15h00</span></li>
+          <li class="closed"><span>Lundi</span><span>Fermé</span></li>
+        </ul>
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>5, place des Platanes · 83780 Flayosc</span>
+        </div>
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+          <span>04 94 00 00 00</span>
+        </div>
+        <div class="contact-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <span>bonjour@lefiguierbleu.fr</span>
+        </div>
+        <a href="#reserver" class="btn" style="margin-top:1.8rem">Réserver une table</a>
+      </div>
+      <div class="map reveal" role="img" aria-label="Plan indiquant Le Figuier Bleu place des Platanes à Flayosc">
+        <span class="road r1"></span><span class="road r2"></span><span class="road r3"></span>
+        <svg class="pin" width="30" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Z"/><circle cx="12" cy="9" r="2.6" fill="var(--surface)"/></svg>
+        <span class="place">Le Figuier Bleu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section class="section reserve" id="reserver">
+    <div class="glow"></div>
+    <div class="wrap reserve-inner">
+      <span class="eyebrow reveal">Réservation</span>
+      <h2 class="reveal">Votre table vous attend</h2>
+      <p class="sub reveal">Réservez en quelques secondes. Nous confirmons par téléphone dans la foulée. Pour les groupes de plus de 8, appelez-nous directement.</p>
+      <form class="reveal" id="resa-form" novalidate>
+        <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" placeholder="Votre nom" required></div>
+        <div class="field"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" placeholder="06 00 00 00 00" required></div>
+        <div class="field"><label for="date">Date</label><input id="date" name="date" type="date" required></div>
+        <div class="field"><label for="heure">Heure</label>
+          <select id="heure" name="heure">
+            <option>12:00</option><option>12:30</option><option>13:00</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option>
+          </select>
+        </div>
+        <div class="field full"><label for="couverts">Nombre de couverts</label>
+          <select id="couverts" name="couverts">
+            <option>1 personne</option><option selected>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 personnes</option><option>6 personnes</option><option>7 personnes</option><option>8 personnes</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Confirmer ma réservation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap">
+      <div>
+        <span class="brand" style="display:inline-flex;align-items:center;gap:.6rem">
+          <svg class="glyph" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M16 3c-2.4 3.1-1.6 5.6.2 7.3 1.7-2 1.9-4.4-.2-7.3Z" fill="var(--olive)"/>
+            <path d="M16 12c-3.7 0-6.6 3.1-6.6 6.9 0 4.6 4 8.4 6.6 10.1 2.6-1.7 6.6-5.5 6.6-10.1C22.6 15.1 19.7 12 16 12Z" fill="var(--accent-soft)"/>
+          </svg>
+          <span class="name" style="font-family:var(--serif);font-size:1.18rem">Le Figuier <b>Bleu</b></span>
+        </span>
+        <p>Bistrot provençal &amp; cuisine du marché, au cœur de Flayosc dans le Haut-Var.</p>
+      </div>
+      <div>
+        <h4>La maison</h4>
+        <ul>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#carte">La carte</a></li>
+          <li><a href="#ambiance">L'ambiance</a></li>
+          <li><a href="#reserver">Réserver</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nous trouver</h4>
+        <ul>
+          <li><a href="#trouver">5, place des Platanes</a></li>
+          <li><a href="#trouver">83780 Flayosc</a></li>
+          <li><a href="#reserver">04 94 00 00 00</a></li>
+          <li><a href="#reserver">bonjour@lefiguierbleu.fr</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-base">
+      <span>© <span id="year"></span> Le Figuier Bleu — Site de démonstration, établissement fictif.</span>
+      <span>Conçu pour présenter un standard de site vitrine.</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    <span>Merci&nbsp;! Votre demande est bien reçue — nous vous rappelons vite.</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  // year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // nav scroll state
+  var nav = document.getElementById("nav");
+  var onScroll = function(){ nav.classList.toggle("scrolled", window.scrollY > 30); };
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  // reveal on scroll
+  var items = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:.14});
+    items.forEach(function(el,i){ el.style.transitionDelay = (Math.min(i%4,3)*70)+"ms"; io.observe(el); });
+  } else { items.forEach(function(el){ el.classList.add("in"); }); }
+
+  // form -> toast
+  var form = document.getElementById("resa-form");
+  var toast = document.getElementById("toast");
+  var t;
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    toast.classList.add("show");
+    clearTimeout(t); t = setTimeout(function(){ toast.classList.remove("show"); }, 4200);
+    form.reset();
+  });
+
+  // ambient canvas: warm light motes drifting through blue dusk
+  var cv = document.getElementById("hero-canvas");
+  var ctx = cv.getContext("2d");
+  var dpr = Math.min(window.devicePixelRatio||1, 2);
+  var W, H, motes = [];
+  function palette(){
+    var s = getComputedStyle(document.documentElement);
+    return {
+      a: s.getPropertyValue("--hero-1").trim(),
+      b: s.getPropertyValue("--hero-2").trim(),
+      c: s.getPropertyValue("--hero-3").trim(),
+      gold: s.getPropertyValue("--ochre").trim()
+    };
+  }
+  function resize(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n = Math.round(Math.min(W,900)/12);
+    motes = [];
+    for(var i=0;i<n;i++){
+      motes.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:Math.random()*2.6+.6,
+        vy:-(Math.random()*.18+.05), vx:(Math.random()-.5)*.14,
+        a:Math.random()*.5+.15, tw:Math.random()*Math.PI*2, ts:Math.random()*.02+.005
+      });
+    }
+  }
+  function drawBg(){
+    var p = palette();
+    var g = ctx.createLinearGradient(0,0,W,H);
+    g.addColorStop(0, p.a); g.addColorStop(.55, p.b); g.addColorStop(1, p.c);
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+    // soft sun glow upper-right
+    var rg = ctx.createRadialGradient(W*.8,H*.16,0, W*.8,H*.16, Math.max(W,H)*.55);
+    rg.addColorStop(0,"rgba(244,222,150,.42)"); rg.addColorStop(.5,"rgba(244,222,150,.06)"); rg.addColorStop(1,"rgba(244,222,150,0)");
+    ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+  }
+  function frame(){
+    var p = palette();
+    drawBg();
+    ctx.globalCompositeOperation = "lighter";
+    for(var i=0;i<motes.length;i++){
+      var m = motes[i];
+      m.y += m.vy; m.x += m.vx; m.tw += m.ts;
+      if(m.y < -10){ m.y = H+10; m.x = Math.random()*W; }
+      if(m.x < -10) m.x = W+10; if(m.x > W+10) m.x = -10;
+      var tw = (Math.sin(m.tw)*.5+.5);
+      ctx.beginPath();
+      ctx.fillStyle = "rgba(244,222,150,"+(m.a*tw).toFixed(3)+")";
+      ctx.arc(m.x, m.y, m.r, 0, Math.PI*2); ctx.fill();
+    }
+    ctx.globalCompositeOperation = "source-over";
+    raf = requestAnimationFrame(frame);
+  }
+  var raf;
+  function start(){ resize(); if(reduce){ drawBg(); } else { cancelAnimationFrame(raf); frame(); } }
+  window.addEventListener("resize", function(){ resize(); if(reduce) drawBg(); });
+  // repaint bg on theme toggle
+  var mo = new MutationObserver(function(){ if(reduce) drawBg(); });
+  mo.observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+  start();
+})();
+</script>
