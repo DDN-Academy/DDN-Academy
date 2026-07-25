@@ -133,6 +133,23 @@ main{flex:1;padding:16px 16px calc(140px + env(safe-area-inset-bottom));max-widt
 .tbl.inst{border-color:var(--vert);background:color-mix(in srgb,var(--vert) 15%,var(--card))}
 .tbl.res small,.tbl.inst small{color:var(--ink)}
 .tbl.cible{border-color:var(--or);box-shadow:0 0 0 4px color-mix(in srgb,var(--or) 30%,transparent)}
+/* pendant un déplacement : la table d'origine et les échanges possibles */
+.tbl.moi{border-color:var(--or);border-style:solid;opacity:.55}
+.tbl.perm{border-color:var(--or);border-style:dotted}
+
+/* barre de jour : deux flèches larges, la date au milieu, toute la zone est
+   tactile et ouvre le calendrier du téléphone */
+.jour{display:flex;align-items:stretch;gap:8px;margin-bottom:12px}
+.jn{flex:0 0 auto;width:54px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;color:var(--ink);display:flex;align-items:center;justify-content:center}
+.jn:active{transform:scale(.95)}
+.jl{position:relative;flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  min-height:var(--tap);padding:9px 12px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:1px;color:var(--ink);overflow:hidden}
+.jl b{font-size:15.5px;font-weight:800}
+.jl span{font-size:12px;color:var(--mut)}
+/* le sélecteur natif couvre la carte : un appui ouvre le calendrier */
+.jl input[type="date"]{position:absolute;inset:0;opacity:0;width:100%;height:100%;border:none;padding:0}
 .tbl .ch{position:absolute;top:5px;right:6px;font-size:9.5px;font-weight:800;color:var(--mut)}
 .tbl .ch.long{color:var(--rouge)}
 .selbar{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:45;
@@ -278,6 +295,8 @@ const I={
  liste:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h11"/></svg>',
  fl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
  ret:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>',
+ gauche:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+ droite:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>',
  al:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.4v.2"/></svg>',
  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.2"/></svg>',
  sol:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
@@ -286,7 +305,7 @@ const I={
 };
 
 const S={vue:'soir',auth:false,sel:null,date:null,q:'',filtre:'tous',sous:null};
-const K_VIS='directoire.visite.v2', K_TH='directoire.theme';
+const K_VIS='directoire.visite.v3', K_TH='directoire.theme';
 let mToast=null;
 
 function toast(msg,undo){
@@ -345,9 +364,10 @@ function porte(){
 function visite(){
   if(localStorage.getItem(K_VIS)) return;
   const pas=[
-    ['1','Les réservations arrivent ici','Dès qu\'un client réserve sur votre site, sa table apparaît dans « Ce soir », en direct.'],
-    ['2','Installez vos clients','Dans « Salle », touchez une réservation puis une table. C\'est tout.'],
-    ['3','Un plat épuisé ?','Dans « Carte », un seul bouton. Le plat disparaît aussitôt du site client.']
+    ['1','Les réservations arrivent ici','Dès qu\'un client réserve sur votre site, sa table apparaît dans « Ce soir », en direct. Les flèches en haut changent de jour.'],
+    ['2','Trois gestes, pas plus','Installé, Terminé, Absent. Installé attribue la table et lance le chronomètre, Terminé la libère.'],
+    ['3','Déplacer quelqu\'un','Dans « Salle », touchez la table, puis « Changer de table ». Une table occupée propose l\'échange.'],
+    ['4','Un plat épuisé ?','Dans « Carte », un seul bouton. Le plat disparaît aussitôt du site client.']
   ];
   let i=0;
   const aff=()=>{
@@ -386,18 +406,47 @@ function coque(titre,sous,contenu,retour){
   };
 }
 
+/* ═══ NAVIGATION DE JOUR (partagée par Ce soir et Salle) ═══ */
+function jourActif(){ return S.date||D.todayISO(); }
+/* Barre de jour : une flèche de chaque côté, la date au milieu, et un retour
+   direct à aujourd'hui dès qu'on s'en est éloigné. */
+function barreJour(){
+  const d=jourActif(), auj=d===D.todayISO();
+  const ferm=D.estFerme(d);
+  return `<div class="jour">
+    <button class="jn" id="j-prev" aria-label="Jour précédent">${I.gauche}</button>
+    <button class="jl" id="j-pick">
+      <b>${auj?'Aujourd\'hui':D.JOURS[D.parseISO(d).getDay()]}</b>
+      <span>${auj?E(D.fmtDate(d)):D.parseISO(d).getDate()+' '+D.MOIS[D.parseISO(d).getMonth()]}</span>
+      <input type="date" id="j-date" value="${d}" aria-label="Choisir une date">
+    </button>
+    <button class="jn" id="j-next" aria-label="Jour suivant">${I.droite}</button>
+  </div>
+  ${auj?'':`<button class="chip on" id="j-auj" style="margin-bottom:12px">Revenir à aujourd'hui</button>`}
+  ${ferm?`<div class="al-b">${I.al}<div><b>Fermé ce jour</b><span>${E(ferm.raison)}</span></div></div>`:''}`;
+}
+function brancheJour(){
+  const p=$('#j-prev'), n=$('#j-next'), a=$('#j-auj'), dt=$('#j-date');
+  if(p) p.onclick=()=>{ S.date=D.addDays(jourActif(),-1); S.sel=null; rendre(); };
+  if(n) n.onclick=()=>{ S.date=D.addDays(jourActif(),1); S.sel=null; rendre(); };
+  if(a) a.onclick=()=>{ S.date=D.todayISO(); S.sel=null; rendre(); };
+  if(dt) dt.onchange=e=>{ if(e.target.value){ S.date=e.target.value; S.sel=null; rendre(); } };
+}
+
 /* ═══ CE SOIR ═══ */
 function vSoir(){
-  const d=D.todayISO();
+  const d=jourActif();
+  const auj=d===D.todayISO();
   const rs=resasDu(d).filter(r=>r.statut!=='annulee');
   const cv=rs.filter(r=>r.statut!=='absence').reduce((s,r)=>s+r.couverts,0);
   const cap=D.capaciteTotale();
   const mnt=new Date().getHours()*60+new Date().getMinutes();
   const att=rs.filter(r=>['confirmee','attente'].includes(r.statut));
-  const ret=att.filter(r=>D.hm2min(r.heure)<mnt-20);
-  const suite=att.filter(r=>D.hm2min(r.heure)>=mnt-20).slice(0,10);
-  const salle=rs.filter(r=>['arrivee','installee'].includes(r.statut));
-  const ferm=D.estFerme(d);
+  /* le retard n'a de sens que pour la journée en cours */
+  const ret=auj?att.filter(r=>D.hm2min(r.heure)<mnt-20):[];
+  const suite=(auj?att.filter(r=>D.hm2min(r.heure)>=mnt-20):att).slice(0,12);
+  const salle=rs.filter(r=>r.statut==='installee');
+  const fini=rs.filter(r=>['terminee','absence'].includes(r.statut));
 
   const alertes=[];
   rs.forEach(r=>{ const g=D.guest(r.guestId); const a=(r.allergies||g.allergies||'');
@@ -414,12 +463,14 @@ function vSoir(){
       <div class="qui"><div class="n"><span class="txt">${E(g.nom)}</span>${vip?'<span class="puce p-or">VIP</span>':''}${alg?'<span class="puce p-r">Allergie</span>':''}</div>
         <div class="d">${r.couverts} couverts, ${t==='non attribuée'?'table à définir':'table '+t}</div></div>
       ${['confirmee','attente'].includes(r.statut)
-        ?`<button class="bt ok" data-arr="${r.id}">${I.ok} Arrivé</button>`
-        :`<span class="puce ${r.statut==='installee'?'p-v':'p-b'}">${D.LIB[r.statut]}</span>`}</div>`;
+        ?`<button class="bt ok" data-inst="${r.id}">${I.ok} Installer</button>`
+        :r.statut==='installee'
+        ?`<button class="bt" data-fin="${r.id}">${I.ok} Terminé</button>`
+        :`<span class="puce ${r.statut==='absence'?'p-r':'p-g'}">${D.LIB[r.statut]}</span>`}</div>`;
   };
 
-  coque('Ce soir', D.fmtDate(d), `
-    ${ferm?`<div class="al-b">${I.al}<div><b>Fermé aujourd'hui</b><span>${E(ferm.raison)}</span></div></div>`:''}
+  coque(auj?'Ce soir':'Ce jour-là', '', `
+    ${barreJour()}
     <div class="actions">
       <button class="act pri" id="a-new">${I.ajout}Nouvelle réservation</button>
       <button class="act" id="a-plan">${I.salle}Placer en salle</button>
@@ -434,46 +485,86 @@ function vSoir(){
     </div>
     ${alertes.slice(0,3).map(a=>`<div class="al-b ${a[0]==='or'?'or':''}">${I.al}<div><b>${E(a[1])}</b><span>${E(a[2])}</span></div></div>`).join('')}
     ${ret.length?`<div class="card"><h2 style="color:var(--rouge)">En retard</h2>${ret.map(lg).join('')}</div>`:''}
-    <div class="card"><h2>Prochaines arrivées<span class="sp"></span><span class="n2 nb">${att.length}</span></h2>
-      ${suite.length?suite.map(lg).join(''):`<div class="vide">${I.vd}Aucune arrivée à venir.<br>Les réservations du site apparaissent ici automatiquement.</div>`}</div>
-    ${salle.length?`<div class="card"><h2>Actuellement en salle</h2>${salle.map(lg).join('')}</div>`:''}`);
+    <div class="card"><h2>${auj?'Prochaines arrivées':'Attendus'}<span class="sp"></span><span class="n2 nb">${att.length}</span></h2>
+      ${suite.length?suite.map(lg).join(''):`<div class="vide">${I.vd}Personne d'attendu pour l'instant.<br>Les réservations du site arrivent ici automatiquement.</div>`}</div>
+    ${salle.length?`<div class="card"><h2>Actuellement en salle<span class="sp"></span><span class="n2 nb">${salle.length}</span></h2>${salle.map(lg).join('')}</div>`:''}
+    ${fini.length?`<div class="card"><h2>Terminé<span class="sp"></span><span class="n2 nb">${fini.length}</span></h2>${fini.map(lg).join('')}</div>`:''}`);
 
+  brancheJour();
   $('#a-new').onclick=()=>fNouvelle();
   $('#a-plan').onclick=()=>{ S.vue='salle'; rendre(); };
   $('#a-86').onclick=()=>{ S.vue='carte'; rendre(); };
-  $$('[data-arr]').forEach(b=>b.onclick=e=>{
-    e.stopPropagation();
-    const r=D.db.reservations.find(x=>x.id===b.dataset.arr), av=r.statut;
-    D.statut(r.id,'arrivee');
-    toast(D.guest(r.guestId).nom+' est là', ()=>{ r.statut=av; D.save(); });
-    rendre();
-  });
+  $$('[data-inst]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); installe(b.dataset.inst); });
+  $$('[data-fin]').forEach(b=>b.onclick=e=>{ e.stopPropagation(); termine(b.dataset.fin); });
   $$('.ligne[data-r]').forEach(l=>l.onclick=()=>fResa(D.db.reservations.find(x=>x.id===l.dataset.r)));
+}
+
+/* Installer : attribue une table si besoin, lance le chronomètre, sort le
+   client de la liste des attendus. Une seule action pour toute la suite. */
+function installe(id){
+  const r=D.db.reservations.find(x=>x.id===id); if(!r) return;
+  const nom=D.guest(r.guestId).nom;
+  const res=D.statut(id,'installee');
+  if(!res.ok){                                   // aucune table libre : on bascule sur le plan
+    toast(res.msg); S.sel=id; S.vue='salle'; S.date=r.date; rendre(); return;
+  }
+  toast(nom+' installé, table '+res.table, res.annule);
+  rendre();
+}
+function termine(id){
+  const r=D.db.reservations.find(x=>x.id===id); if(!r) return;
+  const nom=D.guest(r.guestId).nom;
+  const res=D.statut(id,'terminee');
+  if(!res.ok){ toast(res.msg); return; }
+  toast(nom+' terminé, table '+res.table+' libérée', res.annule);
+  rendre();
+}
+function absent(id){
+  const r=D.db.reservations.find(x=>x.id===id); if(!r) return;
+  const nom=D.guest(r.guestId).nom;
+  const res=D.statut(id,'absence');
+  if(!res.ok){ toast(res.msg); return; }
+  toast(nom+' noté absent, table libérée', res.annule);
+  rendre();
 }
 
 /* ═══ SALLE ═══ */
 function vSalle(){
-  const d=S.date||D.todayISO();
-  const aPlacer=resasDu(d).filter(r=>['confirmee','attente','arrivee'].includes(r.statut)&&!r.tableIds.length);
+  const d=jourActif();
+  const aPlacer=resasDu(d).filter(r=>['confirmee','attente'].includes(r.statut)&&!r.tableIds.length);
   const selR=S.sel?D.db.reservations.find(r=>r.id===S.sel):null;
+  const selDeb=selR?D.hm2min(selR.heure):0;
+  const selFin=selR?selDeb+D.duree(selR.couverts)+D.db.regles.tampon:0;
   const zones=D.db.zones.map(z=>{
     const tbs=D.db.tables.filter(t=>t.zoneId===z.id);
     return `<div class="zt">${E(z.nom)}<span class="sp"></span>
       ${z.meteo?`<button class="chip ${z.actif?'on':''}" data-z="${z.id}">${z.actif?'Ouverte':'Fermée'}</button>`:''}</div>
       <div class="grille">${tbs.map(t=>{
         const rr=D.resasActives(d).filter(r=>r.tableIds.includes(t.id));
-        const cur=rr.find(r=>['arrivee','installee'].includes(r.statut));
+        const cur=rr.find(r=>r.statut==='installee');
         const nx=rr.find(r=>['confirmee','attente'].includes(r.statut));
         const r=cur||nx, cl=cur?'inst':(nx?'res':'libre'), ch=cur?chrono(cur):null;
         const off=!z.actif||!t.active;
-        return `<button class="tbl ${cl} ${S.sel&&!r&&!off?'cible':''}" data-tbl="${t.id}" ${off?'style="opacity:.35"':''}>
+        const moi=selR&&r&&r.id===selR.id;
+        /* Pendant un déplacement, seules les tables réellement utilisables sont
+           signalées : assez grandes, seules ou avec leur voisine combinable.
+           Les tables occupées proposent un échange. */
+        const tient=selR&&(t.capMax>=selR.couverts
+          || (t.combinable||[]).some(i=>{const v=D.db.tables.find(x=>x.id===i);
+              return v && v.capMax+t.capMax>=selR.couverts
+                && D.tableLibre(i,selR.date,selDeb,selFin,selR.id);}));
+        const marque=selR?(moi?'moi':(r?'perm':(off||!tient?'':'cible'))):'';
+        return `<button class="tbl ${cl} ${marque}" data-tbl="${t.id}" ${off?'style="opacity:.35"':''}>
           ${ch?`<span class="ch ${ch.long?'long':''} nb">${ch.m}min</span>`:''}
           ${t.numero}<small>${r?E(D.guest(r.guestId).nom.split(' ')[0])+' '+r.couverts+'p':t.capMax+' places'}</small>
         </button>`;}).join('')}</div>`;
   }).join('');
 
-  coque('Salle', D.fmtDate(d), `
-    <div class="aide">${I.info}${S.sel?'Touchez maintenant une table libre':'Touchez une réservation à placer, puis une table'}</div>
+  coque('Salle', '', `
+    ${barreJour()}
+    <div class="aide">${I.info}${selR
+      ?'Touchez une table libre pour y placer '+E(D.guest(selR.guestId).nom.split(' ')[0])+', ou une table occupée pour échanger'
+      :'Touchez une table pour voir qui y est et le déplacer'}</div>
     ${aPlacer.length?`<div class="card"><h2>À placer<span class="sp"></span><span class="n2 nb">${aPlacer.length}</span></h2>
       <button class="gros" id="auto" style="margin:0 0 12px">${I.ok} Placer tout le monde automatiquement</button>
       ${aPlacer.map(r=>{const g=D.guest(r.guestId);
@@ -486,9 +577,10 @@ function vSalle(){
     <div class="leg"><span><i style="border-color:var(--line)"></i>Libre</span>
       <span><i style="border-color:var(--bleu)"></i>Réservée</span>
       <span><i style="border-color:var(--vert)"></i>Installée</span></div>
-    ${selR?`<div class="selbar"><span class="sp">${E(D.guest(selR.guestId).nom)}, ${selR.couverts} couverts</span>
+    ${selR?`<div class="selbar"><span class="sp">Déplacer ${E(D.guest(selR.guestId).nom)}, ${selR.couverts} couverts</span>
       <button id="s-non">Annuler</button></div>`:''}`);
 
+  brancheJour();
   $$('[data-sel]').forEach(b=>b.onclick=()=>{ S.sel=S.sel===b.dataset.sel?null:b.dataset.sel; rendre(); });
   const sn=$('#s-non'); if(sn) sn.onclick=()=>{ S.sel=null; rendre(); };
   const au=$('#auto');
@@ -514,12 +606,32 @@ function vSalle(){
     const tid=b.dataset.tbl;
     const t=D.db.tables.find(x=>x.id===tid);
     if(!t) return;
-    if(S.sel){ const res=D.placer(S.sel,tid); toast(res.msg); S.sel=null; rendre(); return; }
     const rr=D.resasActives(d).filter(r=>r.tableIds.includes(tid));
-    const r=rr.find(x=>['arrivee','installee'].includes(x.statut))||rr[0];
-    if(r) fResa(r);
+    const occ=rr.find(x=>x.statut==='installee')||rr[0];
+
+    if(S.sel){
+      if(occ && occ.id===S.sel){ S.sel=null; rendre(); return; }   // on retouche sa propre table
+      if(occ){                                                     // table prise : on propose l'échange
+        const a=D.guest(selR.guestId).nom, b2=D.guest(occ.guestId).nom;
+        confirmer('Échanger les deux tables ?',
+          a+' et '+b2+' échangent leur table.','Échanger',()=>{
+            const res=D.echange(S.sel,occ.id);
+            toast(res.ok?res.msg:res.msg, res.ok?res.annule:null);
+            S.sel=null; rendre();
+          });
+        return;
+      }
+      const res=D.placer(S.sel,tid);                               // table libre : on déplace
+      toast(res.msg); if(res.ok) S.sel=null; rendre(); return;
+    }
+    if(occ) fResa(occ);
     else toast('Table '+t.numero+' libre, '+t.capMax+' places');
   });
+}
+/* lance un déplacement depuis n'importe quel écran */
+function deplace(id){
+  const r=D.db.reservations.find(x=>x.id===id); if(!r) return;
+  S.sel=id; S.date=r.date; S.vue='salle'; scrollTo(0,0); rendre();
 }
 
 /* ═══ CARTE ═══ */
@@ -601,7 +713,7 @@ function vResas(){
       .map(([k,l])=>`<button class="chip ${S.filtre===k?'on':''}" data-f="${k}">${l}</button>`).join('')}</div>
     <button class="gros" id="new" style="margin-bottom:14px">${I.ajout} Nouvelle réservation</button>
     <div class="card">${rs.length?rs.map(r=>{const g=D.guest(r.guestId);
-      const cls={confirmee:'p-b',installee:'p-v',arrivee:'p-v',attente:'p-or',annulee:'p-g',absence:'p-r',terminee:'p-g'}[r.statut]||'p-g';
+      const cls={confirmee:'p-b',installee:'p-v',attente:'p-or',annulee:'p-g',absence:'p-r',terminee:'p-g'}[r.statut]||'p-g';
       return `<div class="ligne" data-r="${r.id}"><span class="heure nb">${r.heure}</span>
         <div class="qui"><div class="n">${E(g.nom)}</div>
           <div class="d">${q?D.fmtShort(r.date)+', ':''}${r.couverts} couverts, ${E(g.tel)}</div></div>
@@ -817,7 +929,8 @@ function vRegl(){
 function fResa(r){
   if(!r) return;
   const g=D.guest(r.guestId), alg=r.allergies||g.allergies;
-  const etats=[['arrivee','Arrivé'],['installee','Installé'],['terminee','Terminé'],['absence','Absent']];
+  const etats=[['installee','Installé'],['terminee','Terminé'],['absence','Absent']];
+  const place=r.tableIds.length;
   feuille(`<h3>${E(g.nom)}</h3>
     <p class="ss">${D.fmtDate(r.date)}, ${r.heure}, ${r.couverts} couverts<br>Table ${D.tableNom(r.tableIds)}, code ${E(r.ref)}</p>
     ${alg?`<div class="al-b">${I.al}<div><b>Allergie</b><span>${E(alg)}</span></div></div>`:''}
@@ -825,14 +938,22 @@ function fResa(r){
     ${r.occasion?`<p class="ss">Occasion : ${E(r.occasion)}</p>`:''}
     ${r.note?`<p class="ss">Note : ${E(r.note)}</p>`:''}
     <div class="champ"><label>Où en est cette table ?</label>
-      <div class="opts">${etats.map(([k,l])=>`<button class="opt ${r.statut===k?'on':''}" data-st="${k}">${l}</button>`).join('')}</div></div>
+      <div class="opts">${etats.map(([k,l])=>`<button class="opt ${r.statut===k?'on':''}" data-st="${k}">${l}</button>`).join('')}</div>
+      <div class="at">Installé attribue une table et lance le chronomètre. Terminé et Absent la libèrent.</div></div>
+    <div class="champ"><label>Table</label>
+      <button class="gros sec" id="r-dep" style="margin:0">${place?'Changer de table':'Placer à une table'}</button>
+      ${place?'<button class="gros sec" id="r-lib">Retirer de la table</button>':''}</div>
     <a class="gros sec" href="tel:${E(g.tel.replace(/\s/g,''))}" style="text-decoration:none">Appeler ${E(g.tel)}</a>
     <button class="gros sec" id="r-mod">Modifier la réservation</button>
     <button class="gros sec" id="r-ann" style="color:var(--rouge)">Annuler la réservation</button>`, c=>{
     $$('[data-st]',c).forEach(b=>b.onclick=()=>{
-      const av=r.statut; D.statut(r.id,b.dataset.st); fermer();
-      toast(g.nom+' : '+D.LIB[b.dataset.st].toLowerCase(), ()=>{ r.statut=av; D.save(); }); rendre();
+      fermer();
+      ({installee:installe,terminee:termine,absence:absent}[b.dataset.st])(r.id);
     });
+    $('#r-dep',c).onclick=()=>{ fermer(); deplace(r.id); };
+    const lb=$('#r-lib',c);
+    if(lb) lb.onclick=()=>{ const res=D.libere(r.id); fermer();
+      toast(res.ok?res.msg:res.msg, res.ok?res.annule:null); rendre(); };
     $('#r-mod',c).onclick=()=>{ fermer(); fNouvelle(r); };
     $('#r-ann',c).onclick=()=>{ fermer();
       confirmer('Annuler cette réservation ?', g.nom+', '+r.couverts+' couverts à '+r.heure+'. La table sera libérée.','Annuler la réservation',()=>{

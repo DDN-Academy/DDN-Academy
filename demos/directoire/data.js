@@ -30,7 +30,7 @@
     'Fruits à coque', 'Céleri', 'Moutarde', 'Sésame', 'Sulfites', 'Lupin', 'Mollusques'];
 
   const LIB = {
-    attente: 'En attente', confirmee: 'Confirmée', arrivee: 'Arrivé', installee: 'Installée',
+    attente: 'En attente', confirmee: 'Confirmée', installee: 'Installée',
     terminee: 'Terminée', annulee: 'Annulée', absence: 'Absence'
   };
   /* phases de service d'une table occupée */
@@ -218,20 +218,28 @@
   function valide(d) {
     return d && typeof d === 'object' && d.tables && d.reservations && d.menu && d.menu.items && d.guests && d.services;
   }
+  /* L'étape « Arrivé » a été retirée : elle faisait perdre du temps au service.
+     Les anciennes données enregistrées sur l'appareil sont converties. */
+  function migre(d) {
+    (d.reservations || []).forEach(r => {
+      if (r.statut === 'arrivee') { r.statut = 'installee'; if (!r.assiseA) r.assiseA = Date.now(); }
+    });
+    return d;
+  }
   function load() {
     try {
       const raw = localStorage.getItem(KEY);
-      if (!raw) return seed();
+      if (!raw) return migre(seed());
       const d = JSON.parse(raw);
       if (!valide(d)) throw new Error('schéma invalide');
-      return d;
+      return migre(d);
     } catch (e) {
       try {
         const b = JSON.parse(localStorage.getItem(BACKUP));
-        if (valide(b)) { console.warn('Données corrompues : restauration de la sauvegarde.'); return b; }
+        if (valide(b)) { console.warn('Données corrompues : restauration de la sauvegarde.'); return migre(b); }
       } catch (_) { }
       console.warn('Données illisibles : réinitialisation.');
-      return seed();
+      return migre(seed());
     }
   }
   function save(silencieux) {
@@ -411,18 +419,77 @@
     save();
     return { ok: true, msg: 'Placé sur la table ' + t.numero };
   }
+  /* Trois états suffisent au service : Installé, Terminé, Absent.
+     Chaque changement déclenche tout seul ce qui doit suivre : attribution de la
+     table, départ du chronomètre, libération de la table, comptage des visites.
+     Le retour décrit ce qui a été fait, pour que l'écran puisse l'annoncer. */
+  function tableNom(ids) {
+    return ids && ids.length
+      ? ids.map(i => { const t = DB.tables.find(x => x.id === i); return t ? t.numero : '?'; }).join('+')
+      : 'non attribuée';
+  }
   function statut(resaId, nouveau) {
     const r = DB.reservations.find(x => x.id === resaId);
-    if (!r) return;
-    const avant = r.statut;
-    r.statut = nouveau;
+    if (!r) return { ok: false, msg: 'Réservation introuvable.' };
+    const avant = { statut: r.statut, tableIds: [...r.tableIds], assiseA: r.assiseA, phase: r.phase };
     const g = DB.guests.find(x => x.id === r.guestId);
-    if (nouveau === 'installee' && !r.assiseA) r.assiseA = Date.now();
-    if (nouveau === 'terminee' && g) { g.visites++; g.derniereVisite = r.date; r.phase = null; }
-    if (nouveau === 'absence' && g) { g.absences++; r.tableIds = []; }
-    log(LIB[nouveau] + ' : ' + r.ref);
+    let table = null;
+
+    if (nouveau === 'installee') {
+      if (!r.tableIds.length) {                       // aucune table : on en attribue une
+        const t = trouveTables(r.date, r.heure, r.couverts, r.zonePref || null)
+               || trouveTables(r.date, r.heure, r.couverts, null);
+        if (!t) return { ok: false, msg: 'Aucune table libre pour ' + r.couverts + ' couverts. Choisissez une table à la main.' };
+        r.tableIds = t;
+      }
+      table = tableNom(r.tableIds);
+      if (!r.assiseA) r.assiseA = Date.now();         // le chronomètre part maintenant
+      if (!r.phase) r.phase = 'apero';
+    }
+    if (nouveau === 'terminee') {
+      table = tableNom(r.tableIds);
+      r.phase = null; r.assiseA = null;               // la table redevient disponible
+      if (g && avant.statut !== 'terminee') { g.visites++; g.derniereVisite = r.date; }
+    }
+    if (nouveau === 'absence') {
+      r.tableIds = []; r.phase = null; r.assiseA = null;
+      if (g && avant.statut !== 'absence') g.absences++;
+    }
+    r.statut = nouveau;
+    log(LIB[nouveau] + ' : ' + r.ref + (table ? ', table ' + table : ''));
     save();
-    return { avant };
+    return { ok: true, avant, table, annule: () => { Object.assign(r, avant); rendGuest(g, avant.statut, nouveau); save(); } };
+  }
+  /* remet le compteur du client comme il était avant l'action annulée */
+  function rendGuest(g, avant, applique) {
+    if (!g) return;
+    if (applique === 'terminee' && avant !== 'terminee') { g.visites = Math.max(0, g.visites - 1); }
+    if (applique === 'absence' && avant !== 'absence') { g.absences = Math.max(0, g.absences - 1); }
+  }
+  /* retire la réservation de sa table sans changer son état */
+  function libere(resaId) {
+    const r = DB.reservations.find(x => x.id === resaId);
+    if (!r) return { ok: false, msg: 'Réservation introuvable.' };
+    if (!r.tableIds.length) return { ok: false, msg: 'Cette réservation n\'a pas de table.' };
+    const avant = [...r.tableIds];
+    r.tableIds = [];
+    log('Table libérée : ' + r.ref);
+    save();
+    return { ok: true, msg: 'Retiré de la table ' + tableNom(avant), annule: () => { r.tableIds = avant; save(); } };
+  }
+  /* échange les tables de deux réservations, si chacune tient sur celle de l'autre */
+  function echange(aId, bId) {
+    const a = DB.reservations.find(x => x.id === aId), b = DB.reservations.find(x => x.id === bId);
+    if (!a || !b) return { ok: false, msg: 'Réservation introuvable.' };
+    const cap = ids => ids.reduce((s, i) => { const t = DB.tables.find(x => x.id === i); return s + (t ? t.capMax : 0); }, 0);
+    if (cap(b.tableIds) < a.couverts) return { ok: false, msg: 'Table ' + tableNom(b.tableIds) + ' trop petite pour ' + a.couverts + ' couverts.' };
+    if (cap(a.tableIds) < b.couverts) return { ok: false, msg: 'Table ' + tableNom(a.tableIds) + ' trop petite pour ' + b.couverts + ' couverts.' };
+    const ta = [...a.tableIds], tb = [...b.tableIds];
+    a.tableIds = tb; b.tableIds = ta;
+    log('Échange de tables : ' + a.ref + ' et ' + b.ref);
+    save();
+    return { ok: true, msg: 'Tables échangées, ' + tableNom(tb) + ' et ' + tableNom(ta),
+      annule: () => { a.tableIds = ta; b.tableIds = tb; save(); } };
   }
 
   /* ---------- PHOTOS (vraies photos, déposées par le restaurant) ---------- */
@@ -510,7 +577,7 @@
     reserver, parRef, annuler, placer, statut,
     /* divers */
     guest(id) { return DB.guests.find(g => g.id === id) || { nom: 'Inconnu', tel: '', tags: [], allergies: '', visites: 0, absences: 0 }; },
-    tableNom(ids) { return ids && ids.length ? ids.map(i => { const t = DB.tables.find(x => x.id === i); return t ? t.numero : '?'; }).join('+') : 'non attribuée'; },
+    tableNom, libere, echange,
     Photos, exporte, importe, reinitialise
   };
   global.D = API;
