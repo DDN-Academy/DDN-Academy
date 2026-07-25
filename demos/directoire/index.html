@@ -140,7 +140,9 @@ section{scroll-margin-top:96px}
 .statut{
   display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:var(--muted);
   border:1px solid var(--line); border-radius:999px; padding:7px 13px; white-space:nowrap; min-height:34px;
+  min-width:0; flex:0 1 auto; margin:0;
 }
+.statut .lbl{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .statut .pt{width:8px; height:8px; border-radius:50%; background:var(--gris); flex:none}
 .statut.on .pt{background:var(--ok)}
 .statut.on{color:var(--txt)}
@@ -159,7 +161,7 @@ section{scroll-margin-top:96px}
 .head-resa{margin-left:6px}
 .icbtn{
   display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px;
-  background:transparent; border:1px solid var(--line); border-radius:4px; color:var(--txt);
+  background:transparent; border:1px solid var(--line); border-radius:4px; color:var(--txt); flex:none;
 }
 .icbtn:hover{border-color:var(--txt)}
 .burger{display:none}
@@ -171,8 +173,14 @@ section{scroll-margin-top:96px}
   .burger{margin-left:0}
 }
 @media (max-width:520px){
-  .statut span.lbl{max-width:130px; overflow:hidden; text-overflow:ellipsis}
-  .head-in{gap:9px}
+  .head-in{gap:8px}
+  .logo{font-size:1.1rem}
+  .logo .tiret{width:14px}
+  .statut{padding:7px 10px; font-size:.74rem}
+}
+@media (max-width:360px){
+  .statut .lbl{display:none}
+  .statut{padding:7px}
 }
 
 /* menu mobile plein écran */
