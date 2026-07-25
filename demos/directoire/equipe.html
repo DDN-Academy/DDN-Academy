@@ -18,6 +18,9 @@
   --bg:#F4F4F6; --card:#FFFFFF; --card2:#EDEDF1; --line:#DEDEE5;
   --ink:#15151A; --mut:#5E5E6B; --faint:#8A8A96;
 }
+/* garde-fou : une icône sans dimension explicite s'étirerait à toute la place
+   disponible dans un bouton flex. Taille par defaut, surchargeable par classe. */
+svg{width:20px;height:20px;flex:0 0 auto}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;
@@ -141,10 +144,23 @@ main{flex:1;padding:16px 16px calc(140px + env(safe-area-inset-bottom));max-widt
 .leg{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;font-size:12px;color:var(--mut)}
 .leg i{display:inline-block;width:11px;height:11px;border-radius:4px;border:2px solid;margin-right:5px;vertical-align:-1px}
 
-.plat{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+/* sur téléphone : photo à gauche, nom sur toute la largeur, prix et bouton dessous.
+   Dès qu'il y a la place, tout revient sur une seule ligne. */
+.plat{display:grid;grid-template-columns:46px minmax(0,1fr);gap:9px 12px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.plat .vig{grid-row:1/3}
+.plat .pact{display:flex;gap:10px;align-items:center}
+@media (min-width:560px){
+  .plat{grid-template-columns:46px minmax(0,1fr) auto auto}
+  .plat .vig{grid-row:auto}
+  .plat .pact{display:contents}
+}
 .plat:last-child{border-bottom:none}
 .plat.off{opacity:.45}
-.plat .info{flex:1;min-width:0}
+.plat .info{min-width:0}
+.plat .vig{width:46px;height:46px;flex:0 0 auto;border-radius:11px;object-fit:cover;background:var(--card2)}
+.plat .vig.vide{border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--faint)}
+.plat .vig.vide svg{width:19px;height:19px}
 .plat .nom{font-weight:700;font-size:15.5px}
 .plat .des{font-size:12.5px;color:var(--mut);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .prix{background:var(--card2);border:1px solid var(--line);border-radius:10px;height:44px;width:76px;
@@ -173,6 +189,8 @@ main{flex:1;padding:16px 16px calc(140px + env(safe-area-inset-bottom));max-widt
   font-size:16px;font-weight:800;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
 .gros.sec{background:var(--card2);color:var(--ink);border:1px solid var(--line)}
 .gros:active{transform:scale(.98)}
+/* sans cette contrainte, une icône seule s'étire à toute la hauteur du bouton */
+.gros svg{width:21px;height:21px;flex:0 0 auto}
 .rang{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .opts{display:flex;gap:8px;flex-wrap:wrap}
 .opt{background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:11px 15px;
@@ -181,7 +199,9 @@ main{flex:1;padding:16px 16px calc(140px + env(safe-area-inset-bottom));max-widt
 
 .ml{display:flex;align-items:center;gap:14px;padding:16px;background:var(--card);
   border:1px solid var(--line);border-radius:var(--r);margin-bottom:9px;width:100%;text-align:left;min-height:var(--tap)}
-.ml>svg:first-child{width:22px;height:22px;color:var(--rouge);flex:0 0 auto}
+.ml>svg{width:22px;height:22px;flex:0 0 auto}
+.ml>svg:first-child{color:var(--rouge)}
+.ml>svg:last-child{width:17px;height:17px;color:var(--faint)}
 .ml .t{flex:1;min-width:0}
 .ml .t b{display:block;font-size:15.5px}
 .ml .t span{font-size:12.5px;color:var(--mut)}
@@ -512,10 +532,14 @@ function vCarte(){
       const its=D.db.menu.items.filter(i=>i.catId===c.id).sort((a,b)=>a.ordre-b.ordre);
       return `<div class="card"><h2>${E(c.nom)}<span class="sp"></span><span class="n2 nb">${its.length}</span></h2>
         ${its.map(i=>`<div class="plat ${i.epuise?'off':''}">
+          ${i.photo?`<img class="vig" src="${E(i.photo)}" alt="" data-ed="${i.id}">`
+            :`<span class="vig vide" data-ed="${i.id}" title="Ajouter une photo">${I.photo}</span>`}
           <div class="info" data-ed="${i.id}"><div class="nom">${E(i.nom)}${i.tags.includes('sig')?' <span class="puce p-or">Signature</span>':''}</div>
             <div class="des">${E(i.desc)}</div></div>
-          <input class="prix nb" type="number" step="0.5" min="0" value="${i.prix}" data-prix="${i.id}" aria-label="Prix de ${E(i.nom)}">
-          <button class="bt ${i.epuise?'ok':'r'}" data-86="${i.id}">${i.epuise?'Remettre':'Épuisé'}</button>
+          <div class="pact">
+            <input class="prix nb" type="number" step="0.5" min="0" value="${i.prix}" data-prix="${i.id}" aria-label="Prix de ${E(i.nom)}">
+            <button class="bt ${i.epuise?'ok':''}" data-86="${i.id}" style="flex:1">${i.epuise?'Remettre sur la carte':'Marquer épuisé'}</button>
+          </div>
         </div>`).join('')}</div>`;
     }).join('')}`);
   $$('[data-86]').forEach(b=>b.onclick=()=>{
@@ -878,6 +902,15 @@ function fPlat(it){
     <div class="champ"><label>Allergènes</label><div class="opts" id="p-al">
       ${D.ALLERGENES.map(a=>`<button class="opt ${!neuf&&it.allergenes.includes(a)?'on':''}" data-a="${a}"
         style="padding:8px 12px;min-height:44px;font-size:13px">${a}</button>`).join('')}</div></div>
+    <div class="champ"><label>Photo du plat</label>
+      <div class="rang" style="align-items:center">
+        <img id="p-vue" alt="" style="width:84px;height:84px;flex:0 0 auto;border-radius:12px;
+          object-fit:cover;background:var(--card2);border:1px solid var(--line);${(neuf||!it.photo)?'display:none':''}"
+          ${(!neuf&&it.photo)?`src="${E(it.photo)}"`:''}>
+        <button class="gros sec" id="p-pick" style="margin:0;flex:1">${(!neuf&&it.photo)?'Changer la photo':'Ajouter une photo'}</button>
+      </div>
+      <button class="gros sec" id="p-nph" style="${(neuf||!it.photo)?'display:none':''}">Retirer la photo</button>
+      <div class="aide" style="margin-top:8px">Elle apparaît aussitôt sur le site des clients</div></div>
     <button class="gros" id="p-ok">${neuf?'Ajouter à la carte':'Enregistrer'}</button>
     ${neuf?'':'<button class="gros sec" id="p-del" style="color:var(--rouge)">Supprimer ce plat</button>'}
     <button class="gros sec" id="p-non">Retour</button>`, c=>{
@@ -890,13 +923,35 @@ function fPlat(it){
     const del=$('#p-del',c);
     if(del) del.onclick=()=>{ fermer(); confirmer('Supprimer ce plat ?',it.nom+' sera retiré de la carte.','Supprimer',()=>{
       D.db.menu.items=D.db.menu.items.filter(x=>x.id!==it.id); D.save(); toast('Plat supprimé'); rendre(); }); };
+    let photo=neuf?null:(it.photo||null);
+    const vue=$('#p-vue',c), nph=$('#p-nph',c), pick=$('#p-pick',c);
+    const majPhoto=()=>{
+      vue.style.display=photo?'':'none'; if(photo) vue.src=photo;
+      nph.style.display=photo?'':'none';
+      pick.textContent=photo?'Changer la photo':'Ajouter une photo';
+    };
+    pick.onclick=()=>{
+      const f=document.createElement('input'); f.type='file'; f.accept='image/*';
+      f.onchange=()=>{ const fi=f.files&&f.files[0]; if(!fi) return;
+        D.Photos.lis(fi,900,0.78).then(u=>{ photo=u; majPhoto(); })
+          .catch(e=>toast(e.message||'Image illisible')); };
+      f.click();
+    };
+    nph.onclick=()=>{ photo=null; majPhoto(); };
     $('#p-ok',c).onclick=()=>{
       const nom=$('#p-nom',c).value.trim();
       if(!nom){ toast('Indiquez le nom du plat'); return; }
-      const o={nom,desc:$('#p-des',c).value.trim(),prix:+$('#p-prix',c).value||0,catId:$('#p-cat',c).value,tags,allergenes:alg};
-      if(neuf) D.db.menu.items.push({id:D.uid(),...o,origine:'',epuise:false,ordre:D.db.menu.items.length,photo:null});
+      const o={nom,desc:$('#p-des',c).value.trim(),prix:+$('#p-prix',c).value||0,catId:$('#p-cat',c).value,tags,allergenes:alg,photo};
+      const avant=neuf?null:{...it};
+      if(neuf) D.db.menu.items.push({id:D.uid(),...o,origine:'',epuise:false,ordre:D.db.menu.items.length});
       else Object.assign(it,o);
-      D.log((neuf?'Ajout ':'Modification ')+nom); D.save(); fermer(); toast('Carte mise à jour'); rendre();
+      D.log((neuf?'Ajout ':'Modification ')+nom);
+      if(!D.save()){
+        /* mémoire du navigateur pleine : on remet la carte dans son état d'avant */
+        if(neuf) D.db.menu.items.pop(); else Object.assign(it,avant);
+        toast('Mémoire pleine. Retirez une photo ou exportez vos données.'); return;
+      }
+      fermer(); toast('Carte mise à jour'); rendre();
     };
   });
 }

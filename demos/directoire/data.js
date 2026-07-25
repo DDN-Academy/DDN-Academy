@@ -36,16 +36,15 @@
   /* phases de service d'une table occupée */
   const PHASES = { apero: 'Apéritif', entree: 'Entrée', plat: 'Plat', dessert: 'Dessert', addition: 'Addition', nettoyage: 'À nettoyer' };
 
-  /* Emplacements photo attendus. Déposez de VRAIES photos via l'espace équipe. */
+  /* Emplacements photo du site client. Remplacez-les par vos propres photos
+     depuis l'espace équipe, onglet Plus. */
   const PHOTO_SLOTS = [
-    { k: 'hero', nom: 'Photo principale (accueil)', hint: 'Vue large : la salle ou la terrasse au coucher du soleil. Format paysage.' },
-    { k: 'terrasse', nom: 'La terrasse végétalisée', hint: 'Format portrait de préférence.' },
-    { k: 'patio', nom: 'Le patio intime', hint: 'Format portrait de préférence.' },
-    { k: 'salle', nom: 'La salle', hint: 'Format portrait de préférence.' },
-    { k: 'plat1', nom: 'Le bar, à la nuit tombée', hint: 'Bouteilles rétroéclairées, ambiance chaude.' },
-    { k: 'plat2', nom: 'Le four à pizza, feu de bois', hint: 'La flambée dans le four.' },
-    { k: 'soiree', nom: 'Une soirée / concert', hint: 'Ambiance du soir.' },
-    { k: 'equipe', nom: 'L\'équipe', hint: 'Portrait des chefs ou de la brigade.' }
+    { k: 'hero', nom: 'Photo principale (accueil)', hint: 'Vue large, format paysage. Elle occupe tout le haut du site.' },
+    { k: 'terrasse', nom: 'La terrasse végétalisée', hint: 'Format paysage, en journée.' },
+    { k: 'patio', nom: 'Le patio', hint: 'Format paysage.' },
+    { k: 'salle', nom: 'La salle', hint: 'Format paysage, tables dressées.' },
+    { k: 'soiree', nom: 'Une soirée', hint: 'Ambiance du soir, concert ou match.' },
+    { k: 'equipe', nom: 'La cuisine et l\'équipe', hint: 'Le chef au travail ou la brigade.' }
   ];
 
   /* ---------- DONNÉES DE DÉMONSTRATION ---------- */
@@ -78,26 +77,27 @@
       { id: 'c3', nom: 'Les pizzas', ordre: 3 },
       { id: 'c4', nom: 'Les desserts', ordre: 4 }
     ];
+    /* cat, nom, description, prix, allergènes, tags, origine, photo livrée */
     const rawItems = [
-      ['c1', 'Burrata & tomates anciennes', "Tomates du maraîcher, burrata crémeuse, basilic, huile d'olive de Provence.", 14, ['Lait'], ['veg']],
+      ['c1', 'Burrata & tomates anciennes', "Tomates du maraîcher, burrata crémeuse, basilic, huile d'olive de Provence.", 14, ['Lait'], ['veg'], '', 'photos/p-burrata.jpg'],
       ['c1', 'Carpaccio de daurade', 'Agrumes, huile vierge, fenouil croquant, poivre de Timut.', 16, ['Poissons', 'Sulfites'], []],
       ['c1', 'Beignets de fleurs de courgette', 'Farce ricotta-menthe, coulis de tomate confite.', 13, ['Gluten', 'Œufs', 'Lait'], ['veg', 'maison']],
-      ['c1', 'Poulpe grillé à la plancha', 'Pommes de terre écrasées, chorizo doux, paprika fumé.', 17, ['Mollusques'], []],
-      ['c2', "Souris d'agneau confite", 'Sept heures au thym, jus corsé, légumes du soleil.', 26, ['Céleri', 'Sulfites'], ['sig', 'maison']],
+      ['c1', 'Poulpe grillé à la plancha', 'Pommes de terre écrasées, chorizo doux, paprika fumé.', 17, ['Mollusques'], [], '', 'photos/p-poulpe.jpg'],
+      ['c2', "Souris d'agneau confite", 'Sept heures au thym, jus corsé, légumes du soleil.', 26, ['Céleri', 'Sulfites'], ['sig', 'maison'], '', 'photos/p-agneau.jpg'],
       ['c2', 'Risotto de Saint-Jacques', 'Noix snackées, risotto crémeux au parmesan, émulsion iodée.', 28, ['Mollusques', 'Lait', 'Sulfites'], ['sig']],
-      ['c2', 'Poisson entier du jour', "Selon la pêche, grillé à l'arête, fenouil braisé, vierge d'agrumes.", 29, ['Poissons'], ['jour']],
+      ['c2', 'Poisson entier du jour', "Selon la pêche, grillé à l'arête, fenouil braisé, vierge d'agrumes.", 29, ['Poissons'], ['jour'], '', 'photos/p-poisson.jpg'],
       ['c2', 'Linguine aux palourdes', 'Ail, persil plat, pointe de piment, vin blanc.', 22, ['Gluten', 'Mollusques', 'Sulfites'], []],
-      ['c2', 'Tagliata de bœuf', 'Roquette, copeaux de parmesan, huile de romarin.', 27, ['Lait'], [], 'France'],
-      ['c3', 'Pizza Directoire', 'Base tomate, burrata, jambon de Parme, roquette, huile de basilic.', 18, ['Gluten', 'Lait'], ['sig']],
-      ['c3', 'Pizza Reine', 'Tomate, mozzarella fior di latte, jambon blanc, champignons frais.', 15, ['Gluten', 'Lait'], []],
-      ['c3', 'Pizza Végétarienne', 'Légumes grillés du moment, pesto maison, mozzarella.', 16, ['Gluten', 'Lait', 'Fruits à coque'], ['veg']],
-      ['c4', 'Tiramisu maison', 'Mascarpone monté, café serré, cacao amer.', 9, ['Gluten', 'Œufs', 'Lait'], ['maison']],
+      ['c2', 'Tagliata de bœuf', 'Roquette, copeaux de parmesan, huile de romarin.', 27, ['Lait'], [], 'France', 'photos/p-tagliata.jpg'],
+      ['c3', 'Pizza Directoire', 'Base tomate, burrata, jambon de Parme, roquette, huile de basilic.', 18, ['Gluten', 'Lait'], ['sig'], '', 'photos/p-pizza1.jpg'],
+      ['c3', 'Pizza Reine', 'Tomate, mozzarella fior di latte, jambon blanc, champignons frais.', 15, ['Gluten', 'Lait'], [], '', 'photos/p-pizza3.jpg'],
+      ['c3', 'Pizza Végétarienne', 'Légumes grillés du moment, pesto maison, mozzarella.', 16, ['Gluten', 'Lait', 'Fruits à coque'], ['veg'], '', 'photos/p-pizza2.jpg'],
+      ['c4', 'Tiramisu maison', 'Mascarpone monté, café serré, cacao amer.', 9, ['Gluten', 'Œufs', 'Lait'], ['maison'], '', 'photos/p-tiramisu.jpg'],
       ['c4', 'Tarte au citron meringuée', 'Citron de Menton, meringue brûlée au chalumeau.', 10, ['Gluten', 'Œufs', 'Lait'], ['maison']],
       ['c4', 'Moelleux au chocolat', 'Cœur coulant, glace vanille bourbon.', 10, ['Gluten', 'Œufs', 'Lait'], ['maison']]
     ];
     const items = rawItems.map((r, i) => ({
       id: 'm' + (i + 1), catId: r[0], nom: r[1], desc: r[2], prix: r[3],
-      allergenes: r[4], tags: r[5], origine: r[6] || '', epuise: false, ordre: i, photo: null
+      allergenes: r[4], tags: r[5], origine: r[6] || '', epuise: false, ordre: i, photo: r[7] || null
     }));
 
     const prenoms = ['Julien', 'Sophie', 'Marc', 'Camille', 'Thomas', 'Léa', 'Nicolas', 'Émilie', 'Antoine', 'Claire',
@@ -427,47 +427,26 @@
 
   /* ---------- PHOTOS (vraies photos, déposées par le restaurant) ---------- */
   const Photos = {
-    /* Trois niveaux, dans l'ordre :
-       1. la photo déposée par le restaurant (fichier ou lien) ;
-       2. une vraie photographie en ligne (chargée par le navigateur du visiteur) ;
-       3. le visuel d'ambiance livré avec le site, si le réseau échoue.
-       Le site tente le niveau 2 et bascule tout seul sur le niveau 3 en cas d'échec. */
-    EN_LIGNE: {
-      hero:     ['https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1600',
-                 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1600'],
-      terrasse: ['https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=1000',
-                 'https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=1000'],
-      patio:    ['https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1000',
-                 'https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1000'],
-      salle:    ['https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1000',
-                 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1000'],
-      plat1:    ['https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1000',
-                 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1000'],
-      plat2:    ['https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1000',
-                 'https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=1000'],
-      soiree:   ['https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1200',
-                 'https://images.pexels.com/photos/274192/pexels-photo-274192.jpeg?auto=compress&cs=tinysrgb&w=1200'],
-      equipe:   ['https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=1000',
-                 'https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1000']
-    },
-    /* photographies réellement livrées avec le site (repli garanti, jamais de trou) */
+    /* Deux niveaux, dans l'ordre :
+       1. la photo déposée par le restaurant depuis l'espace équipe ;
+       2. la photographie livrée avec le site, présente dans le dossier photos/.
+       Tout est hébergé avec le site : aucune dépendance à un service extérieur,
+       donc aucun emplacement vide, même sans réseau. */
     DEFAUTS: { hero: 'photos/hero.jpg', terrasse: 'photos/terrasse.jpg', patio: 'photos/patio.jpg',
-      salle: 'photos/salle.jpg', plat1: 'photos/cafe.jpg', plat2: 'photos/plat2.jpg',
-      soiree: 'photos/soiree.jpg', equipe: 'photos/equipe.jpg' },
+      salle: 'photos/salle.jpg', soiree: 'photos/soiree.jpg', equipe: 'photos/equipe.jpg' },
     /* liste ordonnée des sources à essayer pour un emplacement */
     sources(k) {
       const perso = DB.photos && DB.photos[k];
       const l = [];
       if (perso) l.push(perso);
-      (Photos.EN_LIGNE[k] || []).forEach(u => l.push(u));
       if (Photos.DEFAUTS[k]) l.push(Photos.DEFAUTS[k]);
       return l;
     },
     get(k) { return Photos.sources(k)[0] || null; },
     estPerso(k) { return !!(DB.photos && DB.photos[k]); },
     liste() { return PHOTO_SLOTS.map(s => ({ ...s, url: Photos.get(s.k) })); },
-    /* redimensionne avant stockage : localStorage est limité (~5 Mo) */
-    set(k, file, maxW) {
+    /* lit un fichier image et le redimensionne : localStorage est limité (~5 Mo) */
+    lis(file, maxW, q) {
       return new Promise((resolve, reject) => {
         if (!file || !/^image\//.test(file.type)) return reject(new Error('Ce fichier n\'est pas une image.'));
         const fr = new FileReader();
@@ -482,16 +461,20 @@
             const cv = document.createElement('canvas');
             cv.width = w; cv.height = h;
             cv.getContext('2d').drawImage(img, 0, 0, w, h);
-            const url = cv.toDataURL('image/jpeg', 0.82);
-            DB.photos = DB.photos || {};
-            DB.photos[k] = url;
-            if (!save()) { delete DB.photos[k]; return reject(new Error('Stockage plein : supprimez des photos ou exportez vos données.')); }
-            log('Photo mise à jour : ' + k);
-            resolve(url);
+            resolve(cv.toDataURL('image/jpeg', q || 0.82));
           };
           img.src = fr.result;
         };
         fr.readAsDataURL(file);
+      });
+    },
+    set(k, file, maxW) {
+      return Photos.lis(file, maxW).then(url => {
+        DB.photos = DB.photos || {};
+        DB.photos[k] = url;
+        if (!save()) { delete DB.photos[k]; throw new Error('Stockage plein : supprimez des photos ou exportez vos données.'); }
+        log('Photo mise à jour : ' + k);
+        return url;
       });
     },
     supprime(k) { if (DB.photos) { delete DB.photos[k]; log('Photo supprimée : ' + k); save(); } },

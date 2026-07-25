@@ -23,6 +23,9 @@
   --noir:#FFFFFF; --fond:#F7F6F4; --carte:#FFFFFF; --carte2:#EFEEEB; --ligne:#E0DFDB;
   --ink:#16161A; --mut:#5C5C66; --faint:#8A8A94;
 }
+/* garde-fou : une icône sans dimension explicite s'étirerait à toute la place
+   disponible dans un bouton flex. Taille par defaut, surchargeable par classe. */
+svg{width:20px;height:20px;flex:0 0 auto}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -52,7 +55,7 @@ section{scroll-margin-top:104px}
 .nav{display:none;gap:26px}
 @media (min-width:900px){.nav{display:flex}}
 .nav a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-  color:rgba(245,242,236,.74);transition:color .2s}
+  color:rgba(245,242,236,.74);transition:color .2s;display:inline-flex;align-items:center;min-height:44px}
 .hd.sc .nav a{color:var(--mut)}
 .nav a:hover{color:var(--rouge)}
 .cta{background:var(--rouge);color:#fff;border-radius:999px;padding:0 20px;height:44px;font-size:14px;
@@ -108,7 +111,7 @@ section{scroll-margin-top:104px}
 
 .duo{display:grid;gap:24px}
 @media (min-width:820px){.duo{grid-template-columns:1fr 1fr;gap:48px;align-items:center}}
-.ph{border-radius:16px;overflow:hidden;background:var(--carte2);aspect-ratio:4/5}
+.ph{border-radius:16px;overflow:hidden;background:var(--carte2);aspect-ratio:5/4}
 .ph img{width:100%;height:100%;object-fit:cover}
 .crp p+p{margin-top:13px}
 .crp p{color:var(--mut)}
@@ -120,10 +123,36 @@ section{scroll-margin-top:104px}
 .ong button{border:1px solid var(--ligne);background:var(--carte2);border-radius:999px;padding:0 18px;
   height:46px;font-size:14.5px;font-weight:700;white-space:nowrap;flex:0 0 auto;color:var(--mut);transition:.2s}
 .ong button.on{background:var(--rouge);border-color:var(--rouge);color:#fff}
+/* rail photo : défile horizontalement, quel que soit le nombre de plats,
+   donc jamais de case vide en bout de ligne */
+.railw{position:relative}
+/* le dégradé de droite indique qu'il reste des plats à faire défiler */
+.railw::after{content:"";position:absolute;top:0;bottom:16px;right:-1px;width:64px;pointer-events:none;
+  z-index:3;background:linear-gradient(90deg,rgba(23,23,27,0),var(--carte) 82%)}
+:root[data-t="clair"] .railw::after{background:linear-gradient(90deg,rgba(255,255,255,0),var(--carte) 82%)}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(66%,232px);gap:12px;overflow-x:auto;
+  scroll-snap-type:x proximity;padding:2px 20px 16px;margin:0 -20px;scrollbar-width:none;
+  overscroll-behavior-x:contain}
+@media (min-width:900px){.rail{padding:2px 0 16px;margin:0}}
+.rail::-webkit-scrollbar{display:none}
+.rc{scroll-snap-align:start;border-radius:15px;overflow:hidden;background:var(--carte2);
+  border:1px solid var(--ligne);display:flex;flex-direction:column;text-align:left;padding:0;
+  transition:border-color .2s,transform .2s}
+.rc:hover{border-color:color-mix(in srgb,var(--rouge) 60%,transparent);transform:translateY(-3px)}
+.rc img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--ligne)}
+.rc .t{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px}
+.rc .t b{font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.22;color:var(--ink)}
+.rc .t span{font-size:14.5px;color:var(--rouge);font-weight:700}
+.hint{font-size:12.5px;color:var(--faint);margin:8px 0 22px;display:flex;align-items:center;gap:7px}
+.hint svg{width:15px;height:15px;flex:0 0 auto}
 .plats{display:grid}
 @media (min-width:820px){.plats{grid-template-columns:1fr 1fr;column-gap:48px}}
 .pl{padding:16px 0;border-bottom:1px solid var(--ligne)}
 .pl.out{opacity:.42}
+.pl.vu{background:color-mix(in srgb,var(--rouge) 10%,transparent);border-radius:12px;
+  box-shadow:0 0 0 8px color-mix(in srgb,var(--rouge) 10%,transparent)}
+.pl{transition:background .4s,box-shadow .4s}
+.pl{scroll-margin-top:120px}
 .pl .h{display:flex;align-items:baseline;gap:10px}
 .pl .n{font-family:var(--serif);font-size:18.5px;font-weight:600}
 .pl .pt{flex:1;border-bottom:1px dotted var(--ligne);transform:translateY(-4px);min-width:14px}
@@ -142,7 +171,7 @@ section{scroll-margin-top:104px}
 
 .gal{display:grid;gap:14px;grid-template-columns:1fr}
 @media (min-width:640px){.gal{grid-template-columns:repeat(3,1fr)}}
-.gc{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--carte2);margin:0}
+.gc{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--carte2);margin:0}
 .gc img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
 .gc:hover img{transform:scale(1.05)}
 .gc .lb{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 16px;
@@ -176,7 +205,7 @@ section{scroll-margin-top:104px}
 .cx{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--ligne);font-size:15.5px}
 .cx:last-child{border-bottom:none}
 .cx svg{width:19px;height:19px;color:var(--rouge);flex:0 0 auto}
-.cx a{text-decoration:none;font-weight:600}
+.cx a{text-decoration:none;font-weight:600;display:inline-flex;align-items:center;min-height:44px}
 .plan{border-radius:16px;overflow:hidden;border:1px solid var(--ligne);aspect-ratio:1;background:var(--carte)}
 .plan svg{width:100%;height:100%;display:block}
 
@@ -260,12 +289,15 @@ section{scroll-margin-top:104px}
 .ft h4{font-family:var(--sans);font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
   color:var(--or);margin:0 0 14px}
 .ft ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-.ft a{color:var(--mut);text-decoration:none;font-size:14.5px}
+/* zones tactiles confortables : chaque lien du pied de page fait au moins 44px */
+.ft a{color:var(--mut);text-decoration:none;font-size:14.5px;display:inline-flex;align-items:center;min-height:44px}
+.ft ul{gap:0}
 .ft a:hover{color:var(--ink)}
 .ft .dsc{color:var(--mut);font-size:14.5px;margin-top:11px;max-width:34ch}
 .fb{margin-top:28px;padding-top:20px;border-top:1px solid var(--ligne);display:flex;flex-wrap:wrap;
   gap:12px;justify-content:space-between;font-size:12.5px;color:var(--faint)}
-.fb button{color:var(--faint);text-decoration:underline;font-size:12.5px}
+.fb button{color:var(--faint);text-decoration:underline;font-size:12.5px;min-height:44px;padding:0 2px}
+.lg{min-height:44px}
 
 .brm{position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 16px calc(env(safe-area-inset-bottom) + 10px);
   background:color-mix(in srgb,var(--noir) 95%,transparent);backdrop-filter:blur(14px);
@@ -332,12 +364,14 @@ body.avec-barre{padding-bottom:78px}
       <p>La carte suit les arrivages. Le poisson entier du jour, les légumes du maraîcher, l'agneau mijoté sept heures, les pizzas au feu de bois. Et quand la nuit tombe, la maison se transforme.</p>
     </div>
   </div>
-  <div class="ph rv"><img id="ph-mai" alt="La terrasse végétalisée du Directoire" loading="lazy"></div>
+  <div class="ph rv"><img id="ph-mai" alt="Un plat en cours de dressage en cuisine" loading="lazy"></div>
 </div></div></section>
 
 <section class="sec cb" id="carte"><div class="w">
   <div class="st rv"><span class="ey">La carte</span><h2>Ce que l'on sert aujourd'hui</h2>
     <p>Dressée chaque matin selon les arrivages. Les plats épuisés sont retirés en direct par l'équipe.</p></div>
+  <div class="railw rv" id="railw"><div class="rail" id="rail"></div></div>
+  <p class="hint rv" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Faites glisser. Touchez un plat pour le retrouver sur la carte.</p>
   <div class="ong rv" id="ong"></div>
   <div class="plats" id="plats"></div>
   <p class="ntc rv">Une allergie, un régime particulier ? Dites-le nous, la cuisine s'adapte.</p>
@@ -439,7 +473,7 @@ body.avec-barre{padding-bottom:78px}
       <li><a href="#infos">71 Bd de la Libération</a></li><li><a href="#infos">83600 Fréjus</a></li>
       <li><a href="tel:+33760821029">07 60 82 10 29</a></li></ul></div>
   </div>
-  <div class="fb"><span>© <span id="an"></span> Le Directoire, maquette de proposition.</span>
+  <div class="fb"><span>© <span id="an"></span> Le Directoire, maquette de proposition. Photographies d'illustration, remplaçables en un clic depuis l'espace équipe.</span>
     <button id="eq">Espace équipe</button></div>
 </div></footer>
 
@@ -452,17 +486,21 @@ const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).query
 const E=s=>D.esc(s);
 D.init();
 
-/* Chaque emplacement essaie ses sources dans l'ordre : photo du restaurant,
-   puis vraie photographie en ligne, puis visuel livré avec le site.
-   Si une source échoue à charger, on passe automatiquement à la suivante. */
+/* Chaque emplacement essaie ses sources dans l'ordre : la photo déposée par le
+   restaurant, puis la photographie livrée avec le site. Si la première échoue,
+   on bascule sur la suivante : aucun emplacement ne reste vide. */
 function photos(){
-  const m={'ph-hero':'hero','ph-mai':'terrasse','ph-g1':'terrasse','ph-g2':'patio','ph-g3':'salle','ph-soi':'soiree'};
+  const m={'ph-hero':'hero','ph-mai':'equipe','ph-g1':'terrasse','ph-g2':'patio','ph-g3':'salle','ph-soi':'soiree'};
   Object.entries(m).forEach(([id,cle])=>{
     const el=document.getElementById(id); if(!el) return;
     const src=D.Photos.sources(cle);
     if(!src.length) return;
-    if(el.dataset.cle===cle && el.dataset.pose==='1' && el.naturalWidth>0) return;
-    el.dataset.cle=cle; el.dataset.i='0'; el.dataset.pose='1';
+    /* empreinte courte : une photo déposée est une longue adresse de données,
+       on ne la recopie pas dans le DOM. Elle change dès que la source change,
+       donc l'image se rafraîchit sans recharger la page. */
+    const emp=cle+'|'+src.length+'|'+src[0].length+'|'+src[0].slice(0,40);
+    if(el.dataset.emp===emp && el.naturalWidth>0) return;
+    el.dataset.emp=emp; el.dataset.i='0';
     el.onerror=()=>{
       const i=(+el.dataset.i)+1;
       if(i<src.length){ el.dataset.i=String(i); el.src=src[i]; }
@@ -498,6 +536,25 @@ function horaires(){
       <span class="nb">${ss.length?ss.map(s=>s.debut+' à '+s.fin).join(' · '):'Fermé'}</span></li>`;
   }).join('');
 }
+/* Rail photo : uniquement les plats qui ont une vraie photo et qui sont servis
+   ce soir. Un plat mis en épuisé depuis l'espace équipe en disparaît aussitôt. */
+function railPhotos(){
+  const el=$('#rail'); if(!el) return;
+  const its=D.db.menu.items.filter(i=>i.photo&&!i.epuise).sort((a,b)=>a.ordre-b.ordre).slice(0,10);
+  $('#railw').hidden=$('#hint').hidden=!its.length;
+  if(!its.length){ el.innerHTML=''; return; }
+  el.innerHTML=its.map(i=>`<button class="rc" data-plat="${i.id}" data-cat="${i.catId}"
+      aria-label="${E(i.nom)}, ${i.prix} euros, voir sur la carte">
+    <img src="${E(i.photo)}" alt="" loading="lazy" width="232" height="232">
+    <span class="t"><b>${E(i.nom)}</b><span class="nb">${i.prix} €</span></span></button>`).join('');
+  /* toucher une photo ouvre la bonne catégorie et met le plat en évidence */
+  $$('#rail .rc').forEach(b=>b.onclick=()=>{
+    catAct=b.dataset.cat; carte();
+    const cible=$('#plats [data-id="'+b.dataset.plat+'"]');
+    if(cible){ cible.scrollIntoView({block:'center',behavior:'smooth'});
+      cible.classList.add('vu'); setTimeout(()=>cible.classList.remove('vu'),1600); }
+  });
+}
 let catAct=null;
 function carte(){
   const cats=[...D.db.menu.categories].sort((a,b)=>a.ordre-b.ordre);
@@ -511,7 +568,7 @@ function carte(){
     if(i.tags.includes('veg')) tg.push('<span class="bg2 v">Végétarien</span>');
     if(i.epuise) tg.push('<span class="bg2 e">Épuisé ce soir</span>');
     if(i.allergenes.length) tg.push('<span class="alg">Allergènes : '+E(i.allergenes.join(', '))+'</span>');
-    return `<article class="pl ${i.epuise?'out':''}">
+    return `<article class="pl ${i.epuise?'out':''}" data-id="${i.id}">
       <div class="h"><span class="n">${E(i.nom)}</span><span class="pt"></span><span class="px nb">${i.prix} €</span></div>
       <p class="d">${E(i.desc)}</p>${tg.length?`<div class="tg">${tg.join('')}</div>`:''}</article>`;
   }).join('');
@@ -681,9 +738,9 @@ if('IntersectionObserver' in window && !red){
   $$('.rv').forEach(el=>io.observe(el));
 } else $$('.rv').forEach(el=>el.classList.add('in'));
 
-photos(); statut(); horaires(); carte(); resa(); maj();
+photos(); statut(); horaires(); railPhotos(); carte(); resa(); maj();
 setInterval(statut,60000);
-D.onChange(()=>{ photos(); statut(); horaires(); carte(); if(R.e===2&&!R.ref) resa(); });
+D.onChange(()=>{ photos(); statut(); horaires(); railPhotos(); carte(); if(R.e===2&&!R.ref) resa(); });
 
 const ld=document.createElement('script'); ld.type='application/ld+json';
 ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Restaurant",
