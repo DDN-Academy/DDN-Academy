@@ -106,21 +106,34 @@
     const noms = ['Martin', 'Bernard', 'Dubois', 'Thomas', 'Robert', 'Richard', 'Petit', 'Durand', 'Leroy', 'Moreau',
       'Simon', 'Laurent', 'Lefebvre', 'Michel', 'Garcia', 'David', 'Bertrand', 'Roux', 'Vincent', 'Fournier',
       'Morel', 'Girard', 'André', 'Mercier', 'Blanc', 'Guerin', 'Boyer', 'Garnier', 'Chevalier', 'Francois'];
+    /* Fichier client : quelques habitués de longue date, beaucoup de gens venus
+       une ou deux fois. Les compteurs sont l'historique du client avant la mise
+       en service du logiciel ; les réservations détaillées s'ajoutent ensuite. */
     const guests = [];
-    for (let i = 0; i < 44; i++) {
-      const p = prenoms[i % prenoms.length], n = noms[(i * 7) % noms.length];
-      const visites = Math.floor(Math.random() * 9);
-      guests.push({
-        id: 'g' + (i + 1), nom: `${p} ${n}`,
+    let noClient = 0;
+    /* chaque combinaison prénom / nom n'est utilisée qu'une fois */
+    function creeClient(habitue) {
+      const k = noClient++;
+      /* le décalage change à chaque bloc : chaque paire prénom / nom est unique
+         et les noms de famille varient dès les premières fiches */
+      const p = prenoms[k % prenoms.length];
+      const n = noms[(Math.floor(k / prenoms.length) + k) % noms.length];
+      const visites = habitue ? 1 + Math.floor(Math.pow(Math.random(), 2.2) * 14) : 0;
+      const g = {
+        id: 'g' + (k + 1), nom: `${p} ${n}`,
         tel: `06 ${pad(10 + Math.floor(Math.random() * 80))} ${pad(Math.floor(Math.random() * 100))} ${pad(Math.floor(Math.random() * 100))} ${pad(Math.floor(Math.random() * 100))}`,
-        email: `${p.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')}.${n.toLowerCase()}@exemple.fr`,
-        prefs: '', allergies: i % 11 === 0 ? 'Fruits à coque' : '', notes: '',
-        tags: visites >= 6 ? ['habitué'] : (i % 13 === 0 ? ['VIP'] : []),
-        visites, absences: i % 17 === 0 ? 1 : 0,
-        derniereVisite: visites ? addDays(todayISO(), -Math.floor(Math.random() * 90) - 3) : null,
-        depenseTotale: visites * (Math.floor(Math.random() * 40) + 45)
-      });
+        email: `${p.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')}.${n.toLowerCase()}${k}@exemple.fr`,
+        prefs: '', allergies: k % 37 === 0 ? 'Fruits à coque' : '', notes: '',
+        tags: [], visites,
+        absences: habitue && Math.random() < 0.09 ? 1 : 0,
+        derniereVisite: visites ? addDays(todayISO(), -Math.floor(Math.random() * 90) - 25) : null,
+        depenseTotale: Math.round(visites * (Math.random() * 45 + 78))
+      };
+      guests.push(g);
+      return g;
     }
+    /* le noyau d'habitués, connu avant la mise en service du logiciel */
+    for (let i = 0; i < 160; i++) creeClient(true);
     guests[3].tags = ['VIP']; guests[3].notes = 'Table au calme, aime le rosé de Bandol.'; guests[3].visites = 14;
     guests[8].allergies = 'Crustacés (sévère)'; guests[8].tags = ['allergique'];
 
@@ -129,28 +142,95 @@
       { id: 's2', nom: 'Dîner', jours: [0, 1, 2, 3, 4, 5, 6], debut: '19:00', fin: '23:30', dernier: '22:30' }
     ];
 
+    /* Le rythme d'une table de bord de mer : week-ends pleins, début de semaine
+       creux, dîner plus chargé que déjeuner, montée en charge vers l'été.
+       Les 24 derniers jours sont détaillés réservation par réservation ;
+       au delà, seul le résumé de chaque journée est conservé. C'est ce que
+       ferait un vrai logiciel : l'historique ne doit pas alourdir l'appareil. */
+    const PROFIL_JOUR = { 0: 0.86, 1: 0.42, 2: 0.48, 3: 0.66, 4: 0.80, 5: 1.00, 6: 1.05 };  // dimanche..samedi
+    const DETAIL = 18, HISTORIQUE = 180;
+    const PLACES = tables.reduce((s, t) => s + t.capMax, 0);       // couverts par service
+    const remplissageDu = (d, jour) => {
+      const saison = 0.70 + 0.30 * Math.max(0, 1 - Math.abs(d + 10) / 165);
+      return Math.min(0.97, PROFIL_JOUR[jour] * saison * (0.88 + Math.random() * 0.24));
+    };
+    const tirageHeure = soir => {
+      /* les arrivées se concentrent sur 12h30-13h et 20h-21h */
+      const poids = soir ? [[19, 0.16], [20, 0.38], [21, 0.29], [22, 0.17]] : [[12, 0.58], [13, 0.42]];
+      let x = Math.random(), h = poids[0][0];
+      for (const [hh, w] of poids) { if (x < w) { h = hh; break; } x -= w; }
+      return min2hm(h * 60 + Math.floor(Math.random() * 4) * 15);
+    };
+    const tirageAddition = (couverts, soir, jour) => {
+      const parCouvert = (soir ? 41 : 27) * (jour === 5 || jour === 6 ? 1.09 : 1) * (0.84 + Math.random() * 0.32);
+      return Math.round(parCouvert * couverts * 2) / 2;
+    };
+    const partSiteDu = d => Math.min(0.78, 0.16 + Math.max(0, d + 150) / 150 * 0.62);
+
     const reservations = [];
-    for (let d = -9; d <= 12; d++) {
+    const historique = [];
+    for (let d = -HISTORIQUE; d <= 12; d++) {
       const date = addDays(todayISO(), d);
-      const nb = d < 0 ? Math.floor(Math.random() * 5) + 2 : (d < 4 ? Math.floor(Math.random() * 6) + 3 : Math.floor(Math.random() * 4) + 1);
-      for (let k = 0; k < nb; k++) {
-        const soir = Math.random() > 0.35;
-        const base = soir ? 19 * 60 : 12 * 60, span = soir ? 180 : 105;
-        const heure = min2hm(base + Math.floor(Math.random() * (span / 15)) * 15);
-        const couverts = [2, 2, 2, 3, 4, 4, 5, 6][Math.floor(Math.random() * 8)];
-        const g = guests[Math.floor(Math.random() * guests.length)];
-        let statut = d < 0
-          ? ['terminee', 'terminee', 'terminee', 'terminee', 'annulee', 'absence'][Math.floor(Math.random() * 6)]
+      const jour = parseISO(date).getDay();
+      const cible = Math.round(PLACES * 2 * remplissageDu(d, jour));       // couverts visés ce jour
+      const detail = d >= -DETAIL;
+      const jr = { d: date, cv: 0, ca: 0, n: 0, abs: 0, cvAbs: 0, site: 0, tel: 0, rev: 0, nv: 0, cr: {} };
+
+      let pose = 0;
+      while (pose < cible) {
+        const soir = Math.random() > 0.38;
+        const heure = tirageHeure(soir);
+        const couverts = [2, 2, 2, 2, 3, 4, 4, 5, 6][Math.floor(Math.random() * 9)];
+        pose += couverts;
+        /* en bord de mer l'été, deux tables sur trois sont des gens de passage.
+           Les autres sont des habitués, et les habitués les plus fidèles
+           reviennent plus souvent que les autres. */
+        const habitue = Math.random() < 0.34;
+        const g = detail
+          ? (habitue ? guests[Math.floor(Math.pow(Math.random(), 1.7) * 160)] : creeClient(false))
+          : guests[0];
+        const statut = d < 0
+          ? ['terminee', 'terminee', 'terminee', 'terminee', 'terminee', 'terminee', 'terminee', 'terminee', 'annulee', 'absence'][Math.floor(Math.random() * 10)]
           : (Math.random() > 0.12 ? 'confirmee' : 'attente');
-        reservations.push({
+        const addition = statut === 'terminee' ? tirageAddition(couverts, soir, jour) : null;
+        const origine = Math.random() < partSiteDu(d) ? 'site' : 'téléphone';
+
+        if (statut !== 'annulee') {
+          jr.n++;
+          if (habitue) jr.rev++; else jr.nv++;
+          if (origine === 'site') jr.site++; else jr.tel++;
+          if (statut === 'absence') { jr.abs++; jr.cvAbs += couverts; }
+          if (statut === 'terminee') {
+            jr.cv += couverts; jr.ca += addition;
+            const h = heure.slice(0, 2) + 'h';
+            jr.cr[h] = (jr.cr[h] || 0) + couverts;
+          }
+        }
+        if (detail) reservations.push({
           id: uid(), ref: makeRef(), date, heure, couverts, guestId: g.id, tableIds: [],
           statut, phase: null, zonePref: Math.random() > 0.55 ? 'z1' : null,
-          allergies: g.allergies || '', occasion: Math.random() > 0.9 ? 'Anniversaire' : '',
-          note: '', origine: Math.random() > 0.5 ? 'site' : 'téléphone',
+          allergies: g.allergies || '', occasion: Math.random() > 0.92 ? 'Anniversaire' : '',
+          note: '', origine, addition, habitue,
           createdAt: Date.now() - Math.random() * 9e8, assiseA: null
         });
+        /* les journées archivées ne sont pas rattachées à une fiche client :
+           l'immense majorité des couverts d'été sont des gens de passage */
       }
+      jr.ca = Math.round(jr.ca);
+      if (d < 0) historique.push(jr);
     }
+    /* les compteurs des fiches clients découlent de l'historique réel,
+       pour qu'une fiche et la page Chiffres racontent la même chose */
+    guests.forEach(g => {
+      const siennes = reservations.filter(r => r.guestId === g.id && r.date < todayISO());
+      const venues = siennes.filter(r => r.statut === 'terminee');
+      g.visites += venues.length;
+      g.absences += siennes.filter(r => r.statut === 'absence').length;
+      g.depenseTotale += Math.round(venues.reduce((s, r) => s + (r.addition || 0), 0));
+      const derniere = venues.map(r => r.date).sort().pop();
+      if (derniere) g.derniereVisite = derniere;
+      if (g.visites >= 12 && !g.tags.includes('VIP') && !g.tags.includes('habitué')) g.tags.push('habitué');
+    });
 
     /* attribution automatique des tables sur les données de démonstration,
        pour que le plan de salle soit réaliste dès la première ouverture */
@@ -166,8 +246,11 @@
         const d = hm2min(r.heure), f = d + dureeB(r.couverts) + brouillon.regles.tampon;
         return deb < f && d < fin;
       });
+      const depuis = addDays(todayISO(), -3);
       reservations.forEach(r => {
         if (['annulee', 'absence'].includes(r.statut)) return;
+        if (r.date < depuis) return;               // l'historique n'a pas besoin de tables
+
         const deb = hm2min(r.heure), fin = deb + dureeB(r.couverts) + brouillon.regles.tampon;
         let cands = tables.filter(t => t.zoneId === r.zonePref || !r.zonePref);
         if (!cands.length) cands = tables;
@@ -201,6 +284,8 @@
       services, zones, tables,
       menu: { categories, items },
       guests, reservations,
+      /* résumé d'une ligne par journée passée, au delà des 24 jours détaillés */
+      historique,
       fermetures: [{ id: uid(), date: addDays(todayISO(), 16), raison: 'Privatisation', message: 'Soirée privée. Réouverture le lendemain.' }],
       regles: { durees: { '2': 90, '4': 105, '6': 120, '8': 150 }, tampon: 15, cadence: 22, delaiMin: 120, horizon: 60 },
       attente: [], journal: [], photos: {},
@@ -223,7 +308,9 @@
   function migre(d) {
     (d.reservations || []).forEach(r => {
       if (r.statut === 'arrivee') { r.statut = 'installee'; if (!r.assiseA) r.assiseA = Date.now(); }
+      if (r.addition === undefined) r.addition = null;
     });
+    if (!Array.isArray(d.historique)) d.historique = [];
     return d;
   }
   function load() {
@@ -381,7 +468,8 @@
     const r = {
       id: uid(), ref, date: o.date, heure: o.heure, couverts: o.couverts, guestId: g.id, tableIds: tables,
       statut: 'confirmee', phase: null, zonePref: o.zonePref || null, allergies: o.allergies || '',
-      occasion: o.occasion || '', note: o.note || '', origine: o.origine || 'site', createdAt: Date.now(), assiseA: null
+      occasion: o.occasion || '', note: o.note || '', origine: o.origine || 'site',
+      addition: null, habitue: (g.visites || 0) > 0, createdAt: Date.now(), assiseA: null
     };
     DB.reservations.push(r);
     log('Réservation ' + ref + ' : ' + g.nom + ' (' + r.origine + ')', o.origine === 'site' ? 'client' : 'équipe');
@@ -423,6 +511,109 @@
      Chaque changement déclenche tout seul ce qui doit suivre : attribution de la
      table, départ du chronomètre, libération de la table, comptage des visites.
      Le retour décrit ce qui a été fait, pour que l'écran puisse l'annoncer. */
+  /* ---------- CHIFFRES ----------
+     Tout est calculé ici, à partir des réservations réelles, pour que la page
+     Chiffres n'ait plus qu'à mettre en forme. Le chiffre d'affaires ne compte
+     que les services réellement terminés. */
+  /* Résumé d'une journée, qu'elle soit détaillée ou archivée.
+     Les deux sources donnent exactement la même forme, donc tout le reste du
+     calcul ignore la différence. */
+  function journee(date) {
+    const rs = DB.reservations.filter(r => r.date === date);
+    if (rs.length) {
+      const jr = { d: date, cv: 0, ca: 0, n: 0, abs: 0, cvAbs: 0, site: 0, tel: 0, rev: 0, nv: 0, cr: {} };
+      rs.forEach(r => {
+        if (r.statut === 'annulee') return;
+        jr.n++;
+        if (r.habitue) jr.rev++; else jr.nv++;
+        if (r.origine === 'site') jr.site++; else jr.tel++;
+        if (r.statut === 'absence') { jr.abs++; jr.cvAbs += r.couverts; }
+        if (r.statut === 'terminee') {
+          jr.cv += r.couverts;
+          jr.ca += (r.addition != null ? r.addition : ticketReference() * r.couverts);
+          const h = r.heure.slice(0, 2) + 'h';
+          jr.cr[h] = (jr.cr[h] || 0) + r.couverts;
+        }
+      });
+      jr.ca = Math.round(jr.ca);
+      return jr;
+    }
+    const arch = (DB.historique || []).find(x => x.d === date);
+    return arch || { d: date, cv: 0, ca: 0, n: 0, abs: 0, cvAbs: 0, site: 0, tel: 0, rev: 0, nv: 0, cr: {} };
+  }
+  /* addition moyenne par couvert, servant à estimer un service encaissé
+     sans que l'équipe ait saisi le montant */
+  let _ticketCache = null;
+  function ticketReference() {
+    if (_ticketCache != null) return _ticketCache;
+    const h = (DB.historique || []).slice(-30);
+    const cv = h.reduce((s, x) => s + x.cv, 0), ca = h.reduce((s, x) => s + x.ca, 0);
+    _ticketCache = cv ? ca / cv : 34;
+    return _ticketCache;
+  }
+
+  function stats(nbJours) {
+    _ticketCache = null;
+    const fin = todayISO();
+    const serie = n => { const l = []; for (let i = n - 1; i >= 0; i--) l.push(journee(addDays(fin, -i))); return l; };
+    const cumule = l => l.reduce((a, x) => ({
+      cv: a.cv + x.cv, ca: a.ca + x.ca, n: a.n + x.n, abs: a.abs + x.abs,
+      cvAbs: a.cvAbs + x.cvAbs, site: a.site + x.site, tel: a.tel + x.tel,
+      rev: a.rev + x.rev, nv: a.nv + x.nv
+    }), { cv: 0, ca: 0, n: 0, abs: 0, cvAbs: 0, site: 0, tel: 0, rev: 0, nv: 0 });
+
+    const parJour = serie(nbJours);
+    const precJours = []; for (let i = 2 * nbJours - 1; i >= nbJours; i--) precJours.push(journee(addDays(fin, -i)));
+    const a = cumule(parJour), p = cumule(precJours);
+    const evol = (x, y) => (y ? Math.round((x - y) / y * 100) : null);
+    const ticket = a.cv ? a.ca / a.cv : 0, ticketP = p.cv ? p.ca / p.cv : 0;
+
+    /* places réellement mises en vente sur la période */
+    const places = liste => liste.reduce((s, x) => estFerme(x.d) ? s : s + servicesDu(x.d).length * capaciteTotale(), 0) || 1;
+    const offert = places(parJour), offertP = places(precJours);
+    const remplissage = Math.round(a.cv / offert * 100);
+
+    /* moyenne par jour de la semaine : c'est là qu'on voit les jours creux */
+    const capJour = servicesDu(fin).length * capaciteTotale() || 1;
+    const parJourSemaine = JOURS.map((nom, j) => {
+      const l = parJour.filter(x => parseISO(x.d).getDay() === j);
+      const n = l.length || 1;
+      const cv = l.reduce((s, x) => s + x.cv, 0) / n;
+      return { j, nom, court: JC[j], jours: l.length, couverts: Math.round(cv),
+        ca: Math.round(l.reduce((s, x) => s + x.ca, 0) / n),
+        remplissage: Math.round(cv / capJour * 100) };
+    });
+
+    /* répartition des arrivées par heure */
+    const cr = {};
+    parJour.forEach(x => Object.entries(x.cr || {}).forEach(([h, v]) => { cr[h] = (cr[h] || 0) + v; }));
+    const creneaux = Object.keys(cr).sort().map(h => ({ h, couverts: cr[h] }));
+
+    /* fidélité et absences : lues sur les fiches clients, donc sur toute
+       l'histoire du restaurant et pas seulement sur la période affichée */
+    const venus = DB.guests.filter(g => g.visites > 0);
+    const top = [...venus].sort((x, y) => y.depenseTotale - x.depenseTotale).slice(0, 5)
+      .map(g => ({ nom: g.nom, tel: g.tel, n: g.visites, somme: g.depenseTotale }));
+    const recidivistes = DB.guests.filter(g => g.absences >= 2)
+      .sort((x, y) => y.absences - x.absences).slice(0, 4)
+      .map(g => ({ nom: g.nom, tel: g.tel, n: g.absences }));
+
+    return {
+      debut: addDays(fin, -(nbJours - 1)), fin, nbJours,
+      ca: a.ca, caEvol: evol(a.ca, p.ca),
+      couverts: a.cv, couvertsEvol: evol(a.cv, p.cv),
+      ticket, ticketEvol: evol(ticket, ticketP),
+      remplissage, remplissageEvol: evol(a.cv / offert, p.cv / offertP),
+      resas: a.n, resasEvol: evol(a.n, p.n),
+      parJour, parJourSemaine, creneaux,
+      origine: { site: a.site, tel: a.tel, part: (a.site + a.tel) ? Math.round(a.site / (a.site + a.tel) * 100) : 0 },
+      absences: { n: a.abs, couverts: a.cvAbs, perte: Math.round(a.cvAbs * ticket), recidivistes,
+        taux: a.n ? Math.round(a.abs / a.n * 100) : 0 },
+      fidelite: { nouveaux: a.nv, revenus: a.rev,
+        taux: (a.rev + a.nv) ? Math.round(a.rev / (a.rev + a.nv) * 100) : 0, top }
+    };
+  }
+
   function tableNom(ids) {
     return ids && ids.length
       ? ids.map(i => { const t = DB.tables.find(x => x.id === i); return t ? t.numero : '?'; }).join('+')
@@ -577,7 +768,7 @@
     reserver, parRef, annuler, placer, statut,
     /* divers */
     guest(id) { return DB.guests.find(g => g.id === id) || { nom: 'Inconnu', tel: '', tags: [], allergies: '', visites: 0, absences: 0 }; },
-    tableNom, libere, echange,
+    tableNom, libere, echange, stats,
     Photos, exporte, importe, reinitialise
   };
   global.D = API;
