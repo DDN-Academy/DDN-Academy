@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════
-   LE DIRECTOIRE — SOCLE DE DONNÉES PARTAGÉ
+   LE DIRECTOIRE : SOCLE DE DONNÉES PARTAGÉ
    Utilisé par index.html (site client) ET equipe.html (espace équipe).
    Même origine ⇒ même localStorage ⇒ les deux sites partagent tout.
    Synchronisation temps réel via BroadcastChannel (repli : storage).
@@ -122,7 +122,7 @@
       });
     }
     guests[3].tags = ['VIP']; guests[3].notes = 'Table au calme, aime le rosé de Bandol.'; guests[3].visites = 14;
-    guests[8].allergies = 'Crustacés — sévère'; guests[8].tags = ['allergique'];
+    guests[8].allergies = 'Crustacés (sévère)'; guests[8].tags = ['allergique'];
 
     const services = [
       { id: 's1', nom: 'Déjeuner', jours: [0, 1, 2, 3, 4, 5, 6], debut: '12:00', fin: '14:30', dernier: '14:00' },
@@ -163,7 +163,7 @@
       services, zones, tables,
       menu: { categories, items },
       guests, reservations,
-      fermetures: [{ id: uid(), date: addDays(todayISO(), 16), raison: 'Privatisation', message: 'Soirée privée — réouverture le lendemain.' }],
+      fermetures: [{ id: uid(), date: addDays(todayISO(), 16), raison: 'Privatisation', message: 'Soirée privée. Réouverture le lendemain.' }],
       regles: { durees: { '2': 90, '4': 105, '6': 120, '8': 150 }, tampon: 15, cadence: 22, delaiMin: 120, horizon: 60 },
       attente: [], journal: [], photos: {},
       parametres: { code: '1789', noteDuJour: '' }
@@ -190,9 +190,9 @@
     } catch (e) {
       try {
         const b = JSON.parse(localStorage.getItem(BACKUP));
-        if (valide(b)) { console.warn('Données corrompues — restauration de la sauvegarde.'); return b; }
+        if (valide(b)) { console.warn('Données corrompues : restauration de la sauvegarde.'); return b; }
       } catch (_) { }
-      console.warn('Données illisibles — réinitialisation.');
+      console.warn('Données illisibles : réinitialisation.');
       return seed();
     }
   }
@@ -322,7 +322,7 @@
 
     if (o.listeAttente || !o.heure) {
       DB.attente.push({ id: uid(), ref, guestId: g.id, date: o.date, couverts: o.couverts, plage: o.plage || 'Indifférent', createdAt: Date.now() });
-      log('Liste d\'attente ' + ref + ' — ' + g.nom, 'client');
+      log('Liste d\'attente ' + ref + ' : ' + g.nom, 'client');
       save();
       delete enCours[cle];
       return { ok: true, ref, attente: true };
@@ -338,7 +338,7 @@
       occasion: o.occasion || '', note: o.note || '', origine: o.origine || 'site', createdAt: Date.now(), assiseA: null
     };
     DB.reservations.push(r);
-    log('Réservation ' + ref + ' — ' + g.nom + ' (' + r.origine + ')', o.origine === 'site' ? 'client' : 'équipe');
+    log('Réservation ' + ref + ' : ' + g.nom + ' (' + r.origine + ')', o.origine === 'site' ? 'client' : 'équipe');
     save();
     delete enCours[cle];
     return { ok: true, ref, reservation: r };
@@ -382,7 +382,7 @@
     if (nouveau === 'installee' && !r.assiseA) r.assiseA = Date.now();
     if (nouveau === 'terminee' && g) { g.visites++; g.derniereVisite = r.date; r.phase = null; }
     if (nouveau === 'absence' && g) { g.absences++; r.tableIds = []; }
-    log(LIB[nouveau] + ' — ' + r.ref);
+    log(LIB[nouveau] + ' : ' + r.ref);
     save();
     return { avant };
   }
@@ -410,7 +410,7 @@
             const url = cv.toDataURL('image/jpeg', 0.82);
             DB.photos = DB.photos || {};
             DB.photos[k] = url;
-            if (!save()) { delete DB.photos[k]; return reject(new Error('Stockage plein — supprimez des photos ou exportez vos données.')); }
+            if (!save()) { delete DB.photos[k]; return reject(new Error('Stockage plein : supprimez des photos ou exportez vos données.')); }
             log('Photo mise à jour : ' + k);
             resolve(url);
           };
@@ -452,7 +452,7 @@
     reserver, parRef, annuler, placer, statut,
     /* divers */
     guest(id) { return DB.guests.find(g => g.id === id) || { nom: 'Inconnu', tel: '', tags: [], allergies: '', visites: 0, absences: 0 }; },
-    tableNom(ids) { return ids && ids.length ? ids.map(i => { const t = DB.tables.find(x => x.id === i); return t ? t.numero : '?'; }).join('+') : '—'; },
+    tableNom(ids) { return ids && ids.length ? ids.map(i => { const t = DB.tables.find(x => x.id === i); return t ? t.numero : '?'; }).join('+') : 'non attribuée'; },
     Photos, exporte, importe, reinitialise
   };
   global.D = API;

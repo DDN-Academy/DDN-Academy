@@ -1096,15 +1096,30 @@ function rendChrono(jour) {
     heures += '<span style="left:' + pos(m) + '%">' + Math.floor(m / 60) + 'h</span>';
   }
   const nowL = (S.date === D.todayISO() && nowMin() >= min0 && nowMin() <= min1) ? '<span class="now" style="left:' + pos(nowMin()) + '%"></span>' : '';
-  const barre = r => {
+  const barre = (r, extra) => {
     const g = D.guest(r.guestId), deb = D.hm2min(r.heure), dur = D.duree(r.couverts);
-    return '<button type="button" class="tl-barre st-' + r.statut + '" data-fiche="' + r.id + '" style="left:' + pos(deb) + '%;width:' + Math.max(3.4, dur / span * 100) + '%" title="' + e(g.nom + ' · ' + r.heure + ' · ' + r.couverts + ' couverts') + '">' +
+    return '<button type="button" class="tl-barre st-' + r.statut + '" data-fiche="' + r.id + '" style="left:' + pos(deb) + '%;width:' + Math.max(3.4, dur / span * 100) + '%' + (extra || '') + '" title="' + e(g.nom + ' · ' + r.heure + ' · ' + r.couverts + ' couverts') + '">' +
       e(g.nom.split(' ')[0]) + ' <small>' + r.couverts + 'p</small></button>';
   };
   const piste = contenu => '<div class="tl-piste">' + grads + nowL + contenu + '</div>';
-  const sansTable = actifs.filter(r => !r.tableIds.length);
+  const sansTable = actifs.filter(r => !r.tableIds.length).slice()
+    .sort((a, b2) => a.heure < b2.heure ? -1 : 1);
   let lignes = '';
-  if (sansTable.length) lignes += '<div class="tl-lig"><div class="tl-eti" style="color:var(--or)">À placer <small>(' + sansTable.length + ')</small></div>' + piste(sansTable.map(barre).join('')) + '</div>';
+  if (sansTable.length) {
+    /* répartition en couloirs pour éviter les chevauchements */
+    const fins = [], couloir = {};
+    sansTable.forEach(r => {
+      const d3 = D.hm2min(r.heure), f = d3 + D.duree(r.couverts);
+      let i = fins.findIndex(x => x <= d3);
+      if (i < 0) { i = fins.length; fins.push(f); } else fins[i] = f;
+      couloir[r.id] = i;
+    });
+    const H = fins.length * 37 + 8;
+    lignes += '<div class="tl-lig" style="min-height:' + H + 'px"><div class="tl-eti" style="color:var(--or)">À placer <small>(' + sansTable.length + ')</small></div>' +
+      '<div class="tl-piste" style="min-height:' + H + 'px">' + grads + nowL +
+      sansTable.map(r => barre(r, ';top:' + (4 + couloir[r.id] * 37) + 'px;bottom:auto;height:31px')).join('') +
+      '</div></div>';
+  }
   D.db.zones.forEach(z => {
     const tz = D.db.tables.filter(t => t.zoneId === z.id && t.active && (!S.fZone || z.id === S.fZone));
     tz.forEach(t => {
