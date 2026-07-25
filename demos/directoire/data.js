@@ -42,8 +42,8 @@
     { k: 'terrasse', nom: 'La terrasse végétalisée', hint: 'Format portrait de préférence.' },
     { k: 'patio', nom: 'Le patio intime', hint: 'Format portrait de préférence.' },
     { k: 'salle', nom: 'La salle', hint: 'Format portrait de préférence.' },
-    { k: 'plat1', nom: 'Plat signature 1', hint: 'Souris d\'agneau, gros plan.' },
-    { k: 'plat2', nom: 'Plat signature 2', hint: 'Risotto de Saint-Jacques, gros plan.' },
+    { k: 'plat1', nom: 'Le bar, à la nuit tombée', hint: 'Bouteilles rétroéclairées, ambiance chaude.' },
+    { k: 'plat2', nom: 'Le four à pizza, feu de bois', hint: 'La flambée dans le four.' },
     { k: 'soiree', nom: 'Une soirée / concert', hint: 'Ambiance du soir.' },
     { k: 'equipe', nom: 'L\'équipe', hint: 'Portrait des chefs ou de la brigade.' }
   ];
@@ -389,7 +389,13 @@
 
   /* ---------- PHOTOS (vraies photos, déposées par le restaurant) ---------- */
   const Photos = {
-    get(k) { return (DB.photos && DB.photos[k]) || null; },
+    /* par défaut : photographies d'ambiance livrées avec le site (dossier photos/) ;
+       toute photo déposée par l'équipe remplace la photo par défaut */
+    DEFAUTS: { hero: 'photos/hero.jpg', terrasse: 'photos/terrasse.jpg', patio: 'photos/patio.jpg',
+      salle: 'photos/salle.jpg', plat1: 'photos/plat1.jpg', plat2: 'photos/plat2.jpg',
+      soiree: 'photos/soiree.jpg', equipe: 'photos/equipe.jpg' },
+    get(k) { return (DB.photos && DB.photos[k]) || Photos.DEFAUTS[k] || null; },
+    estPerso(k) { return !!(DB.photos && DB.photos[k]); },
     liste() { return PHOTO_SLOTS.map(s => ({ ...s, url: Photos.get(s.k) })); },
     /* redimensionne avant stockage : localStorage est limité (~5 Mo) */
     set(k, file, maxW) {
