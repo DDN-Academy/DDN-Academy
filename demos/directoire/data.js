@@ -427,12 +427,43 @@
 
   /* ---------- PHOTOS (vraies photos, déposées par le restaurant) ---------- */
   const Photos = {
-    /* par défaut : photographies d'ambiance livrées avec le site (dossier photos/) ;
-       toute photo déposée par l'équipe remplace la photo par défaut */
+    /* Trois niveaux, dans l'ordre :
+       1. la photo déposée par le restaurant (fichier ou lien) ;
+       2. une vraie photographie en ligne (chargée par le navigateur du visiteur) ;
+       3. le visuel d'ambiance livré avec le site, si le réseau échoue.
+       Le site tente le niveau 2 et bascule tout seul sur le niveau 3 en cas d'échec. */
+    EN_LIGNE: {
+      hero:     ['https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1600',
+                 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1600'],
+      terrasse: ['https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=1000',
+                 'https://images.pexels.com/photos/2290753/pexels-photo-2290753.jpeg?auto=compress&cs=tinysrgb&w=1000'],
+      patio:    ['https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1000',
+                 'https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1000'],
+      salle:    ['https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1000',
+                 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1000'],
+      plat1:    ['https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1000',
+                 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1000'],
+      plat2:    ['https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?auto=compress&cs=tinysrgb&w=1000',
+                 'https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=1000'],
+      soiree:   ['https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1200',
+                 'https://images.pexels.com/photos/274192/pexels-photo-274192.jpeg?auto=compress&cs=tinysrgb&w=1200'],
+      equipe:   ['https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=1000',
+                 'https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=1000']
+    },
+    /* photographies réellement livrées avec le site (repli garanti, jamais de trou) */
     DEFAUTS: { hero: 'photos/hero.jpg', terrasse: 'photos/terrasse.jpg', patio: 'photos/patio.jpg',
-      salle: 'photos/salle.jpg', plat1: 'photos/plat1.jpg', plat2: 'photos/plat2.jpg',
+      salle: 'photos/salle.jpg', plat1: 'photos/cafe.jpg', plat2: 'photos/plat2.jpg',
       soiree: 'photos/soiree.jpg', equipe: 'photos/equipe.jpg' },
-    get(k) { return (DB.photos && DB.photos[k]) || Photos.DEFAUTS[k] || null; },
+    /* liste ordonnée des sources à essayer pour un emplacement */
+    sources(k) {
+      const perso = DB.photos && DB.photos[k];
+      const l = [];
+      if (perso) l.push(perso);
+      (Photos.EN_LIGNE[k] || []).forEach(u => l.push(u));
+      if (Photos.DEFAUTS[k]) l.push(Photos.DEFAUTS[k]);
+      return l;
+    },
+    get(k) { return Photos.sources(k)[0] || null; },
     estPerso(k) { return !!(DB.photos && DB.photos[k]); },
     liste() { return PHOTO_SLOTS.map(s => ({ ...s, url: Photos.get(s.k) })); },
     /* redimensionne avant stockage : localStorage est limité (~5 Mo) */

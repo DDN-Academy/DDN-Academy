@@ -667,12 +667,17 @@ function vPhotos(){
     ${D.PHOTO_SLOTS.map(s=>{
       const u=D.Photos.get(s.k), perso=D.Photos.estPerso?D.Photos.estPerso(s.k):false;
       return `<div class="card"><h2>${E(s.nom)}${perso?' <span class="puce p-v">Votre photo</span>':''}</h2>
-        <div class="apercu">${u?`<img src="${u}" alt="" loading="lazy">`:''}</div>
+        <div class="apercu">${u?`<img src="${u}" alt="" loading="lazy" data-cle="${s.k}">`:''}</div>
         <div class="rang"><button class="gros sec" data-pick="${s.k}" style="margin:0">Choisir une photo</button>
           <button class="gros sec" data-url="${s.k}" style="margin:0">Coller un lien</button></div>
         ${perso?`<button class="gros sec" data-del="${s.k}">Revenir à la photo d'origine</button>`:''}
       </div>`;}).join('')}
     <input type="file" id="fichier" accept="image/*" class="cache">`,true);
+  /* bascule automatique vers la source suivante si une photo ne charge pas */
+  $$('.apercu img[data-cle]').forEach(im=>{
+    const src=D.Photos.sources(im.dataset.cle); let i=0;
+    im.onerror=()=>{ i++; if(i<src.length) im.src=src[i]; else im.onerror=null; };
+  });
   let cible=null;
   $$('[data-pick]').forEach(b=>b.onclick=()=>{ cible=b.dataset.pick; $('#fichier').click(); });
   $('#fichier').onchange=e=>{

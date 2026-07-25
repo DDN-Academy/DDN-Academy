@@ -452,12 +452,23 @@ const $=(s,r)=>(r||document).querySelector(s), $$=(s,r)=>[...(r||document).query
 const E=s=>D.esc(s);
 D.init();
 
+/* Chaque emplacement essaie ses sources dans l'ordre : photo du restaurant,
+   puis vraie photographie en ligne, puis visuel livré avec le site.
+   Si une source échoue à charger, on passe automatiquement à la suivante. */
 function photos(){
   const m={'ph-hero':'hero','ph-mai':'terrasse','ph-g1':'terrasse','ph-g2':'patio','ph-g3':'salle','ph-soi':'soiree'};
   Object.entries(m).forEach(([id,cle])=>{
     const el=document.getElementById(id); if(!el) return;
-    const u=D.Photos.get(cle);
-    if(u&&el.getAttribute('src')!==u) el.setAttribute('src',u);
+    const src=D.Photos.sources(cle);
+    if(!src.length) return;
+    if(el.dataset.cle===cle && el.dataset.pose==='1' && el.naturalWidth>0) return;
+    el.dataset.cle=cle; el.dataset.i='0'; el.dataset.pose='1';
+    el.onerror=()=>{
+      const i=(+el.dataset.i)+1;
+      if(i<src.length){ el.dataset.i=String(i); el.src=src[i]; }
+      else { el.onerror=null; }
+    };
+    el.src=src[0];
   });
 }
 const hd=$('#hd');
