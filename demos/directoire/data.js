@@ -152,6 +152,44 @@
       }
     }
 
+    /* attribution automatique des tables sur les données de démonstration,
+       pour que le plan de salle soit réaliste dès la première ouverture */
+    const brouillon = {
+      version: 3, services, zones, tables,
+      reservations, regles: { durees: { '2': 90, '4': 105, '6': 120, '8': 150 }, tampon: 15, cadence: 22, delaiMin: 120, horizon: 60 },
+      fermetures: []
+    };
+    (function attribue() {
+      const dureeB = c => { const r = brouillon.regles.durees; return c <= 2 ? r['2'] : c <= 4 ? r['4'] : c <= 6 ? r['6'] : r['8']; };
+      const libre = (tid, date, deb, fin) => !reservations.some(r => {
+        if (!r.tableIds.includes(tid) || ['annulee', 'absence'].includes(r.statut)) return false;
+        const d = hm2min(r.heure), f = d + dureeB(r.couverts) + brouillon.regles.tampon;
+        return deb < f && d < fin;
+      });
+      reservations.forEach(r => {
+        if (['annulee', 'absence'].includes(r.statut)) return;
+        const deb = hm2min(r.heure), fin = deb + dureeB(r.couverts) + brouillon.regles.tampon;
+        let cands = tables.filter(t => t.zoneId === r.zonePref || !r.zonePref);
+        if (!cands.length) cands = tables;
+        const seule = cands.filter(t => r.couverts >= t.capMin && r.couverts <= t.capMax && libre(t.id, r.date, deb, fin))
+          .sort((a, b) => a.capMax - b.capMax)[0];
+        if (seule) { r.tableIds = [seule.id]; return; }
+        for (const t of cands) {
+          if (!libre(t.id, r.date, deb, fin)) continue;
+          const c = (t.combinable || []).map(i => tables.find(x => x.id === i))
+            .find(x => x && libre(x.id, r.date, deb, fin) && x.capMax + t.capMax >= r.couverts);
+          if (c) { r.tableIds = [t.id, c.id]; return; }
+        }
+      });
+      /* quelques tables déjà occupées ce soir, pour une démonstration vivante */
+      const auj = todayISO();
+      reservations.filter(r => r.date === auj && r.statut === 'confirmee' && r.tableIds.length)
+        .slice(0, 2).forEach((r, i) => {
+          r.statut = 'installee';
+          r.assiseA = Date.now() - (i === 0 ? 42 : 18) * 60000;
+        });
+    })();
+
     return {
       version: 3,
       restaurant: {
