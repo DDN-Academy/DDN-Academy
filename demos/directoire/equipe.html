@@ -102,6 +102,9 @@ main{flex:1;padding:16px 16px calc(140px + env(safe-area-inset-bottom));max-widt
 .barh .p i{display:block;height:100%;background:var(--bleu);border-radius:6px}
 .barh .v{font-size:13.5px;font-weight:800;text-align:right}
 .barh .c{font-size:12px;color:var(--mut);text-align:right}
+.barh.large{grid-template-columns:96px 1fr 42px 48px}
+.barh.large .j{font-size:12.5px;font-weight:700;color:var(--ink);overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
 .barh.bas .p i{background:var(--rouge)} .barh.bas .j,.barh.bas .v{color:var(--rouge)}
 .barh.haut .p i{background:var(--vert)} .barh.haut .j,.barh.haut .v{color:var(--vert)}
 
@@ -130,6 +133,7 @@ main{flex:1;padding:16px 16px calc(140px + env(safe-area-inset-bottom));max-widt
 .conseil{margin-top:14px;padding:12px 14px;border-left:3px solid var(--rouge);
   background:var(--card2);border-radius:0 12px 12px 0;font-size:13.5px;line-height:1.55;color:var(--mut)}
 .conseil b{color:var(--ink)}
+.note-src{font-size:12px;color:var(--faint);line-height:1.5;margin:-4px 0 16px;padding:0 2px}
 
 .ligne{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
 .ligne:last-child{border-bottom:none;padding-bottom:0}
@@ -818,7 +822,6 @@ function vAttente(){
   });
 }
 
-const eur=n=>Math.round(n).toLocaleString('fr-FR')+' €';
 const nbr=n=>Math.round(n).toLocaleString('fr-FR');
 /* pastille d'évolution : vert si ça monte, rouge si ça descend, rien si on n'a
    pas de période précédente à comparer */
@@ -833,65 +836,65 @@ function vStats(){
   const s=D.stats(per);
   const libPer={7:'7 derniers jours',30:'30 derniers jours',90:'90 derniers jours'}[per];
   const libPrec={7:'aux 7 jours précédents',30:'aux 30 jours précédents',90:'aux 90 jours précédents'}[per];
-  const parJourOuvre=s.parJour.filter(x=>x.cv>0).length||1;
+  const jOuvre=s.parJour.filter(x=>x.n>0).length||1;
 
-  /* ── jours creux : combien rapporterait un mardi au niveau du jeudi ── */
+  /* ── jours creux, exprimés en couverts non servis ── */
   const semaine=s.parJourSemaine.filter(x=>x.jours>0);
   const pire=[...semaine].sort((a,b)=>a.remplissage-b.remplissage)[0];
-  const bon=[...semaine].sort((a,b)=>b.remplissage-a.remplissage)[0];
+  const fort=[...semaine].sort((a,b)=>b.remplissage-a.remplissage)[0];
   const capJour=D.capaciteTotale()*2;
-  const gainSemaine=pire&&bon?Math.max(0,(bon.remplissage-pire.remplissage)/100*capJour*s.ticket):0;
+  const manque=pire&&fort?Math.round((fort.remplissage-pire.remplissage)/100*capJour):0;
 
-  /* ── heures : le créneau le plus creux du soir est celui qu'il reste à vendre ── */
+  /* ── créneaux du soir : celui qui reste à remplir ── */
   const soirs=s.creneaux.filter(c=>+c.h.slice(0,2)>=19);
   const creuxSoir=soirs.length?[...soirs].sort((a,b)=>a.couverts-b.couverts)[0]:null;
   const picSoir=soirs.length?[...soirs].sort((a,b)=>b.couverts-a.couverts)[0]:null;
 
-  /* ── ce que le site fait gagner : appels évités, à 4 minutes l'appel ── */
-  const heuresTel=s.origine.site*4/60;
   const parAn=Math.round(s.origine.site/per*365);
-
-  const maxJ=Math.max(1,...s.parJour.map(x=>x.ca));
+  const maxJ=Math.max(1,...s.parJour.map(x=>x.n));
   const maxSem=Math.max(1,...semaine.map(x=>x.remplissage));
   const maxCr=Math.max(1,...s.creneaux.map(c=>c.couverts));
+  const zTop=s.zones[0];
 
   coque('Chiffres','',`
     <div class="chips" id="per">${[[7,'7 jours'],[30,'30 jours'],[90,'90 jours']].map(([k,l])=>
       `<button class="chip ${per===k?'on':''}" data-p="${k}">${l}</button>`).join('')}</div>
 
     <div class="card kpi">
-      <div class="lbl">Chiffre d'affaires encaissé<span class="sp"></span>${evo(s.caEvol)}</div>
-      <div class="gros-nb nb">${eur(s.ca)}</div>
-      <div class="sous">${eur(s.ca/parJourOuvre)} par jour de service, comparé ${libPrec}</div>
+      <div class="lbl">Réservations enregistrées<span class="sp"></span>${evo(s.resasEvol)}</div>
+      <div class="gros-nb nb">${nbr(s.resas)}</div>
+      <div class="sous">${(s.resas/jOuvre).toFixed(1).replace('.',',')} par jour d'ouverture, comparé ${libPrec}</div>
       <svg class="spark" viewBox="0 0 320 64" preserveAspectRatio="none" role="img"
-           aria-label="Chiffre d'affaires jour par jour sur ${per} jours">
-        ${s.parJour.map((x,i)=>{const w=320/s.parJour.length, h=x.ca/maxJ*54;
+           aria-label="Réservations jour par jour sur ${per} jours">
+        ${s.parJour.map((x,i)=>{const w=320/s.parJour.length, h=x.n/maxJ*54;
           return `<rect x="${i*w+0.6}" y="${60-h}" width="${Math.max(1,w-1.2)}" height="${Math.max(1,h)}" rx="1"
-            fill="var(--rouge)" opacity="${0.35+0.65*(x.ca/maxJ)}"/>`;}).join('')}
+            fill="var(--rouge)" opacity="${0.35+0.65*(x.n/maxJ)}"/>`;}).join('')}
         <line x1="0" y1="61" x2="320" y2="61" stroke="var(--line)"/>
       </svg>
       <div class="axe"><span>${D.fmtShort(s.debut)}</span><span>${D.fmtShort(s.fin)}</span></div>
     </div>
 
     <div class="stats">
-      <div class="st"><div class="v nb">${nbr(s.couverts)}</div><div class="k">Couverts ${evo(s.couvertsEvol)}</div></div>
-      <div class="st"><div class="v nb">${eur(s.ticket)}</div><div class="k">Ticket moyen ${evo(s.ticketEvol)}</div></div>
+      <div class="st"><div class="v nb">${nbr(s.couverts)}</div><div class="k">Couverts servis ${evo(s.couvertsEvol)}</div></div>
+      <div class="st"><div class="v nb">${s.taille.toFixed(1).replace('.',',')}</div><div class="k">Couverts par table ${evo(s.tailleEvol)}</div></div>
       <div class="st"><div class="v nb">${s.remplissage} %</div><div class="k">Remplissage ${evo(s.remplissageEvol)}</div>
         <div class="bar"><i style="width:${Math.min(100,s.remplissage)}%"></i></div></div>
-      <div class="st"><div class="v nb">${nbr(s.resas)}</div><div class="k">Réservations ${evo(s.resasEvol)}</div></div>
+      <div class="st"><div class="v nb">${s.anticipation.toFixed(1).replace('.',',')} j</div><div class="k">Réservé à l'avance</div></div>
     </div>
+    <div class="note-src">Remplissage calculé sur ${nbr(s.places)} places mises en vente,
+      d'après votre plan de salle et vos horaires d'ouverture.</div>
 
     <div class="card"><h2>Vos jours forts et vos jours creux</h2>
-      ${semaine.map(x=>`<div class="barh ${x===pire?'bas':''} ${x===bon?'haut':''}">
+      ${semaine.map(x=>`<div class="barh ${x===pire?'bas':''} ${x===fort?'haut':''}">
         <span class="j">${x.court}</span>
         <span class="p"><i style="width:${Math.max(2,x.remplissage/maxSem*100)}%"></i></span>
         <span class="v nb">${x.remplissage} %</span>
-        <span class="c nb">${eur(x.ca)}</span></div>`).join('')}
-      ${pire&&bon&&pire!==bon?`<div class="conseil">
-        <b>${pire.nom} est votre jour creux</b>, ${pire.remplissage} % de remplissage contre ${bon.remplissage} % le ${bon.nom.toLowerCase()}.
-        Amener le ${pire.nom.toLowerCase()} au niveau du ${bon.nom.toLowerCase()} représente environ
-        <b>${eur(gainSemaine)} par semaine</b>, soit ${eur(gainSemaine*4.33)} par mois.
-        Une soirée à thème ou un menu du jour ce jour-là est le levier le plus rentable.</div>`:''}
+        <span class="c nb">${x.couverts} couv.</span></div>`).join('')}
+      ${pire&&fort&&pire!==fort?`<div class="conseil">
+        <b>${pire.nom} est votre jour creux</b>, ${pire.remplissage} % de remplissage contre ${fort.remplissage} % le ${fort.nom.toLowerCase()}.
+        L'écart représente environ <b>${manque} couverts</b> par ${pire.nom.toLowerCase()},
+        soit ${manque*4} couverts sur un mois. C'est le jour à travailler en premier :
+        soirée à thème, menu du jour, ou relance de vos habitués.</div>`:''}
     </div>
 
     <div class="card"><h2>À quelles heures on vous réserve</h2>
@@ -901,37 +904,51 @@ function vStats(){
       ${creuxSoir&&picSoir&&creuxSoir!==picSoir?`<div class="conseil">
         Le coup de feu est à <b>${picSoir.h}</b> avec ${nbr(picSoir.couverts)} couverts.
         Le service de <b>${creuxSoir.h}</b> n'en fait que ${nbr(creuxSoir.couverts)} :
-        c'est là qu'il vous reste des tables à vendre, et c'est là que le site peut pousser les créneaux.</div>`:''}
+        ce sont les créneaux à mettre en avant sur le site, et ceux sur lesquels
+        vous pouvez accepter du monde sans allonger l'attente.</div>`:''}
     </div>
 
-    <div class="card"><h2>Ce que votre site vous rapporte</h2>
+    <div class="card"><h2>D'où viennent vos réservations</h2>
       <div class="duo2">
         <div class="pan on"><div class="v nb">${nbr(s.origine.site)}</div><div class="k">par le site</div></div>
-        <div class="pan"><div class="v nb">${nbr(s.origine.tel)}</div><div class="k">par téléphone</div></div>
+        <div class="pan"><div class="v nb">${nbr(s.origine.tel)}</div><div class="k">saisies à la main</div></div>
       </div>
       <div class="jauge"><i style="width:${s.origine.part}%"></i><span>${s.origine.part} % en ligne</span></div>
       <div class="conseil">
-        <b>${nbr(s.origine.site)} réservations prises sans décrocher</b> sur ${libPer.toLowerCase()},
-        soit environ <b>${Math.round(heuresTel)} heures</b> de téléphone en moins pour votre équipe,
-        pendant le service. À ce rythme, cela fait <b>${nbr(parAn)} réservations par an</b> qui arrivent
-        toutes seules, la nuit comme le dimanche.</div>
+        <b>${nbr(s.origine.site)} réservations sur ${libPer.toLowerCase()}</b> sont arrivées seules,
+        sans que personne ne décroche ni ne note quoi que ce soit. Les
+        ${nbr(s.origine.tel)} autres ont été saisies par votre équipe.
+        Au même rythme, cela fait <b>${nbr(parAn)} réservations par an</b> qui se prennent
+        toutes seules, y compris la nuit et les jours de fermeture.</div>
     </div>
 
-    <div class="card"><h2>Ce que vous coûtent les tables vides</h2>
+    <div class="card"><h2>Ce que les clients demandent</h2>
+      ${s.zones.map(z=>`<div class="barh large">
+        <span class="j">${E(z.nom)}</span>
+        <span class="p"><i style="width:${Math.max(2,z.part)}%"></i></span>
+        <span class="v nb">${z.part} %</span>
+        <span class="c nb">${nbr(z.n)}</span></div>`).join('')}
+      ${zTop?`<div class="conseil">
+        <b>${zTop.nom}</b> est demandée dans ${zTop.part} % des réservations.
+        Le site enregistre le souhait du client, l'équipe le voit avant l'arrivée et place en conséquence.
+        C'est aussi ce qui vous dit quelle zone mérite d'être agrandie ou mise en avant.</div>`:''}
+    </div>
+
+    <div class="card"><h2>Les tables réservées et jamais occupées</h2>
       <div class="stats" style="margin-bottom:4px">
         <div class="st ${s.absences.n?'al':''}"><div class="v nb">${s.absences.n}</div><div class="k">Absences</div></div>
         <div class="st"><div class="v nb">${s.absences.couverts}</div><div class="k">Couverts perdus</div></div>
-        <div class="st"><div class="v nb">${eur(s.absences.perte)}</div><div class="k">Manque à gagner</div></div>
         <div class="st"><div class="v nb">${s.absences.taux} %</div><div class="k">Des réservations</div></div>
+        <div class="st"><div class="v nb">${Math.round(s.absences.couverts/jOuvre*10)/10}</div><div class="k">Par jour</div></div>
       </div>
       ${s.absences.recidivistes.length?`<h2 style="margin-top:14px">Ils recommencent</h2>
         ${s.absences.recidivistes.map(r=>`<div class="ligne">
           <div class="qui"><div class="n"><span class="txt">${E(r.nom)}</span><span class="puce p-r">${r.n} absences</span></div>
             <div class="d">${E(r.tel)}</div></div>
           <a class="bt" href="tel:${E(r.tel.replace(/\s/g,''))}">Appeler</a></div>`).join('')}`:''}
-      <div class="conseil">Ces tables ont été réservées puis jamais occupées, alors que vous refusiez peut-être
-        du monde. Un appel de confirmation la veille sur les tables de six et plus,
-        et une note sur les fiches ci-dessus, est ce qui coûte le moins cher à mettre en place.</div>
+      <div class="conseil">Ces couverts étaient bloqués et n'ont jamais été servis, alors que vous
+        refusiez peut-être du monde au même moment. Un appel de confirmation la veille sur les
+        grandes tables, et une note sur les fiches ci-dessus, suffisent à récupérer l'essentiel.</div>
     </div>
 
     <div class="card"><h2>Vos clients</h2>
@@ -939,28 +956,30 @@ function vStats(){
         <div class="pan on"><div class="v nb">${s.fidelite.taux} %</div><div class="k">déjà venus</div></div>
         <div class="pan"><div class="v nb">${nbr(s.fidelite.nouveaux)}</div><div class="k">nouveaux</div></div>
       </div>
-      ${s.fidelite.top.length?`<h2 style="margin-top:14px">Vos meilleurs clients</h2>
+      ${s.fidelite.top.length?`<h2 style="margin-top:14px">Ceux qui reviennent le plus</h2>
         ${s.fidelite.top.map(g=>`<div class="ligne">
           <div class="qui"><div class="n"><span class="txt">${E(g.nom)}</span></div>
-            <div class="d">${g.n} visites, ${eur(g.somme)} au total</div></div>
+            <div class="d">${g.n} visites${g.derniere?', dernière le '+D.fmtShort(g.derniere):''}</div></div>
           <a class="bt" href="tel:${E(g.tel.replace(/\s/g,''))}">Appeler</a></div>`).join('')}`:''}
-      <div class="conseil">Ce sont eux qu'on appelle en premier pour remplir un jour creux,
-        une soirée à thème ou une privatisation. Ils sont déjà dans votre fichier, sans rien avoir à acheter.</div>
+      <div class="conseil">Votre fichier compte <b>${nbr(s.fidelite.fiches)} fiches</b>, constituées
+        toutes seules à chaque réservation. Ce sont ces gens qu'on appelle en premier pour remplir
+        un jour creux, une soirée à thème ou une privatisation.</div>
     </div>
 
+    <div class="note-src">Toutes ces données viennent de vos réservations. Aucun montant n'apparaît ici :
+      votre chiffre d'affaires est dans votre caisse, pas dans ce logiciel.</div>
     <button class="gros sec" id="csv">Exporter en tableur</button>`,true);
 
   $$('#per [data-p]').forEach(b=>b.onclick=()=>{ S.per=+b.dataset.p; scrollTo(0,0); rendre(); });
   $('#csv').onclick=()=>{
-    const csv=['Date;Couverts;Chiffre d affaires;Reservations;Absences;Par le site;Par telephone',
-      ...s.parJour.map(x=>[x.d,x.cv,x.ca,x.n,x.abs,x.site,x.tel].join(';'))].join('\n');
+    const csv=['Date;Reservations;Couverts servis;Absences;Couverts perdus;Par le site;Saisies a la main',
+      ...s.parJour.map(x=>[x.d,x.n,x.cv,x.abs,x.cvAbs,x.site,x.tel].join(';'))].join('\n');
     const a=document.createElement('a');
     a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));
     a.download='directoire-chiffres-'+per+'j.csv'; a.click(); URL.revokeObjectURL(a.href);
     toast('Fichier téléchargé');
   };
 }
-
 function vPhotos(){
   coque('Photos du site','Elles apparaissent sur le site client',`
     <div class="aide">${I.info}Choisissez une photo depuis votre appareil, ou collez le lien d'une image</div>
@@ -1099,12 +1118,6 @@ function fResa(r){
     <div class="champ"><label>Où en est cette table ?</label>
       <div class="opts">${etats.map(([k,l])=>`<button class="opt ${r.statut===k?'on':''}" data-st="${k}">${l}</button>`).join('')}</div>
       <div class="at">Installé attribue une table et lance le chronomètre. Terminé et Absent la libèrent.</div></div>
-    ${['installee','terminee'].includes(r.statut)?`<div class="champ"><label>Addition encaissée (facultatif)</label>
-      <div class="rang" style="align-items:center">
-        <input id="r-add" type="number" step="0.5" min="0" inputmode="decimal"
-          value="${r.addition!=null?r.addition:''}" placeholder="${Math.round(D.stats(30).ticket*r.couverts)}">
-        <button class="gros sec" id="r-add-ok" style="margin:0">Enregistrer</button></div>
-      <div class="at">Sans montant, la page Chiffres estime la table à partir de votre ticket moyen.</div></div>`:''}
     <div class="champ"><label>Table</label>
       <button class="gros sec" id="r-dep" style="margin:0">${place?'Changer de table':'Placer à une table'}</button>
       ${place?'<button class="gros sec" id="r-lib">Retirer de la table</button>':''}</div>
@@ -1115,15 +1128,6 @@ function fResa(r){
       fermer();
       ({installee:installe,terminee:termine,absence:absent}[b.dataset.st])(r.id);
     });
-    const ao=$('#r-add-ok',c);
-    if(ao) ao.onclick=()=>{
-      const v=$('#r-add',c).value.trim();
-      const av=r.addition;
-      r.addition=v===''?null:Math.max(0,parseFloat(v)||0);
-      D.log('Addition '+r.ref+', '+(r.addition==null?'effacée':r.addition+' euros')); D.save(); fermer();
-      toast(r.addition==null?'Montant effacé':'Addition enregistrée, '+r.addition+' euros',
-        ()=>{ r.addition=av; D.save(); }); rendre();
-    };
     $('#r-dep',c).onclick=()=>{ fermer(); deplace(r.id); };
     const lb=$('#r-lib',c);
     if(lb) lb.onclick=()=>{ const res=D.libere(r.id); fermer();
