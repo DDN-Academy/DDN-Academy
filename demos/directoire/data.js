@@ -39,12 +39,13 @@
   /* Emplacements photo du site client. Remplacez-les par vos propres photos
      depuis l'espace équipe, onglet Plus. */
   const PHOTO_SLOTS = [
-    { k: 'hero', nom: 'Photo principale (accueil)', hint: 'Vue large, format paysage. Elle occupe tout le haut du site.' },
-    { k: 'terrasse', nom: 'La terrasse végétalisée', hint: 'Format paysage, en journée.' },
-    { k: 'patio', nom: 'Le patio', hint: 'Format paysage.' },
-    { k: 'salle', nom: 'La salle', hint: 'Format paysage, tables dressées.' },
-    { k: 'soiree', nom: 'Une soirée', hint: 'Ambiance du soir, concert ou match.' },
-    { k: 'equipe', nom: 'La cuisine et l\'équipe', hint: 'Le chef au travail ou la brigade.' }
+    { k: 'hero', nom: 'Photo principale (accueil)', hint: 'Vue large et plutôt sombre, le soir. Elle occupe tout le haut du site.' },
+    { k: 'maison', nom: 'La maison', hint: 'Format paysage. Une vue qui donne le caractère du lieu.' },
+    { k: 'terrasse', nom: 'La terrasse', hint: 'Format paysage, en plein air.' },
+    { k: 'patio', nom: 'Le patio', hint: 'Format paysage, à l\'abri.' },
+    { k: 'salle', nom: 'La salle', hint: 'Format paysage, tables dressées, le soir.' },
+    { k: 'soiree', nom: 'Une soirée', hint: 'Grande tablée, concert ou match.' },
+    { k: 'prive', nom: 'Privatisation et groupes', hint: 'Une table de fête, un groupe attablé.' }
   ];
 
   /* ---------- DONNÉES DE DÉMONSTRATION ---------- */
@@ -698,8 +699,9 @@
        2. la photographie livrée avec le site, présente dans le dossier photos/.
        Tout est hébergé avec le site : aucune dépendance à un service extérieur,
        donc aucun emplacement vide, même sans réseau. */
-    DEFAUTS: { hero: 'photos/hero.jpg', terrasse: 'photos/terrasse.jpg', patio: 'photos/patio.jpg',
-      salle: 'photos/salle.jpg', soiree: 'photos/soiree.jpg', equipe: 'photos/equipe.jpg' },
+    DEFAUTS: { hero: 'photos/hero.jpg', maison: 'photos/maison.jpg', terrasse: 'photos/terrasse.jpg',
+      patio: 'photos/patio.jpg', salle: 'photos/salle.jpg', soiree: 'photos/soiree.jpg',
+      prive: 'photos/prive.jpg' },
     /* liste ordonnée des sources à essayer pour un emplacement */
     sources(k) {
       const perso = DB.photos && DB.photos[k];
