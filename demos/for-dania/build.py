@@ -83,6 +83,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--photos", default=UPLOADS, help="directory holding the source photos")
     ap.add_argument("--audio", default=None, help="mp3 to embed as the soundtrack")
+    ap.add_argument("--out", action="append", default=None,
+                    help="where to write the built page (repeatable)")
     args = ap.parse_args()
 
     with open(os.path.join(HERE, "_template.html")) as f:
@@ -110,10 +112,17 @@ def main():
         print("\naudio: none (page stays silent)")
         html = html.replace("__AUDIO__", "")
 
-    out = os.path.join(HERE, "index.html")
-    with open(out, "w") as f:
-        f.write(html)
-    print(f"\nwrote {out}  {os.path.getsize(out)/1024/1024:.2f} MB")
+    targets = args.out or [
+        os.path.join(HERE, "index.html"),                          # local preview
+        os.path.join(HERE, "..", "..", "dania", "index.html"),     # what Pages serves
+    ]
+    print()
+    for out in targets:
+        out = os.path.abspath(out)
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        with open(out, "w") as f:
+            f.write(html)
+        print(f"wrote {out}  {os.path.getsize(out)/1024/1024:.2f} MB")
 
 
 if __name__ == "__main__":

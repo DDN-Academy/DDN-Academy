@@ -7,8 +7,9 @@ A single page, seven chapters, one answer at the end.
 | File | What it is |
 | --- | --- |
 | `_template.html` | The whole page: markup, styles, animation. Photos and audio are placeholders. |
-| `build.py` | Inlines the photos (resized, base64) and optionally the song, and writes `index.html`. |
-| `index.html` | The built page. Not committed, because it embeds private photographs. |
+| `build.py` | Measures each photo's colours, inlines the images and optionally the song, and writes the page. |
+| `index.html` | Local preview build. |
+| `../../dania/index.html` | The same build, at the path GitHub Pages serves. |
 
 Everything is self contained: no fonts, scripts, or images are fetched over the
 network, so the page works offline and from a plain file path.
@@ -18,10 +19,17 @@ network, so the page works offline and from a plain file path.
 ```bash
 python3 build.py                                   # photos only, silent page
 python3 build.py --audio ~/nassini-el-donya.mp3    # with the soundtrack
+python3 build.py --out /tmp/preview.html           # somewhere else instead
 ```
 
 `--photos DIR` points at the folder holding the source images. The five
 filenames it expects are listed at the top of `build.py`.
+
+## Publishing it
+
+The built page is committed at `dania/index.html`. With GitHub Pages pointed at
+this branch and the folder set to `/ (root)`, it is served at
+`https://ddn-academy.github.io/DDN-Academy/dania/`.
 
 ## The way through
 

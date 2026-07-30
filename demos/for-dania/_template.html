@@ -42,9 +42,9 @@
      photograph currently on screen, so the room is lit by their own light. */
   --ground:#0b0a0e;
   --ink:#fdf6ec;
-  --dim:rgba(253,246,236,.62);
-  --faint:rgba(253,246,236,.34);
-  --hair:rgba(253,246,236,.18);
+  --dim:rgba(253,246,236,.78);
+  --faint:rgba(253,246,236,.5);
+  --hair:rgba(253,246,236,.3);
   --tintA:#3a3f52;
   --tintB:#4a3b3f;
 
@@ -155,11 +155,16 @@ body.hush #scrim{opacity:1}
 }
 /* narration behaves like subtitles: lines rise, older ones recede and slip
    out through the fade at the top. she never has to scroll. */
+.script{position:relative}
 .screen.low .script{
-  position:relative;max-height:46vh;overflow:hidden;scroll-behavior:smooth;
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 20%);
-  mask-image:linear-gradient(180deg,transparent,#000 20%);
+  max-height:46vh;overflow:hidden;scroll-behavior:smooth;
   transition:opacity 2s ease;
+}
+/* the fade only exists once there is something above to fade out. applying it
+   from the start was eating the first line of every screen. */
+.screen.low .script.faded{
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 18%);
 }
 .line{
   font-size:clamp(17px,4.5vw,21px);line-height:1.72;color:var(--ink);
@@ -171,8 +176,8 @@ body.hush #scrim{opacity:1}
 .line.show{opacity:1;transform:none}
 /* read lines step back, but a bright photograph must not swallow them */
 .line.past{
-  opacity:.42;
-  text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 26px rgba(0,0,0,.9);
+  opacity:.52;
+  text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 26px rgba(0,0,0,.92);
 }
 .line.lead{
   font-family:var(--display);font-size:clamp(26px,7vw,40px);line-height:1.2;
@@ -188,9 +193,10 @@ body.hush #scrim{opacity:1}
 /* ---------------- controls ---------------- */
 .cta{
   display:inline-block;margin-top:38px;padding:0 0 8px;cursor:pointer;
-  background:none;border:0;border-bottom:1px solid var(--hair);
+  background:none;border:0;border-bottom:1px solid rgba(253,246,236,.55);
   color:var(--ink);font-family:var(--util);
-  font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+  font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 20px rgba(0,0,0,.85);
   transition:border-color .7s ease,letter-spacing .7s ease,opacity .5s ease;
   -webkit-tap-highlight-color:transparent;
 }
@@ -202,7 +208,7 @@ body.hush #scrim{opacity:1}
 #gform{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:4px}
 #gin{
   width:100%;max-width:280px;padding:14px 0;text-align:center;
-  background:none;border:0;border-bottom:1px solid var(--hair);border-radius:0;
+  background:none;border:0;border-bottom:1px solid rgba(253,246,236,.42);border-radius:0;
   color:var(--ink);font-family:var(--display);font-size:24px;letter-spacing:.14em;
   outline:none;transition:border-color .6s ease;
 }
@@ -219,19 +225,30 @@ body.hush #scrim{opacity:1}
 /* ---------------- hold ---------------- */
 .holdwrap{margin-top:40px;width:132px;height:132px;position:relative;opacity:0;transition:opacity 1.6s ease}
 .holdwrap.show{opacity:1}
+/* she has to find this without being told twice, over any photograph */
 #holdBtn{
-  position:absolute;inset:0;border-radius:50%;border:1px solid var(--hair);
-  background:radial-gradient(circle,rgba(241,236,228,.07),transparent 68%);
+  position:absolute;inset:0;border-radius:50%;border:1px solid rgba(253,246,236,.5);
+  background:radial-gradient(circle,rgba(20,16,14,.5),rgba(20,16,14,.22) 62%,transparent 76%);
   cursor:pointer;display:grid;place-items:center;
   -webkit-tap-highlight-color:transparent;touch-action:none;
+  box-shadow:0 0 0 0 rgba(253,246,236,.28),0 6px 40px rgba(0,0,0,.6);
+  animation:findme 3s ease-in-out infinite;
   transition:transform .5s ease,box-shadow .8s ease;
 }
-#holdBtn.active{transform:scale(1.05);box-shadow:0 0 90px rgba(241,236,228,.22)}
-#holdBtn span{font-family:var(--util);font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);pointer-events:none;text-align:center;line-height:2}
+@keyframes findme{
+  0%,100%{box-shadow:0 0 0 0 rgba(253,246,236,.26),0 6px 40px rgba(0,0,0,.6)}
+  50%{box-shadow:0 0 0 16px rgba(253,246,236,0),0 6px 40px rgba(0,0,0,.6)}
+}
+#holdBtn.active{animation:none;transform:scale(1.05);box-shadow:0 0 90px rgba(253,246,236,.4)}
+#holdBtn span{
+  font-family:var(--util);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ink);pointer-events:none;text-align:center;line-height:2;
+  text-shadow:0 1px 4px rgba(0,0,0,.95);
+}
 .ring{position:absolute;inset:0;transform:rotate(-90deg);pointer-events:none}
-.ring circle{fill:none;stroke-width:1;stroke-linecap:round}
-.ring .bg{stroke:var(--hair)}
-.ring .fg{stroke:var(--ink);transition:stroke-dashoffset .1s linear}
+.ring circle{fill:none;stroke-width:1.4;stroke-linecap:round}
+.ring .bg{stroke:rgba(253,246,236,.24)}
+.ring .fg{stroke:var(--ink);transition:stroke-dashoffset .1s linear;filter:drop-shadow(0 0 6px rgba(253,246,236,.7))}
 #after{max-height:0;overflow:hidden;transition:max-height 1.8s ease}
 #after.open{max-height:34vh}
 
@@ -585,8 +602,17 @@ function reveal(root,start,done){
         shown.push(e);
         /* let everything but the last two sink back */
         for(var k=0;k<shown.length-2;k++) shown[k].classList.add('past');
-        /* and keep the newest line resting on the floor of the frame */
-        root.scrollTop = root.scrollHeight;
+        /* Rest the newest line on the floor of the frame. Scrolling to the
+           bottom of the box instead would carry it off the top, because the
+           lines that have not appeared yet still take up their space. */
+        if(root.scrollHeight > root.clientHeight + 2){
+          var target = Math.max(0, e.offsetTop + e.offsetHeight - root.clientHeight + 10);
+          root.scrollTop = target;
+          /* and only fade the top edge once something has gone past it */
+          root.classList.toggle('faded', target > 6);
+        } else {
+          root.classList.remove('faded');
+        }
       }, d);
     })(el,t);
     var words = (el.textContent||'').split(/\s+/).length;
