@@ -11,25 +11,11 @@
   <div id="halo"></div>
   <div id="grain"></div>
 
-  <!-- ============ COUNTDOWN ============ -->
-  <section id="clock" class="screen mid on">
-    <div class="col">
-      <p class="label" id="clkLabel">Not yet</p>
-      <div id="digits">
-        <div class="unit"><span class="num" id="dH">00</span><span class="cap">hours</span></div>
-        <div class="unit"><span class="num" id="dM">00</span><span class="cap">minutes</span></div>
-        <div class="unit"><span class="num" id="dS">00</span><span class="cap">seconds</span></div>
-      </div>
-      <p class="clkline">Something was written for you.</p>
-      <p class="clkline dim">It will not open before it is time.</p>
-    </div>
-  </section>
-
   <!-- ============ DATE LOCK ============ -->
-  <section id="gate" class="screen mid">
+  <section id="gate" class="screen mid on">
     <div class="col">
-      <p class="label">It is time</p>
-      <h1 class="display">If this is you,<br>you already know the day.</h1>
+      <p class="label">One person only</p>
+      <h1 class="display">If this is you,<br>you know the day.</h1>
       <form id="gform" autocomplete="off">
         <input id="gin" inputmode="numeric" placeholder="DD  MM  YYYY" maxlength="14" aria-label="date">
         <button id="gbtn" class="cta" type="submit"><span>Open</span></button>
@@ -77,9 +63,9 @@ body{
 .plate img{
   width:100%;height:100%;object-fit:cover;display:block;
   /* the frame has no edge. it dissolves into the room. */
-  -webkit-mask-image:radial-gradient(ellipse 84% 66% at 50% 38%,#000 26%,rgba(0,0,0,.55) 58%,transparent 84%);
-  mask-image:radial-gradient(ellipse 84% 66% at 50% 38%,#000 26%,rgba(0,0,0,.55) 58%,transparent 84%);
-  filter:grayscale(1) contrast(1.16) brightness(.5);
+  -webkit-mask-image:radial-gradient(ellipse 92% 74% at 50% 38%,#000 36%,rgba(0,0,0,.62) 66%,transparent 90%);
+  mask-image:radial-gradient(ellipse 92% 74% at 50% 38%,#000 36%,rgba(0,0,0,.62) 66%,transparent 90%);
+  filter:grayscale(1) contrast(1.1) brightness(.78);
   transform:scale(1.02);
   transition:filter 3.4s ease;
   animation:breathe 42s ease-in-out infinite alternate;
@@ -95,9 +81,16 @@ body.colour .plate img{
 #scrim{
   position:fixed;inset:0;z-index:2;pointer-events:none;
   transition:opacity 3.4s ease;
+  /* light at the top so the picture is actually seen, weight at the bottom
+     so the narration always has something to sit on */
   background:
-    linear-gradient(180deg,rgba(8,8,11,.72) 0%,rgba(8,8,11,.12) 26%,rgba(8,8,11,.66) 62%,rgba(8,8,11,.96) 88%),
-    radial-gradient(ellipse at 50% 30%,transparent 34%,rgba(8,8,11,.5) 86%);
+    linear-gradient(180deg,
+      rgba(8,8,11,.55) 0%,
+      rgba(8,8,11,.04) 20%,
+      rgba(8,8,11,.30) 44%,
+      rgba(8,8,11,.84) 68%,
+      rgba(8,8,11,.97) 86%),
+    radial-gradient(ellipse at 50% 28%,transparent 42%,rgba(8,8,11,.42) 92%);
 }
 body.colour #scrim{opacity:.66}
 /* the loud part is over. the light comes down so the last words can be heard. */
@@ -142,12 +135,6 @@ body.hush #scrim{opacity:1}
   font-size:clamp(30px,8.2vw,52px);line-height:1.16;letter-spacing:-.012em;
   text-wrap:balance;
 }
-.chapmark{
-  font-family:var(--util);font-size:9px;letter-spacing:.44em;text-transform:uppercase;
-  color:var(--faint);margin-bottom:20px;display:flex;align-items:center;gap:12px;
-}
-.chapmark::after{content:'';flex:1;height:1px;background:var(--hair)}
-
 /* narration behaves like subtitles: lines rise, older ones recede and slip
    out through the fade at the top. she never has to scroll. */
 .screen.low .script{
@@ -159,6 +146,8 @@ body.hush #scrim{opacity:1}
 .line{
   font-size:clamp(17px,4.5vw,21px);line-height:1.72;color:var(--ink);
   margin-bottom:14px;opacity:0;transform:translateY(14px);
+  /* every line carries its own night, so it holds up over a bright frame */
+  text-shadow:0 1px 2px rgba(0,0,0,.6),0 2px 22px rgba(0,0,0,.75);
   transition:opacity 1.6s ease,transform 1.8s cubic-bezier(.19,1,.22,1),color 1.4s ease;
 }
 .line.show{opacity:1;transform:none}
@@ -204,22 +193,6 @@ body.hush #scrim{opacity:1}
 .gerr.on{opacity:1}
 .shake{animation:shake .5s ease}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
-
-/* ---------------- countdown ---------------- */
-#digits{
-  display:flex;justify-content:center;gap:clamp(20px,7vw,46px);
-  margin:14px 0 46px;font-variant-numeric:tabular-nums;
-}
-.unit{display:flex;flex-direction:column;align-items:center;gap:12px}
-.num{
-  font-family:var(--display);font-size:clamp(46px,15vw,88px);line-height:.9;
-  letter-spacing:-.03em;font-variant-numeric:tabular-nums;
-}
-.cap{font-family:var(--util);font-size:8.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--faint)}
-.clkline{font-size:clamp(15px,4vw,18px);line-height:1.8}
-.clkline.dim{color:var(--dim);font-style:italic;margin-top:6px}
-#clock.done .num{animation:settle 1.4s ease}
-@keyframes settle{0%{opacity:1}50%{opacity:.2}100%{opacity:1}}
 
 /* ---------------- hold ---------------- */
 .holdwrap{margin-top:40px;width:132px;height:132px;position:relative;opacity:0;transition:opacity 1.6s ease}
@@ -297,10 +270,6 @@ if(!document.querySelector('meta[name="viewport"]')){
   document.head.appendChild(mv);
 }
 
-/* ============================================================
-   when it opens.  22:00 in France on the 30th, which is 20:00 UTC.
-   ============================================================ */
-var OPENS_AT = Date.UTC(2026, 6, 30, 20, 0, 0);
 var KEY = { d:23, m:4 };
 
 var PH = {
@@ -317,84 +286,106 @@ var FOCUS = {
 
 var AUDIO_SRC = "__AUDIO__";
 
+/* told in the order it actually happened: Madrid, the birthday, France and
+   my mother's door, the airport at five in the morning, then every day since */
 var CH = [
 {
-  mark:'One', photo:'beginning',
+  dark:true,
   lines:[
-    'There is something I have been carrying for days.',
-    'I could have written it in a message.',
-    'It would have taken me nine seconds.',
-    {t:'But you have never been a nine second kind of love.',cls:'lead beat'},
-    {t:'So I built you this instead.',cls:'soft'}
+    'I have started this message eleven times.',
+    'Every version said the same thing badly.',
+    {t:'So I stopped writing and built you this instead.',cls:'lead beat'},
+    'It takes four minutes.',
+    {t:'Give me the four minutes.',cls:'soft'}
   ],
-  cta:'Take me somewhere'
+  cta:'Alright'
 },
 {
-  mark:'Two', photo:'beginning',
+  photo:'beginning',
   lines:[
-    'Madrid. The twenty third of April.',
-    'I had one week left in that city.',
-    'I spent all of it looking at you.',
-    {t:'Some people walk into a room.',cls:'beat'},
-    {t:'You walked into my life like weather.',cls:'lead'},
-    {t:'And I have not been dry since.',cls:'soft'}
+    'The twenty third of April.',
+    'I had one week left in Madrid and the flight home was already booked.',
+    {t:'Then you were in the room.',cls:'beat'},
+    'I spent that entire week trying to work out',
+    'how to stay in a city I was already leaving.',
+    {t:'I got on the plane anyway.',cls:'lead beat'},
+    {t:'I have been somewhere else ever since.',cls:'soft'}
   ],
   cta:'Then what'
 },
 {
-  mark:'Three', photo:'shelter',
+  photo:'shelter',
   lines:[
-    'I crossed a country for one birthday.',
-    'I paid for the seat that carried you to me.',
-    'I opened my mother’s door and said your name inside my own home.',
-    {t:'People call that generosity.',cls:'beat'},
-    'It was not.',
-    {t:'Loving you was never something I chose.',cls:'lead'},
-    {t:'It was something I obeyed.',cls:'soft'}
+    'You asked me for time, so I gave you time.',
+    'And then I went back to Madrid for your birthday.',
+    {t:'One day. I crossed a country for one day.',cls:'beat'},
+    'A few weeks later I bought the seat that carried you to France.',
+    'I opened my mother’s door and said your name inside the house I grew up in.',
+    {t:'I had never brought anyone through that door before.',cls:'beat'},
+    'And somewhere in that week you stopped being a maybe.',
+    {t:'We stopped being careful. We said it out loud.',cls:'lead'},
+    'People hear all of that and call it generous.',
+    'It was not generosity. There was no decision anywhere in it.',
+    {t:'Loving you was never a thing I chose.',cls:'lead beat'},
+    {t:'It was a thing I obeyed.',cls:'soft'}
   ],
   cta:'Keep going'
 },
 {
-  mark:'Four', photo:'hands', hold:true,
+  photo:'hands', hold:true,
   lines:[
-    {t:'Put your finger on the light.',cls:'lead'},
-    {t:'Hold it. Do not let go until it fills.',cls:'soft'}
+    {t:'Stop reading for a second.',cls:'lead'},
+    {t:'Put your finger on the light and hold it until it fills.',cls:'soft'}
   ],
   after:[
-    {t:'Six seconds felt long, did it not.',cls:'lead beat'},
-    'Now imagine holding on every single day,',
-    'without ever being sure the other person is still holding too.',
-    {t:'That is what I have been doing.',cls:'lead'},
-    {t:'And I never once let go.',cls:'soft'}
+    {t:'Six seconds is a long time to hold something.',cls:'lead beat'},
+    'Now hold it every day.',
+    'Hold it when the other person goes quiet.',
+    'Hold it when you are not sure they are still holding.',
+    {t:'That is the part nobody sees.',cls:'lead beat'},
+    {t:'I have not let go once.',cls:'soft'}
   ],
-  cta:'I understand'
+  cta:'I know'
 },
 {
-  mark:'Five', photo:'closeness',
+  photo:'closeness',
   lines:[
-    'I am going to give you something no one else has.',
-    {t:'I learned very young that sadness makes you a target,',cls:'beat'},
+    'Then you flew back to Norway.',
+    {t:'You wrote me a letter at five in the morning, sitting in the airport.',cls:'beat'},
+    'You could have slept. You wrote instead.',
+    {t:'I have read it more times than I will ever admit to you.',cls:'lead beat'},
+    'That is the version of you I keep.',
+    'Not the easy one.',
+    'The one who sits alone in a departure hall at five in the morning',
+    {t:'and writes the truth down before she loses the nerve.',cls:'soft'}
+  ],
+  cta:'Go on'
+},
+{
+  photo:'closeness',
+  lines:[
+    'Now something I have never handed to anybody.',
+    {t:'I learned young that sadness gets you hurt,',cls:'beat'},
     'so I turned all of mine into anger,',
-    'because anger at least looks like strength.',
-    {t:'I push away the people I love, so they leave before they choose to.',cls:'beat'},
-    'I have done that my entire life.',
-    {t:'I did not do it with you.',cls:'lead'},
-    'You are the only person in years I let see me with nothing on.',
-    'No armour. No performance. Just the boy underneath all of it.',
-    {t:'You have no idea what it cost me to let you that close.',cls:'soft beat'},
-    {t:'And I would pay it again tonight.',cls:'lead'}
+    'because anger at least looks like it can defend itself.',
+    {t:'And I push people away before they get the chance to leave.',cls:'beat'},
+    'I make it their idea. I have done it my whole life.',
+    {t:'It works. Everybody goes.',cls:'lead'},
+    {t:'I did not do it to you.',cls:'lead beat'},
+    'That is not a small thing. That is the whole thing.',
+    {t:'And I would let you see all of it again tomorrow.',cls:'soft'}
   ],
   cta:'Why tell me this'
 },
 {
-  mark:'Six', photo:'closeness',
+  photo:'closeness',
   lines:[
-    'Every day, you have been asking me for something.',
-    {t:'Every single day. Without missing one.',cls:'beat'},
-    'You have written it. You have sworn it. You have cried it.',
-    'You have fought for it in a way I did not know a person could fight for me.',
-    {t:'And every day, I stayed quiet.',cls:'beat'},
-    {t:'You probably thought I was not listening.',cls:'soft'}
+    'Because of what you have done every day since.',
+    {t:'You have asked me for the same thing. Every day. You have not missed one.',cls:'beat'},
+    'You have written it, sworn it, cried it,',
+    'and fought for it harder than anyone has ever fought for me.',
+    {t:'And every day I said nothing back.',cls:'beat'},
+    {t:'I know exactly what that must have felt like.',cls:'soft'}
   ],
   /* no button here. it takes itself away from her. */
   auto:2600
@@ -416,25 +407,26 @@ var FINALE = {
   lines:[
     {t:'Yes.',cls:'strike'},
     {t:'It is yours.',cls:'lead beat'},
-    'The chance you have asked me for every single day,',
-    'I am giving it to you tonight.',
+    'What you have asked me for every day,',
+    'I am giving you tonight.',
     {t:'Not because you wore me down.',cls:'beat'},
-    'Because I never stopped loving you for a single hour.',
-    {t:'Not one.',cls:'lead'},
+    'Because I never once stopped.',
+    {t:'Not for a day. Not for an hour.',cls:'lead'},
     {t:'Take it, Dania.',cls:'strike beat'},
-    {t:'It has your name written all over it.',cls:'soft'}
+    {t:'It was always going to be yours.',cls:'soft'}
   ],
   coda:[
-    'And hold it carefully.',
+    'Now hold it properly.',
+    '',
     'It is the last one I have.',
-    'Not because my love ran out,',
-    'but because a heart can only open the same door so many times,',
-    'and mine is opening it for you now. Wide. One final time.',
+    'Not because the love ran out. The love is the reason it exists.',
+    'But a door only opens so many times before the hinge gives,',
+    'and mine is open for you tonight. All the way.',
     '',
     'Walk through it.',
-    'And never make me close it.'
+    'And do not ever make me close it.'
   ],
-  sign:'Yours, always. Lunys'
+  sign:'Lunys'
 };
 
 /* ============================================================
@@ -476,11 +468,6 @@ CH.forEach(function(c,i){
   sec.id = 'ch'+i;
   var col = document.createElement('div');
   col.className = 'col';
-
-  if(c.mark){
-    var m = document.createElement('p'); m.className='chapmark'; m.textContent=c.mark;
-    col.appendChild(m);
-  }
 
   var script = document.createElement('div');
   script.className = 'script';
@@ -629,50 +616,9 @@ function finalePlay(sec){
 }
 
 /* ============================================================
-   countdown
-   ============================================================ */
-var clock = document.getElementById('clock');
-var gate  = document.getElementById('gate');
-var dH=document.getElementById('dH'), dM=document.getElementById('dM'), dS=document.getElementById('dS');
-var opened = false;
-
-function pad(n){ return (n<10?'0':'')+n; }
-
-function tick(){
-  var left = OPENS_AT - Date.now();
-  if(left <= 0){ openGate(); return; }
-  var s = Math.floor(left/1000);
-  var d = Math.floor(s/86400);
-  dH.textContent = pad(Math.floor(s/3600) % 24 + d*24);
-  dM.textContent = pad(Math.floor(s/60) % 60);
-  dS.textContent = pad(s % 60);
-  requestAnimationFrame(function(){ setTimeout(tick, 250); });
-}
-
-function openGate(){
-  if(opened) return;
-  opened = true;
-  clock.classList.add('done');
-  dH.textContent='00'; dM.textContent='00'; dS.textContent='00';
-  document.getElementById('clkLabel').textContent='It is time';
-  setTimeout(function(){
-    clock.classList.remove('on');
-    setTimeout(function(){ gate.classList.add('on'); document.getElementById('gin').focus(); }, 1500);
-  }, 2200);
-}
-
-if(Date.now() >= OPENS_AT){
-  clock.classList.remove('on');
-  gate.classList.add('on');
-  opened = true;
-} else {
-  showPlate(null);
-  tick();
-}
-
-/* ============================================================
    date lock
    ============================================================ */
+var gate = document.getElementById('gate');
 var gin=document.getElementById('gin'), gerr=document.getElementById('gerr');
 var tries=0;
 var MISS=[
@@ -743,7 +689,7 @@ function unlock(){
     btn.classList.remove('active');
     btn.querySelector('span').textContent='thank you';
     motes.pull(0); motes.lift();
-    var af=document.getElementById('after'), sec=document.getElementById('ch3');
+    var af=document.getElementById('after'), sec=btn.closest('.screen');
     af.classList.add('open');
     setTimeout(function(){
       reveal(af, 0, function(){ sec.querySelector('.ctawrap').classList.add('show'); });
