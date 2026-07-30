@@ -1,0 +1,1040 @@
+<title>For Dania</title>
+
+<div id="stage">
+
+  <!-- the background is lit by whatever photograph is on screen -->
+  <div class="aura" id="auraA"></div>
+  <div class="aura" id="auraB"></div>
+
+  <!-- full bleed photography, crossfaded, dissolved at the edges -->
+  <div class="plate" id="plateA"><img alt=""></div>
+  <div class="plate" id="plateB"><img alt=""></div>
+  <div id="scrim"></div>
+
+  <canvas id="motes"></canvas>
+  <div id="halo"></div>
+  <div id="grain"></div>
+
+  <!-- ============ DATE LOCK ============ -->
+  <section id="gate" class="screen mid on">
+    <div class="col">
+      <p class="label">One person only</p>
+      <h1 class="display">If this is you,<br>you know the day.</h1>
+      <form id="gform" autocomplete="off">
+        <input id="gin" inputmode="numeric" placeholder="DD  MM  YYYY" maxlength="14" aria-label="date">
+        <button id="gbtn" class="cta" type="submit"><span>Open</span></button>
+      </form>
+      <p id="gerr" class="gerr"></p>
+    </div>
+  </section>
+
+  <!-- ============ CHAPTERS ============ -->
+  <div id="chapters"></div>
+
+  <canvas id="heart"></canvas>
+  <div id="bloom"></div>
+
+</div>
+
+<style>
+:root{
+  /* no invented palette. every colour on this page is pulled out of the
+     photograph currently on screen, so the room is lit by their own light. */
+  --ground:#0b0a0e;
+  --ink:#fdf6ec;
+  --dim:rgba(253,246,236,.78);
+  --faint:rgba(253,246,236,.5);
+  --hair:rgba(253,246,236,.3);
+  --tintA:#3a3f52;
+  --tintB:#4a3b3f;
+
+  /* Didot is a magazine face: its thin strokes are hairlines. It only earns
+     its place at very large sizes on a dark ground. Everything else uses a
+     face built to survive over a photograph. */
+  --display:Didot,'Bodoni 72','Bodoni MT','Didot LT STD',Georgia,serif;
+  --body:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --util:Futura,'Avenir Next','Helvetica Neue',-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--ground);color:var(--ink);font-family:var(--body);
+  overflow:hidden;-webkit-font-smoothing:antialiased;overscroll-behavior:none;
+}
+#stage{position:fixed;inset:0;overflow:hidden}
+
+/* ---------------- photography ---------------- */
+.plate{
+  position:fixed;inset:0;z-index:1;opacity:0;
+  transition:opacity 2.6s cubic-bezier(.4,0,.2,1);
+  will-change:opacity;
+}
+.plate.on{opacity:1}
+.plate img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  /* the frame has no edge. it dissolves into the room. */
+  -webkit-mask-image:radial-gradient(ellipse 94% 78% at 50% 40%,#000 42%,rgba(0,0,0,.66) 70%,transparent 94%);
+  mask-image:radial-gradient(ellipse 94% 78% at 50% 40%,#000 42%,rgba(0,0,0,.66) 70%,transparent 94%);
+  filter:saturate(1.24) contrast(1.03) brightness(.92);
+  transform:scale(1.02);
+  transition:filter 3.4s ease,-webkit-mask-image 3s ease,mask-image 3s ease;
+  animation:breathe 42s ease-in-out infinite alternate;
+}
+@keyframes breathe{from{transform:scale(1.02)}to{transform:scale(1.14)}}
+
+/* the memories arrive as fragments in the dark. the present fills the frame. */
+body.full .plate img{
+  -webkit-mask-image:none;mask-image:none;
+  filter:saturate(1.3) contrast(1.02) brightness(1.02);
+}
+
+#scrim{
+  position:fixed;inset:0;z-index:2;pointer-events:none;
+  transition:opacity 3.4s ease;
+  /* clear at the top so the picture is actually seen, weight at the bottom
+     so the narration always has something to sit on */
+  background:
+    linear-gradient(180deg,
+      rgba(11,10,14,.42) 0%,
+      rgba(11,10,14,0) 20%,
+      rgba(11,10,14,.26) 42%,
+      rgba(11,10,14,.72) 58%,
+      rgba(11,10,14,.93) 74%,
+      rgba(11,10,14,.99) 88%);
+}
+body.full #scrim{opacity:1}
+/* the loud part is over. the light comes down so the last words can be heard. */
+body.hush .plate img{filter:saturate(1.1) contrast(1.02) brightness(.42)}
+body.hush #scrim{opacity:1}
+
+/* two soft lamps behind everything, wearing the colours of the photograph */
+.aura{
+  position:fixed;border-radius:50%;filter:blur(84px);z-index:0;pointer-events:none;
+  opacity:0;will-change:transform,opacity;
+  transition:background-color 3s ease,opacity 3s ease;
+}
+#auraA{width:96vmax;height:96vmax;left:-32vmax;top:-36vmax;background-color:var(--tintA);animation:drift1 34s ease-in-out infinite}
+#auraB{width:82vmax;height:82vmax;right:-30vmax;bottom:-28vmax;background-color:var(--tintB);animation:drift2 40s ease-in-out infinite}
+.aura.lit{opacity:.62}
+@keyframes drift1{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(6vmax,4vmax,0) scale(1.16)}}
+@keyframes drift2{0%,100%{transform:translate3d(0,0,0) scale(1.08)}50%{transform:translate3d(-7vmax,-4vmax,0) scale(.94)}}
+#halo{
+  position:fixed;left:50%;top:24%;width:118vmax;height:118vmax;z-index:0;
+  transform:translate(-50%,-50%);pointer-events:none;
+  background:radial-gradient(circle,rgba(255,240,220,.075),transparent 56%);
+  animation:pulse 14s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
+#motes{position:fixed;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
+#grain{
+  position:fixed;inset:-6%;z-index:4;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  animation:shift 620ms steps(2) infinite;
+}
+@keyframes shift{0%{transform:translate(0,0)}50%{transform:translate(-2%,1.6%)}100%{transform:translate(0,0)}}
+
+/* ---------------- screens ---------------- */
+.screen{
+  position:fixed;inset:0;z-index:20;padding:0 30px;
+  display:flex;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity 1.5s ease,visibility 0s linear 1.5s;
+}
+.screen.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity 1.9s ease,visibility 0s}
+/* narration sits low and left, the way a voice sits under a picture */
+/* dvh, not vh: on iPhone the address bar is inside vh but not inside the
+   part of the screen you can actually see */
+.screen.low{
+  align-items:flex-end;
+  padding-bottom:max(9vh,64px);
+  padding-bottom:calc(max(7dvh,58px) + env(safe-area-inset-bottom,0px));
+}
+/* the narration brings its own ground with it, so legibility never depends
+   on whether the photograph happens to be bright in that corner */
+.screen.low::before{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:66%;
+  z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(9,8,12,0) 0%,
+    rgba(9,8,12,.42) 26%,
+    rgba(9,8,12,.76) 52%,
+    rgba(9,8,12,.92) 78%,
+    rgba(9,8,12,.96) 100%);
+}
+.screen.mid{align-items:center;justify-content:center;text-align:center}
+.col{width:100%;max-width:520px}
+.screen.low .col{margin-right:auto}
+.screen.mid .col{margin:0 auto}
+
+/* ---------------- type ---------------- */
+.label{
+  font-family:var(--util);font-size:9.5px;letter-spacing:.46em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:26px;
+}
+.display{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(30px,8.2vw,52px);line-height:1.16;letter-spacing:-.012em;
+  text-wrap:balance;
+}
+/* narration behaves like subtitles: lines rise, older ones recede and slip
+   out through the fade at the top. she never has to scroll. */
+.script{position:relative}
+.script::-webkit-scrollbar{width:0;height:0;display:none}
+.screen.low .script{
+  max-height:46vh;max-height:44dvh;
+  /* no scroll-behavior:smooth here. it would also smooth her own dragging,
+     which makes the text feel like it is resisting her thumb. */
+  /* she can drag it back up to reread. no visible bar, it would break the page. */
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  transition:opacity 2s ease;
+}
+/* the fade only exists once there is something above to fade out. applying it
+   from the start was eating the first line of every screen. */
+.screen.low .script.faded{
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 18%);
+}
+.line{
+  font-size:clamp(18px,4.7vw,22px);line-height:1.7;color:var(--ink);
+  margin-bottom:14px;opacity:0;transform:translateY(14px);
+  /* every line carries its own night, so it holds up over a bright frame */
+  text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 24px rgba(0,0,0,.85);
+  transition:opacity 1.6s ease,transform 1.8s cubic-bezier(.19,1,.22,1),color 1.4s ease;
+}
+.line.show{opacity:1;transform:none}
+/* read lines step back, but they stay readable. at .52 they were measuring a
+   contrast ratio of 1.1 over a bright frame, which is not stepping back, it
+   is disappearing. */
+.line.past{
+  opacity:.72;
+  text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 26px rgba(0,0,0,.92);
+}
+.line.lead{
+  font-family:var(--body);font-size:clamp(25px,6.6vw,37px);line-height:1.24;
+  letter-spacing:-.006em;margin:24px 0 20px;text-wrap:balance;
+  text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 30px rgba(0,0,0,.85);
+}
+.line.soft{font-size:clamp(14.5px,3.8vw,17px);color:var(--dim);font-style:italic}
+.line.beat{margin-top:30px}
+.line.strike{
+  font-family:var(--display);font-size:clamp(34px,10.5vw,68px);line-height:1.08;
+  letter-spacing:-.02em;margin:0;text-wrap:balance;
+}
+
+/* ---------------- controls ---------------- */
+.cta{
+  display:inline-block;margin-top:38px;padding:0 0 8px;cursor:pointer;
+  background:none;border:0;border-bottom:1px solid rgba(253,246,236,.55);
+  color:var(--ink);font-family:var(--util);
+  font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+  text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 20px rgba(0,0,0,.85);
+  transition:border-color .7s ease,letter-spacing .7s ease,opacity .5s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.cta:hover{border-color:var(--ink);letter-spacing:.4em}
+.cta:focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+.ctawrap{opacity:0;transform:translateY(10px);transition:opacity 1.5s ease,transform 1.5s ease}
+.ctawrap.show{opacity:1;transform:none}
+
+#gform{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:4px}
+#gin{
+  width:100%;max-width:280px;padding:14px 0;text-align:center;
+  background:none;border:0;border-bottom:1px solid rgba(253,246,236,.42);border-radius:0;
+  color:var(--ink);font-family:var(--body);font-size:23px;letter-spacing:.14em;
+  outline:none;transition:border-color .6s ease;
+}
+#gin::placeholder{font-family:var(--util);font-size:11px;letter-spacing:.3em;color:var(--faint)}
+#gin:focus{border-color:var(--ink)}
+.gerr{
+  margin-top:24px;min-height:16px;font-size:13px;font-style:italic;
+  color:var(--dim);opacity:0;transition:opacity .6s ease;
+}
+.gerr.on{opacity:1}
+.shake{animation:shake .5s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+
+/* ---------------- hold ---------------- */
+.holdwrap{margin-top:40px;width:132px;height:132px;position:relative;opacity:0;transition:opacity 1.6s ease}
+.holdwrap.show{opacity:1}
+/* she has to find this without being told twice, over any photograph */
+#holdBtn{
+  position:absolute;inset:0;border-radius:50%;border:1px solid rgba(253,246,236,.5);
+  background:radial-gradient(circle,rgba(20,16,14,.5),rgba(20,16,14,.22) 62%,transparent 76%);
+  cursor:pointer;display:grid;place-items:center;
+  -webkit-tap-highlight-color:transparent;touch-action:none;
+  box-shadow:0 0 0 0 rgba(253,246,236,.28),0 6px 40px rgba(0,0,0,.6);
+  animation:findme 3s ease-in-out infinite;
+  transition:transform .5s ease,box-shadow .8s ease;
+}
+@keyframes findme{
+  0%,100%{box-shadow:0 0 0 0 rgba(253,246,236,.26),0 6px 40px rgba(0,0,0,.6)}
+  50%{box-shadow:0 0 0 16px rgba(253,246,236,0),0 6px 40px rgba(0,0,0,.6)}
+}
+#holdBtn.active{animation:none;transform:scale(1.05);box-shadow:0 0 90px rgba(253,246,236,.4)}
+#holdBtn span{
+  font-family:var(--util);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ink);pointer-events:none;text-align:center;line-height:2;
+  text-shadow:0 1px 4px rgba(0,0,0,.95);
+}
+.ring{position:absolute;inset:0;transform:rotate(-90deg);pointer-events:none}
+.ring circle{fill:none;stroke-width:1.4;stroke-linecap:round}
+.ring .bg{stroke:rgba(253,246,236,.24)}
+.ring .fg{stroke:var(--ink);transition:stroke-dashoffset .1s linear;filter:drop-shadow(0 0 6px rgba(253,246,236,.7))}
+#after{max-height:0;overflow:hidden;transition:max-height 1.8s ease}
+#after.open{max-height:34vh;max-height:32dvh}
+
+/* ---------------- the ask ---------------- */
+.ask{
+  margin-top:56px;padding:16px 40px;cursor:pointer;border-radius:0;
+  background:none;border:1px solid var(--hair);color:var(--ink);
+  font-family:var(--util);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;
+  opacity:0;transition:opacity 2s ease,border-color .7s ease,background .7s ease,transform .3s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.ask.show{opacity:1}
+.ask:hover{border-color:var(--ink);background:rgba(241,236,228,.05)}
+.ask:active{transform:scale(.98)}
+
+/* ---------------- heart + bloom ---------------- */
+#heart{position:fixed;inset:0;width:100%;height:100%;z-index:30;display:none;pointer-events:none}
+#bloom{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 46%,#fffaf0,rgba(255,246,228,.4) 36%,transparent 74%)}
+
+/* ---------------- finale ---------------- */
+#finale .col{max-width:560px}
+#finale .line,#finale .coda,#finale .sign{
+  text-shadow:0 1px 3px rgba(0,0,0,.85),0 3px 30px rgba(0,0,0,.9),0 0 70px rgba(0,0,0,.7);
+}
+#finale .line.past{opacity:.75}
+/* kept out of the flow entirely until it is their turn, so the lines above
+   stay anchored to the bottom of the frame instead of floating up */
+.coda{
+  display:none;margin-top:0;padding-top:30px;border-top:1px solid var(--hair);
+  font-size:clamp(13.5px,3.5vw,15px);line-height:1.95;
+  color:rgba(241,236,228,.86);font-style:italic;
+  opacity:0;transition:opacity 3.2s ease;
+}
+.coda.show{opacity:1}
+.coda p+p{margin-top:4px}
+.sign{
+  display:none;margin-top:40px;font-family:var(--util);font-size:10px;letter-spacing:.4em;
+  text-transform:uppercase;color:var(--faint);
+  opacity:0;transition:opacity 2.4s ease;
+}
+.sign.show{opacity:1}
+
+@media (max-width:400px){ .screen{padding:0 24px} }
+@media (prefers-reduced-motion:reduce){
+  .plate img{animation:none}
+  #grain,#halo{animation:none}
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+
+if(!document.querySelector('meta[name="viewport"]')){
+  var mv=document.createElement('meta');
+  mv.name='viewport';
+  mv.content='width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1';
+  document.head.appendChild(mv);
+}
+
+var KEY = { d:23, m:4 };
+
+var PH = {
+  beginning : "__PHOTO_beginning__",
+  shelter   : "__PHOTO_shelter__",
+  hands     : "__PHOTO_hands__",
+  closeness : "__PHOTO_closeness__",
+  final     : "__PHOTO_final__"
+};
+var FOCUS = {
+  beginning:'50% 30%', shelter:'50% 46%', hands:'50% 46%',
+  closeness:'50% 30%', final:'50% 42%'
+};
+/* two dominant colours per photograph, measured from the image at build time */
+var TINTS = "__TINTS__";
+
+var AUDIO_SRC = "__AUDIO__";
+
+/* told in the order it actually happened: Madrid, the birthday, France and
+   my mother's door, the airport at five in the morning, then every day since */
+var CH = [
+{
+  dark:true, tint:'final',
+  lines:[
+    'I have started this message eleven times.',
+    'Every version said the same thing badly.',
+    {t:'So I stopped writing and built you this instead.',cls:'lead beat'},
+    'It takes four minutes.',
+    {t:'Give me the four minutes.',cls:'soft'}
+  ],
+  cta:'Alright'
+},
+{
+  photo:'beginning',
+  lines:[
+    'The twenty third of April.',
+    'I had one week left in Madrid and the flight home was already booked.',
+    {t:'Then you were in the room.',cls:'beat'},
+    'I spent that entire week trying to work out',
+    'how to stay in a city I was already leaving.',
+    {t:'I got on the plane anyway.',cls:'lead beat'},
+    {t:'I have been somewhere else ever since.',cls:'soft'}
+  ],
+  cta:'Then what'
+},
+{
+  photo:'shelter',
+  lines:[
+    'You asked me for time, so I gave you time.',
+    {t:'A month later I was back in Madrid.',cls:'beat'},
+    'Four days. Your birthday sat in the middle of them.',
+    {t:'I did not book that flight for the city.',cls:'lead'},
+    'Then I bought the seat that carried you to France.',
+    'I opened my mother’s door and said your name inside the house I grew up in.',
+    {t:'I had never brought anyone through that door before.',cls:'beat'},
+    'And somewhere in that week you stopped being a maybe.',
+    {t:'We stopped being careful. We said it out loud.',cls:'lead'},
+    'People hear all of that and call it generous.',
+    'It was not generosity. There was no decision anywhere in it.',
+    {t:'Loving you was never a thing I chose.',cls:'lead beat'},
+    {t:'It was a thing I obeyed.',cls:'soft'}
+  ],
+  cta:'Keep going'
+},
+{
+  photo:'hands', hold:true,
+  lines:[
+    {t:'Stop reading for a second.',cls:'lead'},
+    {t:'Put your finger on the light and hold it until it fills.',cls:'soft'}
+  ],
+  after:[
+    {t:'Six seconds is a long time to hold something.',cls:'lead beat'},
+    'Now hold it every day.',
+    'Hold it when the other person goes quiet.',
+    'Hold it when you are not sure they are still holding.',
+    {t:'That is the part nobody sees.',cls:'lead beat'},
+    {t:'I have not let go once.',cls:'soft'}
+  ],
+  cta:'I know'
+},
+{
+  photo:'closeness',
+  lines:[
+    'Then you flew back to Norway.',
+    {t:'You wrote me a letter at five in the morning, sitting in the airport.',cls:'beat'},
+    'You could have slept. You wrote instead.',
+    {t:'I have read it more times than I will ever admit to you.',cls:'lead beat'},
+    'That is the version of you I keep.',
+    'Not the easy one.',
+    'The one who sits alone in a departure hall at five in the morning',
+    {t:'and writes the truth down before she loses the nerve.',cls:'soft'}
+  ],
+  cta:'Go on'
+},
+{
+  photo:'closeness',
+  lines:[
+    'Now something I have never handed to anybody.',
+    {t:'I learned young that sadness gets you hurt,',cls:'beat'},
+    'so I turned all of mine into anger,',
+    'because anger at least looks like it can defend itself.',
+    {t:'And I push people away before they get the chance to leave.',cls:'beat'},
+    'I make it their idea. I have done it my whole life.',
+    {t:'It works. Everybody goes.',cls:'lead'},
+    {t:'I did not do it to you.',cls:'lead beat'},
+    'That is not a small thing. That is the whole thing.',
+    {t:'And I would let you see all of it again tomorrow.',cls:'soft'}
+  ],
+  cta:'Why tell me this'
+},
+{
+  photo:'closeness',
+  lines:[
+    'Because of what you have done every day since.',
+    {t:'You have asked me for the same thing. Every day. You have not missed one.',cls:'beat'},
+    'You have written it, sworn it, cried it,',
+    'and fought for it harder than anyone has ever fought for me.',
+    {t:'And every day I said nothing back.',cls:'beat'},
+    {t:'I know exactly what that must have felt like.',cls:'soft'}
+  ],
+  /* no button here. it takes itself away from her. */
+  auto:2600
+},
+{
+  mid:true, dark:true,
+  lines:[{t:'I heard every single word.',cls:'strike'}],
+  cta:'And'
+},
+{
+  mid:true, dark:true,
+  lines:[{t:'Ask me one more time.',cls:'strike'}],
+  ask:'Give me my chance'
+}
+];
+
+var FINALE = {
+  photo:'final',
+  lines:[
+    {t:'Yes.',cls:'strike'},
+    {t:'It is yours.',cls:'lead beat'},
+    'What you have asked me for every day,',
+    'I am giving you tonight.',
+    {t:'Not because you wore me down.',cls:'beat'},
+    'Because I never once stopped.',
+    {t:'Not for a day. Not for an hour.',cls:'lead'},
+    {t:'Take it, Dania.',cls:'strike beat'},
+    {t:'It was always going to be yours.',cls:'soft'}
+  ],
+  coda:[
+    'Now hold it properly.',
+    '',
+    'It is the last one I have.',
+    'Not because the love ran out. The love is the reason it exists.',
+    'But a door only opens so many times before the hinge gives,',
+    'and mine is open for you tonight. All the way.',
+    '',
+    'Walk through it.',
+    'And do not ever make me close it.'
+  ],
+  sign:'Lunys'
+};
+
+/* ============================================================
+   plates
+   ============================================================ */
+var plates = [document.getElementById('plateA'), document.getElementById('plateB')];
+var auras  = [document.getElementById('auraA'), document.getElementById('auraB')];
+var plateTop = 0, plateKey = null;
+
+function setTint(key){
+  var t = TINTS && TINTS[key];
+  if(!t) return;
+  document.documentElement.style.setProperty('--tintA', t[0]);
+  document.documentElement.style.setProperty('--tintB', t[1] || t[0]);
+  auras.forEach(function(a){ a.classList.add('lit'); });
+}
+function unlit(){ auras.forEach(function(a){ a.classList.remove('lit'); }); }
+
+/* key drives the photograph, tintKey lights the room without showing one */
+function showPlate(key, tintKey){
+  var lightWith = tintKey || key;
+  if(lightWith) setTint(lightWith); else unlit();
+
+  if(key === plateKey) return;
+  plateKey = key;
+  var next = plates[1-plateTop], cur = plates[plateTop];
+  if(!key){ cur.classList.remove('on'); return; }
+  var img = next.querySelector('img');
+  img.src = PH[key];
+  img.style.objectPosition = FOCUS[key] || '50% 50%';
+  next.classList.add('on');
+  cur.classList.remove('on');
+  plateTop = 1-plateTop;
+}
+
+/* the door she knocks on is already warm */
+setTint('final');
+
+/* ============================================================
+   build
+   ============================================================ */
+var chaptersEl = document.getElementById('chapters');
+var screens = [];
+
+function mkLine(item){
+  var o = (typeof item === 'string') ? {t:item,cls:''} : item;
+  var el = document.createElement('p');
+  el.className = 'line ' + (o.cls||'');
+  el.textContent = o.t;
+  return el;
+}
+
+CH.forEach(function(c,i){
+  var sec = document.createElement('section');
+  sec.className = 'screen ' + (c.mid ? 'mid' : 'low');
+  sec.id = 'ch'+i;
+  var col = document.createElement('div');
+  col.className = 'col';
+
+  var script = document.createElement('div');
+  script.className = 'script';
+  (c.lines||[]).forEach(function(l){ script.appendChild(mkLine(l)); });
+  col.appendChild(script);
+
+  if(c.hold){
+    var hw = document.createElement('div');
+    hw.className='holdwrap';
+    hw.innerHTML =
+      '<svg class="ring" viewBox="0 0 132 132">'+
+        '<circle class="bg" cx="66" cy="66" r="63"/>'+
+        '<circle class="fg" cx="66" cy="66" r="63" stroke-dasharray="395.8" stroke-dashoffset="395.8"/>'+
+      '</svg>'+
+      '<button id="holdBtn" type="button"><span>hold</span></button>';
+    col.appendChild(hw);
+    var af = document.createElement('div'); af.id='after'; af.className='script';
+    c.after.forEach(function(l){ af.appendChild(mkLine(l)); });
+    col.appendChild(af);
+  }
+
+  if(c.ask){
+    var ab = document.createElement('button');
+    ab.type='button'; ab.className='ask'; ab.id='askBtn'; ab.textContent=c.ask;
+    col.appendChild(ab);
+  } else if(c.cta){
+    var cw = document.createElement('div'); cw.className='ctawrap';
+    var b = document.createElement('button');
+    b.type='button'; b.className='cta'; b.textContent=c.cta;
+    b.addEventListener('click', function(){ go(i+1); });
+    cw.appendChild(b); col.appendChild(cw);
+  }
+
+  sec.appendChild(col);
+  chaptersEl.appendChild(sec);
+  screens.push(sec);
+});
+
+(function(){
+  var sec = document.createElement('section');
+  sec.className='screen low'; sec.id='finale';
+  var col = document.createElement('div'); col.className='col';
+  var script = document.createElement('div'); script.className='script';
+  FINALE.lines.forEach(function(l){ script.appendChild(mkLine(l)); });
+  col.appendChild(script);
+  var coda = document.createElement('div'); coda.className='coda';
+  FINALE.coda.forEach(function(t){
+    var p=document.createElement('p'); p.textContent=t;
+    if(!t) p.style.height='.9em';
+    coda.appendChild(p);
+  });
+  col.appendChild(coda);
+  var sg = document.createElement('p'); sg.className='sign'; sg.textContent=FINALE.sign;
+  col.appendChild(sg);
+  sec.appendChild(col);
+  chaptersEl.appendChild(sec);
+  screens.push(sec);
+})();
+
+/* ============================================================
+   reveal
+   ============================================================ */
+var timers = [];
+function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
+function T(fn,ms){ timers.push(setTimeout(fn,ms)); }
+
+/* The top edge only fades once a line has actually gone above it, so the
+   first line is never born inside the fade. */
+function syncFade(root){
+  root.classList.toggle('faded', root.scrollTop > 6);
+}
+
+/* If she drags the text back up to reread, stop hauling her down every time a
+   new line lands. Her hand wins until the next screen.
+
+   This listens for the gesture itself rather than inferring it from scroll
+   positions: setting scrollTop fires the very same scroll event a finger
+   does, so position alone cannot tell the page's scrolling from hers. */
+function wireScroll(root){
+  root.dataset.stick = '1';
+  ['wheel','touchmove'].forEach(function(ev){
+    root.addEventListener(ev, function(){ root.dataset.stick = '0'; }, {passive:true});
+  });
+  root.addEventListener('scroll', function(){ syncFade(root); }, {passive:true});
+}
+function followTo(root,top){
+  try{ root.scrollTo({top:top, behavior:'smooth'}); }
+  catch(e){ root.scrollTop = top; }
+}
+function releaseScroll(root){ root.dataset.stick = '1'; }
+document.querySelectorAll('.script').forEach(wireScroll);
+
+function reveal(root,start,done){
+  var els = root.querySelectorAll('.line:not(.show)');
+  var t = start, shown = [];
+  els.forEach(function(el){
+    (function(e,d){
+      T(function(){
+        e.classList.add('show');
+        shown.push(e);
+        /* let everything but the last two sink back */
+        for(var k=0;k<shown.length-2;k++) shown[k].classList.add('past');
+        /* Rest the newest line on the floor of the frame. Scrolling to the
+           bottom of the box instead would carry it off the top, because the
+           lines that have not appeared yet still take up their space. */
+        if(root.dataset.stick === '0'){
+          /* she is reading back through it. leave her alone. */
+        } else if(root.scrollHeight > root.clientHeight + 2){
+          followTo(root, Math.max(0, e.offsetTop + e.offsetHeight - root.clientHeight + 10));
+          syncFade(root);
+        } else {
+          root.classList.remove('faded');
+        }
+      }, d);
+    })(el,t);
+    /* pace it for reading, not for getting to the end. a line of eight words
+       now sits for a little over two seconds before the next one arrives. */
+    var words = (el.textContent||'').split(/\s+/).length;
+    t += 1200 + words*115
+       + (el.classList.contains('lead')   ? 700 : 0)
+       + (el.classList.contains('strike') ? 1400 : 0);
+    if(el.classList.contains('beat')) t += 700;
+  });
+  if(done) T(done, t + 420);
+  return t;
+}
+
+var current = -1;
+
+function go(index){
+  clearTimers();
+  var prev = current; current = index;
+  if(prev >= 0 && screens[prev]) screens[prev].classList.remove('on');
+
+  var c = (index < CH.length) ? CH[index] : FINALE;
+  var sec = screens[index];
+
+  T(function(){
+    showPlate(c.dark ? null : c.photo, c.tint);
+    sec.classList.add('on');
+    /* a new screen starts following again, whatever she did on the last one */
+    sec.querySelectorAll('.script').forEach(releaseScroll);
+
+    if(index === CH.length){ finalePlay(sec); return; }
+    if(c.hold){ holdPlay(sec); return; }
+
+    reveal(sec.querySelector('.script'), c.mid ? 1500 : 900, function(){
+      if(c.auto){ T(function(){ go(index+1); }, c.auto); return; }
+      if(c.ask){ T(function(){ document.getElementById('askBtn').classList.add('show'); }, 1800); return; }
+      sec.querySelector('.ctawrap').classList.add('show');
+    });
+  }, prev >= 0 ? 1300 : 900);
+}
+
+function holdPlay(sec){
+  var lines = sec.querySelectorAll('.script:not(#after) .line');
+  var t = 1000;
+  lines.forEach(function(el){
+    (function(e,d){ T(function(){ e.classList.add('show'); }, d); })(el,t);
+    t += 1200 + el.textContent.split(/\s+/).length*115;
+  });
+  T(function(){ sec.querySelector('.holdwrap').classList.add('show'); }, t + 300);
+}
+
+function finalePlay(sec){
+  /* the mask comes off. for the first time the picture fills the whole frame. */
+  document.body.classList.add('full');
+  var script = sec.querySelector('.script');
+
+  function bringIn(el,delay){
+    T(function(){
+      el.style.display='block';
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ el.classList.add('show'); });
+      });
+    }, delay);
+  }
+
+  reveal(script, 1600, function(){
+    /* the loud part steps aside and leaves the quiet part alone with her */
+    T(function(){ script.style.opacity='0'; }, 2800);
+    T(function(){ script.style.display='none'; }, 4400);
+    T(function(){ document.body.classList.add('hush'); }, 3600);
+    bringIn(sec.querySelector('.coda'), 4600);
+    bringIn(sec.querySelector('.sign'), 8200);
+  });
+}
+
+/* ============================================================
+   date lock
+   ============================================================ */
+var gate = document.getElementById('gate');
+var gin=document.getElementById('gin'), gerr=document.getElementById('gerr');
+var tries=0;
+var MISS=[
+  'Not that one. Take your time.',
+  'Still not it. Think about where it started.',
+  'Madrid. Spring. The twenty third.',
+  'Day first, then month. Twenty three. Zero four.'
+];
+
+gin.addEventListener('input', function(){
+  var v = gin.value.replace(/[^0-9]/g,'').slice(0,8), out=v;
+  if(v.length>4) out = v.slice(0,2)+'  '+v.slice(2,4)+'  '+v.slice(4);
+  else if(v.length>2) out = v.slice(0,2)+'  '+v.slice(2);
+  gin.value = out;
+  gerr.classList.remove('on');
+});
+
+document.getElementById('gform').addEventListener('submit', function(e){
+  e.preventDefault();
+  var parts = gin.value.split(/[^0-9]+/).filter(Boolean), d, m;
+  if(parts.length === 1 && parts[0].length >= 4){ d=+parts[0].slice(0,2); m=+parts[0].slice(2,4); }
+  else { d=+parts[0]; m=+parts[1]; }
+  if(d === KEY.d && m === KEY.m){ unlock(); return; }
+  gerr.textContent = MISS[Math.min(tries,MISS.length-1)];
+  gerr.classList.add('on'); tries++;
+  var col = gate.querySelector('.col');
+  col.classList.remove('shake'); void col.offsetWidth; col.classList.add('shake');
+});
+
+function unlock(){
+  gin.blur();
+  startAudio();
+  gate.classList.remove('on');
+  go(0);
+}
+
+/* ============================================================
+   hold
+   ============================================================ */
+(function(){
+  var HOLD = 6000, btn = document.getElementById('holdBtn');
+  if(!btn) return;
+  var ring = document.querySelector('.ring .fg'), CIRC = 395.8;
+  var raf=null, t0=0, done=false, holding=false;
+
+  function frame(){
+    var p = Math.min(1,(performance.now()-t0)/HOLD);
+    ring.style.strokeDashoffset = CIRC*(1-p);
+    motes.pull(p);
+    if(p>=1){ finish(); return; }
+    raf = requestAnimationFrame(frame);
+  }
+  function start(e){
+    if(done) return;
+    if(e && e.cancelable) e.preventDefault();
+    holding=true; t0=performance.now(); btn.classList.add('active');
+    raf=requestAnimationFrame(frame);
+  }
+  function stop(){
+    if(done||!holding) return;
+    holding=false; cancelAnimationFrame(raf); btn.classList.remove('active');
+    ring.style.transition='stroke-dashoffset .8s ease';
+    ring.style.strokeDashoffset=CIRC; motes.pull(0);
+    setTimeout(function(){ ring.style.transition='stroke-dashoffset .1s linear'; },820);
+  }
+  function finish(){
+    done=true; holding=false; cancelAnimationFrame(raf);
+    btn.classList.remove('active');
+    btn.querySelector('span').textContent='thank you';
+    motes.pull(0); motes.lift();
+    var af=document.getElementById('after'), sec=btn.closest('.screen');
+    af.classList.add('open');
+    setTimeout(function(){
+      reveal(af, 0, function(){ sec.querySelector('.ctawrap').classList.add('show'); });
+    }, 800);
+  }
+  btn.addEventListener('mousedown',start);
+  btn.addEventListener('touchstart',start,{passive:false});
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach(function(ev){ btn.addEventListener(ev,stop); });
+})();
+
+/* ============================================================
+   the ask
+   ============================================================ */
+(function(){
+  var btn=document.getElementById('askBtn');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    btn.disabled=true;
+    btn.style.transition='opacity 1.2s ease'; btn.style.opacity='0';
+    var sec=screens[CH.length-1];
+    sec.querySelectorAll('.line').forEach(function(l){
+      l.style.transition='opacity 1.6s ease'; l.style.opacity='0';
+    });
+    motes.fade(0,1400);
+    setTimeout(function(){ sec.classList.remove('on'); heartShow(); }, 2600);
+  });
+})();
+
+/* ============================================================
+   particle heart
+   ============================================================ */
+var heartCv=document.getElementById('heart'), hctx=heartCv.getContext('2d');
+var hParts=[], hRaf=null, hStart=0, hExplode=0, hDPR=1;
+
+function heartGeometry(n){
+  var pts=[];
+  for(var i=0;i<n;i++){
+    var t=Math.random()*Math.PI*2;
+    var shell=Math.random()<.62;
+    var s=shell ? (0.96+Math.random()*0.04) : Math.pow(Math.random(),.36)*0.93;
+    var x=16*Math.pow(Math.sin(t),3);
+    var y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
+    x*=s; y*=s;
+    var bulge=Math.sqrt(Math.max(0,1-s*s));
+    var z=shell ? (Math.random()*2-1)*0.9 : (Math.random()*2-1)*bulge*5.6;
+    var roll=Math.random();
+    pts.push({x:x,y:-y,z:z,ox:x,oy:-y,oz:z,vx:0,vy:0,vz:0,
+              tw:Math.random()*Math.PI*2,
+              sz:shell?(1.1+Math.random()*1.2):(.5+Math.random()*.9),
+              c: roll<.34 ? '244,150,168' : roll<.68 ? '252,206,138' : '255,244,232',
+              shell:shell});
+  }
+  return pts;
+}
+
+function heartShow(){
+  hDPR=Math.min(2,window.devicePixelRatio||1);
+  heartCv.width=innerWidth*hDPR; heartCv.height=innerHeight*hDPR;
+  heartCv.style.display='block';
+  hParts=heartGeometry(innerWidth<560?1400:2300);
+  hStart=performance.now(); hExplode=0;
+  hLoop();
+  setTimeout(function(){ hExplode=performance.now(); bloom(1,1600); }, 4400);
+  setTimeout(function(){
+    motes.fade(1,2600); motes.lift();
+    go(CH.length);
+  }, 5500);
+  setTimeout(function(){
+    heartCv.style.display='none';
+    if(hRaf) cancelAnimationFrame(hRaf);
+  }, 7900);
+}
+
+function hLoop(){
+  var now=performance.now(), age=(now-hStart)/1000;
+  var W=heartCv.width, H=heartCv.height;
+  hctx.clearRect(0,0,W,H);
+
+  var appear=Math.min(1,age/1.6);
+  var beat=1+Math.sin(age*2.4)*0.05*Math.min(1,age/1.2);
+  var rotY=age*0.48;
+  var fit=Math.min(W*0.8/33, H*0.55/31);
+  var scale=fit*beat*(0.62+0.38*appear);
+  var cx=W/2, cy=H/2-2*scale;
+  var ex=hExplode?(now-hExplode)/1000:0;
+
+  hctx.globalCompositeOperation='lighter';
+  for(var i=0;i<hParts.length;i++){
+    var p=hParts[i];
+    if(hExplode&&ex>0){
+      if(!p.launched){
+        p.launched=true;
+        var len=Math.hypot(p.ox,p.oy,p.oz)||1, sp=14+Math.random()*30;
+        p.vx=(p.ox/len)*sp+(Math.random()-.5)*7;
+        p.vy=(p.oy/len)*sp-6-Math.random()*9;
+        p.vz=(p.oz/len)*sp+(Math.random()-.5)*7;
+      }
+      p.x=p.ox+p.vx*ex; p.y=p.oy+p.vy*ex+5*ex*ex; p.z=p.oz+p.vz*ex;
+    }
+    var ca=Math.cos(rotY), sa=Math.sin(rotY);
+    var X=p.x*ca-p.z*sa, Z=p.x*sa+p.z*ca, Y=p.y;
+    var persp=320/(320+Z*7);
+    var sx=cx+X*scale*persp, sy=cy+Y*scale*persp;
+    var tw=(p.shell?.8:.56)+(p.shell?.2:.44)*Math.sin(age*3+p.tw);
+    var a=appear*tw*Math.max(0,Math.min(1,persp*1.15));
+    if(hExplode) a*=Math.max(0,1-ex/1.5);
+    if(a<=.01) continue;
+    var r=p.sz*persp*hDPR*1.3;
+    hctx.beginPath(); hctx.arc(sx,sy,r,0,6.2832);
+    hctx.fillStyle='rgba('+p.c+','+a.toFixed(3)+')';
+    hctx.fill();
+    if(p.shell&&a>.35){
+      hctx.beginPath(); hctx.arc(sx,sy,r*5.5,0,6.2832);
+      hctx.fillStyle='rgba('+p.c+','+(a*.08).toFixed(3)+')';
+      hctx.fill();
+    }
+  }
+  hctx.globalCompositeOperation='source-over';
+  hRaf=requestAnimationFrame(hLoop);
+}
+
+var bloomEl=document.getElementById('bloom');
+function bloom(v,ms){
+  bloomEl.style.transition='none'; bloomEl.style.opacity=String(v);
+  void bloomEl.offsetWidth;
+  bloomEl.style.transition='opacity '+ms+'ms ease'; bloomEl.style.opacity='0';
+}
+
+/* ============================================================
+   dust in the projector beam
+   ============================================================ */
+var motes=(function(){
+  var cv=document.getElementById('motes'), ctx=cv.getContext('2d');
+  var W=0,H=0,DPR=1,ps=[],N=0;
+  var tgX=0,tgY=0,tx=0,ty=0;
+  var op=1,opT=1,opR=.03,pull=0,lift=0;
+
+  function resize(){
+    DPR=Math.min(2,window.devicePixelRatio||1);
+    W=cv.width=innerWidth*DPR; H=cv.height=innerHeight*DPR;
+    N=innerWidth<560?60:110;
+    ps=[]; for(var i=0;i<N;i++) ps.push(mk(true));
+  }
+  function mk(rand){
+    return {x:Math.random(),y:rand?Math.random():1.06,z:.2+Math.random()*.8,
+            r:.4+Math.random()*1.4,sp:.00008+Math.random()*.00026,
+            ph:Math.random()*Math.PI*2,am:.0003+Math.random()*.0011,
+            tw:Math.random()*Math.PI*2};
+  }
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    op+=(opT-op)*opR; tx+=(tgX-tx)*.04; ty+=(tgY-ty)*.04;
+    if(lift>0) lift*=.972;
+    var t=performance.now()*0.001, cx=W/2, cy=H*.4;
+    for(var i=0;i<ps.length;i++){
+      var u=ps[i];
+      u.y-=u.sp*(1+lift*5); u.x+=Math.sin(t*.5+u.ph)*u.am;
+      if(u.y<-.06){ ps[i]=mk(false); continue; }
+      var px=u.x*W+tx*34*u.z*DPR, py=u.y*H;
+      if(pull>0){ px+=(cx-px)*pull*.3; py+=(cy-py)*pull*.3; }
+      var a=u.z*.42*op*(.55+.45*Math.sin(t*1.4+u.tw))*(1+lift);
+      if(a<=.01) continue;
+      ctx.beginPath(); ctx.arc(px,py,u.r*u.z*DPR*1.4,0,6.2832);
+      ctx.fillStyle='rgba(255,240,220,'+Math.min(1,a).toFixed(3)+')'; ctx.fill();
+      ctx.beginPath(); ctx.arc(px,py,u.r*u.z*DPR*9,0,6.2832);
+      ctx.fillStyle='rgba(255,240,220,'+(a*.045).toFixed(3)+')'; ctx.fill();
+    }
+    requestAnimationFrame(loop);
+  }
+  addEventListener('mousemove',function(e){
+    tgX=(e.clientX/innerWidth-.5)*1.6; tgY=(e.clientY/innerHeight-.5)*1.6;
+  },{passive:true});
+  addEventListener('touchmove',function(e){
+    if(!e.touches[0]) return;
+    tgX=(e.touches[0].clientX/innerWidth-.5)*1.6;
+    tgY=(e.touches[0].clientY/innerHeight-.5)*1.6;
+  },{passive:true});
+  addEventListener('deviceorientation',function(e){
+    if(e.gamma==null) return;
+    tgX=Math.max(-2,Math.min(2,e.gamma/24));
+    tgY=Math.max(-2,Math.min(2,(e.beta-40)/28));
+  },{passive:true});
+  addEventListener('resize',resize);
+  resize(); loop();
+  return {
+    pull:function(v){ pull=v; },
+    lift:function(){ lift=1; },
+    fade:function(v,ms){ opT=v; opR=Math.max(.006,Math.min(.12,50/(ms||1000))); },
+    tilt:function(){ return [tx,ty]; }
+  };
+})();
+
+/* ============================================================
+   audio
+   ============================================================ */
+var audio=null;
+function startAudio(){
+  if(!AUDIO_SRC || AUDIO_SRC.indexOf('__AUDIO')===0) return;
+  try{
+    audio=new Audio(AUDIO_SRC); audio.loop=true; audio.volume=0;
+    var pr=audio.play(); if(pr&&pr.catch) pr.catch(function(){});
+    var v=0, f=setInterval(function(){
+      v+=.01; if(v>=.42){ v=.42; clearInterval(f); }
+      if(audio) audio.volume=v;
+    },130);
+  }catch(e){}
+}
+
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'||current<0) return;
+  var sec=screens[current]; if(!sec) return;
+  var b=sec.querySelector('.ctawrap.show .cta')||sec.querySelector('.ask.show');
+  if(b) b.click();
+});
+
+})();
+</script>
