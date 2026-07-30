@@ -2,7 +2,11 @@
 
 <div id="stage">
 
-  <!-- full bleed photography, crossfaded, masked into the dark -->
+  <!-- the background is lit by whatever photograph is on screen -->
+  <div class="aura" id="auraA"></div>
+  <div class="aura" id="auraB"></div>
+
+  <!-- full bleed photography, crossfaded, dissolved at the edges -->
   <div class="plate" id="plateA"><img alt=""></div>
   <div class="plate" id="plateB"><img alt=""></div>
   <div id="scrim"></div>
@@ -34,12 +38,15 @@
 
 <style>
 :root{
-  /* one world, no accent. colour is saved for the last thirty seconds. */
-  --ground:#08080b;
-  --ink:#f1ece4;
-  --dim:rgba(241,236,228,.56);
-  --faint:rgba(241,236,228,.28);
-  --hair:rgba(241,236,228,.14);
+  /* no invented palette. every colour on this page is pulled out of the
+     photograph currently on screen, so the room is lit by their own light. */
+  --ground:#0b0a0e;
+  --ink:#fdf6ec;
+  --dim:rgba(253,246,236,.62);
+  --faint:rgba(253,246,236,.34);
+  --hair:rgba(253,246,236,.18);
+  --tintA:#3a3f52;
+  --tintB:#4a3b3f;
 
   --display:Didot,'Bodoni 72','Bodoni MT','Didot LT STD','Playfair Display',Georgia,serif;
   --body:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
@@ -63,43 +70,54 @@ body{
 .plate img{
   width:100%;height:100%;object-fit:cover;display:block;
   /* the frame has no edge. it dissolves into the room. */
-  -webkit-mask-image:radial-gradient(ellipse 92% 74% at 50% 38%,#000 36%,rgba(0,0,0,.62) 66%,transparent 90%);
-  mask-image:radial-gradient(ellipse 92% 74% at 50% 38%,#000 36%,rgba(0,0,0,.62) 66%,transparent 90%);
-  filter:grayscale(1) contrast(1.1) brightness(.78);
+  -webkit-mask-image:radial-gradient(ellipse 94% 78% at 50% 40%,#000 42%,rgba(0,0,0,.66) 70%,transparent 94%);
+  mask-image:radial-gradient(ellipse 94% 78% at 50% 40%,#000 42%,rgba(0,0,0,.66) 70%,transparent 94%);
+  filter:saturate(1.24) contrast(1.03) brightness(.92);
   transform:scale(1.02);
-  transition:filter 3.4s ease;
+  transition:filter 3.4s ease,-webkit-mask-image 3s ease,mask-image 3s ease;
   animation:breathe 42s ease-in-out infinite alternate;
 }
 @keyframes breathe{from{transform:scale(1.02)}to{transform:scale(1.14)}}
-/* the ending, and only the ending, is allowed to be in colour */
-body.colour .plate img{filter:grayscale(0) saturate(1.14) contrast(1.02) brightness(.76)}
-body.colour .plate img{
-  -webkit-mask-image:radial-gradient(ellipse 96% 78% at 50% 42%,#000 44%,rgba(0,0,0,.7) 72%,transparent 96%);
-  mask-image:radial-gradient(ellipse 96% 78% at 50% 42%,#000 44%,rgba(0,0,0,.7) 72%,transparent 96%);
+
+/* the memories arrive as fragments in the dark. the present fills the frame. */
+body.full .plate img{
+  -webkit-mask-image:none;mask-image:none;
+  filter:saturate(1.3) contrast(1.02) brightness(1.02);
 }
 
 #scrim{
   position:fixed;inset:0;z-index:2;pointer-events:none;
   transition:opacity 3.4s ease;
-  /* light at the top so the picture is actually seen, weight at the bottom
+  /* clear at the top so the picture is actually seen, weight at the bottom
      so the narration always has something to sit on */
   background:
     linear-gradient(180deg,
-      rgba(8,8,11,.55) 0%,
-      rgba(8,8,11,.04) 20%,
-      rgba(8,8,11,.30) 44%,
-      rgba(8,8,11,.84) 68%,
-      rgba(8,8,11,.97) 86%),
-    radial-gradient(ellipse at 50% 28%,transparent 42%,rgba(8,8,11,.42) 92%);
+      rgba(11,10,14,.42) 0%,
+      rgba(11,10,14,0) 22%,
+      rgba(11,10,14,.22) 46%,
+      rgba(11,10,14,.8) 70%,
+      rgba(11,10,14,.96) 88%);
 }
-body.colour #scrim{opacity:.66}
+body.full #scrim{opacity:1}
 /* the loud part is over. the light comes down so the last words can be heard. */
-body.hush .plate img{filter:grayscale(0) saturate(1.04) contrast(1.02) brightness(.3)}
+body.hush .plate img{filter:saturate(1.1) contrast(1.02) brightness(.42)}
 body.hush #scrim{opacity:1}
+
+/* two soft lamps behind everything, wearing the colours of the photograph */
+.aura{
+  position:fixed;border-radius:50%;filter:blur(84px);z-index:0;pointer-events:none;
+  opacity:0;will-change:transform,opacity;
+  transition:background-color 3s ease,opacity 3s ease;
+}
+#auraA{width:96vmax;height:96vmax;left:-32vmax;top:-36vmax;background-color:var(--tintA);animation:drift1 34s ease-in-out infinite}
+#auraB{width:82vmax;height:82vmax;right:-30vmax;bottom:-28vmax;background-color:var(--tintB);animation:drift2 40s ease-in-out infinite}
+.aura.lit{opacity:.62}
+@keyframes drift1{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(6vmax,4vmax,0) scale(1.16)}}
+@keyframes drift2{0%,100%{transform:translate3d(0,0,0) scale(1.08)}50%{transform:translate3d(-7vmax,-4vmax,0) scale(.94)}}
 #halo{
-  position:fixed;left:50%;top:26%;width:120vmax;height:120vmax;z-index:0;
+  position:fixed;left:50%;top:24%;width:118vmax;height:118vmax;z-index:0;
   transform:translate(-50%,-50%);pointer-events:none;
-  background:radial-gradient(circle,rgba(255,248,236,.055),transparent 58%);
+  background:radial-gradient(circle,rgba(255,240,220,.075),transparent 56%);
   animation:pulse 14s ease-in-out infinite;
 }
 @keyframes pulse{0%,100%{opacity:.7;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
@@ -151,7 +169,11 @@ body.hush #scrim{opacity:1}
   transition:opacity 1.6s ease,transform 1.8s cubic-bezier(.19,1,.22,1),color 1.4s ease;
 }
 .line.show{opacity:1;transform:none}
-.line.past{opacity:.24}
+/* read lines step back, but a bright photograph must not swallow them */
+.line.past{
+  opacity:.42;
+  text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 26px rgba(0,0,0,.9);
+}
 .line.lead{
   font-family:var(--display);font-size:clamp(26px,7vw,40px);line-height:1.2;
   letter-spacing:-.01em;margin:24px 0 20px;text-wrap:balance;
@@ -234,7 +256,7 @@ body.hush #scrim{opacity:1}
 #finale .line,#finale .coda,#finale .sign{
   text-shadow:0 1px 3px rgba(0,0,0,.85),0 3px 30px rgba(0,0,0,.9),0 0 70px rgba(0,0,0,.7);
 }
-#finale .line.past{opacity:.38}
+#finale .line.past{opacity:.55}
 /* kept out of the flow entirely until it is their turn, so the lines above
    stay anchored to the bottom of the frame instead of floating up */
 .coda{
@@ -283,6 +305,8 @@ var FOCUS = {
   beginning:'50% 30%', shelter:'50% 46%', hands:'50% 46%',
   closeness:'50% 30%', final:'50% 42%'
 };
+/* two dominant colours per photograph, measured from the image at build time */
+var TINTS = "__TINTS__";
 
 var AUDIO_SRC = "__AUDIO__";
 
@@ -290,7 +314,7 @@ var AUDIO_SRC = "__AUDIO__";
    my mother's door, the airport at five in the morning, then every day since */
 var CH = [
 {
-  dark:true,
+  dark:true, tint:'final',
   lines:[
     'I have started this message eleven times.',
     'Every version said the same thing badly.',
@@ -433,9 +457,23 @@ var FINALE = {
    plates
    ============================================================ */
 var plates = [document.getElementById('plateA'), document.getElementById('plateB')];
+var auras  = [document.getElementById('auraA'), document.getElementById('auraB')];
 var plateTop = 0, plateKey = null;
 
-function showPlate(key){
+function setTint(key){
+  var t = TINTS && TINTS[key];
+  if(!t) return;
+  document.documentElement.style.setProperty('--tintA', t[0]);
+  document.documentElement.style.setProperty('--tintB', t[1] || t[0]);
+  auras.forEach(function(a){ a.classList.add('lit'); });
+}
+function unlit(){ auras.forEach(function(a){ a.classList.remove('lit'); }); }
+
+/* key drives the photograph, tintKey lights the room without showing one */
+function showPlate(key, tintKey){
+  var lightWith = tintKey || key;
+  if(lightWith) setTint(lightWith); else unlit();
+
   if(key === plateKey) return;
   plateKey = key;
   var next = plates[1-plateTop], cur = plates[plateTop];
@@ -447,6 +485,9 @@ function showPlate(key){
   cur.classList.remove('on');
   plateTop = 1-plateTop;
 }
+
+/* the door she knocks on is already warm */
+setTint('final');
 
 /* ============================================================
    build
@@ -567,7 +608,7 @@ function go(index){
   var sec = screens[index];
 
   T(function(){
-    showPlate(c.dark ? null : c.photo);
+    showPlate(c.dark ? null : c.photo, c.tint);
     sec.classList.add('on');
 
     if(index === CH.length){ finalePlay(sec); return; }
@@ -592,8 +633,8 @@ function holdPlay(sec){
 }
 
 function finalePlay(sec){
-  /* thirty seconds of colour after six chapters of none */
-  document.body.classList.add('colour');
+  /* the mask comes off. for the first time the picture fills the whole frame. */
+  document.body.classList.add('full');
   var script = sec.querySelector('.script');
 
   function bringIn(el,delay){
@@ -735,9 +776,11 @@ function heartGeometry(n){
     x*=s; y*=s;
     var bulge=Math.sqrt(Math.max(0,1-s*s));
     var z=shell ? (Math.random()*2-1)*0.9 : (Math.random()*2-1)*bulge*5.6;
+    var roll=Math.random();
     pts.push({x:x,y:-y,z:z,ox:x,oy:-y,oz:z,vx:0,vy:0,vz:0,
               tw:Math.random()*Math.PI*2,
               sz:shell?(1.1+Math.random()*1.2):(.5+Math.random()*.9),
+              c: roll<.34 ? '244,150,168' : roll<.68 ? '252,206,138' : '255,244,232',
               shell:shell});
   }
   return pts;
@@ -797,11 +840,11 @@ function hLoop(){
     if(a<=.01) continue;
     var r=p.sz*persp*hDPR*1.3;
     hctx.beginPath(); hctx.arc(sx,sy,r,0,6.2832);
-    hctx.fillStyle='rgba(248,244,236,'+a.toFixed(3)+')';
+    hctx.fillStyle='rgba('+p.c+','+a.toFixed(3)+')';
     hctx.fill();
     if(p.shell&&a>.35){
       hctx.beginPath(); hctx.arc(sx,sy,r*5.5,0,6.2832);
-      hctx.fillStyle='rgba(248,244,236,'+(a*.07).toFixed(3)+')';
+      hctx.fillStyle='rgba('+p.c+','+(a*.08).toFixed(3)+')';
       hctx.fill();
     }
   }
@@ -851,9 +894,9 @@ var motes=(function(){
       var a=u.z*.42*op*(.55+.45*Math.sin(t*1.4+u.tw))*(1+lift);
       if(a<=.01) continue;
       ctx.beginPath(); ctx.arc(px,py,u.r*u.z*DPR*1.4,0,6.2832);
-      ctx.fillStyle='rgba(255,251,242,'+Math.min(1,a).toFixed(3)+')'; ctx.fill();
+      ctx.fillStyle='rgba(255,240,220,'+Math.min(1,a).toFixed(3)+')'; ctx.fill();
       ctx.beginPath(); ctx.arc(px,py,u.r*u.z*DPR*9,0,6.2832);
-      ctx.fillStyle='rgba(255,251,242,'+(a*.045).toFixed(3)+')'; ctx.fill();
+      ctx.fillStyle='rgba(255,240,220,'+(a*.045).toFixed(3)+')'; ctx.fill();
     }
     requestAnimationFrame(loop);
   }
