@@ -178,8 +178,14 @@ body.hush #scrim{opacity:1}
 /* narration behaves like subtitles: lines rise, older ones recede and slip
    out through the fade at the top. she never has to scroll. */
 .script{position:relative}
+.script::-webkit-scrollbar{width:0;height:0;display:none}
 .screen.low .script{
-  max-height:46vh;max-height:44dvh;overflow:hidden;scroll-behavior:smooth;
+  max-height:46vh;max-height:44dvh;
+  /* no scroll-behavior:smooth here. it would also smooth her own dragging,
+     which makes the text feel like it is resisting her thumb. */
+  /* she can drag it back up to reread. no visible bar, it would break the page. */
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
   transition:opacity 2s ease;
 }
 /* the fade only exists once there is something above to fade out. applying it
@@ -383,9 +389,10 @@ var CH = [
   photo:'shelter',
   lines:[
     'You asked me for time, so I gave you time.',
-    'And then I went back to Madrid for your birthday.',
-    {t:'One day. I crossed a country for one day.',cls:'beat'},
-    'A few weeks later I bought the seat that carried you to France.',
+    {t:'A month later I was back in Madrid.',cls:'beat'},
+    'Four days. Your birthday sat in the middle of them.',
+    {t:'I did not book that flight for the city.',cls:'lead'},
+    'Then I bought the seat that carried you to France.',
     'I opened my mother’s door and said your name inside the house I grew up in.',
     {t:'I had never brought anyone through that door before.',cls:'beat'},
     'And somewhere in that week you stopped being a maybe.',
@@ -617,6 +624,32 @@ var timers = [];
 function clearTimers(){ timers.forEach(clearTimeout); timers=[]; }
 function T(fn,ms){ timers.push(setTimeout(fn,ms)); }
 
+/* The top edge only fades once a line has actually gone above it, so the
+   first line is never born inside the fade. */
+function syncFade(root){
+  root.classList.toggle('faded', root.scrollTop > 6);
+}
+
+/* If she drags the text back up to reread, stop hauling her down every time a
+   new line lands. Her hand wins until the next screen.
+
+   This listens for the gesture itself rather than inferring it from scroll
+   positions: setting scrollTop fires the very same scroll event a finger
+   does, so position alone cannot tell the page's scrolling from hers. */
+function wireScroll(root){
+  root.dataset.stick = '1';
+  ['wheel','touchmove'].forEach(function(ev){
+    root.addEventListener(ev, function(){ root.dataset.stick = '0'; }, {passive:true});
+  });
+  root.addEventListener('scroll', function(){ syncFade(root); }, {passive:true});
+}
+function followTo(root,top){
+  try{ root.scrollTo({top:top, behavior:'smooth'}); }
+  catch(e){ root.scrollTop = top; }
+}
+function releaseScroll(root){ root.dataset.stick = '1'; }
+document.querySelectorAll('.script').forEach(wireScroll);
+
 function reveal(root,start,done){
   var els = root.querySelectorAll('.line:not(.show)');
   var t = start, shown = [];
@@ -630,19 +663,23 @@ function reveal(root,start,done){
         /* Rest the newest line on the floor of the frame. Scrolling to the
            bottom of the box instead would carry it off the top, because the
            lines that have not appeared yet still take up their space. */
-        if(root.scrollHeight > root.clientHeight + 2){
-          var target = Math.max(0, e.offsetTop + e.offsetHeight - root.clientHeight + 10);
-          root.scrollTop = target;
-          /* and only fade the top edge once something has gone past it */
-          root.classList.toggle('faded', target > 6);
+        if(root.dataset.stick === '0'){
+          /* she is reading back through it. leave her alone. */
+        } else if(root.scrollHeight > root.clientHeight + 2){
+          followTo(root, Math.max(0, e.offsetTop + e.offsetHeight - root.clientHeight + 10));
+          syncFade(root);
         } else {
           root.classList.remove('faded');
         }
       }, d);
     })(el,t);
+    /* pace it for reading, not for getting to the end. a line of eight words
+       now sits for a little over two seconds before the next one arrives. */
     var words = (el.textContent||'').split(/\s+/).length;
-    t += 700 + words*66 + (el.classList.contains('lead') ? 420 : 0);
-    if(el.classList.contains('beat')) t += 420;
+    t += 1200 + words*115
+       + (el.classList.contains('lead')   ? 700 : 0)
+       + (el.classList.contains('strike') ? 1400 : 0);
+    if(el.classList.contains('beat')) t += 700;
   });
   if(done) T(done, t + 420);
   return t;
@@ -661,6 +698,8 @@ function go(index){
   T(function(){
     showPlate(c.dark ? null : c.photo, c.tint);
     sec.classList.add('on');
+    /* a new screen starts following again, whatever she did on the last one */
+    sec.querySelectorAll('.script').forEach(releaseScroll);
 
     if(index === CH.length){ finalePlay(sec); return; }
     if(c.hold){ holdPlay(sec); return; }
@@ -675,10 +714,10 @@ function go(index){
 
 function holdPlay(sec){
   var lines = sec.querySelectorAll('.script:not(#after) .line');
-  var t = 900;
+  var t = 1000;
   lines.forEach(function(el){
     (function(e,d){ T(function(){ e.classList.add('show'); }, d); })(el,t);
-    t += 700 + el.textContent.split(/\s+/).length*66;
+    t += 1200 + el.textContent.split(/\s+/).length*115;
   });
   T(function(){ sec.querySelector('.holdwrap').classList.add('show'); }, t + 300);
 }
@@ -699,11 +738,11 @@ function finalePlay(sec){
 
   reveal(script, 1600, function(){
     /* the loud part steps aside and leaves the quiet part alone with her */
-    T(function(){ script.style.opacity='0'; }, 3200);
-    T(function(){ script.style.display='none'; }, 5200);
-    T(function(){ document.body.classList.add('hush'); }, 4200);
-    bringIn(sec.querySelector('.coda'), 5400);
-    bringIn(sec.querySelector('.sign'), 9200);
+    T(function(){ script.style.opacity='0'; }, 2800);
+    T(function(){ script.style.display='none'; }, 4400);
+    T(function(){ document.body.classList.add('hush'); }, 3600);
+    bringIn(sec.querySelector('.coda'), 4600);
+    bringIn(sec.querySelector('.sign'), 8200);
   });
 }
 
