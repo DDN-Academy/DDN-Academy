@@ -48,7 +48,10 @@
   --tintA:#3a3f52;
   --tintB:#4a3b3f;
 
-  --display:Didot,'Bodoni 72','Bodoni MT','Didot LT STD','Playfair Display',Georgia,serif;
+  /* Didot is a magazine face: its thin strokes are hairlines. It only earns
+     its place at very large sizes on a dark ground. Everything else uses a
+     face built to survive over a photograph. */
+  --display:Didot,'Bodoni 72','Bodoni MT','Didot LT STD',Georgia,serif;
   --body:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
   --util:Futura,'Avenir Next','Helvetica Neue',-apple-system,sans-serif;
 }
@@ -93,10 +96,11 @@ body.full .plate img{
   background:
     linear-gradient(180deg,
       rgba(11,10,14,.42) 0%,
-      rgba(11,10,14,0) 22%,
-      rgba(11,10,14,.22) 46%,
-      rgba(11,10,14,.8) 70%,
-      rgba(11,10,14,.96) 88%);
+      rgba(11,10,14,0) 20%,
+      rgba(11,10,14,.26) 42%,
+      rgba(11,10,14,.72) 58%,
+      rgba(11,10,14,.93) 74%,
+      rgba(11,10,14,.99) 88%);
 }
 body.full #scrim{opacity:1}
 /* the loud part is over. the light comes down so the last words can be heard. */
@@ -137,7 +141,25 @@ body.hush #scrim{opacity:1}
 }
 .screen.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity 1.9s ease,visibility 0s}
 /* narration sits low and left, the way a voice sits under a picture */
-.screen.low{align-items:flex-end;padding-bottom:max(9vh,64px)}
+/* dvh, not vh: on iPhone the address bar is inside vh but not inside the
+   part of the screen you can actually see */
+.screen.low{
+  align-items:flex-end;
+  padding-bottom:max(9vh,64px);
+  padding-bottom:calc(max(7dvh,58px) + env(safe-area-inset-bottom,0px));
+}
+/* the narration brings its own ground with it, so legibility never depends
+   on whether the photograph happens to be bright in that corner */
+.screen.low::before{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:66%;
+  z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(9,8,12,0) 0%,
+    rgba(9,8,12,.42) 26%,
+    rgba(9,8,12,.76) 52%,
+    rgba(9,8,12,.92) 78%,
+    rgba(9,8,12,.96) 100%);
+}
 .screen.mid{align-items:center;justify-content:center;text-align:center}
 .col{width:100%;max-width:520px}
 .screen.low .col{margin-right:auto}
@@ -157,7 +179,7 @@ body.hush #scrim{opacity:1}
    out through the fade at the top. she never has to scroll. */
 .script{position:relative}
 .screen.low .script{
-  max-height:46vh;overflow:hidden;scroll-behavior:smooth;
+  max-height:46vh;max-height:44dvh;overflow:hidden;scroll-behavior:smooth;
   transition:opacity 2s ease;
 }
 /* the fade only exists once there is something above to fade out. applying it
@@ -167,21 +189,24 @@ body.hush #scrim{opacity:1}
   mask-image:linear-gradient(180deg,transparent 0,#000 18%);
 }
 .line{
-  font-size:clamp(17px,4.5vw,21px);line-height:1.72;color:var(--ink);
+  font-size:clamp(18px,4.7vw,22px);line-height:1.7;color:var(--ink);
   margin-bottom:14px;opacity:0;transform:translateY(14px);
   /* every line carries its own night, so it holds up over a bright frame */
-  text-shadow:0 1px 2px rgba(0,0,0,.6),0 2px 22px rgba(0,0,0,.75);
+  text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 24px rgba(0,0,0,.85);
   transition:opacity 1.6s ease,transform 1.8s cubic-bezier(.19,1,.22,1),color 1.4s ease;
 }
 .line.show{opacity:1;transform:none}
-/* read lines step back, but a bright photograph must not swallow them */
+/* read lines step back, but they stay readable. at .52 they were measuring a
+   contrast ratio of 1.1 over a bright frame, which is not stepping back, it
+   is disappearing. */
 .line.past{
-  opacity:.52;
+  opacity:.72;
   text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 26px rgba(0,0,0,.92);
 }
 .line.lead{
-  font-family:var(--display);font-size:clamp(26px,7vw,40px);line-height:1.2;
-  letter-spacing:-.01em;margin:24px 0 20px;text-wrap:balance;
+  font-family:var(--body);font-size:clamp(25px,6.6vw,37px);line-height:1.24;
+  letter-spacing:-.006em;margin:24px 0 20px;text-wrap:balance;
+  text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 30px rgba(0,0,0,.85);
 }
 .line.soft{font-size:clamp(14.5px,3.8vw,17px);color:var(--dim);font-style:italic}
 .line.beat{margin-top:30px}
@@ -209,7 +234,7 @@ body.hush #scrim{opacity:1}
 #gin{
   width:100%;max-width:280px;padding:14px 0;text-align:center;
   background:none;border:0;border-bottom:1px solid rgba(253,246,236,.42);border-radius:0;
-  color:var(--ink);font-family:var(--display);font-size:24px;letter-spacing:.14em;
+  color:var(--ink);font-family:var(--body);font-size:23px;letter-spacing:.14em;
   outline:none;transition:border-color .6s ease;
 }
 #gin::placeholder{font-family:var(--util);font-size:11px;letter-spacing:.3em;color:var(--faint)}
@@ -250,7 +275,7 @@ body.hush #scrim{opacity:1}
 .ring .bg{stroke:rgba(253,246,236,.24)}
 .ring .fg{stroke:var(--ink);transition:stroke-dashoffset .1s linear;filter:drop-shadow(0 0 6px rgba(253,246,236,.7))}
 #after{max-height:0;overflow:hidden;transition:max-height 1.8s ease}
-#after.open{max-height:34vh}
+#after.open{max-height:34vh;max-height:32dvh}
 
 /* ---------------- the ask ---------------- */
 .ask{
@@ -273,7 +298,7 @@ body.hush #scrim{opacity:1}
 #finale .line,#finale .coda,#finale .sign{
   text-shadow:0 1px 3px rgba(0,0,0,.85),0 3px 30px rgba(0,0,0,.9),0 0 70px rgba(0,0,0,.7);
 }
-#finale .line.past{opacity:.55}
+#finale .line.past{opacity:.75}
 /* kept out of the flow entirely until it is their turn, so the lines above
    stay anchored to the bottom of the frame instead of floating up */
 .coda{
