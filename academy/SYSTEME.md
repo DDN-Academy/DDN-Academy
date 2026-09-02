@@ -97,7 +97,37 @@ Aucune section n'est facultative. L'ordre est imposé.
 ### 6 — Auto-évaluation finale
 - Liste de contrôle : « Si tu ne sais pas répondre à ces questions sans regarder,
   le chapitre n'est pas maîtrisé. »
+- **Grille de notation chiffrée** avec seuil de maîtrise par niveau et décision associée
+  (section 10).
 - Protocole de révision daté : **J+1, J+3, J+7, J+21**, avec le contenu précis de chaque passage.
+
+### 7 — Annexe : tableau de couverture du support d'origine
+
+Section obligatoire, placée en fin de document. Elle transforme la promesse
+« tout y est » en fait vérifiable en deux minutes.
+
+Le support d'origine est inventorié **élément par élément** — une ligne par diapositive,
+par page de polycopié, par photo de tableau, par section de retranscription. Aucun numéro
+ne manque dans la suite : un trou dans la numérotation est un trou dans le traitement.
+
+| Colonne | Contenu |
+|---|---|
+| **#** | Numéro de l'élément dans le support d'origine (diapo 7, page 3, photo 2…) |
+| **Élément** | Son intitulé, recopié tel quel |
+| **Nature** | définition, formule, schéma, exemple, ellipse orale, exercice, remarque |
+| **Traité dans** | La ou les sections du document produit qui le couvrent |
+| **État** | Voir ci-dessous |
+
+États possibles, et eux seuls :
+
+| État | Signification |
+|:---:|---|
+| **✔** | Traité intégralement : défini, démontré, illustré selon sa nature |
+| **⚠** | Traité, mais le support d'origine était incomplet — la reconstruction est signalée comme telle à l'endroit exact du document |
+| **✖** | Impossible à traiter : source illisible ou donnée manquante. La ligne dit précisément ce qu'il faut me transmettre |
+
+Un document ne comporte aucun **✖** silencieux : chaque ✖ est doublé d'une demande
+explicite en fin de tableau. Un document sans tableau de couverture n'est pas livrable.
 
 ---
 
@@ -174,7 +204,7 @@ Nommage : `<matiere>-<numero>-<sujet>.md`, par exemple `micro-01-offre-demande.m
 
 ## 9. Contrôle qualité — à passer avant toute livraison
 
-Un document n'est livré que si les onze réponses sont « oui ».
+Un document n'est livré que si les douze réponses sont « oui ».
 
 1. Chaque terme technique du support d'origine est défini dans le document.
 2. Chaque acronyme est développé à sa première apparition.
@@ -186,11 +216,38 @@ Un document n'est livré que si les onze réponses sont « oui ».
 8. Les quatre niveaux d'entraînement existent, corrigés compris.
 9. Les cartes de révision couvrent l'ensemble des notions, sans trou.
 10. Les incertitudes éventuelles sont signalées explicitement, non masquées.
-11. Le document se suffit à lui-même : la relecture du support d'origine est inutile.
+11. Le tableau de couverture inventorie **tous** les éléments du support d'origine,
+    sans trou de numérotation, et chaque ✖ est accompagné de la demande correspondante.
+12. Le document se suffit à lui-même : la relecture du support d'origine est inutile.
 
 ---
 
-## 10. Protocole de révision espacée — cadre générique
+## 10. Vérification de l'assimilation — seuils et décisions
+
+Se sentir à l'aise n'est pas une mesure. La maîtrise se constate à des seuils, et chaque
+échec déclenche une action précise — jamais une relecture, qui ne corrige rien.
+
+| Épreuve | Conditions | Seuil de maîtrise | Décision si le seuil n'est pas atteint |
+|---|---|---|---|
+| **Niveau 1 — restitution** | Sans document | **100 %** — une définition ratée est une notion non acquise | Reprendre la définition dans le cours reconstruit, refaire la carte le jour même |
+| **Niveau 2 — application** | Sans document, chronométré | **80 %** des points, dans le temps imparti | Refaire les exercices ratés à J+1, sans regarder le corrigé avant d'avoir cherché |
+| **Niveau 3 — maîtrise** | Sans document | Argumentation complète sur **3 questions sur 4** | Passage en mode approfondissement sur la notion en cause, pas sur le chapitre entier |
+| **Niveau 4 — simulation** | Conditions réelles du partiel | **14/20** au barème, corrigé appliqué sans complaisance | Nouvelle simulation à J+7 sur un sujet différent |
+| **Exposé blanc** | Sans notes, à voix haute, 10 minutes | Le chapitre est exposé de bout en bout sans blocage | Le point de blocage est exactement la notion mal comprise : approfondissement ciblé |
+
+L'**exposé blanc** est le test décisif : tant qu'une notion ne peut pas être expliquée à
+voix haute sans support, elle est reconnue, pas comprise. La reconnaissance suffit à un
+QCM ; elle s'effondre sur une question de raisonnement, et c'est précisément là que se
+joue l'écart entre le haut de promotion et le reste.
+
+Règle d'interprétation : un échec au niveau 1 est un défaut de mémorisation ; un échec au
+niveau 2 alors que le niveau 1 est acquis est un défaut de méthode ; un échec au niveau 3
+alors que le niveau 2 est acquis est un défaut de compréhension. Les trois se traitent
+différemment.
+
+---
+
+## 11. Protocole de révision espacée — cadre générique
 
 Chaque chapitre finit sur ce calendrier, adapté à son contenu.
 

@@ -253,7 +253,24 @@ chaque point attribué.*
 - [ ] *Question de contrôle 1*
 - [ ] *Question de contrôle 2*
 
-### 6.2 — Protocole de révision daté
+### 6.2 — Grille de vérification chiffrée
+
+Se sentir à l'aise n'est pas une mesure. On note, on compare au seuil, on applique la décision.
+
+| Épreuve | Conditions | Seuil | Résultat obtenu | Décision si sous le seuil |
+|---|---|:---:|:---:|---|
+| Niveau 1 — restitution | Sans document | 100 % | *…… %* | Reprendre la définition, refaire la carte le jour même |
+| Niveau 2 — application | Chronométré, sans document | 80 % | *…… %* | Refaire les exercices ratés à J+1, sans regarder le corrigé |
+| Niveau 3 — maîtrise | Sans document | 3 sur 4 | *…… / 4* | Approfondissement sur la notion en cause |
+| Niveau 4 — simulation | Conditions réelles du partiel | 14/20 | *…… / 20* | Nouvelle simulation à J+7, sujet différent |
+| Exposé blanc | À voix haute, 10 min, sans notes | Aucun blocage | *oui / non* | Le point de blocage **est** la notion mal comprise |
+
+**Lecture des échecs.** Échec au niveau 1 → défaut de mémorisation. Échec au niveau 2 alors
+que le 1 est acquis → défaut de méthode. Échec au niveau 3 alors que le 2 est acquis →
+défaut de compréhension. Trois causes différentes, trois traitements différents ; les
+confondre fait perdre des semaines.
+
+### 6.3 — Protocole de révision daté
 
 | Échéance | Durée | Ce qui est révisé |
 |---|---|---|
@@ -261,6 +278,32 @@ chaque point attribué.*
 | J+3 | 30 min | *Cartes échouées à J+1 + deux exercices chronométrés* |
 | J+7 | 45 min | *Liste de contrôle à froid + un exercice de niveau 3* |
 | J+21 | 60 min | *Simulation d'examen complète + auto-correction au barème* |
+
+<!--saut-->
+
+## Annexe — Tableau de couverture du support d'origine
+
+*Preuve de complétude, vérifiable en deux minutes : une ligne par diapositive, page, photo
+ou section du support d'origine. Aucun numéro ne manque dans la suite — un trou dans la
+numérotation serait un trou dans le traitement.*
+
+| # | Élément du support d'origine | Nature | Traité dans | État |
+|:---:|---|---|---|:---:|
+| 1 | *Diapo 1 — titre et plan* | *plan* | *§1, carte du chapitre* | ✔ |
+| 2 | *Diapo 2 — « Définition de l'élasticité »* | *définition* | *§2.1* | ✔ |
+| 3 | *Diapo 3 — formule, sans démonstration* | *ellipse orale* | *§2.1, démonstration reconstruite* | ✔ |
+| 4 | *Diapo 4 — graphique non commenté* | *schéma* | *§2.1, lecture ligne à ligne* | ✔ |
+| 5 | *Photo 2 — bas du tableau flou* | *source* | *—* | ✖ |
+
+**Légende.** ✔ traité intégralement — ⚠ traité, mais support d'origine incomplet : la
+reconstruction est signalée à l'endroit exact — ✖ impossible à traiter, donnée manquante.
+
+::: piege Demandes ouvertes
+*Un ✖ n'est jamais silencieux. Il est repris ici, explicitement :*
+
+- *Ligne 5 — photo 2 : les trois dernières lignes du tableau sont illisibles. Il me faut
+  une reprise de cette photo, ou le passage correspondant des notes d'un camarade.*
+:::
 
 ---
 

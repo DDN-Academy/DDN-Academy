@@ -51,7 +51,13 @@ dire explicitement.
 5. **Entraînement progressif** — niveau 1 restitution, 2 application chiffrée, 3 maîtrise,
    4 simulation d'examen au format et à la durée réels, barème et corrigé « copie de major ».
    Tous les corrigés détaillent chaque étape, jamais le seul résultat.
-6. **Auto-évaluation** — liste de contrôle, protocole de révision daté J+1, J+3, J+7, J+21.
+6. **Auto-évaluation** — liste de contrôle, grille de vérification chiffrée (seuils :
+   100 % en restitution, 80 % en application, 3/4 en maîtrise, 14/20 en simulation, exposé
+   blanc de 10 minutes sans notes) et protocole de révision daté J+1, J+3, J+7, J+21.
+7. **Annexe — tableau de couverture** : une ligne par diapositive, page ou photo du support
+   d'origine, sans trou de numérotation, avec l'état ✔ traité / ⚠ source incomplète /
+   ✖ donnée manquante. Chaque ✖ est doublé d'une demande explicite. C'est la preuve
+   vérifiable qu'aucun élément du cours n'a été laissé de côté.
 
 Longueur : celle que le chapitre exige. Vingt diapositives peuvent donner quarante pages.
 Ton direct, précis, exigeant. Pas de flatterie, pas de remplissage.
@@ -73,7 +79,7 @@ synthese | carte`, maths `$...$` et `$$...$$`, saut de page `<!--saut-->`).
 academy/outils/make.sh academy/chapitres/<fichier>.md   # HTML autonome + PDF A4 paginé
 ```
 
-Avant livraison, passer les onze contrôles de la section 9 de `academy/SYSTEME.md`.
+Avant livraison, passer les douze contrôles de la section 9 de `academy/SYSTEME.md`.
 
 ## Modes complémentaires
 
