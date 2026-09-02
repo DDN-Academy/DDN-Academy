@@ -1,0 +1,260 @@
+/* ============================================================================
+   theme.css — feuille de style des chapitres DDN Academy.
+   Pensée pour deux usages simultanés : lecture à l'écran, et impression A4.
+   Aucune ressource externe : le HTML produit est autonome et fonctionne hors ligne.
+   ========================================================================== */
+
+:root{
+  --encre:#15181d;
+  --encre-2:#39404b;
+  --gris:#6b7280;
+  --gris-clair:#9aa2ae;
+  --filet:#d8dce3;
+  --filet-fort:#b3bac5;
+  --papier:#ffffff;
+
+  --accent:#123a5e;          /* bleu encre : structure, définitions */
+  --accent-clair:#eef3f8;
+  --or:#8a6a16;              /* or : formules, points d'examen */
+  --or-clair:#fcf7e9;
+  --alerte:#8c2f2f;          /* rouge : pièges, erreurs classiques */
+  --alerte-clair:#fdf1f0;
+  --vert:#1d5a44;            /* vert : méthode, corrigés */
+  --vert-clair:#edf6f2;
+  --violet:#463470;          /* violet : analogies marchés, ouverture */
+  --violet-clair:#f3f0fb;
+
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:"Inter","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+}
+
+@page{ size:A4; margin:20mm 18mm; }
+
+*{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  background:#eceef1;
+  color:var(--encre);
+  font-family:var(--serif);
+  font-size:10.6pt;
+  line-height:1.58;
+  text-rendering:optimizeLegibility;
+  font-kerning:normal;
+  font-variant-numeric:oldstyle-nums proportional-nums;
+}
+
+/* --- Conteneur : simule la page A4 à l'écran, disparaît à l'impression ---- */
+.feuille{
+  max-width:186mm;
+  margin:24px auto 64px;
+  padding:26mm 20mm;
+  background:var(--papier);
+  box-shadow:0 1px 3px rgba(0,0,0,.12),0 12px 40px rgba(0,0,0,.10);
+}
+
+/* --------------------------- Bandeau écran ------------------------------- */
+.bandeau{
+  position:sticky; top:0; z-index:10;
+  background:var(--encre); color:#fff;
+  font-family:var(--sans); font-size:11px; letter-spacing:.04em;
+  padding:7px 14px; display:flex; gap:14px; align-items:center; justify-content:center;
+}
+.bandeau b{ color:#f0c96a; font-weight:600; }
+
+/* ------------------------------ Couverture ------------------------------- */
+.couverture{ padding:6mm 0 0; }
+.couverture .filet-haut{ height:3px; background:var(--encre); margin-bottom:9mm; }
+.couverture .matiere{
+  font-family:var(--sans); font-size:9.5pt; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent);
+}
+.couverture .chapitre{
+  font-family:var(--sans); font-size:9.5pt; letter-spacing:.10em;
+  text-transform:uppercase; color:var(--gris); margin-top:3px;
+}
+.couverture h1{
+  font-family:var(--serif); font-weight:700;
+  font-size:29pt; line-height:1.14; margin:9mm 0 0; letter-spacing:-.01em;
+  border:0; padding:0;
+}
+.couverture .sous-titre{
+  font-size:13pt; color:var(--encre-2); font-style:italic; margin-top:5mm; line-height:1.45;
+}
+.couverture .resume{
+  margin-top:9mm; padding:5mm 6mm; background:var(--accent-clair);
+  border-left:3px solid var(--accent); font-size:10.2pt; line-height:1.6;
+}
+.couverture .meta{
+  margin-top:11mm; padding-top:4mm; border-top:1px solid var(--filet);
+  font-family:var(--sans); font-size:8.8pt; color:var(--gris);
+  display:flex; flex-wrap:wrap; gap:5mm 9mm;
+}
+.couverture .meta span b{ color:var(--encre-2); font-weight:600; }
+.couverture .avertissement{
+  margin-top:6mm; font-family:var(--sans); font-size:8.4pt; color:var(--gris-clair); line-height:1.5;
+}
+
+/* ------------------------------- Sommaire -------------------------------- */
+.sommaire{ margin:0 0 4mm; }
+.sommaire h2{
+  font-family:var(--sans); font-size:11pt; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); border:0; margin:0 0 4mm; padding:0;
+}
+.sommaire ol{ list-style:none; margin:0; padding:0; counter-reset:som; }
+.sommaire li{ margin:0 0 1.6mm; }
+.sommaire a{ color:var(--encre); text-decoration:none; }
+.sommaire .n2{ font-family:var(--sans); font-size:10pt; font-weight:600; }
+.sommaire .n3{ font-family:var(--sans); font-size:9.2pt; padding-left:7mm; color:var(--encre-2); }
+
+/* -------------------------------- Titres --------------------------------- */
+h1,h2,h3,h4{ font-family:var(--sans); color:var(--encre); break-after:avoid; page-break-after:avoid; }
+h1{
+  font-size:19pt; font-weight:700; letter-spacing:-.005em;
+  margin:0 0 6mm; padding-bottom:3mm; border-bottom:2px solid var(--encre);
+}
+h2{
+  font-size:14pt; font-weight:700; margin:11mm 0 4mm; padding-bottom:2mm;
+  border-bottom:1px solid var(--filet-fort); color:var(--accent);
+}
+h3{ font-size:11.6pt; font-weight:650; margin:7mm 0 2.5mm; color:var(--encre); }
+h4{ font-size:10.4pt; font-weight:650; margin:5mm 0 2mm; color:var(--encre-2); font-style:normal; }
+
+p{ margin:0 0 3.2mm; text-align:justify; hyphens:auto; orphans:3; widows:3; }
+strong{ font-weight:700; }
+em{ font-style:italic; }
+a{ color:var(--accent); }
+
+ul,ol{ margin:0 0 3.2mm; padding-left:6.5mm; }
+li{ margin:0 0 1.4mm; }
+li>ul,li>ol{ margin:1.4mm 0 0; }
+ul{ list-style:none; }
+ul>li{ position:relative; }
+ul>li::before{
+  content:"—"; position:absolute; left:-6.5mm; color:var(--gris-clair); font-family:var(--sans);
+}
+ul ul>li::before{ content:"·"; }
+/* listes de contrôle : - [ ] à faire   /   - [x] acquis */
+ul>li.tache{ margin-bottom:2.2mm; }
+ul>li.tache::before{ content:"☐"; color:var(--encre-2); font-size:1.08em; }
+ul>li.tache.cochee::before{ content:"☑"; color:var(--vert); }
+
+hr{ border:0; border-top:1px solid var(--filet); margin:6mm 0; }
+
+blockquote{
+  margin:4mm 0; padding:0 0 0 5mm; border-left:2px solid var(--filet-fort);
+  color:var(--encre-2); font-style:italic;
+}
+
+code{ font-family:var(--mono); font-size:.88em; background:#f2f4f7; padding:.5mm 1mm;
+      border-radius:2px; overflow-wrap:anywhere; }
+pre{ font-family:var(--mono); font-size:8.8pt; background:#f7f8fa; border:1px solid var(--filet);
+     padding:3mm 4mm; overflow-x:auto; break-inside:avoid; }
+pre code{ background:none; padding:0; }
+
+/* -------------------------------- Tableaux -------------------------------- */
+table{
+  width:100%; border-collapse:collapse; margin:4mm 0 5mm;
+  font-family:var(--sans); font-size:9pt; break-inside:auto;
+}
+thead{ display:table-header-group; }
+th{
+  background:var(--encre); color:#fff; font-weight:600; text-align:left;
+  padding:2.2mm 2.6mm; border:1px solid var(--encre); letter-spacing:.02em;
+}
+td{ padding:2mm 2.6mm; border:1px solid var(--filet); vertical-align:top; }
+th,td{ overflow-wrap:anywhere; word-break:normal; }
+tbody tr:nth-child(even) td{ background:#f7f8fa; }
+tr{ break-inside:avoid; page-break-inside:avoid; }
+td.c,th.c{ text-align:center; } td.r,th.r{ text-align:right; }
+
+/* -------------------------------- Encadrés -------------------------------- */
+.bloc{
+  margin:4.5mm 0; padding:3.5mm 4.5mm 3mm; border:1px solid var(--filet);
+  border-left-width:3px; background:#fbfcfd; break-inside:avoid; page-break-inside:avoid;
+}
+.bloc>.etiquette{
+  font-family:var(--sans); font-size:8pt; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; margin-bottom:2.2mm; display:block;
+}
+.bloc>:last-child{ margin-bottom:0; }
+.bloc p{ text-align:left; }
+
+.bloc.definition{ border-left-color:var(--accent); background:var(--accent-clair); }
+.bloc.definition>.etiquette{ color:var(--accent); }
+
+.bloc.formule{ border-left-color:var(--or); background:var(--or-clair); }
+.bloc.formule>.etiquette{ color:var(--or); }
+.bloc.formule .math-display{ margin:2mm 0; }
+
+.bloc.demo{ border-left-color:var(--accent); background:#fbfcfd; }
+.bloc.demo>.etiquette{ color:var(--accent); }
+
+.bloc.exemple{ border-left-color:var(--encre-2); background:#f7f8fa; }
+.bloc.exemple>.etiquette{ color:var(--encre-2); }
+
+.bloc.piege{ border-left-color:var(--alerte); background:var(--alerte-clair); }
+.bloc.piege>.etiquette{ color:var(--alerte); }
+
+.bloc.examen{ border-left-color:var(--or); background:#fff; border-style:solid; }
+.bloc.examen>.etiquette{ color:var(--or); }
+
+.bloc.methode{ border-left-color:var(--vert); background:var(--vert-clair); }
+.bloc.methode>.etiquette{ color:var(--vert); }
+
+.bloc.correction{ border-left-color:var(--vert); background:#fff; }
+.bloc.correction>.etiquette{ color:var(--vert); }
+
+.bloc.marche{ border-left-color:var(--violet); background:var(--violet-clair); }
+.bloc.marche>.etiquette{ color:var(--violet); }
+
+.bloc.synthese{ border:1.5px solid var(--encre); border-left-width:1.5px; background:#fff; padding:4.5mm 5mm; }
+.bloc.synthese>.etiquette{ color:var(--encre); }
+
+.bloc.objectif{ border-left-color:var(--gris); background:#f7f8fa; }
+.bloc.objectif>.etiquette{ color:var(--gris); }
+
+/* ---------------------------- Cartes de révision -------------------------- */
+.carte{
+  margin:3mm 0; border:1px solid var(--filet-fort); border-radius:2px;
+  break-inside:avoid; page-break-inside:avoid; background:#fff;
+}
+.carte .q{ padding:2.8mm 4mm; font-weight:600; background:#f7f8fa; border-bottom:1px dashed var(--filet-fort); }
+.carte .r{ padding:2.8mm 4mm; }
+.carte .q>:last-child,.carte .r>:last-child{ margin-bottom:0; }
+.carte .q p,.carte .r p{ text-align:left; margin-bottom:1.5mm; }
+
+/* --------------------------------- Maths --------------------------------- */
+.math{ font-family:var(--serif); font-style:italic; white-space:nowrap; }
+.math .op,.math .txt,.math .num-lit{ font-style:normal; }
+.math-display{
+  display:block; text-align:center; margin:4mm 0; font-size:11.4pt;
+  break-inside:avoid; white-space:normal;
+}
+.frac{ display:inline-block; vertical-align:-0.52em; text-align:center; margin:0 .18em; }
+.frac>.num{ display:block; padding:0 .35em; border-bottom:1px solid currentColor; line-height:1.28; }
+.frac>.den{ display:block; padding:0 .35em; line-height:1.28; }
+sup,sub{ font-size:.68em; line-height:0; font-style:normal; }
+.rac{ white-space:nowrap; }
+.rac>.sous{ border-top:1px solid currentColor; padding:0 .12em 0 .06em; }
+
+/* --------------------------- Sauts et utilitaires ------------------------- */
+.saut{ break-before:page; page-break-before:always; height:0; }
+.eviter-coupure{ break-inside:avoid; page-break-inside:avoid; }
+.petit{ font-size:9pt; color:var(--encre-2); }
+.centre{ text-align:center; }
+mark{ background:#fdf2c0; padding:0 .8mm; }
+
+/* --------------------------------- Impression ----------------------------- */
+@media print{
+  body{ background:#fff; font-size:10.2pt; }
+  .feuille{ max-width:none; margin:0; padding:0; box-shadow:none; }
+  .bandeau{ display:none !important; }
+  .couverture{ break-after:page; page-break-after:always; }
+  .sommaire{ break-after:page; page-break-after:always; }
+  a{ color:var(--encre); text-decoration:none; }
+  h2{ break-before:auto; }
+}
