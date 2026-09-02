@@ -90,6 +90,16 @@ SYMBOLES = {
     "sin": "sin", "cos": "cos", "tan": "tan", "lim": "lim",
 }
 
+# relations et opérateurs binaires : l'espace qui les suit est conservé
+# (« a \le b » -> « a ≤ b »), contrairement aux lettres grecques (« \Delta Q » -> « ΔQ »)
+RELATIONS = {
+    "times", "div", "cdot", "pm", "mp", "le", "leq", "ge", "geq", "ne", "neq",
+    "approx", "simeq", "sim", "equiv", "propto", "ll", "gg", "in", "notin",
+    "subset", "subseteq", "supset", "supseteq", "cup", "cap", "setminus",
+    "rightarrow", "to", "leftarrow", "gets", "Rightarrow", "implies", "Leftarrow",
+    "leftrightarrow", "Leftrightarrow", "iff", "mapsto", "perp", "therefore",
+}
+
 # opérateurs à composer en romain (non italique) à l'intérieur d'une formule
 DROITS = set("0123456789+-−=<>()[]{}|/,;:!?%€$ …·×÷±≤≥≠≈≡∝∞∑∏∫→←⇒⇐↔⇔∈∉⊂⊆∪∩∅°'")
 
@@ -199,8 +209,9 @@ def maths(src):
                                % {"R": "ℝ", "N": "ℕ", "Z": "ℤ", "Q": "ℚ", "E": "𝔼"}.get(a, a))
                 elif nom in SYMBOLES:
                     tampon.append(SYMBOLES[nom])
-                    while i < n and src[i] == " ":   # « \Delta Q » -> « ΔQ », comme en LaTeX
-                        i += 1
+                    if nom not in RELATIONS:
+                        while i < n and src[i] == " ":  # « \Delta Q » -> « ΔQ »
+                            i += 1
                 elif nom in ("left", "right", "displaystyle", "limits"):
                     pass
                 elif nom in ("quad", "qquad"):
@@ -257,6 +268,9 @@ RE_LIEN = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 RE_GRAS = re.compile(r"\*\*(.+?)\*\*", re.S)
 RE_ITAL = re.compile(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", re.S)
 RE_SURL = re.compile(r"==(.+?)==")
+# balises HTML simples tolérées dans le texte source (exposants, indices, retours)
+RE_BALISES = re.compile(r"&lt;(/?)(sup|sub|br|small|abbr)&gt;")
+RE_AUTOLIEN = re.compile(r"&lt;(https?://[^\s&<>]+)&gt;")
 
 
 def inline(txt):
@@ -284,6 +298,10 @@ def inline(txt):
     txt = RE_SURL.sub(lambda m: "<mark>%s</mark>" % m.group(1), txt)
     txt = RE_ITAL.sub(lambda m: "<em>%s</em>" % m.group(1), txt)
     txt = txt.replace("\\$", "$")
+    # quelques balises HTML simples restent utilisables dans le texte source
+    txt = RE_BALISES.sub(lambda m: "<%s%s>" % (m.group(1), m.group(2)), txt)
+    # liens automatiques : <https://exemple.fr>
+    txt = RE_AUTOLIEN.sub(lambda m: '<a href="%s">%s</a>' % (m.group(1), m.group(1)), txt)
     txt = re.sub(r"\x00(\d+)\x00", lambda m: coffre[int(m.group(1))], txt)
     return txt
 
@@ -423,11 +441,11 @@ class Rendu:
                 q, r = corps[:1], corps[1:]
             return ('<div class="carte"><div class="q">%s</div><div class="r">%s</div></div>'
                     % (self.blocs(q), self.blocs(r)))
-        etiquette = ETIQUETTES.get(type_, type_.capitalize())
+        etiquette = esc(ETIQUETTES.get(type_, type_.capitalize()))
         if titre:
-            etiquette = "%s — %s" % (etiquette, titre)
+            etiquette = "%s — %s" % (etiquette, inline(titre))
         return ('<div class="bloc %s"><span class="etiquette">%s</span>%s</div>'
-                % (type_, esc(etiquette), self.blocs(corps)))
+                % (type_, etiquette, self.blocs(corps)))
 
     # -- boucle principale -------------------------------------------------
     def blocs(self, lignes):

@@ -166,7 +166,9 @@ th{
   padding:2.2mm 2.6mm; border:1px solid var(--encre); letter-spacing:.02em;
 }
 td{ padding:2mm 2.6mm; border:1px solid var(--filet); vertical-align:top; }
-th,td{ overflow-wrap:anywhere; word-break:normal; }
+td{ overflow-wrap:anywhere; word-break:normal; }
+/* les en-têtes ne se coupent jamais au milieu d'un mot : la colonne s'élargit */
+th{ overflow-wrap:normal; word-break:keep-all; hyphens:none; }
 tbody tr:nth-child(even) td{ background:#f7f8fa; }
 tr{ break-inside:avoid; page-break-inside:avoid; }
 td.c,th.c{ text-align:center; } td.r,th.r{ text-align:right; }
