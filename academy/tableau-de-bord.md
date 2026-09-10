@@ -7,10 +7,24 @@ Les cases entre crochets sont à remplir ; rien n'y est présumé.
 
 ## 1. Matières du semestre
 
+Six matières au semestre. Les colonnes vides ne sont pas des oublis : **coefficients,
+formats d'épreuve et dates ne sont pas encore connus et ne seront pas supposés.** Remplis-les
+dès que la FEG les communique — la règle d'arbitrage de la section 2 ne fonctionne pas sans.
+
 | Matière | Coeff. | Format de l'épreuve | Date du partiel | Niveau actuel /5 | Chapitres traités | Priorité |
 |---|:---:|---|---|:---:|---|:---:|
-| *[matière]* | *[ ]* | *[durée, type, documents autorisés]* | *[date]* | *[ ]* | *[n / total]* | *[calculée]* |
-| | | | | | | |
+| **Techniques statistiques** | *[ ]* | *[durée, type, documents autorisés]* | *[date]* | *[ ]* | **2 / 4** — CHAP 1 ✔, CHAP 2 ✔ ; restent « évolutions temporelles » et « croiser » | *[calculée]* |
+| **Mathématiques** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
+| **Introduction au droit** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
+| **Principes de gestion** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **2** — CM 1 ✔, CM 2 ✔ ; total du semestre inconnu | *[calculée]* |
+| **Principes d'économie** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
+| **Institutions politiques** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
+
+**Constat au 10 septembre 2026 : quatre matières sur six n'ont encore reçu aucun document.**
+C'est le déséquilibre le plus coûteux du tableau — non parce que les deux matières traitées
+le seraient mal, mais parce qu'une matière à niveau 1 ou 2 offre mécaniquement le meilleur
+rendement horaire (section 2). **Transmets en priorité un cours de chacune des quatre
+matières non couvertes.**
 
 **Niveau actuel**, échelle de travail — à s'attribuer sans complaisance :
 
@@ -61,7 +75,19 @@ Une ligne par chapitre produit. Les échéances viennent de la section 6 de chaq
 
 | Chapitre | Produit le | J+1 | J+3 | J+7 | J+21 | Points encore fragiles |
 |---|---|:---:|:---:|:---:|:---:|---|
-| *[nom du chapitre]* | *[date]* | ☐ | ☐ | ☐ | ☐ | *[notions à reprendre]* |
+| Gestion — CM 1 « Introduction au management » | 1ᵉʳ sept. 2026 | ☐ 2 sept. | ☐ 4 sept. | ☐ 8 sept. | ☐ 22 sept. | *[notions à reprendre]* |
+| Stats — CHAP 1 « Présenter pour informer » | 4 sept. 2026 | ☐ 5 sept. | ☐ 7 sept. | ☐ 11 sept. | ☐ 25 sept. | *[notions à reprendre]* |
+| Gestion — CM 2 « Qui doit être roi ? » | 10 sept. 2026 | ☐ 11 sept. | ☐ 13 sept. | ☐ 17 sept. | ☐ 1ᵉʳ oct. | *[notions à reprendre]* |
+| Stats — CHAP 2 « Résumer pour informer » | 10 sept. 2026 | ☐ 11 sept. | ☐ 13 sept. | ☐ 17 sept. | ☐ 1ᵉʳ oct. | *[notions à reprendre]* |
+
+**Attention à la collision du 11 et du 13 septembre :** deux chapitres arrivent le même jour
+à J+1 puis à J+3. Traite-les dans l'ordre **cartes de gestion d'abord** (mémorisation pure,
+plus rapide), **stats ensuite** (calculs, qui demandent du papier). Compte 45 minutes le
+11 septembre et 65 minutes le 13.
+
+**Une interrogation reste en attente :** les 12 questions du mode INTERROGATION sur le CM 1
+de gestion n'ont pas encore reçu de réponse. Elle ne compte pas comme révision tant qu'elle
+n'est pas passée.
 
 Une carte échouée deux fois de suite n'est pas un problème de mémoire mais de
 compréhension : elle déclenche un passage en **mode approfondissement**, pas une
