@@ -78,6 +78,8 @@ SYMBOLES = {
     "mathbb{R}": "ℝ",
     # flèches
     "rightarrow": "→", "to": "→", "leftarrow": "←", "gets": "←",
+    "longrightarrow": "⟶", "longleftarrow": "⟵", "Longrightarrow": "⟹",
+    "longmapsto": "⟼", "hookrightarrow": "↪",
     "Rightarrow": "⇒", "implies": "⇒", "Leftarrow": "⇐",
     "leftrightarrow": "↔", "Leftrightarrow": "⇔", "iff": "⇔",
     "mapsto": "↦", "uparrow": "↑", "downarrow": "↓", "nearrow": "↗", "searrow": "↘",
@@ -97,6 +99,7 @@ RELATIONS = {
     "approx", "simeq", "sim", "equiv", "propto", "ll", "gg", "in", "notin",
     "subset", "subseteq", "supset", "supseteq", "cup", "cap", "setminus",
     "rightarrow", "to", "leftarrow", "gets", "Rightarrow", "implies", "Leftarrow",
+    "longrightarrow", "longleftarrow", "Longrightarrow", "longmapsto", "hookrightarrow",
     "leftrightarrow", "Leftrightarrow", "iff", "mapsto", "perp", "therefore",
 }
 
@@ -263,7 +266,9 @@ def maths(src):
 # =========================================================================
 RE_CODE = re.compile(r"(`+)(.+?)\1")
 RE_MATH = re.compile(r"(?<!\\)\$(?!\$)([^$\n]+?)\$(?!\d)")
-RE_SIGNE_MATH = re.compile(r"[\\^_{}=<>/+\u00d7\u00f7\u2264\u2265\u2260\u2192\u21d2]")
+RE_MATH_BLOC = re.compile(r"\$\$(.+?)\$\$", re.S)
+RE_SIGNE_MATH = re.compile(
+    r"(?:&lt;|&gt;|[-()\\\\^_{}=<>/+\u2212\u00d7\u00f7\u2264\u2265\u2260\u2192\u21d2])")
 RE_LIEN = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 RE_GRAS = re.compile(r"\*\*(.+?)\*\*", re.S)
 RE_ITAL = re.compile(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", re.S)
@@ -292,6 +297,15 @@ def inline(txt):
             return m.group(0)
         return garder('<span class="math">%s</span>' % maths(contenu))
 
+    def _math_bloc(m):
+        # « $$ ... $$ » rencontré au fil du texte (dans un item de liste, par
+        # exemple) : rendu centré, comme au niveau bloc.
+        contenu = m.group(1).strip()
+        if not contenu:
+            return m.group(0)
+        return garder('<div class="math math-display">%s</div>' % maths(contenu))
+
+    txt = RE_MATH_BLOC.sub(_math_bloc, txt)
     txt = RE_MATH.sub(_math, txt)
     txt = RE_LIEN.sub(lambda m: garder('<a href="%s">%s</a>' % (m.group(2), m.group(1))), txt)
     txt = RE_GRAS.sub(lambda m: "<strong>%s</strong>" % m.group(1), txt)
@@ -515,10 +529,17 @@ class Rendu:
                 else:
                     corps = [reste] if reste else []
                     i += 1
-                    while i < n and not lignes[i].strip().startswith("$$"):
-                        corps.append(lignes[i].strip())
+                    while i < n:
+                        t = lignes[i].strip()
+                        if t.startswith("$$"):        # fermeture sur sa propre ligne
+                            i += 1
+                            break
+                        if t.endswith("$$"):          # fermeture en fin de ligne
+                            corps.append(t[:-2].strip())
+                            i += 1
+                            break
+                        corps.append(t)
                         i += 1
-                    i += 1
                 expr = " ".join(x for x in corps if x)
                 out.append('<div class="math math-display">%s</div>' % maths(esc(expr)))
                 continue
