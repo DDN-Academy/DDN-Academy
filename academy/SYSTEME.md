@@ -138,8 +138,22 @@ explicite en fin de tableau. Un document sans tableau de couverture n'est pas li
 - **Rigueur :** aucune approximation, aucune erreur factuelle. En cas d'incertitude sur
   un point (chiffre, auteur, date, convention de notation propre à l'enseignant), le dire
   explicitement et proposer la vérification — **jamais inventer**.
-- **Longueur :** celle que le chapitre exige. Ne jamais condenser au détriment de la
-  compréhension. Vingt diapositives peuvent légitimement donner quarante pages.
+- **Longueur — règle révisée le 11 septembre 2026, à la demande de l'étudiant.**
+  Le critère n'est pas le volume produit mais **la charge de lecture**. Un document qu'on ne
+  peut pas apprendre a raté son objet, quelle que soit sa complétude.
+  - **Plafond : la partie à LIRE — carte + cours + points de vigilance — ne dépasse pas
+    45 pages.** Le reste du document (ancrage, entraînement, auto-évaluation, annexe) ne se lit
+    pas : il se **consulte** et se **pratique**, et n'entre pas dans ce plafond.
+  - **Le § 1 annonce explicitement la charge de lecture réelle**, en tableau : quelle partie
+    se lit, laquelle se consulte, laquelle se fait.
+  - **Complétude et concision ne s'opposent pas.** On n'omet rien : on écrit serré. Un tableau
+    remplace trois paragraphes ; une citation décisive remplace cinq citations illustratives ;
+    une démonstration est donnée une fois, pas reformulée trois fois.
+  - **Si le plafond est dépassé malgré cela**, produire **deux fichiers** : le **cours**
+    (`<chapitre>.md`), qui reste sous le plafond, et la **version intégrale**
+    (`<chapitre>-integral.md`), qui garde tous les développements, avec **les mêmes numéros de
+    paragraphes** pour que les renvois « ➔ intégrale § X » fonctionnent. **L'intégrale ne se lit
+    jamais d'un bout à l'autre : elle s'ouvre quand un point du cours résiste.**
 - **Mise en forme :** titres hiérarchisés, encadrés, tableaux, listes. Le document doit
   être agréable à travailler et immédiatement imprimable.
 - **Ton :** direct, précis, exigeant. Pas de remplissage, pas de flatterie, pas de généralités.

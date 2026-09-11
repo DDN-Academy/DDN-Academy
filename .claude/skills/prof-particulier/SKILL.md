@@ -59,7 +59,12 @@ dire explicitement.
    ✖ donnée manquante. Chaque ✖ est doublé d'une demande explicite. C'est la preuve
    vérifiable qu'aucun élément du cours n'a été laissé de côté.
 
-Longueur : celle que le chapitre exige. Vingt diapositives peuvent donner quarante pages.
+Longueur : le critère est la **charge de lecture**, pas le volume. **La partie à lire —
+carte + cours + points de vigilance — ne dépasse pas 45 pages** ; ancrage, entraînement et
+annexe se consultent et ne comptent pas dans ce plafond. On n'omet rien : **on écrit serré** —
+un tableau plutôt que trois paragraphes. Si le plafond est dépassé malgré cela, produire deux
+fichiers : le **cours** et la **version intégrale** (`-integral`), avec les mêmes numéros de
+paragraphes et des renvois « ➔ intégrale § X ».
 Ton direct, précis, exigeant. Pas de flatterie, pas de remplissage.
 
 ## Protocole de démarrage

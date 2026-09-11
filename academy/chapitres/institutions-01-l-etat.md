@@ -2,3006 +2,1180 @@
 matiere: Institutions politiques — L1 Portail, Division A, AMU
 chapitre: Partie 1, Chapitre 1 — Le cadre d'exercice du pouvoir politique : l'État
 titre: L'État
-sous_titre: Origine, éléments constitutifs, formes d'organisation — le cadre dans lequel naît tout le droit constitutionnel
-resume: Ce document fusionne les deux supports du chapitre — les dix diapositives du cours magistral et les seize pages du polycopié de droit constitutionnel — en une source unique et autonome. Il suit le plan des diapositives, qui est le plan attendu à l'examen, et y verse l'intégralité du contenu du polycopié, complété partout où les deux supports sont muets : l'origine de l'État, absente du polycopié ; les titulaires de la souveraineté, absents des deux ; l'apatridie, seulement nommée ; les exemples d'États fédéraux, annoncés et jamais donnés. Chaque terme juridique est défini, chaque auteur situé, chaque article de la Constitution cité, chaque exemple développé. Les divergences entre les deux sources et les erreurs factuelles du polycopié sont signalées à l'endroit exact.
+sous_titre: Origine, éléments constitutifs, formes d'organisation — cours resserré et système de révision
+resume: Ce document fusionne les deux supports du chapitre — les dix diapositives du cours magistral et les seize pages du polycopié de droit constitutionnel — en une source unique, autonome et apprenable. Il suit le plan des diapositives, qui est le plan attendu à l'examen. Rien n'est omis : chaque notion, chaque définition, chaque date, chaque article et chaque exemple des deux supports y figure, ainsi que tout ce que les supports nomment sans l'expliquer. Le cours tient en une trentaine de pages ; le reste est un système de révision destiné à être consulté, non lu. Une version intégrale, trois fois plus développée, accompagne ce document pour les points qui résistent.
 date: 11 septembre 2026
-duree: première lecture 4 h — maîtrise complète ≈ 14 h réparties sur 3 semaines
-version: 1.0
+duree: lecture du cours 1 h 30 — maîtrise complète ≈ 12 h réparties sur 3 semaines
+version: 2.0
 sommaire: oui
 ---
 
 # Chapitre 1 — Le cadre d'exercice du pouvoir politique : l'État
 
-Ce document remplace les deux supports du cours. Les **dix diapositives** et les **seize pages
-de polycopié** y sont couvertes sans exception : le **tableau de couverture** en annexe permet
-de le vérifier ligne par ligne.
+::: methode Comment ce document est fait, et comment on s'en sert
+Ce chapitre pose une difficulté : **les deux supports ne disent pas la même chose, et aucun ne
+se suffit.** Les diapositives donnent le plan et trois notions que le polycopié ignore ; le
+polycopié donne la matière et vingt notions que les diapositives se contentent de nommer. Les
+diapositives 2 et 7 à 10 ne contiennent **que des titres**.
 
-Ce chapitre présente une difficulté que les précédents n'avaient pas : **les deux supports ne
-disent pas la même chose, et aucun des deux ne se suffit à lui-même.** Les diapositives donnent
-le plan et trois notions que le polycopié ignore ; le polycopié donne la matière et vingt
-notions que les diapositives se contentent de nommer. Ce document les articule, signale chaque
-divergence, et comble les silences des deux.
+**Ce document les articule, signale chaque divergence, et comble les silences des deux.**
+
+| Partie | Pages | Ce que tu en fais |
+|---|:---:|---|
+| **§ 1 — Carte** | **3** | Tu la lis **une fois**, avant tout le reste |
+| **§ 2 — Le cours** | **36** | Tu le lis **deux fois** : une fois pour comprendre, une fois stylo en main |
+| **§ 3 — Vigilance** | **5** | Tu le relis **avant l'examen** |
+| **§ 4 — Ancrage** | 27 | Tu ne le **lis pas** : fiche, cartes et glossaire se **consultent**, en boucle |
+| **§ 5 — Entraînement** | 17 | Tu le **fais**, tu ne le lis pas |
+| **§ 6 + annexe** | 6 | Contrôle final et preuve de couverture |
+
+**La charge de lecture réelle est donc de 44 pages** — soit à peu près le volume des deux
+supports d'origine réunis (26 pages), pour un contenu qui comble tout ce qu'ils taisent.
+**Les 53 pages restantes ne se lisent pas : elles se consultent et se pratiquent.**
+
+**Un second fichier accompagne celui-ci :** ***L'État — version intégrale***. Même contenu,
+trois fois plus développé : chaque démonstration détaillée, chaque citation du polycopié en
+entier, chaque exemple commenté. **Tu ne le lis jamais d'un bout à l'autre — tu l'ouvres
+quand un point de ce cours-ci résiste.** Les renvois « ➔ intégrale § X » t'y conduisent
+directement.
+:::
 
 <!--saut-->
 
 ## 1. Carte du chapitre
 
-### 1.1 — Vue d'ensemble
+### 1.1 — Vue d'ensemble et plan imposé
 
-Le droit constitutionnel est le droit du **pouvoir politique** : qui l'exerce, comment il est
-organisé, quelles limites il connaît. Mais avant d'étudier les règles de ce pouvoir, il faut
-étudier **le cadre dans lequel il s'exerce**. Dans les sociétés contemporaines, ce cadre porte
-un nom : l'**État**. Le polycopié l'écrit dès sa première phrase : « Pour qu'il y ait droit
-constitutionnel, il faut qu'il y ait un pouvoir politique organisé. » L'État est cette
-organisation — l'**institutionnalisation du pouvoir politique**.
+Le droit constitutionnel est le droit du **pouvoir politique**. Avant d'étudier les règles de
+ce pouvoir, il faut étudier **le cadre dans lequel il s'exerce** : l'**État**. Le polycopié
+l'écrit dès sa première phrase — « pour qu'il y ait droit constitutionnel, il faut qu'il y ait
+un pouvoir politique organisé » — et l'État en est l'**institutionnalisation**.
 
-Le chapitre répond à trois questions, et à trois seulement. **D'où vient l'État** — pourquoi
-des hommes obéissent-ils à une autorité qui n'existe pas dans la nature ? **De quoi est-il
-fait** — à quelles conditions une entité mérite-t-elle ce nom, et non celui de tribu, de
-province ou d'organisation internationale ? **Comment s'organise-t-il** — un seul centre de
-décision, ou plusieurs superposés ?
-
-Ces trois questions sont l'ossature complète du cours, et elles commandent la copie d'examen.
-
-::: examen Le plan du chapitre, tel que la diapositive 1 le donne
-La première diapositive du cours n'est pas décorative. Elle contient **la consigne de
-rédaction pour l'examen** :
-
+::: examen Le plan, donné par la diapositive 1 — c'est une consigne, pas une suggestion
 > « **Réponse à trois questions : QUAND — QUOI — COMMENT ⇒ 3 PARAGRAPHES** »
 
-| Question | Ce qu'elle demande | Paragraphe du cours | Contenu |
+| Question | Ce qu'elle demande | Paragraphe | Contenu |
 |---|---|---|---|
-| **QUAND** | D'où vient l'État ? À quel moment et par quel processus apparaît-il ? | **§ 1 — L'origine de l'État** | Théorie contractualiste (Rousseau) · Théorie de l'évolution naturelle (Weber) |
-| **QUOI** | De quoi l'État est-il fait ? Qu'est-ce qui le distingue de toute autre organisation ? | **§ 2 — Les éléments constitutifs** | Territoire · Population · Souveraineté |
-| **COMMENT** | Comment le pouvoir est-il réparti à l'intérieur de l'État ? | **§ 3 — Les formes d'organisation** | État unitaire (déconcentration, décentralisation, État régional) · État fédéral (superposition, autonomie, participation) |
+| **QUAND** | D'où vient l'État ? | **§ 1 — L'origine** | Contractualisme (Rousseau) · Évolution naturelle (Weber) |
+| **QUOI** | De quoi est-il fait ? | **§ 2 — Les éléments constitutifs** | Territoire · Population · Souveraineté (+ personnalité morale) |
+| **COMMENT** | Comment le pouvoir est-il réparti ? | **§ 3 — Les formes d'organisation** | Unitaire (déconcentration, décentralisation, État régional) · Composé (confédération, fédération) |
 
-**Retiens-le comme une consigne, pas comme un plan parmi d'autres.** Quand un enseignant
-affiche « ⇒ 3 paragraphes » sur sa première diapositive, il annonce la structure de la réponse
-qu'il attend. Une copie qui suit cet ordre part avec un avantage mécanique sur une copie qui
-invente son propre plan.
+**Quand un enseignant affiche « ⇒ 3 paragraphes » sur sa première diapositive, il annonce la
+structure de la copie qu'il attend.**
 :::
 
-### 1.2 — Les idées maîtresses
+### 1.2 — Les dix idées maîtresses
 
-Dix idées. Si tu les tiens, tu tiens le chapitre.
-
-1. **L'État n'est pas un fait de nature, c'est une construction historique.** Le polycopié le
-   dit sans détour : l'État est « une forme historique et contingente ». Il est né à Rome,
-   s'est effondré après les invasions, a ressuscité à la Renaissance. **Des sociétés ont vécu
-   sans État, et peuvent en vivre.** Toute la question de l'origine découle de ce constat.
-
-2. **Deux récits s'affrontent sur cette origine, et ils ne sont pas équivalents.** Le récit
-   **contractualiste** (Rousseau) fait naître l'État d'un **accord volontaire** ; le récit de
-   l'**évolution naturelle** (Weber) le fait naître d'un **processus historique subi**, fait
-   de guerres, de centralisation et de spécialisation. Le premier fonde la légitimité du
-   pouvoir sur le consentement ; le second l'explique par la force devenue habitude.
-
-3. **Trois éléments, et il faut les trois.** Territoire, population, souveraineté. **L'absence
-   d'un seul suffit à ce qu'il n'y ait pas d'État** — c'est la question palestinienne pour le
-   territoire, c'est la différence entre un État et une simple collectivité territoriale pour
-   la souveraineté.
-
-4. **La souveraineté est l'élément décisif — et le seul vraiment discriminant.** Un territoire
-   et une population, une commune en a aussi. Ce qui fait l'État, c'est le pouvoir de décider
-   **sans avoir à tenir compte d'une règle supérieure** : la « compétence de sa compétence »
-   de Jellinek. Tout le chapitre tourne autour de cette formule.
-
-5. **La souveraineté joue sur deux plans, et il ne faut jamais les confondre.** Vers
-   l'**extérieur**, c'est l'indépendance : aucun autre État ne commande. Vers l'**intérieur**,
-   c'est la suprématie : aucune autre autorité ne commande sur le territoire.
-
+1. **L'État n'est pas un fait de nature** : c'est une « forme historique et contingente ». Des
+   sociétés ont vécu sans État — d'où la question de l'origine.
+2. **Deux récits s'affrontent sur cette origine** : l'accord volontaire (Rousseau) contre le
+   processus subi de compétition et de guerre (Weber). Le premier fonde la légitimité, le
+   second explique le fait.
+3. **Trois éléments, et il les faut tous les trois.** L'absence d'un seul écarte la
+   qualification d'État.
+4. **La souveraineté est le seul élément vraiment discriminant** : un territoire et une
+   population, une commune en a aussi. Critère : la **« compétence de sa compétence »**
+   (Jellinek) — fixer soi-même l'étendue de ses pouvoirs.
+5. **Elle joue sur deux plans** : **externe** (indépendance face aux autres États) et
+   **interne** (suprématie sur le territoire). Ne jamais les confondre.
 6. **Nation et État sont deux choses différentes**, et leur non-coïncidence est l'une des
-   grandes causes de guerre des deux derniers siècles. Une nation peut être écartelée entre
-   plusieurs États (les Kurdes, les Corées) ; un État peut réunir plusieurs nations (la
-   Belgique, le Canada, l'ex-URSS).
-
-7. **L'État est une personne morale**, c'est-à-dire une personne juridique abstraite, distincte
-   des individus qui parlent en son nom. C'est ce qui explique qu'un engagement pris par un
-   gouvernement lie encore l'État après son départ — et, en droit de marché, qu'une dette
-   souveraine survive à l'alternance politique.
-
-8. **Deux formes d'organisation, et un critère unique pour les distinguer : le nombre d'ordres
-   juridiques.** Un seul dans l'État unitaire ; deux superposés dans l'État fédéral. Tout le
-   reste — déconcentration, décentralisation, région autonome — sont des **degrés**, pas des
-   natures différentes.
-
-9. **La décentralisation n'est pas du fédéralisme.** Une collectivité territoriale
-   **administre**, un État fédéré **légifère**. La première n'a pas la compétence de ses
-   compétences, le second l'a dans son domaine. C'est la distinction que la majorité des
-   copies rate.
-
-10. **Confédération et fédération se distinguent par leur acte fondateur.** La confédération
-    naît d'un **traité** entre États qui restent souverains ; la fédération naît d'une
-    **Constitution** et fait naître **un État nouveau**. Traité contre Constitution : deux
-    mots, et toute la différence.
+   grandes causes de guerre des deux derniers siècles.
+7. **L'État est une personne morale** : une entité abstraite distincte de ceux qui parlent en
+   son nom. D'où la continuité de ses engagements par-delà les hommes.
+8. **Deux formes d'organisation, un critère unique : le nombre d'ordres juridiques.** Un dans
+   l'État unitaire, deux superposés dans l'État fédéral. Déconcentration, décentralisation et
+   région autonome sont des **degrés**, pas des natures.
+9. **La décentralisation n'est pas du fédéralisme.** Une collectivité **administre**, un État
+   fédéré **légifère**.
+10. **Confédération et fédération se distinguent par leur acte fondateur : TRAITÉ contre
+    CONSTITUTION.** Deux mots, et toute la différence.
 
 ### 1.3 — Prérequis : le vocabulaire juridique minimal
 
-Ce chapitre est le premier cours de droit de ton cursus. **Il suppose acquis un vocabulaire
-que personne ne t'a enseigné.** Le voici, intégralement, avant d'entrer dans le cours.
-Aucune de ces définitions n'est dans les supports ; toutes sont indispensables.
+**C'est ton premier cours de droit : ce vocabulaire n'est enseigné nulle part et il est
+supposé acquis.** ➔ intégrale § 1.3 pour les développements.
 
 ::: definition Les dix mots à connaître avant la première ligne du cours
-**① Norme juridique (ou règle de droit).** Une règle **obligatoire**, énoncée par une autorité
-compétente, et dont le non-respect est **sanctionné par la puissance publique**. C'est la
-sanction étatique qui la distingue d'une règle morale ou d'une règle de politesse.
+| Terme | Définition |
+|---|---|
+| **Norme juridique** | Règle **obligatoire**, édictée par une autorité compétente, **sanctionnée par la puissance publique** |
+| **Hiérarchie des normes** | Pyramide : ① **Constitution** ② **traités et droit de l'Union** ③ **loi** (Parlement) ④ **règlement** — décret, arrêté — ⑤ actes individuels. **Chaque étage doit respecter les supérieurs** |
+| **Constitution** | **Norme suprême** de l'ordre juridique interne. En France, celle du **4 octobre 1958** |
+| **Loi** | Norme générale **votée par le Parlement**, applicable sur tout le territoire |
+| **Règlement** | Norme générale du **pouvoir exécutif** : **décret** (Président, Premier ministre) ou **arrêté** (ministre, préfet, maire). Un arrêté municipal est une **règle locale**, pas une loi |
+| **Traité international** | Accord **entre États**, applicable en droit interne après **ratification**. ⚠ **Ce mot sépare la confédération de la fédération** |
+| **Personne juridique** | Entité **titulaire de droits et d'obligations** : **physique** (un humain) ou **morale** (un groupement) |
+| **Droit public / privé** | Le **public** régit l'État et ses rapports aux particuliers ; le **privé**, les rapports entre particuliers. **Le droit constitutionnel est du droit public** |
+| **Collectivité territoriale** | **Personne morale de droit public** à organes élus. **Elle administre ; elle ne légifère pas** |
+| **Juridiction constitutionnelle** | Tribunal vérifiant la conformité à la Constitution : **Conseil constitutionnel**, **Cour suprême** américaine, **Cour constitutionnelle** allemande |
+:::
 
-**② Hiérarchie des normes.** Les normes juridiques ne sont pas sur un pied d'égalité : elles
-forment une **pyramide**, chacune devant respecter celles qui lui sont supérieures. En France,
-du sommet vers la base :
+::: definition Cinq expressions que les supports emploient sans les traduire
+| Expression | Sens |
+|---|---|
+| *Stare* (latin) | « **Se tenir debout** » — **étymologie d'« État »** : ce qui tient, ce qui demeure |
+| *Patere legem quam fecisti* | « **Respecte la règle que tu as faite** » — fondement de l'**autolimitation** |
+| *E pluribus unum* | « **De plusieurs, un seul** » — devise des États-Unis, formule du fédéralisme |
+| *Kompetenz-Kompetenz* | « **Compétence de la compétence** » (Jellinek) — **le critère de la souveraineté** |
+| *Rechtsstaat* | « **État de droit** » — l'État soumis au droit qu'il a produit |
 
-| Rang | Norme | Qui l'édicte |
+**Convention d'écriture : toujours « État » avec majuscule et accent** quand il s'agit de la
+personne morale. « état » minuscule = une manière d'être.
+:::
+
+### 1.4 — Les deux supports : ce que chacun apporte, et les quatre divergences
+
+::: synthese Répartition de la matière
+| | **Diapositives** (10) | **Polycopié** (16 p.) |
 |---|---|---|
-| 1 | **Constitution** (et « bloc de constitutionnalité ») | Le pouvoir constituant |
-| 2 | **Traités et droit de l'Union européenne** | Les États, les institutions de l'Union |
-| 3 | **Loi** | Le Parlement |
-| 4 | **Règlement** (décret, arrêté) | Le pouvoir exécutif : Gouvernement, préfet, maire |
-| 5 | **Actes administratifs individuels** | Les autorités administratives |
-
-*Cette pyramide est la clé de tout le § 3 : ce qui distingue un État fédéré d'une commune,
-c'est l'étage de la pyramide auquel il peut intervenir.*
-
-**③ Constitution.** La norme **suprême** de l'ordre juridique interne : elle organise les
-pouvoirs publics, répartit leurs compétences et garantit les droits fondamentaux. En France,
-la Constitution du **4 octobre 1958** (Ve République).
-
-**④ Loi.** Norme générale votée par le **Parlement** (Assemblée nationale + Sénat). Elle
-s'applique sur tout le territoire national.
-
-**⑤ Règlement.** Norme générale édictée par le **pouvoir exécutif**, sans vote du Parlement.
-Un **décret** émane du Président ou du Premier ministre ; un **arrêté** d'un ministre, d'un
-préfet ou d'un maire. Un arrêté municipal ne vaut que sur le territoire de la commune : c'est
-une **règle locale**, pas une loi.
-
-**⑥ Traité international.** Accord conclu **entre États** (ou entre États et organisations
-internationales). Il n'entre en vigueur dans l'ordre interne qu'après **ratification** —
-l'acte par lequel un État déclare officiellement s'engager. **Retiens ce mot : c'est lui qui
-sépare la confédération de la fédération.**
-
-**⑦ Personne juridique.** Une entité **titulaire de droits et d'obligations** : elle peut
-posséder, contracter, agir en justice, être condamnée. Deux catégories :
-- **personne physique** : un être humain ;
-- **personne morale** : un groupement (société, association, commune, État).
-
-**⑧ Droit public / droit privé.** Le **droit privé** régit les rapports entre particuliers
-(droit civil, droit commercial). Le **droit public** régit l'organisation de l'État et ses
-rapports avec les particuliers (droit constitutionnel, droit administratif). **Le droit
-constitutionnel est du droit public** — d'où l'importance de la notion de puissance publique.
-
-**⑨ Collectivité territoriale.** Une **personne morale de droit public** dotée d'un territoire,
-d'organes élus et de compétences administratives propres. En France : **communes,
-départements, régions**, plus les collectivités à statut particulier. **Elle administre ; elle
-ne légifère pas.** Retiens cette phrase, elle vaut des points.
-
-**⑩ Juridiction constitutionnelle.** Un tribunal chargé de vérifier que les normes inférieures
-respectent la Constitution. En France, le **Conseil constitutionnel** ; aux États-Unis, la
-**Cour suprême** ; en Allemagne, la **Cour constitutionnelle fédérale** de Karlsruhe. Dans un
-État fédéral, c'est elle qui arbitre les conflits de compétence entre la fédération et les
-États fédérés.
+| Rôle | **Donne le plan de l'examen** | **Donne la matière** |
+| § 1 Origine | Traité (Rousseau, Weber) | **Absent — aucune ligne** |
+| § 2 Éléments | Nommés ; souveraineté sur 2 diapositives | Traité intégralement (8 p.) |
+| Titulaires de la souveraineté | **Trois mots** | **Absent** |
+| Apatrides | **Deux mots** | **Absent** |
+| § 3 Formes | **Titres seuls, aucun contenu** | Traité intégralement (7 p.) |
+| Confédération · personne morale · nation | **Absents des diapositives** | Traités (6 p. au total) |
 :::
 
-::: definition Cinq expressions latines et étrangères que les supports emploient sans les traduire
-| Expression | Traduction littérale | Sens juridique |
-|---|---|---|
-| *Stare* (latin) | « se tenir debout » | **Étymologie du mot « État »** : ce qui tient, ce qui demeure, par opposition à ce qui passe |
-| *Patere legem quam fecisti* | « Subis la loi que tu as faite » | Fondement de la théorie de l'**autolimitation** : l'État s'oblige lui-même par la règle qu'il pose |
-| *E pluribus unum* | « De plusieurs, un seul » | **Devise des États-Unis**, formule du fédéralisme : l'unité sans la disparition de la diversité |
-| *Kompetenz-Kompetenz* (allemand) | « Compétence de la compétence » | Formule de **Jellinek** : le pouvoir de déterminer soi-même l'étendue de ses propres pouvoirs. **C'est le critère de la souveraineté** |
-| *Rechtsstaat* (allemand) | « État de droit » | L'État soumis au droit qu'il a lui-même produit |
-:::
+::: piege Les quatre divergences, et comment je les tranche
+**① Trois principes du fédéralisme, ou deux ?** La diapositive 9 en donne **trois**
+(superposition, autonomie, participation) ; le polycopié en annonce **deux** « systématisés par
+Georges Scelle ». **La doctrine classique attribue à Scelle trois « lois du fédéralisme »** ;
+beaucoup de manuels n'en présentent que deux, la superposition étant alors comprise dans la
+définition. **Je retiens les trois de la diapositive** — c'est l'enseignante qui corrige — et je
+montre pour chacun où le polycopié en fournit la matière (§ 2.3.9).
 
-::: piege « Etat » ou « État » ? Une convention typographique qui a du sens
-Le polycopié écrit systématiquement « Etat » sans accent — usage ancien, encore fréquent dans
-l'édition juridique. La règle actuelle veut **« État »**, avec majuscule accentuée.
+**② Souveraineté « suprême » ou « absolue » ?** Diapositive : suprême, indivisible, perpétuel.
+Polycopié, citant Bodin : absolue, perpétuelle, indivisible. **C'est le même trio** : chez
+Bodin, « absolue » signifie *déliée de tout pouvoir supérieur*. **Formule qui te rend compatible
+avec les deux : « suprême — ou absolue au sens de Bodin —, indivisible, perpétuelle ».**
 
-**Mais la majuscule, elle, n'est pas une coquetterie :**
-- **« État » avec majuscule** = la personne morale de droit public, l'organisation politique
-  souveraine. *« L'État français a ratifié ce traité. »*
-- **« état » avec minuscule** = une manière d'être. *« L'état des finances publiques. »*
+**③ L'origine de l'État est absente du polycopié.** Le § 1 du plan n'a aucun équivalent dans les
+16 pages. Je le reconstruis à partir des auteurs cités, en signalant chaque fois que je vais
+au-delà des supports.
 
-Le polycopié consacre un développement entier à cette distinction (les trois sens du mot). **En
-copie, écris toujours « État ».**
-:::
-
-### 1.4 — Les deux supports : ce que chacun apporte, et où ils divergent
-
-C'est la particularité de ce chapitre, et il faut la traiter de front.
-
-::: synthese Ce que contient chaque support
-| | **Diapositives (S. Hutier, 10 diapositives)** | **Polycopié (M. Verpeaux, UNJF, 16 pages)** |
-|---|---|---|
-| **Nature** | Support de cours magistral : titres, mots-clés, plan | Cours rédigé, complet, avec exemples et références |
-| **Rôle** | **Donne le plan de l'examen** et l'ordre attendu | **Donne la matière** : définitions, doctrine, exemples |
-| **§ 1 Origine de l'État** | Traité : Rousseau, Weber | **Absent — aucune ligne** |
-| **§ 2 Éléments constitutifs** | Nommés ; souveraineté détaillée en 2 diapositives | Traité intégralement, 8 pages |
-| **Titulaires de la souveraineté** | Nommés : monarchie, oligarchie, démocratie | **Absent** |
-| **Apatrides** | Nommés : « refus des apatrides » | **Absent** (une phrase sur les étrangers) |
-| **§ 3 Formes d'organisation** | Titres seuls, aucun contenu | Traité intégralement, 7 pages |
-| **Confédération** | **Absente des diapositives** | Traitée sur 1,5 page |
-| **État personne morale** | **Absent des diapositives** | Traité sur 2 pages |
-| **Nation, État-nation** | **Absent des diapositives** | Traité sur 3 pages |
-| **Principes du fédéralisme** | **Trois** : superposition, autonomie, participation | **Deux** : autonomie, participation |
-| **Caractères de la souveraineté** | **Suprême**, indivisible, perpétuel | **Absolue**, perpétuelle, indivisible (Bodin) |
-| **Section III annoncée** | — | **Annoncée dans l'introduction, absente du document** |
-:::
-
-::: piege Quatre divergences à trancher — et comment je les tranche
-**① Le nombre de principes du fédéralisme : trois ou deux ?**
-La diapositive 9 en donne **trois** (superposition, autonomie, participation). Le polycopié
-écrit : « le fédéralisme est le résultat de **deux** principes, qui ont été systématisés par le
-juriste Georges Scelle », puis ne développe que l'autonomie et la participation.
-
-**Ce que dit la doctrine classique :** Georges Scelle a formulé **trois « lois du
-fédéralisme »** — superposition, autonomie, participation. Beaucoup de manuels n'en présentent
-que deux, en considérant la superposition comme comprise dans la **définition** même de l'État
-fédéral plutôt que comme un principe distinct. Le polycopié suit cette seconde présentation :
-il décrit bien la superposition (« un nouvel État se superpose à ces États », « une
-construction à deux étages ») mais sans lui donner le nom de principe.
-
-**Ma décision : je retiens trois principes, comme la diapositive.** Raison : c'est
-l'enseignante qui rédige le sujet et corrige la copie. **Et je montre, pour chacun des trois,
-où le polycopié en fournit la matière** (§ 2.3.9). Tu n'y perds rien et tu es couvert dans les
-deux cas.
-
-**② Les caractères de la souveraineté : « suprême » ou « absolue » ?**
-La diapositive 6 dit **suprême, indivisible, perpétuel**. Le polycopié, citant Bodin, dit
-**absolue, perpétuelle et indivisible**.
-
-**Ce ne sont pas deux listes différentes, c'est le même trio.** Chez Bodin, « absolue »
-signifie *qui n'est liée par aucun pouvoir supérieur* — c'est exactement ce que le mot
-« suprême » veut dire. **Ma décision : j'emploie les deux mots ensemble** — « un pouvoir
-suprême, c'est-à-dire absolu au sens de Bodin » — ce qui te rend compatible avec les deux
-supports en une seule formule.
-
-**③ L'origine de l'État, absente du polycopié.**
-Le § 1 du plan n'a **aucun équivalent** dans les 16 pages. Je le reconstruis intégralement à
-partir des œuvres citées par la diapositive (Rousseau, Weber), en signalant clairement chaque
-fois que je vais au-delà de ce que les supports affirment.
-
-**④ La Section III du polycopié, annoncée et absente.**
-L'introduction du polycopié annonce : « La République française, tant dans l'histoire que sous
-la Constitution de 1958, a été longtemps le prototype de l'État unitaire **(Section III)** ».
-La table des matières ne comporte que deux sections, et le document s'arrête page 16 à la fin
-du fédéralisme. **Cette Section III n'a pas été transmise.** Je le signale en annexe comme une
-donnée manquante — c'est le seul ✖ du chapitre, et il appelle une demande explicite.
+**④ La Section III du polycopié est annoncée et absente.** L'introduction annonce « La
+République française… prototype de l'État unitaire **(Section III)** » ; la table des matières
+n'en comporte que deux et le document s'arrête page 16. **Donnée manquante, signalée en annexe.**
 :::
 
 ### 1.5 — Lien avec la finance de marché
 
-Ce chapitre paraît éloigné des marchés. Il en est en réalité **le fondement juridique**, et
-quatre notions y sont d'usage quotidien en salle de marché.
+::: marche Ce que ce chapitre commande, concrètement
+**① Pourquoi un État ne fait pas faillite comme une entreprise.** Il n'existe **aucun tribunal
+supérieur** à l'État — c'est la « compétence de sa compétence ». Un défaut souverain n'est donc
+pas une liquidation mais une **négociation** (Argentine 2001, Grèce 2012). Faute de juridiction
+naturelle, **elle se choisit par contrat** : une obligation émise sous droit new-yorkais offre
+un recours qu'une émission sous droit local ne donne pas. **Le droit applicable est une ligne du
+prospectus qu'on lit avant le coupon.**
 
-::: marche Ce que ce chapitre commande, concrètement, sur les marchés
-**① La souveraineté explique pourquoi un État ne fait pas faillite comme une entreprise.**
-Quand une entreprise ne paie plus, un **tribunal** ouvre une procédure collective, nomme un
-administrateur, liquide les actifs. Pour un État, **il n'existe pas de tribunal supérieur** :
-c'est exactement la « compétence de sa compétence » de Jellinek (§ 2.2.4). Un défaut souverain
-n'est donc pas une liquidation mais une **négociation** — l'Argentine en 2001 puis en 2014,
-la Grèce en 2012.
+**② La personnalité morale rend la dette souveraine investissable.** L'État étant distinct de
+ses dirigeants, **un changement de gouvernement n'éteint aucune obligation**. Sans ce principe,
+chaque alternance serait un événement de crédit.
 
-**Conséquence de marché directe :** puisqu'aucune juridiction ne s'impose naturellement, elle
-se **choisit par contrat**. Une obligation souveraine émise sous **droit new-yorkais** ou
-**droit anglais** offre au créancier un recours qu'une émission sous **droit local** ne lui
-donne pas — l'État pouvant alors modifier sa propre loi. **C'est pourquoi le droit applicable
-est une ligne du prospectus qu'on lit avant le coupon**, et pourquoi deux obligations du même
-émetteur, de même maturité, ne se traitent pas au même prix.
+**③ « Battre monnaie » est une marque de souveraineté — et l'euro y a renoncé.** Un État à
+monnaie souveraine ne peut être contraint au défaut sur sa dette en monnaie nationale ; **un
+État de la zone euro le peut**. C'est cette différence de nature, et non le seul niveau
+d'endettement, qui explique qu'un ratio de 250 % au Japon se finance à taux quasi nul quand
+180 % en Grèce déclenchait une crise. **Toute lecture de spread souverain commence là.**
 
-**② La personnalité morale explique la continuité de la dette.**
-L'État est une personne morale distincte de ses dirigeants (§ 2.2.6) : « le roi est mort, vive
-le roi ». **Un changement de gouvernement n'éteint donc aucune obligation.** C'est ce qui rend
-la dette souveraine investissable : sans ce principe, chaque alternance serait un événement de
-crédit. La **doctrine de la « dette odieuse »**, qui prétend l'inverse pour les dettes
-contractées par un régime illégitime contre l'intérêt de sa population, est restée une
-doctrine marginale — précisément parce qu'elle heurte ce principe de continuité.
+**④ Le fédéralisme crée deux étages d'émetteurs** — *Treasuries* et *municipal bonds*, Bunds et
+emprunts des Länder — et pose la question de la **garantie implicite**. Detroit a fait défaut
+en 2013 sans intervention fédérale ; l'**article 125 du traité sur le fonctionnement de
+l'Union** pose une clause de non-renflouement que les crises ont conduit à contourner. **Le
+spread intra-zone euro mesure le degré de solidarité auquel le marché croit.**
 
-**③ Battre monnaie est une marque de souveraineté — et l'euro y a renoncé.**
-Bodin range en 1576 « le droit de battre monnaie » parmi les marques de la souveraineté
-(§ 2.2.4). **Un État de la zone euro a volontairement abandonné cette marque** : il emprunte
-dans une devise qu'il ne contrôle pas.
-
-**La conséquence est la plus importante du chapitre pour toi.** Un État à monnaie souveraine
-(États-Unis, Japon, Royaume-Uni) ne peut pas être contraint au défaut sur sa dette libellée
-dans **sa propre** monnaie : il peut toujours la créer. Un État de la zone euro le peut — la
-Grèce l'a fait. **C'est cette différence de nature, et non le seul niveau d'endettement, qui
-explique qu'un ratio dette/PIB de 250 % au Japon se finance à taux quasi nul quand 180 % en
-Grèce déclenchait une crise.** Toute lecture de *spread* souverain commence par cette
-distinction.
-
-**④ Le fédéralisme crée deux étages d'émetteurs — et pose la question du sauvetage.**
-Un État fédéral, ce sont deux niveaux de puissance publique, donc **deux niveaux
-d'endettement** : *Treasuries* fédéraux et *municipal bonds* aux États-Unis, *Bunds* fédéraux
-et emprunts des *Länder* en Allemagne.
-
-**La question que le marché pose à chaque fois est la même : l'étage supérieur garantit-il
-l'étage inférieur ?** Aux États-Unis, la réponse historique est **non** — Detroit s'est placée
-sous la protection du chapitre 9 en 2013 sans intervention fédérale. En Allemagne, la
-solidarité entre *Länder* est organisée par la Constitution et le marché la prix en
-conséquence : l'écart entre un emprunt de Land et un Bund reste minime. Dans l'Union
-européenne, l'article 125 du traité sur le fonctionnement de l'Union pose une **clause de
-non-renflouement** — que la crise de 2010-2012 a conduit à contourner par des mécanismes
-dédiés. **Savoir lire la forme de l'État, c'est savoir si une garantie implicite existe.**
-
-**⑤ Le territoire maritime est un actif.**
-Les 188 milles marins de zone économique exclusive (§ 2.2.2) ne sont pas une curiosité de
-géographie : ce sont les **droits d'exploration et d'exploitation** du plateau continental —
-pétrole, gaz, pêche, granulats. La France dispose de la deuxième zone économique exclusive du
-monde grâce à ses territoires d'outre-mer. **Un contentieux de délimitation maritime est un
-contentieux sur des concessions**, et il se lit dans le prix des sociétés concernées.
+**⑤ Les 188 milles de zone économique exclusive sont des concessions offshore** — pétrole, gaz,
+pêche. Un contentieux de délimitation maritime est un contentieux sur des actifs réels.
 :::
 
 <!--saut-->
 
-## 2. Le cours reconstruit
+## 2. Le cours
 
-L'ordre suit celui des diapositives — **QUAND, QUOI, COMMENT** — parce que c'est l'ordre
-attendu à l'examen. Une section préliminaire (§ 2.0) est ajoutée : elle correspond à
-l'**introduction du polycopié**, que les diapositives ne reprennent pas mais qui contient la
-définition du mot et les chiffres à citer.
+### 2.0 — L'État : le mot et la chose (polycopié, p. 1-2)
 
-### 2.0 — Introduction : qu'est-ce que l'État ? (polycopié, pages 1 et 2)
+::: definition Institutionnalisation, étymologie, trois sens
+**L'État est l'institutionnalisation du pouvoir politique** : le passage d'un pouvoir **attaché
+à une personne** à un pouvoir **attaché à une fonction**. Avant, on obéit à un homme et tout est
+à refaire à sa mort ; après, on obéit à une **entité abstraite et permanente** dont les
+gouvernants ne sont que les titulaires temporaires.
+**Formule :** « **Le roi est mort, vive le Roi** » — le roi personne physique meurt, la fonction
+ne connaît pas d'interruption. **Contre-modèle :** « **L'État, c'est moi** » (Louis XIV), qui
+assimile la personne et le pouvoir. Le polycopié : « L'État moderne a perdu cette identification
+physique ou matérielle. »
 
-#### 2.0.1 Pourquoi le droit constitutionnel commence par l'État
+**Étymologie :** du latin ***stare***, « se tenir debout » — même racine que *stable*, *statut*.
+**L'idée commune est celle de ce qui demeure quand les hommes changent.**
 
-::: definition Ce que dit le polycopié, mot pour mot
-> « Pour qu'il y ait droit constitutionnel, il faut qu'il y ait un pouvoir politique organisé.
-> Dans la plupart des pays qualifiés de "modernes", l'État est le cadre du pouvoir politique,
-> ou l'**institutionnalisation du pouvoir politique**. »
+**Trois sens du mot :**
 
-> « L'État est la forme habituelle, dans les sociétés dites développées, de l'organisation du
-> pouvoir politique. Il est **le cadre à l'intérieur duquel naissent et se développent les
-> règles constitutionnelles**. »
-:::
-
-::: demo Décomposons : que signifie « institutionnalisation du pouvoir politique » ?
-Le mot est lourd et le support ne l'explique pas. Il se décompose en trois idées.
-
-**① Le pouvoir politique** est la capacité de **commander à un groupe humain et d'être obéi**.
-Il existe dans toute société, même sans État : un chef de clan, un ancien, un chef de guerre
-exercent un pouvoir politique.
-
-**② L'institutionnalisation** est le passage d'un pouvoir **attaché à une personne** à un
-pouvoir **attaché à une fonction**. Avant : on obéit à *Untel*, parce que c'est lui, parce
-qu'il est fort, charismatique ou craint ; quand il meurt, tout est à refaire. Après : on obéit
-à **la fonction** qu'occupe Untel ; quand il meurt, son successeur hérite du pouvoir sans
-qu'il faille le reconquérir.
-
-**③ L'État est le résultat de cette opération.** Le pouvoir n'appartient plus à un homme, il
-appartient à une **entité abstraite et permanente** dont les gouvernants ne sont que les
-titulaires temporaires.
-
-**La formule qui résume tout :** la phrase de l'Ancien Régime « **Le roi est mort, vive le
-Roi** » est l'énoncé même de l'institutionnalisation. Le roi personne physique meurt ; la
-fonction royale, elle, ne connaît pas d'interruption. On retrouvera exactement ce raisonnement
-au § 2.2.6 sous le nom de **personnalité morale**.
-
-**Le contre-exemple qui éclaire :** « **L'État, c'est moi** », attribuée à Louis XIV. Le
-polycopié la cite pour montrer qu'elle relève d'une conception **pré-moderne** : elle
-**assimile la personne et le pouvoir**, exactement ce que l'institutionnalisation défait.
-Le polycopié écrit : « L'État moderne a perdu cette identification physique ou matérielle. »
-:::
-
-::: piege Une précision que le polycopié apporte et qu'il ne faut pas manquer
-Le polycopié écrit « dans la **plupart** des pays qualifiés de "modernes" » et « les sociétés
-**dites** développées ». Ces précautions ne sont pas du style : elles signifient que **l'État
-n'est pas la seule forme possible d'organisation du pouvoir politique**, seulement la plus
-répandue aujourd'hui.
-
-Le polycopié le confirme deux paragraphes plus loin : « **l'histoire montre que des sociétés
-ont pu vivre sans État** ». Une copie qui présente l'État comme une nécessité naturelle a déjà
-perdu des points — c'est exactement ce que le § 1 du cours (l'origine) vient démontrer.
-:::
-
-#### 2.0.2 Les chiffres et les dates de l'introduction
-
-::: exemple Les données à citer, vérifiées
-| Donnée | Valeur | Ce qu'elle sert à montrer |
-|---|---|---|
-| États membres de l'ONU en **1945** | **51** | Le nombre d'États **augmente** : l'État n'est pas une forme en déclin |
-| États membres de l'ONU **aujourd'hui** | **193** | Presque **quadruplé en 80 ans** — décolonisation puis dislocation des fédérations socialistes |
-| Dernier entrant | **Soudan du Sud**, **2011** | L'apparition d'États n'est pas un phénomène clos |
-
-**Les trois chiffres du polycopié sont exacts.** Le Soudan du Sud a proclamé son indépendance
-le 9 juillet 2011 et a été admis à l'ONU le 14 juillet 2011.
-
-**Ce que le polycopié ne dit pas et qu'il faut savoir :** ces 193 États ne sont pas tous les
-États du monde. Certaines entités revendiquent la qualité d'État sans siéger à l'ONU — le
-**Vatican** (État observateur, et le polycopié le signale correctement plus loin), la
-**Palestine** (État observateur non membre depuis 2012), le **Kosovo**, **Taïwan**. Leur cas
-est précisément celui où **les trois éléments constitutifs sont discutés** : c'est
-l'application directe du § 2.
-:::
-
-#### 2.0.3 L'étymologie et les trois sens du mot « État »
-
-::: definition L'étymologie
-Le mot « État » vient du latin ***stare***, qui signifie « **se tenir debout** ».
-
-**Ce que l'étymologie apporte, et que le polycopié ne développe pas :** *stare* a donné en
-français « stable », « statut », « station », « statique ». **L'idée commune est celle de ce
-qui tient, de ce qui demeure, par opposition à ce qui passe.** C'est déjà toute
-l'institutionnalisation : l'État est ce qui reste quand les hommes changent.
-:::
-
-::: definition Les trois sens du mot, dans l'ordre historique
-Le polycopié insiste : « Le mot "État" a en réalité plusieurs sens, ce qui complique sa
-définition. » Les voici, du plus ancien au plus récent.
-
-**① Une manière d'être — l'apparence d'un être ou d'une situation.** Sans majuscule.
-*Exemples du polycopié :* « je suis dans tous mes états », « l'état de mes finances est
-calamiteux ». *Autres emplois du même sens :* état civil, état des lieux, état de santé.
-
-**② Une manière d'être assortie d'un statut juridique — l'état d'un groupe.** Toujours sans
-majuscule, au Moyen Âge et sous les Temps modernes.
-*Exemples du polycopié :* les **États généraux**, le **Tiers-État**.
-
-::: piege
-**Il faut savoir ce qu'étaient les États généraux et les trois états**, le polycopié le suppose
-connu. La société d'Ancien Régime était divisée en **trois ordres** — le clergé (premier
-état), la noblesse (deuxième état), et **tout le reste de la population, le Tiers-État**
-(paysans, artisans, bourgeois), soit environ 97 % des Français.
-
-Les **États généraux** étaient l'assemblée réunissant des représentants de ces trois ordres,
-convoquée par le roi. Leur réunion du **5 mai 1789** à Versailles, la première depuis 1614, est
-le point de départ de la Révolution française : le 17 juin, le Tiers-État se proclame
-**Assemblée nationale**, ce qui est en soi un acte de transfert de la souveraineté.
-
-**Le lien avec le cours :** « état » désigne ici un **groupe social défini par un statut
-juridique**. On y reviendra au § 2.2.3 : la nation moderne naît précisément de l'abolition de
-ces états et de l'égalité juridique des citoyens.
-:::
-
-**③ La manifestation du pouvoir politique — l'État au sens du cours.** **Avec majuscule.**
-Le polycopié précise : ce troisième sens est « clairement tiré du second ». Il désigne
-l'organisation politique elle-même **et** ceux qui exercent ce pouvoir.
-
-*Exemples du polycopié :* « chef de l'État », « représentant de l'État ».
-
-Le polycopié ajoute une remarque décisive : « **l'État a besoin de symboles extérieurs pour
-exister** dans les États modernes ». **Pourquoi ?** Parce qu'il est abstrait. Un drapeau, un
-hymne, un sceau, une devise, un palais présidentiel donnent une existence sensible à une
-entité qui n'en a aucune. On retrouvera cette idée au § 2.2.3 (construction du sentiment
-national) et au § 2.2.4 (marques de souveraineté chez Bodin).
-:::
-
-::: synthese Les trois sens, en un tableau
-| Sens | Majuscule ? | Contenu | Exemple |
+| Sens | Majuscule | Contenu | Exemple |
 |:---:|:---:|---|---|
-| ① | non | Une manière d'être, une situation | « l'état des finances » |
-| ② | non | Une manière d'être + un **statut juridique**, appliquée à un **groupe** | « le Tiers-État », « les États généraux » |
-| ③ | **oui** | Le **pouvoir politique** organisé et institutionnalisé | « le chef de l'État » |
+| ① | non | Une **manière d'être** | « l'état de mes finances » |
+| ② | non | Une manière d'être **+ un statut juridique de groupe** | « le **Tiers-État** », « les **États généraux** » |
+| ③ | **oui** | **Le pouvoir politique institutionnalisé** | « le chef de l'**État** » |
 
-**C'est le sens ③ qui fait l'objet de tout le chapitre.**
+*Sens ② : la société d'Ancien Régime comptait **trois ordres** — clergé, noblesse, et le
+**Tiers-État**, soit ~97 % de la population. Les **États généraux** les réunissaient ; convoqués
+le **5 mai 1789** pour la première fois depuis 1614, ils sont le point de départ de la
+Révolution. **C'est le sens ③ qui fait l'objet du chapitre.***
 :::
 
-#### 2.0.4 L'État est une forme historique — et donc réversible
+::: exemple L'État est une forme historique et contingente — le paragraphe qui justifie le § 1
+**Contingent** = qui **aurait pu ne pas être**. Contraire de nécessaire. **Conséquence : ce qui
+est apparu peut disparaître** — « l'histoire montre que **des sociétés ont pu vivre sans État** ».
 
-C'est le paragraphe le plus important de l'introduction, parce qu'il justifie l'existence même
-du § 1 sur l'origine.
+| Étape | Repères |
+|---|---|
+| **Naissance** | Rome antique, à la suite des cités |
+| **Effondrement** | Après les invasions, « **et malgré Charlemagne** » — féodalité : le pouvoir se morcelle |
+| **Résurrection** | **Renaissance, XVI<sup>e</sup>-XVII<sup>e</sup> siècles** — c'est l'époque de Bodin (1576) : on théorise la souveraineté au moment où on la construit |
+| **Contestation** | La théorie **marxiste** le vouait à la disparition : « symbole de l'**oppression d'une classe sur une autre** », il devait dépérir dans une société sans classes — ce que les « pays socialistes » n'étaient « **pas encore** » |
 
-::: definition La thèse du polycopié
-> « L'État est une **forme historique et contingente** qui correspond à un certain degré de
-> développement de la civilisation occidentale. »
-
-**Deux mots à définir, le support ne le fait pas.**
-- **Historique** : qui est apparu à un moment donné de l'histoire, et non de toute éternité.
-- **Contingent** : qui aurait pu ne pas être, ou être autrement. **Contraire de nécessaire.**
-  *(Le mot reviendra en économie : un événement contingent est un événement qui dépend des
-  circonstances.)*
-
-**Conséquence logique, et elle est forte : si l'État est apparu, il peut disparaître.**
-:::
-
-::: exemple La chronologie de l'État selon le polycopié — reconstruite et datée
-Le polycopié donne une chronologie en quatre temps, sans dates précises. Les voici, avec les
-repères qui manquent.
-
-| Étape | Ce que dit le polycopié | Repères chronologiques |
-|---|---|---|
-| **Naissance** | « Il est né dans la Rome antique, à la suite des "cités" antiques » | La *civitas* romaine, puis la *res publica* — littéralement « la chose publique », déjà l'idée d'un pouvoir qui n'appartient à personne en propre |
-| **Effondrement** | « s'est en partie effondré après les invasions et malgré Charlemagne » | Chute de l'Empire romain d'Occident (476) ; Charlemagne, empereur en 800, échoue à reconstruire durablement ; **féodalité** : le pouvoir se morcelle entre seigneurs |
-| **Résurrection** | « Il a ressuscité au moment de la Renaissance et aux XVI<sup>e</sup> et XVII<sup>e</sup> siècles » | Monarchies administratives, armées permanentes, impôt régulier. **C'est exactement l'époque de Bodin (1576)** — ce n'est pas un hasard : on théorise la souveraineté au moment où on la construit |
-| **Contestation** | « La théorie socialiste (et marxiste) le vouait à la disparition » | L'État y est « le symbole de l'**oppression d'une classe sur une autre** » et devait « **dépérir** » dans une société sans classes |
-
-**Sur le point marxiste, le polycopié est précis et il faut le citer exactement :** l'État
-« ne devait plus exister dans une société sans classes, ce que n'étaient **pas encore**, à
-leur stade de développement, les "pays socialistes" fonctionnant sur le modèle soviétique ».
-
-**Traduction :** les régimes socialistes réels n'ont pas fait disparaître l'État — ils l'ont
-au contraire considérablement renforcé. L'argument employé était que la société sans classes
-n'était pas encore atteinte. Le polycopié conclut sobrement : « la disparition de l'État n'est
-pas vraiment à l'ordre du jour ».
-:::
-
-::: examen Comment utiliser ce paragraphe en copie
-Ce développement sert **deux fois** :
-
-**En introduction de dissertation**, pour poser le sujet : « L'État n'est ni universel ni
-éternel. Forme historique et contingente née à Rome, effondrée avec la féodalité, reconstruite
-à la Renaissance, il a même été voué à la disparition par la théorie marxiste. C'est dire que
-sa définition n'a rien d'évident. »
-
-**En ouverture de conclusion**, pour relativiser : les États sont aujourd'hui plus nombreux
-que jamais (51 → 193), mais leur souveraineté est plus limitée que jamais (Union européenne,
-droit international, marchés financiers).
-
-**Ce qu'il ne faut pas faire :** réciter la chronologie sans en tirer l'argument. **La
-chronologie n'est pas le propos ; le propos est que l'État est contingent.**
+**Les chiffres à citer :** **51 États à l'ONU en 1945**, **193 aujourd'hui**, dernier entrant le
+**Soudan du Sud (2011)**. ⚠ Ces 193 ne sont pas tous les États : **Vatican** et **Palestine**
+sont observateurs, **Kosovo** et **Taïwan** contestés — ce sont précisément les cas où les trois
+éléments constitutifs se discutent.
 :::
 
 <!--saut-->
 
-### 2.1 — § 1 : L'origine de l'État (QUAND) — diapositives 2, 3 et 4
+### 2.1 — § 1 : L'origine de l'État (QUAND) — diapositives 2 à 4
 
-::: piege Avertissement méthodologique — lis-le avant cette section
-**Cette section n'existe pas dans le polycopié.** Les diapositives 2, 3 et 4 la traitent en
-seize lignes au total, essentiellement des noms d'auteurs et des mots-clés.
-
-**Je la reconstruis donc intégralement**, à partir des deux auteurs que la diapositive nomme et
-des concepts qu'elle énonce. Partout où je vais au-delà de ce que le support affirme —
-en ajoutant un auteur, une date, une œuvre, un mécanisme — **je le signale explicitement**.
-C'est indispensable : tu dois pouvoir distinguer, en révision, ce qui est du cours et ce qui
-est de l'approfondissement.
+::: piege Reconstruction intégrale
+**Absent du polycopié. Les diapositives 2 à 4 traitent la question en seize lignes.** Ce qui
+suit est reconstruit à partir des auteurs cités ; les ajouts au-delà des supports sont
+signalés. ➔ intégrale § 2.1.
 :::
 
-#### 2.1.1 Pourquoi la question de l'origine se pose
+::: demo Le problème que les deux théories résolvent
+**Le fait à expliquer :** des millions d'individus obéissent à des ordres qu'ils n'ont pas
+donnés et versent une part de leurs revenus à une organisation qui les y contraint — alors
+qu'ils sont infiniment plus nombreux que ceux qui commandent. **Pourquoi ?**
 
-Avant les deux théories, il faut comprendre **pourquoi la question existe**. Aucun support ne
-le dit.
+**Deux réponses, et elles épuisent le champ :** parce qu'ils l'ont **voulu** (contrat), ou parce
+que l'histoire les y a **conduits** (évolution).
 
-::: demo Le problème que les deux théories cherchent à résoudre
-**Le fait à expliquer :** des millions d'individus obéissent quotidiennement à des ordres
-qu'ils n'ont pas donnés, versent une part importante de leurs revenus à une organisation qui
-les y contraint, et acceptent d'être jugés, emprisonnés, voire envoyés à la guerre par elle.
+**L'enjeu n'est pas historique, il est politique :** si l'État naît d'un contrat, il n'est
+légitime **que** s'il en respecte les termes, et sa violation ouvre un **droit de résistance**.
+Si l'État naît d'un processus, la question ne se pose pas.
 
-**L'étrangeté du fait :** ces individus sont, pris un à un, physiquement capables de résister.
-Ils sont infiniment plus nombreux que ceux qui commandent. **Pourquoi obéissent-ils ?**
-
-**Les deux réponses possibles, et elles épuisent le champ :**
-- **Parce qu'ils l'ont voulu.** L'obéissance repose sur un **consentement**, explicite ou
-  tacite. → **Théorie contractualiste.**
-- **Parce que l'histoire les y a conduits.** L'obéissance est le résultat d'un **processus**
-  qu'aucune volonté n'a décidé. → **Théorie de l'évolution naturelle.**
-
-**L'enjeu n'est pas historique, il est politique.** Si l'État naît d'un contrat, alors il n'est
-légitime **que** s'il respecte les termes de ce contrat — et sa violation ouvre un droit de
-résistance. Si l'État naît d'un processus naturel, cette question ne se pose même pas.
-
-**Retiens cette phrase :** on ne raconte pas l'origine de l'État pour faire de l'histoire, mais
-**pour fonder ou pour refuser un droit de désobéir**.
+**Vocabulaire :** **contractualisme** = expliquer une institution par un contrat.
+**Pacte (ou contrat) social** = accord hypothétique par lequel des individus renoncent à une
+part de leur liberté au profit d'une autorité commune. **État de nature** = situation
+hypothétique des hommes **avant toute autorité politique** — non une époque, une **expérience de
+pensée**.
 :::
 
-::: definition Les mots de la diapositive 2, définis
-La diapositive 2 affiche trois encadrés : « **Explications philosophiques : 2 théories
-principales** », « **L'origine contractualiste de l'État : le pacte social** », « **La théorie
-de l'évolution naturelle** ».
+::: definition ① La théorie contractualiste — le pacte social (diapositive 3)
+**Auteur : Jean-Jacques Rousseau (1712-1778)**, ***Du contrat social***, **1762**.
 
-**« Explications philosophiques ».** Le mot est important : il s'agit de **constructions de
-l'esprit destinées à fonder un raisonnement**, non de récits historiques vérifiables. Aucun
-contrat social n'a jamais été signé. C'est une **hypothèse de travail**, ce que les
-philosophes appellent une *fiction théorique*.
+**Le mécanisme en cinq temps :** ① à l'état de nature, chacun est libre mais **rien n'est
+garanti** ; ② cette liberté sans garantie ne vaut rien — ma liberté de prendre ton bien est ta
+liberté de prendre le mien ; ③ chacun **aliène tous ses droits, totalement et également**, non à
+un maître mais **à la communauté dont il fait partie** ; ④ de cet acte naît le **corps
+politique**, dont les membres sont **citoyens** (ils font la loi) et **sujets** (ils y obéissent) ;
+⑤ d'où la phrase de la diapositive :
 
-**« Contractualiste ».** Qui explique une institution par un **contrat**, c'est-à-dire un
-accord de volontés créateur d'obligations. Le courant de pensée s'appelle le
-**contractualisme**.
+> « **chacun s'unissant à tous, n'obéissant pourtant qu'à lui-même et reste aussi libre
+> qu'auparavant** »
 
-**« Pacte social » ou « contrat social ».** L'accord hypothétique par lequel des individus
-vivant à l'état de nature décident de renoncer à une partie de leur liberté au profit d'une
-autorité commune, en échange de la sécurité et de la garantie de leurs droits.
+| Segment | Ce qu'il signifie |
+|---|---|
+| « chacun s'unissant à tous » | L'aliénation est **totale et égale** : personne n'est désavantagé |
+| « n'obéissant pourtant qu'à lui-même » | J'ai participé à la volonté collective : **la loi que je subis est la mienne** |
+| « reste aussi libre qu'auparavant » | La liberté a **changé de nature** : naturelle sans garantie → **civile garantie** |
 
-**« État de nature ».** Le support ne le définit pas, alors qu'aucune théorie contractualiste
-ne se comprend sans lui : c'est la **situation hypothétique des hommes avant toute autorité
-politique**. Ce n'est pas une époque historique, c'est une **expérience de pensée** : que
-serait la vie humaine sans État ?
-:::
+**Formule : obéir à la loi qu'on s'est prescrite, c'est encore être libre.**
 
-#### 2.1.2 Première théorie : l'origine contractualiste — le pacte social
+**Deux notions rousseauistes à connaître.** La **volonté générale** — ni la somme des volontés
+particulières ni celle de la majorité, mais la volonté du corps politique **visant l'intérêt
+commun** ; formule reprise **textuellement** à l'**article 6 de la Déclaration de 1789** : « la
+loi est l'expression de la volonté générale ». Et l'**indivisibilité de la souveraineté** : « il
+est de l'essence de la puissance souveraine de ne pouvoir être limitée : **elle peut tout ou
+elle n'est rien** » (*Lettres écrites de la montagne*, 1764).
 
-::: definition Ce que dit la diapositive 3, intégralement
-> **L'origine contractualiste de l'État / Le pacte social**
-> - **Auteurs :** J.-J. Rousseau
-> - Fondé sur un **accord de volonté** pour protéger les intérêts de chacun
-> - **Association des individus par un pacte** pour constituer un État
-> - Selon Rousseau : « chacun s'unissant à tous, n'obéissant pourtant qu'à lui-même et reste
->   aussi libre qu'auparavant »
->
-> **Problème :** le contrat est **abstrait** et implique l'**unanimité**
-:::
-
-::: demo Le mécanisme du contrat social, reconstruit étape par étape
-La diapositive donne le résultat sans le raisonnement. Le voici en cinq temps.
-
-**Étape 1 — Le point de départ : l'état de nature.** Les hommes vivent sans autorité commune.
-Chacun est libre et égal, mais **personne ne garantit rien** : ni la vie, ni les biens, ni les
-engagements pris.
-
-**Étape 2 — Le problème.** Cette liberté sans garantie ne vaut rien. Ma liberté de prendre ton
-bien est exactement ta liberté de prendre le mien. **La liberté de tous contre tous équivaut à
-la sécurité de personne.**
-
-**Étape 3 — La solution : l'aliénation totale.** Chacun accepte de remettre **tous ses droits**
-non pas à un homme, mais à **la communauté tout entière**. Le point est capital : on ne se
-soumet pas à un maître, **on se soumet à un ensemble dont on fait partie**.
-
-**Étape 4 — Le résultat : le corps politique.** De cet acte naît un être collectif, que
-Rousseau appelle le **souverain** ou le **corps politique**. Ses membres s'appellent
-**citoyens** en tant qu'ils participent à la souveraineté, et **sujets** en tant qu'ils
-obéissent aux lois.
-
-**Étape 5 — Le paradoxe résolu, c'est la phrase de la diapositive.**
-> « chacun s'unissant à tous, n'obéissant pourtant qu'à lui-même et reste aussi libre
-> qu'auparavant »
-
-**Décomposons-la, car c'est elle qui tombe en interrogation :**
-- **« chacun s'unissant à tous »** : l'aliénation est **totale** et **égale** — personne ne
-  garde de privilège, donc personne n'est désavantagé.
-- **« n'obéissant pourtant qu'à lui-même »** : puisque j'ai participé à la formation de la
-  volonté collective, la loi que je subis est **une loi que j'ai contribué à faire**.
-- **« reste aussi libre qu'auparavant »** : la liberté n'a pas été perdue, elle a **changé de
-  nature**. J'ai échangé une liberté naturelle sans garantie contre une liberté civile
-  garantie.
-
-**La formule à retenir : obéir à la loi qu'on s'est prescrite, c'est encore être libre.**
-:::
-
-::: exemple Une analogie qui rend le mécanisme évident
-**Une copropriété.** Chaque copropriétaire renonce à faire ce qu'il veut de son bien : il ne
-peut pas percer un mur porteur, ni installer une piscine sur le toit. Il a aliéné une partie
-de ses droits.
-
-**Mais à qui ?** Pas à un maître : **à l'assemblée générale, dont il est membre et où il vote.**
-Le règlement qui le contraint est un règlement qu'il a contribué à adopter. Il obéit donc
-« à lui-même » au sens de Rousseau. Et il y gagne : l'immeuble tient debout, les parties
-communes sont entretenues, son bien vaut davantage.
-
-**Où l'analogie s'arrête, et c'est instructif :** un copropriétaire peut **vendre et partir**.
-Un citoyen ne le peut pas aussi facilement — et surtout, **il n'a jamais signé**. C'est
-exactement l'objection que la diapositive résume par « le contrat est abstrait ».
-:::
-
-::: definition Jean-Jacques Rousseau — situer l'auteur
-Le support donne un nom et rien d'autre. Voici le minimum à savoir.
-
-**Jean-Jacques Rousseau (1712-1778)**, philosophe genevois de langue française, figure des
-Lumières. L'œuvre où se trouve la théorie du contrat social s'intitule ***Du contrat social,
-ou Principes du droit politique***, publiée en **1762**.
-
-**Deux notions rousseauistes que le support n'énonce pas et qui sont indispensables pour la
-suite du cours :**
-
-**① La volonté générale.** Ce n'est **pas** la somme des volontés particulières, ni même la
-volonté de la majorité : c'est la volonté du corps politique **en tant qu'il vise l'intérêt
-commun**. La loi est l'expression de la volonté générale — formule que l'on retrouve
-**textuellement** à l'**article 6 de la Déclaration des droits de l'homme et du citoyen de
-1789** : « La loi est l'expression de la volonté générale. »
-
-**② L'indivisibilité et l'inaliénabilité de la souveraineté.** Le souverain, chez Rousseau,
-ne peut ni se diviser ni se faire représenter. **C'est cette thèse qui explique la formule que
-le polycopié cite au § 2.2.4** : « Il est de l'essence de la puissance souveraine de ne pouvoir
-être limitée : **elle peut tout ou elle n'est rien** » (*Lettres écrites de la montagne*, 1764).
-
-::: piege
-Le polycopié écrit « **Lettre** écrites de la montagne ». Le titre exact est ***Lettres écrites
-de la montagne***, au pluriel. Coquille sans conséquence, mais si tu cites, cite juste.
-:::
-:::
-
-::: piege Le problème que la diapositive signale — et qu'il faut savoir développer
-La diapositive se termine par : « **Problème : le contrat est abstrait et implique
-l'unanimité** ». Deux objections en sept mots. Les voici développées.
-
-**① « Le contrat est abstrait » — il n'a jamais eu lieu.**
-Aucun acte n'a été signé, aucune date ne peut être citée, aucun individu vivant n'a donné son
-consentement. Le contrat social est une **fiction**. On répond généralement par l'idée d'un
-**consentement tacite** : en demeurant sur le territoire et en bénéficiant de ses services,
-l'individu consentirait implicitement. **Mais l'argument est faible** : le nouveau-né n'a rien
-choisi, et quitter un État a un coût considérable. **Un consentement dont on ne peut pas
-s'exonérer est-il encore un consentement ?**
-
-**② « Implique l'unanimité » — et l'unanimité est introuvable.**
-Un contrat n'oblige que **ceux qui l'ont conclu**. Pour que le pacte social oblige tout le
-monde, il faudrait que **tout le monde** y ait consenti. Or aucune société n'a jamais été
-unanime. Rousseau lui-même admet que **l'acte fondateur** — celui qui institue le corps
-politique — exige l'unanimité, alors que les décisions **ultérieures** se prennent à la
-majorité.
-
-**La difficulté logique est réelle et elle est le cœur de l'objection :** si le passage à la
-règle majoritaire est lui-même décidé à l'unanimité, on doit expliquer pourquoi un individu
-consentirait par avance à être lié par une décision qu'il désapprouvera.
-
-**Formulation attendue en copie :** « La théorie contractualiste se heurte à deux objections
-que le cours signale : le caractère purement hypothétique de l'accord, qu'aucun fait historique
-ne vient étayer, et l'exigence d'unanimité, qu'aucune société réelle ne satisfait. Elle vaut
-donc moins comme description que comme **principe de légitimité** : elle ne dit pas comment
-l'État est né, mais à quelle condition il est juste. »
-:::
-
-::: exemple Les deux autres contractualistes — signalé comme approfondissement
-**Le support ne cite que Rousseau.** Mais le contractualisme compte trois grands noms, et les
-connaître te permet de situer Rousseau au lieu de le réciter. **Ce qui suit dépasse le cours :
-c'est un bonus, pas une obligation.**
-
-| Auteur | Œuvre et date | L'état de nature y est… | Le contrat aboutit à… | Droit de résistance ? |
-|---|---|---|---|---|
-| **Thomas Hobbes** (1588-1679) | *Léviathan*, **1651** | Une guerre de tous contre tous ; la vie y est « solitaire, misérable, dangereuse, animale et brève » | Un **souverain absolu**, à qui l'on remet tout et qui n'est partie à rien | **Non** — sauf si le souverain menace la vie même |
-| **John Locke** (1632-1704) | *Second traité du gouvernement civil*, **1690** | Un état paisible mais où les droits naturels (vie, liberté, propriété) sont **mal garantis** | Un pouvoir **limité**, chargé de garantir ces droits préexistants | **Oui** — si le pouvoir trahit sa mission |
-| **Jean-Jacques Rousseau** (1712-1778) | *Du contrat social*, **1762** | Un état d'innocence que la propriété a corrompu | La **volonté générale** : le peuple est souverain | **Oui** — la souveraineté appartient au peuple |
-
-**Ce que la comparaison enseigne, et c'est le point :** à partir du **même** dispositif — un
-état de nature, un contrat —, on obtient **la monarchie absolue** (Hobbes), **la monarchie
-parlementaire libérale** (Locke) ou **la démocratie souveraine** (Rousseau). **Tout dépend de
-ce qu'on suppose à l'état de nature.** La conclusion politique est déjà contenue dans la
-prémisse anthropologique.
-
-**En une phrase utilisable en copie :** « Le contractualisme n'est pas une doctrine, c'est une
-méthode ; ses conclusions varient du tout au tout selon l'idée que l'auteur se fait de
-l'homme. »
-:::
-
-#### 2.1.3 Seconde théorie : l'évolution naturelle
-
-::: definition Ce que dit la diapositive 4, intégralement
-> **La théorie de l'évolution naturelle**
-> - **Auteurs :** Max Weber
-> - Fondé sur un **constat** : l'évolution de la société
-> - Plusieurs **types de sociétés humaines** à l'origine qui se sont transformées **pour
->   répondre aux menaces (guerres)** et permettre la paix au sein de celles-ci
-> - L'État est vu comme le résultat d'un **long processus de compétition, de centralisation,
->   et de différenciation des fonctions sociales**
->
-> **Nie les regroupements volontaires (cultures, origines) et mise en avant de la guerre**
-:::
-
-::: demo Le mécanisme, reconstruit en quatre temps
-La diapositive donne le résultat ; voici le raisonnement.
-
-**Temps 1 — Le point de départ n'est pas un individu isolé, mais des groupes.** Contrairement
-au contractualisme, qui part d'individus, cette théorie part de **sociétés humaines déjà
-constituées** : clans, tribus, cités, seigneuries. **Il n'y a jamais eu d'homme sans groupe.**
-
-**Temps 2 — La menace extérieure : la guerre.** Ces groupes sont en concurrence pour la terre,
-les ressources, les hommes. **Celui qui perd disparaît ou est absorbé.** La sélection est
-brutale et continue.
-
-**Temps 3 — Ce que la guerre exige, et c'est le cœur du mécanisme.** Pour faire la guerre, il
-faut :
-- **des ressources** → donc un **impôt régulier** → donc une **administration fiscale** ;
-- **des hommes** → donc un **recensement** et une **conscription** ;
-- **des ordres exécutés** → donc une **hiérarchie** et une **écriture** ;
-- **une paix intérieure** → donc **désarmer les rivaux internes** et **monopoliser la force**.
-
-**Chacune de ces exigences est un pas vers l'État.** L'impôt appelle des fonctionnaires,
-les fonctionnaires appellent des bureaux, les bureaux appellent des archives — et l'archive,
-c'est la mémoire de l'institution indépendamment des hommes.
-
-**Temps 4 — Les trois moteurs que la diapositive nomme.**
-- **Compétition** : les groupes qui n'adoptent pas ces dispositifs sont éliminés. Il n'y a
-  pas de choix, il y a une **sélection**.
-- **Centralisation** : le pouvoir de contraindre, d'abord dispersé entre seigneurs, cités et
-  corporations, se **concentre** en un point unique.
-- **Différenciation des fonctions sociales** : les tâches se **spécialisent**. Le même homme
-  était chef de guerre, juge et prêtre ; désormais l'armée, la justice et le culte sont trois
-  corps distincts. **C'est la naissance de l'administration.**
-
-**Le résultat : un pouvoir impersonnel, permanent, spécialisé — c'est-à-dire un État.** Et
-personne ne l'a voulu : **il est le produit non intentionnel d'une compétition.**
-:::
-
-::: definition Max Weber — situer l'auteur et sa définition de l'État
-**Max Weber (1864-1920)**, sociologue, économiste et juriste allemand, fondateur de la
-sociologie moderne. Sa définition de l'État est **la plus citée de toute la science politique**
-et le support ne la donne pas. La voici.
-
-> L'État est la communauté humaine qui, **dans les limites d'un territoire déterminé**,
-> **revendique avec succès pour son propre compte le monopole de la violence physique
-> légitime**.
->
-> *(Conférence « Le métier et la vocation d'homme politique », 1919, publiée en français dans
-> « Le Savant et le Politique ».)*
-
-**Décomposons — chaque mot compte, et chacun renvoie à une partie du cours :**
-
-| Élément de la définition | Ce qu'il signifie | Où il se retrouve dans le cours |
-|---|---|---|
-| « dans les limites d'un **territoire** déterminé » | Le pouvoir s'exerce sur un espace délimité | **§ 2.2.2** — le territoire, élément matériel |
-| « **communauté humaine** » | Il faut un groupe d'hommes | **§ 2.2.3** — la population, élément personnel |
-| « **monopole** » | L'État est **le seul** à pouvoir contraindre — nul ne se fait justice à soi-même | **§ 2.2.4** — le polycopié : « il possède le monopole de la force organisée » |
-| « **violence physique** » | La contrainte matérielle : police, armée, prison | **§ 2.2.4** — « pouvoir de contrainte organisée » |
-| « **légitime** » | Cette violence est **acceptée** par ceux qui la subissent | **§ 2.2.4** — le développement du polycopié sur la légitimité |
-| « revendique **avec succès** » | Ce n'est pas un droit acquis mais une **prétention qui réussit** ; un État peut perdre ce monopole | Applications : États faillis, zones de non-droit |
-
-**C'est ici que les deux supports se rejoignent.** La diapositive 4 attribue à Weber la théorie
-de l'évolution naturelle ; le polycopié consacre, sans jamais le nommer, une page entière à la
-**légitimité** (§ 2.2.4), qui est **le concept central de Weber**. Les deux morceaux se
-recollent ici, et savoir le dire en copie est exactement ce qui distingue un étudiant qui a lu
-ses deux supports d'un étudiant qui les a juxtaposés.
-:::
-
-::: exemple Les trois types de domination légitime — le complément qui relie tout le chapitre
-**Ceci dépasse le support ; c'est le complément le plus utile du chapitre.** Weber distingue
-trois raisons pour lesquelles on obéit — trois **types de domination légitime**.
-
-| Type | On obéit parce que… | Exemple | Fragilité |
-|---|---|---|---|
-| **Traditionnelle** | « il en a toujours été ainsi » — la coutume et le sacré | Monarchie héréditaire, chefferie | S'effondre quand la tradition cesse d'être crue |
-| **Charismatique** | « cet homme a une qualité extraordinaire » — le prestige personnel | Chef révolutionnaire, prophète, général sauveur | **La mort du chef** : le charisme ne s'hérite pas |
-| **Légale-rationnelle** | « la règle a été régulièrement établie » — on obéit à la **fonction**, pas à l'homme | État moderne, administration, bureaucratie | Lente, impersonnelle, mais **stable** |
-
-**Pourquoi ce tableau est précieux pour toi :**
-
-**① Il explique l'institutionnalisation du § 2.0.1.** Le passage du charisme à la
-légalité-rationalité **est** l'institutionnalisation du pouvoir. « Le roi est mort, vive le
-roi » est le moment où la domination traditionnelle se dote d'une règle de succession, donc se
-rationalise.
-
-**② Il éclaire la phrase du polycopié sur le côté « magique » de la légitimité.** Le polycopié
-écrit : « La légitimité a un côté "magique" et irrationnel. Elle se confond, dans les sociétés
-anciennes, avec le **charisme** » (§ 2.2.4). **Ce mot « charisme » est du Weber pur** — le
-polycopié l'emploie sans citer sa source. Tu viens de reconnecter les deux supports.
-
-**③ Il donne la réponse à la question la plus probable de l'examen sur ce paragraphe :**
-« Pourquoi obéit-on à l'État ? » — Réponse : par tradition, par charisme, ou par croyance dans
-la légalité de la règle ; l'État moderne relève du troisième type.
-:::
-
-::: piege La phrase-conclusion de la diapositive : « Nie les regroupements volontaires et mise en avant de la guerre »
-Cette ligne est la **critique** de la théorie, comme l'était « le contrat est abstrait » pour la
-précédente. Elle contient deux reproches.
-
-**① « Nie les regroupements volontaires (cultures, origines) ».** En expliquant l'État par la
-seule contrainte de la compétition, cette théorie **évacue la volonté des hommes**. Or des
-États se sont bien formés par agrégation volontaire autour d'une culture ou d'une langue
-communes — le polycopié en donnera des exemples au § 2.2.3 : l'unité italienne, l'unité
-allemande, où **la nation a précédé l'État**. La théorie de l'évolution naturelle ne rend pas
-compte de ces cas.
-
-**② « Mise en avant de la guerre ».** Faire de la guerre le moteur principal est **réducteur**,
-et politiquement lourd : cela revient à fonder l'État sur la force. **On revient exactement au
-problème que le contractualisme voulait résoudre :** si l'État n'est que de la force
-sédimentée, qu'est-ce qui le distingue d'une bande organisée ? **C'est précisément à cette
-question que répond la notion de légitimité** — et c'est pourquoi Weber met ce mot au cœur de
-sa définition.
+**Les deux objections, signalées par la diapositive :**
+- **« Le contrat est abstrait »** — aucun acte n'a été signé. On invoque un **consentement
+  tacite**, mais le nouveau-né n'a rien choisi et partir coûte cher : **un consentement dont on
+  ne peut pas s'exonérer en est-il un ?**
+- **« Implique l'unanimité »** — un contrat n'oblige que ceux qui l'ont conclu ; aucune société
+  n'a jamais été unanime. Rousseau réserve l'unanimité à l'**acte fondateur** et admet la
+  majorité ensuite — mais pourquoi consentirait-on d'avance à une décision qu'on désapprouvera ?
 
 ::: exemple
-**Prolongement, signalé comme tel — d'où vient la thèse « la guerre fait l'État » ?**
-Ce mécanisme n'est pas exposé sous cette forme par Weber lui-même. Il a été développé après
-lui, notamment par le sociologue américain **Charles Tilly**, dont la formule est devenue
-classique : « **la guerre a fait l'État, et l'État a fait la guerre** » (*La guerre et la
-construction de l'État*, 1975, puis *Contrainte et capital dans la formation de l'Europe*,
-1990). Le sociologue allemand **Norbert Elias** a décrit un mécanisme voisin sous le nom de
-« **processus de civilisation** » (1939) : la formation d'un double monopole, **fiscal et
-militaire**, qui pacifie l'intérieur en concentrant la violence.
+**Les deux autres contractualistes — approfondissement, hors support.**
 
-**Pourquoi je te le signale :** parce que la diapositive attribue à Weber une formulation qui
-lui est postérieure. La description qu'elle donne — compétition, centralisation,
-différenciation — est **compatible** avec Weber, et la centralisation y correspond très
-exactement (Weber décrit l'État moderne comme le produit de l'**expropriation** des détenteurs
-autonomes de moyens d'administration et de violence au profit du prince). **Mais la mise en
-avant explicite de la guerre comme moteur est de Tilly.** Citer Weber pour la définition et
-Tilly pour le mécanisme est plus juste — et se remarque.
+| Auteur | Œuvre | État de nature | Aboutit à | Droit de résistance |
+|---|---|---|---|---|
+| **Hobbes** | *Léviathan*, **1651** | Guerre de tous contre tous | **Souverain absolu** | **Non** |
+| **Locke** | *Second traité*, **1690** | Droits naturels mal garantis | **Pouvoir limité** | **Oui** |
+| **Rousseau** | *Du contrat social*, **1762** | Innocence corrompue par la propriété | **Volonté générale**, peuple souverain | **Oui** |
+
+**La leçon :** même dispositif, trois régimes opposés. **Tout dépend de ce qu'on suppose à
+l'état de nature — la conclusion politique est contenue dans la prémisse anthropologique.**
 :::
 :::
 
-#### 2.1.4 Confronter les deux théories
+::: definition ② La théorie de l'évolution naturelle (diapositive 4)
+**Auteur : Max Weber (1864-1920)**, sociologue allemand.
 
-::: synthese Le tableau de confrontation — à savoir reproduire
-| | **Théorie contractualiste** | **Théorie de l'évolution naturelle** |
+**Le point de départ n'est pas l'individu mais le groupe** : clans, tribus, cités,
+seigneuries — **il n'y a jamais eu d'homme sans groupe**. Ces groupes sont en concurrence, et
+**celui qui perd disparaît**.
+
+**Le mécanisme : ce que la guerre exige est exactement ce qui fait un État.** Des ressources →
+**impôt régulier** → administration fiscale. Des hommes → recensement, conscription. Des ordres
+exécutés → hiérarchie et écriture. Une paix intérieure → **désarmer les rivaux internes et
+monopoliser la force**.
+
+**Les trois moteurs nommés par la diapositive :**
+- **Compétition** — les groupes qui n'adoptent pas ces dispositifs sont éliminés : pas de choix,
+  une **sélection** ;
+- **Centralisation** — le pouvoir de contraindre, dispersé, se **concentre** ;
+- **Différenciation des fonctions sociales** — armée, justice et culte deviennent trois corps
+  distincts : **c'est la naissance de l'administration**.
+
+**Résultat : un pouvoir impersonnel, permanent, spécialisé — et personne ne l'a voulu.**
+
+**LA DÉFINITION WÉBÉRIENNE DE L'ÉTAT — la plus citée de la science politique, absente des
+supports :**
+> L'État est la **communauté humaine** qui, **dans les limites d'un territoire déterminé**,
+> **revendique avec succès le monopole de la violence physique légitime**.
+> *(« Le métier et la vocation d'homme politique », 1919.)*
+
+| Élément | Sens | Où il revient dans le cours |
 |---|---|---|
-| **Auteur du support** | Jean-Jacques Rousseau | Max Weber |
-| **Point de départ** | Des **individus** libres et égaux | Des **groupes** déjà constitués |
-| **Moteur** | La **volonté** — un accord | La **nécessité** — la compétition et la guerre |
-| **Nature du récit** | **Hypothétique** : une fiction théorique | **Empirique** : un constat historique |
-| **Ce qu'elle explique bien** | **Pourquoi l'État serait légitime** | **Comment l'État s'est effectivement formé** |
-| **Ce qu'elle explique mal** | Les faits : aucun contrat n'a eu lieu | La légitimité : la force ne fonde pas le droit |
-| **Critique du support** | « Le contrat est **abstrait** et implique l'**unanimité** » | « **Nie les regroupements volontaires** et mise en avant de la **guerre** » |
-| **Conséquence politique** | Fonde un **droit de résistance** | Le rend sans objet |
-| **Registre** | **Devoir-être** (normatif) | **Être** (descriptif) |
+| « communauté humaine » | Il faut un groupe | **§ 2.2.3** la population |
+| « territoire déterminé » | Un espace délimité | **§ 2.2.2** le territoire |
+| « **monopole** » | L'État est **le seul** à contraindre | **§ 2.2.4** « nul ne se fait justice à soi-même » |
+| « violence physique » | Police, armée, prison | **§ 2.2.4** contrainte organisée |
+| « **légitime** » | **Acceptée** par ceux qui la subissent | **§ 2.2.4** la légitimité |
+| « **avec succès** » | Une **prétention qui réussit** — et peut échouer | États faillis |
+
+**C'est ici que les deux supports se rejoignent :** le polycopié consacre une page entière à la
+**légitimité** et emploie le mot **charisme** — c'est du Weber pur, sans le citer.
+
+::: exemple
+**Les trois types de domination légitime — hors support, mais c'est le complément le plus utile
+du chapitre.**
+
+| Type | On obéit parce que… | Fragilité |
+|---|---|---|
+| **Traditionnelle** | « il en a toujours été ainsi » | S'effondre quand la tradition cesse d'être crue |
+| **Charismatique** | Cet homme a une qualité extraordinaire | **La mort du chef** : le charisme ne s'hérite pas |
+| **Légale-rationnelle** | La règle a été régulièrement établie — on obéit **à la fonction** | Lente, impersonnelle, mais **stable** |
+
+**Le passage du charisme à la légalité-rationalité EST l'institutionnalisation du § 2.0.**
 :::
 
-::: examen La phrase qui montre que tu as compris — et non seulement appris
-Les deux théories ne sont **pas concurrentes sur le même terrain**, et le dire vaut des points.
+**Les deux critiques, signalées par la diapositive :**
+- **« Nie les regroupements volontaires »** — en expliquant l'État par la seule contrainte, la
+  théorie évacue la volonté. Or des États se sont formés par agrégation autour d'une langue :
+  **l'Italie, l'Allemagne**, où la nation a précédé l'État (§ 2.2.3).
+- **« Mise en avant de la guerre »** — fonder l'État sur la force ramène au problème initial :
+  qu'est-ce qui le distingue d'une bande organisée ? **C'est à cela que répond la notion de
+  légitimité.**
 
-> « Les deux théories ne répondent pas à la même question. La théorie de l'évolution naturelle
-> répond à une question de **fait** : comment l'État est-il apparu ? La théorie contractualiste
-> répond à une question de **droit** : à quelle condition l'obéissance à l'État est-elle
-> justifiée ? La première est une **description**, la seconde une **justification**. Elles
-> peuvent donc être vraies toutes les deux : l'État peut être né de la guerre, et n'être
-> légitime que par le consentement. »
-
-**C'est la conclusion attendue du § 1.** Elle évite le piège de la fausse alternative, qui fait
-perdre des points à la majorité des copies : celles qui « choisissent » une théorie contre
-l'autre n'ont pas vu qu'elles ne parlent pas de la même chose.
+::: piege
+**Attribution à rectifier.** La thèse « la guerre fait l'État » n'est pas formulée ainsi par
+Weber : elle est de **Charles Tilly** — « la guerre a fait l'État, et l'État a fait la guerre »
+(1975, 1990) —, avec un mécanisme voisin chez **Norbert Elias** (« processus de civilisation »,
+1939 : double monopole fiscal et militaire). **Weber fournit la définition et la centralisation
+par expropriation ; Tilly, le mécanisme guerrier.** Citer les deux est plus juste, et se
+remarque.
+:::
 :::
 
-::: marche Le même raisonnement, en finance
-La distinction **descriptif / normatif** est exactement celle qui sépare, sur les marchés,
-**ce que le prix fait** de **ce que le prix devrait être**.
+::: synthese ③ Confronter les deux théories — la conclusion attendue du § 1
+| | **Contractualisme** | **Évolution naturelle** |
+|---|---|---|
+| Auteur | **Rousseau** | **Weber** |
+| Point de départ | Des **individus** | Des **groupes** |
+| Moteur | La **volonté** | La **nécessité**, la guerre |
+| Nature | **Hypothétique** (fiction théorique) | **Empirique** (constat) |
+| Explique bien | **Pourquoi l'État serait légitime** | **Comment il s'est formé** |
+| Explique mal | Les faits : aucun contrat n'a eu lieu | La légitimité : la force ne fonde pas le droit |
+| Critique du support | « abstrait » · « unanimité » | « nie le volontaire » · « guerre » |
+| Registre | **Devoir-être** | **Être** |
 
-Un modèle **descriptif** dit comment le prix se forme : offre, demande, flux, positionnement.
-Un modèle **normatif** dit ce que l'actif vaut : actualisation des flux futurs. **Les deux
-peuvent être justes simultanément**, et l'erreur du débutant est exactement celle du candidat
-qui choisit une théorie contre l'autre : croire qu'un prix « faux » selon le modèle normatif
-invalide le modèle descriptif. **Il ne l'invalide pas — il mesure l'écart, et c'est l'écart qui
-est l'opportunité.**
+> **« Les deux théories ne répondent pas à la même question. L'évolution naturelle répond à une
+> question de fait : comment l'État est-il apparu ? Le contractualisme répond à une question de
+> droit : à quelle condition l'obéissance est-elle justifiée ? Elles peuvent donc être vraies
+> toutes les deux — l'État peut être né de la guerre et n'être légitime que par le
+> consentement. »**
+
+**Les copies qui « choisissent » une théorie contre l'autre n'ont pas vu qu'elles ne parlent pas
+de la même chose.**
 :::
 
 <!--saut-->
 
-### 2.2 — § 2 : Les éléments constitutifs de l'État (QUOI) — diapositives 5, 6 et 7
+### 2.2 — § 2 : Les éléments constitutifs (QUOI) — diapositives 5 à 7
 
-#### 2.2.1 Les trois éléments : la définition juridique de l'État
+#### 2.2.1 Les trois éléments
 
-::: definition Ce que dit la diapositive 5, intégralement
-> **# 2 : Les éléments constitutifs de l'État — 3 éléments constitutifs**
-> - **Territoire**
-> - **Population** (Refus des apatrides)
-> - **Souveraineté**
-:::
-
-::: definition Ce que dit le polycopié, mot pour mot
+::: definition Le texte et la logique
 > « Le **droit international** et le **droit constitutionnel** définissent l'État par **trois
-> éléments constitutifs** que sont un **territoire**, une **population** et une **organisation
+> éléments constitutifs** : un **territoire**, une **population** et une **organisation
 > politique qui exerce l'autorité de façon souveraine**, c'est-à-dire qui n'est pas obligée de
-> tenir compte d'autres règles que les siennes, sinon celles du droit international, qui sont,
-> la plupart du temps, assez peu assorties de sanctions. »
-:::
+> tenir compte d'autres règles que les siennes. »
 
-::: demo Pourquoi trois, pourquoi ceux-là, et pourquoi il les faut tous les trois
-Aucun support ne justifie cette liste. Voici la logique, et elle est simple.
+**Pourquoi ces trois-là.** Un pouvoir suppose : **sur quoi** il s'exerce → un espace, élément
+**matériel** ; **sur qui** → des hommes, élément **personnel** ; **avec quelle autorité** → un
+pouvoir souverain, élément **formel et abstrait**.
 
-**Un État est un pouvoir. Un pouvoir suppose trois choses :**
-- **sur quoi** il s'exerce → un **espace** : le territoire, **élément matériel** ;
-- **sur qui** il s'exerce → des **hommes** : la population, **élément personnel** ;
-- **avec quelle autorité** il s'exerce → un **pouvoir organisé et souverain**, **élément
-  formel et abstrait**.
-
-**C'est une définition par conditions cumulatives : il faut les trois, et l'absence d'un seul
-suffit à écarter la qualification d'État.** Le tableau ci-dessous le montre par l'absurde.
+**Ils sont cumulatifs — et c'est presque toujours le troisième qui manque :**
 
 | Entité | Territoire | Population | Souveraineté | État ? |
 |---|:---:|:---:|:---:|:---:|
 | La France | ✔ | ✔ | ✔ | **Oui** |
-| La commune de Marseille | ✔ | ✔ | **✖** — elle administre, elle ne décide pas de ses compétences | **Non** |
-| L'Organisation des Nations unies | ✖ | ✖ | ✖ | **Non** — organisation internationale |
-| Un gouvernement en exil | **✖** | ✔ (dispersée) | ✖ (de fait) | **Non**, ou contesté |
-| Une entreprise multinationale | ✖ | ✖ | ✖ | **Non** |
-| Un État fédéré (la Bavière) | ✔ | ✔ | **partielle** | **Non** au sens international — voir § 2.3.9 |
-
-**Le tableau montre où se joue la qualification : presque toujours sur le troisième élément.**
-Territoire et population sont faciles à constater ; la souveraineté, non. **C'est pourquoi la
-moitié du cours porte sur elle.**
+| La commune de Marseille | ✔ | ✔ | **✖** elle administre | **Non** |
+| L'ONU | ✖ | ✖ | ✖ | **Non** — organisation internationale |
+| Un gouvernement en exil | **✖** | ✔ dispersée | ✖ | **Non** |
+| La Bavière | ✔ | ✔ | **partielle** | **Non** au sens international |
 :::
 
-::: piege Le mot « État » désigne deux choses différentes dans la même phrase — le polycopié le signale, il faut le comprendre
-Le polycopié écrit : « Le **troisième élément se confond parfois avec l'État en général**. »
-Phrase obscure ; voici ce qu'elle veut dire.
+::: piege Sens large et sens étroit — le piège de vocabulaire du chapitre
+Le polycopié : « le **troisième élément se confond parfois avec l'État en général** ».
+**Sens large** = les trois éléments réunis (« l'État français compte 68 millions d'habitants »).
+**Sens étroit** = le seul pouvoir central, en trois emplois :
 
-**L'État au sens large** = les trois éléments réunis. *« L'État français compte 68 millions
-d'habitants »* — ici « État » désigne le pays tout entier.
-
-**L'État au sens étroit** = seulement le troisième élément, le pouvoir politique central.
-Trois usages de ce sens étroit, tous donnés par le polycopié :
-
-| Sens étroit | Opposé à | Exemple |
+| Emploi | Opposé à | Exemple |
 |---|---|---|
-| **L'État central** | Les collectivités territoriales | « L'État transfère cette compétence aux régions » |
-| **Le gouvernement** | Les autres États, en diplomatie | « Le Gouvernement français » pour désigner la République française |
-| **La puissance publique** | La **société civile** | « L'État et les partenaires sociaux » |
+| L'**État central** | Les collectivités territoriales | « L'État transfère cette compétence aux régions » |
+| Le **gouvernement** | Les autres États, en diplomatie | « Le Gouvernement français » pour la République |
+| La **puissance publique** | La **société civile** — individus, associations, syndicats, entreprises | « L'État et les partenaires sociaux » |
 
-**Sur la « société civile », que le polycopié emploie sans définir :** l'ensemble des individus,
-groupements de droit privé et corps intermédiaires — associations, syndicats, entreprises,
-Églises — **par opposition à l'appareil d'État**.
+**Un sujet « L'État et les collectivités territoriales » emploie le sens étroit ; « Les éléments
+constitutifs de l'État », le sens large. Confondre, c'est traiter un autre sujet.**
+:::
 
-**Pourquoi ce piège compte :** un sujet d'examen intitulé « L'État et les collectivités
-territoriales » emploie « État » au sens **étroit**. Un sujet « Les éléments constitutifs de
-l'État » l'emploie au sens **large**. Confondre les deux, c'est traiter un autre sujet.
+#### 2.2.2 Le territoire, élément matériel (p. 3-4)
+
+::: definition Définition et trois dimensions
+**La partie de l'espace géographique qui relève de l'État**, sur laquelle l'autorité politique
+exerce son pouvoir, délimitée par des **frontières**. ⚠ L'État **n'est pas propriétaire** de son
+territoire : il y exerce une **compétence**. *La propriété du sol est aux particuliers, la
+souveraineté sur le sol est à l'État.*
+
+| Dimension | Étendue | Nature du pouvoir |
+|---|---|---|
+| **Terrestre** | Surface, **sol et sous-sol** | **Souveraineté pleine** |
+| **Maritime — mer territoriale** | **12 milles marins** depuis la ligne de base | **Souveraineté pleine** |
+| **Maritime — zone économique exclusive** | Jusqu'à **200 milles**, soit **188 au-delà** | **Droits souverains** d'exploration et d'exploitation des ressources |
+| **Maritime — haute mer** | Au-delà | **Aucun** : « ouverte à tous en vertu du principe de liberté » |
+| **Aérien** | L'atmosphère au-dessus | Souveraineté — **hors espace extra-atmosphérique, qui reste libre** |
+
+**1 mille marin = 1 852 m** ; $ 188 \times 1\,852 = 348\,176 $ m ≈ 348 km.
+
+::: piege
+**Le polycopié écrit « l'étendue minimale de la *souveraineté* maritime… 200 milles ». C'est
+inexact.** Dans la ZEE, l'État n'exerce **pas la souveraineté** mais des **droits souverains**
+limités aux ressources ; les autres États y gardent la **liberté de navigation**. **Formule
+juste : souveraineté pleine sur 12 milles, droits souverains jusqu'à 200, liberté au-delà.**
+*(Le polycopié annonce aussi 348 173 m là où le produit exact vaut 348 176.)*
+:::
+:::
+
+::: exemple Les trois caractères indifférents, et celui qui est discuté
+**① La continuité ? Indifférente.** Le territoire peut comporter des « **solutions de
+continuité** » — ⚠ **l'expression signifie interruption, rupture**, et non le contraire.
+*Exemples :* archipels, France et outre-mer, États-Unis avec l'Alaska et Hawaï. La discontinuité
+peut être facteur d'éclatement : les deux Pakistan, séparés d'environ **1 600 km**, jusqu'au
+**Bangladesh en 1971**. *(Le polycopié écrit « 16 00 km » — une espace a sauté.)*
+
+**② L'enclavement ? Indifférent.** **Saint-Marin** et le **Vatican**, entourés par l'Italie ;
+**Kaliningrad**, enclave russe entre Pologne et Lituanie ; le **Haut-Karabagh**, enclavé en
+Azerbaïdjan. ⚠ **Mise à jour : le Haut-Karabagh a été dissous au 1<sup>er</sup> janvier 2024**
+après l'offensive de septembre 2023 — entité qui avait un territoire, une population et un
+pouvoir organisé, mais **jamais la reconnaissance**. *La reconnaissance n'est pas un quatrième
+élément constitutif, mais sans elle un État ne tient pas.*
+
+**③ La taille ? Indifférente.** **Monaco** (le plus petit État membre de l'ONU, de l'ordre de
+2 km²) ou le **Vatican** (quelques centaines d'habitants, **non membre** de l'ONU mais
+observateur) contre la **Russie**, le **Canada**, la **Chine**.
+
+**④ L'intangibilité ? Discutée — et la France l'écarte.** Beaucoup de constitutions interdisent
+tout abandon de territoire. **Pas la France :**
+
+> **Article 53 alinéa 3** de la Constitution de 1958 : nulle **cession**, nul **échange**, nulle
+> **adjonction** de territoire n'est valable **sans le consentement des populations
+> intéressées**.
+
+**La règle n'interdit pas : elle conditionne.** Applications : **Algérie (1962)**, **Comores
+(1974-1975)** dont **Mayotte** s'est séparée en restant française, **Nouvelle-Calédonie**.
+**C'est l'application du droit des peuples à disposer d'eux-mêmes (§ 2.2.3).**
 :::
 
 <!--saut-->
 
-#### 2.2.2 Le territoire, élément matériel (polycopié, pages 3 et 4)
+#### 2.2.3 La population, élément personnel (p. 4-6)
 
-::: definition Le territoire
-> « Le territoire est la **partie de l'espace géographique qui "appartient" à l'État**, qui
-> relève de cet État. C'est **l'espace sur lequel l'autorité politique va exercer son
-> pouvoir**. Sans territoire, le pouvoir de l'État ne peut s'exercer. »
+::: definition Population, nation, État : trois cercles distincts
+**Population :** « un **groupe humain, d'individus sédentaires, rattachés à un État** » — par la
+**nationalité**. *« Sédentaires » lie les deux premiers éléments.*
 
-**Les guillemets autour d'« appartient » ne sont pas décoratifs.** L'État n'est pas
-propriétaire de son territoire au sens du droit civil : il n'en est pas le propriétaire
-foncier. Il y exerce une **compétence**, c'est-à-dire un pouvoir de commandement. **La
-propriété du sol appartient aux particuliers ; la souveraineté sur le sol appartient à
-l'État.** Ce sont deux rapports de nature différente sur le même objet.
+**Nation :** « un **groupement humain dans lequel les individus se sentent unis par des liens à
+la fois matériels et spirituels**, et **se perçoivent comme différents** des individus qui
+composent les autres groupements nationaux ».
 
-**Le territoire est délimité par des frontières** — lignes qui marquent la limite de la
-compétence de l'État.
-:::
-
-::: exemple Les trois questions que le polycopié traite sur le territoire
-**① Le territoire doit-il être d'un seul tenant ? — Non.**
-
-Le polycopié parle de territoires « constitués de plusieurs entités avec des **solutions de
-continuité** ».
-
-::: piege
-**« Solution de continuité » est un piège de vocabulaire classique.** L'expression signifie
-**interruption**, **rupture** — et non le contraire. Elle vient du latin *solvere*, « délier,
-rompre » (même racine que « dissoudre »). Une « solution de continuité » est donc **un endroit
-où la continuité est rompue**. Beaucoup de lecteurs comprennent l'inverse.
-:::
-
-*Exemples du polycopié :* les archipels ; la France avec ses départements et collectivités
-d'outre-mer ; les États-Unis avec l'Alaska et Hawaï.
-
-**Cette discontinuité peut être source d'éclatement.** Le polycopié cite le Pakistan, dont les
-deux parties étaient séparées par un millier de kilomètres de territoire indien, jusqu'à la
-sécession de la partie orientale et la naissance du **Bangladesh en 1971**.
-
-::: piege
-**Coquille dans le polycopié :** il écrit « séparées par **16 00 km** ». Lire **1 600 km**
-— l'espace a sauté. C'est l'ordre de grandeur de la distance entre les deux anciennes moitiés
-du Pakistan à travers l'Inde.
-:::
-
-**② Un État peut-il être enclavé dans un autre ? — Oui.**
-
-*Exemples du polycopié :* **Saint-Marin** et le **Vatican**, tous deux entièrement entourés par
-l'Italie. Et, pour des portions de territoire : le **Haut-Karabagh** (région enclavée en
-Azerbaïdjan, revendiquant son rattachement à l'Arménie, dont la communauté internationale ne
-reconnaissait pas l'indépendance) et **Kaliningrad** (enclave russe entre Pologne et Lituanie).
-
-::: piege
-**Mise à jour nécessaire : le polycopié date de 2021.** La situation du Haut-Karabagh a changé
-depuis. Après l'offensive azerbaïdjanaise de **septembre 2023**, l'entité auto-proclamée a
-annoncé sa dissolution, effective au **1<sup>er</sup> janvier 2024**, et la population
-arménienne a quitté la région.
-
-**Ce que cela illustre, et c'est précisément l'intérêt pédagogique :** une entité qui possédait
-un territoire, une population et un pouvoir organisé, mais **à laquelle la reconnaissance
-internationale a toujours été refusée**, a cessé d'exister. **La reconnaissance n'est pas un
-quatrième élément constitutif — mais, en pratique, sans elle un État ne tient pas.**
-:::
-
-**③ La taille compte-t-elle ? — Non.**
-
-> « La taille des États **importe peu** dans la définition. »
-
-| Micro-États cités | Grands États cités |
-|---|---|
-| Monaco, Saint-Marin, Liechtenstein | Russie, Canada, Chine |
-
-Le polycopié précise que **Monaco est le plus petit État membre de l'ONU** et que **la Cité du
-Vatican, qui n'est pas membre de l'ONU, ne compte qu'environ 700 habitants**.
-
-::: piege
-**Une donnée à manier avec prudence :** le polycopié indique **2,5 km²** pour Monaco. La
-superficie usuellement retenue est plutôt de l'ordre de **2 km²** — la valeur varie selon les
-sources et augmente avec les extensions gagnées sur la mer. **Retiens l'ordre de grandeur —
-environ 2 km², le plus petit État membre de l'ONU — plutôt que la décimale.**
-
-Sur le Vatican, la précision du polycopié est juste sur le fond : il **n'est pas membre** de
-l'ONU mais y dispose d'un statut d'**observateur**. Sa population est de l'ordre de plusieurs
-centaines de personnes.
-:::
-:::
-
-::: definition Le territoire n'est pas seulement une surface : les trois dimensions
-Le polycopié est précis sur ce point et il faut le restituer intégralement.
-
-> « Le territoire, sur le plan juridique, ne comprend pas seulement la surface mais aussi
-> **le sol et le sous-sol**. »
-
-**① Le territoire terrestre** — surface, sol et sous-sol. *Conséquence pratique : les mines,
-les nappes phréatiques et les gisements relèvent de l'État.*
-
-**② Le territoire maritime** — le polycopié : « les États étendent de plus en plus leur
-souveraineté sur l'espace maritime ». Deux zones :
-
-| Zone | Étendue | Mesurée depuis | Nature du pouvoir de l'État |
-|---|---|---|---|
-| **Mer territoriale** | **12 milles marins** | La ligne de base (côte à marée basse) | **Souveraineté pleine**, comme sur la terre |
-| **Zone économique exclusive (ZEE)** | Jusqu'à **200 milles**, soit **188 milles au-delà** de la mer territoriale | La même ligne de base | **Droits souverains** d'exploration et d'exploitation des ressources |
-| **Haute mer** | Au-delà | — | **Aucun** — « ouverte à tous les États, riverains ou non, en vertu du principe de liberté » |
-
-**Conversion, puisque le polycopié la donne :** 1 mille marin = **1 852 m**.
-$$ 188 \times 1\,852 = 348\,176 \text{ m} \approx 348 \text{ km} $$
-
-::: piege
-**Deux remarques sur ce passage du polycopié.**
-
-**① Un écart de calcul insignifiant.** Le polycopié annonce **348 173 m** ; le produit exact
-$ 188 \times 1\,852 $ vaut **348 176 m**. Trois mètres d'écart, sans aucune portée — mais
-puisque je recalcule tout, je le signale.
-
-**② Une imprécision juridique qui, elle, compte.** Le polycopié écrit que « l'étendue minimale
-de la **souveraineté** maritime de l'État riverain est fixée à 200 milles ». **C'est
-inexact en droit de la mer.** Dans la ZEE, l'État n'exerce **pas la souveraineté** : il dispose
-de **droits souverains** limités — exploration, exploitation, conservation et gestion des
-ressources naturelles. Les autres États y conservent notamment la **liberté de navigation** et
-de survol.
-
-**La nuance est celle que le polycopié esquisse lui-même** quand il écrit que « l'exploitation
-de la mer prime sur les considérations liées à la navigation, pour des raisons économiques
-telles que la pêche, le pétrole et autres richesses sous-marines ». **Formule juste à
-retenir : souveraineté pleine sur 12 milles, droits souverains sur ressources jusqu'à
-200 milles, liberté au-delà.**
-:::
-
-**③ Le territoire aérien** — « l'atmosphère au-dessus du territoire terrestre et de l'espace
-maritime ». **En est exclu l'espace extra-atmosphérique, qui reste libre.**
-
-::: exemple
-**Ce que le support ne dit pas et qu'il faut savoir :** la limite exacte entre espace aérien
-souverain et espace extra-atmosphérique libre **n'est pas fixée par un traité**. La convention
-la plus couramment citée place la frontière vers **100 km d'altitude** (dite « ligne de
-Kármán »), mais elle n'a pas de valeur juridique contraignante. **C'est une zone grise du droit
-international**, et elle devient un enjeu avec la multiplication des satellites en orbite
-basse.
-:::
-:::
-
-::: definition Le territoire est-il intangible ? Le cas français, à connaître précisément
-> « Face au danger des revendications territoriales, **causes fréquentes des guerres**,
-> beaucoup de constitutionnalistes posent le **principe de son intangibilité** et interdisent
-> aux pouvoirs publics de consentir à des abandons de territoire. »
-
-**« Intangibilité » :** le caractère de ce à quoi on ne peut pas toucher. Un territoire
-intangible ne peut être ni cédé, ni échangé, ni amputé.
-
-**Mais le polycopié souligne aussitôt que la France ne suit pas cette voie :**
-
-> « On peut remarquer que **ce n'est pas le cas de la France**, avec l'**article 53 alinéa 3
-> de la Constitution de 1958**, qui prévoit la possibilité de **cession**, mais aussi
-> d'**adjonction**, de territoires. »
-
-**L'article 53 alinéa 3 dispose que nulle cession, nul échange, nulle adjonction de territoire
-n'est valable sans le consentement des populations intéressées.**
-
-**Lis bien la structure de la règle, c'est là qu'est le point :** l'article **n'interdit pas**
-les modifications de territoire — il les **autorise sous condition**. La condition est le
-**consentement des populations concernées**, c'est-à-dire un **référendum local**.
-
-**Trois applications historiques :** l'indépendance de l'Algérie (1962), celle des Comores
-(1974-1975) — dont **Mayotte** s'est séparée en choisissant de rester française —, et les
-consultations successives de la **Nouvelle-Calédonie**.
-
-**La logique juridique de fond :** le territoire n'appartient pas à l'État comme un bien ; il
-est lié à une population. **On ne cède donc pas un territoire sans consulter ceux qui y
-vivent** — c'est l'application directe du **droit des peuples à disposer d'eux-mêmes**, qu'on
-retrouvera au § 2.2.3.
-:::
-
-::: examen Restituer le territoire en copie — le plan en trois temps
-**① La définition.** Espace géographique sur lequel l'État exerce sa compétence, délimité par
-des frontières. **Distinguer compétence et propriété.**
-
-**② Les trois dimensions.** Terrestre (surface, sol, sous-sol) ; maritime (12 milles de
-souveraineté, 200 milles de droits souverains) ; aérien (à l'exclusion de l'espace
-extra-atmosphérique).
-
-**③ Les caractères indifférents et le caractère discuté.** Sont **indifférents** la continuité
-(archipels, outre-mer), l'enclavement (Saint-Marin, Vatican) et la taille (Monaco contre la
-Russie). Est **discuté** le caractère intangible : principe affirmé par beaucoup de
-constitutions, **écarté en France** par l'article 53 alinéa 3 qui autorise cessions et
-adjonctions sous condition de consentement des populations.
-
-**La phrase de conclusion qui rapporte :** « Le territoire n'est donc pas un élément
-purement matériel : dès qu'on en discute les limites, on retrouve la population — et par elle
-la souveraineté. Les trois éléments ne sont pas juxtaposés, ils s'appellent l'un l'autre. »
-:::
-
-<!--saut-->
-
-#### 2.2.3 La population, élément personnel (polycopié, pages 4 à 6)
-
-::: definition La population
-> « Il ne peut y avoir d'État sans population, c'est-à-dire un **groupe humain, d'individus
-> sédentaires, rattachés à un État**. »
-
-**Trois mots à peser, le polycopié ne les explique pas.**
-
-**« Groupe humain »** : un nombre, sans minimum juridique. Le Vatican compte quelques centaines
-d'habitants et cela suffit.
-
-**« Sédentaires »** : fixés sur le territoire. **C'est ce mot qui lie les deux premiers
-éléments** — une population nomade ne se rattache à aucun espace déterminé, et c'est
-précisément la difficulté juridique historique des peuples nomades.
-
-**« Rattachés à un État »** : liés à lui par un lien juridique, qui porte un nom — la
-**nationalité** (voir plus bas).
-:::
-
-::: definition La nation — la notion centrale du paragraphe
-Le polycopié enchaîne immédiatement : « Cette population a longtemps été **confondue avec la
-nation**. » Il faut donc définir la nation, et c'est la définition la plus importante de la
-section.
-
-> « [La nation] peut être définie comme un **groupement humain dans lequel les individus se
-> sentent unis les uns aux autres par des liens à la fois matériels et spirituels**, et qui
-> **se conçoivent (ou se perçoivent) comme différents des individus qui composent les autres
-> groupements nationaux**. »
-
-**Décomposons la définition — elle contient trois éléments et chacun compte :**
-
-| Élément | Contenu | Pourquoi il est là |
+| Élément de la définition | Contenu | Portée |
 |---|---|---|
-| **Des liens matériels** | Territoire, économie, langue, institutions | La base objective : ce qui se constate |
-| **Des liens spirituels** | Souvenirs, croyances, valeurs, projet commun | La base subjective : ce qui se ressent |
-| **Une différenciation** | Le sentiment d'être **distinct** des autres nations | **La nation se définit autant par ce qu'elle exclut que par ce qu'elle réunit** |
+| Liens **matériels** | Territoire, économie, langue, institutions | La base **objective** |
+| Liens **spirituels** | Souvenirs, croyances, valeurs, projet | La base **subjective** |
+| **Différenciation** | Le sentiment d'être **distinct** | **La nation se définit aussi par ce qu'elle exclut** — « l'unité nationale se fait souvent **contre** les autres nations » |
 
-**Le troisième point est le plus lourd de conséquences**, et le polycopié y revient plus loin :
-« L'unité nationale se fait souvent **contre** les autres nations. Il peut aussi de cette
-manière être facteur de guerres. »
+| | Nature | Exemple de non-coïncidence |
+|---|---|---|
+| **Population** | Fait **démographique** | Elle comprend des **étrangers** |
+| **Nation** | Fait **sociologique** | Les **Kurdes** : une nation sans État |
+| **État** | Réalité **juridique** | La **Belgique** : un État à deux nations |
+
+> « **L'État ne se confond donc pas totalement avec la nation, ni même avec ses nationaux.** »
 :::
 
-::: demo Population, nation, État : trois cercles qui ne se recouvrent pas
-Aucun support ne pose clairement la distinction. Elle est pourtant le cœur du paragraphe.
+::: definition Les deux conceptions de la nation — et pourquoi elles ont produit des guerres
+Le polycopié affirme que ces conceptions « furent à l'origine des guerres des XIX<sup>e</sup> et
+XX<sup>e</sup> siècles ».
 
-| Notion | Nature | Critère | Exemple de non-coïncidence |
-|---|---|---|---|
-| **Population** | **Un fait démographique** | Habiter le territoire | Elle comprend des **étrangers** |
-| **Nation** | **Un fait sociologique et psychologique** | Se sentir uni et différent | Les **Kurdes** forment une nation sans État |
-| **État** | **Une réalité juridique** | Les trois éléments constitutifs | La **Belgique** est un État à deux nations |
+| | **Conception allemande — OBJECTIVE** | **Conception française — SUBJECTIVE** |
+|---|---|---|
+| Fondement | Éléments objectifs **seuls**, **déterminisme** : on **naît** d'une nation | Éléments objectifs **+ volonté** : on **veut** en être |
+| Auteurs | *(le polycopié n'en nomme aucun)* | **Fustel de Coulanges**, **Renan** |
+| Critères | **Géographie** (frontières naturelles), **langue** (« tous les germanophones, y compris dans les Sudètes, en Belgique ou en Alsace »), religion, idéologie, **race** | Souvenirs communs « bons ou mauvais », symboles (**fête nationale, hymne, salut au drapeau**), communauté d'intérêts, parenté spirituelle, lien entre **générations passées et à venir** |
+| Formule | Déterminisme | « **Vouloir-vivre collectif** » |
+| Aboutissement cité | **III<sup>e</sup> Reich à partir de 1933** : la nation s'identifie à la race → élimination « par l'exode ou par la mort » des non-nationaux ; **génocides** ; **purification ethnique**, Yougoslavie **1991** | La nation **se rapproche de la patrie** |
+| Effet sur les frontières | Elles doivent **suivre la langue ou la race** | Elles résultent de la **volonté des populations** |
 
-**Schéma des rapports :**
-```
-       POPULATION d'un État                NATION
-   (tous ceux qui vivent sur le      (ceux qui se sentent unis
-     territoire : nationaux              et distincts)
-        + étrangers)
-            |                                |
-            +--------------+-----------------+
-                           |
-                     ETAT-NATION
-            (quand les deux cercles coincident)
-                  -> cas ideal, rarement realise
-```
-**Retiens la formule du polycopié :** « **L'État ne se confond donc pas totalement avec la
-nation, ni même avec ses nationaux.** »
+⚠ **« À côté de », et non « à la place de » :** la conception française **ajoute** le subjectif
+sans évacuer l'objectif. Écrire « objectif contre subjectif » est une simplification.
+
+**Renan :** conférence ***Qu'est-ce qu'une nation ?***, Sorbonne, **11 mars 1882** — la nation y
+est « un **plébiscite de tous les jours** », un consentement continuellement renouvelé.
+**Le contexte fait la théorie :** Renan et Fustel écrivent **après 1870 et l'annexion de
+l'Alsace-Lorraine**. Si la nation se définit par la langue, l'Alsace est allemande ; par la
+volonté, elle est française. **La théorie est une arme dans un conflit territorial.**
+
+⚠ **Et le polycopié se garde de tout angélisme :** le sentiment subjectif « peut naître aussi de
+**conquêtes** » — colonisations européennes, conquête de l'Ouest américain. **Le sentiment
+national n'est pas seulement constaté, il est produit — parfois par la force.**
 :::
 
-::: definition Les deux conceptions de la nation — le passage le plus important
-Le polycopié : « Le concept de nation a revêtu plusieurs sens : **deux définitions** se sont
-développées, l'une d'inspiration **allemande**, l'autre de conception **française**, et ces
-conceptions furent d'une certaine façon **à l'origine des guerres des XIX<sup>e</sup> et
-XX<sup>e</sup> siècles**. »
+::: definition État-nation, principe des nationalités, droit des peuples
+**État-nation :** un État dont la population coïncide avec une nation unique — **idéal-type
+rarement réalisé**, et « cette identification a été, là encore, facteur de conflits ».
 
-**Ce n'est donc pas une querelle d'universitaires : le support affirme que cette opposition
-théorique a produit des guerres.** Il faut savoir pourquoi.
+**Qui précède qui ?**
 
-**① LA CONCEPTION ALLEMANDE — OBJECTIVE**
+| Cas | Exemples | Ce qui s'est passé |
+|---|---|---|
+| **La nation précède l'État** | **Italie, Allemagne** | L'unification politique a doté d'un cadre juridique un sentiment préexistant |
+| **L'État précède la nation** | **France** | « C'est lui qui a progressivement forgé la nation, autour des Rois puis de la République » |
+| **L'État doit créer la nation** | **États africains décolonisés** | Ils « ont dû créer une nationalité, à partir de **frontières imposées par le colonisateur** » |
 
-> « La nation est le **résultat d'éléments objectifs** et subit l'influence du
-> **déterminisme**. »
+**Le principe des nationalités :** « **toute nation a droit à devenir un État** ».
 
-**« Objectif » :** qui ne dépend pas de la volonté des individus ; qui se constate du dehors.
-**« Déterminisme » :** doctrine selon laquelle les phénomènes sont entièrement déterminés par
-leurs causes — appliquée ici, on **naît** membre d'une nation, on ne le devient pas.
+| Date | Événement |
+|:---:|---|
+| **1789** et Napoléon | Naissance et propagation |
+| **1815** — traité de Vienne | **Combattu** par la Sainte-Alliance |
+| **1848** | Renaissance — « printemps des peuples » |
+| **1919** — traité de Versailles | Appliqué : « la **carte de l'Europe est refaite sur cette base** » |
 
-**Les éléments énumérés par le polycopié :**
+**Sa forme moderne : le droit des peuples à disposer d'eux-mêmes**, inscrit à la **Charte de
+l'ONU, article 1<sup>er</sup> paragraphe 2**, et au **Préambule de la Constitution de 1958,
+alinéa 2** — « ce qui peut entraîner une **modification du territoire national** ». **Moteur de
+la décolonisation**, sous le nom de **droit à l'autodétermination**.
+:::
 
-| Élément objectif | Conséquence tirée |
-|---|---|
-| **La géographie** | L'idée de **frontières naturelles** — fleuves, montagnes |
-| **La langue** | **Tous les germanophones** appartiennent à la nation allemande, « y compris s'ils vivent dans les Sudètes, en Belgique ou en Alsace » |
-| **La religion** | Appartenance confessionnelle |
-| **L'idéologie** | Communauté de croyances politiques |
-| **La race** | **Le critère extrême** |
+::: exemple Quand nation et État ne coïncident pas — les deux cas et tous les exemples
+**① Une nation écartelée entre plusieurs États :** **Allemagne 1945-1990** (RDA / RFA), les
+**deux Corées**, la nation **kurde** (Turquie, Irak, Iran, Syrie), les minorités **hongroises**
+(Roumanie, Slovaquie), la nation **basque** (Espagne et France).
+
+**② Un État regroupant plusieurs nations** — « États **bi ou multinationaux** » : **Empire
+austro-hongrois** jusqu'en **1918**, **Tchécoslovaquie**, **URSS** jusqu'en **1991**, et « de
+façon moins radicale » le **Canada** et la **Belgique**.
 
 ::: piege
-**Les Sudètes** — le polycopié cite l'exemple sans l'expliquer. Il s'agit des régions
-frontalières de la Tchécoslovaquie peuplées majoritairement de germanophones. Leur annexion
-par l'Allemagne, entérinée par les **accords de Munich de septembre 1938**, est l'application
-directe de la conception objective : puisqu'on y parle allemand, le territoire doit être
-allemand. **L'exemple montre comment une définition de la nation devient un titre à
-revendiquer un territoire.**
-:::
-
-**Le point d'aboutissement, que le polycopié énonce sans détour :**
-> « Cette conception a connu son apogée sous le III<sup>e</sup> Reich, à partir de **1933**. La
-> nation s'identifie alors à la race et conduit ainsi à **l'élimination — par l'exode ou par la
-> mort — de tous les non-nationaux**. »
-
-Le polycopié ajoute deux prolongements : « Les **génocides** anciens ou modernes relèvent aussi
-de cette vision », et le **conflit yougoslave de 1991**, « illustration plus récente du
-"concept" de **purification ethnique** ».
-
-**② LA CONCEPTION FRANÇAISE — SUBJECTIVE**
-
-> « La conception française, inspirée par les travaux des historiens comme **Fustel de
-> Coulanges** et **Renan**, fait rentrer, **à côté de ces éléments objectifs**, la **volonté de
-> vivre ensemble**, ou selon Renan un "**vouloir-vivre collectif**", ce qui correspond à des
-> **éléments subjectifs**. »
-
-::: piege
-**Note bien : « à côté de », et non « à la place de ».** La conception française **n'évacue pas**
-les éléments objectifs — elle leur **ajoute** un élément de volonté. Une copie qui présente
-l'opposition comme « objectif contre subjectif » simplifie ; la formule juste est « **objectif
-seul** contre **objectif plus subjectif** ».
-:::
-
-**Les facteurs énumérés par le polycopié :**
-- des **souvenirs communs, bons ou mauvais** — « comme les guerres, ou les victoires
-  sportives » ;
-- les **symboles** — « la fête nationale, l'hymne national », « le salut au drapeau tous les
-  matins est une façon d'inculquer ce sentiment national » ;
-- la **communauté d'intérêts économiques** ;
-- le **sentiment de parenté spirituelle** — « se sentir français ou suisse ou américain » ;
-- la **dimension générationnelle** : « la nation dépasse aussi les individus vivants, et elle
-  **unit les générations passées et celles à venir** ». **La nation se rapproche alors de la
-  patrie.**
-
-::: definition
-**Ernest Renan (1823-1892)**, historien et philologue français. Sa conférence
-***Qu'est-ce qu'une nation ?***, prononcée à la Sorbonne le **11 mars 1882**, est le texte
-fondateur de la conception française. Il y définit la nation comme « un **plébiscite de tous
-les jours** » — c'est-à-dire un consentement continuellement renouvelé, et non un fait acquis
-une fois pour toutes.
-
-**Numa Denis Fustel de Coulanges (1830-1889)**, historien français, connu pour *La Cité
-antique* (1864). Le contexte des deux auteurs est décisif : ils écrivent **après la défaite de
-1870 et l'annexion de l'Alsace-Lorraine par l'Allemagne**. La conception subjective est une
-**réponse** à la conception objective : si la nation se définit par la langue, l'Alsace est
-allemande ; si elle se définit par la volonté, l'Alsace est française parce que les Alsaciens
-le veulent. **La théorie est ici une arme dans un conflit territorial.**
+**Erreur de date à corriger.** Le polycopié écrit « la **Tchécoslovaquie jusqu'en 1991** ».
+**Elle s'est séparée le 1<sup>er</sup> janvier 1993** (« divorce de velours »). **1991 est la
+date de l'URSS.** Retiens : **URSS 1991, Tchécoslovaquie 1993.**
 :::
 :::
 
-::: synthese Les deux conceptions, en tableau
-| | **Conception allemande** | **Conception française** |
-|---|---|---|
-| **Fondement** | Éléments **objectifs** seuls | Éléments objectifs **+ volonté** |
-| **Auteurs cités** | *(le polycopié n'en nomme aucun)* | **Fustel de Coulanges**, **Renan** |
-| **Formule** | Déterminisme : on **naît** d'une nation | « **Vouloir-vivre collectif** » : on **veut** en être |
-| **Critères** | Géographie, langue, religion, idéologie, race | Souvenirs communs, symboles, intérêts, parenté spirituelle |
-| **La nation est…** | Un **fait** que l'on constate | Un **projet** que l'on renouvelle |
-| **Aboutissement historique cité** | III<sup>e</sup> Reich (1933), génocides, purification ethnique (Yougoslavie 1991) | République française, intégration par la citoyenneté |
-| **Conséquence sur les frontières** | Les frontières doivent **suivre la langue ou la race** | Les frontières résultent de la **volonté des populations** |
-:::
+::: definition Nationalité, citoyenneté, étrangers, apatrides — quatre statuts
+**Nationalité** = le **lien juridique** qui rattache un individu à un État.
+**Citoyenneté** = le **droit de participer à la vie politique**.
 
-::: exemple Le point que le polycopié ajoute et qu'on lit trop vite
-> « Ce sentiment "subjectif" peut naître aussi de **conquêtes** qui "imposent" la nation à des
-> territoires qui n'étaient pas nationaux, comme le montrent les exemples des **colonisations
-> européennes** ou la **conquête de l'Ouest américain**. »
+**Le principe et son exception, à citer exactement :**
+- **Article 3** de la Constitution : il **lie** nationalité et citoyenneté.
+- **Article 88-3**, inséré en **1992** (révision préalable à Maastricht) : il les **dissocie pour
+  les élections municipales**, par la **citoyenneté de l'Union européenne**. Le polycopié le
+  qualifie de « **dérogation à l'article 3** ».
+  *Concrètement : un ressortissant de l'Union résidant en France vote aux **municipales** et aux
+  **européennes**, ni aux législatives ni à la présidentielle.*
 
-**Ce que cela signifie :** la conception subjective n'est pas nécessairement plus douce que
-l'objective. **Un « vouloir-vivre collectif » peut être fabriqué** — par l'école, l'armée, la
-langue imposée, l'administration. **Le sentiment national n'est pas seulement constaté, il est
-produit.** Et il l'est parfois par la force.
-
-**En copie, cette remarque évite l'angélisme** qui consisterait à opposer une bonne conception
-française à une mauvaise conception allemande. Les deux ont servi à justifier des dominations.
-:::
-
-::: definition L'État-nation, le principe des nationalités et le droit des peuples
-**① L'ÉTAT-NATION.**
-> « L'unité de la nation, qu'elle soit objective ou subjective, conduit à **assimiler l'État et
-> la nation**, avec le concept d'**État-nation**, parce que cette nation doit s'incarner dans
-> une "**réalité juridique**". »
-
-**Définition :** un État dont la population coïncide avec une nation unique. **C'est un
-idéal-type, rarement réalisé** — le polycopié : « Cette identification n'est pas toujours
-réalisée et a été, là encore, facteur de conflits. »
-
-**② QUI PRÉCÈDE QUI ? — Une question d'examen classique.**
-
-| Cas | Exemples du polycopié | Ce qui s'est passé |
-|---|---|---|
-| **La nation précède l'État** | **Italie**, **Allemagne** | Le sentiment national existait ; l'unification politique (1861, 1871) l'a doté d'un cadre juridique |
-| **L'État précède la nation** | **France** | « C'est lui qui a progressivement forgé la nation, autour des Rois de France puis de la République » |
-| **L'État crée la nation à partir de rien** | **États africains nés de la décolonisation** | Ils « ont dû parfois créer une nationalité, à partir de **frontières imposées par le colonisateur** » |
-
-**Le troisième cas explique beaucoup de conflits post-coloniaux :** des frontières tracées sans
-rapport avec les peuples, à l'intérieur desquelles il a fallu ensuite **fabriquer** une nation.
-
-**③ TOUTE NATION DOIT-ELLE AVOIR UN ÉTAT ?**
-
-C'est la question que le polycopié pose explicitement. La réponse affirmative porte un nom :
-
-> « Le **principe des nationalités**, développé à partir de la Révolution française, selon
-> lequel **toute nation a droit à devenir un État**, traduit une réponse positive et rejoint
-> l'idée de "souveraineté nationale". »
-
-**Son histoire, telle que le polycopié la donne — à connaître dans l'ordre :**
-
-| Date | Événement | Effet sur le principe |
-|---|---|---|
-| **1789 et après** | Révolution française, puis conquêtes napoléoniennes | **Naissance et propagation** du principe |
-| **1815** | **Traité de Vienne**, Sainte-Alliance | **Combattu** par les vainqueurs, qui redessinent l'Europe sans les peuples |
-| **1848** | « Printemps des peuples » | **Renaissance** du principe |
-| **1919** | **Traité de Versailles** | Appliqué en Europe centrale et orientale : « la carte de l'Europe est **refaite sur cette base** » |
-
-**④ LE DROIT DES PEUPLES À DISPOSER D'EUX-MÊMES.**
-> « Ce principe a pris la forme nouvelle du **droit des peuples à disposer d'eux-mêmes**,
-> inscrit dans la **Charte de l'ONU, au paragraphe 2 de l'article 1<sup>er</sup>**, et dans le
-> **Préambule de la Constitution française de 1958, à l'alinéa 2**, ce qui peut entraîner une
-> **modification possible du territoire national**. »
-
-**Deux références à retenir exactement**, elles sont citables telles quelles.
-
-**Son rôle historique :** « Ce droit a joué un grand rôle dans le mouvement de
-**décolonisation** de l'après-Seconde Guerre mondiale sous la forme du **droit à
-l'autodétermination**. »
-
-**Et la boucle se referme avec le territoire (§ 2.2.2) :** c'est ce même principe qui fonde
-l'exigence de **consentement des populations** de l'article 53 alinéa 3.
-:::
-
-::: exemple Nation et État ne coïncident pas — les deux cas de figure, avec tous les exemples du polycopié
-**CAS 1 — UNE NATION ÉCARTELÉE ENTRE PLUSIEURS ÉTATS**
-> « La nation peut être écartelée entre plusieurs États, et être découpée par des frontières
-> étatiques mais non nationales. »
-
-| Nation | États entre lesquels elle est partagée | Période |
-|---|---|---|
-| **Allemande** | RDA et RFA | **1945-1990** |
-| **Coréenne** | Corée du Nord, Corée du Sud | Depuis 1948 |
-| **Kurde** | **Turquie, Irak, Iran, Syrie** | Depuis 1920 environ |
-| **Hongroise** | Hongrie, **Roumanie, Slovaquie** | Depuis 1920 |
-| **Basque** | **Espagne et France** | — |
-
-**CAS 2 — UN ÉTAT REGROUPANT PLUSIEURS NATIONS** — « on parle alors d'**États bi ou
-multinationaux** ».
-
-| État | Nations réunies | Issue |
-|---|---|---|
-| **Empire austro-hongrois** | Allemands, Hongrois, Tchèques, Slovaques, Croates, Polonais… | **Disparu en 1918** |
-| **Tchécoslovaquie** | Tchèques et Slovaques | **Séparation** |
-| **URSS** | Quinze républiques | **Dissoute fin 1991** |
-| **Canada** | Anglophones et Québécois | **Subsiste** — « de façon moins radicale » |
-| **Belgique** | Flamands et Wallons | **Subsiste** — fédéralisation progressive |
-
-::: piege
-**Erreur de date dans le polycopié, à corriger.** Il écrit : « de la **Tchécoslovaquie jusqu'en
-1991** et de l'URSS jusqu'en 1991 ».
-
-**La date est juste pour l'URSS**, dissoute en décembre 1991. **Elle est fausse pour la
-Tchécoslovaquie**, qui s'est séparée en deux États — République tchèque et Slovaquie — le
-**1<sup>er</sup> janvier 1993**, à l'issue de ce qu'on a appelé le « divorce de velours ».
-La confusion vient sans doute de la proximité des deux dislocations.
-
-**Retiens : URSS 1991, Tchécoslovaquie 1993.** Une erreur de date sur un exemple aussi cité se
-voit immédiatement en copie.
-:::
-:::
-
-::: definition Nationalité, citoyenneté, étrangers — trois statuts à ne pas confondre
-Le polycopié traite ce point en fin de paragraphe, et il est très demandé en examen.
-
-**① LA NATIONALITÉ.**
-> « La "nationalité" **unit l'État aux personnes**. »
-
-**Définition :** le **lien juridique** qui rattache un individu à un État. Elle emporte des
-droits (protection diplomatique, entrée sur le territoire) et des devoirs.
-
-**② LA CITOYENNETÉ.**
-> « …avec en général comme conséquence, la citoyenneté, c'est-à-dire **le droit de participer à
-> la vie politique de l'État**. »
-
-**Définition :** la qualité qui donne les **droits politiques** — voter, être élu, accéder aux
-fonctions publiques.
-
-**③ LE PRINCIPE ET SON EXCEPTION — à citer exactement.**
-
-**Le principe :** l'**article 3 de la Constitution** « affirme bien le **lien** entre la
-nationalité et la citoyenneté ». En France, on vote parce qu'on est français.
-
-**L'exception :** l'**article 88-3**, inséré dans la Constitution en **1992** (révision
-préalable à la ratification du traité de Maastricht), « **dissocie** la nationalité et la
-citoyenneté pour les **élections locales — municipales** », en instituant le concept de
-**citoyenneté de l'Union européenne**.
-
-**Concrètement :** un ressortissant d'un autre État membre de l'Union résidant en France vote
-aux élections **municipales** et **européennes**, mais **ni aux législatives ni à la
-présidentielle**. Le polycopié qualifie précisément l'article 88-3 de « **dérogation à
-l'article 3** ».
-
-::: piege
-**Pourquoi cette dérogation est un point de cours important, et pas une curiosité :** elle
-montre que **l'Union européenne entame le lien entre nationalité et citoyenneté**, c'est-à-dire
-l'un des attributs de la souveraineté. Elle est donc un exemple de ces « limitations
-librement acceptées » dont le polycopié parlera au § 2.2.4. **En dissertation, c'est l'exemple
-qui relie la population et la souveraineté.**
-:::
-
-**④ LES ÉTRANGERS — le polycopié y consacre une remarque encadrée.**
-> « La population d'un État comprend aussi des **étrangers** : un État n'a pas seulement à
-> gérer ses "nationaux" ou ses ressortissants, mais aussi des "étrangers" qu'il doit
-> "administrer", et qui sont précisément des **administrés et non des citoyens**, mais qui ont
-> **certains droits**, comme le droit de **saisir une juridiction** — « ne serait-ce que si on
-> leur refuse la qualité de réfugié » — ou le **droit de se faire soigner**. »
-
-**La distinction à retenir en trois mots : administré ≠ citoyen.** L'étranger est soumis au
-pouvoir de l'État et protégé par lui, sans participer à la formation de sa volonté.
-
-::: synthese
-| Statut | A la nationalité ? | Droits politiques ? | Droits garantis |
+| Statut | Nationalité | Droits politiques | Droits garantis |
 |---|:---:|:---:|---|
 | **National citoyen** | ✔ | ✔ | Tous |
-| **Citoyen de l'Union résidant en France** | ✖ (française) | **Partiels** — municipales et européennes | Tous les droits fondamentaux |
-| **Étranger (hors Union)** | ✖ | ✖ | **Droits fondamentaux** : recours juridictionnel, soins, protection |
-| **Apatride** | **✖ — aucune** | ✖ | Statut protecteur spécifique (voir ci-dessous) |
-:::
-:::
+| **Citoyen de l'Union en France** | ✖ française | **Partiels** — municipales, européennes | Tous les droits fondamentaux |
+| **Étranger (hors Union)** | ✖ | ✖ | **Administré et non citoyen** : droit de **saisir une juridiction** — « ne serait-ce que si on leur refuse la qualité de réfugié » — et de **se faire soigner** |
+| **Apatride** | **✖ aucune** | ✖ | Statut protecteur international |
 
-<!--saut-->
+**LE « REFUS DES APATRIDES » — deux mots sur la diapositive 5, rien dans le polycopié.**
 
-::: definition Le « refus des apatrides » — la mention de la diapositive 5, entièrement reconstruite
-La diapositive 5 écrit, entre parenthèses et sans un mot d'explication : « **Population (Refus
-des apatrides)** ». **Le polycopié n'aborde pas la question.** Voici donc la reconstruction
-complète.
-
-**① QU'EST-CE QU'UN APATRIDE ?**
-Un **apatride** est une personne qu'**aucun État ne considère comme son ressortissant** :
-elle ne possède **la nationalité d'aucun pays**. Le mot vient du grec *a-* (privatif) et
-*patris* (patrie).
-
-**② POURQUOI C'EST UNE SITUATION GRAVE — et non un simple détail administratif.**
-Puisque la nationalité est le lien qui rattache une personne à un État, **l'apatride n'est
-rattaché à aucun**. Les conséquences sont concrètes et lourdes :
-- **aucun passeport**, donc aucune circulation régulière ;
-- **aucune protection diplomatique** : si un État le maltraite, aucun autre ne peut intervenir
-  en son nom ;
-- **aucun État n'est obligé de l'accueillir**, y compris celui où il est né ;
-- l'accès au travail, aux soins, à l'école et au mariage devient difficile ou impossible.
-
-**③ D'OÙ VIENT L'APATRIDIE ?** Quatre causes principales :
-- **conflit de lois** : un enfant né dans un pays appliquant le *droit du sang* (nationalité
-  transmise par les parents) de parents venant d'un pays appliquant le *droit du sol*
-  (nationalité donnée par le lieu de naissance) peut n'en recevoir aucune ;
-- **disparition d'un État** : la dissolution de l'URSS et de la Yougoslavie a laissé des
-  centaines de milliers de personnes sans nationalité ;
-- **déchéance de nationalité** décidée par un État sans qu'une autre soit acquise ;
-- **discrimination** : exclusion juridique d'un groupe de la nationalité.
-
-**④ EN QUOI CONSISTE LE « REFUS » DONT PARLE LA DIAPOSITIVE ?**
-Il faut comprendre que le mot « refus » désigne **le refus par le droit international de
-laisser subsister cette situation**, et non un refus d'accueillir les apatrides. Deux
-conventions internationales, conclues à New York, l'organisent :
-
-| Texte | Date | Objet |
-|---|:---:|---|
-| **Convention relative au statut des apatrides** | **1954** | Donne aux apatrides un **statut protecteur** : papiers d'identité, titre de voyage, accès à la justice, au travail et à l'éducation |
-| **Convention sur la réduction des cas d'apatridie** | **1961** | Oblige les États à **prévenir l'apatridie** — notamment en accordant leur nationalité à l'enfant né sur leur territoire qui serait autrement apatride |
-
-**En France, la reconnaissance du statut d'apatride relève de l'OFPRA** — l'Office français de
-protection des réfugiés et apatrides.
-
-**⑤ LE LIEN AVEC LE COURS, ET C'EST LE POINT.**
-L'apatridie est la **preuve par l'absence** que la population est un élément constitutif de
-l'État. Si la population est ce qui rattache les hommes à l'État, alors **l'apatride est
-l'homme que le système laisse tomber entre deux États**. Le droit international refuse cette
-situation parce qu'elle contredit la logique même d'un monde entièrement partagé entre États :
-**dans un système où tout individu doit relever d'un État, l'apatride est une anomalie que le
-système doit résorber.**
-
-::: piege
-**Ce que je peux affirmer et ce que je ne peux pas.** Les deux conventions de 1954 et 1961 et
-la compétence de l'OFPRA sont des références établies, que tu peux citer. **En revanche, la
-diapositive ne dit rien de plus que trois mots** : je ne sais pas jusqu'où l'enseignante
-développe ce point à l'oral, ni si elle attend ces références précises. **Retiens au minimum :
-définition de l'apatride, ses conséquences, et l'idée que le droit international cherche à
-éliminer cette situation.** Le reste est un bonus.
-:::
-:::
-
-::: examen Restituer la population en copie — le plan en quatre temps
-**① La définition et le lien juridique.** Groupe humain sédentaire rattaché à l'État par la
-**nationalité**. Sans population, pas d'État.
-
-**② Population et nation : ne pas confondre.** Définir la nation (liens matériels et
-spirituels + différenciation). Exposer les **deux conceptions** — allemande objective,
-française subjective — et leur portée historique.
-
-**③ Les non-coïncidences.** Nation sans État (Kurdes), État multinational (Belgique, Canada),
-nation écartelée (Corées, Allemagne 1945-1990). En tirer : **l'État-nation est un idéal-type,
-pas la règle.**
-
-**④ Les statuts à l'intérieur de la population.** National citoyen, citoyen de l'Union
-(art. 88-3, dérogation à l'art. 3), étranger administré, apatride.
-
-**La phrase de conclusion qui rapporte :** « La population est l'élément le plus instable des
-trois : ses contours juridiques — nationalité, citoyenneté — sont fixés par l'État lui-même,
-alors que ses contours sociologiques — la nation — lui échappent. C'est de cet écart que
-naissent les revendications d'indépendance, et donc la naissance de nouveaux États. »
+Un **apatride** est une personne qu'**aucun État ne reconnaît comme son ressortissant**
+(*a-* privatif + *patris*). **Conséquences :** aucun passeport, **aucune protection
+diplomatique**, aucun État tenu de l'accueillir, accès au travail, aux soins et à l'école
+entravé.
+**Causes :** conflit entre droit du sang et droit du sol · **disparition d'un État** (URSS,
+Yougoslavie) · déchéance de nationalité · discrimination.
+**Le « refus » est celui du droit international :** **convention de New York de 1954** (statut
+protecteur : papiers, titre de voyage, accès à la justice) et de **1961** (réduction des cas :
+obligation d'accorder la nationalité à l'enfant né sur le territoire qui serait autrement
+apatride). En France, **l'OFPRA** reconnaît ce statut.
+**Le lien avec le cours :** dans un système où tout individu doit relever d'un État, **l'apatride
+est l'anomalie que le système doit résorber**. C'est la preuve par l'absence que la population
+est un élément constitutif.
 :::
 
 <!--saut-->
 
-#### 2.2.4 La souveraineté, élément formel et abstrait (diapositive 6 ; polycopié, pages 6 à 8)
+#### 2.2.4 La souveraineté, élément formel et abstrait (diapositive 6 ; p. 6-8)
 
-C'est le cœur du chapitre. **Territoire et population se constatent ; la souveraineté se
-démontre.** C'est elle qui sépare un État d'une commune, d'une province ou d'une organisation
-internationale.
+**Territoire et population se constatent ; la souveraineté se démontre. C'est elle qui sépare
+un État d'une commune, d'une province ou d'une organisation internationale.**
 
-::: definition Ce que dit la diapositive 6, intégralement
-> **La souveraineté 1**
-> **Définition :** Une **puissance publique** / le **pouvoir politique**
-> - Un pouvoir **spécifique distinct des autres formes de pouvoir**
-> - **3 caractéristiques associées** : un pouvoir **suprême** ; un pouvoir **indivisible** ;
->   un pouvoir **perpétuel**
->
-> ***Concrètement :***
-> - La souveraineté joue sur le **plan interne**
-> - La souveraineté joue également sur le **plan externe**
-:::
+::: definition Définition et critère
+**« Sur la population de ce territoire, l'État doit exercer une *autorité politique exclusive*,
+appelée souveraineté. »**
+**Autorité** = pouvoir de commandement. **Politique** = qui concerne la cité tout entière.
+**Exclusive** = le mot décisif : aucun autre pouvoir de même nature sur le même territoire.
 
-::: definition Ce que dit le polycopié, et les deux caractéristiques juridiques de l'État
-> « L'État a **deux caractéristiques juridiques** :
-> - La première considère que **le pouvoir exercé dans l'État est souverain**, aussi bien à
->   l'égard des autres États qu'à l'intérieur du territoire.
-> - La seconde assimile l'État à **une personne juridique** identifiable par le biais de la
->   théorie de la **personnalité morale**. »
+| Pouvoir | Fondement | Pourquoi ce n'est pas la souveraineté |
+|---|---|---|
+| De l'**employeur** | Le **contrat** | Révocable, et **la loi le borne** |
+| Des **parents** | La **loi** | **Octroyé** par l'État, qui peut le retirer |
+| D'une **Église** | L'**adhésion** | **Volontaire** — on peut le quitter |
+| D'un **maire** | La **loi** | **Délégué**, borné, contrôlé |
+| D'une **mafia** | La **force** | **Illégitime** et concurrencé |
+| **LA SOUVERAINETÉ** | **Elle-même** | **Elle ne tient d'aucun pouvoir et n'en souffre aucun** |
 
-**Ces deux caractéristiques structurent la suite :** la souveraineté ici (§ 2.2.4 et 2.2.5), la
-personnalité morale ensuite (§ 2.2.6).
+**LE CRITÈRE — la « compétence de sa compétence » (*Kompetenz-Kompetenz*), formule de
+Georg Jellinek (1851-1911) :** le pouvoir de **fixer soi-même l'étendue de ses propres
+pouvoirs**.
 
-Et la définition centrale :
-> « Sur la population de ce territoire, l'État doit exercer une **autorité politique
-> exclusive**, appelée **souveraineté**. »
-:::
-
-::: demo Décomposer la définition : trois mots, trois idées
-**« Autorité »** : un pouvoir de commandement, c'est-à-dire la capacité d'imposer une conduite.
-
-**« Politique »** : qui concerne l'organisation de la cité tout entière, et non un secteur
-particulier. Le pouvoir d'un employeur sur son salarié est un pouvoir, il n'est pas politique.
-
-**« Exclusive »** : **le mot décisif**. Aucun autre pouvoir de même nature ne s'exerce sur le
-même territoire. C'est exactement ce que la diapositive appelle « un pouvoir **spécifique
-distinct des autres formes de pouvoir** ».
-
-**Confrontons — pourquoi les autres pouvoirs ne sont pas la souveraineté :**
-
-| Pouvoir | Sur qui | Fondement | Pourquoi ce n'est pas la souveraineté |
-|---|---|---|---|
-| **Pouvoir de l'employeur** | Ses salariés | Le **contrat** de travail | Il repose sur un accord révocable, et **la loi le borne** |
-| **Pouvoir des parents** | Leurs enfants | La **loi** | Il est **octroyé** par l'État, qui peut le retirer |
-| **Pouvoir d'une Église** | Ses fidèles | L'**adhésion** | Il est **volontaire** — on peut le quitter |
-| **Pouvoir d'un maire** | Ses administrés | La **loi** | Il est **délégué**, borné et contrôlé |
-| **Pouvoir d'une mafia** | Un territoire | La **force** | Il est **illégitime** et concurrencé par l'État |
-| **LA SOUVERAINETÉ** | **Tous, sur le territoire** | **Elle-même** | **Elle ne tient d'aucun autre pouvoir et n'en souffre aucun** |
-
-**La ligne du bas est la définition.** La souveraineté est le seul pouvoir qui **ne tire sa
-compétence d'aucun pouvoir supérieur**. Tous les autres tiennent la leur d'un titre extérieur.
-:::
-
-::: formule Le critère décisif — la « compétence de sa compétence »
-> « L'État dispose ainsi de la "**compétence de sa compétence**" selon la formule du juriste
-> allemand **Jellinek**. »
-
-**Traduisons la formule, le polycopié ne le fait pas.**
-
-Une **compétence** est le pouvoir juridique d'accomplir un acte déterminé. Le maire a
-compétence pour célébrer des mariages ; il n'a pas compétence pour déclarer la guerre.
-
-**Avoir la « compétence de sa compétence », c'est avoir le pouvoir de fixer soi-même l'étendue
-de ses propres pouvoirs.** L'État décide ce qu'il peut faire ; nul ne le décide à sa place.
-
-**Le test, et il est infaillible :** pose-toi la question — *qui a fixé ce que cette entité a
-le droit de faire ?*
-- Si la réponse est **« elle-même »** → **souverain**, donc un État.
-- Si la réponse est **« une autre entité »** → **non souverain**.
+**Le test, infaillible : *qui a fixé ce que cette entité a le droit de faire ?***
 
 | Entité | Qui fixe ses compétences ? | Souveraine ? |
+|---|---|:---:|
+| L'**État français** | Sa **propre Constitution**, qu'il révise lui-même | **Oui** |
+| La **région** PACA | La **loi** | **Non** |
+| Le **Land de Bavière** | La Constitution **fédérale** | **Non** |
+| L'**Union européenne** | Les **traités** que les États ratifient | **Non** — compétences **d'attribution** |
+:::
+
+::: definition Les trois caractères, et Bodin
+| Caractère | Sens | ⚠ |
 |---|---|---|
-| **L'État français** | Sa propre Constitution, qu'il révise lui-même | **Oui** |
-| **La région Provence-Alpes-Côte d'Azur** | La **loi**, votée par l'État | **Non** |
-| **Le Land de Bavière** | La Constitution **fédérale** allemande | **Non** — mais autonomie constitutionnelle réelle |
-| **L'Union européenne** | Les **traités**, que les États ratifient | **Non** — compétences **d'attribution** |
+| **Suprême** (= **absolue** chez Bodin) | **Déliée de toute subordination** : aucune autorité au-dessus | « Absolue » **n'est pas** « arbitraire » : c'est un terme de rapport, pas de mesure |
+| **Indivisible** | Elle ne se partage pas : on décide en dernier ressort ou on ne décide pas | **Fera la difficulté du fédéralisme** : ce sont les **compétences** qui se répartissent, pas la souveraineté |
+| **Perpétuelle** | Elle survit à celui qui l'exerce | **C'est l'institutionnalisation**, et cela annonce la personnalité morale |
 
-**Georges Jellinek (1851-1911)**, juriste allemand, théoricien de l'État. *(Le polycopié le
-nomme sans donner de date ni d'ouvrage.)*
+**Jean Bodin (1530-1596)**, ***Les Six Livres de la République***, **1576**.
+**Le contexte fait le concept :** il s'agissait de « protéger l'indépendance de la Couronne
+française vis-à-vis du **Saint-Siège et du Saint Empire romain germanique** ». Affirmer que le
+roi ne relève de personne écartait les deux prétentions d'un coup. *(Repère complémentaire : les
+**traités de Westphalie, 1648**, consacrent le système des États souverains.)*
+⚠ **Le polycopié signale lui-même la limite :** la définition est **négative** —
+**souveraineté-indépendance**, définie par rapport à d'autres souverains. D'où les marques, qui
+en donnent le contenu positif.
+
+**LES QUATRE MARQUES DE SOUVERAINETÉ selon Bodin — et leur état aujourd'hui :**
+
+| Marque | Aujourd'hui |
+|---|---|
+| **Faire la loi** | **Largement partagée** avec l'Union européenne |
+| **Rendre la justice** | **Concurrencée** par la Cour de justice de l'Union et la Cour européenne des droits de l'homme |
+| **Battre monnaie** | **Transférée à la Banque centrale européenne** en zone euro |
+| **Lever une armée** | **Conservée**, mais engagée dans des alliances |
+
+**Ce tableau est la matière de la question « la souveraineté est-elle encore absolue ? ».**
 :::
 
-::: definition Les trois caractères de la souveraineté — les deux supports réconciliés
-La diapositive 6 : « un pouvoir **suprême** ; un pouvoir **indivisible** ; un pouvoir
-**perpétuel** ».
-Le polycopié, citant Bodin : « Cette souveraineté est **absolue, perpétuelle et indivisible**. »
-
-**C'est le même trio. Voici les trois caractères, chacun défini et illustré.**
-
-**① SUPRÊME (ou ABSOLUE)** — *aucune autorité au-dessus.*
-Au-dessus de l'État, rien : ni une autre puissance, ni une autorité religieuse, ni un pouvoir
-féodal. **Attention au faux sens :** « absolue » ne signifie pas « arbitraire » ou « sans
-limite morale » — cela signifie **déliée de tout lien de subordination**. C'est un terme de
-rapport, pas de mesure.
-
-**② INDIVISIBLE** — *elle ne se partage pas.*
-On ne peut pas être souverain « pour moitié ». Un pouvoir soit décide en dernier ressort, soit
-ne décide pas. **C'est ce caractère qui fera toute la difficulté du fédéralisme (§ 2.3.8) :
-comment deux niveaux d'États peuvent-ils coexister si la souveraineté ne se divise pas ?**
-*(Réponse : elle ne se divise pas, ce sont les compétences qui se répartissent. Retiens la
-distinction, elle vaut des points.)*
-
-**③ PERPÉTUELLE** — *elle ne s'éteint pas avec celui qui l'exerce.*
-La souveraineté appartient à l'État, pas au gouvernant. Elle survit aux élections, aux
-révolutions de palais, à la mort du chef. **C'est exactement l'institutionnalisation du
-§ 2.0.1, et cela annonce la personnalité morale du § 2.2.6.**
-
-::: examen
-**La formule qui te met d'accord avec les deux supports en une phrase :**
-> « La souveraineté présente trois caractères : elle est **suprême** — ou, dans le vocabulaire
-> de Bodin, **absolue**, en ce qu'elle ne connaît aucune autorité supérieure —, **indivisible**,
-> car elle ne se partage pas, et **perpétuelle**, car elle survit à ceux qui l'exercent. »
-:::
-:::
-
-::: definition Jean Bodin et la naissance du concept — la référence historique à citer
-> « La souveraineté de l'État a été dégagée par **Jean Bodin, en 1576**, dans *De la
-> République*, pour qui **souveraineté signifie indépendance absolue**. »
-
-**Jean Bodin (1530-1596)**, juriste et philosophe français. L'ouvrage s'intitule exactement
-***Les Six Livres de la République***, publié en **1576**. *(Le polycopié le désigne par la
-forme abrégée « De la République ».)*
-
-**Le contexte, que le polycopié donne et qu'il faut retenir :**
-> « Il s'agissait de **protéger l'indépendance de la Couronne française vis-à-vis du
-> Saint-Siège et du Saint Empire romain-germanique** : l'État souverain est **affranchi de tout
-> autre pouvoir**. »
-
-::: demo
-**Pourquoi ce contexte explique tout le concept.** Au XVI<sup>e</sup> siècle, le roi de France
-est pris entre deux prétentions universelles : celle du **Pape**, qui revendique une autorité
-spirituelle supérieure aux rois, et celle de l'**Empereur** du Saint Empire, qui revendique une
-primauté temporelle. **Bodin forge la souveraineté comme une arme juridique** : affirmer que le
-roi ne relève de personne, c'est écarter d'un seul coup les deux prétentions.
-
-**Retiens ce mécanisme, il est général :** un concept juridique naît presque toujours d'un
-**conflit de pouvoirs concret**, et il est taillé pour le trancher. On l'a déjà vu avec Renan
-et l'Alsace (§ 2.2.3).
-
-Ajoute le repère historique que le polycopié ne donne pas : les **traités de Westphalie de
-1648**, qui mettent fin à la guerre de Trente Ans, sont généralement présentés comme l'acte de
-naissance du système des États souverains en Europe. Bodin théorise en 1576 ce que Westphalie
-consacre en 1648.
-:::
-
-**La limite que le polycopié signale lui-même :**
-> « Mais cette définition est essentiellement **négative**, sous la forme de
-> **souveraineté-indépendance** par rapport à une autre puissance, car elle se définit **par
-> rapport à d'autres souverains**. »
-
-**Traduction :** Bodin dit ce que la souveraineté **n'est pas** — n'être soumis à personne. Il
-ne dit pas ce qu'elle **est** positivement. D'où la suite du polycopié : les marques de
-souveraineté, qui donnent le contenu **positif**.
-:::
-
-::: definition Les marques de souveraineté — le contenu concret du pouvoir
-> « La souveraineté de l'État se manifeste aussi par des **signes extérieurs**, parce que
-> l'État est le seul à détenir certains signes, ou **marques de souveraineté selon Bodin** :
-> le droit de **faire la loi**, de **rendre la justice**, de **battre monnaie**, et de **lever
-> une armée**. »
-
-**Les quatre marques, ce qu'elles signifient, et leur état aujourd'hui :**
-
-| Marque | Signification | Où en est-on aujourd'hui ? |
+::: definition Les deux plans — la distinction la plus demandée
+| | **Souveraineté EXTERNE** | **Souveraineté INTERNE** |
 |---|---|---|
-| **Faire la loi** | Édicter les normes générales obligatoires | Partagée avec l'Union européenne dans de larges domaines |
-| **Rendre la justice** | Trancher les litiges en dernier ressort | Concurrencée par la Cour de justice de l'Union et la Cour européenne des droits de l'homme |
-| **Battre monnaie** | Émettre la monnaie légale | **Transférée à la Banque centrale européenne** pour les États de la zone euro |
-| **Lever une armée** | Disposer de la force militaire | Conservée, mais engagée dans des alliances |
-
-**Ce tableau est l'un des plus utiles du chapitre :** il montre, marque par marque, que la
-souveraineté des États européens s'est **redistribuée**. C'est la matière d'une question de
-cours fréquente : *« La souveraineté est-elle encore absolue ? »*
-
-::: marche
-**Sur « battre monnaie », relis le § 1.5.** C'est la marque dont l'abandon a la conséquence
-financière la plus directe : un État de la zone euro emprunte dans une monnaie qu'il ne crée
-pas, donc **son défaut est possible**. Un État à monnaie souveraine ne peut être contraint au
-défaut sur sa dette en monnaie nationale. **Bodin, en 1576, a désigné sans le savoir la ligne
-de partage des marchés obligataires souverains de 2010.**
-:::
-:::
-
-<!--saut-->
-
-::: definition Les deux plans de la souveraineté — la distinction la plus demandée
-La diapositive 6 se termine par : « **Concrètement** : la souveraineté joue sur le **plan
-interne** / également sur le **plan externe** ». Le polycopié : « cette souveraineté est
-**ambiguë**, car elle s'exerce **au dehors et au dedans** du territoire ».
-
-**Le polycopié donne les deux noms techniques, à retenir exactement :**
-> « on distingue alors la **souveraineté dite extérieure, ou souveraineté DE l'État**, et la
-> **souveraineté intérieure, ou souveraineté DANS l'État**. »
-
-| | **Souveraineté externe** | **Souveraineté interne** |
-|---|---|---|
-| **Autre nom** | Souveraineté **de** l'État | Souveraineté **dans** l'État |
+| **Autre nom** | Souveraineté **DE** l'État | Souveraineté **DANS** l'État |
 | **Sens** | **Indépendance** | **Suprématie** |
 | **Contre qui** | Les **autres États** | Toutes les autres autorités du territoire |
-| **Ce qu'elle affirme** | « Aucun État ne me commande » | « Aucune autorité interne ne me résiste » |
-| **Manifestations** | Conclure des traités, déclarer la guerre, siéger à l'ONU, reconnaître d'autres États | Faire la loi, lever l'impôt, rendre la justice, disposer de la police |
-| **Question qui s'y rattache** | Les limitations de souveraineté sont-elles possibles ? | Qui détient la souveraineté ? (§ 2.2.5) |
+| **Manifestations** | Traités, guerre, siège à l'ONU, reconnaissance | Loi, impôt, justice, police |
+| **Question associée** | Les limitations sont-elles possibles ? | Qui en est titulaire ? (§ 2.2.5) |
 
-::: piege
-**Le moyen mnémotechnique : DE / DANS.**
-Souveraineté **DE** l'État = l'État **face aux autres** États → **externe**.
-Souveraineté **DANS** l'État = à **l'intérieur** de l'État → **interne**.
-La préposition dit tout. **Une copie qui inverse les deux perd la question.**
-:::
+**Mnémotechnique : DE l'État = face aux autres = externe. DANS l'État = à l'intérieur =
+interne. La préposition dit tout — et l'inverser fait perdre la question.**
 :::
 
-::: definition Les limitations de souveraineté — acceptées ou subies
-Le polycopié est très précis, et la distinction qu'il pose est un classique d'examen.
-
-> « [La souveraineté] implique la **négation de toute entrave, de toute subordination à l'égard
-> d'autres États, en dehors des limitations librement acceptées**, comme les limitations de
-> souveraineté dans le cadre de l'**Union européenne**, du fait notamment de la **politique
-> monétaire commune**. Cette **acceptation volontaire se distingue de la situation des
-> protectorats** qui existaient du temps de la colonisation. »
-
-**La distinction, développée :**
-
-| | **Limitation acceptée** | **Limitation subie** |
+::: definition Limitations acceptées ou subies — et l'État soumis au droit
+| | **Limitation ACCEPTÉE** | **Limitation SUBIE** |
 |---|---|---|
-| **Origine** | Un **traité librement ratifié** | La **contrainte** |
-| **Exemple** | Union européenne, monnaie unique, OTAN | **Protectorat** colonial |
-| **Réversible ?** | **Oui** — un retrait est juridiquement possible | Non |
-| **Compatible avec la souveraineté ?** | **Oui** | **Non** |
+| Origine | Un **traité librement ratifié** | La **contrainte** |
+| Exemple | **Union européenne**, monnaie unique | **Protectorat** colonial — Tunisie 1881-1956, Maroc 1912-1956 |
+| Réversible | **Oui** | Non |
+| Compatible avec la souveraineté | **Oui** | **Non** |
 
-**Le raisonnement qui justifie cette différence de traitement, et c'est lui qu'il faut
-produire :** accepter une limitation **est un acte de souveraineté**. L'État qui ratifie un
-traité exerce sa souveraineté au moment même où il la restreint. **Ce qui détruirait la
-souveraineté, ce n'est pas la limitation — c'est de ne pas l'avoir choisie.**
+**Le raisonnement :** accepter une limitation **est un acte de souveraineté** — l'État l'exerce
+au moment même où il la restreint. **Le critère n'est pas la forme juridique mais la réalité du
+consentement.** *(Un **protectorat** est un régime où un État conserve ses institutions mais
+abandonne à un autre sa **politique étrangère et sa défense** — et le traité y a été imposé.)*
 
-::: piege
-**« Protectorat » : le polycopié emploie le mot sans le définir.** Un protectorat est un régime
-dans lequel un État — dit protégé — conserve ses institutions propres mais **abandonne à un
-autre État sa politique étrangère et sa défense**. Le protecteur exerce en fait le pouvoir
-réel. Les cas français les plus connus sont la **Tunisie** (1881-1956) et le **Maroc**
-(1912-1956).
+**LE PARADOXE : comment l'État peut-il être soumis à un droit qu'il a créé ?** Celui qui fait la
+règle peut la défaire ; s'il peut la défaire, elle ne le lie pas.
 
-**Pourquoi le polycopié le cite ici :** parce que le protectorat ressemble formellement à une
-limitation acceptée — il naît d'un traité. **Mais le traité a été imposé.** Le critère n'est
-donc pas la forme juridique, c'est **la réalité du consentement**.
-:::
-:::
-
-::: definition L'État est-il soumis au droit ? Le problème et ses deux réponses
-Le polycopié pose ici la question la plus difficile du chapitre, et il faut savoir la restituer
-comme un problème, pas comme une évidence.
-
-> « Se pose alors une question essentielle mais difficile à résoudre sur le plan seulement
-> juridique : **comment l'État ou le pouvoir politique peut-il être soumis au droit puisque
-> c'est lui qui l'a créé ?** Une conception absolue de la souveraineté conduit à penser que
-> l'État, souverain, **ne peut être soumis à des règles qu'il a lui-même créées**. »
-
-**Le paradoxe, formulé sèchement :** celui qui fait la règle peut la défaire. S'il peut la
-défaire, elle ne le lie pas. Donc le souverain n'est lié par rien. **C'est logiquement
-imparable — et politiquement insupportable.**
-
-**Deux doctrines ont été avancées pour en sortir. Le polycopié les expose toutes les deux.**
-
-**① LA THÉORIE DU DROIT NATUREL (ou jusnaturalisme).**
-> « [Elle] considère qu'il y aurait un **droit préexistant, constaté et non pas créé**, en
-> dehors des lois de l'État, et fondé sur la **raison**, et **idéal**, et qui **s'impose à
-> l'État**, quel qu'il soit, où qu'il soit et **à n'importe quelle époque**. »
-
-**La stratégie :** placer au-dessus de l'État un droit qu'il n'a pas fait, donc qu'il ne peut
-pas défaire.
-
-**Le vocabulaire à maîtriser :**
-- **Droit naturel** : un droit **découvert**, inhérent à la nature humaine, valable partout et
-  toujours. On le **constate**.
-- **Droit positif** : le droit **posé** par une autorité, à un moment et dans un lieu donnés.
-  On le **crée**. *(Du latin* positum*, « posé ».)*
-
-**L'exemple du polycopié — Antigone**, qu'il faut savoir raconter :
-> « Cette théorie est illustrée dans le **mythe d'Antigone** qui oppose les **lois justes et
-> les lois injustes**. Le droit naturel peut **justifier la désobéissance** s'il y a des lois
-> injustes. »
-
-**Le récit, que le polycopié suppose connu :** dans la tragédie de Sophocle (V<sup>e</sup>
-siècle av. J.-C.), Créon, roi de Thèbes, interdit d'ensevelir le corps de Polynice, frère
-d'Antigone, sous peine de mort. Antigone désobéit et donne à son frère une sépulture. Sommée de
-s'expliquer, elle invoque des **lois non écrites des dieux**, supérieures aux édits du roi et
-antérieures à eux. **Elle oppose donc un droit qu'elle n'a pas fait — et que Créon n'a pas fait
-non plus — à un droit positif injuste.**
-
-Le polycopié ajoute : « Pour **Aristote**, la Nature est la Raison. Il est très facile, sur le
-terrain métaphysique, de **remplacer la Nature par Dieu**. »
-
-**Les deux objections, que le polycopié énonce :**
-- « Il existe cependant une **difficulté sérieuse pour cerner le contenu** de ce droit
-  naturel. » — Qui dit ce qu'il contient ? Sur quoi trancher en cas de désaccord ?
-- « s'il y a un droit naturel, **la souveraineté n'est plus illimitée** » — la théorie résout
-  le problème en supprimant l'une des données : elle nie le caractère absolu de la
-  souveraineté.
-
-**② LA THÉORIE DE L'AUTOLIMITATION.**
-> « L'État **consent à se lier lui-même** en posant la règle, en application de l'adage latin
-> « ***patere legem quam fecisti*** » ou « **respecte la règle que tu as faite** ». »
-
-**La stratégie :** ne pas chercher de droit supérieur. L'État reste souverain, mais **il
-s'oblige lui-même** — comme une personne qui s'engage par contrat reste libre tout en étant
-tenue.
-
-**Les deux objections, que le polycopié énonce également :**
-- « Cette théorie pose la **question des garanties face à l'État**. » — Qui sanctionne un État
-  qui ne respecte plus sa propre règle ?
-- « L'autolimitation est-elle en outre **éternelle** et peut-on **dépendre du seul bon vouloir
-  de l'État** ? » — Une limite qu'on peut lever soi-même est-elle une limite ?
-
-::: synthese Les deux réponses face à face
-| | **Droit naturel** | **Autolimitation** |
+| | **Droit naturel** (jusnaturalisme) | **Autolimitation** |
 |---|---|---|
-| **Origine de la limite** | **Au-dessus** de l'État | **Dans** l'État lui-même |
-| **La limite est…** | **Constatée** | **Créée** |
-| **L'État reste-t-il souverain ?** | **Non** pleinement | **Oui** |
-| **Faiblesse** | Contenu indéterminé | Aucune garantie, révocable |
-| **Illustration** | Antigone | *Patere legem quam fecisti* |
+| Stratégie | Un droit **préexistant, constaté et non créé**, fondé sur la raison, s'imposant à l'État partout et toujours | L'État **consent à se lier lui-même** : *patere legem quam fecisti* |
+| Illustration | **Antigone** | L'engagement contractuel |
+| L'État reste-t-il souverain ? | **Non** pleinement | **Oui** |
+| Objections du polycopié | Contenu **indéterminé** ; « la souveraineté n'est plus illimitée » | **Aucune garantie** ; « l'autolimitation est-elle éternelle, et peut-on dépendre du **seul bon vouloir de l'État** ? » |
+
+*(**Antigone**, tragédie de Sophocle : Créon interdit d'ensevelir Polynice ; Antigone désobéit
+et invoque des **lois non écrites des dieux**, supérieures et antérieures aux édits du roi.
+Elle oppose un droit que personne n'a fait à un droit positif injuste. **Droit naturel** = droit
+**constaté** ; **droit positif** = droit **posé**, du latin* positum*.)*
+
+**La conclusion du polycopié, remarquablement honnête :** « les réponses **ne sont pas
+strictement juridiques et elles sont sûrement politiques** ». D'où l'**État de droit**
+(*Rechtsstaat*) — l'État lui-même soumis au droit, sous le contrôle d'un juge indépendant —
+qualifié de « **récent, fragile, loin d'être universel** ». **Ce n'est pas un acquis, c'est un
+équilibre entretenu.**
 :::
 
-**LA CONCLUSION DU POLYCOPIÉ — à citer, car elle est remarquablement honnête :**
-> « Les réponses **ne sont pas strictement juridiques et elles sont sûrement politiques** :
-> l'évolution des sociétés et des États conduit néanmoins vers **moins d'absolutisme et
-> d'arbitraire**. C'est une évolution **récente, fragile, qui est loin d'être universelle**.
-> C'est toute la fragilité de ce qu'il est convenu d'appeler, selon une formule traduite de
-> l'allemand, « **l'État de droit** », qui impose que **l'État soit lui-même soumis au
-> droit**. »
+::: definition Monopole de la contrainte, légitimité, légalité
+**Le monopole de la force organisée.** L'État est le seul à pouvoir contraindre : « **il n'y a
+pas de droit de se faire justice à soi-même** ». Pour faire respecter un contrat, il faut un
+**jugement**, puis un **huissier**, qui peut requérir la **force publique**. **Même le droit
+privé est sanctionné par l'État** — sans État pour exécuter, un contrat n'est qu'une promesse.
 
-::: definition
-**L'État de droit** (*Rechtsstaat*) : un État dans lequel **la puissance publique elle-même est
-soumise au droit** et son respect contrôlé par un juge indépendant. Il suppose trois choses :
-une **hiérarchie des normes** respectée, une **justice indépendante** pouvant censurer
-l'administration et le législateur, et des **droits fondamentaux garantis**.
+**La légitimité.** « Ce pouvoir de contrainte **doit être accepté par les gouvernés** » ; « **sans
+consentement, le pouvoir politique se confond avec le règne de la force** » ; « si le pouvoir est
+**pensé** comme légitime, il est accepté ». ⚠ **Retiens le verbe « pensé » : la légitimité n'est
+pas une qualité du pouvoir, c'est une croyance de ceux qui lui obéissent.** Le polycopié parle
+d'un côté « **magique** et irrationnel », confondu dans les sociétés anciennes avec le
+**charisme** — **c'est du Weber**. *Chronologie : naît au Moyen Âge, se développe au
+XVI<sup>e</sup> siècle, s'épanouit au XVIII<sup>e</sup> et avec les révolutions anglaise et
+française de 1789.*
 
-**Retiens l'avertissement du polycopié — « récente, fragile, loin d'être universelle ».**
-L'État de droit n'est pas un acquis de l'histoire ; c'est un équilibre entretenu.
-:::
-:::
-
-::: definition Le monopole de la contrainte — et la légitimité
-Le polycopié poursuit avec deux notions qui referment la boucle avec Weber (§ 2.1.3).
-
-**① LE POUVOIR DE CONTRAINTE ORGANISÉE.**
-> « Ce pouvoir de l'État apparaît aussi comme un **pouvoir de contrainte organisée**. Il possède
-> le **monopole de la force organisée** pour faire respecter ses décisions mais aussi pour faire
-> respecter **les règles que les citoyens ont créées entre eux**. »
-
-**Le second membre de phrase est le plus intéressant, et il est très concret :**
-> « Afin de faire respecter les **contrats**, par exemple, les particuliers doivent
-> **s'adresser à l'État** et **ne pas avoir recours à la force privée**, car **il n'y a pas de
-> droit de se faire justice à soi-même**. Même les règles de droit privé sont ainsi, dans cette
-> conception, **sanctionnées par l'État**. »
-
-**Traduction concrète :** si ton débiteur ne paie pas, tu ne peux pas aller reprendre ton bien
-toi-même. Tu dois obtenir un **jugement**, puis faire intervenir un **huissier de justice**,
-qui peut requérir la **force publique**. **Toute la chaîne d'exécution passe par l'État.**
-
-**La conséquence théorique, et elle est forte :** même le droit privé — contrats, propriété,
-famille — **repose en dernière analyse sur la puissance publique**. Sans État pour exécuter,
-un contrat n'est qu'une promesse.
-
-**② LA LÉGITIMITÉ.**
-> « Ce pouvoir de contrainte **doit être accepté par les gouvernés**, ce qui pose alors la
-> question de la **légitimité**. Il faut que **la volonté du pouvoir soit unie à la confiance
-> des gouvernés**. »
-
-> « **Sans consentement, le pouvoir politique se confond avec le règne de la force.** La
-> légitimité est une notion abstraite, qui repose sur l'idée de **consensus et de croyance** :
-> si le pouvoir est **pensé** comme légitime, il est accepté, ainsi que ses lois, considérées
-> comme légitimes et justes. »
-
-**Retiens le verbe : « pensé ». La légitimité n'est pas une qualité objective du pouvoir, c'est
-une croyance de ceux qui lui obéissent.** C'est exactement la définition wébérienne du § 2.1.3,
-et le polycopié emploie d'ailleurs le mot de Weber : « La légitimité a un côté "magique" et
-irrationnel. Elle se confond, dans les sociétés anciennes, avec le **charisme**. »
-
-**Sa chronologie, selon le polycopié :** « Cette théorie politique **naît au Moyen Âge**, se
-développe au **XVI<sup>e</sup> siècle**, puis s'épanouit au **XVIII<sup>e</sup>** et avec les
-**révolutions anglaise du XVII<sup>e</sup> siècle et française de 1789**. »
-:::
-
-::: piege Légitimité et légalité : la distinction, et l'exemple de Vichy
-C'est l'un des développements les plus susceptibles de tomber en question de cours.
-
-| | **Légalité** | **Légitimité** |
+| | **LÉGALITÉ** | **LÉGITIMITÉ** |
 |---|---|---|
-| **Question posée** | Le pouvoir a-t-il été acquis et s'exerce-t-il **conformément aux règles en vigueur** ? | Le pouvoir est-il **reconnu comme juste** par ceux qui le subissent ? |
-| **Nature** | **Juridique**, objective, vérifiable | **Politique et sociologique**, subjective, affaire de croyance |
-| **Se constate** | En lisant les textes | En observant l'obéissance |
+| Question | Le pouvoir est-il **conforme aux règles** ? | Est-il **reconnu comme juste** ? |
+| Nature | **Juridique**, objective, **vérifiable** | **Politique**, subjective, **croyance** |
+| Se constate | En lisant les textes | En observant l'obéissance |
 
-**Les deux vont normalement de pair. Le polycopié décrit ce qui se passe quand elles se
-séparent :**
-> « Lorsque cette croyance disparaît, **le fossé peut se creuser entre la légitimité et la
-> légalité**. Le **régime de Vichy, entre 1940 et 1944**, a illustré cette dissociation. Il a
-> fallu l'**ordonnance du 9 août 1944 sur le rétablissement de la légalité républicaine** pour
-> retrouver une adéquation entre légalité et légitimité. »
-
-**Ce qu'il faut comprendre du cas Vichy, que le polycopié n'explicite pas :** le régime de
-Vichy s'est présenté comme légal — il invoquait la loi constitutionnelle du 10 juillet 1940,
-votée par les Chambres. La France libre lui déniait toute **légitimité**. **L'ordonnance du
-9 août 1944 a tranché en droit** : elle déclare que la forme républicaine n'a jamais cessé
-d'exister et répute **nuls** les actes de l'autorité de fait dite « gouvernement de l'État
-français ». **Autrement dit : la légitimité l'a emporté et a effacé rétroactivement la
-légalité apparente.**
-
-**Formule à retenir :** la légalité se vérifie, la légitimité se croit ; quand la croyance
-s'effondre, c'est la légalité qui finit par céder.
+**Leur dissociation : le régime de Vichy (1940-1944)**, qui invoquait la loi constitutionnelle
+du 10 juillet 1940 tout en étant privé de légitimité. L'**ordonnance du 9 août 1944 sur le
+rétablissement de la légalité républicaine** a tranché en droit, en réputant **nuls** les actes
+de l'autorité de fait. **La légitimité l'a emporté et a effacé rétroactivement la légalité
+apparente.**
 :::
 
 <!--saut-->
 
 #### 2.2.5 Les titulaires de la souveraineté (diapositive 7)
 
-::: piege Avertissement — reconstruction intégrale
-**La diapositive 7 contient sept mots :**
-> **La souveraineté 2** — « Les **titulaires** de la souveraineté : — **Monarchie** —
-> **Oligarchie** — **Démocratie** »
-
-**Le polycopié ne traite pas ce point du tout.** Ce qui suit est donc une reconstruction
-complète, à partir de la doctrine classique que ces trois mots désignent. Comme toujours, je
-signale ce qui va au-delà des supports.
+::: piege Reconstruction intégrale
+**Sept mots sur la diapositive — « Monarchie · Oligarchie · Démocratie » — et rien dans le
+polycopié.** ➔ intégrale § 2.2.5.
 :::
 
-::: demo La question posée, et pourquoi elle vient ici
-Le § 2.2.4 a établi **ce qu'est** la souveraineté et qu'elle s'exerce sur deux plans. Il reste
-une question : **à l'intérieur de l'État, qui la détient ?**
+::: definition La classification par le nombre
+C'est la déclinaison de la **souveraineté interne** : à l'intérieur de l'État, **qui la
+détient ?** *(« **Titulaire** » = celui à qui une chose appartient en droit, par opposition à
+celui qui l'exerce en fait.)* **Le critère est le NOMBRE.**
 
-C'est la déclinaison de la **souveraineté interne** — la souveraineté « **dans** l'État ».
-Elle ne se pose pas sur le plan externe : vers l'extérieur, le titulaire est toujours l'État
-lui-même.
-
-**« Titulaire » :** celui à qui une chose **appartient en droit**. Ne pas confondre avec celui
-qui l'**exerce en fait** — un roi mineur est titulaire de la couronne, un régent l'exerce.
-**La distinction titulaire / exerçant traverse tout le droit constitutionnel.**
-
-**Le critère de classement est le plus simple qui soit : le NOMBRE de ceux qui détiennent le
-pouvoir souverain.**
-:::
-
-::: definition Les trois formes, selon le nombre
 | Forme | Étymologie | Titulaire | Nombre |
 |---|---|---|:---:|
-| **Monarchie** | *monos* (seul) + *arkhê* (commandement) | **Un seul individu** — roi, empereur, prince | **1** |
-| **Oligarchie** | *oligos* (peu nombreux) + *arkhê* | **Un petit groupe** — aristocratie, oligarchie censitaire, nomenklatura | **quelques-uns** |
-| **Démocratie** | *dêmos* (peuple) + *kratos* (pouvoir) | **Le peuple tout entier** | **tous** |
+| **Monarchie** | *monos* + *arkhê* | Un roi, un empereur, un prince | **1** |
+| **Oligarchie** | *oligos* + *arkhê* | Un petit groupe | **quelques-uns** |
+| **Démocratie** | *dêmos* + *kratos* | Le peuple tout entier | **tous** |
 
-**Cette classification par le nombre remonte à la Grèce antique** — on la trouve chez
-**Hérodote** puis systématisée par **Platon** et **Aristote** — et **Bodin la reprend en 1576**
-dans *Les Six Livres de la République*. C'est la plus ancienne typologie des régimes
-politiques, et elle est encore enseignée parce qu'elle est exhaustive : **un, quelques-uns,
-tous — il n'y a pas de quatrième possibilité.**
+Classification grecque (**Platon**, **Aristote**), reprise par **Bodin en 1576**. **Elle est
+exhaustive : un, quelques-uns, tous.**
+
+::: piege
+**La nuance de vocabulaire qui vaut un point.** Chez **Aristote**, chaque nombre a une forme
+**droite** et une forme **corrompue** : royauté / **tyrannie** · **aristocratie** / **oligarchie**
+· politeia / **démocratie**. **« Aristocratie » est le pouvoir des meilleurs ; « oligarchie » en
+est la version corrompue.** La diapositive emploie « oligarchie » au sens neutre moderne.
+⚠ Et **« démocratie » était péjoratif chez Aristote** : un mot n'a pas un sens fixe, il a une
+histoire.
 :::
 
-::: piege « Oligarchie » ou « aristocratie » ? La diapositive emploie un mot que la doctrine classique réserve à autre chose
-**C'est une nuance de vocabulaire qui peut valoir un point en copie.**
+**Les trois formes, illustrées :**
+- **Monarchie.** ⚠ Distinguer **absolue** — le monarque est **titulaire** de la souveraineté
+  (Ancien Régime, Arabie saoudite) — et **constitutionnelle ou parlementaire**, où **la
+  souveraineté appartient au peuple** (Royaume-Uni, Espagne, Belgique, Suède, Japon). **Ces
+  derniers relèvent, au sens du cours, de la démocratie** : classer le Royaume-Uni parmi les
+  monarchies souveraines est une erreur fréquente.
+- **Oligarchie.** **Venise** patricienne jusqu'en 1797 · la *gérousia* de **Sparte** · les
+  **régimes censitaires** — la monarchie de Juillet comptait ~250 000 électeurs pour 32 millions
+  d'habitants · les **régimes à parti unique**.
+- **Démocratie.** **Directe** (Athènes, *Landsgemeinden* suisses) · **représentative** (la
+  quasi-totalité des démocraties) · **semi-directe** — élection **et** référendum : **la France**.
+:::
 
-Chez **Aristote** (*Les Politiques*, IV<sup>e</sup> siècle av. J.-C.), la classification est
-**double** : pour chaque nombre, il distingue une forme **droite** — le pouvoir y est exercé
-dans l'intérêt commun — et sa forme **corrompue** — il y est exercé dans l'intérêt des
-gouvernants.
+::: definition Le prolongement français : souveraineté nationale et populaire
+**Hors des deux supports, mais c'est ce que « les titulaires de la souveraineté » désigne en
+droit français — et cela commande la lecture de l'article 3.**
 
-| Nombre | Forme **droite** | Forme **corrompue** |
+| | **Souveraineté POPULAIRE** | **Souveraineté NATIONALE** |
+|---|---|---|
+| Théoricien | **Rousseau**, *Du contrat social* (1762) | **Sieyès**, *Qu'est-ce que le Tiers-État ?* (1789) |
+| Titulaire | **Le peuple**, citoyens vivants | **La Nation**, entité abstraite |
+| Chaque citoyen détient | **Une part** | **Rien** — elle est indivisible |
+| Le vote est | Un **droit** | Une **fonction** |
+| Conséquence | **Suffrage universel** | Peut justifier le **suffrage censitaire** |
+| Mandat | **Impératif** — l'élu est révocable | **Représentatif** — il représente la Nation entière |
+| Démocratie | **Directe** ou semi-directe | **Représentative** |
+
+> **Article 3 alinéa 1 : « La souveraineté nationale appartient au peuple qui l'exerce par ses
+> représentants et par la voie du référendum. »**
+
+**La phrase est construite mot à mot pour combiner les deux doctrines :**
+« souveraineté **nationale** » → **Sieyès** · « appartient **au peuple** » → **Rousseau** ·
+« par ses **représentants** » → représentative · « par la voie du **référendum** » → directe.
+**⇒ La France est une démocratie SEMI-DIRECTE, et l'article 3 le prouve textuellement.**
+L'**alinéa 2** — « aucune section du peuple ni aucun individu ne peut s'en attribuer
+l'exercice » — est l'**indivisibilité** transposée en droit positif.
+:::
+
+#### 2.2.6 L'État, personne morale (p. 8-9) — absent des diapositives
+
+::: definition La notion et ses cinq conséquences
+C'est la **seconde caractéristique juridique de l'État** annoncée par le polycopié lui-même.
+**L'État est « une organisation dotée de la personnalité morale » : une entité abstraite,
+distincte de la personne de ceux qui parlent en son nom.**
+
+**La personnalité morale « est conçue pour donner une *existence juridique* et une *capacité
+juridique* à des groupements d'individus qui poursuivent un but identique ».**
+Elle existe en **droit privé** (sociétés, associations) et en **droit public** : l'**État**, les
+**collectivités territoriales**, les **établissements publics**.
+⚠ **Retiens cette liste : au § 2.3.4, c'est la personnalité morale qui distinguera une
+collectivité territoriale d'une simple circonscription administrative.**
+
+| # | Conséquence | Portée |
 |:---:|---|---|
-| **Un** | **Royauté** (ou monarchie) | **Tyrannie** |
-| **Quelques-uns** | **Aristocratie** — *aristoi*, « les meilleurs » | **Oligarchie** — *oligoi*, « les peu nombreux », entendus comme les riches |
-| **Tous** | **Politeia** (régime constitutionnel, parfois traduit « république ») | **Démocratie** — entendue par Aristote comme le pouvoir de la foule pauvre |
+| **①** | **L'État survit à ses dirigeants** | « **Le roi est mort, vive le Roi** » : transmission instantanée, pas un instant sans roi |
+| **②** | **Il est engagé par ses décisions quels que soient les hommes au pouvoir** | **Sans ce principe, aucun traité ni aucune dette publique ne serait possible** |
+| **③** | Les gouvernants sont **titulaires** de leurs fonctions, **non propriétaires** | Une fonction publique ne se vend, ne se lègue, ne se loue pas : **elle est confiée** |
+| **④** | **Les patrimoines sont distincts** | « Locataire de l'Élysée » — image juste sur la temporalité, **impropre juridiquement**, le polycopié le signale |
+| **⑤** | Il peut **posséder, contracter, engager sa responsabilité, être jugé** | **La quatrième est la plus significative** : l'État peut être condamné devant ses propres tribunaux — traduction procédurale de l'État de droit |
 
-**Deux observations, et elles sont utiles :**
+**LE CONTRE-MODÈLE : la conception patrimoniale**, « héritée de la féodalité », où « les
+attributions publiques étaient considérées comme **une propriété susceptible d'être vendue**,
+selon le système de la **vénalité des offices** » — un conseiller au Parlement **achetait** sa
+charge et pouvait la revendre. Le polycopié note que des offices subsistent, « comme les
+**notaires** ». Et « le **Trésor public se confondait avec la cassette du souverain** » — l'impôt
+et la fortune personnelle du roi étaient un seul argent.
+**La première parade : l'*inaliénabilité* du domaine du royaume, posée par l'édit de Moulins de
+1566** — dix ans avant Bodin. **On détache d'abord les biens du roi, puis son pouvoir.** La
+conception moderne s'impose en **1789**.
 
-**① La diapositive écrit « oligarchie » là où la tradition classique écrit « aristocratie ».**
-Ce n'est pas une faute : l'usage contemporain emploie couramment « oligarchie » au sens neutre
-de « pouvoir d'un petit nombre », en ayant perdu la connotation péjorative aristotélicienne.
-**Retiens les deux mots** : l'oligarchie est le genre, l'aristocratie en est la version
-valorisée.
-
-**② Le mot « démocratie » a changé de camp.** Péjoratif chez Aristote, il est devenu le terme
-le plus valorisé du vocabulaire politique. **Un mot n'a pas de sens fixe : il a une
-histoire.** Le signaler en copie montre que tu maîtrises la source et pas seulement la liste.
-:::
-
-::: exemple Les trois formes, illustrées — historiquement et aujourd'hui
-**MONARCHIE.** Il faut distinguer deux régimes que le même mot recouvre :
-
-| Type | Le monarque est… | Exemples |
-|---|---|---|
-| **Monarchie absolue** | **Titulaire** de la souveraineté | France d'Ancien Régime ; aujourd'hui l'Arabie saoudite |
-| **Monarchie constitutionnelle ou parlementaire** | Chef de l'État, mais **la souveraineté appartient au peuple** | Royaume-Uni, Espagne, Belgique, Suède, Japon |
-
-**Le point à ne pas rater :** dans une monarchie parlementaire, **le titulaire de la
-souveraineté n'est pas le roi, c'est le peuple**. Le roi règne et ne gouverne pas. **Ces
-régimes relèvent donc, au sens du cours, de la démocratie.** Classer le Royaume-Uni parmi les
-monarchies au sens de la souveraineté est une erreur fréquente.
-
-**OLIGARCHIE.** Le pouvoir appartient à un groupe restreint, défini par la naissance, la
-fortune, le rang militaire ou l'appartenance à un parti :
-- **Venise**, république aristocratique gouvernée par le Grand Conseil des familles patriciennes
-  jusqu'en 1797 ;
-- **Sparte**, avec sa *gérousia* — conseil des anciens ;
-- les **régimes censitaires** du XIX<sup>e</sup> siècle, où seuls les contribuables aisés
-  votaient. En France, la **monarchie de Juillet** (1830-1848) comptait environ 250 000
-  électeurs pour 32 millions d'habitants ;
-- les **régimes à parti unique**, où la souveraineté appartient en fait à l'appareil du parti.
-
-**DÉMOCRATIE.** La souveraineté appartient au peuple. Deux modalités d'exercice :
-
-| Modalité | Le peuple… | Exemple |
-|---|---|---|
-| **Directe** | **Décide lui-même** | Athènes ; les *Landsgemeinden* de certains cantons suisses |
-| **Représentative** | **Élit ceux qui décident** | La quasi-totalité des démocraties contemporaines |
-| **Semi-directe** | Élit des représentants **et** décide parfois directement, par référendum | **France**, Suisse, Italie |
-
-**La France relève du troisième type**, et l'article 3 de la Constitution le dit expressément
-— voir ci-dessous.
-:::
-
-::: definition Le prolongement français indispensable : souveraineté nationale et souveraineté populaire
-**Ce point n'est dans aucun des deux supports.** Je l'ajoute parce qu'en droit constitutionnel
-français, « les titulaires de la souveraineté » désigne d'abord cette opposition, et parce
-qu'elle commande la lecture de l'article 3 de la Constitution — que le polycopié cite par
-ailleurs au § 2.2.3.
-
-| | **Souveraineté populaire** | **Souveraineté nationale** |
-|---|---|---|
-| **Théoricien** | **Rousseau**, *Du contrat social* (1762) | **Sieyès**, *Qu'est-ce que le Tiers-État ?* (1789) |
-| **Titulaire** | **Le peuple**, ensemble des citoyens vivants | **La Nation**, entité abstraite qui dépasse les vivants |
-| **Chaque citoyen détient…** | **Une part** de la souveraineté | **Rien** — elle est indivisible et appartient à la Nation |
-| **Le vote est…** | Un **droit** | Une **fonction** |
-| **Conséquence sur le suffrage** | **Universel** — chacun détient sa part | Peut être **restreint** : on confie la fonction aux plus capables → justifie le **suffrage censitaire** |
-| **Mandat des élus** | **Impératif** : l'élu est mandataire, révocable | **Représentatif** : l'élu représente la Nation entière, pas ses électeurs |
-| **Démocratie** | **Directe** ou semi-directe | **Représentative** |
-
-**L'article 3 alinéa 1 de la Constitution de 1958 combine les deux :**
-> « **La souveraineté nationale appartient au peuple qui l'exerce par ses représentants et par
-> la voie du référendum.** »
-
-**Décomposons cette phrase, elle est construite mot à mot :**
-- « la souveraineté **nationale** » → vocabulaire de **Sieyès** ;
-- « appartient **au peuple** » → titulaire de **Rousseau** ;
-- « par ses **représentants** » → démocratie **représentative** ;
-- « et par la voie du **référendum** » → démocratie **directe**.
-
-**C'est une synthèse volontaire des deux doctrines.** L'alinéa 2 ajoute une garantie : « Aucune
-section du peuple ni aucun individu ne peut s'en attribuer l'exercice » — c'est
-l'**indivisibilité** de la souveraineté (§ 2.2.4) transposée en règle de droit positif.
-
-::: piege
-**Ce qu'il faut savoir dire, et qui vaut des points :** la France est une **démocratie
-semi-directe**, et l'article 3 le prouve textuellement. Écrire que la France est une
-« démocratie représentative » tout court est incomplet : le référendum est expressément inscrit
-au même rang que la représentation.
-:::
-:::
-
-::: examen Restituer les titulaires en copie — le plan en trois temps
-**① Le critère.** Qui détient la souveraineté à l'intérieur de l'État ? Le critère est le
-**nombre** : un, quelques-uns, tous.
-
-**② Les trois formes**, définies et illustrées : monarchie (en distinguant absolue et
-parlementaire), oligarchie (en signalant qu'Aristote réservait ce mot à la forme corrompue de
-l'aristocratie), démocratie (directe, représentative, semi-directe).
-
-**③ L'application française.** Souveraineté nationale contre souveraineté populaire ;
-l'article 3 de la Constitution de 1958 comme **synthèse** des deux, et son alinéa 2 comme
-traduction juridique de l'indivisibilité.
-
-**La phrase de conclusion :** « La classification par le nombre décrit qui détient la
-souveraineté ; elle ne dit rien de la manière dont il l'exerce. C'est pourquoi elle doit être
-complétée par l'étude des formes d'organisation de l'État — objet du paragraphe suivant. »
+**Le polycopié conclut que la théorie est « difficile à justifier sur le plan théorique » :** une
+personne morale n'existe pas physiquement, c'est une **fiction**. **Peu importe : elle
+fonctionne, et c'est ce qui la justifie.**
 :::
 
 <!--saut-->
 
-#### 2.2.6 L'État, personne morale (polycopié, pages 8 et 9)
+### 2.3 — § 3 : Les formes d'organisation (COMMENT) — diapositives 8 à 10
 
-::: piege Cette section est absente des diapositives
-Le polycopié lui consacre **deux pages entières** ; aucune diapositive ne la mentionne. C'est
-pourtant la **seconde caractéristique juridique de l'État** annoncée par le polycopié lui-même
-(§ 2.2.4). **Elle est donc au programme, et je la traite intégralement.**
+::: piege Les trois diapositives de ce paragraphe sont vides
+**D8 :** « De nombreuses variantes » / « Deux formes se dégagent ». **D9 :** les trois principes
+du fédéralisme et un encadré « **Exemples d'États fédéraux** » **sans aucun exemple**.
+**D10 :** « Définition · Exemples · Techniques utilisées · La transformation vers l'État
+régional » — **quatre titres, aucun contenu**. **Tout vient du polycopié (p. 10-16), complété.**
+
+*L'ordre suivi est celui du polycopié — du simple vers le composé — parce que le fédéralisme se
+définit par opposition aux deux autres. Les diapositives font l'inverse ; les deux ordres sont
+acceptables, annonce simplement ton plan.*
 :::
 
-::: definition Le point de départ : une difficulté de vocabulaire
-> « Le pouvoir politique, conçu comme le **troisième élément** de définition de l'État au sens
-> large, est **assimilé à la puissance publique**. Or, par une **difficulté de langage
-> préjudiciable à la bonne compréhension**, cette puissance publique est souvent qualifiée
-> d'**État**. **Le même mot désigne donc l'ensemble et un élément de l'ensemble.** »
+#### 2.3.1 Le critère unique
 
-**C'est la reprise du piège du § 2.2.1** — sens large contre sens étroit. Le polycopié y
-revient parce que **tout ce paragraphe porte sur l'État au sens étroit** : l'État comme
-**puissance publique**, et non comme pays.
-:::
+::: formule Le nombre d'ordres juridiques
+**Un « ordre juridique »** = un ensemble de normes hiérarchisé et complet, ayant une
+**Constitution** à son sommet et ses propres organes.
 
-::: definition La personnalité morale
-> « L'État — au sens de puissance publique — a des caractéristiques juridiques et il est
-> présenté comme une **organisation dotée de la personnalité morale**. On dit aussi que l'État
-> est une **personne morale**, qui est **distincte de la personnalité physique**. »
-
-> « En tant que telle, l'État est une **collectivité organisée** : c'est une **entité
-> abstraite, distincte de la personne de ceux qui parlent en son nom**. »
-
-**La définition générale, que le polycopié donne ensuite :**
-> « La personnalité morale est conçue pour **donner une existence juridique et une capacité
-> juridique à des groupements d'individus qui poursuivent un but identique**. »
-
-**Décomposons — trois idées :**
-- **« existence juridique »** : le groupement **existe** en droit, indépendamment de ses
-  membres. Il a un nom, un siège, un patrimoine.
-- **« capacité juridique »** : il peut **agir** en droit — posséder, contracter, ester en
-  justice, être condamné.
-- **« but identique »** : c'est ce qui justifie qu'on traite plusieurs personnes comme une
-  seule.
-:::
-
-::: exemple Où l'on trouve des personnes morales — les deux ordres
-| Ordre | Personnes morales | Exemples |
-|---|---|---|
-| **Droit privé** | Sociétés, associations | SARL, SA, association loi 1901, syndicat |
-| **Droit public** | **Personnes morales de droit public** | **L'État**, les **collectivités territoriales** (commune, département, région), les **établissements publics** (université, hôpital public, Pôle emploi) |
-
-**Le polycopié énumère précisément cette seconde colonne** : « au profit de l'État et d'autres
-personnes publiques, ou personnes morales de droit public, comme les **collectivités
-territoriales** ou les **établissements publics** ».
-
-::: piege
-**Retiens cette liste : elle sera décisive au § 2.3.4.** Ce qui distingue une collectivité
-territoriale d'un simple découpage administratif, c'est précisément qu'elle **a la personnalité
-morale** — donc un patrimoine et une capacité d'agir propres. Une **circonscription
-administrative**, elle, n'en a pas.
-:::
-:::
-
-::: demo Les cinq conséquences de la personnalité morale — le cœur du paragraphe
-Le polycopié en tire cinq conséquences. Chacune mérite d'être comprise, pas seulement lue.
-
-**① L'ÉTAT SURVIT À SES DIRIGEANTS.**
-> « La personnalité morale est une abstraction mais elle permet d'expliquer certaines
-> caractéristiques juridiques de l'État qui **distinguent l'État de la personne de ses
-> dirigeants**, comme l'illustre la formule de l'Ancien Régime « **Le roi est mort, vive le
-> Roi** ». »
-
-**La formule paraît absurde et elle est d'une précision parfaite.** Elle énonce deux faits
-simultanés : *le roi* (personne physique) est mort ; *le Roi* (la fonction, la couronne) ne
-meurt pas. **La transmission est instantanée : il n'y a pas un instant sans roi.** C'est
-l'affirmation pure de la continuité de l'institution.
-
-**② L'ÉTAT EST ENGAGÉ PAR SES DÉCISIONS, QUELS QUE SOIENT LES HOMMES AU POUVOIR.**
-> « L'État est engagé par ses décisions, **quels que soient les hommes au pouvoir**. Cela sera
-> vrai aussi pour les autres pouvoirs publics, comme les collectivités territoriales. »
-
-**C'est la conséquence la plus lourde de portée pratique.** Un traité signé par un gouvernement
-lie l'État après l'alternance. Un emprunt émis sous une majorité doit être remboursé par la
-suivante. **Sans ce principe, aucun engagement international ni aucune dette publique ne serait
-possible.**
-
-**③ LES GOUVERNANTS NE SONT PAS PROPRIÉTAIRES DE LEURS FONCTIONS.**
-> « Les gouvernants **ne sont pas propriétaires de leurs fonctions, ils en sont titulaires, ou
-> investis**. »
-
-**On retrouve la distinction titulaire / propriétaire du § 2.2.5.** Une fonction publique n'est
-pas un bien : elle ne se vend pas, ne se lègue pas, ne se loue pas. **Elle est confiée.**
-
-**④ LE PATRIMOINE DE L'ÉTAT EST DISTINCT DE CELUI DES GOUVERNANTS.**
-> « Le patrimoine des gouvernants est ainsi **distinct du patrimoine de l'État**. L'expression
-> « **locataire de l'Élysée** » est parfois utilisée pour désigner cette occupation temporaire
-> du pouvoir par le président de la République, **même s'il y a abus de langage d'ailleurs
-> quant à l'emploi du mot "locataire"**. »
-
-**Pourquoi le polycopié signale l'abus de langage :** un locataire paie un loyer et détient un
-droit personnel sur le bien en vertu d'un bail. Le président n'est ni l'un ni l'autre : il
-**occupe une résidence de fonction**, ce qui est un tout autre rapport juridique. **L'image
-est juste sur l'idée de temporalité, fausse sur la qualification.**
-
-**⑤ L'ÉTAT PEUT AGIR COMME UNE PERSONNE.**
-> « La personnalité morale explique que l'État **en tant qu'entité, puisse posséder des biens,
-> contracter, engager sa responsabilité**, comme une personne physique. **Il peut aussi être
-> engagé en justice.** »
-
-**Quatre capacités à retenir :** posséder · contracter · engager sa responsabilité · être
-partie à un procès. **La quatrième est la plus significative :** l'État peut être **assigné et
-condamné devant ses propres tribunaux**. C'est la traduction procédurale de l'État de droit
-(§ 2.2.4).
-:::
-
-::: exemple La conception patrimoniale de l'État — le contre-modèle historique
-Le polycopié oppose la conception moderne à celle qui l'a précédée. **Le contraste est ce qui
-fait comprendre la notion.**
-
-> « Cette conception moderne **s'oppose à une conception "patrimoniale" de l'État**, qui est
-> **héritée de la féodalité** : les **attributions publiques étaient considérées comme une
-> propriété susceptible d'être vendue**, selon le système de la **vénalité des offices**. »
-
-::: definition
-**La vénalité des offices** : le système par lequel les charges publiques — juge, notaire,
-receveur des impôts — s'**achetaient**, se **transmettaient** et se **léguaient** comme des
-biens. Sous l'Ancien Régime, un conseiller au Parlement avait **acheté** sa charge et pouvait
-la revendre. **Le pouvoir public était une propriété privée.**
-
-Le polycopié précise que ce système n'a pas entièrement disparu : « Il existe encore à l'heure
-actuelle des **charges publiques pour certaines professions, comme les notaires** » — un
-notaire est en effet titulaire d'un office ministériel, qu'il présente à son successeur.
-:::
-
-**La confusion des patrimoines, telle que le polycopié la décrit :**
-> « La conception moderne remonte à **1789**, puisque sous l'Ancien Régime les **biens publics
-> du roi étaient confondus avec les choses publiques** telles que les **routes** ou les
-> **fleuves navigables**. Le **Trésor public**, c'est-à-dire les ressources de l'État, **se
-> confondait avec la cassette du souverain**. »
-
-::: piege
-**« La cassette du souverain »** : le coffre personnel du roi, ses revenus privés. Dire que le
-Trésor public s'y confondait signifie que **l'impôt et la fortune personnelle du roi étaient
-un seul et même argent**. C'est très exactement ce que la personnalité morale interdit.
-:::
-
-**La première parade historique, que le polycopié date précisément :**
-> « Pour se protéger contre cette confusion, la règle de l'**inaliénabilité du domaine du
-> royaume** a été posée en **1566 par l'édit de Moulins** afin de **protéger ces biens du
-> royaume utiles à la collectivité** et qu'il fallait **distinguer des biens privés du
-> monarque**. »
-
-**« Inaliénable » :** qui ne peut être ni vendu, ni donné, ni cédé.
-
-**Note la date : 1566, dix ans avant Bodin (1576).** Les deux mouvements sont contemporains et
-vont dans le même sens : **on construit l'État en le détachant de la personne du roi** —
-d'abord ses biens, puis son pouvoir.
-:::
-
-::: definition La conclusion du polycopié, et pourquoi elle est honnête
-> « La personnalité morale permet d'expliquer la **permanence de la puissance publique, par
-> delà les individus et les élections**. »
-
-> « La théorie de la personnalité morale, **difficile à justifier sur le plan théorique**, a des
-> **implications pratiques nombreuses et utiles** pour la suite des études juridiques. »
-
-**Pourquoi « difficile à justifier » ?** Parce qu'une personne morale **n'existe pas**
-physiquement : on ne peut ni la voir, ni la toucher, ni lui parler. C'est une **fiction
-juridique** — un « comme si ». Deux thèses doctrinales s'opposent depuis le XIX<sup>e</sup>
-siècle : pour la **théorie de la fiction**, la personne morale est une création artificielle du
-droit ; pour la **théorie de la réalité**, elle correspond à un groupement qui a réellement une
-volonté collective et des intérêts propres. *(Ce débat dépasse le cours ; savoir qu'il existe
-suffit.)*
-
-**Ce qu'il faut retenir :** peu importe de trancher. **La fiction fonctionne, et c'est cela qui
-la justifie.** Le droit est plein d'abstractions utiles ; la personne morale est la plus
-productive de toutes.
-:::
-
-::: marche Ce que la personnalité morale signifie sur un carnet d'ordres
-**Trois conséquences directes, et tu les rencontres sans les nommer.**
-
-**① L'émetteur d'une obligation d'État est l'État, pas le gouvernement.** Un OAT est une dette
-de la **République française**, personne morale. L'alternance politique n'est **pas** un
-événement de crédit. C'est la conséquence ② du polycopié, appliquée au marché obligataire.
-
-**② La responsabilité de l'État est engageable, et cela se valorise.** Puisque l'État peut être
-condamné, un contentieux fiscal ou administratif de grande ampleur est un **passif éventuel**
-qu'un analyste souverain intègre. Un État qui ne pourrait pas être attaqué en justice serait
-un émetteur bien plus risqué, pas moins.
-
-**③ La distinction État / collectivités territoriales est une distinction d'émetteurs.**
-Chaque collectivité ayant la personnalité morale, elle a **son propre patrimoine et sa propre
-dette**. La question « l'État garantit-il la dette de ses régions ? » est exactement la
-question de la garantie implicite du § 1.5 — et la réponse dépend de la forme de l'État
-(§ 2.3).
-:::
-
-::: examen Restituer la personnalité morale en copie — le plan en trois temps
-**① La notion.** L'État est une entité abstraite distincte de ceux qui parlent en son nom,
-dotée d'une existence et d'une capacité juridiques. Elle existe en droit privé (sociétés,
-associations) comme en droit public (État, collectivités territoriales, établissements
-publics).
-
-**② Les conséquences.** Continuité de l'État au-delà des hommes (« le roi est mort, vive le
-roi ») ; engagement durable par ses décisions ; les gouvernants sont titulaires et non
-propriétaires ; séparation des patrimoines ; capacité de posséder, contracter, répondre de ses
-actes et être jugé.
-
-**③ Le contraste historique.** La conception patrimoniale féodale — vénalité des offices,
-confusion du Trésor et de la cassette royale —, combattue dès l'édit de Moulins de 1566 et
-abolie en 1789.
-
-**La phrase de conclusion :** « La personnalité morale est une fiction, mais c'est elle qui rend
-l'État gouvernable dans la durée : sans elle, chaque changement d'homme serait un changement
-d'État. »
-:::
-
-<!--saut-->
-
-### 2.3 — § 3 : Les formes d'organisation de l'État (COMMENT) — diapositives 8, 9 et 10
-
-::: piege Avertissement — les trois diapositives de ce paragraphe sont vides
-**Diapositive 8 :** deux encadrés — « De nombreuses variantes » / « Deux formes se dégagent ».
-**Diapositive 9 :** « L'État fédéral — 3 principes : superposition, autonomie, participation »
-et un encadré « **Exemples d'États fédéraux** » qui **ne contient aucun exemple**.
-**Diapositive 10 :** « L'État unitaire — Définition · Exemples · Techniques utilisées :
-déconcentration, décentralisation · La transformation vers l'État régional » — **quatre titres,
-aucun contenu**.
-
-**Tout le contenu de ce paragraphe vient donc du polycopié** (pages 10 à 16), complété partout
-où il est muet. Les exemples que la diapositive 9 annonce et ne donne pas sont fournis
-au § 2.3.8.
-:::
-
-::: piege Une divergence d'ordre entre les deux supports
-Les **diapositives** présentent l'État **fédéral d'abord** (diapositive 9), l'État **unitaire
-ensuite** (diapositive 10). Le **polycopié** fait l'inverse : § 1 l'État unitaire, § 2 l'État
-composé.
-
-**Je suis l'ordre du polycopié — du simple vers le composé** — pour une raison pédagogique :
-l'État fédéral se définit **par opposition** à l'État unitaire et à la confédération. Le
-comprendre suppose d'avoir vu les deux autres.
-
-**Les deux ordres sont acceptables en copie**, le contenu étant identique. Si tu préfères
-suivre l'ordre des diapositives, rien n'est perdu — annonce simplement ton plan en
-introduction.
-:::
-
-#### 2.3.1 La classification : deux formes et un critère unique
-
-::: definition Ce que dit le polycopié
-> « Il existe plusieurs sortes de classifications des États. Sur le plan juridique, il existe
-> **deux formes d'États** : sont distingués l'**État simple** comme la France, et l'**État
-> composé**, qui suppose une **union ou un groupement d'États**, ou **État fédéral**, comme
-> les États-Unis, l'Allemagne et la Suisse. Il y a aussi, **entre ces deux extrêmes, quantité
-> de situations intermédiaires**. »
-
-Le polycopié ajoute une précision de vocabulaire à ne pas manquer : « On retrouve, dans cette
-section, le **sens large** du mot "État" » — c'est-à-dire les trois éléments constitutifs
-réunis, et non le seul pouvoir central.
-:::
-
-::: demo Le critère qui distingue les deux formes — et il n'y en a qu'un
-Les supports énumèrent les formes sans donner le critère qui les sépare. **Le voici, et il est
-unique : le nombre d'ordres juridiques superposés.**
-
-**Un « ordre juridique »** est un ensemble de normes hiérarchisé et complet, comportant à son
-sommet une **Constitution**, et doté de ses propres organes pour produire et appliquer ces
-normes.
-
-| Forme | Nombre d'ordres juridiques | Nombre de Constitutions | Nombre d'États au sens du droit international |
+| Forme | Ordres juridiques | Constitutions | Sujets de droit international |
 |---|:---:|:---:|:---:|
 | **État unitaire** | **1** | 1 | 1 |
-| **État fédéral** | **2 superposés** | 1 fédérale + 1 par État fédéré | **1** — seul l'État fédéral |
-| **Confédération** | **autant que d'États membres** — aucun ordre commun supérieur | 1 par État, **aucune commune** | **autant que de membres** |
+| **État fédéral** | **2 superposés** | 1 fédérale + 1 par fédéré | **1** — le seul État fédéral |
+| **Confédération** | **n**, sans ordre commun | n, **aucune commune** | **n** — chaque membre |
 
-**Trois conséquences immédiates :**
+**Trois conséquences immédiates.** ① **La décentralisation ne crée pas un second ordre
+juridique** : une région n'a pas de Constitution, ses actes sont pris **en application de la
+loi** — la France reste unitaire, même très décentralisée. ② **La confédération ne crée pas
+d'État** : l'une des deux formes d'État composé « ne donne pas naissance véritablement à un
+État nouveau, mais à une **structure interétatique** ». ③ **Le fédéralisme, si** : on passe de
+*n* à *n + 1* États.
 
-**① La décentralisation ne crée pas un second ordre juridique.** Une région française n'a pas
-de Constitution ; ses actes sont pris **en application de la loi nationale**. Il n'y a toujours
-qu'un seul ordre juridique. **La France reste un État unitaire, même très décentralisée.**
-
-**② La confédération ne crée pas d'État nouveau.** Le polycopié l'écrit expressément : l'une
-des deux formes d'État composé « **ne donne pas naissance véritablement à un État nouveau,
-mais à une structure interétatique** ».
-
-**③ Le fédéralisme crée un État supplémentaire.** C'est le seul cas où l'on passe de *n* États
-à *n + 1*.
-
-**La phrase à retenir, elle résout la moitié des questions de ce paragraphe :** *ce qui
-distingue ces formes, ce n'est ni la taille, ni le degré d'autonomie locale, ni le nombre de
-niveaux administratifs — c'est le nombre de Constitutions.*
+> **Ce qui distingue ces formes, ce n'est ni la taille, ni le degré d'autonomie locale, ni le
+> nombre de niveaux administratifs — c'est le nombre de Constitutions.**
 :::
 
-<!--saut-->
+#### 2.3.2 L'État unitaire (p. 10)
 
-#### 2.3.2 L'État unitaire : définition et indivisibilité (polycopié, page 10)
+::: definition Définition, subordination des normes locales, indivisibilité
+**« Unité du pouvoir politique, un seul centre de décisions politiques. Il n'y a qu'un seul
+État. »** Une **seule catégorie de lois**, applicable partout.
 
-::: definition La définition
-> « Il se caractérise par l'**unité du pouvoir politique**, avec **un seul centre de décisions
-> politiques**. **Il n'y a qu'un seul État.** »
+⚠ **Cela n'interdit pas les normes locales** — arrêtés préfectoraux ou municipaux : « **la loi
+est nationale, les autres règles de droit sont locales** ». Mais elles sont verrouillées trois
+fois :
 
-> « Sur le plan juridique, il n'existe qu'une **seule catégorie de lois**, issues de l'État et
-> qui **s'appliquent sur l'ensemble du territoire**. »
-:::
+| Verrou | Contenu |
+|:---:|---|
+| **1** | Prises **en application** de la loi — elles exécutent, elles ne créent pas |
+| **2** | **Conformes** à la loi — hiérarchie des normes |
+| **3** | **C'est la loi qui détermine les matières** où elles peuvent intervenir **et** organise leur contrôle |
 
-::: demo Loi nationale et normes locales : la hiérarchie, pas l'exclusion
-Le polycopié apporte aussitôt une nuance que les copies faibles ignorent :
+**Le verrou 3 est décisif : l'autorité locale n'a pas la compétence de sa compétence — elle
+n'est pas souveraine.**
 
-> « Cette unité **n'empêche pas** l'édiction de règles de droit qui s'appliquent sur une
-> **portion du territoire**, comme les **arrêtés préfectoraux ou municipaux**. **La loi est
-> nationale, les autres règles de droit sont locales.** »
+**L'INDIVISIBILITÉ. Article 1<sup>er</sup> de la Constitution de 1958 : « la France est une
+République indivisible ».** Elle se décline en **quatre unités — mnémotechnique C-L-G-J** :
 
-**Il ne faut donc pas dire « dans un État unitaire, seul l'État édicte des normes » — c'est
-faux.** Un maire prend des arrêtés, un préfet aussi. Ce qui est vrai, c'est que ces normes
-locales sont **subordonnées** :
-
-> « Dans un État unitaire, les normes locales **ne peuvent être édictées qu'en application et
-> en conformité avec les normes nationales préalables**. Elles ne peuvent être créées **que si
-> la loi nationale détermine les matières** dans lesquelles elles peuvent intervenir. De même,
-> **la loi organise aussi le contrôle exercé sur ces actes locaux**. »
-
-**Décomposons cette phrase : elle contient trois verrous, et il faut savoir les énumérer.**
-
-| Verrou | Contenu | Formule |
-|:---:|---|---|
-| **1** | Les normes locales sont prises **en application** de la loi | Elles ne sont pas autonomes, elles exécutent |
-| **2** | Elles doivent être **conformes** à la loi | Hiérarchie des normes |
-| **3** | C'est la **loi** qui détermine les matières où elles peuvent intervenir **et** organise leur contrôle | **Pas de compétence de leur compétence** |
-
-**Le verrou 3 est le décisif — et c'est le critère du § 2.2.4.** L'autorité locale ne fixe pas
-elle-même l'étendue de ses pouvoirs : la loi le fait à sa place. **Elle n'a donc pas la
-compétence de sa compétence : elle n'est pas souveraine.**
-:::
-
-::: definition L'indivisibilité, et ses quatre unités
-> « L'État unitaire est **indivisible**, ce qui signifie que **le pouvoir politique est un et
-> n'est pas divisible en parties**. »
-
-**Le polycopié donne le texte, et il faut le citer exactement :**
-> « comme l'indique l'**article 1<sup>er</sup> de la Constitution de 1958** selon lequel
-> « **la France est une République indivisible** ». »
-
-**Et il en décline le contenu en quatre unités — à connaître comme une liste :**
-> « Cette indivisibilité du pouvoir se caractérise par le fait que tous les citoyens sont
-> soumis **au même pouvoir (unité de constitution)**, **aux mêmes lois (unité de
-> législation)**, **au même gouvernement (unité de gouvernement)** et **aux mêmes
-> tribunaux**. »
-
-| Unité | Signification |
+| Unité | Contenu |
 |---|---|
-| **Unité de constitution** | Une seule Constitution pour tout le territoire |
-| **Unité de législation** | Les mêmes lois pour tous les citoyens |
-| **Unité de gouvernement** | Un seul exécutif |
-| **Unité de juridiction** | Les mêmes tribunaux, la même organisation judiciaire |
+| **C**onstitution | Une seule pour tout le territoire |
+| **L**égislation | Les mêmes lois pour tous |
+| **G**ouvernement | Un seul exécutif |
+| **J**uridiction | Les mêmes tribunaux |
 
-**Mnémotechnique : C-L-G-J — Constitution, Loi, Gouvernement, Juridiction.**
-:::
+*Contexte : la formule apparaît **dès 1792**, « afin de lutter contre les ennemis de la
+Révolution, **accusés de fédéralisme** » — d'où la charge que le mot garde en France. ⚠ Mais
+elle n'est **pas propre à la République** : la Constitution du **3 septembre 1791** disait déjà
+« le **Royaume** est un et indivisible ».*
 
-::: exemple L'histoire du mot « indivisible » — le contexte que le polycopié donne
-> « Cette proclamation se retrouve dans les constitutions antérieures, **à partir de 1792**,
-> date de la proclamation de la République, **afin de lutter contre les ennemis de la
-> Révolution, accusés de fédéralisme**. »
+**L'exception à l'unité de législation : le droit local d'Alsace-Moselle**, maintenu par la
+**loi du 1<sup>er</sup> juin 1924**, qui reprend des éléments du droit allemand appliqué pendant
+l'annexion **1871-1918** — Concordat de 1801 toujours en vigueur, régime local
+d'assurance-maladie, jours fériés supplémentaires. ⚠ **Il ne remet pas en cause le caractère
+unitaire : il subsiste parce que la loi nationale l'a maintenu, et elle pourrait l'abroger.**
 
-**Ce membre de phrase est capital pour comprendre le vocabulaire constitutionnel français.**
-En 1792-1793, le mot « fédéralisme » est une **accusation politique** : il désigne les Girondins,
-soupçonnés de vouloir affaiblir Paris au profit des départements. **Le mot est resté chargé en
-France** — c'est pourquoi le débat sur la décentralisation y est plus tendu qu'ailleurs.
-
-**Et le polycopié prend soin de désamorcer un contresens :**
-> « Mais ce caractère **n'est pas propre à la République**, comme l'atteste l'article 1<sup>er</sup>
-> du Titre II de la **Constitution du 3 septembre 1791** : « **Le Royaume est un et
-> indivisible** ». »
-
-**Traduction : l'indivisibilité est un trait de l'État français, pas du régime républicain.**
-La monarchie constitutionnelle de 1791 l'affirmait déjà.
-:::
-
-::: piege Une exception à l'unité de législation que le polycopié signale : le droit local d'Alsace-Moselle
-> « Il existe cependant un **droit d'Alsace-Moselle**, depuis la **loi du 1<sup>er</sup> juin
-> 1924** qui **reprend des éléments du droit allemand**. »
-
-**L'explication historique, que le polycopié suppose connue :** l'Alsace et la Moselle ont été
-annexées par l'Empire allemand de **1871 à 1918**. Pendant ces 47 ans, la législation allemande
-y a été appliquée. Au retour à la France, plutôt que d'abroger d'un coup l'ensemble de ce
-droit, le législateur en a **maintenu certains pans**.
-
-**Ce qui subsiste aujourd'hui** relève notamment du régime des cultes — le **Concordat de 1801**
-y reste en vigueur, l'État y rémunère des ministres du culte —, du régime local
-d'assurance-maladie, du droit des associations et de certains jours fériés supplémentaires.
-
-**Pourquoi ce cas est intéressant en copie :** il montre que **l'unité de législation n'est pas
-absolue en fait**, même dans le modèle unitaire le plus pur. **Mais il ne remet pas en cause le
-caractère unitaire** : ce droit local existe **parce que la loi nationale l'a maintenu**, et
-elle pourrait l'abroger. **On reste dans le verrou 3 : c'est la loi qui décide.**
-:::
-
-::: exemple Les exemples d'États unitaires — le contenu que la diapositive 10 annonce sans le donner
-> « L'État unitaire est une forme répandue d'États : **la Chine, le Portugal, l'Algérie, le
-> Royaume-Uni, la Pologne** sont des États unitaires. Il y a en fait **plusieurs catégories
-> d'États unitaires**. »
-
-**Ajoute la France**, que le polycopié cite ailleurs comme l'exemple type, **le Japon**,
-**l'Italie** et **l'Espagne** — ces deux derniers avec la réserve du § 2.3.6.
+**Exemples d'États unitaires :** « la **Chine, le Portugal, l'Algérie, le Royaume-Uni, la
+Pologne** », plus la **France**, le **Japon**, et l'**Italie** et l'**Espagne** sous la réserve du
+§ 2.3.6.
 
 ::: piege
-**Le Royaume-Uni mérite un mot, car l'exemple surprend.** Il est bien un État unitaire : il
-n'existe **qu'un seul Parlement souverain**, celui de Westminster. Mais depuis la
-*devolution* de **1998**, l'Écosse, le pays de Galles et l'Irlande du Nord disposent
-d'assemblées et de gouvernements propres, avec de larges compétences.
-
-**Pourquoi cela reste unitaire :** ces pouvoirs ont été **délégués par une loi de Westminster**,
-et Westminster **pourrait les reprendre**. **Ils ne tiennent pas d'une Constitution, mais d'une
-loi ordinaire — donc pas de compétence de leur compétence.** C'est le test du § 2.2.4 appliqué
-à un cas concret, et il tranche.
+**Le Royaume-Uni surprend, et il est instructif.** Depuis la *devolution* de **1998**, l'Écosse,
+le pays de Galles et l'Irlande du Nord ont des assemblées et gouvernements propres. **Cela reste
+unitaire** parce que ces pouvoirs ont été **délégués par une loi de Westminster**, qui
+**pourrait les reprendre** : ils ne tiennent pas d'une Constitution. **Le test du § 2.2.4
+tranche.**
 :::
 :::
 
-<!--saut-->
+#### 2.3.3 Centralisation et déconcentration (p. 10-11)
 
-#### 2.3.3 Centralisation et déconcentration (polycopié, pages 10 et 11)
-
-La diapositive 10 annonce « **Techniques utilisées : déconcentration ; décentralisation** » sans
-rien en dire. Les voici, l'une après l'autre.
-
-::: definition La centralisation
-> « L'État simple ou unitaire est **presque naturellement centralisé**, comme le montre la
-> construction de l'État monarchique absolutiste, avec le **nivellement des particularismes
-> locaux**. »
-
-**Définition :** la **centralisation** est le système dans lequel **toutes les décisions sont
-prises au centre**, par les organes de l'État siégeant à la capitale.
-
-**La chronologie française que le polycopié retrace :**
+::: definition De la centralisation aux circonscriptions
+**Centralisation** = toutes les décisions prises **au centre**. « L'État simple ou unitaire est
+**presque naturellement centralisé** ».
 
 | Étape | Acteur | Effet |
 |---|---|---|
-| Monarchie absolue | Les rois | **Nivellement des particularismes locaux** — coutumes, privilèges, États provinciaux |
-| Révolution | **La Convention** et les **Jacobins**, « dont le nom est devenu **synonyme de centralisateurs** » | Uniformisation du territoire |
-| Consulat | **Napoléon Bonaparte**, **loi du 28 pluviôse an VIII (17 février 1800)** | **Création des préfets** |
-| XIX<sup>e</sup> siècle | — | « La construction du **chemin de fer en étoile depuis Paris** illustre aussi cette tendance » |
+| Monarchie absolue | Les rois | **Nivellement des particularismes locaux** |
+| Révolution | La **Convention**, les **Jacobins**, « dont le nom est devenu **synonyme de centralisateurs** » | Uniformisation |
+| Consulat | **Napoléon** — **loi du 28 pluviôse an VIII (17 février 1800)** | **Création des préfets** |
+| XIX<sup>e</sup> s. | — | Le **chemin de fer en étoile depuis Paris** |
+
+**Les deux formules critiques, à citer :** « **Paris et le désert français** » — un géographe,
+**1947** *(Jean-François Gravier)* — et « **l'apoplexie du centre et la paralysie des
+extrémités** » — **Lamennais**, XIX<sup>e</sup> siècle. *(L'apoplexie est un afflux de sang qui
+congestionne ; la paralysie, l'absence de commande. **Trop au centre, rien à la périphérie.**)*
+
+**Le polycopié en tire une conclusion pratique :** cette centralisation « **n'est guère
+réalisable en dehors des micro-États** » et « **ne l'a jamais été, même en France** » — le nombre
+de dossiers est physiquement ingérable. **La déconcentration n'est pas une générosité politique,
+c'est une nécessité technique.**
+
+**Premier aménagement : les circonscriptions administratives** — « **simples découpages
+territoriaux** », **sans personnalité morale**. Même à l'époque napoléonienne : départements,
+arrondissements, communes, avec préfets, sous-préfets et maires.
 
 ::: piege
-**Le calendrier révolutionnaire :** « 28 pluviôse an VIII » est une date du calendrier
-républicain, en vigueur de 1793 à 1805. *Pluviôse* est le cinquième mois, de fin janvier à fin
-février. Le polycopié donne l'équivalent grégorien : **17 février 1800**. **Cite les deux, comme
-le fait le polycopié.**
-:::
-:::
-
-::: exemple Les deux formules critiques de la centralisation — à retenir mot à mot
-Le polycopié cite deux formules célèbres. **Ce sont des citations qui font mouche en copie.**
-
-> « Un **géographe** a pu ainsi parler en **1947** de "**Paris et le désert français**" »
-
-*(Il s'agit de **Jean-François Gravier**, dont l'ouvrage de 1947 porte ce titre. Le polycopié
-ne le nomme pas.)*
-
-> « tandis que **Lamennais**, au XIX<sup>e</sup> siècle, parlait de "**l'apoplexie du centre et
-> de la paralysie des extrémités**" »
-
-**Décomposons l'image médicale, elle est excellente :** l'**apoplexie** est un afflux brutal de
-sang qui congestionne un organe ; la **paralysie** est l'absence de commande motrice. La
-centralisation produit donc simultanément **trop** au centre et **rien** à la périphérie.
-*(La formule est traditionnellement attribuée à Félicité de Lamennais, écrivain et prêtre
-français, 1782-1854.)*
-
-**Et le polycopié en tire la conclusion pratique :**
-> « Cette centralisation à l'extrême **n'est guère réalisable en dehors des micro-États**. »
-> « Cette centralisation **ne peut donc être totale et ne l'a jamais été, même en France**. »
-
-**Pourquoi ? Une raison purement matérielle.** Un seul organe ne peut pas prendre toutes les
-décisions d'un pays de 68 millions d'habitants : le nombre de dossiers est physiquement
-ingérable. **La déconcentration n'est donc pas un choix politique généreux, c'est une
-nécessité technique.**
-:::
-
-::: definition Les circonscriptions administratives — le premier aménagement
-> « D'abord, l'État est divisé en **circonscriptions administratives, simples découpages
-> territoriaux**, ne serait-ce que pour **mieux exécuter les ordres venus d'en haut**. »
-
-**Définition :** une **circonscription administrative** est un **découpage du territoire de
-l'État**, destiné à organiser son action. **Elle n'a pas la personnalité morale** : ce n'est
-pas un sujet de droit, c'est une case sur une carte.
-
-**Le polycopié donne l'exemple napoléonien :** « Même à l'époque napoléonienne, il y a des
-**départements**, des **arrondissements** et des **communes** avec à leurs têtes des autorités
-locales chargées d'exécuter, comme les **préfets**, les **sous-préfets** et les **maires**. »
-
-::: piege
-**Le piège le plus fréquent du chapitre, et il est ici.** Le mot « département » désigne
-**deux choses différentes** :
-- une **circonscription administrative de l'État** — le ressort du préfet, sans personnalité
-  morale ;
-- une **collectivité territoriale** — personne morale, avec un conseil départemental élu.
-
-**Même nom, même territoire, deux réalités juridiques distinctes.** Idem pour la **commune** —
-ressort du maire agent de l'État **et** collectivité territoriale — et pour la **région**.
-
-**Le polycopié signale lui-même cette difficulté** au § 2.3.4 : « C'est là une des difficultés
-de l'organisation administrative française. » **Savoir la nommer en copie est un marqueur
-immédiat de maîtrise.**
+**LE piège du chapitre.** « Département », « commune » et « région » désignent **deux choses
+différentes** : une **circonscription administrative de l'État** (ressort du préfet, **sans
+personnalité morale**) **et** une **collectivité territoriale** (personne morale, conseil élu).
+**Même nom, même carte, deux réalités juridiques.** Le polycopié appelle cela « une des
+difficultés de l'organisation administrative française ».
 :::
 :::
 
 ::: definition La déconcentration
-> « Cette centralisation peut ensuite être **tempérée par la déconcentration**, qui est un
-> **aménagement territorial du pouvoir de décision à l'intérieur de l'État**. Les attributions
-> de l'État sont **réparties entre des autorités de l'État, nommées par lui**, dans des
-> **circonscriptions administratives de l'État**. »
+**« Un aménagement territorial du pouvoir de décision *à l'intérieur de l'État* : les
+attributions de l'État sont réparties entre des autorités de l'État, *nommées par lui*, dans des
+*circonscriptions administratives* de l'État. »**
 
-**Les quatre mots qui définissent la déconcentration :**
-- **« aménagement »** — on déplace le pouvoir sans le transférer à quelqu'un d'autre ;
-- **« à l'intérieur de l'État »** — on reste dans la **même personne morale** ;
-- **« nommées par lui »** — les autorités déconcentrées sont **nommées**, jamais élues ;
-- **« circonscriptions administratives »** — pas des collectivités.
+**Quatre mots portent la définition :** *aménagement* (on déplace sans transférer) · *à
+l'intérieur de l'État* (**même personne morale**) · *nommées* (**jamais élues**) ·
+*circonscriptions* (pas des collectivités).
 
-**La formule d'Odilon Barrot, à citer absolument :**
-> « La déconcentration est un **déplacement du pouvoir de décision** et, selon la formule
-> d'**Odilon Barrot**, homme politique du milieu du XIX<sup>e</sup> siècle, « **c'est toujours
-> le même marteau qui frappe, mais on en a raccourci le manche** ». »
+> **Odilon Barrot : « c'est toujours le même marteau qui frappe, mais on en a raccourci le
+> manche. »** Le marteau = **la même personne morale** · qui frappe = le même pouvoir · le manche
+> raccourci = **la décision plus près du terrain**. **Elle change la distance, pas le titulaire.**
 
-**Décomposons l'image, elle est d'une précision remarquable :**
-- « **le même marteau** » → **la même personne morale**, l'État. Rien n'a changé de main.
-- « **qui frappe** » → **le même pouvoir**, la même contrainte.
-- « **on en a raccourci le manche** » → **la décision est prise plus près du terrain**, donc
-  plus vite et mieux informée.
+**LE POUVOIR HIÉRARCHIQUE — ce qui prouve qu'on reste dans l'État :**
 
-**Retiens : la déconcentration change la distance, pas le titulaire.**
-:::
-
-::: demo Le pouvoir hiérarchique — ce qui prouve qu'on reste dans l'État
-> « Ces autorités **ne sont pas seulement instituées pour exécuter, elles reçoivent un pouvoir
-> de décision**. Mais ces autorités sont soumises à un **pouvoir et à un contrôle
-> hiérarchique** à la fois **sur les actes**, par un **pouvoir d'injonction** et un **pouvoir
-> de réformation**, **sur les personnes**, car la déconcentration permet la **nomination et la
-> révocation** des autorités subordonnées. »
-
-**Le pouvoir hiérarchique, décomposé — c'est un point technique très demandé :**
-
-| Porte sur | Prérogative | Ce que le supérieur peut faire |
+| Porte sur | Prérogative | Le supérieur peut |
 |---|---|---|
-| **Les actes** | **Pouvoir d'instruction ou d'injonction** | **Ordonner** au subordonné d'agir dans un sens déterminé |
-| **Les actes** | **Pouvoir de réformation** | **Modifier** ou **annuler** l'acte du subordonné, et le remplacer par le sien |
-| **Les personnes** | **Nomination** | **Choisir** qui occupe le poste |
-| **Les personnes** | **Révocation** | **Démettre** le titulaire |
+| **Les actes** | **Injonction** | **Ordonner** d'agir dans un sens déterminé |
+| **Les actes** | **Réformation** | **Modifier ou annuler** l'acte et le remplacer |
+| **Les personnes** | **Nomination** | **Choisir** le titulaire |
+| **Les personnes** | **Révocation** | **Le démettre** |
 
-**Le pouvoir hiérarchique s'exerce sans texte particulier et sans condition** : il n'a pas
-besoin d'être prévu, il est **inhérent** à la relation de subordination. Et il porte
-**sur la légalité et sur l'opportunité** : le supérieur peut réformer un acte parfaitement
-légal simplement parce qu'il le juge inopportun.
+⚠ Il s'exerce **sans texte particulier** — il est **inhérent** à la subordination — et porte
+**sur la légalité ET sur l'opportunité** : le supérieur peut réformer un acte parfaitement légal
+qu'il juge inopportun. **C'est ce dernier point qui le distinguera de la tutelle.**
 
-**C'est ce dernier point qui le distinguera radicalement de la tutelle (§ 2.3.4).** Retiens-le.
-:::
-
-::: exemple Les autorités déconcentrées — la liste du polycopié
-> « Les **préfets**, les **directeurs départementaux ou régionaux des services déconcentrés de
-> l'État**, les **recteurs d'académie** et même les **maires**, sont des autorités
-> déconcentrées. Il en est de même des **procureurs généraux et de la République**. »
+**Les autorités déconcentrées :** préfets, sous-préfets, directeurs départementaux et régionaux,
+**recteurs d'académie**, procureurs généraux et de la République — « **et même les maires** ».
 
 ::: piege
-**« Et même les maires » — cette incise est le piège le plus subtil du chapitre.**
-
-Le maire a **deux casquettes**, et c'est une véritable dualité de fonctions :
-
-| Casquette | En tant que… | Il agit pour… | Exemples de compétences |
+**Cette incise est un test.** Le maire a **deux casquettes** :
+| Casquette | Il agit pour… | Compétences | Contrôle |
 |---|---|---|---|
-| **Agent de l'État** | **Autorité déconcentrée** | **L'État**, sous l'autorité du préfet et du procureur | État civil, publication des lois, organisation des élections, police judiciaire |
-| **Exécutif de la commune** | **Organe d'une collectivité territoriale décentralisée** | **La commune** | Urbanisme, écoles, voirie communale, budget |
-
-**Le même homme, le même bureau, deux qualités juridiques distinctes** — et deux régimes de
-contrôle différents : hiérarchique dans le premier cas, de légalité dans le second.
-
-**C'est exactement pour cela que le polycopié écrit "et même les maires" : il signale une
-exception apparente.** Savoir l'expliquer en copie vaut cher.
+| **Agent de l'État** — autorité **déconcentrée** | **L'État**, sous l'autorité du préfet et du procureur | État civil, publication des lois, élections, police judiciaire | **Hiérarchique** |
+| **Exécutif de la commune** — collectivité **décentralisée** | **La commune** | Urbanisme, écoles, voirie, budget | **De légalité** |
+**Même homme, même bureau, deux qualités juridiques et deux régimes de contrôle.**
 :::
-
-Le polycopié conclut : « La déconcentration est parfois présentée comme une **spécificité
-française**. »
 :::
 
 <!--saut-->
 
-#### 2.3.4 La décentralisation (polycopié, pages 11 et 12)
+#### 2.3.4 La décentralisation (p. 11-12)
 
-::: definition La définition — à apprendre mot à mot, elle est dense
-> « La décentralisation est la **reconnaissance de collectivités, ou d'entités
-> administratives, distinctes de l'État pris en tant que personne morale, dotées elles aussi
-> de la personnalité morale, agissant selon un principe d'autonomie, qui est différent du
-> contrôle hiérarchique**. La personnalité morale leur donne une **autonomie juridique et
-> financière**. »
+::: definition Définition en quatre éléments, et ses deux limites
+**« La reconnaissance de collectivités, ou d'entités administratives, *distinctes de l'État*
+pris en tant que personne morale, *dotées elles aussi de la personnalité morale*, agissant selon
+un *principe d'autonomie*, qui est différent du contrôle hiérarchique. »**
 
-**Quatre éléments, à énumérer dans cet ordre :**
-
-| Élément | Contenu | Conséquence |
+| # | Élément | Conséquence |
 |:---:|---|---|
-| **1** | Des entités **distinctes de l'État** | Ce ne sont **pas** des démembrements de l'État |
-| **2** | Dotées de la **personnalité morale** | Elles ont un **patrimoine**, un **budget**, une capacité d'**ester en justice** |
-| **3** | Agissant selon un **principe d'autonomie** | Elles décident **elles-mêmes**, dans leur domaine |
-| **4** | Soumises à un contrôle **différent du contrôle hiérarchique** | **Tutelle** ou contrôle de légalité — voir plus bas |
+| **1** | Entités **distinctes de l'État** | Ce ne sont pas des démembrements de l'État |
+| **2** | **Personnalité morale** | **Patrimoine, budget, capacité d'ester en justice** — **c'est le pivot** |
+| **3** | **Principe d'autonomie** | Elles décident elles-mêmes, dans leur domaine |
+| **4** | Contrôle **différent du hiérarchique** | Tutelle, puis contrôle de légalité |
 
-**L'élément 2 est le pivot.** C'est la personnalité morale (§ 2.2.6) qui fait toute la
-différence avec la déconcentration : **là, on change de personne juridique.**
-:::
+**LES DEUX LIMITES — ce qui empêche que ce soit du fédéralisme :**
+- **Elles administrent, elles ne légifèrent pas** : « ces entités ne sont là que pour **créer et
+  gérer des services publics, faire œuvre d'administration, et non édicter des lois** ».
+- **Elles n'ont pas la compétence de leurs compétences** — **article 72 alinéa 3** : elles
+  s'administrent librement « **dans les conditions prévues par la loi** ». **La liberté est
+  réelle, mais encadrée par une norme qu'elles n'ont pas faite.**
 
-::: demo Les deux limites de la décentralisation — ce qui l'empêche d'être du fédéralisme
-Le polycopié pose deux bornes, et ce sont elles qui répondent d'avance à la question d'examen
-« la décentralisation est-elle un fédéralisme qui s'ignore ? ».
+> **Formule du polycopié : « autonomie et non indépendance ».**
 
-**① ELLES ADMINISTRENT, ELLES NE LÉGIFÈRENT PAS.**
-> « Ces entités administratives ne sont là que pour **créer et gérer des services publics,
-> faire œuvre d'administration, et non édicter des lois**. »
+**LE CONTRÔLE : de la tutelle au contrôle de légalité — loi du 2 mars 1982 (loi Defferre).**
 
-**C'est la ligne de partage avec l'État fédéré (§ 2.3.9), qui, lui, dispose d'un parlement et
-vote des lois.**
-
-**② ELLES N'ONT PAS LA COMPÉTENCE DE LEURS COMPÉTENCES.**
-> « Elles n'ont pas non plus la **compétence de leurs compétences**, c'est-à-dire qu'elles **ne
-> peuvent pas déterminer elles-mêmes leur domaine de compétence ou d'action**, comme le précise
-> l'**article 72 alinéa 3** selon lequel les collectivités territoriales s'administrent
-> librement « **dans les conditions prévues par la loi** ». »
-
-**Relis la citation constitutionnelle : « s'administrent librement » — mais « dans les
-conditions prévues par la loi ».** La liberté est réelle ; elle est **encadrée par une norme
-que la collectivité n'a pas faite**. C'est exactement le critère de Jellinek (§ 2.2.4), et il
-conclut négativement.
-
-**La formule du polycopié, à retenir telle quelle :**
-> « Elles bénéficient d'une **autonomie et non d'une indépendance**. »
-:::
-
-::: definition Le contrôle : de la tutelle au contrôle de légalité
-> « …car elles font l'objet d'un **contrôle**, du fait de l'État unitaire, appelé **tutelle ou
-> contrôle de légalité**. Celui-ci a connu une évolution, par la **loi du 2 mars 1982**. »
-
-**Le polycopié mentionne cette évolution sans l'expliquer. La voici — elle est essentielle.**
-
-| | **Avant 1982 — la tutelle** | **Après 1982 — le contrôle de légalité** |
+| | **Avant 1982 — tutelle** | **Après 1982 — contrôle de légalité** |
 |---|---|---|
-| **Moment du contrôle** | **A priori** : l'acte devait être approuvé pour devenir exécutoire | **A posteriori** : l'acte est exécutoire dès sa transmission au préfet |
-| **Étendue** | **Légalité et opportunité** : le préfet pouvait s'opposer à un acte légal qu'il jugeait inopportun | **Légalité seule** : l'opportunité échappe au contrôle |
-| **Qui décide de l'annulation** | Le **préfet** lui-même | **Le juge administratif** — le préfet ne peut que le saisir, par le « déféré préfectoral » |
+| Moment | ***A priori*** : l'acte devait être approuvé | ***A posteriori*** : exécutoire dès transmission |
+| Étendue | **Légalité ET opportunité** | **Légalité seule** |
+| Qui annule | Le **préfet** lui-même | **Le juge administratif** — le préfet ne peut que le saisir (**déféré préfectoral**) |
 
-**La loi du 2 mars 1982** — dite **loi Defferre**, relative aux droits et libertés des communes,
-départements et régions — **est l'acte fondateur de la décentralisation française moderne.**
+**Le contrôle est passé d'une autorité administrative à un juge.**
 
-**Le point décisif, et c'est celui qui distingue la tutelle du pouvoir hiérarchique :** le
-préfet **ne peut plus annuler lui-même** ni réformer un acte local. Il ne peut que **déférer**
-l'acte au tribunal administratif, qui statuera. **Le contrôle est passé d'une autorité
-administrative à un juge.**
-
-::: synthese Pouvoir hiérarchique et contrôle de tutelle — le tableau qui tranche
-| | **Pouvoir hiérarchique** (déconcentration) | **Contrôle de tutelle / de légalité** (décentralisation) |
+::: synthese Pouvoir hiérarchique et tutelle — le tableau qui tranche
+| | **Pouvoir hiérarchique** | **Contrôle de tutelle / de légalité** |
 |---|---|---|
-| **S'exerce sur** | Un **subordonné** dans la même personne morale | Une **autre personne morale** |
-| **Existe** | **De plein droit**, sans texte | **Seulement si un texte le prévoit** |
-| **Porte sur** | La **légalité ET l'opportunité** | La **légalité seule** |
-| **Le supérieur peut** | **Ordonner, réformer, annuler, révoquer** | **Seulement saisir le juge** (depuis 1982) |
-| **Adage** | — | « **Pas de tutelle sans texte, pas de tutelle au-delà des textes** » |
-
-**L'adage de la dernière ligne est la formule classique du droit administratif** : elle résume
-que la tutelle est d'**interprétation stricte**, alors que le pouvoir hiérarchique est
-**général**.
+| S'exerce sur | Un **subordonné**, même personne morale | Une **autre personne morale** |
+| Existe | **De plein droit, sans texte** | **Seulement si un texte le prévoit** |
+| Porte sur | **Légalité ET opportunité** | **Légalité seule** |
+| Le supérieur peut | **Ordonner, réformer, annuler, révoquer** | **Seulement saisir le juge** |
+| Adage | — | « **Pas de tutelle sans texte, pas de tutelle au-delà des textes** » |
 :::
 :::
 
-::: definition Les collectivités territoriales françaises
-> « Ces "entités" peuvent correspondre à des **territoires infra-étatiques, collectivités
-> territoriales ou collectivités locales**, qui peuvent avoir **le même cadre géographique (et
-> porter le même nom) que les circonscriptions administratives** dans le cadre de la
-> déconcentration : **communes, départements et régions**. C'est là **une des difficultés de
-> l'organisation administrative française**. »
-
-**C'est la confirmation du piège signalé au § 2.3.3 :** même nom, même carte, deux natures
-juridiques.
-
-| Nom | Comme **circonscription administrative** (déconcentration) | Comme **collectivité territoriale** (décentralisation) |
+::: exemple Les trois actes, et le débat
+| Acte | Texte | Contenu |
 |---|---|---|
-| **Commune** | Ressort du maire **agent de l'État** | Personne morale, **conseil municipal élu** |
-| **Département** | Ressort du **préfet** | Personne morale, **conseil départemental élu** |
-| **Région** | Ressort du **préfet de région** | Personne morale, **conseil régional élu** |
-:::
+| **I** | **Loi du 2 mars 1982** et suivantes | Fin de la tutelle *a priori* ; l'exécutif départemental et régional passe du préfet à un **président élu** ; transferts de compétences ; **fonction publique territoriale** |
+| **II** | **Révision constitutionnelle du 28 mars 2003** | « L'organisation de la République est **décentralisée** » (art. 1<sup>er</sup>) ; autonomie financière ; expérimentation ; référendum local |
+| **III ?** | **Réforme de 2010** | **Contesté** : « présentée par les uns comme un acte III de la décentralisation, **par les autres comme l'acte I d'une re-centralisation** » |
 
-::: exemple Les trois « actes » de la décentralisation — la chronologie du polycopié
-> « Mais la centralisation et la décentralisation sont un peu des **modèles-types** et **la
-> réalité est parfois différente** de ces modèles théoriques : la France s'est
-> **considérablement rapprochée du modèle décentralisateur à partir de 1982** et dans les
-> années qui ont suivi, dans la plupart des domaines, qu'il s'agisse de la **suppression de la
-> tutelle**, de l'**élection des organes exécutifs**, de la **répartition des compétences**, ou
-> de la **fonction publique territoriale**. »
+**La dernière ligne enseigne une méthode : la qualification d'une réforme est un enjeu politique,
+pas seulement technique.** Et le polycopié prévient que « la réalité est parfois différente de
+ces **modèles théoriques** » — ce qui annonce la thèse du § 2.3.6.
 
-| Acte | Date et texte | Contenu |
-|---|---|---|
-| **Acte I** | **Loi du 2 mars 1982** et suivantes | Suppression de la tutelle *a priori* ; l'exécutif départemental et régional passe du préfet à un **président élu** ; transferts de compétences ; création de la **fonction publique territoriale** |
-| **Acte II** | **Révision constitutionnelle du 28 mars 2003** | Inscription dans la Constitution : « l'organisation de la République est **décentralisée** » (art. 1<sup>er</sup>) ; autonomie financière ; droit à l'expérimentation ; référendum local |
-| **Acte III ?** | **Réforme des collectivités territoriales de 2010** | **Contesté** — le polycopié : « présentée par les uns comme un acte III de la décentralisation, **par les autres comme l'acte I d'une re-centralisation** » |
+**Le débat, que le polycopié donne en deux phrases :**
 
-::: piege
-**La dernière ligne est celle qu'il faut retenir**, parce qu'elle enseigne une méthode :
-**la qualification d'une réforme est un enjeu politique, pas seulement technique.** Une copie
-qui présente la réforme de 2010 comme un acte III sans mentionner la controverse manque le
-point de vigilance que le polycopié signale expressément.
-
-**Note aussi la phrase « la réalité est parfois différente de ces modèles théoriques ».** Elle
-annonce la thèse du § 2.3.6 : **les formes d'État se distinguent par des différences de degré
-plutôt que de nature.**
-:::
-:::
-
-::: exemple Le débat sur la décentralisation — les arguments des deux camps
-Le polycopié, en deux phrases, donne un débat complet. **C'est le matériau d'une dissertation.**
-
-> « Le rapprochement du pouvoir de décision **n'est pas la suppression du pouvoir**. Sont
-> parfois critiqués, du fait de la décentralisation, **les notables locaux, le développement de
-> la corruption, le gaspillage et l'augmentation des disparités** entre collectivités
-> territoriales riches et collectivités territoriales pauvres. »
-> « **La centralisation garantirait en revanche l'anonymat du pouvoir et l'égalité de
-> traitement.** »
-
-| **Contre la décentralisation** | **Pour la décentralisation** |
+| **Contre** | **Pour** |
 |---|---|
-| **Les notables locaux** : le pouvoir se personnalise, des réseaux d'influence se constituent | **La proximité** : la décision est prise par ceux qui connaissent le terrain |
-| **La corruption** : la proximité entre décideurs et intérêts locaux accroît le risque | **La responsabilité** : l'élu local est identifiable et sanctionnable par le vote |
-| **Le gaspillage** : doublons, dépenses de prestige | **L'adaptation** : les besoins diffèrent d'un territoire à l'autre |
-| **Les disparités** : les collectivités riches offrent davantage que les pauvres | **La démocratie** : plus de niveaux de décision élus |
-| **L'argument central : l'égalité de traitement** — la centralisation garantit « l'**anonymat du pouvoir** », donc l'impartialité | **L'argument central : l'efficacité** et la proximité |
+| Les **notables locaux** — le pouvoir se personnalise | La **proximité** : décider là où l'on connaît le terrain |
+| La **corruption** — proximité entre décideurs et intérêts | La **responsabilité** : l'élu local est identifiable et sanctionnable |
+| Le **gaspillage** — doublons, dépenses de prestige | L'**adaptation** aux besoins locaux |
+| Les **disparités** entre collectivités riches et pauvres | La **démocratie** : plus de niveaux élus |
+| **L'argument central :** la centralisation garantit « **l'anonymat du pouvoir** » et donc **l'égalité de traitement** | **L'argument central :** l'efficacité |
 
-::: piege
-**« L'anonymat du pouvoir » est la formule la plus fine du passage.** Elle signifie que dans un
-système centralisé, la décision est prise **par un bureau, selon une règle générale, par
-quelqu'un qui ne te connaît pas** — donc sans favoritisme possible. **L'impersonnalité est ici
-une garantie d'égalité**, ce qui est exactement le raisonnement de Weber sur la bureaucratie
-légale-rationnelle (§ 2.1.3).
-
-**Les deux positions s'appuient donc sur deux valeurs opposées : l'égalité contre
-l'efficacité.** C'est le genre de tension qu'un correcteur attend qu'on nomme.
-:::
+⚠ **« L'anonymat du pouvoir »** signifie que la décision est prise **par un bureau, selon une
+règle générale, par quelqu'un qui ne te connaît pas** — donc **sans favoritisme**.
+**L'impersonnalité est ici une garantie d'égalité** : c'est le raisonnement de Weber sur la
+bureaucratie légale-rationnelle. **Le débat oppose l'égalité à l'efficacité.**
 :::
 
-<!--saut-->
+#### 2.3.5 Déconcentration / décentralisation — le tableau le plus rentable du chapitre
 
-#### 2.3.5 Déconcentration et décentralisation : le tableau qui tranche
-
-::: synthese Le tableau le plus rentable du chapitre
-**Cette distinction tombe à tous les examens. Apprends ce tableau ligne par ligne.**
-
+::: synthese À apprendre ligne par ligne
 | | **DÉCONCENTRATION** | **DÉCENTRALISATION** |
 |---|---|---|
-| **Définition** | Aménagement territorial du pouvoir de décision **à l'intérieur de l'État** | Reconnaissance d'entités **distinctes de l'État**, dotées de la personnalité morale |
-| **Personne morale** | **Une seule** : l'État | **Deux** : l'État **et** la collectivité |
-| **Qui décide localement** | Une **autorité de l'État** | Un **organe de la collectivité** |
-| **Mode de désignation** | **Nomination** par l'État | **Élection** par les habitants |
-| **Exemples d'organes** | Préfet, sous-préfet, recteur d'académie, directeur régional, procureur, **maire agent de l'État** | Conseil municipal et maire, conseil départemental, conseil régional |
-| **Cadre territorial** | **Circonscription administrative** (pas de personnalité morale) | **Collectivité territoriale** (personne morale) |
-| **Contrôle** | **Pouvoir hiérarchique** : injonction, réformation, nomination, révocation | **Contrôle de légalité** : déféré préfectoral au juge administratif |
-| **Étendue du contrôle** | **Légalité et opportunité** | **Légalité seulement** |
-| **Budget** | Celui de l'État | **Budget propre**, voté par l'assemblée élue |
-| **Formule** | « Le même marteau, le manche raccourci » (Odilon Barrot) | « **Autonomie et non indépendance** » |
-| **Ce qui change** | **La distance** de la décision | **Le titulaire** de la décision |
+| **Personnes morales** | **Une seule** : l'État | **Deux** : l'État et la collectivité |
+| **Autorités** | **Nommées** par l'État | **Élues** par les habitants |
+| **Exemples** | Préfet, sous-préfet, recteur, procureur, **maire agent de l'État** | Conseil municipal, départemental, régional |
+| **Cadre** | **Circonscription administrative** (pas de personnalité morale) | **Collectivité territoriale** (personne morale) |
+| **Contrôle** | **Hiérarchique** — injonction, réformation, nomination, révocation | **De légalité** — déféré au juge administratif |
+| **Étendue du contrôle** | **Légalité ET opportunité** | **Légalité seule** |
+| **Budget** | Celui de l'État | **Budget propre** |
+| **Formule** | « Le même marteau, le manche raccourci » | « **Autonomie et non indépendance** » |
+| **Ce qui change** | **La distance** | **Le titulaire** |
 
-**La phrase qui résume tout, et qu'il faut pouvoir sortir en une seconde :**
-> **La déconcentration déplace le pouvoir sans changer de mains ; la décentralisation change
-> de mains sans créer un nouvel État.**
-:::
+> **La déconcentration déplace le pouvoir sans changer de mains ; la décentralisation change de
+> mains sans créer un nouvel État.**
 
-::: examen Le test en deux questions pour qualifier n'importe quelle situation
-Face à un cas pratique, **pose ces deux questions dans cet ordre** :
-
-**Question 1 — L'autorité locale est-elle une personne morale distincte de l'État ?**
-- **Non** → **déconcentration**. Fin.
-- **Oui** → passe à la question 2.
-
-**Question 2 — Peut-elle édicter des lois et fixer elle-même ses compétences ?**
-- **Non** → **décentralisation** (collectivité territoriale).
-- **Oui** → **fédéralisme** (État fédéré).
-
-**Trois applications :**
+**LE TEST EN DEUX QUESTIONS, pour qualifier n'importe quelle situation :**
+**Q1 — L'autorité locale est-elle une personne morale distincte de l'État ?** Non →
+**déconcentration**. Oui → Q2.
+**Q2 — Peut-elle édicter des lois et fixer elle-même ses compétences ?** Non →
+**décentralisation**. Oui → **fédéralisme**.
 
 | Situation | Q1 | Q2 | Qualification |
 |---|:---:|:---:|---|
-| Le préfet des Bouches-du-Rhône prend un arrêté | Non | — | **Déconcentration** |
-| Le conseil régional Provence-Alpes-Côte d'Azur vote un budget | Oui | Non | **Décentralisation** |
-| Le Landtag de Bavière vote une loi sur l'éducation | Oui | Oui *(dans son domaine)* | **Fédéralisme** |
+| Le préfet prend un arrêté | Non | — | **Déconcentration** |
+| Le conseil régional vote un budget | Oui | Non | **Décentralisation** |
+| Le Landtag de Bavière vote une loi | Oui | Oui | **Fédéralisme** |
 :::
 
-<!--saut-->
+#### 2.3.6 L'État régional — « la transformation » de la diapositive 10
 
-#### 2.3.6 L'État régional : la transformation annoncée par la diapositive 10
+::: definition Définition et thèse du continuum
+**Une situation intermédiaire entre État unitaire et État fédéral** — « on parle souvent de
+l'**État régional** ou même d'**État autonomique** à propos de l'**Italie** ou de l'**Espagne** ».
 
-La diapositive 10 se termine par « **La transformation vers l'État régional** » — quatre mots,
-aucune explication. Le polycopié consacre un paragraphe à la notion.
-
-::: definition L'État régional, ou État autonomique
-> « Il y a parfois des **situations intermédiaires entre l'État unitaire et l'État fédéral** :
-> on parle souvent de l'**État régional** ou même parfois d'**État autonomique** à propos de
-> l'**Italie** ou de l'**Espagne**. »
-
-> « **Le partage des compétences se fait, entre l'État et les collectivités décentralisées,
-> dans la Constitution**, et celle-ci **autorise ces collectivités à s'organiser partiellement
-> et à définir leur mode de fonctionnement**. »
-
-**Ce qui change par rapport à une décentralisation ordinaire — deux choses, et elles sont
-précises :**
-
-| | **État unitaire décentralisé** (France) | **État régional** (Italie, Espagne) |
+| | **Unitaire décentralisé** (France) | **État régional** (Italie, Espagne) |
 |---|---|---|
-| **Où le partage des compétences est fixé** | Dans la **LOI** — que l'État peut modifier seul | Dans la **CONSTITUTION** — protégée contre la loi ordinaire |
-| **Auto-organisation** | **Non** : la loi fixe l'organisation des collectivités | **Oui, partiellement** : les régions définissent leur mode de fonctionnement (statuts d'autonomie) |
-| **Pouvoir normatif** | **Réglementaire** seulement | Certaines régions votent de véritables **lois régionales** |
+| Où le partage des compétences est fixé | Dans la **LOI**, que l'État modifie seul | **Dans la CONSTITUTION** — protégée contre la loi ordinaire |
+| Auto-organisation | **Non** | **Oui, partiellement** (statuts d'autonomie) |
+| Pouvoir normatif | **Réglementaire** | Certaines régions votent de véritables **lois régionales** |
 
-**Le premier point est le plus important.** Passer de la loi à la Constitution change la nature
-de la garantie : **une compétence inscrite dans la Constitution ne peut plus être reprise par
-une simple loi.** La collectivité gagne une protection qu'elle n'avait pas.
-:::
+**Le premier point est le décisif : une compétence inscrite dans la Constitution ne peut plus
+être reprise par une simple loi.**
 
-::: demo La thèse du polycopié : des différences de degré, pas de nature
-> « La situation est alors **très proche de celle de l'État fédéral**, et il existe **plus de
-> différences de degré entre toutes ces formes d'États, que des différences de nature**, selon
-> l'existence d'une plus ou moins grande autonomie. »
-
-**C'est une thèse forte, et elle nuance tout ce qui précède.** Le polycopié invite à voir les
-formes d'État non comme des **catégories étanches** mais comme un **continuum** :
+**LA THÈSE DU POLYCOPIÉ :** « il existe **plus de différences de degré** entre toutes ces formes
+d'États **que des différences de nature** ».
 
 ```
   autonomie locale croissante  ------------------------------------------->
@@ -3018,991 +1192,419 @@ formes d'État non comme des **catégories étanches** mais comme un **continuum
                                     on passe de 1 à 2 Constitutions
 ```
 
-**Mais attention — le continuum est vrai pour l'autonomie, faux pour le critère juridique.**
-Entre l'État régional et l'État fédéral, il y a bien une **frontière de nature** : le passage de
-**un** à **deux ordres juridiques**, donc de une à deux Constitutions.
+⚠ **La nuance a une limite :** entre État régional et État fédéral subsiste une **rupture de
+nature** — le passage de **un** à **deux ordres juridiques**.
+> **Formulation juste : différence de degré dans les faits, de nature en droit.**
 
-**La formulation juste, et c'est elle qu'il faut écrire :**
-> « Du point de vue de l'**autonomie effective**, les formes d'État s'échelonnent
-> continûment : une région italienne est plus autonome qu'une région française et parfois
-> autant qu'un Land allemand. Du point de vue du **critère juridique**, la rupture demeure : le
-> fédéralisme suppose deux ordres juridiques constitutionnels, ce que l'État régional n'a pas.
-> **La différence est de degré dans les faits et de nature en droit.** »
-:::
-
-::: exemple Le cas français : la France est-elle encore un État unitaire pur ?
-Le polycopié pose lui-même la question :
-> « De même, l'**autonomie donnée à certaines parties du territoire français outre-mer**
-> **éloigne la France du strict modèle unitaire**. »
-
-**Ce que le polycopié n'explicite pas :** la Constitution distingue plusieurs régimes outre-mer,
-et certains vont très loin. La **Nouvelle-Calédonie** dispose d'un statut particulier issu de
-l'accord de Nouméa de 1998, avec un **Congrès** qui adopte des textes appelés « **lois du
-pays** », susceptibles d'être contrôlés par le Conseil constitutionnel, et une **citoyenneté
-calédonienne** distincte de la citoyenneté française pour certains scrutins.
-
-**Autrement dit : sur ce territoire, la France s'écarte de l'unité de législation ET du lien
-nationalité-citoyenneté.** Deux des piliers du modèle unitaire (§ 2.3.2) et du § 2.2.3.
-
-**Conclusion à écrire :** « La France demeure un État unitaire — un seul ordre juridique
-constitutionnel — mais un État unitaire fortement décentralisé et comportant des régimes
-d'autonomie renforcée outre-mer. La qualification tient ; l'homogénéité, non. »
+**Le cas français.** Le polycopié : « l'**autonomie donnée à certaines parties du territoire
+français outre-mer éloigne la France du strict modèle unitaire** ». La **Nouvelle-Calédonie**
+dispose d'un **Congrès** adoptant des « **lois du pays** » contrôlées par le Conseil
+constitutionnel, et d'une **citoyenneté calédonienne** distincte pour certains scrutins — deux
+dérogations aux piliers du modèle unitaire. **La qualification tient ; l'homogénéité, non.**
 :::
 
 <!--saut-->
 
-#### 2.3.7 L'État composé (1) : la Confédération d'États (polycopié, pages 12 et 13)
+#### 2.3.7 L'État composé (1) : la Confédération (p. 12-13) — absente des diapositives
 
-::: piege Cette section est absente des diapositives
-Le polycopié lui consacre une page et demie ; **aucune diapositive ne la mentionne**. Elle est
-pourtant **indispensable** : sans elle, on ne peut pas définir le fédéralisme, qui se construit
-par opposition à elle.
-:::
+::: definition Définition et fonctionnement
+**« L'État composé est un *État composé d'États*, ou encore un État divisible en parties
+internes méritant elles-mêmes le nom d'États. »** Deux formes, « mais **l'une d'elles ne donne
+pas naissance véritablement à un État nouveau, mais à une structure interétatique** ».
 
-::: definition L'État composé, et ses deux formes
-> « L'État composé est un **État composé d'États** ou encore un **État divisible en parties
-> internes méritant elles-mêmes le nom d'États**. »
-> « En réalité, cet État [peut] revêtir diverses formes : **l'essentiel est qu'il y ait
-> plusieurs unités étatiques réunies entre elles**. Quel que soit le nom donné à ces dernières,
-> **ces unités sont des États**. »
+> **La confédération est une *association d'États par un TRAITÉ international*.**
 
-> « Il y a **deux formes actuelles d'État composé**, mais **l'une d'elles ne donne pas naissance
-> véritablement à un État nouveau, mais à une structure interétatique**. »
+**Les cinq traits de fonctionnement :**
 
-**Cette dernière phrase annonce toute la distinction :**
-- la **confédération** → structure **interétatique**, **pas d'État nouveau** ;
-- la **fédération** → **création d'un État supplémentaire**.
-:::
+| # | Trait | Raison |
+|:---:|---|---|
+| **①** | Organe central de compétences **énumérées** dans le traité | Il ne peut faire que ce qui y figure |
+| **②** | Composé de **représentants nommés par les États** | Ce sont des **diplomates**, pas des parlementaires : ils représentent des gouvernements, non des peuples |
+| **③** | Décisions **en principe à l'unanimité** | **Un État souverain ne peut pas se voir imposer ce qu'il n'a pas accepté** — d'où lenteur et fragilité |
+| **④** | **Pas d'effet direct** : ratification requise | **La décision n'atteint pas le citoyen** : il n'existe pas d'ordre juridique confédéral |
+| **⑤** | Les États **conservent souveraineté et existence internationale** | La coopération porte surtout sur le **diplomatique et le militaire** |
 
-::: definition La Confédération
-> « La confédération est une **association d'États par un traité international**. »
-
-**Tout est dans ces sept mots, et il faut les décomposer :**
-- **« association »** — une mise en commun, non une fusion ;
-- **« d'États »** — les membres **restent des États**, souverains ;
-- **« par un traité international »** — **l'acte fondateur est un TRAITÉ**, c'est-à-dire un
-  acte de droit international conclu entre souverains. **Retiens ce mot : c'est le critère qui
-  distingue la confédération de la fédération.**
-:::
-
-::: demo Le fonctionnement d'une confédération, en cinq points
-Le polycopié décrit précisément le mécanisme. Voici les cinq traits, chacun expliqué.
-
-**① Un organe central, de compétence limitée et énumérée.**
-> « Le traité instituant la Confédération **peut créer un organisme central** qui exercera des
-> **compétences communes et énumérées dans le traité**. »
-
-**« Énumérées » est le mot clé** : l'organe ne peut faire que ce que le traité a expressément
-listé. Tout le reste reste aux États.
-
-**② Cet organe est composé de représentants **nommés par les États**, non élus.**
-> « Cet organe est généralement composé de **représentants des États nommés par leurs États
-> respectifs**. »
-
-**Conséquence :** ces représentants ne représentent pas les peuples, ils représentent **des
-gouvernements**. Ce sont des **diplomates**, pas des parlementaires.
-
-**③ Les décisions se prennent en principe à l'unanimité.**
-> « Les décisions sont **en général prises à l'unanimité pour respecter l'autonomie de chacun
-> des États**, avec des décisions parfois prises à la majorité. »
-
-**Pourquoi l'unanimité ?** Parce qu'un État souverain ne peut pas se voir imposer une décision
-à laquelle il n'a pas consenti — cela contredirait sa souveraineté. **L'unanimité est donc la
-conséquence logique du maintien de la souveraineté**, et c'est aussi ce qui rend la
-confédération lente et fragile.
-
-**④ Les décisions ne s'appliquent pas directement : il faut les ratifier.**
-> « Ces décisions **ne sont pas directement applicables dans l'ordre interne des États** et
-> **nécessitent l'utilisation du procédé de la ratification**. »
-
-**C'est le trait le plus discriminant en pratique.** Une décision confédérale n'atteint pas le
-citoyen : elle s'adresse à l'État, qui doit ensuite l'introduire dans son propre droit.
-**Il n'existe pas d'ordre juridique confédéral qui s'imposerait directement.**
-
-**⑤ Les États conservent leur souveraineté et leur existence internationale.**
-> « Les États acceptent de **coopérer** pour un certain nombre de domaines, **en règle générale
-> pour les compétences diplomatiques ou militaires**, mais **conservent, à titre principal,
-> leur souveraineté, et leur existence internationale**. »
-:::
-
-::: definition Le droit de retrait — le critère qui a coûté une guerre
-> « Dans une Confédération, **un membre peut en principe se retirer**, à la différence de
-> l'État fédéral, **où cette possibilité est refusée** : ce fut l'**enjeu majeur de la guerre de
-> Sécession** entre les **Confédérés** et les **Nordistes**, assimilés à des **fédéralistes ou
-> partisans du pouvoir central**. »
-
-**Ce paragraphe mérite d'être développé, car il est révélateur.**
-
-**Le raisonnement juridique :** un traité peut être dénoncé par une partie ; une Constitution ne
-peut pas l'être par une fraction du peuple. **Si l'union repose sur un traité, on peut en
-sortir ; si elle repose sur une Constitution, on ne le peut pas.** C'est pourquoi le droit de
-sécession est en principe exclu du fédéralisme.
-
-**Le cas américain, qui est l'illustration parfaite :** les États du Sud, en faisant sécession
-en 1860-1861, se sont nommés les **États confédérés d'Amérique**. **Le nom n'était pas un
-hasard** : il affirmait juridiquement leur thèse — l'Union serait une association d'États
-souverains, dont on peut sortir. Le Nord soutenait la thèse inverse : l'Union est un État
-fédéral, né d'une Constitution, dont on ne sort pas. **La guerre de Sécession (1861-1865) a
-tranché un débat de qualification juridique par les armes.**
+**LE DROIT DE RETRAIT — le critère qui a coûté une guerre.** « Dans une Confédération, **un
+membre peut en principe se retirer**, à la différence de l'État fédéral. » **Raison juridique :
+on dénonce un traité ; on ne se retire pas d'une Constitution.**
+**Ce fut « l'enjeu majeur de la guerre de Sécession » (1861-1865).** Les États du Sud se
+nommaient **« États confédérés »** — le nom affirmait leur thèse : l'Union serait une association
+d'États souverains dont on peut sortir. **La guerre a tranché un débat de qualification
+juridique par les armes.**
 
 ::: piege
-**Attention au vocabulaire, il est contre-intuitif :** dans le contexte américain, les
-« **Confédérés** » sont les **Sudistes sécessionnistes**, et les « **fédéralistes** » sont les
-**Nordistes partisans du pouvoir central**. Le polycopié le précise, et l'inverser en copie est
-une faute qui se voit.
-
-**Nuance à connaître, que le polycopié ne donne pas :** le principe reste qu'une fédération
-exclut la sécession, mais quelques Constitutions fédérales l'ont expressément prévue. La
-Constitution de l'URSS reconnaissait formellement aux républiques un droit de sécession — resté
-théorique jusqu'en 1991, où il a servi de cadre juridique à la dissolution. **L'exception
-confirme le critère : c'est bien la Constitution qui décide.**
+⚠ **Vocabulaire contre-intuitif :** les « **Confédérés** » sont les **Sudistes sécessionnistes**,
+les « **fédéralistes** » les **Nordistes partisans du pouvoir central**. L'inverser se voit.
+*(Nuance : une Constitution fédérale peut exceptionnellement prévoir la sécession — celle de
+l'URSS le faisait, et cela a servi de cadre juridique en 1991. **L'exception confirme le
+critère : c'est bien la Constitution qui décide.**)*
 :::
 :::
 
-::: exemple Les exemples de confédérations — la liste complète du polycopié, avec les dates vérifiées
-| Confédération | Période donnée par le polycopié | Devenue |
+::: exemple Les exemples, et le destin des confédérations
+| Confédération | Période | Devenue |
 |---|---|---|
-| **Confédération des États-Unis d'Amérique du Nord** | « de **1778 à 1787**, pendant la guerre d'Indépendance » | **État fédéral** |
-| **Confédération helvétique** | « avant la transformation en État fédéral en **1848** » | **État fédéral** — « mais qui a **gardé cette dénomination désormais trompeuse** » |
-| **Confédération germanique** | « de **1815 à 1866**, englobant l'Autriche » | Puis **Confédération de l'Allemagne du Nord jusqu'en 1871**, « avant la naissance de l'État fédéral » |
-| **Commonwealth** | « rassemble les liens historiques entre le Royaume-Uni et ses anciennes possessions » | « **mais les liens sont très distendus** » |
-| **C.E.I.** | « rassemble les ex-républiques soviétiques, **sauf les États baltes, depuis 1991** » | Confédération de **dislocation** |
+| **États-Unis** | Articles de Confédération | **État fédéral** |
+| **Confédération helvétique** | Avant **1848** | **État fédéral** — « mais qui a gardé cette dénomination **désormais trompeuse** » |
+| **Confédération germanique** | **1815-1866**, englobant l'Autriche | Puis Confédération de l'Allemagne du Nord jusqu'en **1871**, avant l'État fédéral |
+| **Commonwealth** | Depuis la décolonisation britannique | « Les liens sont **très distendus** » |
+| **C.E.I.** | Depuis **1991**, sauf les États baltes | Confédération **de dislocation** |
 
 ::: piege
-**Trois précisions sur ce tableau.**
+**Deux rectifications.** ① Le polycopié date la confédération américaine « **de 1778 à 1787** ».
+Chronologie retenue : **Articles de Confédération adoptés en 1777, en vigueur en 1781**,
+remplacés par la **Constitution rédigée en 1787** et **appliquée en 1789** — 1787 est la date de
+la Convention de Philadelphie, non la fin de la confédération. ② Le polycopié écrit
+« **Confédération** des États indépendants » : le nom officiel est **Communauté des États
+indépendants**.
 
-**① Les dates américaines sont approximatives dans le polycopié.** La chronologie généralement
-retenue est la suivante : les **Articles de Confédération** sont adoptés par le Congrès
-continental en **1777**, entrent en vigueur après ratification par les treize États en **1781**,
-et sont remplacés par la **Constitution rédigée à Philadelphie en 1787**, entrée en application
-en **1789**. **La date de 1787 du polycopié correspond donc à la Convention de Philadelphie**,
-non à la fin effective de la confédération. **Si tu cites des dates, cite celles-ci.**
-
-**② Erreur de dénomination à corriger : la C.E.I.** Le polycopié écrit « **Confédération** des
-États indépendants ». Le nom officiel est **Communauté des États indépendants**. L'erreur est
-compréhensible dans un développement sur les confédérations, mais elle se voit.
-
-**③ La remarque sur la Suisse est excellente et il faut la reprendre.** Le nom officiel du pays
-en français est « **Confédération suisse** » et son abréviation internationale, **CH**, vient du
-latin *Confœderatio Helvetica*. **Or la Suisse est un État fédéral depuis 1848.** Le polycopié
-dit très exactement : une dénomination « **désormais trompeuse ». C'est l'exemple parfait
-pour montrer qu'**on qualifie un État par ses institutions, jamais par son nom** — de même que
-la « République démocratique allemande » n'était pas une démocratie.
-:::
+**Et la remarque sur la Suisse est excellente :** le nom officiel du pays est « Confédération
+suisse », son code **CH** vient de *Confœderatio Helvetica* — **or c'est un État fédéral depuis
+1848**. **On qualifie un État par ses institutions, jamais par son nom.**
 :::
 
-::: definition Le destin des confédérations : une étape, dans un sens ou dans l'autre
-> « Souvent la Confédération est une **étape vers une intégration plus poussée, le
-> fédéralisme**. Les confédérations **ne sont pas faites pour durer** et l'on dit parfois que
-> « **la fédération est une confédération qui a réussi** ». »
-
-> « Mais il existe aussi des **Confédérations de dislocation** comme la C.E.I. La Confédération
-> ne serait alors **qu'une étape vers moins de liens entre les États ou plus de liens**. »
-
-**La thèse, résumée : la confédération est une forme de transition, pas un état stable.** Elle
-peut évoluer dans deux directions opposées :
-
-| Sens | Nom | Exemples |
-|---|---|---|
-| **Vers plus d'intégration** | Confédération **d'agrégation** | États-Unis (1781 → 1789), Suisse (→ 1848), Allemagne (→ 1871) |
-| **Vers moins d'intégration** | Confédération **de dislocation** | **C.E.I.** après l'URSS ; **Commonwealth** après l'Empire britannique |
-
-**Pourquoi cette instabilité ?** Parce que les cinq traits du fonctionnement confédéral —
-unanimité, ratification, absence d'effet direct — rendent l'ensemble **lent et facile à
-bloquer**. Soit les États acceptent de renforcer l'organe commun, et l'on va vers la
-fédération ; soit ils s'en détachent, et l'ensemble se vide. **Le statu quo est
-structurellement instable.**
+**Le destin : une forme de transition, jamais un état stable.** « Les confédérations **ne sont
+pas faites pour durer** » ; « **la fédération est une confédération qui a réussi** ». Deux
+évolutions : **d'agrégation** (États-Unis, Suisse, Allemagne) ou **de dislocation** (CEI,
+Commonwealth). **Raison :** unanimité, ratification, absence d'effet direct rendent l'ensemble
+lent et facile à bloquer — **le statu quo est structurellement instable.**
 :::
 
-<!--saut-->
+#### 2.3.8 L'État composé (2) : l'État fédéral (p. 13-14)
 
-#### 2.3.8 L'État composé (2) : l'État fédéral — définition (polycopié, pages 13 et 14)
+::: definition Définition en trois affirmations
+> **« L'État fédéral est une *union d'États* au sein de laquelle *un nouvel État se superpose* à
+> ces États. Des États souverains acceptent d'abandonner des compétences pour former un nouvel
+> État : il y a donc *création d'un État supplémentaire*. »**
+> **« Ce fédéralisme naît par une *Constitution*, à la différence de la Confédération qui naît
+> d'un *Traité*. »**
+> **« Cet État fédéral est *le seul qui subsiste au niveau international*. »**
 
-::: definition La définition
-> « L'**État fédéral** est une **union d'États**, au sens du droit constitutionnel, **au sein de
-> laquelle un nouvel État se superpose à ces États**. Des **États souverains acceptent
-> d'abandonner des compétences pour former un nouvel État** : il y a donc **création d'un État
-> supplémentaire**. »
-
-> « **Ce fédéralisme naît par une Constitution, à la différence de la Confédération qui naît
-> d'un Traité.** »
-
-> « **Cet État fédéral est le seul qui subsiste au niveau international. Lui seul peut
-> entretenir des relations internationales.** »
-
-**Trois affirmations, et chacune est un critère d'examen :**
-1. **Création d'un État supplémentaire** — on passe de *n* à *n + 1* États.
-2. **L'acte fondateur est une CONSTITUTION**, non un traité.
-3. **Un seul sujet de droit international** : l'État fédéral.
-:::
-
-::: demo Pourquoi « Constitution » plutôt que « traité » change tout
-Le polycopié pose l'opposition sans l'expliquer. **Voici les quatre conséquences, et elles
-découlent toutes de ce seul mot.**
+**Les quatre conséquences du mot « Constitution » :**
 
 | | **Traité** (confédération) | **Constitution** (fédération) |
 |---|---|---|
-| **Nature de l'acte** | Acte de **droit international** entre souverains | Acte de **droit interne** d'un ordre juridique nouveau |
-| **Qui l'adopte** | Les **gouvernements**, par ratification | Le **pouvoir constituant** — souvent le peuple ou une convention |
-| **Applicabilité** | **Indirecte** : il faut une ratification, puis une transposition | **Directe** : elle s'applique immédiatement aux citoyens |
-| **Sortie possible ?** | **Oui** — on dénonce un traité | **Non** — on ne se retire pas d'une Constitution |
-| **Révision** | À l'**unanimité** en principe | À la **majorité qualifiée** des États fédérés |
+| Nature de l'acte | Droit **international** entre souverains | Droit **interne** d'un ordre juridique nouveau |
+| Qui l'adopte | Les **gouvernements**, par ratification | Le **pouvoir constituant** — souvent le peuple |
+| Applicabilité | **Indirecte** : ratification puis transposition | **DIRECTE** : elle s'applique immédiatement aux citoyens |
+| Sortie | **Oui** — on dénonce un traité | **Non** |
+| Révision | **Unanimité** en principe | **Majorité qualifiée** des États fédérés |
 
-**Le point ② est décisif et il est le plus souvent oublié en copie :** dans une fédération, le
-droit fédéral **atteint directement le citoyen**. Un Américain est soumis à la loi fédérale
-sans que son État ait à la transposer. **C'est ce qui prouve qu'il existe bien un second ordre
-juridique, et non une simple coopération entre États.**
-:::
+⚠ **Le troisième point est le plus souvent oublié : dans une fédération, le droit fédéral
+atteint DIRECTEMENT le citoyen. C'est ce qui prouve l'existence d'un second ordre juridique, et
+non une simple coopération.**
 
-::: definition La construction à deux étages
-> « Les **États-membres** d'une fédération ont **gardé les apparences (et la réalité) d'un État
-> avec une Constitution, un Parlement, des tribunaux**. C'est une **construction à deux
-> étages** :
-> - Au **premier niveau**, figurent les **États-membres ou États fédérés**.
-> - Au **niveau supérieur**, se trouve le **nouvel État, ou État fédéral ou Fédération**, qui
->   **englobe les États fédérés mais ne les absorbe pas**. C'est une **synthèse de l'État
->   unitaire et de la Confédération**. La **Constitution fédérale crée un nouvel ordre
->   juridique et politique**. »
-
-**« Englobe mais n'absorbe pas » est la formule à retenir.** L'État fédéral ne fait pas
-disparaître les États fédérés : il se **superpose** à eux. Les deux coexistent.
-
-**La devise que le polycopié cite pour l'illustrer :**
-> « La devise des États-Unis illustre ce phénomène : « ***E pluribus unum*** », qui pourrait se
-> traduire par « **Unité dans la diversité** ». »
-
-*(Traduction littérale : « de plusieurs, un seul ».)*
-:::
-
-::: piege Les noms des entités fédérées, et le piège de traduction que le polycopié signale
-> « Ces unités portent des noms divers : **provinces** au Canada, **cantons** en Suisse,
-> **Länder** en Allemagne et en Autriche, **régions** en Belgique. Mais ce sont des **États**
-> en Australie, Inde, ou aux États-Unis. »
-
-> « **L'emploi du même mot pour désigner les entités fédérées et l'entité fédérale est source
-> de confusions.** Mais il faut se méfier de la traduction ou de la francisation : aux
-> **États-Unis, le mot "State" est réservé aux "États fédérés"**. La fédération est désignée
-> sous le pluriel « **les États-Unis** ». On parle aussi de « **l'État libre de Bavière** ». »
-
-**Ce paragraphe est plus profond qu'il n'y paraît.** En anglais américain :
-- *State* = un **État fédéré** — le Texas, la Californie ;
-- l'entité fédérale se dit *the federal government*, ou *the United States* au pluriel.
-
-**Conséquence en copie :** « le gouvernement des États-Unis » désigne le niveau **fédéral** ;
-« le gouverneur de l'État de New York » désigne le niveau **fédéré**. **Préciser chaque fois de
-quel étage on parle est un réflexe à prendre.**
-:::
-
-::: exemple Les exemples d'États fédéraux — le contenu que la diapositive 9 promet et ne donne pas
-La diapositive 9 affiche un encadré intitulé « **Exemples d'États fédéraux** » **vide de tout
-contenu**. Le polycopié en cite trois. Voici la liste développée.
-
-| État fédéral | Nom des entités fédérées | Nombre | Seconde chambre |
-|---|---|:---:|---|
-| **États-Unis** | *States* (États) | 50 | **Sénat** — 2 sièges par État |
-| **Allemagne** | *Länder* | 16 | **Bundesrat** — pondéré selon la population |
-| **Suisse** | Cantons | 26 | **Conseil des États** — 2 par canton, 1 pour six d'entre eux |
-| **Autriche** | *Länder* | 9 | *Bundesrat* |
-| **Belgique** | **Régions** (3) et **Communautés** (3) | 3 + 3 | Sénat |
-| **Canada** | Provinces (et territoires) | 10 provinces | Sénat — nommé |
-| **Australie** | *States* | 6 | Sénat |
-| **Inde** | *States* et territoires de l'Union | 28 États | *Rajya Sabha* — Conseil des États |
-| **Brésil** | *Estados* | 26 + district fédéral | Sénat fédéral |
-| **Mexique** | *Estados* | 31 + Mexico | Sénat |
-| **Argentine** | Provinces | 23 + Buenos Aires | Sénat |
-| **Russie** | Sujets de la Fédération | — | Conseil de la Fédération |
-| **Émirats arabes unis** | Émirats | 7 | Conseil national fédéral |
-| **Malaisie** | États | 13 | *Dewan Negara* |
-| **Nigeria** | *States* | 36 | Sénat |
-
-**Les trois exemples cités par le polycopié — États-Unis, Allemagne, Suisse — sont les plus
-sûrs à mobiliser**, parce que ce sont ceux qu'il développe ensuite. **Retiens-les en priorité,
-avec le nom de leurs entités et de leur seconde chambre.**
+**LA CONSTRUCTION À DEUX ÉTAGES.** Les États membres « ont gardé les apparences (et la réalité)
+d'un État avec une **Constitution, un Parlement, des tribunaux** ». Au-dessus, le nouvel État
+« **englobe les États fédérés mais ne les absorbe pas** » — « une synthèse de l'État unitaire et
+de la Confédération ». Devise citée : ***E pluribus unum***, « unité dans la diversité ».
 
 ::: piege
-**Le cas belge mérite une phrase, car il est atypique et souvent cité en examen.** La Belgique
-est le seul exemple de fédéralisme **par dissociation** parmi ceux qui précèdent : elle était un
-État unitaire et s'est **progressivement fédéralisée** à partir de 1970, par réformes
-successives. **La plupart des fédérations naissent au contraire par agrégation** — des États
-séparés qui s'unissent.
+**Les noms des entités fédérées — et le piège de traduction.** **Provinces** au Canada,
+**cantons** en Suisse, **Länder** en Allemagne et en Autriche, **Régions** en Belgique, mais
+**États** en Australie, en Inde et aux États-Unis.
+⚠ « **Aux États-Unis, le mot *State* est réservé aux États fédérés** » ; la fédération se dit
+« les États-Unis » au pluriel, ou *the federal government*. **Précise chaque fois de quel étage
+tu parles.**
+:::
+:::
 
-Sa particularité supplémentaire : elle superpose **deux types d'entités fédérées** — trois
-**Régions**, définies par le territoire (Flandre, Wallonie, Bruxelles-Capitale), et trois
-**Communautés**, définies par la langue (française, flamande, germanophone). **Un même habitant
-relève donc d'une Région et d'une Communauté.**
+::: exemple Les exemples d'États fédéraux — l'encadré vide de la diapositive 9, rempli
+| État fédéral | Entités fédérées | Nombre | Seconde chambre |
+|---|---|:---:|---|
+| **États-Unis** | *States* | 50 | **Sénat** — 2 par État |
+| **Allemagne** | *Länder* | 16 | **Bundesrat** — pondéré |
+| **Suisse** | Cantons | 26 | **Conseil des États** |
+| **Autriche** | *Länder* | 9 | *Bundesrat* |
+| **Belgique** | **Régions** (3) et **Communautés** (3) | 3 + 3 | Sénat |
+| **Canada** | Provinces | 10 | Sénat — nommé |
+| **Australie** | *States* | 6 | Sénat |
+| **Inde** | *States* | 28 | *Rajya Sabha* |
+| **Brésil** | *Estados* | 26 + district fédéral | Sénat fédéral |
+| **Mexique · Argentine · Russie · Émirats arabes unis · Malaisie · Nigeria** | | | |
+
+**Les trois exemples du polycopié — États-Unis, Allemagne, Suisse — sont les plus sûrs : ce sont
+ceux qu'il développe.**
+
+::: piege
+**Le cas belge, atypique et souvent cité.** C'est le seul **fédéralisme par DISSOCIATION** de la
+liste : la Belgique était unitaire et s'est fédéralisée **à partir de 1970**. **La plupart des
+fédérations naissent par AGRÉGATION.** Et elle superpose **deux types d'entités** — trois
+**Régions** définies par le territoire, trois **Communautés** définies par la langue : **un
+habitant relève des deux.**
 :::
 :::
 
 <!--saut-->
 
-#### 2.3.9 Les trois principes du fédéralisme (diapositive 9 ; polycopié, pages 14 à 16)
+#### 2.3.9 Les trois principes du fédéralisme (diapositive 9 ; p. 14-16)
 
-::: piege Rappel de la divergence, et comment je la traite
-La **diapositive 9** énonce **trois** principes : **superposition**, **autonomie**,
-**participation**.
-Le **polycopié** écrit : « le fédéralisme est le résultat de **deux principes**, qui ont été
-systématisés par le juriste **Georges Scelle** », et ne développe que l'autonomie et la
-participation.
+::: formule S-A-P — empiler, partager, associer
+**Attribués à Georges Scelle (1878-1961).** ⚠ Rappel de la divergence : **trois** sur la
+diapositive, **deux** dans le polycopié, qui traite la superposition dans sa **définition** sans
+la nommer principe. **Je retiens les trois.**
 
-**Je retiens les trois de la diapositive** — c'est l'enseignante qui corrige — **et je montre
-pour chacun où le polycopié en fournit la matière.** Le premier principe est en effet traité
-par le polycopié, mais dans la **définition** de l'État fédéral (§ 2.3.8), sans être nommé
-« principe ».
-
-**Georges Scelle (1878-1961)**, juriste français, spécialiste de droit international. On lui
-attribue classiquement la formulation des **« lois du fédéralisme »**.
-:::
-
-::: formule Les trois principes, énoncés
-| | Principe | Ce qu'il affirme | Question à laquelle il répond |
+| | Principe | Ce qu'il affirme | Question |
 |:---:|---|---|---|
-| **1** | **Superposition** | Deux ordres juridiques se **superposent** sur le même territoire et la même population | **Comment est-ce construit ?** |
-| **2** | **Autonomie** | Chaque niveau dispose d'un **domaine propre** où il décide seul | **Qu'est-ce que chacun peut faire ?** |
-| **3** | **Participation** | Les États fédérés **participent** aux décisions de l'État fédéral | **Comment les fédérés se protègent-ils ?** |
-
-**Mnémotechnique : S-A-P — Superposition, Autonomie, Participation.**
-**Et une lecture logique :** on **empile** (superposition), on **partage** (autonomie), on
-**associe** (participation). *Empiler · Partager · Associer.*
+| **1** | **Superposition** | Deux ordres juridiques se superposent sur le même territoire et la même population | **Comment est-ce construit ?** |
+| **2** | **Autonomie** | Chaque niveau a un **domaine propre** où il décide seul | **Que peut faire chacun ?** |
+| **3** | **Participation** | Les fédérés **participent** aux décisions fédérales | **Comment se protègent-ils ?** |
 :::
 
-::: definition ① LE PRINCIPE DE SUPERPOSITION
-**La matière chez le polycopié** — dans la définition de l'État fédéral :
-> « un **nouvel État se superpose à ces États** » · « C'est une **construction à deux étages** »
-> · « qui **englobe les États fédérés mais ne les absorbe pas** » · « La **Constitution fédérale
-> crée un nouvel ordre juridique et politique** ».
+::: definition ① SUPERPOSITION
+**La matière chez le polycopié** : « un nouvel État **se superpose** » · « **construction à deux
+étages** » · « **englobe mais n'absorbe pas** » · « la Constitution fédérale crée **un nouvel
+ordre juridique et politique** ».
 
-**Énoncé du principe :** sur un même territoire et pour une même population **coexistent deux
-ordres juridiques complets**, l'un fédéral, l'autre fédéré, chacun avec sa Constitution, ses
-organes et ses juridictions.
+**Trois conséquences.** ① **Tout citoyen relève des deux ordres à la fois** — un Bavarois est
+soumis au droit fédéral **et** au droit du Land, sans choisir. ② **Deux séries d'institutions
+parallèles** — deux exécutifs, deux parlements, deux ordres de juridictions. ③ **Il faut une
+règle de conflit : le droit fédéral prime** — d'où la nécessité du juge constitutionnel.
 
-**Les trois conséquences, à savoir énumérer :**
-
-**① Tout citoyen relève de deux ordres juridiques à la fois.** Un Bavarois est simultanément
-soumis au droit fédéral allemand et au droit du Land de Bavière. Il n'a pas à choisir : les
-deux s'appliquent, dans leurs domaines respectifs.
-
-**② Il existe deux séries d'institutions parallèles** — deux exécutifs, deux parlements, deux
-ordres de juridictions.
-
-**③ Il faut une règle de conflit.** Deux ordres juridiques sur le même territoire produisent
-nécessairement des contradictions. **Le droit fédéral prime** — c'est la règle constante des
-fédérations, et c'est ce qui rend nécessaire le **juge constitutionnel** dont le polycopié
-parle plus loin.
-
-::: exemple
-**L'illustration la plus parlante** est celle que le polycopié donne au § 2.3.9 sur les
-compétences réservées : « Il est **plus facile de divorcer à Las Vegas (Nevada) qu'ailleurs**,
-la **peine capitale ne s'applique pas de la même manière**, **l'avortement est admis ou aboli
-dans certains États**. »
-
-**Traduction dans le vocabulaire de la superposition :** sur le territoire américain, la loi
-fédérale est la même partout, mais **le droit applicable à un citoyen dépend aussi de l'État
-fédéré où il se trouve**. Deux Américains peuvent être soumis à des règles opposées sur le
-même sujet — parce qu'ils relèvent du même étage fédéral et de deux étages fédérés différents.
-:::
+**L'illustration du polycopié :** « il est plus facile de **divorcer à Las Vegas (Nevada)**
+qu'ailleurs, **la peine capitale ne s'applique pas de la même manière**, **l'avortement est
+admis ou aboli dans certains États** ». **Deux Américains peuvent être soumis à des règles
+opposées : même étage fédéral, étages fédérés différents.**
 :::
 
-::: definition ② LE PRINCIPE D'AUTONOMIE
-> « Puisque l'État fédéral est un État composé d'États, doivent se retrouver **aux deux niveaux
-> les trois éléments de l'État** que sont le **territoire**, la **population**, et une
-> **Constitution**. »
-
-**Note que le polycopié écrit « une Constitution » là où le § 2 du cours disait
-« souveraineté ».** Ce n'est pas une inadvertance : c'est précisément parce que la souveraineté
-est **indivisible** (§ 2.2.4) qu'on ne peut pas dire que les États fédérés en détiennent une
-part. **On dit donc qu'ils ont une Constitution, c'est-à-dire un pouvoir d'auto-organisation.**
-
-**Le dédoublement des trois éléments :**
-> - « Il existe ainsi **deux territoires** et le **territoire fédéral est la somme des
->   territoires fédérés**. »
-> - « L'État fédéral **englobe deux populations** car **chaque individu se dédouble en citoyen
->   fédéral et en citoyen fédéré**. »
-> - « Sont consacrés enfin **deux pouvoirs politiques organisés par deux Constitutions**. »
+::: definition ② AUTONOMIE
+**« Doivent se retrouver aux deux niveaux les trois éléments de l'État : le territoire, la
+population, et une *Constitution*. »**
+⚠ **Note le mot : « une Constitution » et non « la souveraineté ».** Ce n'est pas une
+inadvertance : **la souveraineté étant indivisible, on ne peut pas dire que les fédérés en
+détiennent une part.**
 
 | Élément | Niveau fédéré | Niveau fédéral |
 |---|---|---|
-| **Territoire** | Celui de chaque État fédéré | **La somme** des territoires fédérés |
-| **Population** | Citoyen **fédéré** (Texan, Bavarois) | Citoyen **fédéral** (Américain, Allemand) |
+| **Territoire** | Celui de chaque État | **La somme** des territoires fédérés |
+| **Population** | Citoyen **fédéré** | Citoyen **fédéral** — « chaque individu **se dédouble** » |
 | **Pouvoir organisé** | Constitution de l'État fédéré | Constitution fédérale |
-:::
 
-::: demo Le partage des compétences : la mécanique et ses trois modèles
-> « Il faut alors **organiser un partage des compétences**, qui repose, souvent, sur la
-> distinction entre la **compétence générale ou de droit commun donnée au niveau fédéré** et la
-> **compétence d'exception ou d'attribution confiée au niveau fédéral**. »
+**LE PARTAGE DES COMPÉTENCES.**
+**Compétence générale (de droit commun, résiduelle)** = s'applique **par défaut**, son titulaire
+est compétent **pour tout ce qui ne lui a pas été retiré** ; **interprétation large**.
+**Compétence d'attribution (d'exception)** = résulte d'une **liste** ; **interprétation stricte**.
+**Principe standard : ce qui n'est pas expressément fédéral est fédéré.**
 
-**Deux notions à définir, le polycopié ne le fait pas :**
-
-**La compétence générale (ou de droit commun)** est celle qui s'applique **par défaut** : son
-titulaire est compétent pour **tout ce qui ne lui a pas été retiré**. On l'appelle aussi
-**compétence résiduelle**.
-
-**La compétence d'attribution (ou d'exception)** est celle qui résulte d'une **liste** : son
-titulaire n'est compétent que pour **ce qui y figure expressément**.
-
-**Les règles d'interprétation, que le polycopié énonce :**
-> « La première compétence est, en principe, d'**interprétation large** : le niveau fédéré est
-> compétent **pour toutes les affaires ou matières sauf celles qui sont réservées au niveau
-> fédéral**. La seconde est de **portée limitée et s'interprète restrictivement** : elle
-> consiste en une **énumération au profit de l'État fédéral**. »
-
-**Retiens le principe général : dans le modèle standard, ce qui n'est pas expressément fédéral
-est fédéré.**
-
-**Les trois modèles concrets, tous donnés par le polycopié :**
-
-| Modèle | Qui a la compétence générale ? | Exemples | Remarque du polycopié |
-|---|---|---|---|
-| **Modèle standard** | **Les États fédérés** ; l'État fédéral a une liste d'attributions | **États-Unis**, **Suisse** | « les constitutions **réservent la compétence de droit commun aux États fédérés** et l'État fédéral se contente de certaines attributions » |
-| **Modèle inversé** | **L'État fédéral** ; les entités fédérées ont des compétences **résiduelles** | **Canada** | « c'est un peu **l'inverse au Canada** où les provinces ont des compétences résiduelles, d'où la **permanence du problème québécois** » |
-| **Modèle à trois listes** | Partage détaillé, avec un domaine **partagé** | **Allemagne** | « la Constitution allemande met en place **trois listes** (articles 70 et suivants) » |
-
-**Le modèle allemand, détaillé par le polycopié :**
-> « Les deux premières sont relatives à la **compétence exclusive de la Fédération (Bund)** et
-> à **celle des Länder**. La troisième concerne la **compétence partagée ou concurrente** entre
-> la Fédération et les Länder. Dans ce cas, **les Länder peuvent légiférer mais la Fédération a
-> le droit de légiférer s'il apparaît un besoin de législation fédérale**, en faisant
-> application du **principe de subsidiarité**. »
+| Modèle | Compétence générale | Exemples |
+|---|---|---|
+| **Standard** | Aux **États fédérés** | **États-Unis, Suisse** |
+| **Inversé** | À l'**État fédéral** ; les provinces ont le **résidu** | **Canada** — « d'où la permanence du **problème québécois** » |
+| **À trois listes** | Partage détaillé + domaine **concurrent** | **Allemagne**, articles 70 et suivants : compétence exclusive de la Fédération, compétence des Länder, et **compétence concurrente** où « les Länder peuvent légiférer mais la Fédération a le droit de légiférer s'il apparaît un **besoin de législation fédérale** », par **subsidiarité** |
 
 ::: definition
-**Le principe de subsidiarité** — le polycopié l'emploie sans le définir, et c'est une notion
-majeure. Une compétence doit être exercée **au niveau le plus bas possible**, et ne remonter au
-niveau supérieur que **si celui-ci peut mieux atteindre l'objectif**. *Subsidiaire* vient du
-latin *subsidium*, « la réserve », « le secours » : le niveau supérieur intervient **en
-renfort**, pas par principe.
-
-**C'est aussi un principe fondamental du droit de l'Union européenne** — article 5 du traité
-sur l'Union européenne. Tu le rencontreras chaque fois qu'il faudra répartir des compétences
-entre deux niveaux.
+**Subsidiarité** — employée sans être définie par le polycopié : une compétence s'exerce **au
+niveau le plus bas possible** et ne remonte que si le niveau supérieur peut **mieux** atteindre
+l'objectif. *Subsidium* = « le secours » : le supérieur intervient **en renfort**. **C'est aussi
+un principe fondamental du droit de l'Union européenne** (article 5 du traité sur l'Union).
 :::
+
+**COMPÉTENCES EXTERNES ET INTERNES.** « **Les relations avec l'étranger sont confiées à l'État
+fédéral** puisque c'est lui qui **dispose seul de la souveraineté internationale** » — six
+domaines : **diplomatie · défense · économie · monnaie · citoyenneté · nationalité**.
+⚠ **Compare avec les marques de Bodin : battre monnaie, lever une armée. Ce sont les mêmes
+attributs — logique, ce sont eux qui font l'État au sens international.**
+*Exceptions citées : le **Québec** a signé directement une « **entente** » avec la France et
+dispose à Paris d'une délégation à statut diplomatique ; du temps de l'URSS, l'**Ukraine**
+siégeait à l'ONU.*
+
+**AUTO-ORGANISATION.** Chaque État fédéré a « une Constitution, un parlement (**Congrès de
+l'État** aux États-Unis) et un exécutif ». Le **gouverneur** est « l'équivalent local, et lui
+aussi élu, du président des États-Unis » ; le **ministre-président** d'un Land, l'équivalent du
+chancelier. Organisation juridictionnelle distincte, et « chaque État possède **son drapeau et
+un hymne** » — **exactement les symboles extérieurs dont le § 2.0 disait que l'État a besoin.**
 
 ::: piege
-**Une réserve sur la présentation du polycopié.** Il annonce trois listes dont l'une serait
-celle des « compétences exclusives des Länder ». Dans la Loi fondamentale allemande, la
-mécanique est un peu différente : l'article 70 pose que **les Länder ont la compétence de
-principe**, et les articles suivants énumèrent les compétences **exclusives de la Fédération**
-puis les compétences **concurrentes**. **Il n'y a donc pas à proprement parler de liste
-énumérant les compétences des Länder : ils ont le résidu.**
+**LA PHRASE LA PLUS IMPORTANTE DU PARAGRAPHE :** « **L'État fédéré est donc a priori très
+différent de la collectivité décentralisée, pour laquelle l'autonomie n'est qu'administrative.** »
 
-**Ce que tu dois retenir** — et c'est ce que le polycopié veut faire comprendre — c'est
-l'existence d'un **troisième domaine, dit concurrent ou partagé**, où les deux niveaux peuvent
-intervenir, avec priorité au fédéral lorsqu'une législation uniforme est nécessaire. **C'est
-l'originalité allemande, et elle est exacte.**
-:::
-:::
-
-::: definition Les compétences externes et internes — la ligne de partage la plus nette
-> « En ce qui concerne le contenu des compétences, la distinction se fait globalement entre les
-> **compétences externes et les compétences internes**, **les premières étant réservées à l'État
-> fédéral**. »
-
-> « **Les relations avec l'étranger sont confiées à l'État fédéral** puisque c'est lui qui
-> **dispose seul de la souveraineté internationale** (domaines **diplomatique, militaire,
-> économique, monétaire, citoyenneté et nationalité**). »
-
-**Six domaines, à connaître comme une liste :** diplomatie · défense · économie · monnaie ·
-citoyenneté · nationalité.
-
-**Compare avec les marques de souveraineté de Bodin (§ 2.2.4) :** battre monnaie, lever une
-armée. **On retrouve exactement les mêmes attributs au niveau fédéral, et c'est logique : ce
-sont eux qui font l'État au sens international.**
-
-**Les exceptions que le polycopié cite, et il faut savoir les mentionner :**
-> « Mais il existe des exceptions : le **Québec** (province) a **signé directement un accord
-> avec la France** dénommé « **entente** » et il dispose à Paris d'une **délégation générale
-> qui jouit d'un statut diplomatique**. Du temps de l'**U.R.S.S.**, l'**Ukraine bénéficiait
-> d'un siège à l'O.N.U**, au nom de son ancienne indépendance, retrouvée depuis. »
-
-**Pourquoi ces exceptions sont intéressantes :** elles montrent que **la ligne de partage n'est
-pas étanche en pratique**, et que la qualification juridique peut être infléchie par des
-arrangements politiques. **Mais elles restent des exceptions**, et n'enlèvent pas à l'État
-fédéral son monopole de la personnalité internationale.
-:::
-
-::: definition L'auto-organisation interne des États fédérés
-> « Les États-membres gardent un **pouvoir d'auto-organisation interne**, qui se manifeste par
-> **une Constitution par État, un parlement (Congrès de l'État aux États-Unis) et un
-> exécutif**. »
-
-**Les exemples du polycopié, à retenir :**
-> « Le **gouverneur** d'un État américain est **l'équivalent local, et lui aussi élu**, du
-> président des États-Unis. Le **ministre-président de chaque Land** en Allemagne est
-> l'équivalent du **chancelier fédéral**. Une **organisation juridictionnelle distincte** peut
-> exister d'un État à un autre. Plus symboliquement, **chaque État possède son drapeau et un
-> hymne distincts**, comme en Bavière ou dans les États américains. »
-
-**Note le dernier point : drapeau et hymne.** Ce sont exactement les **symboles extérieurs**
-dont le polycopié disait au § 2.0.3 que l'État en a besoin pour exister. **Les États fédérés en
-ont aussi — parce que ce sont des États.**
-
-**Et la conséquence, énoncée par le polycopié :**
-> « Sur les matières réservées aux États fédérés, **la législation peut être différente**. »
-:::
-
-::: piege La phrase la plus importante de tout le paragraphe
-> « **L'État fédéré est donc a priori très différent de la collectivité décentralisée, pour
-> laquelle l'autonomie n'est qu'administrative.** »
-
-**C'est la réponse à la question d'examen la plus probable du chapitre.** Développe-la ainsi :
-
-| | **Collectivité territoriale décentralisée** | **État fédéré** |
+| | **Collectivité décentralisée** | **État fédéré** |
 |---|---|---|
-| **Norme suprême qui la régit** | La **loi** nationale | Sa propre **Constitution** |
-| **Pouvoir normatif** | **Réglementaire** — elle administre | **Législatif** — elle légifère |
-| **Compétence de sa compétence** | **Non** | **Oui**, dans son domaine constitutionnel |
-| **Organes** | Assemblée élue et exécutif | **Parlement, exécutif, juridictions** |
-| **Autonomie** | **Administrative** | **Politique et constitutionnelle** |
-| **Protection de ses compétences** | Aucune contre la loi | **Constitutionnelle**, garantie par un juge |
+| Norme qui la régit | La **loi** nationale | **Sa propre Constitution** |
+| Pouvoir | **Réglementaire** — elle **administre** | **Législatif** — il **légifère** |
+| Compétence de sa compétence | **Non** | **Oui**, dans son domaine |
+| Organes | Assemblée élue et exécutif | **Parlement, exécutif, juridictions** |
+| Autonomie | **Administrative** | **Politique et constitutionnelle** |
+| Protection | Aucune contre la loi | **Constitutionnelle**, garantie par un juge |
 
-**Et le polycopié ajoute une précision d'une grande finesse, qui referme la boucle :**
-> « Bien sûr, **chacun de ces États fédérés est lui-même un État unitaire avec ses
-> collectivités décentralisées**, qui peut comprendre des entités correspondant aux
-> départements et communes français, **sur lesquelles il exerce un contrôle qui ressemble à la
-> tutelle**. »
-
-**Autrement dit : à l'intérieur de chaque étage fédéré, on retrouve intégralement le modèle du
-§ 2.3.2 à 2.3.5.** Les comtés et municipalités américains sont aux États fédérés ce que les
-communes sont à la France. **Le schéma se répète en cascade.**
+**Et le polycopié referme la boucle :** « chacun de ces États fédérés est **lui-même un État
+unitaire avec ses collectivités décentralisées** ». **Le schéma se répète en cascade.**
 :::
 
-::: definition La garantie du partage : le juge constitutionnel
-> « **La protection du partage des compétences se fait en principe par la voie
-> juridictionnelle**, qui vient réguler et protéger le fédéralisme inscrit dans la Constitution
-> fédérale, **comme une sorte de contrat qu'il faut protéger**. Cette juridiction est donc
-> **constitutionnelle**, prévue par la constitution et chargée de faire respecter cette
-> dernière. La **Cour suprême aux États-Unis**, la **Cour constitutionnelle allemande**, sont
-> des juridictions de ce type. »
-
-**Pourquoi un juge est indispensable :** si la Constitution répartit les compétences mais que
-personne ne tranche les conflits, le plus fort l'emporte — c'est-à-dire l'État fédéral. **Le
-juge constitutionnel est ce qui rend le partage effectif.**
-
-**Et le polycopié termine par une observation lucide :**
-> « **Elles contribuent en pratique à renforcer le centralisme juridique, et donc politique.** »
-
-**Traduction :** en tranchant, le juge **unifie**. Sa jurisprudence s'impose aux deux niveaux et
-finit par produire, sur la durée, une convergence du droit. **Le gardien du fédéralisme en est
-aussi, à long terme, un facteur d'érosion.** C'est un paradoxe à citer : il montre que tu as lu
-le texte jusqu'au bout.
+**LA GARANTIE : le juge constitutionnel.** « La protection du partage des compétences se fait
+par la voie **juridictionnelle** » — **Cour suprême** américaine, **Cour constitutionnelle**
+allemande. **Sans juge, le plus fort l'emporterait.** ⚠ Et le polycopié observe que ces
+juridictions « **contribuent en pratique à renforcer le centralisme juridique, et donc
+politique** » : **en tranchant, le juge unifie. Le gardien du fédéralisme en est aussi, à long
+terme, un facteur d'érosion.**
 :::
 
-<!--saut-->
+::: definition ③ PARTICIPATION
+**« Les États fédérés sont associés à l'organisation de l'État fédéral ainsi qu'à la révision de
+la Constitution fédérale, ce qui est logique puisque l'État fédéral résulte au départ d'un
+accord volontaire. »**
 
-::: definition ③ LE PRINCIPE DE PARTICIPATION
-> « **Les États fédérés sont associés à l'organisation de l'État fédéral ainsi qu'à la révision
-> de la Constitution fédérale**, ce qui est **logique puisque l'État fédéral résulte au départ
-> d'un accord volontaire entre les États membres**. »
+⚠ **Sa raison d'être : l'autonomie seule ne protège pas.** Si l'État fédéral pouvait réviser
+seul la Constitution, l'autonomie ne vaudrait rien. **La participation est la garantie de
+l'autonomie**, non un principe indépendant.
 
-**Le raisonnement, qu'il faut expliciter :** l'autonomie seule ne protège pas. Si l'État fédéral
-pouvait, seul, modifier la répartition des compétences, l'autonomie des fédérés ne vaudrait
-rien — il lui suffirait de réviser la Constitution. **La participation est donc la garantie de
-l'autonomie**, et non un principe indépendant.
-
-**Le polycopié distingue deux formes de participation, et c'est le plan de son développement.**
-:::
-
-::: definition Première forme : la gestion de l'État fédéral par des organes fédéraux — la seconde chambre
-> « Il existe **dans tout État fédéral une seconde chambre** où siègent des **représentants des
-> États-membres**, afin que **ceux-ci soient représentés au même titre que la population** qui,
-> elle, l'est dans le cadre d'une **première chambre**. »
-
-**C'est le trait institutionnel le plus reconnaissable du fédéralisme, et il faut le savoir par
-cœur :**
-
-| Chambre | Représente | Composition |
-|---|---|---|
-| **Première chambre** | **La population** | Élue par les citoyens, à proportion de la démographie |
-| **Seconde chambre** | **Les États fédérés** | Représentants des États |
-
-**Les deux exemples du polycopié :**
-> « C'est le cas **aux États-Unis, avec le Sénat, distinct de la Chambre des représentants**, et
-> en **République fédérale allemande, où le Bundesrat, chambre des États, ne se confond pas
-> avec le Bundestag, chambre du peuple**. »
+**PREMIÈRE FORME — la seconde chambre.** « Il existe **dans tout État fédéral une seconde
+chambre** où siègent des représentants des États-membres, afin que ceux-ci soient représentés
+**au même titre que la population**, qui l'est dans la première chambre. »
 
 | Pays | Chambre du **peuple** | Chambre des **États** |
 |---|---|---|
 | **États-Unis** | **Chambre des représentants** | **Sénat** |
 | **Allemagne** | **Bundestag** | **Bundesrat** |
 
-**Les pouvoirs de ces secondes chambres, tels que le polycopié les décrit :**
-> « Le **Sénat américain** participe, par exemple, à l'**œuvre législative et budgétaire** mais
-> aussi participe à **certaines attributions de l'exécutif** par **ratification des traités** et
-> **confirmation de la nomination à des emplois ou postes fédéraux**, comme les "ministres"
-> fédéraux ou les **membres de la Cour Suprême**. »
+*Le **Sénat américain** « participe à l'œuvre législative et budgétaire » mais aussi à
+« certaines attributions de l'exécutif » : **ratification des traités**, **confirmation des
+nominations** fédérales, dont les membres de la Cour suprême. L'**article 50 de la Loi
+fondamentale** allemande* ⚠ *(le polycopié écrit « Loi Fédérale » ; le texte s'appelle **Loi
+fondamentale**, ***Grundgesetz***, du **23 mai 1949**) prévoit que le **Bundesrat est composé de
+membres des gouvernements des Länder** : **une seconde chambre faite d'exécutifs régionaux**,
+construction unique.*
 
-> « C'est ainsi que l'**article 50 de la Loi Fédérale allemande** prévoit que le **Bundesrat est
-> composé de membres des gouvernements des Länder**. Par son intermédiaire, les « **Länder
-> participent à la législation et à l'administration de la fédération** ». »
-
-::: piege
-**Précision de dénomination :** le polycopié écrit « **Loi Fédérale allemande** ». Le texte
-s'appelle la **Loi fondamentale** (*Grundgesetz*), adoptée le **23 mai 1949**. Le nom
-« fondamentale » plutôt que « Constitution » avait été choisi pour marquer le caractère
-provisoire du texte en attendant la réunification. **Il est resté après 1990.**
-
-**Et note le point remarquable de l'article 50 : le Bundesrat est composé de membres des
-gouvernements des Länder**, non de parlementaires élus pour cela. **C'est une seconde chambre
-faite d'exécutifs régionaux** — construction unique, et très différente du Sénat américain,
-élu au suffrage universel direct dans chaque État depuis 1913.
-:::
-:::
-
-::: definition La représentation : égalitaire ou pondérée ?
-> « La représentation au sein de cette seconde assemblée peut être **égalitaire**, avec un
-> **nombre identique de membres par État comme aux États-Unis avec le Sénat**. »
-
-**Aux États-Unis : 2 sénateurs par État, quelle que soit sa population.** La Californie,
-39 millions d'habitants, et le Wyoming, moins de 600 000, ont **le même poids au Sénat**.
-
-**C'est une inégalité assumée, et elle est le cœur du compromis fédéral :** la première chambre
-corrige en faveur des grands États, la seconde en faveur des petits. **Sans cette garantie, les
-petits États n'auraient jamais accepté l'union.**
-
-**Le cas suisse, que le polycopié cite textuellement :**
-> « En Suisse, « les cantons d'**Obwald, de Nidwald, de Bâle-Ville, de Bâle-Campagne,
-> d'Appenzell Rhodes-Extérieures et d'Appenzell Rhodes-Intérieures élisent chacun un député ;
-> les autres cantons élisent chacun deux députés** » (**article 150 de la Constitution de
-> 1999**). »
-
-**Explication que le polycopié ne donne pas :** ces six entités sont d'anciens **demi-cantons**,
-issus de la division historique de trois cantons. **La règle du « deux par canton » leur
-attribue donc logiquement une moitié, soit un siège.** *(La Suisse ne parle plus officiellement
-de demi-cantons depuis la Constitution de 1999, mais l'héritage subsiste dans le nombre de
-sièges.)*
-
-> « Elle peut **ne pas l'être** et tenir compte d'une **pondération différente selon la taille
-> ou la démographie des États, comme en RFA**. »
-
-**En Allemagne, chaque Land dispose de trois à six voix au Bundesrat selon sa population.**
-C'est un **compromis** entre les deux logiques : ni strictement égalitaire, ni strictement
-proportionnel.
+**Représentation égalitaire ou pondérée ?**
 
 | Modèle | Principe | Exemple |
 |---|---|---|
-| **Égalitaire** | Même nombre de sièges par État | **États-Unis** — 2 par État |
-| **Pondéré** | Nombre variable selon la population | **Allemagne** — 3 à 6 voix par Land |
-:::
+| **Égalitaire** | Même nombre de sièges par État | **États-Unis — 2 par État** : la Californie (39 M) et le Wyoming (< 600 000) pèsent autant. **C'est le cœur du compromis fédéral** : la première chambre corrige pour les grands États, la seconde pour les petits |
+| **Intermédiaire** | 2 par canton, **sauf six entités qui n'en élisent qu'un** (anciens demi-cantons) | **Suisse — article 150 de la Constitution de 1999** |
+| **Pondérée** | Nombre variable selon la population | **Allemagne — 3 à 6 voix par Land** |
 
-::: definition La participation à la désignation de l'exécutif fédéral
-> « **La désignation de l'Exécutif fédéral peut faire aussi intervenir les États-membres.**
-> C'est le cas de l'**élection du Président des États-Unis, qui n'est pas élu au suffrage
-> universel direct**, mais avec un **mécanisme de décompte des mandats électoraux par État**. »
+**PARTICIPATION À L'EXÉCUTIF.** Le président américain « **n'est pas élu au suffrage universel
+direct**, mais avec un mécanisme de **décompte des mandats électoraux par État** ». Chaque État
+désigne des **grands électeurs** en nombre égal à sa représentation au Congrès, et le vainqueur
+d'un État en remporte en général la totalité. ⚠ **Un candidat peut donc être élu sans avoir le
+plus de voix au niveau national — ce n'est pas un dysfonctionnement : le président est élu par
+les États.**
 
-**Le mécanisme, que le polycopié ne détaille pas :** chaque État désigne un nombre de **grands
-électeurs** égal au nombre de ses représentants au Congrès — donc proportionnel à sa population
-**plus** deux au titre du Sénat. Dans la quasi-totalité des États, celui qui arrive en tête
-remporte **tous** les grands électeurs de l'État. **C'est le collège électoral qui élit le
-président.**
+**SECONDE FORME — la révision de la Constitution fédérale.** « Celle-ci suppose l'approbation
+des États-membres et **c'est la garantie majeure**. » Aux États-Unis : **deux tiers des deux
+chambres du Congrès**, puis ratification par **les trois quarts des législatures**, soit
+**38 sur 50** ($ 0{,}75 \times 50 = 37{,}5 $, arrondi au supérieur). *(27 amendements depuis
+1789, dont 10 dès 1791.)*
+> **« Il y a donc des difficultés sérieuses pour réviser la Constitution mais *ces contraintes
+> sont volontaires*, afin de protéger l'équilibre entre la Fédération et les États fédérés. »**
 
-**Deux conséquences à connaître :**
-- **Un candidat peut être élu sans avoir obtenu le plus de voix au niveau national.** C'est
-  arrivé plusieurs fois dans l'histoire américaine, notamment en 2000 et en 2016.
-- **Ce n'est pas un dysfonctionnement, c'est le fédéralisme.** Le président est élu **par les
-  États**, non directement par le peuple américain pris globalement. **Le mécanisme fait
-  exactement ce pour quoi il a été conçu.**
-:::
-
-::: definition Seconde forme : la participation à la révision de la Constitution fédérale
-> « Celle-ci **suppose l'approbation des États-membres et c'est la garantie majeure**. Le
-> « **contrat** » initial **ne peut être modifié sans l'accord de tous ou d'une majorité
-> qualifiée, des deux tiers ou des trois quarts des États fédérés**. »
-
-**« C'est la garantie majeure » — le polycopié le dit, et c'est exact.** Si l'État fédéral
-pouvait réviser seul la Constitution, il pourrait s'attribuer toutes les compétences. **La
-règle de révision est donc le verrou ultime de l'autonomie.**
-
-**L'exemple américain, chiffré par le polycopié :**
-> « Aux États-Unis, un **amendement** à la Constitution ne peut être adopté que s'il est
-> **adopté à la majorité des deux tiers des chambres du Congrès**, où siègent des représentants
-> des États, **et s'il est ratifié par au moins les trois quarts des "législatures" ou Congrès
-> fédérés (c'est-à-dire 38)**. »
-
-::: exemple
-**Vérifions le chiffre, puisqu'il est donné :** les États-Unis comptent **50 États**.
-$$ \frac{3}{4} \times 50 = 37{,}5 $$
-Une fraction d'État n'existant pas, il faut arrondir **au supérieur** : **38 États**. ✔ **Le
-chiffre du polycopié est exact.**
-
-**Ordre de grandeur à retenir :** la Constitution américaine, en vigueur depuis 1789, n'a été
-amendée que **27 fois**, dont **10 dès 1791** (le *Bill of Rights*). **Soit 17 amendements en
-plus de deux siècles.** La difficulté de révision n'est donc pas théorique.
-:::
-
-**La conclusion du polycopié, qui est aussi la conclusion du chapitre :**
-> « Il y a donc des **difficultés sérieuses pour réviser la Constitution** mais **ces
-> contraintes sont volontaires, afin de protéger l'équilibre entre la Fédération et les États
-> fédérés**. »
-
-**« Ces contraintes sont volontaires » : c'est la phrase à retenir.** La rigidité
-constitutionnelle n'est pas un défaut de conception — **c'est le prix consenti pour que les
-États fédérés acceptent l'union.** Rendre la Constitution difficile à modifier, c'est leur
-garantir qu'on ne leur reprendra pas ce qu'on leur a promis.
+**La rigidité constitutionnelle n'est pas un défaut de conception : c'est le prix consenti pour
+que les fédérés acceptent l'union.**
 :::
 
 <!--saut-->
 
 #### 2.3.10 Le tableau général des formes d'État
 
-::: synthese Les cinq formes, sur une seule grille — le tableau à savoir reproduire
-| | **État unitaire centralisé** | **État unitaire déconcentré** | **État unitaire décentralisé** | **État régional** | **État fédéral** | **Confédération** |
+::: synthese Les six formes sur une seule grille
+| | **Unitaire centralisé** | **Unitaire déconcentré** | **Unitaire décentralisé** | **État régional** | **État fédéral** | **Confédération** |
 |---|---|---|---|---|---|---|
-| **Nombre d'États** | 1 | 1 | 1 | 1 | **1 fédéral + n fédérés** | **n États, aucun nouveau** |
+| **Nombre d'États** | 1 | 1 | 1 | 1 | **1 fédéral + n fédérés** | **n, aucun nouveau** |
 | **Ordres juridiques** | 1 | 1 | 1 | 1 | **2 superposés** | **n, sans ordre commun** |
-| **Constitutions** | 1 | 1 | 1 | 1 | **1 + n** | **n**, plus un **traité** |
 | **Acte fondateur** | — | — | — | Constitution | **Constitution** | **Traité** |
 | **Personnes morales locales** | Non | **Non** | **Oui** | Oui | Oui | — |
 | **Autorités locales** | — | **Nommées** | **Élues** | Élues | Élues | — |
-| **Pouvoir local** | — | Décision administrative déléguée | **Administratif** | Administratif + **législatif limité** | **Législatif et constitutionnel** | **Souverain** |
+| **Pouvoir local** | — | Décision administrative déléguée | **Administratif** | + **législatif limité** | **Législatif et constitutionnel** | **Souverain** |
 | **Contrôle** | — | **Hiérarchique** | **De légalité** (juge) | Constitutionnel | **Juge constitutionnel** | Aucun |
-| **Compétence de sa compétence** | État | État | **État** | État (Constitution) | **Partagée par la Constitution** | **Chaque État** |
-| **Effet direct des normes du niveau supérieur** | — | — | — | — | **Oui** | **Non** — ratification requise |
-| **Retrait possible** | — | — | — | — | **Non** | **Oui** |
-| **Sujet de droit international** | L'État | L'État | L'État | L'État | **L'État fédéral seul** | **Chaque État membre** |
+| **Effet direct du niveau supérieur** | — | — | — | — | **Oui** | **Non** |
+| **Retrait** | — | — | — | — | **Non** | **Oui** |
+| **Sujet de droit international** | L'État | L'État | L'État | L'État | **L'État fédéral seul** | **Chaque membre** |
 | **Exemples** | Monaco | **France** (préfets) | **France** (régions) | **Italie, Espagne** | **États-Unis, Allemagne, Suisse** | **CEI, Commonwealth** |
 :::
 
-::: examen Les trois questions qui permettent de qualifier n'importe quel État
-**Question 1 — Combien y a-t-il de Constitutions sur ce territoire ?**
-- **Une seule** → État **unitaire** (ou régional). Passe à la question 2.
-- **Plusieurs superposées** → État **fédéral**. Passe à la question 3.
-- **Plusieurs, sans texte commun supérieur mais avec un traité** → **Confédération**. Fin.
-
-**Question 2 — Les autorités locales sont-elles élues et dotées de la personnalité morale ?**
-- **Non, nommées, sans personnalité morale** → **déconcentration**.
-- **Oui, mais elles n'exercent qu'un pouvoir administratif fixé par la loi** →
-  **décentralisation**.
-- **Oui, et leurs compétences sont garanties par la Constitution, avec un pouvoir législatif**
-  → **État régional**.
-
-**Question 3 — Les entités fédérées participent-elles aux décisions fédérales et à la révision
-de la Constitution ?**
-- **Oui** → fédéralisme **abouti** (superposition + autonomie + participation).
-- **Non** → fédéralisme **de façade** : la forme y est, la garantie n'y est pas.
-
-**La dernière question est celle qui distingue un fédéralisme réel d'un fédéralisme nominal.**
-Certains États se disent fédéraux sans que les entités fédérées disposent d'une véritable
-participation. **Savoir poser cette question montre que tu as compris à quoi sert le troisième
-principe.**
+::: examen Les trois questions qui qualifient n'importe quel État
+**Q1 — Combien de Constitutions sur ce territoire ?** Une → **unitaire ou régional**, va en Q2.
+Plusieurs superposées → **fédéral**, va en Q3. Plusieurs sans texte commun supérieur, mais un
+traité → **confédération**.
+**Q2 — Les autorités locales sont-elles élues et personnes morales ?** Non, nommées et sans
+personnalité morale → **déconcentration**. Oui, mais pouvoir **administratif** fixé par la loi →
+**décentralisation**. Oui, compétences **garanties par la Constitution** et pouvoir législatif →
+**État régional**.
+**Q3 — Les fédérés participent-ils aux décisions fédérales et à la révision ?** Oui →
+fédéralisme **abouti**. Non → fédéralisme **de façade**. **C'est la question qui distingue un
+fédéralisme réel d'un fédéralisme nominal.**
 :::
 
-<!--saut-->
+#### 2.3.11 L'Union européenne : ni confédération, ni fédération
 
-#### 2.3.11 Le cas de l'Union européenne : ni confédération, ni fédération
-
-Le polycopié consacre un développement entier à cette question, à l'intérieur de son
-paragraphe sur la confédération. **C'est un sujet de dissertation à part entière, et il faut le
-traiter séparément.**
-
-::: definition Le point de départ du polycopié
-> « Les **Communautés européennes**, créées par les **traités de 1951 et de 1957**, puis
-> l'**Union européenne en 1992 avec le Traité de Maastricht signé le 7 février 1992**, complété
-> par celui d'**Amsterdam en 1997**, celui de **Nice de 2001** et celui de **Lisbonne de 2007**,
-> **sont proches de la Confédération. Mais elles présentent des originalités multiples.** »
-
-**La chronologie des traités, à connaître :**
-
+::: definition La chronologie et la qualification
 | Année | Traité | Apport |
 |:---:|---|---|
-| **1951** | Traité de **Paris** | Communauté européenne du charbon et de l'acier (CECA) |
-| **1957** | Traités de **Rome** | Communauté économique européenne (CEE) et Euratom |
-| **1992** | **Maastricht** (signé le 7 février) | Crée l'**Union européenne** et la monnaie unique |
-| **1997** | **Amsterdam** | Approfondissement institutionnel |
-| **2001** | **Nice** | Préparation de l'élargissement |
-| **2007** | **Lisbonne** | Architecture actuelle de l'Union |
-:::
+| **1951** | **Paris** | CECA |
+| **1957** | **Rome** | CEE et Euratom |
+| **1992** | **Maastricht**, signé le **7 février** | Crée l'**Union européenne** et la monnaie unique |
+| **1997 · 2001 · 2007** | Amsterdam · Nice · **Lisbonne** | Architecture actuelle |
 
-::: demo Pourquoi l'Union ressemble à une confédération
-**Trois traits confédéraux, à énumérer :**
+Le polycopié : ces constructions « sont **proches de la Confédération**. Mais elles présentent
+des **originalités multiples** ».
 
-**① L'acte fondateur est un TRAITÉ, pas une Constitution.** C'est le critère décisif du
-§ 2.3.8. L'Union naît d'accords entre États souverains, ratifiés par chacun.
-
-**② Les États membres restent souverains et sujets de droit international.** Chacun siège à
-l'ONU, conclut ses propres traités, dispose de sa propre armée.
-
-**③ Le retrait est possible.** Depuis le traité de Lisbonne, l'**article 50 du traité sur
-l'Union européenne** organise expressément la sortie volontaire d'un État membre. **Le
-Royaume-Uni l'a mis en œuvre**, avec effet au 31 janvier 2020. **Or on ne se retire pas d'une
-fédération (§ 2.3.7) : c'est donc bien un trait confédéral.**
-:::
-
-::: demo Pourquoi l'Union n'est pas une confédération — les « originalités » du polycopié
-> « **D'une part**, les compétences mises en commun étaient au départ **essentiellement
-> économiques et non politiques ni militaires**. »
-
-**C'est déjà une originalité :** dans une confédération classique, la mise en commun porte
-d'abord sur la **diplomatie et la défense** (le polycopié le disait au § 2.3.7). **L'Europe a
-fait exactement l'inverse** : elle a commencé par le charbon, l'acier et le marché commun.
-
-> « **D'autre part**, le **droit communautaire ou de l'Union prime sur le droit interne** et est
-> **directement applicable aux États-membres, sans ratification, comme dans un État
-> fédéral**. »
-
-**C'est l'originalité majeure, et elle est décisive.** Rappelle-toi le § 2.3.7 : dans une
-confédération, les décisions « ne sont pas directement applicables dans l'ordre interne des
-États et nécessitent la ratification ». **L'Union fait le contraire : elle a l'effet direct.**
-
-**Deux principes à nommer, le polycopié les décrit sans les nommer :**
-
-::: definition
-**① L'effet direct.** Certaines normes de l'Union créent **directement** des droits et
-obligations pour les particuliers, invocables devant le juge national, **sans que l'État ait
-à les reprendre dans son droit**.
-
-**② La primauté.** En cas de conflit, **la norme de l'Union l'emporte sur la norme nationale**,
-y compris législative.
-
-**Ces deux principes ont été dégagés par la Cour de justice** dans les années 1960 — ils ne
-figuraient pas expressément dans les traités d'origine. **C'est le juge qui a transformé la
-nature de la construction européenne.**
-:::
-
-**Le polycopié précise ensuite le régime selon le type de norme :**
-> « **Pour certaines règles de droit communautaire, les États doivent adapter leur droit
-> national pour transposer ces règles communautaires.** En outre, **les règles de droit
-> communautaire priment sur les règles nationales, y compris les lois.** »
-
-**Les deux instruments principaux :**
-
-| Instrument | Effet |
-|---|---|
-| **Règlement** | **Directement applicable** — il entre en vigueur tel quel dans les 27 États |
-| **Directive** | Fixe un **résultat à atteindre** ; chaque État choisit les moyens et doit la **transposer** dans un délai donné |
-
-**La limite que le polycopié signale, et elle est précise :**
-> « **Seule la Constitution échappe (provisoirement ?) à cette primauté**, et sous réserve, en
-> France, des **articles 88-1 et suivants**. »
-
-**Traduction :** le droit de l'Union prime sur la loi française, mais **la Constitution demeure,
-en droit interne français, au sommet de la hiérarchie**. Le point de vue de la Cour de justice
-est différent : pour elle, le droit de l'Union prime sur **tout** le droit national, Constitution
-comprise. **Ce désaccord n'est pas résolu** — d'où le point d'interrogation du polycopié, qu'il
-faut reprendre.
-
-**L'article 88-1** de la Constitution est celui par lequel la France « participe à l'Union
-européenne » — la base constitutionnelle de son appartenance.
-:::
-
-::: synthese L'Union européenne face aux deux modèles — le tableau de qualification
 | Critère | **Confédération** | **Union européenne** | **Fédération** |
 |---|:---:|:---:|:---:|
 | Acte fondateur | **Traité** | **Traité** ✔ | Constitution |
-| Les membres restent souverains | **Oui** | **Oui** ✔ | Non |
+| Membres souverains | **Oui** | **Oui** ✔ | Non |
 | Sujets de droit international | Les membres | **Les membres** ✔ | L'État fédéral seul |
 | Retrait possible | **Oui** | **Oui** — art. 50 TUE ✔ | Non |
-| Effet direct des normes | **Non** | **OUI** ✖ | **Oui** |
-| Primauté sur le droit national | **Non** | **OUI** ✖ | **Oui** |
-| Parlement élu au suffrage direct | **Non** | **OUI** ✖ | **Oui** |
-| Monnaie commune | **Non** | **Oui** (zone euro) ✖ | Oui |
-| Citoyenneté commune | **Non** | **Oui** — citoyenneté de l'Union ✖ | Oui |
+| **Effet direct** | **Non** | **OUI** ✖ | **Oui** |
+| **Primauté** | **Non** | **OUI** ✖ | **Oui** |
+| Parlement élu au suffrage direct | Non | **Oui** ✖ | Oui |
+| Monnaie commune | Non | **Oui** ✖ | Oui |
+| Citoyenneté commune | Non | **Oui** ✖ | Oui |
 | Décisions à la majorité | Rare | **Fréquent** ✖ | Oui |
 | Armée commune | Parfois | **Non** ✔ | Oui |
-| Fiscalité propre significative | Non | **Non** ✔ | Oui |
 
-**Conclusion : cinq traits confédéraux, six traits fédéraux.** L'Union n'entre dans aucune des
-deux cases.
-:::
-
-::: examen La formulation attendue en copie
-> « L'Union européenne résiste aux catégories du droit constitutionnel classique. Elle naît
-> d'un traité, ses membres demeurent souverains et peuvent s'en retirer : autant de traits
-> confédéraux. Mais son droit bénéficie de l'effet direct et de la primauté, son parlement est
-> élu au suffrage universel direct, elle dispose d'une monnaie et d'une citoyenneté propres :
-> autant de traits fédéraux. **On la qualifie généralement d'organisation *sui generis*,
-> c'est-à-dire d'espèce unique** — ce qui est moins une définition qu'un constat d'échec des
-> catégories existantes. »
+**Cinq traits confédéraux, six traits fédéraux : elle n'entre dans aucune case.**
 
 ::: definition
-***Sui generis*** (latin) : « de son propre genre », c'est-à-dire **unique en son espèce**,
-qui ne rentre dans aucune catégorie établie. **Expression très employée en droit** pour
-désigner une institution dont la qualification classique est impossible.
+**Les deux principes que le polycopié décrit sans les nommer.**
+**Effet direct** : certaines normes de l'Union **créent directement des droits pour les
+particuliers**, invocables devant le juge national **sans reprise par l'État**.
+**Primauté** : en cas de conflit, **la norme de l'Union l'emporte sur la norme nationale**, y
+compris législative.
+⚠ **Tous deux ont été dégagés par la Cour de justice dans les années 1960** — ils ne figuraient
+pas dans les traités d'origine. **C'est le juge qui a transformé la nature de la construction
+européenne.** *(Instruments : le **règlement** est directement applicable ; la **directive** fixe
+un résultat et doit être **transposée**.)*
 :::
 
-**Ce que la remarque du polycopié te donne en plus :** l'Union est peut-être **une étape**. Il
-écrivait au § 2.3.7 : « **souvent la Confédération est une étape vers une intégration plus
-poussée, le fédéralisme** » et « **la fédération est une confédération qui a réussi** ».
-**Appliquée à l'Europe, cette phrase devient une question ouverte** — et c'est une excellente
-ouverture de conclusion.
+**La limite que le polycopié signale :** « **seule la Constitution échappe (provisoirement ?) à
+cette primauté**, et sous réserve, en France, des **articles 88-1 et suivants** ». **En droit
+interne français, la Constitution reste au sommet ; pour la Cour de justice, le droit de l'Union
+prime sur tout. Ce désaccord n'est pas résolu — reprends le point d'interrogation.**
+
+> **Formulation attendue :** « L'Union résiste aux catégories classiques. Elle naît d'un traité,
+> ses membres restent souverains et peuvent s'en retirer : traits confédéraux. Mais son droit a
+> l'effet direct et la primauté, son parlement est élu au suffrage direct, elle a une monnaie et
+> une citoyenneté propres : traits fédéraux. **On la qualifie d'organisation *sui generis***,
+> c'est-à-dire d'espèce unique — ce qui est moins une définition qu'un constat d'échec des
+> catégories existantes. »
+
+**Et le polycopié fournit l'ouverture :** « souvent la Confédération est **une étape** vers le
+fédéralisme » ; « **la fédération est une confédération qui a réussi** ». **Appliquée à l'Europe,
+la phrase devient une question ouverte.**
 :::
 
-::: marche Pourquoi cette qualification a une traduction directe sur les taux souverains
-La question « l'Union est-elle une fédération ? » est, pour un marché obligataire, la question
-**« existe-t-il une garantie mutuelle des dettes ? »**
+### 2.4 — La Section III : annoncée et absente
 
-**Dans une fédération**, le niveau fédéral dispose d'une fiscalité propre et d'une capacité
-d'emprunt propre : les *Treasuries* américains sont une dette fédérale, distincte de celle des
-États. **Dans une confédération**, il n'existe pas de dette commune.
+::: piege Le seul ✖ du chapitre
+L'introduction du polycopié annonce : « La République française… a été longtemps le **prototype
+de l'État unitaire (Section III)** ». **La table des matières n'en comporte que deux, et le
+document s'arrête page 16.** Je ne reconstitue pas un contenu que je n'ai pas.
 
-**L'Union est entre les deux, et son histoire récente le montre :** l'**article 125 du traité
-sur le fonctionnement de l'Union** pose une **clause de non-renflouement** — l'Union et les
-États membres ne répondent pas des engagements d'un autre État. **C'est un trait
-confédéral pur.** Mais la crise de 2010-2012 puis celle de 2020 ont conduit à créer des
-mécanismes d'assistance et des émissions communes, qui sont des traits fédéraux.
+**Demande :** vérifie s'il existe des pages supplémentaires, ou une suite distribuée par
+l'enseignante. **Transmets-les, je les intégrerai.**
 
-**Ce que le marché fait de cette ambiguïté :** il la **prix**. L'écart de taux entre deux États
-de la zone euro — le fameux *spread* — mesure très exactement **le degré de garantie implicite
-que les investisseurs croient exister**. Quand ce spread s'écarte, le marché dit qu'il croit
-moins à la solidarité ; quand il se resserre, l'inverse. **Une notion de droit constitutionnel
-se lit ainsi, tous les jours, en points de base.**
+**En attendant, tu n'es pas démuni** — le plan pour « La France est-elle encore un État
+unitaire ? » est déjà dans ce document :
+**I. La qualification unitaire tient** — un seul ordre juridique (§ 2.3.1) ; article
+1<sup>er</sup>, « République indivisible » et les quatre unités C-L-G-J (§ 2.3.2) ; article 72
+alinéa 3, pas de compétence de leurs compétences (§ 2.3.4).
+**II. Mais l'État est profondément transformé** — décentralisation en trois actes (§ 2.3.4) ;
+déconcentration dense (§ 2.3.3) ; droit local d'Alsace-Moselle (§ 2.3.2) ; autonomies outre-mer
+qui « éloignent la France du strict modèle unitaire » (§ 2.3.6) ; souveraineté partagée avec
+l'Union (§ 2.3.11 et § 2.2.4).
+**Conclusion :** le **critère juridique** est intact, l'**homogénéité** ne l'est plus —
+**différences de degré dans les faits, de nature en droit**.
 :::
-
-<!--saut-->
-
-### 2.4 — Ce que le polycopié annonce et ne livre pas : la Section III
-
-::: piege Une donnée manquante, signalée et non masquée
-**Dans son introduction, le polycopié annonce trois sections :**
-> « L'État selon ce troisième sens se définit par des éléments, qui sont au nombre de trois
-> **(Section I)**. Il peut revêtir aussi des formes particulières et diverses **(Section II)**.
-> **La République française, tant dans l'histoire que sous la Constitution de 1958, a été
-> longtemps le prototype de l'État unitaire (Section III).** »
-
-**Or :**
-- la **table des matières** du document ne comporte que **deux sections** ;
-- le texte **s'arrête page 16**, à la fin du développement sur la révision de la Constitution
-  fédérale ;
-- **aucune Section III ne figure dans les seize pages transmises.**
-
-**Je ne peux pas reconstituer un contenu que je n'ai pas.** Ce serait inventer, et c'est
-exactement ce que ce document s'interdit.
-
-**Ce que cette Section III devait vraisemblablement contenir**, d'après l'annonce elle-même :
-l'histoire constitutionnelle de la France comme État unitaire, et l'évolution de ce modèle sous
-la V<sup>e</sup> République — sans doute les développements sur la décentralisation, l'outre-mer
-et la Corse. **Une partie de cette matière est déjà couverte** par le § 2.3.2 à § 2.3.6 du
-présent document, qui exploite tout ce que les pages 10 à 12 du polycopié en disent.
-
-**Demande explicite :** si tu disposes de pages supplémentaires du polycopié — ou si
-l'enseignante a distribué une suite —, transmets-les. **Je les intégrerai et je mettrai à jour
-l'annexe.** En l'état, c'est le **seul ✖ du tableau de couverture**.
-:::
-
-::: examen Ce que tu dois savoir dire si la question tombe malgré tout
-Même sans la Section III, tu disposes de l'essentiel pour traiter un sujet du type « La France
-est-elle encore un État unitaire ? ». **Le plan est déjà dans ce document :**
-
-**I — La France demeure un État unitaire**
-- Un seul ordre juridique, une seule Constitution (§ 2.3.1)
-- L'article 1<sup>er</sup> : « République **indivisible** » (§ 2.3.2)
-- Les quatre unités : constitution, législation, gouvernement, juridiction (§ 2.3.2)
-- Les collectivités n'ont pas la compétence de leurs compétences — article 72 alinéa 3
-  (§ 2.3.4)
-
-**II — Mais un État unitaire profondément transformé**
-- Une **décentralisation** approfondie en trois actes : 1982, 2003, 2010 (§ 2.3.4)
-- Une **déconcentration** ancienne et dense (§ 2.3.3)
-- Des **exceptions à l'unité de législation** : droit local d'Alsace-Moselle (§ 2.3.2)
-- Des **régimes d'autonomie renforcée outre-mer**, qui « éloignent la France du strict modèle
-  unitaire » — la citation est du polycopié (§ 2.3.6)
-- Une souveraineté **partagée** avec l'Union européenne : primauté, effet direct, monnaie,
-  citoyenneté (§ 2.3.11 et § 2.2.4)
-
-**Conclusion :** la qualification unitaire tient, parce que le critère juridique — un seul
-ordre constitutionnel — est intact. Mais elle ne décrit plus qu'une **structure**, non une
-**homogénéité**. **C'est exactement la thèse du polycopié : des différences de degré, plutôt que
-de nature (§ 2.3.6).**
-:::
-
 <!--saut-->
 
 ## 3. Points de vigilance
@@ -6849,6 +4451,10 @@ manquante.
 
 **Bilan de couverture : 10 diapositives et 16 pages inventoriées, toutes traitées, plus la
 Section III annoncée et absente — soit 27 lignes, dont 9 ✔, 17 ⚠ et 1 ✖.**
+
+**La colonne « Traité dans » renvoie aux paragraphes de ce document.** Chacun d'eux existe aussi,
+trois fois plus développé, dans ***L'État — version intégrale*** : mêmes numéros de paragraphes,
+mêmes titres. **Quand un point de ce cours-ci ne suffit pas, ouvre l'intégrale au même numéro.**
 
 **Les 17 ⚠ ne signalent aucune lacune de ce document** : ils marquent les endroits où les
 supports d'origine étaient elliptiques — **les diapositives 2 et 7 à 10 ne contiennent que des
