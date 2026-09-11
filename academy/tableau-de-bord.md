@@ -18,13 +18,13 @@ dès que la FEG les communique — la règle d'arbitrage de la section 2 ne fonc
 | **Introduction au droit** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
 | **Principes de gestion** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **2** — CM 1 ✔, CM 2 ✔ ; total du semestre inconnu | *[calculée]* |
 | **Principes d'économie** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
-| **Institutions politiques** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
+| **Institutions politiques** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **1** — Partie 1, chapitre 1 « L'État » ✔ ; total du semestre inconnu | *[calculée]* |
 
-**Constat au 10 septembre 2026 : quatre matières sur six n'ont encore reçu aucun document.**
-C'est le déséquilibre le plus coûteux du tableau — non parce que les deux matières traitées
-le seraient mal, mais parce qu'une matière à niveau 1 ou 2 offre mécaniquement le meilleur
-rendement horaire (section 2). **Transmets en priorité un cours de chacune des quatre
-matières non couvertes.**
+**Constat au 11 septembre 2026 : trois matières sur six n'ont encore reçu aucun document** —
+mathématiques, introduction au droit, principes d'économie. C'est le déséquilibre le plus
+coûteux du tableau : non parce que les matières traitées le seraient mal, mais parce qu'une
+matière à niveau 1 ou 2 offre mécaniquement le meilleur rendement horaire (section 2).
+**Transmets en priorité un cours de chacune des trois matières non couvertes.**
 
 **Niveau actuel**, échelle de travail — à s'attribuer sans complaisance :
 
@@ -79,11 +79,14 @@ Une ligne par chapitre produit. Les échéances viennent de la section 6 de chaq
 | Stats — CHAP 1 « Présenter pour informer » | 4 sept. 2026 | ☐ 5 sept. | ☐ 7 sept. | ☐ 11 sept. | ☐ 25 sept. | *[notions à reprendre]* |
 | Gestion — CM 2 « Qui doit être roi ? » | 10 sept. 2026 | ☐ 11 sept. | ☐ 13 sept. | ☐ 17 sept. | ☐ 1ᵉʳ oct. | *[notions à reprendre]* |
 | Stats — CHAP 2 « Résumer pour informer » | 10 sept. 2026 | ☐ 11 sept. | ☐ 13 sept. | ☐ 17 sept. | ☐ 1ᵉʳ oct. | *[notions à reprendre]* |
+| Institutions politiques — « L'État » | 11 sept. 2026 | ☐ 12 sept. | ☐ 14 sept. | ☐ 18 sept. | ☐ 2 oct. | *[notions à reprendre]* |
 
-**Attention à la collision du 11 et du 13 septembre :** deux chapitres arrivent le même jour
-à J+1 puis à J+3. Traite-les dans l'ordre **cartes de gestion d'abord** (mémorisation pure,
-plus rapide), **stats ensuite** (calculs, qui demandent du papier). Compte 45 minutes le
-11 septembre et 65 minutes le 13.
+**Attention à l'embouteillage du 11 au 18 septembre :** quatre chapitres arrivent à échéance
+en huit jours. Ordre conseillé pour chaque séance : **cartes de gestion d'abord** (mémorisation
+pure, la plus rapide), **institutions politiques ensuite** (définitions et textes à citer),
+**statistiques en dernier** (calculs, qui demandent du papier).
+Charge prévisionnelle : **45 min le 11 · 30 min le 12 · 65 min le 13 · 40 min le 14 ·
+45 min le 17 · 60 min le 18 septembre.**
 
 **Une interrogation reste en attente :** les 12 questions du mode INTERROGATION sur le CM 1
 de gestion n'ont pas encore reçu de réponse. Elle ne compte pas comme révision tant qu'elle
