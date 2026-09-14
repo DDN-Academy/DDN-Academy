@@ -166,7 +166,7 @@ th{
   padding:1.5mm 2mm; border:1px solid var(--encre); letter-spacing:.02em;
 }
 td{ padding:1.4mm 2mm; border:1px solid var(--filet); vertical-align:top; }
-td{ overflow-wrap:anywhere; word-break:normal; }
+td{ overflow-wrap:break-word; word-break:normal; hyphens:auto; }
 /* les en-têtes ne se coupent jamais au milieu d'un mot : la colonne s'élargit */
 th{ overflow-wrap:normal; word-break:keep-all; hyphens:none; }
 tbody tr:nth-child(even) td{ background:#f7f8fa; }

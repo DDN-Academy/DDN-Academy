@@ -96,6 +96,18 @@ Une carte échouée deux fois de suite n'est pas un problème de mémoire mais d
 compréhension : elle déclenche un passage en **mode approfondissement**, pas une
 relecture supplémentaire.
 
+**Deux chapitres existent en deux fichiers** — le **cours**, qui est celui qu'on lit, et la
+**version intégrale**, qu'on ouvre ponctuellement quand un point résiste. Les numéros de
+paragraphes sont identiques dans les deux.
+
+| Chapitre | Fichier à lire | Charge de lecture | Version intégrale |
+|---|---|:---:|:---:|
+| Stats — CHAP 2 « Résumer pour informer » | `stats-02-resumer-pour-informer` | **27 p.** | 112 p. |
+| Institutions politiques — « L'État » | `institutions-01-l-etat` | **44 p.** | 142 p. |
+
+**Règle de la charte depuis le 11 septembre 2026 :** la partie à lire — carte, cours et points
+de vigilance — ne dépasse pas **45 pages**. Au-delà, le chapitre est scindé.
+
 ---
 
 ## 4. Objectif à trois ans — AST2, Master Finance EDHEC
