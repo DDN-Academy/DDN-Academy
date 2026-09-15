@@ -1,308 +1,257 @@
 ---
-matiere: Microéconomie
+matiere: Matière
 chapitre: Chapitre 0 — modèle
-titre: Squelette d'un chapitre reconstruit
+titre: Squelette d'un chapitre — format V2 « Machine à 18 »
 sous_titre: Gabarit imposé et référence complète de la syntaxe de rédaction
-resume: Ce fichier sert deux usages : il fixe la structure obligatoire de tout chapitre produit, et il documente chaque élément de mise en forme reconnu par la chaîne de production. Il se compile tel quel — c'est aussi le test de la chaîne.
-date: 2 septembre 2026
-duree: à renseigner (temps de travail estimé)
-version: 1.0
+resume: Ce fichier sert deux usages : il fixe la structure obligatoire de tout chapitre produit depuis la refonte V2 du 15 septembre 2026, et il documente chaque élément de mise en forme reconnu par la chaîne de production. Il se compile tel quel — c'est aussi le test de la chaîne.
+date: 15 septembre 2026
+duree: à renseigner
+version: 2.0
 sommaire: oui
 ---
 
-# Squelette d'un chapitre reconstruit
+# Le format V2 en un coup d'œil
 
-Les six sections ci-dessous sont **obligatoires** et dans cet ordre. Les passages en
-*italique* sont des consignes de rédaction : ils disparaissent du document final.
+Sept blocs, ordre imposé, aucun facultatif. Le document est construit **dans l'ordre
+d'utilisation par l'étudiant**, pas dans l'ordre logique de la discipline.
+**La charte complète fait foi : `academy/SYSTEME.md`.**
 
-<!--saut-->
+| Bloc | Nom | Usage | Volume |
+|:---:|---|---|---|
+| **0** | Le contrat | lu 1× | 1 p. |
+| **1** | Le noyau | **appris**, relu 5× | 6-10 p. |
+| **2** | Le cours qui explique | lu 1× | 15-25 p. |
+| **3** | Les automatismes | consulté | 3-6 p. |
+| **4** | La banque d'examen | **pratiqué** | libre |
+| **5** | Pièges et points volés | relu 2× | 2-4 p. |
+| **6** | Annexe — tableau de couverture | vérifié | libre |
 
-## 1. Carte du chapitre
-
-### Vue d'ensemble
-
-*Dix lignes exactement : de quoi parle ce cours, pourquoi il existe, quel problème
-économique il résout, où il s'insère dans la discipline, ce qu'il permettra de faire
-au chapitre suivant.*
-
-### Les idées maîtresses
-
-*Cinq à dix affirmations, formulées de façon retenable — pas des thèmes, des propositions.*
-
-1. *Idée 1 — énoncée comme une phrase complète que l'on pourrait défendre à l'oral.*
-2. *Idée 2.*
-
-### Prérequis
-
-*Tout prérequis manquant est enseigné ici, brièvement mais complètement. Ne jamais se
-contenter de le nommer.*
-
-::: methode Rappel — variation relative et point de pourcentage
-Une variation relative se calcule toujours par rapport à la valeur de départ :
-
-$$ \text{variation relative} = \frac{V_1 - V_0}{V_0} $$
-
-Passer de 4 % à 6 %, c'est **+2 points de pourcentage**, mais **+50 %** en variation
-relative ($ (6-4)/4 = 0{,}5 $). Confondre les deux coûte des points à chaque copie.
-:::
-
-### Lien avec la finance de marché
-
-::: marche
-*Le pont vers les marchés, uniquement lorsqu'il est réel — jamais forcé. Exemple type :
-l'élasticité de la demande est au producteur ce que le delta est au détenteur d'option —
-une sensibilité locale, valable pour de petites variations, et qui se déforme dès que
-l'on s'éloigne du point de mesure.*
-:::
+**Plafond de lecture : blocs 0 + 1 + 2 + 5 ≤ 35 pages.** Au-delà malgré une écriture serrée :
+deux fichiers, `<chapitre>.md` et `<chapitre>-integral.md`, mêmes numéros de paragraphes,
+renvois « ➔ intégrale § X ».
 
 <!--saut-->
 
-## 2. Le cours reconstruit
+# Bloc 0 — Le contrat
 
-*Contenu intégral du support d'origine, réorganisé dans l'ordre pédagogiquement optimal.
-Signaler explicitement lorsqu'on s'écarte de l'ordre de l'enseignant, et pourquoi.*
+## Ce qui t'attend à l'examen
 
-### 2.1 — Premier concept
+*Nature, durée, barème, pondération. **Si le format n'est pas connu, l'hypothèse retenue est
+écrite explicitement ici**, et la demande d'information figure au bloc 6.*
+
+## Le budget de révision
+
+*Tableau des huit séances (S1 à S8), avec date relative, durée en minutes et contenu exact.
+Total attendu : 4 h 30 à 5 h par chapitre.*
+
+## Ce que chaque bloc rapporte
+
+| Ce que tu sais | Note atteignable |
+|---|:---:|
+| Le **bloc 1**, parfaitement | ≈ 12/20 |
+| + le **bloc 2** compris | ≈ 15/20 |
+| + le **bloc 4** travaillé | ≈ 18/20 |
+| + le **bloc 5** | 18 à 20/20 |
+
+## Mode d'emploi des sept blocs
+
+*Tableau : bloc · pages · usage · combien de fois. Suivi d'un encadré `synthese` donnant la
+charge réelle : total des pages, dont combien à lire, dont combien à apprendre.*
+
+<!--saut-->
+
+# Bloc 1 — Le noyau
+
+> *Tout ce qui tombera, et rien d'autre. Aucune prose : tableaux, listes numérotées, formules
+> encadrées, définitions d'une à trois lignes. Chaque définition est rédigée dans la
+> formulation exacte à recopier en copie.*
+
+## N1 — *Première notion*
+
+::: definition À savoir mot pour mot
+*La définition, dans la forme exacte à restituer. Attribution si elle existe.*
+:::
+
+## N2 — *Deuxième notion*
+
+*Etc. Numéroter N1, N2, N3… : le bloc 2 et le bloc 4 y renvoient.*
+
+::: piege La distinction qui sépare 14 de 18
+*Le point de confusion classique, avec le critère net qui le tranche.*
+:::
+
+## N*n* — Les chiffres à savoir
+
+| Chiffre | Ce qu'il mesure | Source |
+|---:|---|:---:|
+
+## N*n+1* — Les auteurs, sources et dates
+
+| Nom | Ce qu'il apporte | Repère |
+|---|---|---|
+
+<!--saut-->
+
+# Bloc 2 — Le cours qui explique
+
+> *Se lit une seule fois. Sa fonction n'est pas d'être su : c'est de rendre le bloc 1
+> compréhensible, donc mémorisable. Chaque section renvoie au point du noyau qu'elle éclaire.*
+
+## 2.1 — *Premier concept* ➔ noyau N1
 
 **À quoi ça sert.** *Le problème concret que la notion résout.*
-**D'où ça vient.** *Origine, auteur, contexte historique lorsqu'il éclaire.*
+**D'où ça vient.** *Origine, auteur, contexte, lorsqu'ils éclairent.*
 
-::: definition Élasticité-prix de la demande
-**En langage simple :** de combien de pour cent la quantité demandée bouge lorsque le
-prix bouge de 1 %.
-
-**Formulation académique :** rapport de la variation relative de la quantité demandée
-à la variation relative du prix qui l'a provoquée, les autres déterminants étant
-supposés constants (*ceteris paribus*).
+::: definition *Terme*
+**En langage simple :** *…*
+**Formulation académique :** *…*
 :::
 
-::: formule Élasticité-prix
-$$ e_{p} = \frac{\Delta Q / Q}{\Delta P / P} = \frac{\Delta Q}{\Delta P} \times \frac{P}{Q} $$
+::: formule *Nom de la formule*
+$$ e_{p} = \frac{\Delta Q / Q}{\Delta P / P} $$
 
-- $ \Delta Q $ : variation absolue de la quantité demandée, en unités.
-- $ \Delta P $ : variation absolue du prix, en euros.
-- $ P/Q $ : rapport évalué **au point de départ** — l'élasticité dépend du point où on la mesure.
-
-Le signe est négatif pour un bien normal : prix et quantité varient en sens opposé.
-On raisonne le plus souvent sur la valeur absolue $ |e_p| $.
+- $ \Delta Q $ : *signification, unité.*
+- *Chaque symbole, sans exception.*
 :::
 
-::: demo Pourquoi le rapport de deux variations relatives, et non de deux variations absolues
-1. Une variation absolue dépend des unités : passer de 100 à 110 kg n'est pas comparable
-   à passer de 2 à 2,2 €.
-2. Diviser chaque variation par sa valeur de départ élimine les unités : le résultat est
-   un nombre pur.
-3. Le rapport de deux nombres purs est donc comparable entre biens, entre pays, entre époques.
-4. C'est exactement la raison pour laquelle on compare des rendements en pourcentage, et
-   non en euros gagnés.
+::: demo Pourquoi cette formule et pas une autre
+1. *Étape 1.*
+2. *Étape 2 — aucune étape ne suppose un calcul non montré.*
 :::
 
 ::: exemple Calcul complet
-Le prix passe de 20 € à 22 €, la quantité demandée de 500 à 450 unités.
-
-1. $ \Delta P = 22 - 20 = 2 $ € ; $ \Delta P / P = 2/20 = 0{,}10 $ soit +10 %.
-2. $ \Delta Q = 450 - 500 = -50 $ ; $ \Delta Q / Q = -50/500 = -0{,}10 $ soit −10 %.
-3. $ e_p = -0{,}10 / 0{,}10 = -1 $.
-4. Lecture : $ |e_p| = 1 $ — élasticité **unitaire**. La recette totale passe de
-   $ 20 \times 500 = 10\,000 $ € à $ 22 \times 450 = 9\,900 $ €, soit −1 %.
-   L'élasticité unitaire ne garantit la stabilité *exacte* de la recette que pour une
-   variation infinitésimale du prix. Sur une variation discrète, il subsiste un terme du
-   second ordre : $ \Delta R = P\,\Delta Q + Q\,\Delta P + \Delta P\,\Delta Q $, dont les
-   deux premiers termes se compensent ici ($ -1\,000 + 1\,000 $) et dont le troisième vaut
-   $ 2 \times (-50) = -100 $ € — exactement l'écart constaté.
+*Un seul exemple, celui qui peut tomber, calculs intermédiaires apparents.*
 :::
 
-::: piege
-Calculer l'élasticité avec la valeur d'arrivée au dénominateur au lieu de la valeur de
-départ. Le résultat change, et le correcteur le voit immédiatement. Sauf consigne
-contraire, $ P $ et $ Q $ sont pris **au point initial**.
+::: marche Le même raisonnement sur les marchés
+*Uniquement lorsque l'analogie est réelle — jamais forcée.*
 :::
-
-::: examen
-Une question sur trois porte sur le lien élasticité / recette totale. À retenir sous
-forme de règle : $ |e_p| > 1 $ → baisser le prix augmente la recette ; $ |e_p| < 1 $ →
-baisser le prix la diminue ; $ |e_p| = 1 $ → recette maximale.
-:::
-
-### 2.2 — Deuxième concept
-
-*Même architecture : utilité, origine, définition, formule, démonstration, exemple chiffré,
-piège, point d'examen.*
 
 <!--saut-->
 
-## 3. Points de vigilance
+# Bloc 3 — Les automatismes
 
-### 3.1 — Confusions classiques
+## 3.1 — Le minutage de l'épreuve
 
-| Notion A | Notion B | Le critère qui les sépare |
-|---|---|---|
-| *Déplacement **le long de** la courbe* | *Déplacement **de** la courbe* | *Le prix a-t-il changé, ou un autre déterminant ?* |
-| *Variation en points* | *Variation en pourcentage* | *Rapport à la valeur de départ ou non* |
+| Phase | Durée | Ce que tu fais |
+|---|---:|---|
+| Lecture | 5 min | *…* |
+| Production | *…* | *Minutes par point du barème.* |
+| Relecture | 5 min | *…* |
 
-### 3.2 — Erreurs de la majorité des étudiants
+## 3.2 — Gabarit 1 : « Définissez… »
 
-*Trois à six erreurs précises, constatées sur ce chapitre, avec leur correction.*
+*Format imposé : « On te demande X → tu fais 1, 2, 3. » Un gabarit par type de question
+repérable dans la matière.*
 
-### 3.3 — Ce qui sépare une copie moyenne d'une excellente copie
+::: correction Exemple appliqué
+*Une réponse modèle complète, suivie de la raison pour laquelle elle prend le maximum.*
+:::
 
-*Ce que fait le major et que les autres ne font pas : nommer les hypothèses, justifier le
-signe, interpréter économiquement le résultat, discuter la limite du modèle.*
+## 3.*n* — Les phrases qui rapportent
+
+| Situation | La phrase |
+|---|---|
+
+## 3.*n+1* — Les recettes de calcul
+
+::: formule Les calculs du chapitre
+*Toutes les formules opératoires, numérotées.*
+:::
 
 <!--saut-->
 
-## 4. Système d'ancrage mémoriel
+# Bloc 4 — La banque d'examen
 
-### 4.1 — Fiche de synthèse (une page)
+> *Ne se lit pas : se fait. Document fermé, réponse produite de mémoire, puis vérification.*
 
-::: synthese L'essentiel du chapitre
-*Condensé autosuffisant : les définitions, les formules, les résultats, les conditions
-d'application. Doit tenir sur une page imprimée et permettre une révision de 10 minutes.*
-:::
-
-### 4.2 — Cartes de révision
+## Série A — Flash
 
 ::: carte
-Que mesure exactement l'élasticité-prix de la demande ?
+*La question.*
 --
-La variation relative de la quantité demandée provoquée par une variation relative du
-prix de 1 %, toutes choses égales par ailleurs. C'est un nombre sans unité, mesuré en un
-point précis de la courbe.
+*La réponse, complète mais brève.*
 :::
 
-::: carte
-Pourquoi divise-t-on par la valeur de départ et non par la valeur d'arrivée ?
---
-Pour que le rapport soit indépendant des unités et du sens de la variation, et donc
-comparable d'un bien à l'autre. La convention fixe le point de mesure au point initial.
+## Série B — Application chiffrée
+
+### B1 — *Titre* *(n minutes)*
+
+*L'énoncé.*
+
+::: correction Corrigé B1
+*Chaque étape justifiée, jamais le seul résultat.*
 :::
 
-*Une carte par notion. Aucun trou : toute notion du chapitre doit apparaître dans au
-moins une carte.*
+## Série C — Réflexion
 
-### 4.3 — Moyens mnémotechniques
-
-*Pour chaque liste ou classification à retenir : un procédé, expliqué, pas une simple
-suite de lettres.*
-
-### 4.4 — Schéma récapitulatif
-
-```
-                  [ Notion centrale ]
-                   /              \
-        [ Branche 1 ]            [ Branche 2 ]
-         /       \                  /       \
-   [ notion ] [ notion ]      [ notion ] [ notion ]
-```
-
-*Décrire ensuite en une phrase chaque lien du schéma : ce qui relie deux notions n'est
-jamais évident.*
-
-<!--saut-->
-
-## 5. Entraînement progressif
-
-### Niveau 1 — Restitution
-
-1. *Question de cours vérifiant une définition.*
-2. *Question vérifiant un mécanisme.*
-
-::: correction Corrigé du niveau 1
-*Réponse complète et rédigée, telle qu'elle serait attendue sur une copie.*
+::: correction Corrigé C1 — copie de major
+*Réponse rédigée au niveau attendu d'une excellente copie.*
 :::
 
-### Niveau 2 — Application
-
-**Exercice 1.** *Énoncé chiffré de type examen, avec toutes les données nécessaires.*
-
-::: correction Corrigé détaillé de l'exercice 1
-1. *Étape 1 — ce qu'on cherche et pourquoi cette formule.*
-2. *Étape 2 — application numérique, calcul apparent.*
-3. *Étape 3 — résultat, unité, interprétation économique.*
-
-*Le résultat seul ne vaut rien : chaque étape est justifiée.*
-:::
-
-### Niveau 3 — Maîtrise
-
-*Questions de réflexion, cas transversaux, questions pièges, sujet de dissertation ou
-d'analyse. Corrigés rédigés au niveau d'une excellente copie.*
-
-### Niveau 4 — Simulation d'examen
+## Série D — Simulation d'examen
 
 ::: methode Conditions de passation
-*Format et durée réels du partiel. Chronomètre lancé, aucun document, aucune interruption.*
+*Format, durée et barème réels. Minutage conseillé.*
 :::
 
-**Sujet.** *Épreuve complète, avec barème détaillé par question.*
+*Le sujet complet.*
 
-::: correction Corrigé type — « copie de major »
-*Copie complète, rédigée, avec le barème appliqué point par point et la justification de
-chaque point attribué.*
+::: correction Barème détaillé et corrigé « copie de major »
+*Barème appliqué ligne à ligne, puis la copie, puis « ce qui ferait perdre des points ».*
+:::
+
+::: examen Grille de report
+| Partie | Points | Obtenus |
+|---|:---:|:---:|
+
+**Décision.** *Seuil 16/20 et conduite à tenir selon le résultat.*
 :::
 
 <!--saut-->
 
-## 6. Auto-évaluation finale
+# Bloc 5 — Pièges et points volés
 
-### 6.1 — Liste de contrôle
+## 5.1 — Les erreurs du support
 
-> Si l'une de ces questions reste sans réponse **sans regarder le document**, le chapitre
-> n'est pas maîtrisé.
+| № | Ce que dit le support | Ce qui est exact | Conduite en examen |
+|:---:|---|---|---|
 
-- [ ] *Question de contrôle 1*
-- [ ] *Question de contrôle 2*
+## 5.2 — Les confusions classiques
 
-### 6.2 — Grille de vérification chiffrée
+| № | Ne pas confondre | Le critère qui sépare |
+|:---:|---|---|
 
-Se sentir à l'aise n'est pas une mesure. On note, on compare au seuil, on applique la décision.
+## 5.3 — Les points volés
 
-| Épreuve | Conditions | Seuil | Résultat obtenu | Décision si sous le seuil |
-|---|---|:---:|:---:|---|
-| Niveau 1 — restitution | Sans document | 100 % | *…… %* | Reprendre la définition, refaire la carte le jour même |
-| Niveau 2 — application | Chronométré, sans document | 80 % | *…… %* | Refaire les exercices ratés à J+1, sans regarder le corrigé |
-| Niveau 3 — maîtrise | Sans document | 3 sur 4 | *…… / 4* | Approfondissement sur la notion en cause |
-| Niveau 4 — simulation | Conditions réelles du partiel | 14/20 | *…… / 20* | Nouvelle simulation à J+7, sujet différent |
-| Exposé blanc | À voix haute, 10 min, sans notes | Aucun blocage | *oui / non* | Le point de blocage **est** la notion mal comprise |
+*Ce que la copie à 18 contient et que la copie à 14 n'a pas, chacun formulé prêt à l'emploi.*
 
-**Lecture des échecs.** Échec au niveau 1 → défaut de mémorisation. Échec au niveau 2 alors
-que le 1 est acquis → défaut de méthode. Échec au niveau 3 alors que le 2 est acquis →
-défaut de compréhension. Trois causes différentes, trois traitements différents ; les
-confondre fait perdre des semaines.
+## 5.4 — Les fautes qui coûtent le plus cher
 
-### 6.3 — Protocole de révision daté
-
-| Échéance | Durée | Ce qui est révisé |
-|---|---|---|
-| J+1 | 20 min | *Fiche de synthèse + toutes les cartes + un exercice de niveau 2* |
-| J+3 | 30 min | *Cartes échouées à J+1 + deux exercices chronométrés* |
-| J+7 | 45 min | *Liste de contrôle à froid + un exercice de niveau 3* |
-| J+21 | 60 min | *Simulation d'examen complète + auto-correction au barème* |
+::: piege À relire la veille
+*Cinq maximum, les plus coûteuses.*
+:::
 
 <!--saut-->
 
-## Annexe — Tableau de couverture du support d'origine
+# Bloc 6 — Annexe : tableau de couverture du support
 
-*Preuve de complétude, vérifiable en deux minutes : une ligne par diapositive, page, photo
-ou section du support d'origine. Aucun numéro ne manque dans la suite — un trou dans la
-numérotation serait un trou dans le traitement.*
+> *Une ligne par diapositive, page, photo ou section. **Aucun numéro manquant** — un trou
+> dans la numérotation serait un trou dans le traitement.*
 
-| # | Élément du support d'origine | Nature | Traité dans | État |
+| # | Élément du support | Nature | Traité dans | État |
 |:---:|---|---|---|:---:|
-| 1 | *Diapo 1 — titre et plan* | *plan* | *§1, carte du chapitre* | ✔ |
-| 2 | *Diapo 2 — « Définition de l'élasticité »* | *définition* | *§2.1* | ✔ |
-| 3 | *Diapo 3 — formule, sans démonstration* | *ellipse orale* | *§2.1, démonstration reconstruite* | ✔ |
-| 4 | *Diapo 4 — graphique non commenté* | *schéma* | *§2.1, lecture ligne à ligne* | ✔ |
-| 5 | *Photo 2 — bas du tableau flou* | *source* | *—* | ✖ |
+| 1 | *Diapo 1 — titre et plan* | *plan* | *Bloc 2, § 2.0* | ✔ |
+| 2 | *Diapo 2 — formule posée sans démonstration* | *ellipse orale* | *Bloc 2, § 2.1* | ⚠ |
+| 3 | *Photo 2 — bas du tableau illisible* | *source* | *—* | ✖ |
 
-**Légende.** ✔ traité intégralement — ⚠ traité, mais support d'origine incomplet : la
-reconstruction est signalée à l'endroit exact — ✖ impossible à traiter, donnée manquante.
+**Bilan : *n* éléments inventoriés — *a* ✔, *b* ⚠, *c* ✖.**
+
+**Légende.** ✔ traité intégralement — ⚠ traité, mais support incomplet : la reconstruction
+est signalée à l'endroit exact — ✖ impossible à traiter, donnée manquante.
 
 ::: piege Demandes ouvertes
-*Un ✖ n'est jamais silencieux. Il est repris ici, explicitement :*
-
-- *Ligne 5 — photo 2 : les trois dernières lignes du tableau sont illisibles. Il me faut
-  une reprise de cette photo, ou le passage correspondant des notes d'un camarade.*
+*Un ✖ n'est jamais silencieux. Chacun est repris ici, avec la demande précise.*
 :::
 
 ---

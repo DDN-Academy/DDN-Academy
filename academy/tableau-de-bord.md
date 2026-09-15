@@ -7,34 +7,48 @@ Les cases entre crochets sont à remplir ; rien n'y est présumé.
 
 ## 1. Matières du semestre
 
-Six matières au semestre. Les colonnes vides ne sont pas des oublis : **coefficients,
-formats d'épreuve et dates ne sont pas encore connus et ne seront pas supposés.** Remplis-les
-dès que la FEG les communique — la règle d'arbitrage de la section 2 ne fonctionne pas sans.
+Six matières, **30 crédits**, répartis en trois BCC (source : diapositive 3 du cours de
+Principes d'économie). Les crédits sont désormais connus ; **les coefficients de pondération
+CC/CT, les dates et les formats d'épreuve restants ne sont pas supposés.**
 
-| Matière | Coeff. | Format de l'épreuve | Date du partiel | Niveau actuel /5 | Chapitres traités | Priorité |
-|---|:---:|---|---|:---:|---|:---:|
-| **Techniques statistiques** | *[ ]* | *[durée, type, documents autorisés]* | *[date]* | *[ ]* | **2 / 4** — CHAP 1 ✔, CHAP 2 ✔ ; restent « évolutions temporelles » et « croiser » | *[calculée]* |
-| **Mathématiques** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
-| **Introduction au droit** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
-| **Principes de gestion** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **2** — CM 1 ✔, CM 2 ✔ ; total du semestre inconnu | *[calculée]* |
-| **Principes d'économie** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **0** — aucun cours transmis | *[calculée]* |
-| **Institutions politiques** | *[ ]* | *[ ]* | *[date]* | *[ ]* | **1** — Partie 1, chapitre 1 « L'État » ✔ ; total du semestre inconnu | *[calculée]* |
+| Matière | Crédits | BCC | Format de l'épreuve | Date | Niveau /5 | Chapitres traités | État V2 |
+|---|:---:|:---:|---|---|:---:|---|---|
+| **Principes d'économie** | **6** | 1 | **CT 1 h 30, questions de cours + exercices** · CC = examen de TD en présentiel | *[date]* | *[ ]* | **1** — Introduction générale ✔ | ✅ **V2** |
+| **Principes de gestion** | **6** | 1 | *[à confirmer]* | *[date]* | *[ ]* | **2** — CM 1, CM 2 | ⏳ à refaire en V2 |
+| **Techniques statistiques** | **5** | 2 | *[à confirmer]* | *[date]* | *[ ]* | **2 / 4** — CHAP 1, CHAP 2 ; restent « évolutions temporelles » et « croiser » | ⏳ à refaire en V2 |
+| **Institutions politiques** | **6** ¹ | 2 | *[à confirmer]* | *[date]* | *[ ]* | **1** — Partie 1, chapitre 1 « L'État » | ⏳ à refaire en V2 |
+| **Introduction au droit** | **6** ¹ | 2 | *[à confirmer]* | *[date]* | *[ ]* | **0** — aucun cours transmis | — |
+| **Mathématiques 1** | **5** | 3 | *[à confirmer]* | *[date]* | *[ ]* | **0** — aucun cours transmis | — |
+| Ecri+ | 1 | 3 | — | — | — | — | — |
+| GoFluent | 1 | 3 | — | — | — | — | — |
 
-**Constat au 11 septembre 2026 : trois matières sur six n'ont encore reçu aucun document** —
-mathématiques, introduction au droit, principes d'économie. C'est le déséquilibre le plus
-coûteux du tableau : non parce que les matières traitées le seraient mal, mais parce qu'une
-matière à niveau 1 ou 2 offre mécaniquement le meilleur rendement horaire (section 2).
-**Transmets en priorité un cours de chacune des trois matières non couvertes.**
+¹ **Introduction au droit** et **Institutions politiques** forment ensemble l'unité
+« Environnement des organisations », dotée de **6 crédits** au total — la répartition interne
+entre les deux enseignements n'est pas donnée par le support.
 
-**Niveau actuel**, échelle de travail — à s'attribuer sans complaisance :
+**Constat au 15 septembre 2026.** Deux matières sur six n'ont reçu aucun document :
+**introduction au droit** et **mathématiques 1**, soit **11 crédits sur 30** à l'aveugle.
+C'est le déséquilibre le plus coûteux du tableau : une matière à niveau 1 ou 2 offre
+mécaniquement le meilleur rendement horaire (section 2).
 
-| Note | Signification opérationnelle |
-|:---:|---|
-| 1 | Le vocabulaire de base n'est pas acquis. |
-| 2 | Le cours est compris à la lecture, mais rien n'est restituable sans le document. |
-| 3 | Restitution correcte ; les exercices classiques passent, les variantes bloquent. |
-| 4 | Exercices type examen réussis en temps limité, y compris inhabituels. |
-| 5 | Capable d'enseigner le chapitre et de traiter une question transversale sans préparation. |
+---
+
+## 1 bis. Charge de lecture par chapitre
+
+Depuis la refonte V2 du 15 septembre 2026, le critère est la **charge de lecture** — blocs 0,
+1, 2 et 5 — plafonnée à **35 pages**. Le reste se pratique ou se consulte et ne compte pas.
+
+| Chapitre | Format | Pages totales | **À lire** | Sous le plafond ? |
+|---|:---:|:---:|:---:|:---:|
+| `economie-01-introduction-generale` | **V2** | 65 | **34** | ✅ |
+| `gestion-01-introduction-au-management` | V1 | 59 | 59 | ❌ à refaire |
+| `gestion-02-qui-doit-etre-roi` | V1 | 62 | 62 | ❌ à refaire |
+| `stats-01-presenter-pour-informer` | V1 | 54 | 54 | ❌ à refaire |
+| `stats-02-resumer-pour-informer` | V1 | 73 | 27 | ❌ à refaire |
+| `institutions-01-l-etat` | V1 | 97 | 44 | ❌ à refaire |
+
+**Ordre de refonte retenu**, par crédits décroissants puis par lourdeur : gestion 01 et 02
+(6 crédits, 121 pages à lire à eux deux) · institutions 01 (44 pages) · stats 01 et 02.
 
 ---
 
