@@ -27,7 +27,13 @@ recommended amounts, and she cooks whatever she likes from them.
   one fat, plus free flavour — each with the exact amount. One-line meal ideas only.
 - **No morning cooking.** Breakfast is assembled in two minutes from the fridge.
 - **Nothing savoury to carry to class.** At 10:00 it's a fruit or a protein drink.
-- Targets: 1,900 kcal for two weeks, then 1,600 kcal with 130 g protein a day.
+- **Calorie ramp:** 1,800 in week 1, 1,700 in week 2, then 1,600 from week 3 to the
+  end, at 130 g of protein throughout. Page 4 states exactly which three amounts
+  change and by how much.
+- **Pilates:** she attends whatever slots the studio runs and, for the first month,
+  takes the class exactly as taught. The page covers what she controls inside any
+  class — spring choice, tempo, variation, effort — rather than asking her to have
+  the class changed for her.
 
 ## Rebuilding the PDF
 
