@@ -6,19 +6,22 @@ A 33-page, print-ready lifestyle & nutrition plan (A4, English).
 
 ## Contents
 
+Colour-coded sections, with a generated table of contents on page 2.
+
 | Pages | Section |
 |---|---|
-| 1 | Cover |
-| 2–4 | Diagnosis, targets, the seven rules |
-| 5–6 | Daily timeline, how a day adds up, Phase 1 → Phase 2 |
-| 7–17 | Menus: 6 breakfasts, 6 mid-morning snacks, 8 lunches, 8 dinners, snacks, 3 sample days |
-| 18 | Protein cheat sheet |
-| 19–21 | Shopping list (Spanish supermarket names), flavour kit, halal sourcing in Madrid |
-| 22–23 | Pilates and steps |
-| 24–26 | Supplements, energy & sleep, health notes |
-| 27–28 | 16-week roadmap, progress tracking |
-| 29–31 | Troubleshooting, eating out in Madrid |
-| 32–33 | Printable weekly tracker, closing note |
+| 1–2 | Cover, contents |
+| 3–4 | How to use this book · your first three days |
+| 5–7 | Why this works · your numbers · your seven promises |
+| 8–10 | The one-page cheat sheet · the weekday hour by hour · how a day adds up |
+| 11–21 | Menus: 6 breakfasts, 6 snacks, 8 lunches, 8 dinners, sweet fixes, 3 sample days |
+| 22 | Protein cheat sheet |
+| 23–25 | Shopping list (Spanish names) · flavour kit · halal sourcing in Madrid |
+| 26–27 | Pilates · steps |
+| 28–30 | Supplements · energy, sleep & water · health notes |
+| 31–33 | The 16-week roadmap · tracking · milestones and rewards |
+| 34–36 | Troubleshooting · eating out in Madrid |
+| 37–39 | 30-day starter chart · weekly tracker · read this on the bad days |
 
 ## Rebuilding the PDF
 
