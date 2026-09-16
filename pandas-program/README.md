@@ -1,32 +1,39 @@
 # PANDA's Program 🐼
 
-A 33-page, print-ready lifestyle & nutrition plan (A4, English).
+A 15-page, print-ready plan (A4, English). No recipes — ingredient categories with
+recommended amounts, and she cooks whatever she likes from them.
 
 **Deliverable:** [`PANDAs-Program.pdf`](./PANDAs-Program.pdf)
 
 ## Contents
 
-Colour-coded sections, with a generated table of contents on page 2.
-
-| Pages | Section |
+| Page | Section |
 |---|---|
-| 1–2 | Cover, contents |
-| 3–4 | How to use this book · your first three days |
-| 5–7 | Why this works · your numbers · your seven promises |
-| 8–10 | The one-page cheat sheet · the weekday hour by hour · how a day adds up |
-| 11–21 | Menus: 6 breakfasts, 6 snacks, 8 lunches, 8 dinners, sweet fixes, 3 sample days |
-| 22 | Protein cheat sheet |
-| 23–25 | Shopping list (Spanish names) · flavour kit · halal sourcing in Madrid |
-| 26–27 | Pilates · steps |
-| 28–30 | Supplements · energy, sleep & water · health notes |
-| 31–33 | The 16-week roadmap · tracking · milestones and rewards |
-| 34–36 | Troubleshooting · eating out in Madrid |
-| 37–39 | 30-day starter chart · weekly tracker · read this on the bad days |
+| 1–2 | Cover · how this works, contents, first three days |
+| 3–4 | Why she's stuck · 8 weeks vs 16 weeks, and the numbers |
+| 5 | The one-page cheat sheet (made to be a lock screen) |
+| 6 | Breakfast (zero cooking) and the two snacks |
+| 7–8 | Build your lunch · build your dinner |
+| 9 | Shopping list, with Spanish supermarket names |
+| 10–11 | The weekly Pilates + steps plan · building glutes and legs |
+| 12 | Supplements, sleep, cycle and health notes |
+| 13 | The 16-week roadmap and milestones |
+| 14 | The 30-day chart and the 16-week measurement log |
+| 15 | Read this on the bad days |
+
+## Design notes
+
+- **No recipes.** Every meal is a builder: pick one protein, one carb, vegetables,
+  one fat, plus free flavour — each with the exact amount. One-line meal ideas only.
+- **No morning cooking.** Breakfast is assembled in two minutes from the fridge.
+- **Nothing savoury to carry to class.** At 10:00 it's a fruit or a protein drink.
+- Targets: 1,900 kcal for two weeks, then 1,600 kcal with 130 g protein a day.
 
 ## Rebuilding the PDF
 
-Sources live in `src/`. The PDF is rendered from `src/index.html` with headless Chromium
-via Playwright; `src/render.js` also reports any page whose content overflows its A4 frame.
+Sources live in `src/`. The PDF is rendered from `src/index.html` with headless
+Chromium via Playwright; `src/render.js` also reports any page whose content
+overflows its A4 frame.
 
 ```bash
 cd src
@@ -34,5 +41,5 @@ npm i playwright-core
 node render.js          # writes PANDAs-Program.pdf and prints a per-page fit report
 ```
 
-Fonts (Fraunces + Inter) are base64-embedded in `src/fonts-embedded.css`, so the build
-is fully offline and the output is reproducible.
+Fonts (Fraunces + Inter) are base64-embedded in `src/fonts-embedded.css`, so the
+build is fully offline and the output is reproducible.
