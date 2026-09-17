@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>PANDA's Program — The One Page</title>
+<link rel="stylesheet" href="fonts-embedded.css">
+<style>
+:root{
+  --ink:#2D1F28; --ink2:#62525C; --ink3:#9A8C94;
+  --cream:#FDF9F7; --line:#EFE0DB; --line2:#F8EFEB;
+  --rose:#A8405F; --roseBg:#FBECF0; --roseLn:#F0D6DE;
+  --coral:#C25D3E; --coralBg:#FCEFE8; --coralLn:#F4DCD0;
+  --sage:#5B8770; --sageBg:#EBF3EE; --sageLn:#D6E6DC;
+  --gold:#A47B2B; --goldBg:#FBF3E3; --goldLn:#EFE0C0;
+  --plum:#33212E;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:#fff;font-size:8.4pt;line-height:1.32;
+     font-variant-numeric:tabular-nums lining-nums}
+.page{position:relative;width:210mm;height:297mm;overflow:hidden;background:var(--cream);padding:7.5mm 9mm 6.5mm}
+h1{font-family:'Fraunces',serif;font-weight:700;font-size:18pt;line-height:1;letter-spacing:-.02em}
+.hand{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+
+/* header */
+.hd{background:var(--plum);border-radius:3.2mm;padding:3.4mm 4.6mm;display:flex;align-items:center;gap:5mm;color:#fff}
+.hd h1{color:#fff}
+.hd .tag{font-size:9.2pt;color:#E3A8BC;margin-top:1.2mm}
+.ramp{margin-left:auto;display:flex;gap:2.6mm}
+.ramp .r{background:rgba(255,255,255,.09);border:.5pt solid rgba(255,255,255,.18);border-radius:2.2mm;
+  padding:1.8mm 2.8mm;text-align:center;min-width:21mm}
+.ramp .r b{display:block;font-family:'Fraunces',serif;font-size:11.4pt;font-weight:700;color:#fff;line-height:1}
+.ramp .r span{display:block;font-size:6.6pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#C9A227;margin-top:1.4mm}
+
+/* grid */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm}
+.col{display:flex;flex-direction:column;gap:2.8mm}
+
+.box{background:#fff;border:.6pt solid var(--line);border-radius:3.4mm;overflow:hidden}
+.box.rose{--ac:var(--rose);--acBg:var(--roseBg);--acLn:var(--roseLn)}
+.box.coral{--ac:var(--coral);--acBg:var(--coralBg);--acLn:var(--coralLn)}
+.box.sage{--ac:var(--sage);--acBg:var(--sageBg);--acLn:var(--sageLn)}
+.box.gold{--ac:var(--gold);--acBg:var(--goldBg);--acLn:var(--goldLn)}
+.bh{background:var(--acBg);border-bottom:.6pt solid var(--acLn);padding:2mm 3.4mm;display:flex;align-items:baseline;gap:3mm}
+.bh h2{font-family:'Fraunces',serif;font-size:11pt;font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-.01em}
+.bh .meta{margin-left:auto;font-size:6.5pt;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ac);
+  text-align:right;white-space:nowrap}
+.bb{padding:2.4mm 3.4mm 2.8mm}
+
+/* pick rows */
+.pick{display:flex;gap:2.4mm;align-items:baseline;padding:1.3mm 0;border-bottom:.5pt solid var(--line2)}
+.pick:last-child{border-bottom:none;padding-bottom:0}
+.pick:first-child{padding-top:0}
+.pk{flex:0 0 16mm;font-size:6.9pt;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ac);line-height:1.2}
+.pk small{display:block;font-size:6pt;font-weight:600;letter-spacing:.06em;color:var(--ink3);text-transform:none;margin-top:.5mm}
+.pv{flex:1;font-size:8.2pt;line-height:1.34;color:var(--ink)}
+.pv b{font-weight:700;color:var(--ac);white-space:nowrap}
+.pv .sep{color:var(--line);padding:0 .6mm}
+.pv em{font-style:normal;color:var(--ink2)}
+
+/* day table */
+.day{width:100%;border-collapse:collapse;font-size:8.6pt}
+.day td{padding:1.4mm 0;border-bottom:.5pt solid var(--line2)}
+.day tr:last-child td{border-bottom:none}
+.day .t{font-family:'Fraunces',serif;font-weight:700;font-size:10pt;color:var(--rose);width:15mm}
+.day .n{font-weight:600}
+.day .n small{font-weight:400;color:var(--ink3);font-size:7.6pt}
+.day .p{text-align:right;font-family:'Fraunces',serif;font-weight:700;font-size:9.4pt;color:var(--ink);width:16mm}
+.day .p span{font-size:7pt;font-weight:600;color:var(--ink3)}
+
+/* bottom cards */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3.2mm;margin-top:2.8mm}
+.sc{background:#fff;border:.6pt solid var(--line);border-radius:3mm;padding:2.6mm 3.2mm}
+.sc.fill{background:var(--acBg);border-color:var(--acLn)}
+.sc h3{font-size:6.9pt;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ac);margin-bottom:1.6mm}
+.sc ul{list-style:none}
+.sc li{position:relative;padding-left:3.8mm;font-size:8pt;line-height:1.32;margin-bottom:.9mm}
+.sc li:last-child{margin-bottom:0}
+.sc li::before{content:'';position:absolute;left:0;top:1.3mm;width:1.5mm;height:1.5mm;border-radius:50%;background:var(--ac)}
+.sc p{font-size:8pt;line-height:1.34}
+.sc b{font-weight:700}
+
+/* footer */
+.ft{margin-top:2.8mm;background:var(--plum);border-radius:3.2mm;padding:3mm 4.6mm;display:flex;align-items:center;gap:5mm;color:#fff}
+.ft .q{font-size:11pt;color:#fff;line-height:1.25}
+.ft .s{margin-left:auto;text-align:right;font-size:6.8pt;letter-spacing:.14em;text-transform:uppercase;color:#A18E99;font-weight:600;white-space:nowrap}
+.ft .s b{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:8.8pt;letter-spacing:0;
+  text-transform:none;color:#E3A8BC;font-weight:400;margin-top:1.4mm}
+</style></head><body>
+
+<section class="page">
+
+  <div class="hd">
+    <div style="font-size:20pt;line-height:1">🐼</div>
+    <div>
+      <h1>PANDA’s Program</h1>
+      <div class="tag hand">Everything that matters. Two minutes. One page.</div>
+    </div>
+    <div class="ramp">
+      <div class="r"><b>1,800</b><span>Week 1</span></div>
+      <div class="r"><b>1,700</b><span>Week 2</span></div>
+      <div class="r"><b>1,600</b><span>Week 3 → 16</span></div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <!-- ================= LEFT ================= -->
+    <div class="col">
+
+      <div class="box rose">
+        <div class="bh"><h2>Your day</h2><div class="meta">130 g protein total</div></div>
+        <div class="bb">
+          <table class="day">
+            <tr><td class="t">06:15</td><td class="n">Breakfast <small>· assembled, never cooked</small></td><td class="p">35<span> g</span></td></tr>
+            <tr><td class="t">10:00</td><td class="n">A fruit <small>· or a protein drink</small></td><td class="p">—</td></tr>
+            <tr><td class="t">13:15</td><td class="n">Lunch <small>· the big plate</small></td><td class="p">42<span> g</span></td></tr>
+            <tr><td class="t">17:30</td><td class="n">Snack <small>· fruit, yogurt or chocolate</small></td><td class="p">10<span> g</span></td></tr>
+            <tr><td class="t">20:15</td><td class="n">Dinner <small>· lighter plate</small></td><td class="p">35<span> g</span></td></tr>
+            <tr><td class="t">22:30</td><td class="n">Lights out <small>· 7.5 hours</small></td><td class="p">🌙</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="box coral">
+        <div class="bh"><h2>Breakfast</h2><div class="meta">2 min · no heat<br>≈ 420 kcal · 35 g</div></div>
+        <div class="bb">
+          <div class="pick"><div class="pk">Base<small>pick one</small></div>
+            <div class="pv">Greek yogurt <b>250 g</b><span class="sep">·</span>Skyr <b>200 g</b><span class="sep">·</span>Cottage cheese <b>200 g</b><span class="sep">·</span>Whey + milk <b>1 scoop + 250 ml</b><br>
+            <em>…then stir <b>½ scoop of whey</b> into the first three. That’s the 35 g.</em></div></div>
+          <div class="pick"><div class="pk">Carb<small>pick one</small></div>
+            <div class="pv">Oats <b>30 g</b><span class="sep">·</span>Granola <b>30 g</b><span class="sep">·</span>Rye bread <b>1 slice</b><span class="sep">·</span>Banana <b>1</b></div></div>
+          <div class="pick"><div class="pk">Fruit<small>pick one</small></div>
+            <div class="pv">Berries <b>100 g</b><span class="sep">·</span>Apple, pear or orange <b>1</b><span class="sep">·</span>Kiwi <b>2</b><span class="sep">·</span>Dates <b>2</b></div></div>
+          <div class="pick"><div class="pk">Fat<small>pick one</small></div>
+            <div class="pv">Nuts <b>15 g</b><span class="sep">·</span>Tahini <b>1 tsp</b><span class="sep">·</span>Peanut butter <b>1 tsp</b></div></div>
+          <div class="pick"><div class="pk">Free</div>
+            <div class="pv">Cinnamon, vanilla, 1 tsp honey. <b>Coffee after the food, never before.</b></div></div>
+        </div>
+      </div>
+
+      <div class="box gold">
+        <div class="bh"><h2>The two snacks</h2><div class="meta">nothing savoury to carry</div></div>
+        <div class="bb">
+          <div class="pick"><div class="pk">10:00<small>at uni</small></div>
+            <div class="pv"><b>One fruit</b> — banana, apple, orange, pear.<br>
+            <b>Or a protein drink</b> (ready-made, or whey in a shaker). <em>Pilates days → the drink.</em></div></div>
+          <div class="pick"><div class="pk">17:30<small>≈ 150 kcal</small></div>
+            <div class="pv">A fruit + <b>10 almonds</b><span class="sep">·</span>Yogurt <b>150 g</b><span class="sep">·</span>Dark chocolate <b>20 g</b><span class="sep">·</span>Popcorn <b>20 g</b><span class="sep">·</span>A protein drink</div></div>
+          <div class="pick"><div class="pk">Free<small>any time</small></div>
+            <div class="pv">Water, sparkling water, mint &amp; green tea, black coffee, all raw vegetables, lemon, every spice.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= RIGHT ================= -->
+    <div class="col">
+
+      <div class="box coral">
+        <div class="bh"><h2>Lunch</h2><div class="meta">cook it your way<br>≈ 600 kcal · 42 g</div></div>
+        <div class="bb">
+          <div class="pick"><div class="pk">Protein<small>pick one</small></div>
+            <div class="pv">Chicken <b>180 g</b><span class="sep">·</span>Beef 5 % <b>200 g</b><span class="sep">·</span>Lamb <b>190 g</b><span class="sep">·</span>Salmon <b>190 g</b><span class="sep">·</span>White fish <b>220 g</b><span class="sep">·</span>Tuna <b>2 tins</b><span class="sep">·</span>Eggs + feta <b>4 + 40 g</b><span class="sep">·</span>Halloumi <b>140 g</b><span class="sep">·</span>Lentils or chickpeas <b>350 g</b></div></div>
+          <div class="pick"><div class="pk">Carb<small>cooked</small></div>
+            <div class="pv">Rice <b>150 g</b><span class="sep">·</span>Bulgur, freekeh or couscous <b>150 g</b><span class="sep">·</span>Pasta <b>55 g dry</b><span class="sep">·</span>Potatoes <b>250 g</b><span class="sep">·</span>Bread or pita <b>70 g</b></div></div>
+          <div class="pick"><div class="pk">Veg<small>no limit</small></div>
+            <div class="pv"><b>Half the plate, never measured.</b> Anything: tomato, cucumber, pepper, onion, courgette, aubergine, beans, spinach.</div></div>
+          <div class="pick"><div class="pk">Fat<small>measure it</small></div>
+            <div class="pv">Olive oil <b>1 tbsp</b><span class="sep">·</span>Tahini <b>1 tbsp</b><span class="sep">·</span>Avocado <b>½</b><span class="sep">·</span>Nuts <b>20 g</b> — <em>one, measured</em></div></div>
+          <div class="pick"><div class="pk">Flavour<small>free</small></div>
+            <div class="pv">Harissa, tabil, baharat, za’atar, sumac, cumin, paprika, garlic, lemon, herbs. <b>Season properly.</b></div></div>
+        </div>
+      </div>
+
+      <div class="box coral">
+        <div class="bh"><h2>Dinner</h2><div class="meta">≤ 15 min<br>≈ 400 kcal · 35 g</div></div>
+        <div class="bb">
+          <div class="pick"><div class="pk">Protein<small>pick one</small></div>
+            <div class="pv">Chicken <b>150 g</b><span class="sep">·</span>White fish <b>190 g</b><span class="sep">·</span>Salmon <b>150 g</b><span class="sep">·</span>Beef 5 % <b>160 g</b><span class="sep">·</span>Tuna <b>1½ tins</b><span class="sep">·</span>Eggs + cheese <b>3 + 30 g</b><span class="sep">·</span>Halloumi <b>120 g</b><span class="sep">·</span>Lentils <b>300 g</b></div></div>
+          <div class="pick"><div class="pk">Veg<small>no limit</small></div>
+            <div class="pv"><b>Most of the plate.</b> Raw, roasted, stewed or in a soup.</div></div>
+          <div class="pick"><div class="pk">Carb<small>optional</small></div>
+            <div class="pv">Rice or bulgur <b>70 g</b><span class="sep">·</span>Small pita <b>40 g</b><span class="sep">·</span>Potato <b>150 g</b> — <em>skip if lunch was big</em></div></div>
+          <div class="pick"><div class="pk">Fat<small>half of lunch</small></div>
+            <div class="pv">Olive oil <b>1 tsp</b><span class="sep">·</span>Tahini <b>1 tsp</b><span class="sep">·</span>Feta <b>25 g</b><span class="sep">·</span>Nuts <b>10 g</b></div></div>
+        </div>
+      </div>
+
+      <div class="box sage">
+        <div class="bh"><h2>Never bored</h2><div class="meta">same shopping list</div></div>
+        <div class="bb">
+          <div class="pick"><div class="pk">Chicken<small>one jar, four meals</small></div>
+            <div class="pv"><b>Baharat + yogurt + lemon</b> = shawarma<span class="sep">·</span><b>Harissa + tomato + garlic</b> = Tunisian<span class="sep">·</span><b>Sumac + onion + oil</b> = musakhan<span class="sep">·</span><b>Ras el hanout</b> = tagine<br>
+            <em>Eating out: shawarma as a <b>plato</b>, not a durum. <b>45 g</b> protein.</em></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="sc fill box rose"><h3>Every single day</h3>
+      <ul>
+        <li><b>3 meals</b> — never skip one</li>
+        <li><b>130 g protein</b></li>
+        <li><b>2 litres</b> of water</li>
+        <li><b>6–10,000 steps</b></li>
+        <li><b>7.5 hours</b> of sleep</li>
+      </ul>
+    </div>
+    <div class="sc box sage"><h3>Pilates · 3 × a week</h3>
+      <ul>
+        <li>Take the <b>heaviest spring</b> offered</li>
+        <li><b>3 seconds</b> coming back down</li>
+        <li>Last <b>3 reps genuinely hard</b></li>
+        <li><b>Never fasted</b> — protein within 2 h</li>
+        <li>Class days = <b>10k steps</b>, with hills</li>
+      </ul>
+    </div>
+    <div class="sc box coral"><h3>When it falls apart</h3>
+      <p><b>4 minutes, 40 g protein:</b> tin of tuna + tin of chickpeas + olive oil + lemon.</p>
+      <p style="margin-top:1.6mm"><b>Keep all four in the flat, always.</b> No day is too bad for this.</p>
+    </div>
+    <div class="sc box gold"><h3>If…</h3>
+      <ul>
+        <li><b>Scale went up?</b> Water. Weigh again in 3 days.</li>
+        <li><b>Skipped a meal?</b> Eat the next one normally.</li>
+        <li><b>Ate too much?</b> Back to normal at the next meal.</li>
+        <li><b>Fell off?</b> Restart at the next meal, not Monday.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ft">
+    <div class="q hand">You don’t need motivation today. You need breakfast.</div>
+    <div class="s">59 kg → 55 kg · 16 weeks<b>From your man, who loves you.</b></div>
+  </div>
+
+</section>
+</body></html>

@@ -3,7 +3,11 @@
 A 15-page, print-ready plan (A4, English). No recipes — ingredient categories with
 recommended amounts, and she cooks whatever she likes from them.
 
-**Deliverable:** [`PANDAs-Program.pdf`](./PANDAs-Program.pdf)
+**Deliverables**
+
+- [`PANDAs-Program.pdf`](./PANDAs-Program.pdf) — the 15-page plan
+- [`PANDA-One-Page.pdf`](./PANDA-One-Page.pdf) — the whole thing condensed onto one A4 sheet
+- [`PANDA-One-Page.png`](./PANDA-One-Page.png) — the same sheet as an image (2382 × 3369) for a phone
 
 ## Contents
 
@@ -35,16 +39,16 @@ recommended amounts, and she cooks whatever she likes from them.
   class — spring choice, tempo, variation, effort — rather than asking her to have
   the class changed for her.
 
-## Rebuilding the PDF
+## Rebuilding
 
-Sources live in `src/`. The PDF is rendered from `src/index.html` with headless
-Chromium via Playwright; `src/render.js` also reports any page whose content
-overflows its A4 frame.
+Sources live in `src/`. Both documents are rendered from HTML with headless Chromium
+via Playwright, and each render script reports any content that overflows its A4 frame.
 
 ```bash
 cd src
 npm i playwright-core
-node render.js          # writes PANDAs-Program.pdf and prints a per-page fit report
+node render.js          # the 15-page plan  -> PANDAs-Program.pdf
+node render-one.js      # the one-pager     -> PANDA-One-Page.pdf + .png
 ```
 
 Fonts (Fraunces + Inter) are base64-embedded in `src/fonts-embedded.css`, so the
