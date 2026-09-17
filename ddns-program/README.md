@@ -1,6 +1,6 @@
 # DDN's Program 🏴
 
-A 4-page, print-ready cut-then-recomposition plan (A4, French). Built to be scanned, not read:
+A 4-page, print-ready cut plan (A4, French). Built to be scanned, not read:
 every number is findable in a couple of seconds.
 
 **Deliverable:** [`DDNs-Program.pdf`](./DDNs-Program.pdf)
@@ -9,28 +9,27 @@ every number is findable in a couple of seconds.
 
 | Page | Sections |
 |---|---|
-| 1 | **01 · Alimentation** — fixed breakfast, fixed afternoon snack, the 7-day table (midi / soir), daily totals, why the calories are where they are |
-| 2 | **02 · Courses** — tickable shopping list by aisle with prices and weekly total · **03 · Programme physique** — daily non-negotiables and the weekly grid |
+| 1 | **01 · Alimentation** — fixed breakfast, day rhythm, the 7-day table (midi / soir / snack), daily totals, cooking rules, whey countdown |
+| 2 | **02 · Courses** — tickable shopping list by aisle with prices and weekly total · **03 · Semaine type** — daily non-negotiables and the weekly grid |
 | 3 | **04 · Les trois séances** — the full upper-body programme, exercise by exercise, with sets, reps and rest |
-| 4 | **05 · Objectifs** — two phases (cut to 86–88 kg, then recomposition at that weight), the 86 kg floor · **06 · Suivi** — 16-week log |
+| 4 | **05 · Objectifs et pilotage** — target band, month-by-month projection, the 90 kg steering rule, 12-week log |
 
 ## The plan in numbers
 
-- Target: **86–88 kg and no lower**, at roughly **10 % body fat** — lean with real volume.
-- Estimated maintenance ~3,200–3,400 kcal. Phase 1 runs at **~2,500 kcal with 185–200 g protein**
-  (≈ −0.7 kg/week), phase 2 at **~2,900 kcal** with weight held steady.
-- Phase 1: months 1–4, 97 → 86–88 kg, ~23 % → ~14 % body fat.
-- Phase 2: months 5–9, weight unchanged, ~14 % → ~10 % body fat.
+- Target: **86–88 kg in 2–3 months**, not below, not above. Very lean, maximum muscle
+  retained in a deficit — between athletic and muscular.
+- **~1,400–1,500 kcal/day, 150–170 g protein.** Same week repeated, no variants to choose.
+- **~56 €/week** of groceries (whey already owned: 900 g = exactly 30 days at 1 scoop).
+- Training: 3 upper-body sessions (Mon / Thu / Sat), boxing Wednesday, 5,000–10,000 steps daily.
 
 ## Notes
 
-- The three upper-body sessions are the user's own, transcribed as given. Values he left
-  unspecified are filled in as suggestions and marked with a `°`.
-- The programme is 100 % upper body; the document flags once that legs are missing and where
-  the free slot is, without changing the split.
+- The three sessions are the user's own, transcribed as given. Values he left unspecified
+  are filled in as suggestions and marked with a `°`, with a legend at the foot of page 3.
 - Prices are Auchan estimates (Q3 2026); halal chicken varies by shop.
-- Projections carry the disclaimer requested: constant-deficit estimates from an assumed ~23 %
-  starting body fat; real loss varies with metabolic adaptation, adherence, sleep and genetics.
+- Page 4 carries the steering rule verbatim: from 90 kg, weigh weekly and raise portions
+  if the trend threatens to undershoot 86 kg — plus the honest note on the limits of
+  building muscle during an aggressive natural deficit.
 
 ## Rebuilding the PDF
 
