@@ -80,7 +80,7 @@ table{width:100%;border-collapse:collapse}
 .wk{font-size:9.2pt}
 .wk th{font-size:6.8pt;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);
        text-align:left;padding:0 3mm 2.4mm;border-bottom:1.4pt solid var(--ink)}
-.wk td{padding:2.9mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:middle}
+.wk td{padding:2.35mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:middle}
 .wk tr:last-child td{border-bottom:none}
 .wk tbody tr:nth-child(even){background:#fff}
 .wk .d{width:24mm;font-size:8.6pt;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--red)}
@@ -95,7 +95,7 @@ table{width:100%;border-collapse:collapse}
          letter-spacing:.15em;text-transform:uppercase;display:flex}
 .shop .h span{margin-left:auto;opacity:.75}
 .shop ul{list-style:none;padding:2mm 3.4mm 2.4mm}
-.shop li{display:flex;align-items:baseline;gap:2.4mm;padding:1.5mm 0;border-bottom:.5pt solid var(--line2);font-size:8.8pt}
+.shop li{display:flex;align-items:baseline;gap:2.4mm;padding:1.15mm 0;border-bottom:.5pt solid var(--line2);font-size:8.8pt}
 .shop li:last-child{border-bottom:none}
 .shop li .bx{width:2.8mm;height:2.8mm;border:.8pt solid var(--ink3);border-radius:.6mm;flex:0 0 auto;transform:translateY(.4mm)}
 .shop li .n{flex:1}
@@ -114,7 +114,7 @@ table{width:100%;border-collapse:collapse}
 /* ---------- training table ---------- */
 .tr th{font-size:6.8pt;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);
        text-align:left;padding:0 3mm 2.4mm;border-bottom:1.4pt solid var(--ink)}
-.tr td{padding:2.7mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:middle;font-size:9.2pt}
+.tr td{padding:2.35mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:middle;font-size:9.2pt}
 .tr tr:last-child td{border-bottom:none}
 .tr .d{width:24mm;font-size:8.6pt;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .tr .tag{display:inline-block;font-size:6.8pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
@@ -198,3 +198,9 @@ table{width:100%;border-collapse:collapse}
 .mrow .mc .v b{font-size:9.2pt}
 .mrow .mc.wide .v{white-space:normal}
 .wk b,.tr b{white-space:nowrap}
+.tag.j{background:#EDE7F6;color:#5B3FA8;border:.5pt solid #DCD2F0}
+.bk.lite{background:var(--redBg);border:.6pt solid var(--redLn);color:var(--ink)}
+.bk.lite .t b{color:var(--ink)} .bk.lite .t span{color:var(--red)}
+.bk.lite .it{background:#fff;border:.6pt solid var(--redLn);color:var(--ink)}
+.bk.lite .it b{color:var(--red)}
+.bk.lite .mac{color:var(--ink)} .bk.lite .mac span{color:var(--ink3)}
