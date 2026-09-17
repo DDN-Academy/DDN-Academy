@@ -250,3 +250,11 @@ table{width:100%;border-collapse:collapse}
 .ses+.ses{margin-top:1.8mm}
 .mrow .mc{padding:3.8mm 4mm}
 .mast h1{font-size:15.5pt;white-space:nowrap}
+.shop li{padding:.85mm 0}
+.shop ul{padding:1.6mm 3.4mm 1.8mm}
+.shop .h{padding:1.6mm 3.4mm}
+.bk{padding:3.2mm 4.2mm}
+.bk .it{padding:1.4mm 2.6mm;font-size:8.8pt}
+.tr td{padding:1.85mm 3mm}
+.wk td{padding:1.65mm 3mm}
+.tile{padding:2.6mm 3.8mm}
