@@ -1,6 +1,6 @@
 # DDN's Program 🏴
 
-A 3-page, print-ready cut-then-recomposition plan (A4, French). Built to be scanned, not read:
+A 4-page, print-ready cut-then-recomposition plan (A4, French). Built to be scanned, not read:
 every number is findable in a couple of seconds.
 
 **Deliverable:** [`DDNs-Program.pdf`](./DDNs-Program.pdf)
@@ -10,8 +10,9 @@ every number is findable in a couple of seconds.
 | Page | Sections |
 |---|---|
 | 1 | **01 · Alimentation** — fixed breakfast, fixed afternoon snack, the 7-day table (midi / soir), daily totals, why the calories are where they are |
-| 2 | **02 · Courses** — tickable shopping list by aisle with prices and weekly total · **03 · Programme physique** — daily non-negotiables, weekly training grid, and the rules that make it build volume |
-| 3 | **04 · Objectifs** — two phases (cut to 86–88 kg, then recomposition at that weight), the 86 kg floor · **05 · Suivi** — 16-week log |
+| 2 | **02 · Courses** — tickable shopping list by aisle with prices and weekly total · **03 · Programme physique** — daily non-negotiables and the weekly grid |
+| 3 | **04 · Les trois séances** — the full upper-body programme, exercise by exercise, with sets, reps and rest |
+| 4 | **05 · Objectifs** — two phases (cut to 86–88 kg, then recomposition at that weight), the 86 kg floor · **06 · Suivi** — 16-week log |
 
 ## The plan in numbers
 
@@ -23,8 +24,10 @@ every number is findable in a couple of seconds.
 
 ## Notes
 
-- The lifting programme itself is deliberately not detailed — the user already has it. The document
-  only fixes the split (2 upper + **1 mandatory leg day**) and the loading rules.
+- The three upper-body sessions are the user's own, transcribed as given. Values he left
+  unspecified are filled in as suggestions and marked with a `°`.
+- The programme is 100 % upper body; the document flags once that legs are missing and where
+  the free slot is, without changing the split.
 - Prices are Auchan estimates (Q3 2026); halal chicken varies by shop.
 - Projections carry the disclaimer requested: constant-deficit estimates from an assumed ~23 %
   starting body fat; real loss varies with metabolic adaptation, adherence, sleep and genetics.

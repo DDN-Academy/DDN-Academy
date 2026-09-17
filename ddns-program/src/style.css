@@ -114,7 +114,7 @@ table{width:100%;border-collapse:collapse}
 /* ---------- training table ---------- */
 .tr th{font-size:6.8pt;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);
        text-align:left;padding:0 3mm 2.4mm;border-bottom:1.4pt solid var(--ink)}
-.tr td{padding:2.35mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:middle;font-size:9.2pt}
+.tr td{padding:2.05mm 3mm;border-bottom:.6pt solid var(--line);vertical-align:middle;font-size:9.2pt}
 .tr tr:last-child td{border-bottom:none}
 .tr .d{width:24mm;font-size:8.6pt;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .tr .tag{display:inline-block;font-size:6.8pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
@@ -204,3 +204,30 @@ table{width:100%;border-collapse:collapse}
 .bk.lite .it{background:#fff;border:.6pt solid var(--redLn);color:var(--ink)}
 .bk.lite .it b{color:var(--red)}
 .bk.lite .mac{color:var(--ink)} .bk.lite .mac span{color:var(--ink3)}
+
+/* ---------- séances muscu ---------- */
+.ses{background:#fff;border:.6pt solid var(--line);border-radius:2.6mm;overflow:hidden}
+.ses+.ses{margin-top:2.1mm}
+.ses-h{background:var(--ac);color:#fff;padding:1.6mm 3.6mm;display:flex;align-items:baseline;gap:3.4mm}
+.ses-h .no{font-family:'JetBrains Mono',monospace;font-size:8pt;font-weight:700;letter-spacing:.06em;opacity:.8}
+.ses-h b{font-size:10.4pt;font-weight:800;letter-spacing:-.024em}
+.ses-h .day{margin-left:auto;font-size:6.8pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(255,255,255,.16);border-radius:1.2mm;padding:1mm 2.4mm;white-space:nowrap}
+.ses-b{padding:1mm 3.6mm 1.8mm}
+.grp{display:flex;align-items:center;gap:2.6mm;margin:1.1mm 0 .35mm}
+.grp:first-child{margin-top:1mm}
+.grp .g{font-size:6.2pt;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
+.grp .ln{flex:1;height:.5pt;background:var(--line2)}
+.ex{display:flex;align-items:baseline;gap:2.4mm;padding:.8mm 0;border-bottom:.5pt solid var(--line2)}
+.ex:last-child{border-bottom:none}
+.ex .n{flex:0 0 5mm;font-family:'JetBrains Mono',monospace;font-size:8pt;font-weight:700;color:var(--ink3)}
+.ex .e{flex:1;font-size:8.6pt;line-height:1.25}
+.ex .e i{display:block;font-style:normal;font-size:7.2pt;color:var(--ink2);line-height:1.25;margin-top:.4mm}
+.ex .s{flex:0 0 22mm;text-align:right;font-family:'JetBrains Mono',monospace;font-size:8.8pt;font-weight:700;white-space:nowrap}
+.ex .r{flex:0 0 18mm;text-align:right;font-family:'JetBrains Mono',monospace;font-size:8pt;font-weight:500;
+  color:var(--ink2);white-space:nowrap}
+.sug{color:var(--ink3)}
+.sug::after{content:'°';font-size:7pt;vertical-align:super;color:var(--red)}
+.ex-hd{display:flex;gap:2.4mm;padding-bottom:1.2mm;border-bottom:1.2pt solid var(--ink);margin-top:.4mm}
+.ex-hd .n{flex:0 0 5mm}.ex-hd .e{flex:1}.ex-hd .s{flex:0 0 22mm;text-align:right}.ex-hd .r{flex:0 0 18mm;text-align:right}
+.ex-hd span{font-size:6.4pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
