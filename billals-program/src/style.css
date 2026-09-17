@@ -258,3 +258,6 @@ table{width:100%;border-collapse:collapse}
 .tr td{padding:1.85mm 3mm}
 .wk td{padding:1.65mm 3mm}
 .tile{padding:2.6mm 3.8mm}
+.wk td{padding:1.45mm 3mm}
+.bk{padding:2.8mm 4.2mm}
+.bk .items{gap:2mm}
