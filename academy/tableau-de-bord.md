@@ -14,7 +14,7 @@ CC/CT, les dates et les formats d'épreuve restants ne sont pas supposés.**
 | Matière | Crédits | BCC | Format de l'épreuve | Date | Niveau /5 | Chapitres traités | État V2 |
 |---|:---:|:---:|---|---|:---:|---|---|
 | **Principes d'économie** | **6** | 1 | **CT 1 h 30, questions de cours + exercices** · CC = examen de TD en présentiel | *[date]* | *[ ]* | **1** — Introduction générale ✔ | ✅ **V2** |
-| **Principes de gestion** | **6** | 1 | *[à confirmer]* | *[date]* | *[ ]* | **2** — CM 1, CM 2 | ⏳ à refaire en V2 |
+| **Principes de gestion** | **6** | 1 | **CT = QCM** (pas de points négatifs, une mauvaise alternative annule une bonne, ≥ 2 correctes par question) · CC = écrit en TD à mi-semestre · note = $ \max(\text{CT}\ ;\ \tfrac{1}{3}\text{CC}+\tfrac{2}{3}\text{CT}) $ | *[date]* | *[ ]* | **2** — CM 1 ✔, CM 2 | 🟡 **CM 1 en V2**, CM 2 à refaire |
 | **Techniques statistiques** | **5** | 2 | *[à confirmer]* | *[date]* | *[ ]* | **2 / 4** — CHAP 1, CHAP 2 ; restent « évolutions temporelles » et « croiser » | ⏳ à refaire en V2 |
 | **Institutions politiques** | **6** ¹ | 2 | *[à confirmer]* | *[date]* | *[ ]* | **1** — Partie 1, chapitre 1 « L'État » | ⏳ à refaire en V2 |
 | **Introduction au droit** | **6** ¹ | 2 | *[à confirmer]* | *[date]* | *[ ]* | **0** — aucun cours transmis | — |
@@ -26,7 +26,7 @@ CC/CT, les dates et les formats d'épreuve restants ne sont pas supposés.**
 « Environnement des organisations », dotée de **6 crédits** au total — la répartition interne
 entre les deux enseignements n'est pas donnée par le support.
 
-**Constat au 15 septembre 2026.** Deux matières sur six n'ont reçu aucun document :
+**Constat au 20 septembre 2026.** Deux matières sur six n'ont reçu aucun document :
 **introduction au droit** et **mathématiques 1**, soit **11 crédits sur 30** à l'aveugle.
 C'est le déséquilibre le plus coûteux du tableau : une matière à niveau 1 ou 2 offre
 mécaniquement le meilleur rendement horaire (section 2).
@@ -41,14 +41,14 @@ Depuis la refonte V2 du 15 septembre 2026, le critère est la **charge de lectur
 | Chapitre | Format | Pages totales | **À lire** | Sous le plafond ? |
 |---|:---:|:---:|:---:|:---:|
 | `economie-01-introduction-generale` | **V2** | 65 | **34** | ✅ |
-| `gestion-01-introduction-au-management` | V1 | 59 | 59 | ❌ à refaire |
+| `gestion-01-introduction-au-management` | **V2** | 54 | **25** | ✅ |
 | `gestion-02-qui-doit-etre-roi` | V1 | 62 | 62 | ❌ à refaire |
 | `stats-01-presenter-pour-informer` | V1 | 54 | 54 | ❌ à refaire |
 | `stats-02-resumer-pour-informer` | V1 | 73 | 27 | ❌ à refaire |
 | `institutions-01-l-etat` | V1 | 97 | 44 | ❌ à refaire |
 
-**Ordre de refonte retenu**, par crédits décroissants puis par lourdeur : gestion 01 et 02
-(6 crédits, 121 pages à lire à eux deux) · institutions 01 (44 pages) · stats 01 et 02.
+**Ordre de refonte retenu**, par crédits décroissants puis par lourdeur : ~~gestion 01~~ **fait** ·
+**gestion 02** (62 pages à lire) · **institutions 01** (44 pages) · **stats 01** · **stats 02**.
 
 ---
 
