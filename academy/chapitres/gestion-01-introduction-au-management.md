@@ -484,7 +484,7 @@ revêtir une société, quelle que soit sa forme juridique.
 
 Dans l'ordre alphabétique du support :
 
-| | | |
+| 1 à 5 | 6 à 10 | 11 à 14 |
 |---|---|---|
 | **Achats** | **Juridique** | **Qualité, hygiène, sécurité, environnement** |
 | **Commerce / Vente** | **Logistique** | **Ressources humaines** |
