@@ -111,6 +111,84 @@ Interdits : sauter un passage jugé secondaire, supposer une notion « déjà co
 renvoyer à plus tard, déclarer un point « pas important ». **Si c'est dans le support,
 c'est traité.** Si un prérequis manque, il est enseigné avant d'avancer.
 
+### 2.1 bis La compensation de la parole enseignante — norme auditable
+
+Ajouté le 22 septembre 2026. L'étudiant n'assiste pas aux cours. **Les autres étudiants
+disposent d'un enseignant qui ajoute, à l'oral, ce que le support ne dit pas.** Le document
+produit ici doit compenser cette parole **intégralement**. Cette section dit ce que cela
+recouvre exactement, et ce qui est reconstructible.
+
+#### Typologie de ce qu'un enseignant ajoute à l'oral
+
+| № | Ce que l'enseignant dit et que le support tait | Reconstructible ? |
+|:---:|---|:---:|
+| **1** | **La définition d'un terme employé sans être défini** — « excluable », « apatride », « consommations intermédiaires », « laissez-faire » | **100 %** |
+| **2** | **Le développement d'un sigle** — SARL, SASU, VRIN, QVCT, PESTEL, SIEG, BIT, CVEC, Afep | **100 %** |
+| **3** | **La démonstration d'une formule posée seule**, ou **la formule d'une notion seulement nommée** — le ROI, la valeur ajoutée et la raison de la soustraction | **100 %** |
+| **4** | **Le commentaire d'un schéma, d'un graphique ou d'un tableau muet** — la pyramide de Maslow, le circuit économique, les quatre cas du marché du travail, la matrice des capitaux | **100 %** |
+| **5** | **Le mécanisme derrière une liste** — pourquoi ces éléments, dans cet ordre, et ce qu'ils démontrent ensemble | **100 %** |
+| **6** | **Le prérequis supposé acquis** — points de pourcentage contre pour cent, droit positif contre droit naturel, responsabilité limitée contre indéfinie | **100 %** |
+| **7** | **La transition entre deux diapositives** — le lien logique que personne n'écrit | **100 %** |
+| **8** | **L'exemple d'illustration improvisé** | **En substance** : un exemple équivalent est produit, pas le sien |
+| **9** | **L'insistance personnelle** — « ça tombe tous les ans », « retenez surtout ceci », une consigne d'examen donnée oralement | **Non** — voir ci-dessous |
+
+**Les sept premières catégories représentent l'écrasante majorité de ce qui se dit en amphi**,
+et elles sont reconstructibles **sans exception**, parce qu'elles sont **impliquées par le
+support lui-même** : un terme employé appelle sa définition, une formule posée appelle sa
+démonstration, un schéma affiché appelle sa lecture. Le support **désigne** ce qui lui manque.
+
+#### Comment la neuvième catégorie se ferme sans assister au cours
+
+Elle est la seule véritable lacune, et elle est **partiellement neutralisée par la
+complétude** : une insistance sur un point déjà maîtrisé ne coûte rien. Pour le reste, cinq
+sources la comblent, et **aucune n'exige d'être présent** :
+
+| Source | Ce qu'elle apporte |
+|---|---|
+| **Les questions Wooclap** posées en cours | **Ce sont les insistances de l'enseignant, mises par écrit.** La source la plus rentable de toutes. |
+| **Les sujets et corrigés de TD** | Le type d'exercice réellement attendu, et le contenu du contrôle continu |
+| **Les annales** | Le format, le barème, la récurrence des thèmes |
+| **Les ressources déposées** (Ametice et équivalents) | Compléments, corrigés, consignes écrites |
+| **Une photo des notes d'un camarade**, une fois par chapitre | Les insistances orales, telles qu'elles ont été entendues |
+
+**Chacune est demandée explicitement au bloc 6 du chapitre concerné**, à la ligne du tableau de
+couverture qui la rend nécessaire.
+
+#### Le contrôle : chaque reconstruction est comptée et signalée
+
+**Un ⚠ dans le tableau de couverture est exactement une compensation de la parole
+enseignante.** Il désigne un élément du support qui était muet, elliptique ou fautif, et il
+indique **où** la reconstruction se trouve dans le document.
+
+**Le bilan du bloc 6 annonce donc le nombre de compensations effectuées**, et il est
+vérifiable ligne à ligne. Au 22 septembre 2026, sur les quatre chapitres refondus :
+
+| Chapitre | Éléments du support | Traités tels quels ✔ | **Reconstruits ⚠** | Manquants ✖ |
+|---|:---:|:---:|:---:|:---:|
+| Principes d'économie — introduction générale | 53 | 34 | **19** | 0 |
+| Principes de gestion — CM 1 | 49 | 24 | **25** | 0 |
+| Principes de gestion — CM 2 | 50 | 26 | **24** | 0 |
+| Institutions politiques — l'État | 27 | 12 | **14** | 1 |
+| **Total** | **179** | **96** | **82** | **1** |
+
+**82 reconstructions sur 179 éléments : 46 % de chaque support était muet.** C'est la mesure
+exacte de ce que l'enseignant apporte à l'oral, et de ce que le document restitue.
+
+#### Là où le document dépasse le cours oral
+
+Trois apports que la présence en amphi ne procure pas :
+
+1. **La vérification arithmétique.** Tous les calculs du support sont refaits. **Quatorze
+   anomalies** ont été relevées et signalées dans les quatre chapitres — un enseignant ne
+   signale pas que sa diapositive contient une erreur de calcul.
+2. **L'arbitrage entre supports divergents.** Quand deux sources se contredisent — deux ou
+   trois principes du fédéralisme, « suprême » ou « absolue » —, le document tranche, explique
+   la divergence et donne la réponse juste **quelle que soit la source du correcteur**.
+3. **La stratégie d'épreuve chiffrée.** Le seuil de coche d'un QCM à alternatives compensées se
+   démontre ; il n'est jamais donné en cours.
+
+---
+
 ### 2.2 Le rendement en points — *ce qui rend le document apprenable*
 
 Nouveau principe, et il commande la forme de bout en bout.

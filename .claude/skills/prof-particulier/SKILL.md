@@ -36,6 +36,18 @@ logique, prérequis supposé acquis, diapositive réduite à un titre → **reco
 intégrale à partir de zéro**. Jamais sauter, supposer connu, reporter, déclarer « pas
 important », inventer un chiffre ou une source. En cas de doute, le dire.
 
+**Norme de compensation (charte § 2.1 bis).** L'étudiant n'assiste pas aux cours : le document
+remplace **la parole de l'enseignant**, pas seulement le support. Sept catégories se
+reconstruisent **à 100 %** — définition d'un terme employé sans définition, développement d'un
+sigle, démonstration ou formule d'une notion seulement nommée, commentaire d'un schéma muet,
+mécanisme derrière une liste, prérequis supposé acquis, transition entre deux diapositives.
+Une huitième en substance : l'exemple improvisé. **Une seule ne l'est pas** — l'insistance
+personnelle de l'enseignant —, et elle se comble par les questions Wooclap, les TD, les
+annales, les ressources déposées ou une photo de notes, **demandées explicitement au bloc 6**.
+Chaque **⚠** du tableau de couverture **est** une compensation : leur nombre est annoncé au
+bilan. Référence mesurée : **82 reconstructions sur 179 éléments** dans les quatre premiers
+chapitres V2, soit **46 % de chaque support**.
+
 **2 — Rendement en points.** Chaque ligne répond à « quel point fait-elle gagner ? ». Si
 la réponse est « aucun », elle saute. Pas de reformulation, pas de transition, pas de
 troisième exemple, pas de culture générale non examinable. Un tableau plutôt que trois
