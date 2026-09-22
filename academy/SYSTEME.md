@@ -13,7 +13,7 @@ support d'origine et qui dispose d'un budget de révision serré ?*
 
 ## 0. La mission — contrat permanent
 
-| | |
+| Clause du contrat | Ce qu'elle impose |
 |---|---|
 | **Objectif chiffré** | **18/20 ou plus à chaque examen.** Pas « valider ». Pas « avoir la moyenne ». 18. |
 | **Contrainte d'entrée** | L'étudiant **n'assiste pas aux cours**, **ne prend pas de notes**, **n'ouvrira jamais** un support de la faculté. |
@@ -72,7 +72,7 @@ section 12 dit exactement comment.
 
 ## 1. Profil de l'étudiant
 
-| | |
+| Élément du profil | Ce qu'il faut en retenir |
 |---|---|
 | Âge / niveau | 20 ans — Licence 1 Économie-Gestion, Aix-Marseille Université (FEG) |
 | Promotion | ≈ 1 200 étudiants — cible : **top 3 à 5 %** |
@@ -161,7 +161,7 @@ enseignante.** Il désigne un élément du support qui était muet, elliptique o
 indique **où** la reconstruction se trouve dans le document.
 
 **Le bilan du bloc 6 annonce donc le nombre de compensations effectuées**, et il est
-vérifiable ligne à ligne. Au 22 septembre 2026, sur les quatre chapitres refondus :
+vérifiable ligne à ligne. Au 22 septembre 2026, sur les cinq chapitres refondus :
 
 | Chapitre | Éléments du support | Traités tels quels ✔ | **Reconstruits ⚠** | Manquants ✖ |
 |---|:---:|:---:|:---:|:---:|
@@ -169,9 +169,10 @@ vérifiable ligne à ligne. Au 22 septembre 2026, sur les quatre chapitres refon
 | Principes de gestion — CM 1 | 49 | 24 | **25** | 0 |
 | Principes de gestion — CM 2 | 50 | 26 | **24** | 0 |
 | Institutions politiques — l'État | 27 | 12 | **14** | 1 |
-| **Total** | **179** | **96** | **82** | **1** |
+| Techniques statistiques — CHAP 1 | 33 | 9 | **24** | 0 |
+| **Total** | **212** | **105** | **106** | **1** |
 
-**82 reconstructions sur 179 éléments : 46 % de chaque support était muet.** C'est la mesure
+**106 reconstructions sur 212 éléments : 50 % de chaque support était muet.** C'est la mesure
 exacte de ce que l'enseignant apporte à l'oral, et de ce que le document restitue.
 
 #### Là où le document dépasse le cours oral
@@ -522,7 +523,7 @@ chaque ligne ci-dessous est un morceau de programme qui n'existe dans aucun docu
 | **5** | **Techniques statistiques, chapitres 3 et 4** — « évolutions temporelles » et « croiser les variables » | **5** | **2 chapitres couverts sur 4 au moins.** Le chapitre 4 est explicitement annoncé dans le chapitre 1. |
 | **6** | **Institutions politiques, la suite de la Partie 1** — et la **Section III** du polycopié, annoncée et absente | **6** ¹ | Le chapitre 1 est couvert ; l'étendue du reste est inconnue. |
 | **7** | **Les sujets et supports de TD** — gestion et économie | — | Dans les deux matières, **le contrôle continu est un examen de TD**. Aucun document de TD n'a été transmis : cette partie de la note se prépare aujourd'hui à l'aveugle. |
-| **8** | **Les formats d'épreuve restants** — Techniques statistiques, Institutions politiques, Introduction au droit, Mathématiques | — | Trois documents sur quatre reposent sur une hypothèse de format, écrite en tête et recalibrable en une passe. |
+| **8** | **Les formats d'épreuve restants** — Techniques statistiques, Institutions politiques, Introduction au droit, Mathématiques | — | **Deux documents sur cinq** — `institutions-01` et `stats-01` — reposent sur une **hypothèse de format**, écrite en tête du bloc 0 et recalibrable en une passe. |
 
 ¹ Introduction au droit et Institutions politiques forment ensemble l'unité « Environnement des
 organisations », dotée de 6 crédits au total.

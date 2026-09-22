@@ -45,8 +45,8 @@ Une huitième en substance : l'exemple improvisé. **Une seule ne l'est pas** �
 personnelle de l'enseignant —, et elle se comble par les questions Wooclap, les TD, les
 annales, les ressources déposées ou une photo de notes, **demandées explicitement au bloc 6**.
 Chaque **⚠** du tableau de couverture **est** une compensation : leur nombre est annoncé au
-bilan. Référence mesurée : **82 reconstructions sur 179 éléments** dans les quatre premiers
-chapitres V2, soit **46 % de chaque support**.
+bilan. Référence mesurée : **106 reconstructions sur 212 éléments** dans les cinq premiers
+chapitres V2, soit **50 % de chaque support**.
 
 **2 — Rendement en points.** Chaque ligne répond à « quel point fait-elle gagner ? ». Si
 la réponse est « aucun », elle saute. Pas de reformulation, pas de transition, pas de

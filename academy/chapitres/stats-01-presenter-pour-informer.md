@@ -1,512 +1,1641 @@
 ---
-matiere: Techniques statistiques — L1 Portail, Division A, AMU
+matiere: Techniques statistiques
 chapitre: Chapitre 1 — Présenter pour informer
-titre: Présenter pour informer
-sous_titre: La démarche de l'étude statistique, le vocabulaire de la statisticienne, et la présentation des données sans perte d'information
-resume: Ce document reconstruit intégralement le premier chapitre de Techniques statistiques. Il couvre les 33 diapositives du support : les six étapes d'une étude statistique, le vocabulaire fondamental et la typologie des variables, puis toutes les façons de présenter une distribution — série brute, effectifs, fréquences, fréquences cumulées, et les cinq familles de diagrammes. Les questions posées en amphithéâtre y sont intégralement traitées, et les données du cours ont été recalculées une à une.
-date: 4 septembre 2026
-duree: première lecture 2 h 30 — maîtrise complète ≈ 7 h réparties sur 3 semaines
-version: 1.0
+titre: La démarche de l'étude statistique et la présentation des données
+sous_titre: Vocabulaire, types de variables, distributions et graphiques — sans perte d'information
+resume: Reconstruction intégrale des 33 diapositives du chapitre 1 de Techniques statistiques (Hélène Couprie, L1 Portail Division A). Les cinq exercices posés dans le support et laissés sans corrigé sont tous traités. Quatre anomalies du support ont été vérifiées à l'image et sont signalées. Sept blocs : contrat, noyau à apprendre, cours qui explique, automatismes, banque d'examen, pièges et points volés, tableau de couverture des 33 diapositives.
+date: 22 septembre 2026
+duree: 4 h 30 de révision réparties sur 3 semaines
+version: 2.0
 sommaire: oui
 ---
 
-# Chapitre 1 — Présenter pour informer
+# Bloc 0 — Le contrat
 
-Ce document remplace le support de cours. Les 33 diapositives y sont couvertes, sans
-exception : le **tableau de couverture** en annexe permet de le vérifier ligne par ligne.
-Toutes les questions posées à l'amphithéâtre — dont les réponses n'existaient que dans
-l'oral — sont traitées, et **chaque chiffre du support a été recalculé**.
+## Ce qui t'attend à l'examen
 
-<!--saut-->
+::: piege Le format n'est pas donné par le support — hypothèse explicite
+Les 33 diapositives ne précisent ni la nature, ni la durée, ni le barème de l'épreuve.
+**Je ne l'inventerai pas.**
 
-## 1. Carte du chapitre
+**Hypothèse retenue : épreuve écrite, exercices d'application + questions de cours, sans
+document.**
 
-### 1.1 — Vue d'ensemble
+**Pourquoi.** Le support est bâti sur **cinq exercices posés à l'étudiant** — diapositives 12,
+22, 25, 28 et 30 — toujours de la même forme : *« indiquez la population, les unités
+statistiques, le caractère, son type »*, *« comment a été calculé ce chiffre ? »*, *« écrivez
+une phrase de lecture »*. **Un enseignant qui pose cinq fois la même question dans un cours
+l'interroge à l'examen.** Le bloc 4 est construit exactement sur ces trois gestes.
 
-Ce chapitre répond à une question simple et redoutable : **comment transformer des données
-brutes en information utilisable pour décider ?** La statistique descriptive n'est pas un
-exercice de calcul, c'est une chaîne qui part d'un besoin de décision et qui aboutit à un
-rapport. Le chapitre parcourt cette chaîne en trois temps. D'abord la **méthode** : les six
-étapes d'une étude statistique, de la formulation de la problématique à la prise de
-décision, avec un principe qui commande tout le reste — chaque choix technique découle de
-la problématique, jamais l'inverse. Ensuite le **vocabulaire** : population, unité
-statistique, effectif, variable, modalité, et la typologie des variables en deux types et
-quatre sous-types, sans laquelle aucun traitement n'est possible puisque le type de
-variable détermine les traitements autorisés. Enfin la **présentation** : comment exposer
-une distribution sans rien perdre de l'information — série brute, tableau d'effectifs,
-fréquences, fréquences cumulées — et comment choisir le diagramme qui répond à la question
-posée. C'est la **première étape** de toute analyse : les chapitres suivants résumeront
-(CHAP 2), suivront l'évolution dans le temps (CHAP 3) et croiseront les variables (CHAP 4).
+**Ce que l'hypothèse ne change pas :** le bloc 1 est le même quel que soit le format. Les
+définitions, les types de variables et les formules se savent dans tous les cas.
 
-### 1.2 — Les idées maîtresses
-
-Huit affirmations. Si vous ne deviez retenir que cela du chapitre, ce serait cela.
-
-1. **La chaîne est : besoin de décider → besoin d'information → étude statistique.** La
-   statistique ne se déclenche pas toute seule ; elle répond à une décision à prendre.
-2. **Tous les choix techniques sont guidés par le type de problématique.** C'est le message
-   du schéma des six étapes : toutes les flèches de retour pointent vers l'étape 1.
-3. **Une problématique vague rend l'étude impossible.** « Faites-moi une enquête de
-   satisfaction » n'est pas une commande exploitable.
-4. **Le type de variable détermine tout ce qu'on a le droit de faire ensuite.** Deux types
-   (qualitative, quantitative), quatre sous-types (nominale, ordinale, discrète, continue).
-5. **Une variable qualitative peut être codée par des nombres sans devenir quantitative.**
-   Le codage n'est pas la nature de la variable.
-6. **Présenter n'est pas résumer.** Série brute, tableau d'effectifs, fréquences et
-   fréquences cumulées se transforment l'un en l'autre **sans perte d'information** ; le
-   résumé (moyenne, écart-type) viendra au chapitre 2, et lui, il perd de l'information.
-7. **Le choix du diagramme est dicté par la comparaison que l'on veut faire voir**, non par
-   l'esthétique : effectifs ou structure, une catégorie dans le temps ou une année en
-   coupe.
-8. **Ce n'est pas le rapport statistique qui décide.** La décision est politique ; le
-   rapport l'éclaire. Toute information non informative au regard de la problématique doit
-   être bannie.
-
-### 1.3 — Prérequis
-
-Le chapitre mobilise quatre outils qu'il n'enseigne pas. Ils sont enseignés ici.
-
-::: methode Prérequis 1 — Proportion, fréquence, pourcentage
-Une **proportion** est un quotient entre une partie et un tout : elle vaut entre 0 et 1.
-Un **pourcentage** est la même chose exprimée pour cent : on multiplie la proportion par 100.
-
-$$ \text{proportion} = \frac{\text{effectif de la partie}}{\text{effectif total}}
-\qquad \text{pourcentage} = \text{proportion} \times 100 $$
-
-Si 33 étudiants sur 87 ont exactement un frère ou une sœur, la proportion vaut
-$ 33/87 = 0{,}3793 $, soit **37,93 %**, arrondi à **37,9 %**.
-
-**Trois vérifications réflexes**, à faire systématiquement :
-1. la somme de toutes les proportions d'une distribution vaut **1** (100 %) ;
-2. une proportion est toujours comprise entre 0 et 1 : un résultat négatif ou supérieur
-   à 1 signale une erreur de calcul ;
-3. si la somme des pourcentages affichés vaut 99,9 % ou 100,1 %, ce n'est **pas** une
-   erreur : c'est l'effet des **arrondis**. On l'écrit en note de tableau.
+**La demande figure au bloc 6.** Donne-moi le format réel et je recalibre les séries B et D en
+une passe.
 :::
 
-::: methode Prérequis 2 — Le signe somme Σ
-La diapositive 23 emploie le symbole $ \sum $ sans l'avoir introduit. C'est une simple
-abréviation d'une addition.
-
-$$ \sum_{i=1}^{p} n_i = n_1 + n_2 + \ldots + n_p $$
-
-Lecture, de gauche à droite : « somme, pour $ i $ allant de 1 jusqu'à $ p $, des
-$ n_i $ ». Trois éléments à identifier :
-
-- l'**indice de sommation** ($ i $) : le compteur ; il n'existe qu'à l'intérieur de la
-  somme ;
-- les **bornes** (de 1 à $ p $) : où le compteur commence et où il s'arrête ;
-- le **terme général** ($ n_i $) : ce que l'on additionne à chaque tour.
-
-**Exemple chiffré.** Avec $ n_1 = 11 $, $ n_2 = 33 $, $ n_3 = 23 $ :
-$ \sum_{i=1}^{3} n_i = 11 + 33 + 23 = 67 $.
-
-**Piège classique :** $ p $ est le nombre de **modalités**, pas le nombre d'individus.
-Dans l'exemple des 87 étudiants, il y a $ n = 87 $ individus mais seulement $ p = 11 $
-modalités observées.
-:::
-
-::: methode Prérequis 3 — Ensemble dénombrable et non dénombrable
-La distinction sert à séparer le quantitatif **discret** du quantitatif **continu**, et le
-support l'emploie sans la définir.
-
-- Un ensemble est **dénombrable** quand on peut énumérer ses éléments un par un, en les
-  numérotant, même s'ils sont en nombre infini. Les entiers naturels 0, 1, 2, 3… sont
-  dénombrables. **On compte.**
-- Un ensemble est **non dénombrable** quand, entre deux valeurs, il en existe toujours une
-  infinité d'autres qu'on ne peut pas énumérer. Les nombres réels d'un intervalle sont non
-  dénombrables. **On mesure.**
-
-**Le test pratique en examen** : entre deux valeurs voisines de la variable, une valeur
-intermédiaire a-t-elle un sens ?
-- Nombre d'enfants : entre 2 et 3, rien. → **discrète**.
-- Taille en centimètres : entre 179 et 180, il y a 179,4 ; entre 179,4 et 179,5, il y a
-  179,43… → **continue**.
-
-**Nuance à connaître :** une taille mesurée au centimètre près *paraît* prendre des valeurs
-entières. La variable reste **continue** : c'est l'**instrument de mesure** qui est
-discret, pas la grandeur mesurée. Le critère porte sur la nature de la grandeur, jamais sur
-la précision de l'appareil.
-:::
-
-::: methode Prérequis 4 — Lire un tableau statistique
-Un tableau publié se lit dans un ordre fixe. Cet ordre est la première chose que vérifie un
-correcteur.
-
-1. **Le titre** : de quoi parle-t-on ?
-2. **Le champ** : sur qui porte l'information ? (« France hors Mayotte, familles vivant en
-   ménage ordinaire ayant au moins un enfant mineur »)
-3. **L'unité** : en quoi sont exprimés les nombres ? (« en milliers » change tout)
-4. **La source** et sa date.
-5. **Les en-têtes** de lignes et de colonnes : où est la variable, où sont les
-   sous-populations ?
-6. **Une cellule**, enfin — et jamais avant les cinq points précédents.
-
-**Phrase de lecture type**, à réutiliser telle quelle :
-> « En [année], [effectif ou pourcentage] des [unités statistiques] du champ [champ]
-> présentaient la modalité [modalité] de la variable [variable]. »
-:::
-
-### 1.4 — Lien avec la finance de marché
-
-Ce chapitre n'est pas un préliminaire administratif : c'est **exactement** la boîte à
-outils du travail quotidien sur les marchés.
-
-::: marche
-- **La distribution des effectifs, c'est l'histogramme des rendements.** Ranger les
-  variations quotidiennes d'un actif par classes et compter combien tombent dans chacune,
-  c'est construire une distribution observée — l'objet même du §3 de ce chapitre.
-- **La fréquence cumulée, c'est la fonction de répartition empirique** — et donc le
-  **quantile**. « 5 % des séances ont produit une perte supérieure à 2,3 % » est une
-  lecture de fréquence cumulée. C'est la définition opérationnelle de la *Value at Risk* :
-  la VaR à 95 % est le quantile à 5 % de la distribution des pertes. Vous saurez la
-  calculer à la fin de ce chapitre, avant même d'avoir vu le mot.
-- **« Présenter sans perte d'information » contre « résumer ».** Un backtest résumé à sa
-  moyenne et à son écart-type efface précisément ce qui compte : les queues de
-  distribution, les séries de pertes, la forme. Le chapitre 2 apprendra à résumer ; ce
-  chapitre-ci apprend **ce que le résumé fait disparaître**. C'est la même erreur que juger
-  une stratégie sur son rendement moyen sans regarder son *drawdown*.
-- **Population et échantillon.** La dernière diapositive annonce la statistique
-  inférentielle : déduire les propriétés d'une population à partir d'un échantillon tiré au
-  hasard. C'est le problème central du backtest — un historique n'est qu'un échantillon de
-  tous les marchés possibles, et en tirer des conclusions générales est un acte
-  d'inférence, avec son risque d'erreur.
-- **« Ce n'est pas le rapport statistique qui décide. »** La décision reste au décideur,
-  informée par les chiffres et contrainte par autre chose — le coût, le mandat, le risque
-  toléré. C'est très exactement la frontière entre un signal et une prise de position.
-:::
-
-<!--saut-->
-## 2. Le cours reconstruit
-
-L'ordre suit celui du support. Deux ajouts : les **réponses aux questions posées en
-amphithéâtre** — elles n'existaient que dans l'oral — et la **vérification systématique des
-chiffres**, qui a révélé une anomalie dans les données du cours (§2.3.4).
-
-::: objectif Le programme annoncé par le support (diapositive 2)
-**Contenu du chapitre**
-- Découvrir la démarche de la statisticienne.
-- Définitions essentielles : variables et type, population et unités statistiques.
-- Présenter de façon pertinente les informations contenues dans les données.
-
-**Plan du chapitre**
-1. Réaliser une étude statistique.
-2. Communiquer : le vocabulaire de la statisticienne.
-3. Communiquer : la présentation des données.
-
-*Remarque de forme : le titre de la section 2 est écrit « vocabulaire de la
-statisticienne » dans le plan (diapo 2) et « vocabulaire du statisticien » sur la
-diapositive de section (diapo 11). Aucune conséquence sur le fond.*
-:::
-
-### 2.1 — Section 1 : réaliser une étude statistique
-
-#### 2.1.1 Pourquoi une étude statistique existe
-
-::: formule La chaîne fondatrice
-> **Besoin de décider → Besoin d'information → Étude statistique**
-:::
-
-Le sens de lecture est capital et se lit de gauche à droite : **on ne fait pas une étude
-parce qu'on a des données, on la fait parce qu'on a une décision à prendre.** La décision
-crée un besoin d'information ; le besoin d'information justifie l'étude. Inverser cet ordre
-— partir des données disponibles pour chercher ce qu'on pourrait en dire — produit des
-rapports inutiles.
-
-Le support donne quatre exemples. Chacun illustre un type de décision différent.
-
-| Exemple du support | La décision qui est en jeu derrière |
+| Le cadre | Ce qu'il faut savoir |
 |---|---|
-| Identifier les **populations à risque** afin d'optimiser une campagne de prévention | Où affecter un budget de santé publique limité |
-| Connaître l'**évolution démographique** pour planifier le financement du système de retraite | Comment calibrer cotisations et prestations sur trente ans |
-| Prévoir la **répartition d'une population selon des zones géographiques** pour planifier d'éventuels quotas de médecins | Combien de praticiens autoriser, et où |
-| **Localiser des prospects** dans le but d'optimiser la ventilation des forces de vente | Où envoyer les commerciaux |
+| **Enseignante** | **Hélène Couprie** — Portail L1, **Division A**, année 2026-2027 |
+| **Crédits** | **5 ECTS** — BCC 2, « Compréhension de l'environnement des acteurs, firmes et organisations » |
+| **Place du chapitre** | **Chapitre 1 sur au moins 4** : présenter (CHAP 1) · résumer (CHAP 2) · évolutions temporelles (CHAP 3) · croiser les variables (CHAP 4) |
 
-::: examen
-Les deux premiers exemples relèvent de la **décision publique**, les deux derniers de la
-**décision d'entreprise**. Le message est que la démarche statistique est **la même** dans
-les deux cas — c'est la problématique qui change, pas la méthode. Une question de cours
-peut demander de « donner deux exemples de situations appelant une étude statistique » :
-donnez-en un de chaque camp.
+## Ce que le support te demande cinq fois — et ne corrige jamais
+
+**Les cinq exercices posés dans les diapositives sont sans corrigé.** Ils sont tous traités
+dans ce document, série B du bloc 4 :
+
+| Diapositive | La question posée | Corrigé |
+|:---:|---|:---:|
+| **12** | Infractions en France 2024 — « indiquez la population, les unités statistiques, l'effectif total, la ou les variables, les modalités » | **B1** |
+| **22** | Familles selon le nombre d'enfants — « indiquez la population, le caractère, les unités statistiques. Comment ont été calculés ces chiffres ? » | **B2** |
+| **25** | Personnes écrouées 2020-2023 — « identifier la population, les sous-populations, le caractère, son type » | **B3** |
+| **28** | Enfants par famille 1990-2023 — « identifier… donner un exemple de lecture » | **B4** |
+| **30** | Empilé à 100 % — « écrire une phrase de lecture. Comment a été calculé le chiffre 12,6 ? » | **B5** |
+
+## Le budget de révision
+
+**4 h 30 au total, en huit séances, sur trois semaines.**
+
+| Séance | Quand | Durée | Ce que tu fais, exactement |
+|:---:|---|:---:|---|
+| **S1** | J0 | 45 min | Lire le **bloc 2** en entier, une seule fois. |
+| **S2** | J+1 | 30 min | Lire le **bloc 1**. Puis **série A**, document fermé. |
+| **S3** | J+2 | 25 min | Série A **sur les seuls échecs de S2** + le **bloc 3**. |
+| **S4** | J+4 | 40 min | **Série B** : les cinq exercices du support, chronométrés. |
+| **S5** | J+7 | 35 min | **Série A intégrale** à froid + lecture du **bloc 5**. |
+| **S6** | J+12 | 40 min | **Série C** : les exercices de construction — série brute → distribution → graphique. |
+| **S7** | J+18 | 1 h | **Série D** : simulation complète, puis correction au barème. |
+| **S8** | Veille | 20 min | **Bloc 1 + bloc 5 uniquement.** |
+
+## Ce que chaque bloc rapporte
+
+| Ce que tu sais | Note atteignable | Pourquoi |
+|---|:---:|---|
+| Le **bloc 1**, parfaitement | **≈ 12/20** | Le vocabulaire et les types de variables sont acquis, mais les calculs se pratiquent. |
+| + le **bloc 2** compris | **≈ 15/20** | Tu sais **pourquoi** une fréquence cumulée n'a de sens que pour un caractère ordonné. |
+| + le **bloc 4** travaillé | **≈ 18/20** | Les cinq questions du support sont exactement celles de l'examen, et tu les as déjà rédigées. |
+| + le **bloc 5** | **18 à 20/20** | Les quatre anomalies du support, et les phrases de lecture prêtes à l'emploi. |
+
+## Mode d'emploi
+
+| Bloc | Usage | Combien de fois |
+|:---:|---|---|
+| **0** Le contrat | Lu | 1 fois — c'est fait |
+| **1** Le noyau | **Appris par cœur** | Relu 5 fois (S2, S3, S5, S7, S8) |
+| **2** Le cours qui explique | Lu | **1 seule fois** (S1) |
+| **3** Les automatismes | Consulté | S3, puis avant l'épreuve |
+| **4** La banque d'examen | **Fait, jamais lu** | Séries A, B, C, D |
+| **5** Pièges et points volés | Lu | 2 fois (S5, S8) |
+| **6** Tableau de couverture | Vérifié | 2 minutes |
+
+**Le document fait 59 pages. Tu n'en lis que 23** — blocs 0, 1, 2 et 5. Sur les 36 autres,
+**27 se font** (bloc 4), **3 se consultent** (bloc 3), **3 se vérifient** (bloc 6), et 3 sont
+la couverture et le sommaire.
+
+<!--saut-->
+
+# Bloc 1 — Le noyau
+
+> **Tout ce qui peut tomber, et rien d'autre.** Vingt-quatre points. Les définitions se
+> restituent **au mot près** : en statistique, « effectif » et « fréquence » ne sont pas
+> interchangeables, et une copie qui les confond perd l'exercice entier.
+
+## N1 — Le plan et l'objet du chapitre
+
+::: definition Le contenu annoncé par la diapositive 2
+**« Découvrir la démarche de la statisticienne · définitions essentielles (variables et type,
+population et unités statistiques) · présenter de façon pertinente les informations contenues
+dans les données. »**
+
+**Plan en trois sections :** ① Réaliser une étude statistique · ② Communiquer : le vocabulaire
+de la statisticienne · ③ Communiquer : la présentation des données.
 :::
 
-#### 2.1.2 Les six étapes d'une étude statistique (diapositive 4)
+**La place du chapitre dans le cours** (diapositive 9) :
 
-**La diapositive 4 ne contient aucun texte : c'est une image.** Voici ce qu'elle
-représente, intégralement.
+| Chapitre | Ce qu'il fait |
+|:---:|---|
+| **1** | **Présenter les données sans perte d'information** |
+| **2** | **Résumer** l'information contenue dans les données, **variable par variable** |
+| **3** | S'intéresser aux **évolutions temporelles** |
+| **4** | **Croiser** les informations de plusieurs variables |
 
-Six boîtes se succèdent, reliées par une flèche horizontale qui va de la gauche vers la
-droite :
+## N2 — La chaîne qui justifie toute étude statistique
 
-```
-   [1] Quel type   →  [2] Choix des  →  [3] Choix de la  →  [4] Campagne  →  [5] Traitement      →  [6] Prise
-       de problé-        données à         méthode de           de mesures      (présentation,          de
-       matique ?         observer          recueil des                          résumé, etc.)       décision
-                                           données                              des données
-        ▲   ▲   ▲   ▲   ▲
-        └───┴───┴───┴───┴──── flèches de retour, venant des étapes 2, 3, 4, 5 et 6
-
-        « Tous les choix sont guidés par le type de problématique »
-```
-
-::: examen Le vrai contenu du schéma : les flèches de retour
-La lecture naïve est « six étapes dans l'ordre ». C'est la moitié du message. L'autre
-moitié est portée par les **cinq flèches de retour** qui remontent de chacune des étapes
-suivantes vers l'étape 1, et par la légende encadrée : **« Tous les choix sont guidés par
-le type de problématique »**.
-
-Autrement dit : à chaque étape, on ne choisit pas « la meilleure méthode dans l'absolu »,
-on choisit **celle qui répond à la problématique**. Il n'existe pas de bonne méthode de
-recueil en soi, ni de bon diagramme en soi. Il n'y a que des méthodes **adaptées ou non à
-la question posée**.
-
-C'est la phrase à replacer dans toute copie de méthodologie, et le principe qui reviendra
-au §2.3.7 pour le choix des diagrammes.
+::: definition Diapositive 3, à restituer telle quelle
+**Besoin de décider → Besoin d'information → Étude statistique.**
 :::
 
-#### 2.1.3 Étape 1 — Quel type de problématique ? (diapositive 5)
+**Les quatre exemples du support**, à pouvoir citer :
+1. **Identifier les populations à risque** afin d'optimiser une **campagne de prévention**.
+2. **Connaître l'évolution démographique** pour planifier le **financement du système de
+   retraite**.
+3. **Prévoir la répartition d'une population selon des zones géographiques** pour planifier
+   d'éventuels **quotas de médecins**.
+4. **Localiser des prospects** dans le but d'optimiser la **ventilation des forces de vente**.
 
-La question à poser au **donneur d'ordre** de l'étude : *quel type de problématique
-l'intéresse ?*
+## N3 — Les six étapes d'une étude statistique
 
-**L'exemple du support.** Un directeur d'hypermarché demande une enquête de satisfaction
-auprès de sa clientèle. Le support tranche : **« cette demande est beaucoup trop vague »**,
-et énumère quatre problématiques possibles, toutes compatibles avec la demande initiale :
+::: definition Le schéma de la diapositive 4 — et la phrase qui s'y trouve
+| № | Étape |
+|:---:|---|
+| **1** | **Quel type de problématique ?** |
+| **2** | **Choix des données à observer** |
+| **3** | **Choix de la méthode de recueil des données** |
+| **4** | **Campagne de mesures** |
+| **5** | **Traitement (présentation, résumé, etc.) des données** |
+| **6** | **Prise de décision** |
 
-1. modifier la **mise en place des produits en rayon** ?
-2. améliorer l'**affichage** des produits ?
-3. mieux répondre aux attentes des clients en matière de **choix des produits** ?
-4. mieux définir les attentes en matière d'**horaires d'ouverture** et de **conseil** ?
+**Et la phrase inscrite au bas du schéma, avec des flèches qui remontent de chaque étape vers
+la première :**
 
-::: demo Pourquoi une demande vague rend l'étude impossible — et non seulement imprécise
-Ce n'est pas une question de confort : chacune des quatre problématiques impose des choix
-**incompatibles** aux étapes suivantes.
+> **« Tous les choix sont guidés par le type de problématique. »**
 
-| Si la problématique est… | Étape 2 : qui observer ? | Étape 3 : comment recueillir ? |
-|---|---|---|
-| La mise en place en rayon | Les clients **en magasin**, au moment de l'achat | Observation directe des parcours, expérimentation sur un rayon test |
-| Les horaires d'ouverture | Aussi les **non-clients** — ceux qui ne viennent pas parce que c'est fermé | Enquête téléphonique ou en ligne, hors magasin |
-
-Interroger des clients **présents en magasin** sur les horaires d'ouverture ne peut pas
-répondre à la question : par construction, on n'interroge que ceux pour qui les horaires
-conviennent déjà. **La population à observer dépend de la problématique** ; se tromper de
-problématique, c'est se tromper de population, et aucun traitement ultérieur ne rattrape
-cette erreur.
+**C'est la thèse de toute la section 1, et elle ne figure que dans l'image.**
 :::
 
-::: piege
-La faute la plus fréquente sur cette étape, en copie : répondre « il faut préciser la
-demande » sans montrer **pourquoi**. Le point n'est pas la précision pour elle-même, c'est
-que **les étapes 2 à 6 sont indéterminées** tant que l'étape 1 ne l'est pas.
-:::
+## N4 — Le détail des six étapes
 
-#### 2.1.4 Étape 2 — Choix des données à observer : *qui ?* (diapositive 6)
+| Étape | Ce qu'elle décide | Le point exigible |
+|:---:|---|---|
+| **1 — Problématique** | Ce qui intéresse **le donneur d'ordre** | L'exemple du support : une demande d'« enquête de satisfaction » est **« beaucoup trop vague »**. Il faut savoir si c'est pour **modifier la mise en place des produits en rayon**, **améliorer l'affichage**, **mieux répondre aux attentes en matière de choix des produits**, ou **mieux définir les attentes en matière d'horaires d'ouverture et de conseil** |
+| **2 — Données à observer** | **Qui ?** | Définir **sur quels individus ou unités statistiques** les observations seront réalisées. La population devra être **définie, délimitée** ; **« parfois on connaît sa taille, mais pas toujours »** |
+| **3 — Méthode de recueil** | **Comment obtenir les informations ?** | **Quatre méthodes** — voir N5 |
+| **4 — Campagne de mesures** | **Combien, quand, comment** enquêter | En cas d'enquête quantitative, **« c'est l'option la plus coûteuse »** |
+| **5 — Traitement** | Faire parler les données | **« C'est l'objet du cours de Techniques statistiques »** — et les quatre chapitres de N1 |
+| **6 — Prise de décision** | Le **rapport statistique** | Voir N6 |
 
-La question de l'étape 2 est **« Qui ? »**. Le support énonce trois exigences :
+## N5 — Les quatre méthodes de recueil des données
 
-- une fois défini l'**objet d'étude**,
-- il faut définir sur quels **individus** ou **unités statistiques** les observations vont
-  être réalisées,
-- la **population** concernée devra être **définie, délimitée** — et **on connaît parfois
-  sa taille, mais pas toujours**.
-
-::: definition Définir et délimiter une population
-**Définir** une population, c'est énoncer le critère d'appartenance : *qui* en fait partie.
-**Délimiter**, c'est fixer les bornes concrètes — géographiques, temporelles, d'âge — qui
-rendent le critère applicable.
-
-Exemple : « les clients de l'hypermarché » est une définition. « Les personnes ayant
-effectué au moins un achat dans le magasin de La Valentine entre le 1<sup>er</sup> janvier
-et le 30 juin 2026 » est une population **délimitée** : on sait, pour chaque personne, dire
-si elle en fait partie ou non.
-:::
-
-::: examen La remarque la plus importante de la diapositive
-**« Parfois on connaît sa taille, mais pas toujours. »** Cette incise annonce toute la
-statistique inférentielle (diapositive 33). Quand la taille de la population est inconnue
-ou la population inaccessible — les clients potentiels, les fraudeurs, les électeurs du
-prochain scrutin — on ne peut pas l'observer exhaustivement : il faudra **échantillonner**,
-et accepter une marge d'erreur. Repérer cette phrase montre que vous avez vu le fil qui
-relie la première section à la dernière diapositive.
-:::
-
-#### 2.1.5 Étape 3 — Choix de la méthode de recueil (diapositive 7)
-
-La question : **comment obtenir les informations ?** Le support donne **quatre** méthodes.
-
-| Méthode | Définition du support | Ce qu'elle permet | Sa limite |
-|---|---|---|---|
-| **Expérimentation** | On dispose d'un protocole permettant l'observation directe de l'impact d'une **variable de contrôle** sur une **variable d'observation** | Établir un lien de cause à effet, puisqu'on fait varier une seule chose | Coûteuse, souvent impossible en sciences sociales, artificielle |
-| **Observation ou enquête qualitative** | On observe de façon **extensive** un **petit nombre** d'individus | Comprendre en profondeur des mécanismes, faire émerger des hypothèses | Ne permet pas de généraliser : trop peu d'individus |
-| **Données de seconde main** | On réutilise des informations **disponibles par ailleurs** | Immédiat et peu coûteux (Insee, Ministères, bases internes) | Les données n'ont pas été produites pour votre problématique |
-| **Enquête quantitative** | Travail **sur-mesure** : on collecte l'information utile par enquête, questionnaire, etc. | Colle exactement à la problématique, permet de quantifier | **L'option la plus coûteuse** (diapositive 8) |
-
-::: methode Comment choisir — la grille de décision reconstruite
-Le support liste les méthodes sans dire comment trancher. Les quatre questions à se poser,
-dans l'ordre :
-
-1. **Cherche-t-on une cause ou une description ?** Une cause → expérimentation. Une
-   description → les trois autres.
-2. **Cherche-t-on à comprendre ou à mesurer ?** Comprendre des mécanismes → qualitative.
-   Mesurer une ampleur → quantitative.
-3. **L'information existe-t-elle déjà ?** Si oui, données de seconde main : c'est presque
-   toujours à essayer **en premier**, parce que c'est gratuit et immédiat.
-4. **Le budget permet-il le sur-mesure ?** Si oui, et si les trois réponses précédentes
-   l'exigent : enquête quantitative.
-
-**Deux termes à ne pas confondre dans l'expérimentation :** la **variable de contrôle** est
-celle que l'expérimentateur fait varier volontairement ; la **variable d'observation** est
-celle dont il mesure la réaction. On agit sur la première pour observer la seconde.
-:::
-
-#### 2.1.6 Étape 4 — Campagne de mesures (diapositive 8)
-
-Le support pose le cadre en une phrase : **en cas de choix d'enquête quantitative, c'est
-l'option la plus coûteuse.** La campagne de mesures doit définir trois choses.
-
-| Question | Ce qu'elle recouvre |
+| Méthode | Définition du support |
 |---|---|
-| **Combien** de personnes enquêter ? | La taille de l'échantillon : plus il est grand, plus la mesure est précise, plus elle coûte cher |
-| **Quand** les enquêter ? | Le moment conditionne la réponse — un client interrogé un samedi après-midi et un mardi matin n'est pas le même |
-| **Comment** les enquêter ? | Le canal : en face-à-face, par téléphone, en ligne, par voie postale — chacun atteint une population différente |
+| **L'expérimentation** | **« On dispose d'un protocole permettant l'observation directe de l'impact d'une variable de contrôle sur une variable d'observation. »** |
+| **L'observation, ou enquête qualitative** | **« On observe de façon extensive un petit nombre d'individus. »** |
+| **Les données de seconde main** | **« On réutilise des informations disponibles par ailleurs. »** |
+| **L'enquête quantitative** | **« Il s'agit d'un travail sur-mesure, on collecte l'information utile par enquête, questionnaire, etc. »** |
 
-::: marche
-« Combien, quand, comment » est un arbitrage **coût / précision**, exactement de même
-nature qu'en gestion du risque : chaque unité de précision supplémentaire se paie, et le
-gain marginal décroît. Doubler la taille d'un échantillon ne divise pas l'erreur par deux —
-elle décroît en $ 1/\sqrt{n} $ ; il faut **quadrupler** l'échantillon pour diviser l'erreur
-par deux. *(Ce résultat relève de la statistique inférentielle et sera démontré plus tard
-dans le cursus ; il est cité ici pour montrer la nature de l'arbitrage, pas à restituer en
-examen sur ce chapitre.)*
+## N6 — Ce que doit contenir un rapport statistique
+
+::: definition Diapositive 10
+**« Un rapport statistique doit contenir le résultat des traitements statistiques bien sûr,
+mais aussi les éléments méthodologiques — choix réalisés quant aux méthodes statistiques
+utilisées —, le tout orienté selon la problématique, vers la prise de décision. »**
 :::
 
-#### 2.1.7 Étape 5 — Traitement des données (diapositive 9)
+**Les deux règles qui l'accompagnent :**
 
-> « Une fois les données récoltées, vient le moment de **les faire parler**. »
+1. **« Toute information inutile — non informative au regard de la problématique — doit être
+   bannie. »**
+2. **« Ce n'est pas le rapport statistique qui décide : toute décision est politique et repose
+   sur les informations collectées et présentées dans le rapport, ainsi que d'autres
+   considérations ou contraintes comme le coût par exemple. »**
 
-Le support précise : **c'est l'objet du cours de Techniques statistiques**. Et il pose la
-règle qui commande tous les traitements :
+## N7 — Le vocabulaire : les cinq définitions fondatrices
 
-::: formule La règle du traitement
-**Tous les traitements doivent être orientés pour extraire l'information répondant à la
-problématique et utile à la prise de décision.**
+::: definition Diapositive 11 — à savoir mot pour mot
+**La population :** **« Ensemble (mathématique) étudié. »**
+
+**Les individus, ou unités statistiques :** **« Les éléments de cette population. »**
+
+**La taille de la population, ou effectif total :** **« Le nombre d'individus ou d'unités
+statistiques. »**
+
+**Une variable statistique, ou caractère statistique :** **« Une application associant à
+chaque individu une valeur. »**
+
+**Les modalités :** **« Les valeurs prises par une variable statistique. »**
 :::
 
-Quatre familles de traitements sont annoncées — c'est le **programme du cours entier**, à
-connaître dès maintenant :
+::: piege La convention de notation, qui vaut un point à elle seule
+**« Les variables seront notées en majuscule et leurs valeurs prises en minuscule. »**
 
-| Traitement | Ce qu'il fait | Où |
+Donc : **$ X $** est le caractère, **$ x_i $** est une modalité. Écrire $ X_i $ pour une
+modalité est une faute de notation visible immédiatement.
+:::
+
+## N8 — Les deux types et quatre sous-types de variables
+
+::: definition La classification, à restituer intégralement
+**On distingue 2 types et 4 sous-types.**
+
+**① Variable QUALITATIVE — « les modalités ne sont pas des nombres ».**
+- **Nominale** : **« lorsqu'il n'est pas possible de classer les modalités selon un ordre qui
+  a du sens »**.
+- **Ordinale** : **« lorsqu'il est possible de classer les modalités selon un ordre qui a du
+  sens »**.
+
+**② Variable QUANTITATIVE — « les modalités sont des nombres ».**
+- **Discrète** : **« si les modalités relèvent du comptage (ensemble dénombrable) »**.
+- **Continue** : **« si les modalités relèvent de la mesure (ensemble non dénombrable) »**.
+:::
+
+::: piege L'avertissement du support, mot pour mot
+**« Attention aux confusions : une variable qualitative peut être codée dans une base de
+données sous forme de nombre, un mot valant un chiffre. »**
+
+Coder « homme = 1, femme = 2 » ne rend pas la variable quantitative. **Le test :
+la moyenne a-t-elle un sens ?** Une moyenne de 1,4 sur le sexe ne veut rien dire ; une
+moyenne de 1,4 enfant en veut un.
+:::
+
+**Les quatre exemples du support** (diapositive 14), un par sous-type :
+
+| Variable | Modalités | Type |
 |---|---|---|
-| **Présenter** les données **sans perte d'information** | Réorganiser sans rien jeter : tableaux, distributions, diagrammes | **CHAP 1 — ce chapitre** |
-| **Résumer** l'information contenue dans les données, **variable par variable** | Réduire une distribution à quelques nombres : position, dispersion | CHAP 2 |
-| S'intéresser aux **évolutions temporelles** | Suivre une variable dans le temps : séries, indices, taux de croissance | CHAP 3 |
-| **Croiser** les informations de **plusieurs variables** | Étudier les liens entre variables : tableaux croisés, corrélation | CHAP 4 |
+| **Sexe** | « homme », « femme », « autre » | **Qualitative nominale** |
+| **Qualité du service** | « mauvaise », « plutôt mauvaise », « plutôt bonne », « très bonne » | **Qualitative ordinale** |
+| **Nombre d'enfants** | 0, 1, 2, 3, 4, 5 | **Quantitative discrète** |
+| **Taille en cm** | 179, 182, 183, 165, 148, 205… | **Quantitative continue** |
 
-::: examen La distinction structurante du cours
-**Présenter (CHAP 1) ≠ résumer (CHAP 2).** Présenter conserve **toute** l'information :
-on peut reconstruire les données de départ. Résumer en **perd** volontairement : une
-moyenne ne permet pas de retrouver la distribution.
+## N9 — Les deux façons de présenter une variable sans perte d'information
 
-Cette opposition est la clé de lecture du chapitre. Chaque fois que le support écrit
-« sans perte d'information », il oppose implicitement le chapitre 1 au chapitre 2.
+::: definition Diapositive 15
+**« Il y a 2 grandes façons de présenter une variable (sans perte d'information) :**
+- **sous forme de série ou données brutes** (en anglais *raw data*) ;
+- **sous forme de distribution observée des effectifs** (en anglais *frequencies*). »
 :::
 
-#### 2.1.8 Étape 6 — Prise de décision (diapositive 10)
-
-::: definition Ce que doit contenir un rapport statistique
-Le support en donne la composition exacte :
-- le **résultat des traitements statistiques**, bien sûr,
-- mais aussi les **éléments méthodologiques** — les choix réalisés quant aux méthodes
-  statistiques utilisées,
-- le tout **orienté selon la problématique**, vers la prise de décision.
+::: definition Le passage de l'une à l'autre — deux opérations, dans cet ordre
+**« Il y a un traitement de données nécessaire pour passer de la série brute à la
+distribution observée, qui nécessite (dans le cas quantitatif ou qualitatif ordinal) :
+un TRI des modalités, puis un COMPTAGE des effectifs. »**
 :::
 
-Deux principes achèvent la section, et ce sont les deux plus cités en examen.
+## N10 — La distribution observée des effectifs
 
-**Principe 1 — « Toute information inutile (non informative au regard de la problématique)
-doit être bannie. »** Un rapport n'est pas un exercice d'exhaustivité. Un tableau qui
-n'éclaire aucune décision **nuit** au rapport : il dilue l'attention du lecteur. Le critère
-d'inclusion n'est pas « est-ce vrai ? » mais « est-ce que cela aide à décider ? ».
+::: definition Diapositive 16
+**« Une distribution observée des effectifs associe à chaque modalité d'une variable
+statistique l'effectif observé correspondant. »**
 
-**Principe 2 — « Ce n'est pas le rapport statistique qui décide. »** Le support est
-explicite : **toute décision est politique** et repose sur les informations collectées et
-présentées dans le rapport, **ainsi que d'autres considérations ou contraintes comme le
-coût**.
+**« L'effectif d'une modalité est le nombre d'individus présentant une modalité donnée du
+caractère statistique. »**
+:::
 
-::: demo Pourquoi la statistique ne décide pas — le raisonnement complet
-1. Une statistique établit **ce qui est** : des effectifs, des fréquences, des évolutions.
-2. Une décision énonce **ce qu'il faut faire**. Elle suppose donc un **critère de choix** —
-   une préférence, un objectif, une contrainte budgétaire.
-3. Aucun tableau de chiffres ne contient de critère de choix : le passage de « ce qui est »
-   à « ce qu'il faut faire » exige un jugement, extérieur aux données.
-4. Ce jugement relève du décideur — d'où le mot **politique** employé par le support, au
-   sens de « qui relève du gouvernement de la cité », et non au sens partisan.
+**Trois précisions du support :**
+1. **La représentation peut être un tableau ou un diagramme colonne.**
+2. **« Il n'y a pas de perte d'information. »**
+3. **« Il s'agit souvent de l'étape n° 1 d'une analyse statistique. »**
 
-**Formulation à retenir :** la statistique **éclaire** la décision, elle ne la **remplace**
-pas. Une copie qui écrit « les chiffres montrent qu'il faut faire X » commet exactement
-l'erreur que la diapositive 10 dénonce.
+## N11 — Fréquence et fréquence cumulée
+
+::: definition Diapositive 21
+**La fréquence d'une modalité :** **« la proportion d'individus présentant une modalité donnée
+du caractère statistique dans la population totale (en pour cent de la population) »**.
+
+**La fréquence cumulée d'une modalité — pour un caractère quantitatif :** **« la proportion
+d'individus présentant une modalité donnée OU INFÉRIEURE dans la population »**.
+:::
+
+**Les représentations possibles :** **« un camembert ou un diagramme en barres peuvent être
+choisis »** pour une répartition des fréquences.
+
+::: piege Les trois mots à ne pas perdre
+**« ou inférieure »** — c'est ce qui fait la différence entre fréquence et fréquence cumulée.
+Et **« pour un caractère quantitatif »** : la fréquence cumulée **suppose un ordre sur les
+modalités**. ➔ § 2.3.4.
+:::
+
+## N12 — Les notations formelles
+
+::: formule Diapositive 23 — à savoir écrire
+- Le caractère statistique est noté **$ X $**, les modalités **$ x_i $** sont **ordonnées** de
+  $ i = 1, \ldots, p $.
+- À chaque modalité $ x_i $ correspond un **effectif $ n_i $**, et l'**effectif total** vaut
+
+$$ n = \sum_{i=1}^{p} n_i = n_1 + n_2 + \ldots + n_p $$
+
+- Les **fréquences** $ f_i $, pour $ i = 1, \ldots, p $, se calculent ainsi :
+
+$$ f_i = \frac{n_i}{n} $$
+
+- Les **fréquences cumulées** $ F_k $, pour $ k = 1, \ldots, p $, sont telles que :
+
+$$ F_k = \sum_{i=1}^{k} f_i $$
+:::
+
+::: piege Deux indices, deux rôles
+**$ p $** est le **nombre de modalités distinctes**. **$ n $** est le **nombre d'individus**.
+Ce ne sont pas les mêmes : dans l'exemple des 87 étudiants, $ n = 87 $ et $ p = 11 $.
+:::
+
+## N13 — Plusieurs distributions d'un même caractère
+
+::: definition Diapositive 24 — les quatre propositions
+1. **« Il arrive fréquemment que plusieurs distributions statistiques d'un même caractère
+   soient présentées simultanément dans une optique comparative. »**
+2. **« Plusieurs populations (ou sous-populations) sont définies selon une AUTRE variable —
+   par année, zone géographique, etc. »**
+3. **« Il y a en fait une distribution par sous-population. Ces distributions sont présentées
+   juxtaposées. »**
+4. **« Le but d'une telle présentation est la COMPARAISON de la répartition de la variable
+   entre sous-populations. »**
+:::
+
+## N14 — Les quatre types de graphiques du chapitre
+
+| Graphique | Quand le choisir | Ce qu'il montre | Diapositive |
+|---|---|---|:---:|
+| **Diagramme colonne** simple | Une seule distribution | Les effectifs ou les fréquences, modalité par modalité | 20 |
+| **Colonnes groupées, groupement par catégorie** | On s'intéresse à **l'évolution des effectifs de chaque catégorie** | Pour chaque catégorie, une colonne par année, côte à côte | 26 |
+| **Colonnes groupées, groupement par année** | On s'intéresse à **l'évolution de la structure des effectifs** | Pour chaque année, une colonne par catégorie, côte à côte | 27 |
+| **Empilé** | La **hauteur totale** a un sens | Les effectifs empilés — « la hauteur de l'empilement correspond à l'ensemble des enfants chaque année » | 29 |
+| **Empilé à 100 %** | On compare des **structures** dans le temps | **« Ce qui revient à prendre les fréquences et non les effectifs, par année »** | 30-31 |
+
+::: piege Le critère de choix, que le support énonce en une ligne
+**« Le choix du diagramme colonne groupé dépend de [ce qui] est au centre de l'analyse. »**
+
+**Groupement par catégorie → on suit chaque catégorie dans le temps.**
+**Groupement par année → on compare la composition d'une année à l'autre.**
+**Même tableau, deux graphiques, deux questions différentes.**
+:::
+
+## N15 — Les quatre règles de présentation d'un tableau ou d'un graphique
+
+::: definition Diapositive 32
+**« La présentation des données sous forme de tableau ou de graphique sert à INFORMER,
+c'est-à-dire donner une forme, une signification à des données (le plus souvent numériques
+brutes). Les tableaux ou graphiques produisent de l'information, ils sont des outils de
+communication. Il est primordial de les choisir et les intituler à bon escient pour que
+l'information utile passe. »**
+
+**Les quatre règles :**
+1. **Intitulés précis** — « pas de noms de variables ou de modalités obscurs ».
+2. **Lisibles par un non-spécialiste.**
+3. **Compréhension immédiate ou simplifiée au maximum** — « si complexité : **note de lecture
+   en bas de tableau** ».
+4. **Indiquer les unités de mesure, la population, les choix méthodologiques réalisés.**
+:::
+
+## N16 — Les remarques conclusives, et l'annonce du reste du cours
+
+::: definition Diapositive 33
+**« Nous venons de voir les principales étapes d'une étude statistique. Nous avons appris à
+présenter la distribution d'un caractère statistique d'une population en effectifs, en
+fréquence ou en fréquences cumulées. Il s'agit souvent de la première étape de différents
+traitements de statistique descriptive que nous allons étudier dans les chapitres suivants. »**
+
+**Et l'ouverture :** **« Nous ne disposons pas toujours de l'information exhaustive sur une
+population d'intérêt. Il faut parfois tirer aléatoirement un échantillon. Les techniques
+statistiques permettant de déduire des éléments d'une population à partir d'un échantillon
+aléatoire relèvent de la STATISTIQUE INFÉRENTIELLE. »**
+:::
+
+::: piege Statistique descriptive / statistique inférentielle
+**Descriptive** : on décrit **la population dont on dispose**. C'est tout ce chapitre.
+**Inférentielle** : on **déduit** des éléments d'une population **à partir d'un échantillon
+tiré aléatoirement**. Le support l'annonce sans la traiter.
+:::
+
+## N17 — L'exemple des 87 étudiants : la série et sa distribution
+
+**Mini-enquête :** 87 étudiants d'une promotion répondent à *« combien avez-vous de frères et
+sœurs ? »*. **Population :** l'ensemble des **87 étudiants**. **Taille : $ n = 87 $ unités
+statistiques.** **Caractère : quantitatif discret.**
+
+**La distribution donnée par le support** (diapositive 19) :
+
+| $ x_i $ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 9 | 13 | 14 | **Ensemble** |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| $ n_i $ | 11 | 33 | 23 | 7 | 3 | 4 | 1 | 2 | 1 | 1 | 1 | **87** |
+
+**Donc $ n = 87 $ et $ p = 11 $.**
+
+::: piege Une anomalie vérifiée du support — la série brute ne donne pas cette distribution
+J'ai recompté la **série brute** de la diapositive 17, chiffre par chiffre, après vérification
+à l'image : elle contient **10 zéros et 24 « 2 »**. La **série ordonnée** (diapositive 18) et
+le **tableau** (diapositive 19) en contiennent **11 et 23**.
+
+**Un « 2 » de la série brute est devenu un « 0 » au tri.** Les deux totaux font bien 87, et
+toutes les autres modalités concordent. ➔ bloc 5, **A1**, pour la conduite à tenir.
+:::
+
+## N18 — L'exemple des familles : effectifs, fréquences, fréquences cumulées
+
+Diapositive 22 — **le tableau modèle du chapitre**, celui dont la structure tombera.
+
+| Modalités $ x_i $ | Effectifs $ n_i $ (en milliers) | Fréquences $ f_i $ (%) | Fréquences cumulées $ F(x_i) $ (%) |
+|---|---:|---:|---:|
+| 0 enfant | 8 225 | **48,0** | **48,0** |
+| 1 enfant | 3 821 | **22,3** | **70,3** |
+| 2 enfants | 3 449 | **20,1** | **90,4** |
+| 3 enfants | 1 241 | **7,2** | **97,7** |
+| 4 enfants et plus | 396 | **2,3** | **100,0** |
+| **Ensemble** | **17 132** | **100,0** | |
+
+**Tous les chiffres ont été recalculés et sont exacts** : $ 8\,225/17\,132 = 48{,}01\ \% $ ;
+la somme des effectifs fait bien **17 132** ; les cumuls s'enchaînent correctement.
+
+::: piege Deux imprécisions du support sur cette diapositive
+① Le texte annonce une **« enquête menée auprès de 17 132 familles »**, alors que la colonne
+est intitulée **« effectifs en milliers »** : il s'agit de **17 132 milliers de familles**,
+soit **17,1 millions**.
+② L'**« année donnée »** n'est pas précisée ici — mais le graphique de la **diapositive 31**
+la révèle : c'est **2008**, puisque sa colonne 2008 reproduit exactement ces cinq fréquences.
+➔ bloc 5, **A2** et **A3**.
+:::
+
+## N19 — L'exemple des personnes écrouées : la comparaison dans le temps
+
+Diapositive 25. Source : **ministère de la Justice**.
+
+| Catégorie | 2020 | 2021 | 2022 | 2023 |
+|---|---:|---:|---:|---:|
+| **Prévenus détenus** | 17 692 | 18 486 | 18 779 | 19 755 |
+| **Condamnés-prévenus détenus** | 2 405 | 2 613 | 2 908 | 3 117 |
+| **Condamnés détenus** | 41 553 | 47 246 | 49 338 | 51 746 |
+| **Condamnés non détenus** | 12 184 | 13 644 | 14 286 | 15 453 |
+| **Total des personnes écrouées** | **73 834** | **81 989** | **85 311** | **90 071** |
+
+**Les quatre totaux ont été vérifiés : ils sont tous exacts.**
+
+**Aucune des quatre catégories pénales n'est définie dans le support** — ni « écroué », ni
+« prévenu », ni « condamné-prévenu ». ➔ **série B, B3** : les quatre définitions y sont, et
+elles sont indispensables pour **justifier** le type du caractère.
+
+## N20 — L'exemple des enfants par famille : le tableau et ses deux graphiques
+
+Diapositive 28. **Champ :** France hors Mayotte, familles vivant en ménage ordinaire **ayant
+au moins un enfant mineur**. **Unité :** milliers de familles. **Source :** Insee,
+recensements de la population.
+
+| Nombre d'enfants mineurs | 1990 | 1999 | 2007 | 2012 | 2017 | 2023 |
+|---|---:|---:|---:|---:|---:|---:|
+| **1 enfant** | 3 353,7 | 3 418,3 | 3 565,0 | 3 614,8 | 3 590,7 | 3 578,3 |
+| **2 enfants** | 2 800,5 | 2 841,1 | 2 996,3 | 3 074,1 | 3 101,1 | 3 039,0 |
+| **3 enfants** | 1 087,1 | 1 033,5 | 1 015,2 | 1 022,3 | 1 012,2 | 956,2 |
+| **4 enfants ou plus** | 410,9 | 334,5 | 296,9 | 296,1 | 310,7 | 308,4 |
+| **Ensemble** | **7 652,2** | **7 627,5** | **7 873,5** | **8 007,3** | **8 014,7** | **7 881,9** |
+
+**Et la même chose en fréquences** — c'est l'empilé à 100 % de la diapositive 30 :
+
+| En % | 1990 | 1999 | 2007 | 2012 | 2017 | 2023 |
+|---|---:|---:|---:|---:|---:|---:|
+| **1 enfant** | 43,8 | 44,8 | 45,3 | 45,1 | 44,8 | **45,4** |
+| **2 enfants** | 36,6 | 37,2 | 38,1 | 38,4 | 38,7 | **38,6** |
+| **3 enfants** | 14,2 | 13,5 | 12,9 | 12,8 | **12,6** | **12,1** |
+| **4 enfants ou plus** | 5,4 | 4,4 | 3,8 | 3,7 | 3,9 | **3,9** |
+
+**J'ai recalculé les vingt-quatre pourcentages : ils sont tous exacts.**
+
+::: piege Le contrôle « Σ nᵢ = n » va te donner un écart de 0,1 sur deux colonnes
+**1999 : les quatre lignes font 7 627,4 ; l'« Ensemble » annonce 7 627,5.**
+**2007 : les quatre lignes font 7 873,4 ; l'« Ensemble » annonce 7 873,5.**
+**Les quatre autres colonnes tombent juste.**
+
+**Ce n'est pas une erreur** : les données sont publiées en milliers **arrondis au dixième**,
+lignes et total arrondis séparément. ➔ bloc 5, **§ 5.2**, pour la ligne exacte à écrire en
+examen. **Et « ménage ordinaire » et « enfant mineur » ne sont pas définis par le support :**
+➔ **série B, B4**.
+:::
+
+## N21 — Les chiffres à savoir
+
+| Chiffre | Ce qu'il désigne |
+|---:|---|
+| **6** | Les étapes d'une étude statistique |
+| **4** | Les méthodes de recueil · les sous-types de variables · les règles de présentation · les chapitres du cours |
+| **2** | Les types de variables · les façons de présenter sans perte d'information · les opérations du passage série → distribution (trier, compter) |
+| **87 / 11** | L'exemple des frères et sœurs : $ n = 87 $ individus, $ p = 11 $ modalités |
+| **17 132** | Milliers de familles, exemple de la diapositive 22 — **année 2008** |
+| **48,0 / 22,3 / 20,1 / 7,2 / 2,3** | Les cinq fréquences de ce tableau, en % |
+| **9 376 000** | Total des infractions déclarées, France 2024 (diapositive 12) |
+| **73 834 → 90 071** | Personnes écrouées, 2020 → 2023 : **+ 22,0 %** |
+| **12,6** | Part des familles à 3 enfants mineurs en **2017** |
+
+## N22 — Les sources citées
+
+| Source | Ce qu'elle fournit |
+|---|---|
+| Enquête **« Vécu et ressenti en matière de sécurité »**, **diffusion Insee** | Répartition des infractions, France 2024 — champ : France métropolitaine, Martinique, Guadeloupe et La Réunion |
+| **Ministère de la Justice** | Personnes écrouées, 2020-2023 |
+| **Insee, recensements de la population** | Nombre d'enfants par famille, 1990-2023 |
+
+## N23 — Les huit paires à ne jamais confondre
+
+| № | Ne pas confondre | Le critère qui tranche |
+|:---:|---|---|
+| **1** | **Effectif** $ n_i $ / **fréquence** $ f_i $ | Un **nombre d'individus** / une **proportion**, $ f_i = n_i/n $ |
+| **2** | **Fréquence** / **fréquence cumulée** | « présentant cette modalité » / « cette modalité **ou inférieure** » |
+| **3** | **Population** / **unité statistique** | L'**ensemble** étudié / un **élément** de cet ensemble |
+| **4** | **Variable** / **modalité** | L'**application** $ X $ / les **valeurs** $ x_i $ qu'elle prend |
+| **5** | **Qualitative nominale** / **ordinale** | **Aucun ordre qui ait du sens** / **un ordre qui a du sens** |
+| **6** | **Quantitative discrète** / **continue** | Relève du **comptage**, ensemble **dénombrable** / de la **mesure**, ensemble **non dénombrable** |
+| **7** | **$ n $** / **$ p $** | Le nombre d'**individus** / le nombre de **modalités distinctes** |
+| **8** | **Statistique descriptive** / **inférentielle** | Décrire **la population dont on dispose** / **déduire** à partir d'un **échantillon aléatoire** |
+
+## N24 — Les quatre anomalies du support
+
+Elles sont développées au bloc 5. En une ligne chacune :
+
+| № | L'anomalie | Ce qu'il faut savoir |
+|:---:|---|---|
+| **A1** | La **série brute** (d. 17) contient **10 zéros et 24 « 2 »** ; la série ordonnée et le tableau en contiennent **11 et 23** | Si on te demande de construire la distribution **à partir de la série brute**, la bonne réponse est **10 et 24** |
+| **A2** | **« 17 132 familles »** alors que la colonne est **« en milliers »** | Ce sont **17 132 milliers**, soit **17,1 millions** de familles |
+| **A3** | La diapositive 31 dit illustrer **« le tableau précédent »** | Elle illustre en réalité le tableau de la **diapositive 22**, pas celui de la diapositive 28 |
+| **A4** | La diapositive 23 renvoie à **« l'illustration de la diapo 21 »** | L'illustration est à la **diapositive 22** ; la 21 contient les définitions |
+
+**Et un faux problème**, à ne surtout pas « corriger » : l'écart d'arrondi de **0,1** sur
+deux colonnes de la diapositive 28. ➔ bloc 5, **§ 5.2**.
+
+<!--saut-->
+
+# Bloc 2 — Le cours qui explique
+
+> **Ce bloc se lit une seule fois.** Sa fonction est de rendre le bloc 1 compréhensible. En
+> statistique, une définition mal comprise produit un exercice entièrement faux — pas une
+> demi-réponse.
+
+## 2.1 — Réaliser une étude statistique (diapositives 3 à 10)
+
+### 2.1.1 — Pourquoi le cours commence par une chaîne de décision
+
+**« Besoin de décider → Besoin d'information → Étude statistique. »** La flèche part de la
+**décision**, pas des données.
+
+::: synthese Ce que cet ordre impose, et qui commande tout le chapitre
+Une étude statistique ne commence **jamais** par « voici des données, que peut-on en tirer ? ».
+Elle commence par **une décision à prendre**, qui crée un **besoin d'information**, auquel
+l'étude répond.
+
+**Conséquence immédiate, écrite dans le schéma de la diapositive 4 :** **« tous les choix sont
+guidés par le type de problématique »** — et des flèches remontent de **chacune** des cinq
+étapes suivantes vers la première.
+
+**Deuxième conséquence, diapositive 10 :** *« toute information inutile, non informative au
+regard de la problématique, doit être bannie »*. Un tableau juste mais hors sujet est un
+défaut, pas un supplément.
+
+**Troisième conséquence, la plus contre-intuitive :** *« ce n'est pas le rapport statistique
+qui décide : toute décision est politique »*. Le statisticien éclaire, il ne tranche pas —
+d'autres considérations entrent en jeu, **« comme le coût par exemple »**.
+:::
+
+### 2.1.2 — Les six étapes, et ce que le support ne développe pas
+
+Les six étapes sont au noyau N3 et N4. Deux d'entre elles demandent une explication.
+
+::: definition Étape 3 — les mots de l'expérimentation, employés sans être définis
+Le support écrit que l'expérimentation repose sur « un protocole permettant l'observation
+directe de l'impact d'une **variable de contrôle** sur une **variable d'observation** ».
+
+**Variable de contrôle :** celle que l'expérimentateur **fait varier lui-même** — le
+traitement administré, le prix affiché, le message publicitaire testé. On la contrôle, d'où
+son nom.
+
+**Variable d'observation :** celle dont on **mesure la réaction** — la guérison, la quantité
+achetée, le taux de clic.
+
+**Ce qui fait la force de l'expérimentation :** comme c'est l'expérimentateur qui fixe la
+variable de contrôle, **rien d'autre ne la détermine**. Toute différence observée sur la
+variable d'observation lui est donc imputable. C'est la seule des quatre méthodes qui établit
+directement un lien de **cause à effet**.
+:::
+
+::: piege Les quatre méthodes de recueil, comparées — ce que le support juxtapose sans opposer
+| Méthode | Nombre d'individus | Coût | Ce qu'elle permet | Sa limite |
+|---|---|---|---|---|
+| **Expérimentation** | Variable | Élevé | **Établir une causalité** | Souvent impossible ou non éthique en sciences sociales |
+| **Observation / enquête qualitative** | **« Un petit nombre »**, observé **« de façon extensive »** | Modéré | **Comprendre en profondeur**, faire émerger des hypothèses | **Non généralisable** : trop peu d'individus |
+| **Données de seconde main** | Celui de la source | **Le plus faible** | Disposer **immédiatement** de données massives | Les données **n'ont pas été collectées pour ta question** |
+| **Enquête quantitative** | Défini par la campagne de mesures | **« L'option la plus coûteuse »** | Un travail **sur-mesure**, adapté à la problématique | Le coût, et la dépendance à la qualité du questionnaire |
+
+**Le mot clé de l'opposition qualitatif / quantitatif ici :** ce n'est **pas** le type de
+variable, c'est le **nombre d'individus** et la **profondeur** de l'observation. « Enquête
+qualitative » = peu d'individus observés en détail. « Enquête quantitative » = beaucoup
+d'individus sur un questionnaire standardisé. **Ne pas confondre avec variable qualitative /
+quantitative du § 2.2.2** — ce sont deux emplois différents des mêmes mots.
+:::
+
+::: exemple L'étape 1 appliquée : pourquoi « une enquête de satisfaction » ne veut rien dire
+Le support prend l'exemple d'un **directeur d'hypermarché** qui demande une enquête de
+satisfaction auprès de sa clientèle, et tranche : **« cette demande est beaucoup trop
+vague »**.
+
+**Pourquoi.** Selon ce que le directeur veut décider, l'étude n'interroge ni les mêmes
+personnes, ni sur les mêmes choses :
+
+| S'il veut… | Il faut mesurer… |
+|---|---|
+| **Modifier la mise en place des produits en rayon** | Les parcours en magasin, les produits non trouvés |
+| **Améliorer l'affichage des produits** | La lisibilité perçue, les erreurs de prix relevées |
+| **Mieux répondre aux attentes en matière de choix des produits** | Les références manquantes, les substitutions subies |
+| **Mieux définir les attentes en matière d'horaires d'ouverture et de conseil** | Les heures de fréquentation souhaitées, le recours au personnel |
+
+**Les quatre études sont incompatibles.** Voilà pourquoi la problématique se définit d'abord,
+et pourquoi toutes les flèches du schéma y reviennent.
+:::
+
+### 2.1.3 — Les deux formules que le support pose sans les expliquer
+
+::: definition « La population devra être définie, DÉLIMITÉE » — ce que délimiter veut dire
+Le support emploie le mot à l'étape 2 et ne le définit pas. **C'est pourtant l'opération qui
+rapporte le plus de points dans tout le chapitre**, parce que c'est elle qu'on retrouve sous
+le nom de **champ** au bas de chaque tableau.
+
+**Délimiter une population, c'est répondre à trois questions :**
+
+| | La question | Sur l'exemple de la diapositive 28 |
+|:---:|---|---|
+| **Qui ?** | Quel type d'unité, et avec quelle restriction ? | Les **familles** vivant **en ménage ordinaire** et ayant **au moins un enfant mineur** |
+| **Où ?** | Sur quel territoire ? | **France hors Mayotte** |
+| **Quand ?** | À quelle date d'observation ? | **1990, 1999, 2007, 2012, 2017, 2023** — les années de recensement |
+
+**Pourquoi c'est décisif :** deux tableaux sur le même sujet mais de champs différents **ne
+sont pas comparables**. La diapositive 22 compte les familles **sans enfant** ; la 28 les
+exclut. Confondre les deux, c'est comparer 48 % de familles sans enfant à un tableau où
+elles n'existent pas.
+
+**Et c'est aussi ce que veut dire « parfois on connaît sa taille, mais pas toujours » :** un
+recensement donne l'effectif exact de la population ; une enquête sur « les clients d'un
+hypermarché » ne le donne pas — **on ne sait pas combien il y en a en tout**.
+:::
+
+::: synthese « Ce n'est pas le rapport statistique qui décide » — la frontière, et pourquoi elle existe
+Le support conclut la section 1 sur une phrase qu'il ne développe pas : **« toute décision est
+politique et repose sur les informations collectées et présentées dans le rapport, ainsi que
+d'autres considérations ou contraintes comme le coût »**.
+
+**Ce qu'elle veut dire, précisément :**
+
+| Le statisticien fournit | Le décideur ajoute |
+|---|---|
+| **Des faits** : combien, dans quelle proportion, en hausse ou en baisse | **Des objectifs** : ce qu'il veut obtenir |
+| **Des incertitudes** : marge d'erreur, limites du champ | **Des contraintes** : budget, délai, acceptabilité |
+| **Des méthodes** : les choix faits et leurs conséquences | **Un arbitrage** entre des objectifs contradictoires |
+
+**Les données ne contiennent pas la décision.** Savoir que 12,1 % des familles ont trois
+enfants ne dit pas s'il faut augmenter les allocations familiales : cela dépend de ce qu'on
+cherche à obtenir, et de ce qu'on peut financer.
+
+**La conséquence opératoire, et elle est notée :** c'est **exactement** pour cela que le
+rapport doit contenir **les éléments méthodologiques**. Le décideur doit pouvoir juger de la
+solidité des chiffres avant de s'appuyer dessus. Et c'est la même exigence que la règle
+« indiquer les choix méthodologiques réalisés » de la diapositive 32 — **la section 1 et la
+section 3 disent la même chose, à deux endroits différents du cours.**
+:::
+
+## 2.2 — Le vocabulaire de la statisticienne (diapositives 11 à 14)
+
+### 2.2.1 — Les cinq définitions, et le mot qui n'est pas expliqué
+
+Les définitions sont au noyau N7. Une seule contient un terme technique non défini.
+
+::: definition « Une application associant à chaque individu une valeur »
+**Application** est ici un mot de mathématiques, et il est précis. Une **application** d'un
+ensemble $ A $ vers un ensemble $ B $ associe à **chaque** élément de $ A $ **une et une
+seule** valeur de $ B $.
+
+**Les deux exigences comptent :**
+- **Chaque** individu a une valeur — **aucun n'est laissé sans réponse**.
+- **Une seule** valeur — un individu ne peut pas avoir deux modalités à la fois pour la même
+  variable.
+
+**Ce que cela interdit concrètement :** un tableau où un individu figurerait deux fois, ou
+une variable « moyen de transport » dont un individu cocherait à la fois « voiture » et
+« train ». Si les deux réponses sont possibles, **ce sont deux variables**, pas une.
+
+**Et c'est aussi ce qui garantit que la somme des effectifs fait exactement $ n $** : chaque
+individu est compté une fois et une seule.
+:::
+
+### 2.2.2 — Les quatre sous-types, et le mot « dénombrable »
+
+La classification est au noyau N8. Le support définit le discret et le continu par
+**« ensemble dénombrable »** et **« ensemble non dénombrable »**, sans expliquer ces termes.
+
+::: definition Dénombrable et non dénombrable
+Un ensemble est **dénombrable** quand on peut **énumérer ses éléments un par un**, en les
+numérotant, même si la liste ne s'arrête jamais. Les entiers 0, 1, 2, 3… sont dénombrables.
+
+Il est **non dénombrable** quand **entre deux valeurs quelconques il en existe toujours une
+troisième**, si bien qu'aucune énumération n'est possible. Les nombres réels d'un intervalle
+sont non dénombrables.
+
+**La traduction statistique, plus simple à manier :**
+- **Discret** — les modalités relèvent du **comptage**. Entre 2 et 3 enfants, il n'y a rien.
+- **Continu** — les modalités relèvent de la **mesure**. Entre 179 cm et 180 cm, il y a
+  179,4 cm, et entre les deux 179,42 cm, indéfiniment.
+
+**Le test pratique en examen :** *« existe-t-il une valeur possible entre deux valeurs
+voisines ? »* Non → discret. Oui → continu.
+:::
+
+::: piege Les deux pièges de classification, et comment les trancher
+**① La variable qualitative codée en chiffres.** Le support le dit : *« une variable
+qualitative peut être codée dans une base de données sous forme de nombre, un mot valant un
+chiffre »*. Le code postal, le numéro de département, « homme = 1 » sont des **nombres qui ne
+comptent ni ne mesurent rien**.
+**Le test : la moyenne a-t-elle un sens ?** Une moyenne de code postal ne veut rien dire.
+
+**② La variable continue présentée en classes.** La taille arrondie au centimètre ressemble
+à du comptage. Mais la taille **se mesure**, et l'arrondi est une commodité d'affichage, non
+la nature de la variable. **Le test : la grandeur sous-jacente est-elle mesurée ou comptée ?**
+
+**Et le troisième cas, le plus subtil : l'ordinale.** « Mauvaise, plutôt mauvaise, plutôt
+bonne, très bonne » se classe dans un ordre qui a du sens — mais les modalités **ne sont pas
+des nombres**. C'est donc une **qualitative ordinale**, pas une quantitative. On peut les
+ranger, on ne peut pas les additionner.
+:::
+
+## 2.3 — La présentation des données (diapositives 15 à 23)
+
+### 2.3.1 — Pourquoi « sans perte d'information » est le titre du chapitre
+
+::: synthese La thèse que le support pose sans la formuler
+Le chapitre 1 s'intitule **« Présenter pour informer »**, et la diapositive 15 précise :
+**deux façons de présenter une variable — *sans perte d'information*.**
+
+**Ce qualificatif oppose implicitement le chapitre 1 au chapitre 2.** Une série brute contient
+toute l'information. Une distribution des effectifs aussi : **à partir du tableau, on peut
+reconstituer la série** — il suffit de réécrire chaque modalité autant de fois que son
+effectif. Rien n'est perdu, seul l'ordre de présentation a changé.
+
+**Le chapitre 2, lui, s'intitule « Résumer pour informer » — et un résumé perd de
+l'information.** Une moyenne de 1,9 frère ou sœur ne permet pas de retrouver les 87 réponses.
+
+**C'est la raison pour laquelle la distribution est « souvent l'étape n° 1 d'une analyse
+statistique »** : on commence par la présentation intégrale, on ne résume qu'ensuite, en
+sachant ce qu'on perd.
+:::
+
+### 2.3.2 — Le passage de la série brute à la distribution
+
+::: demo Deux opérations, dans cet ordre — et pourquoi cet ordre
+Le support écrit : **« un tri des modalités, puis un comptage des effectifs »**.
+
+1. **Trier** met côte à côte les valeurs identiques.
+2. **Compter** devient alors une simple lecture de longueurs de blocs.
+
+**Sans le tri, le comptage exige de parcourir toute la série une fois par modalité** — onze
+passages sur 87 valeurs dans l'exemple du cours. Avec le tri, un seul passage suffit.
+
+**C'est exactement ce que montrent les diapositives 17, 18 et 19 :** la série brute, puis la
+série **ordonnée**, puis le tableau. Trois états du même contenu, et deux opérations pour
+passer de l'un à l'autre.
+
+**La précision entre parenthèses du support compte :** le tri n'a de sens **« dans le cas
+quantitatif ou qualitatif ordinal »**. Pour une qualitative **nominale** — le sexe, la
+couleur, la région —, **il n'existe pas d'ordre naturel** : on regroupe, on ne trie pas, et
+l'ordre d'affichage est un choix de présentation.
+:::
+
+### 2.3.3 — Effectif et fréquence
+
+::: definition Les deux grandeurs, et pourquoi on a besoin des deux
+**L'effectif $ n_i $** est un **nombre d'individus** : 33 étudiants ont un frère ou une sœur.
+**La fréquence $ f_i $** est une **proportion** : $ 33/87 = 37{,}9\ \% $.
+
+$$ f_i = \frac{n_i}{n} $$
+
+**Pourquoi la fréquence est indispensable : elle seule permet de comparer.** Deux promotions
+de tailles différentes ne se comparent pas en effectifs — 33 sur 87 et 50 sur 200 ne se
+lisent pas côte à côte. En fréquences, 37,9 % et 25,0 % se comparent immédiatement.
+
+**C'est précisément le passage que fait la diapositive 30 :** l'empilé à 100 % **« revient à
+prendre les fréquences et non les effectifs »**, pour comparer des **structures** entre
+années dont les totaux diffèrent.
+:::
+
+### 2.3.4 — La fréquence cumulée, et pourquoi elle exige un ordre
+
+::: demo Pourquoi la fréquence cumulée n'a de sens que pour un caractère ordonné
+La définition du support : **« la proportion d'individus présentant une modalité donnée ou
+inférieure dans la population »**.
+
+1. Le mot **« inférieure »** suppose qu'on puisse **comparer deux modalités**.
+2. Pour une variable **quantitative**, c'est immédiat : 2 enfants est inférieur à 3.
+3. Pour une **qualitative ordinale**, c'est encore possible : « plutôt mauvaise » est
+   inférieure à « plutôt bonne ».
+4. Pour une **qualitative nominale**, **c'est impossible** : « le bleu est-il inférieur au
+   vert ? » n'a pas de sens.
+
+**Donc : pas d'ordre, pas de cumul.** Le support restreint d'ailleurs explicitement sa
+définition au cas **« pour un caractère quantitatif »**.
+
+**Corollaire à savoir :** une fréquence cumulée est **toujours croissante**, et la dernière
+vaut **toujours 100 %**. Si ce n'est pas le cas dans ta copie, tu t'es trompé.
+:::
+
+::: formule Le symbole Σ, si tu ne l'as jamais manipulé
+$ \sum_{i=1}^{p} n_i $ se lit **« somme des $ n_i $ pour $ i $ allant de 1 à $ p $ »**, et
+signifie exactement $ n_1 + n_2 + \ldots + n_p $.
+
+- **$ i $** est un **compteur** : il prend successivement les valeurs 1, 2, …, $ p $.
+- **Le nombre du bas** dit où il commence, **celui du haut** où il s'arrête.
+- **Le nom du compteur est sans importance** : $ \sum_{i=1}^{p} n_i $ et
+  $ \sum_{k=1}^{p} n_k $ désignent le même nombre.
+
+**Les deux formules du chapitre se lisent alors sans effort :**
+$ n = \sum_{i=1}^{p} n_i $ — *l'effectif total est la somme de tous les effectifs*.
+$ F_k = \sum_{i=1}^{k} f_i $ — *la fréquence cumulée au rang $ k $ est la somme des
+fréquences **jusqu'à** $ k $*. La borne haute est $ k $, pas $ p $ : c'est tout ce qui
+distingue un cumul partiel d'un total.
+:::
+
+::: exemple Vérifier une colonne de fréquences cumulées — le réflexe qui sauve un exercice
+Reprends le tableau du noyau N18 :
+$ 48{,}0 $ · $ 48{,}0 + 22{,}3 = 70{,}3 $ · $ 70{,}3 + 20{,}1 = 90{,}4 $ ·
+$ 90{,}4 + 7{,}2 = 97{,}6 $ · $ 97{,}6 + 2{,}3 = 99{,}9 $.
+
+Le support annonce **97,7** puis **100,0**. L'écart vient des **arrondis** : les fréquences
+exactes sont 48,01 · 22,30 · 20,13 · 7,24 · 2,31, dont les cumuls exacts donnent 48,01 ·
+70,31 · 90,44 · **97,69** · **100,00**.
+
+**La règle : on cumule les valeurs exactes, on arrondit à la fin.** Cumuler des valeurs déjà
+arrondies fait dériver le total — et c'est exactement le genre de détail qu'un correcteur
+attend qu'on signale.
+:::
+
+## 2.4 — Plusieurs distributions d'un même caractère (diapositives 24 à 31)
+
+### 2.4.1 — Ce que « une distribution par sous-population » veut dire
+
+::: synthese Le mécanisme, en trois temps
+1. **Une seconde variable découpe la population** en sous-populations : l'année, la zone
+   géographique, le sexe. Le support le dit : *« plusieurs populations (ou sous-populations)
+   sont définies selon une AUTRE variable »*.
+2. **On calcule la distribution du caractère étudié dans chaque sous-population séparément.**
+   Il y a donc **autant de distributions que de sous-populations**.
+3. **On les présente juxtaposées**, et *« le but d'une telle présentation est la
+   comparaison »*.
+
+**Le point qui piège :** dans le tableau des personnes écrouées, **la variable étudiée est la
+catégorie pénale**, et **la variable de découpage est l'année**. Ce sont deux rôles
+différents, et l'examen demandera lequel est lequel. ➔ série B, **B3**.
+
+**Et c'est ce mécanisme qui annonce le chapitre 4** : dès qu'on croise deux variables, on
+quitte la présentation d'une variable seule.
+:::
+
+### 2.4.2 — Choisir son graphique : la règle du support, expliquée
+
+Le support pose le critère en une phrase : **« le choix du diagramme colonne groupé dépend de
+[ce qui] est au centre de l'analyse »**. Voici ce que cela donne sur le même tableau.
+
+::: piege Deux graphiques, même tableau, deux questions
+| | **Groupement par catégorie** (d. 26) | **Groupement par année** (d. 27) |
+|---|---|---|
+| Ce que dit le support | *« Si l'on s'intéresse à l'évolution des effectifs de chaque catégorie… »* | *« Si l'on s'intéresse à l'évolution de la structure des effectifs… »* |
+| Titre donné | **Évolution, pour chaque catégorie, du nombre de personnes écrouées** | **Évolution, pour chaque année, des catégories de personnes écrouées** |
+| Ce qu'on lit d'un coup d'œil | Chaque catégorie **monte-t-elle ou descend-elle** dans le temps ? | La **composition** d'une année se déforme-t-elle par rapport à l'autre ? |
+| Sur l'axe horizontal | Les **catégories** | Les **années** |
+
+**Le titre change avec le graphique, et il n'est pas décoratif :** *« évolution, pour chaque
+catégorie »* contre *« évolution, pour chaque année »*. C'est une application directe de la
+règle « intitulés précis » de la diapositive 32.
+:::
+
+::: piege Empilé ou empilé à 100 % — le critère
+**Empilé** (d. 29) : les **effectifs** sont empilés, et **« la hauteur de l'empilement
+correspond à l'ensemble »**. On voit donc **à la fois** la composition **et** le total.
+
+**Empilé à 100 %** (d. 30-31) : on empile les **fréquences**, toutes les colonnes ont la
+**même hauteur**. On ne voit plus le total — **on voit uniquement la structure**.
+
+**Le choix se déduit de la question :** si le total varie et que cette variation compte, il
+faut l'empilé simple. Si l'on veut comparer des structures entre populations de tailles
+différentes, il faut le 100 %. Dans l'exemple des familles, l'ensemble passe de 7 652 à 7 882
+milliers — **une variation de 3 % qui écraserait la lecture des structures** : le 100 %
+s'impose.
+:::
+
+::: piege Le camembert, que le support autorise sans le commenter
+La diapositive 21 indique qu'**« un camembert ou un diagramme en barres peuvent être choisis »**
+pour représenter une répartition de fréquences.
+
+**Quand le camembert convient :** une **seule** distribution, **peu de modalités**, dont les
+parts **somment à 100 %** — donc des modalités **exclusives et exhaustives**.
+
+**Quand il ne convient pas :** dès qu'il faut **comparer** deux distributions. L'œil compare
+mal deux angles ; il compare très bien deux hauteurs. C'est précisément pourquoi toutes les
+comparaisons du chapitre — diapositives 26, 27, 29, 30, 31 — utilisent des **colonnes**, et
+jamais des camemberts.
+:::
+
+## 2.5 — Communiquer, et ce qui vient après (diapositives 32-33)
+
+### 2.5.1 — Les quatre règles de présentation
+
+Elles sont au noyau N15. Le mot décisif est dans la première phrase : **informer, « c'est-à-dire
+donner une FORME, une SIGNIFICATION à des données »**.
+
+::: synthese Pourquoi un tableau est un acte de communication, pas un acte de calcul
+Le support écrit : **« les tableaux ou graphiques PRODUISENT de l'information, ils sont des
+outils de communication »**. Produire — pas transmettre.
+
+**Les mêmes données donnent des messages différents selon la présentation.** Les personnes
+écrouées, groupées par catégorie, racontent une hausse générale ; groupées par année, elles
+racontent une structure à peu près stable. **Les deux graphiques sont exacts, et ils ne disent
+pas la même chose.**
+
+**D'où les quatre règles**, qui sont toutes des règles de **lecteur**, pas de statisticien :
+intitulés précis, lisibilité par un non-spécialiste, compréhension immédiate ou note de
+lecture, et mention des unités, de la population et des choix méthodologiques.
+
+**Le tableau de la diapositive 28 les applique toutes** : il porte un champ (« France hors
+Mayotte, familles vivant en ménage ordinaire ayant au moins un enfant mineur »), une unité
+(« milliers de familles ») et une source (« Insee, recensements de la population »).
+**Recopie cette discipline dans tes propres tableaux : c'est un point à chaque fois.**
+:::
+
+### 2.5.2 — L'ouverture sur la statistique inférentielle
+
+::: definition Échantillon et inférence
+Le support conclut : *« nous ne disposons pas toujours de l'information exhaustive sur une
+population d'intérêt. Il faut parfois tirer aléatoirement un échantillon. »*
+
+**Un échantillon** est un **sous-ensemble de la population**, tiré **au hasard**, sur lequel
+on observe effectivement les données.
+
+**La statistique inférentielle** regroupe **« les techniques permettant de déduire des
+éléments d'une population à partir d'un échantillon aléatoire »**.
+
+**Pourquoi le tirage doit être aléatoire :** parce que c'est la seule façon de garantir que
+l'échantillon ne soit pas systématiquement différent de la population. Interroger les clients
+d'un hypermarché **le samedi après-midi** donnerait un échantillon biaisé — pas un échantillon
+aléatoire.
+
+**Ce qui distingue les deux branches en une ligne :** la statistique **descriptive** décrit
+**ce qu'on a observé** ; la statistique **inférentielle** énonce ce qu'on peut en conclure
+**sur ce qu'on n'a pas observé**. **Tout ce chapitre est de la statistique descriptive.**
 :::
 
 <!--saut-->
 
-### 2.2 — Section 2 : le vocabulaire de la statisticienne
+# Bloc 3 — Les automatismes
 
-#### 2.2.1 Les cinq définitions fondamentales (diapositive 11)
+> Consulté en S3, puis avant l'épreuve. Le support pose **cinq fois** les mêmes trois gestes.
+> Ce bloc en donne les gabarits : **identifier**, **calculer**, **lire**.
 
-Tout le reste du cours repose sur ces cinq mots. Ils sont donnés dans l'ordre logique : on
-part de l'ensemble, on descend vers l'élément, puis on décrit l'élément.
+## 3.1 — Le minutage
 
-::: definition Le vocabulaire de base
-- **Population** : l'**ensemble (mathématique) étudié**.
-- **Individus** ou **unités statistiques** : les **éléments** de cette population.
-- **Taille de la population** ou **effectif total** : le **nombre** d'individus ou d'unités
-  statistiques.
-- **Variable statistique** ou **caractère statistique** : une **application** associant à
-  chaque individu une valeur.
-- **Modalités** : les **valeurs prises** par une variable statistique.
+La durée n'est pas donnée par le support. La règle est indépendante de la durée : **5 % de
+lecture · 85 % de production · 10 % de vérification**, et à l'intérieur, **autant de minutes
+par point que le barème en accorde**.
 
-**Convention d'écriture du cours :** les **variables** sont notées en **majuscule**, leurs
-**valeurs prises** en **minuscule**.
+::: methode Les trois vérifications de fin d'épreuve, dans cet ordre
+1. **La somme des effectifs fait-elle l'effectif total annoncé ?** Si non, il manque une ligne
+   ou tu as compté deux fois.
+2. **La somme des fréquences fait-elle 100 % ?** À 0,1 près, écart d'arrondi accepté et
+   **signalé**.
+3. **La dernière fréquence cumulée fait-elle 100 % ?** Si non, l'erreur est dans le cumul.
+
+**Ces trois contrôles prennent trente secondes et rattrapent la quasi-totalité des erreurs de
+calcul de ce chapitre.**
 :::
 
-::: demo « Une application » : pourquoi ce mot et pas un autre
-Le support écrit qu'une variable est une **application**. Le terme est mathématique et
-lourd de conséquences.
+## 3.2 — Gabarit 1 : « Identifiez la population, les unités statistiques, le caractère… »
 
-Une application associe à **chaque** élément de l'ensemble de départ **une et une seule**
-valeur dans l'ensemble d'arrivée. Traduit ici :
+**C'est la question posée cinq fois dans le support. Six éléments, toujours dans cet ordre.**
 
-$$ X : \text{Population} \rightarrow \text{Modalités} $$
+| № | Ce qu'on demande | Comment le trouver |
+|:---:|---|---|
+| **1** | **La population** | **L'ensemble** dont parle le tableau. Cherche le **champ** et le **titre** |
+| **2** | **Les unités statistiques** | **Un élément** de cet ensemble : une famille, un étudiant, une personne écrouée |
+| **3** | **L'effectif total $ n $** | La ligne **« Ensemble »** ou **« Total »**. S'il n'y a pas de ligne totale, c'est la somme |
+| **4** | **Le caractère (ou variable) $ X $** | **Ce que le tableau mesure sur chaque unité** — pas l'unité elle-même |
+| **5** | **Les modalités $ x_i $** | **Les valeurs prises** : les intitulés de lignes, ou les valeurs de la série |
+| **6** | **Le type** | Qualitative nominale ou ordinale · quantitative discrète ou continue — **et justifie** |
 
-1. **« À chaque individu »** : aucun individu n'est laissé sans valeur. En pratique, les
-   non-réponses doivent donc être traitées explicitement — soit exclues de la population,
-   soit constituées en modalité « non renseigné ».
-2. **« Une seule valeur »** : un individu ne peut pas présenter deux modalités à la fois
-   pour une même variable. Si un questionnaire autorise plusieurs réponses (« quels sports
-   pratiquez-vous ? »), ce n'est **pas une variable** au sens du cours, mais **plusieurs**
-   variables binaires — une par sport.
+::: piege L'erreur qui coûte la moitié de la question
+**Confondre l'unité statistique et le caractère.** Dans le tableau des infractions,
+l'unité n'est pas « l'infraction en général », c'est **une infraction déclarée** ; le
+caractère est **le type d'atteinte subie**. Dans le tableau des familles, l'unité est **une
+famille**, le caractère est **le nombre d'enfants**.
 
-C'est la raison pour laquelle les modalités d'une variable doivent toujours être
-**exhaustives** (tout individu en a une) et **exclusives** (il n'en a qu'une).
+**Le test : le caractère est ce qui VARIE d'une unité à l'autre.** Si ça ne varie pas, ce
+n'est pas le caractère.
 :::
 
-::: piege La confusion à éliminer immédiatement
-**Variable ≠ modalité.** La variable est la **question posée** ; les modalités sont les
-**réponses possibles**.
+## 3.3 — Gabarit 2 : construire une distribution à partir d'une série brute
 
-- Variable : « nombre de frères et sœurs ». Modalités : 0, 1, 2, 3…
-- Variable : « sexe ». Modalités : « homme », « femme », « autre ».
+**Quatre étapes, à écrire toutes les quatre — même les évidentes, elles sont notées.**
 
-Écrire « la modalité *nombre d'enfants* » est une faute qui se voit immédiatement, et qui
-coûte des points à chaque occurrence.
+1. **Annoncer la population, son effectif $ n $, et le type du caractère.**
+2. **Trier** la série par ordre croissant des modalités.
+3. **Compter** : dresser le tableau modalité / effectif, **et vérifier que $ \sum n_i = n $**.
+4. **Ajouter les colonnes demandées** — fréquences $ f_i = n_i/n $, cumulées
+   $ F_k = \sum_{i=1}^{k} f_i $ — **avec leurs unités (%) et une ligne « Ensemble »**.
+
+::: piege Trois réflexes qui rapportent
+- **N'oublie aucune modalité présente**, même d'effectif 1 : les valeurs extrêmes (13, 14
+  frères et sœurs) font partie de la distribution.
+- **N'invente pas les modalités absentes.** Il n'y a pas de ligne « 8 » ni « 10 » dans le
+  tableau du cours, parce qu'aucun étudiant n'a déclaré ces valeurs.
+- **Cumule les valeurs exactes, arrondis à la fin** (➔ § 2.3.4).
 :::
 
-#### 2.2.2 Application : l'enquête « Vécu et ressenti en matière de sécurité » (diapositive 12)
+## 3.4 — Gabarit 3 : écrire une phrase de lecture
 
-Le support présente la répartition des infractions déclarées en France en 2024 et **pose
-une question à l'amphithéâtre**. La réponse n'existe que dans l'oral du cours : la voici.
+**La phrase de lecture est la question type de l'Insee, et le support la demande deux fois.**
+**Cinq éléments, toujours les cinq.**
 
-**Le tableau du support**
+$$ \underbrace{\text{Quand}}_{\text{la date}} + \underbrace{\text{Combien}}_{\text{la valeur}} + \underbrace{\text{de quoi}}_{\text{l'unité}} + \underbrace{\text{dans quelle population}}_{\text{le champ}} + \underbrace{\text{présentaient quelle modalité}}_{\text{la valeur du caractère}} $$
+
+::: correction Trois phrases de lecture modèles, prêtes à l'emploi
+**Sur un effectif :** « En 2023, **3 578,3 milliers de familles** vivant en ménage ordinaire
+en France hors Mayotte et ayant au moins un enfant mineur **avaient exactement un enfant
+mineur**. »
+
+**Sur une fréquence :** « En 2017, **12,6 %** des familles ayant au moins un enfant mineur
+**avaient trois enfants mineurs**. »
+
+**Sur une fréquence cumulée :** « **90,4 %** des familles avaient **deux enfants ou moins**. »
+— le « ou moins » est obligatoire, c'est ce qui signale le cumul.
+:::
+
+::: piege Les trois fautes de lecture les plus fréquentes
+1. **Oublier l'unité.** « 3 578,3 familles » au lieu de « **milliers de** familles » : erreur
+   d'un facteur mille.
+2. **Oublier le champ.** Ce ne sont pas toutes les familles, ce sont celles **ayant au moins
+   un enfant mineur, vivant en ménage ordinaire, en France hors Mayotte**.
+3. **Lire une fréquence cumulée comme une fréquence.** « 90,4 % avaient deux enfants » est
+   **faux** — ils en avaient **deux ou moins**.
+:::
+
+## 3.5 — Gabarit 4 : « Comment a été calculé ce chiffre ? »
+
+**Le support pose cette question deux fois. Quatre lignes, toujours les mêmes.**
+
+1. **Nommer la grandeur** : effectif, fréquence, fréquence cumulée.
+2. **Écrire la formule en lettres** : $ f_i = n_i/n $.
+3. **Écrire l'application numérique complète**, avec les deux nombres tirés du tableau.
+4. **Donner le résultat avec son unité, et une phrase de lecture.**
+
+::: correction Exemple appliqué — le chiffre 12,6 de la diapositive 30
+« Il s'agit d'une **fréquence**, exprimée en pourcentage, calculée **au sein de l'année 2017**.
+
+$$ f = \frac{n_{3\text{ enfants, }2017}}{n_{\text{ensemble, }2017}} = \frac{1\,012{,}2}{8\,014{,}7} = 0{,}1263 $$
+
+soit **12,6 %**. **Lecture :** en 2017, 12,6 % des familles ayant au moins un enfant mineur
+avaient trois enfants mineurs. »
+
+**Le point qui distingue une copie à 18 :** préciser que le dénominateur est **le total de
+l'année 2017**, et non le total général. Dans un empilé à 100 %, **chaque colonne a son propre
+dénominateur** — c'est exactement ce qui fait qu'elles atteignent toutes 100 %.
+:::
+
+## 3.6 — Gabarit 5 : choisir et intituler un graphique
+
+| Si la question est… | Choisis… | Intitule… |
+|---|---|---|
+| Une seule distribution, à présenter | **Diagramme colonne** (ou camembert si peu de modalités) | « Distribution de *[caractère]* dans *[population]* » |
+| Suivre **chaque catégorie** dans le temps | **Colonnes groupées par catégorie** | « **Évolution, pour chaque catégorie**, de… » |
+| Comparer la **composition** d'une période à l'autre | **Colonnes groupées par année**, ou **empilé** | « **Évolution, pour chaque année**, des… » |
+| Comparer des **structures** entre populations de tailles différentes | **Empilé à 100 %** | « **Répartition** de… **par** *[variable de découpage]* » |
+
+::: methode Les quatre mentions obligatoires, quelle que soit la forme
+**Un titre précis** · **l'unité de mesure** · **la population et son champ** · **la source**.
+Et, si la lecture n'est pas immédiate, **une note de lecture en bas**. Ce sont les quatre
+règles de la diapositive 32, et elles sont chacune notées.
+:::
+
+<!--saut-->
+
+# Bloc 4 — La banque d'examen
+
+> **Ce bloc ne se lit pas : il se fait.**
+
+## Série A — Flash *(30 à 60 secondes par question)*
+
+### La démarche
+
+::: carte
+Donne la chaîne qui justifie toute étude statistique.
+--
+**Besoin de décider → Besoin d'information → Étude statistique.**
+:::
+
+::: carte
+Cite les six étapes d'une étude statistique.
+--
+**① Quel type de problématique ? · ② choix des données à observer · ③ choix de la méthode de
+recueil des données · ④ campagne de mesures · ⑤ traitement des données · ⑥ prise de
+décision.**
+:::
+
+::: carte
+Quelle phrase figure au bas du schéma des six étapes, et que signifient les flèches ?
+--
+**« Tous les choix sont guidés par le type de problématique. »** Les flèches remontent de
+**chacune** des cinq étapes suivantes vers la **première**.
+:::
+
+::: carte
+Pourquoi la demande « faites-moi une enquête de satisfaction » est-elle insuffisante ?
+--
+Elle est **« beaucoup trop vague »** : selon qu'il s'agit de **modifier la mise en place des
+produits en rayon**, d'**améliorer l'affichage**, de **mieux répondre aux attentes en matière
+de choix des produits** ou de **mieux définir les attentes en matière d'horaires et de
+conseil**, l'étude n'interroge ni les mêmes personnes ni sur les mêmes choses.
+:::
+
+::: carte
+Que décide l'étape 2, et que sait-on de la population ?
+--
+**Qui ?** — « sur quels individus ou unités statistiques les observations vont être
+réalisées ». La population doit être **définie, délimitée** ; **« parfois on connaît sa taille,
+mais pas toujours »**.
+:::
+
+::: carte
+Cite les quatre méthodes de recueil des données.
+--
+**① L'expérimentation · ② l'observation, ou enquête qualitative · ③ les données de seconde
+main · ④ l'enquête quantitative.**
+:::
+
+::: carte
+Définis l'expérimentation, avec ses deux variables.
+--
+**« On dispose d'un protocole permettant l'observation directe de l'impact d'une variable de
+contrôle sur une variable d'observation. »** La **variable de contrôle** est celle que
+l'expérimentateur fait varier ; la **variable d'observation** est celle dont on mesure la
+réaction.
+:::
+
+::: carte
+Définis l'enquête qualitative et les données de seconde main.
+--
+**Qualitative :** « on observe de façon extensive un **petit nombre** d'individus ».
+**Seconde main :** « on réutilise des informations **disponibles par ailleurs** ».
+:::
+
+::: carte
+Définis l'enquête quantitative et cite sa caractéristique économique.
+--
+**« Un travail sur-mesure : on collecte l'information utile par enquête, questionnaire, etc. »**
+C'est **« l'option la plus coûteuse »**.
+:::
+
+::: carte
+Que doit définir la campagne de mesures ?
+--
+**Combien** de personnes enquêter · **quand** les enquêter · **comment** les enquêter.
+:::
+
+::: carte
+Que doit contenir un rapport statistique ?
+--
+**Le résultat des traitements statistiques**, mais aussi **les éléments méthodologiques** —
+les choix réalisés quant aux méthodes utilisées — **le tout orienté selon la problématique,
+vers la prise de décision**.
+:::
+
+::: carte
+Cite les deux règles qui accompagnent le rapport statistique.
+--
+**« Toute information inutile, non informative au regard de la problématique, doit être
+bannie. »** Et : **« ce n'est pas le rapport statistique qui décide, toute décision est
+politique »** et repose aussi sur d'autres considérations ou contraintes, **« comme le coût
+par exemple »**.
+:::
+
+### Le vocabulaire
+
+::: carte
+Définis la population et les unités statistiques.
+--
+**Population : « ensemble (mathématique) étudié ».** **Individus ou unités statistiques :
+« les éléments de cette population ».**
+:::
+
+::: carte
+Définis la taille de la population.
+--
+**« Le nombre d'individus ou d'unités statistiques »** — on l'appelle aussi **effectif
+total**.
+:::
+
+::: carte
+Définis une variable statistique et ses modalités.
+--
+**Variable (ou caractère) statistique : « une application associant à chaque individu une
+valeur ».** **Modalités : « les valeurs prises par une variable statistique ».**
+:::
+
+::: carte
+Que signifie « application » dans cette définition, et qu'est-ce que cela interdit ?
+--
+Une application associe à **chaque** individu **une et une seule** valeur. Cela interdit
+qu'un individu soit **sans réponse** ou qu'il présente **deux modalités à la fois** pour la
+même variable. C'est aussi ce qui garantit que $ \sum n_i = n $.
+:::
+
+::: carte
+Quelle est la convention de notation du cours ?
+--
+**« Les variables seront notées en majuscule et leurs valeurs prises en minuscule »** : le
+caractère est **$ X $**, les modalités sont **$ x_i $**.
+:::
+
+::: carte
+Combien de types et de sous-types de variables, et lesquels ?
+--
+**2 types et 4 sous-types.** **Qualitative** : **nominale** et **ordinale**.
+**Quantitative** : **discrète** et **continue**.
+:::
+
+::: carte
+Distingue qualitative nominale et ordinale.
+--
+**Nominale** : « il **n'est pas possible** de classer les modalités selon un ordre qui a du
+sens ». **Ordinale** : « il **est possible** de classer les modalités selon un ordre qui a du
+sens ».
+:::
+
+::: carte
+Distingue quantitative discrète et continue.
+--
+**Discrète** : « les modalités relèvent du **comptage** (ensemble **dénombrable**) ».
+**Continue** : « les modalités relèvent de la **mesure** (ensemble **non dénombrable**) ».
+:::
+
+::: carte
+Que signifient dénombrable et non dénombrable ?
+--
+**Dénombrable** : on peut **énumérer les éléments un par un**, même si la liste est infinie.
+**Non dénombrable** : **entre deux valeurs quelconques il en existe toujours une troisième**.
+Test pratique : existe-t-il une valeur possible entre deux valeurs voisines ?
+:::
+
+::: carte
+Quel avertissement le support donne-t-il sur les variables qualitatives ?
+--
+**« Une variable qualitative peut être codée dans une base de données sous forme de nombre, un
+mot valant un chiffre. »** Test : **la moyenne a-t-elle un sens ?**
+:::
+
+::: carte
+Donne les quatre exemples du support, un par sous-type.
+--
+**Sexe** (homme, femme, autre) → **qualitative nominale**. **Qualité du service** (mauvaise,
+plutôt mauvaise, plutôt bonne, très bonne) → **qualitative ordinale**. **Nombre d'enfants**
+(0 à 5) → **quantitative discrète**. **Taille en cm** (179, 182, 183…) → **quantitative
+continue**.
+:::
+
+### La présentation des données
+
+::: carte
+Quelles sont les deux façons de présenter une variable sans perte d'information ?
+--
+**La série, ou données brutes** (*raw data*) · et la **distribution observée des effectifs**
+(*frequencies*).
+:::
+
+::: carte
+Quelles sont les deux opérations pour passer de la série brute à la distribution, et dans
+quel ordre ?
+--
+**Un TRI des modalités, puis un COMPTAGE des effectifs** — et cela « dans le cas quantitatif
+ou qualitatif ordinal ».
+:::
+
+::: carte
+Pourquoi trier avant de compter ?
+--
+Parce que le tri met **côte à côte les valeurs identiques** : le comptage devient une lecture
+de longueurs de blocs, en **un seul passage** au lieu d'un passage par modalité.
+:::
+
+::: carte
+Définis la distribution observée des effectifs, et l'effectif d'une modalité.
+--
+**Distribution : « associe à chaque modalité d'une variable statistique l'effectif observé
+correspondant ».** **Effectif d'une modalité : « le nombre d'individus présentant une modalité
+donnée du caractère statistique ».**
+:::
+
+::: carte
+Quelles représentations pour une distribution des effectifs, et quelle remarque le support
+ajoute-t-il ?
+--
+**Un tableau ou un diagramme colonne.** **« Il n'y a pas de perte d'information »**, et
+**« il s'agit souvent de l'étape n° 1 d'une analyse statistique »**.
+:::
+
+::: carte
+Pourquoi dit-on que la distribution est « sans perte d'information » ?
+--
+Parce qu'**à partir du tableau on peut reconstituer la série** : il suffit de réécrire chaque
+modalité autant de fois que son effectif. Seul l'ordre de présentation a changé. **Le
+chapitre 2, qui résume, perd de l'information.**
+:::
+
+::: carte
+Définis la fréquence d'une modalité.
+--
+**« La proportion d'individus présentant une modalité donnée du caractère statistique dans la
+population totale (en pour cent de la population). »**
+:::
+
+::: carte
+Définis la fréquence cumulée, et donne la restriction du support.
+--
+**« Pour un caractère quantitatif, la proportion d'individus présentant une modalité donnée
+OU INFÉRIEURE dans la population. »**
+:::
+
+::: carte
+Pourquoi la fréquence cumulée n'a-t-elle pas de sens pour une qualitative nominale ?
+--
+Parce que le mot **« inférieure »** suppose qu'on puisse **comparer deux modalités**. Sur une
+nominale, il n'y a **pas d'ordre** : « le bleu est-il inférieur au vert ? » n'a pas de sens.
+:::
+
+::: carte
+Quelles sont les deux propriétés d'une colonne de fréquences cumulées ?
+--
+Elle est **toujours croissante**, et la **dernière valeur vaut toujours 100 %**.
+:::
+
+::: carte
+Quelles représentations pour une répartition des fréquences ?
+--
+**« Un camembert ou un diagramme en barres peuvent être choisis. »**
+:::
+
+::: carte
+Quand le camembert convient-il, et quand ne convient-il pas ?
+--
+**Il convient** pour **une seule** distribution, **peu de modalités**, exclusives et
+exhaustives. **Il ne convient pas** dès qu'il faut **comparer** : l'œil compare mal deux
+angles, bien deux hauteurs.
+:::
+
+::: carte
+Écris les quatre formules du cours.
+--
+$ n = \sum_{i=1}^{p} n_i $ · $ f_i = \dfrac{n_i}{n} $ · $ F_k = \sum_{i=1}^{k} f_i $ · et les
+modalités $ x_i $ **ordonnées** de $ i = 1 $ à $ p $.
+:::
+
+::: carte
+Que désignent $ n $ et $ p $ ? Ne pas confondre.
+--
+**$ n $** = le nombre d'**individus** (effectif total). **$ p $** = le nombre de **modalités
+distinctes**. Dans l'exemple des frères et sœurs, $ n = 87 $ et $ p = 11 $.
+:::
+
+::: carte
+Comment se lit $ \sum_{i=1}^{k} f_i $, et qu'est-ce qui le distingue de $ \sum_{i=1}^{p} f_i $ ?
+--
+« Somme des $ f_i $ pour $ i $ allant de 1 à $ k $ ». La **borne haute est $ k $, pas $ p $** :
+c'est un **cumul partiel**, pas le total.
+:::
+
+::: carte
+Pourquoi cumuler les valeurs exactes plutôt que les valeurs arrondies ?
+--
+Parce que cumuler des arrondis **fait dériver le total**. Dans le tableau du cours, les
+arrondis donnent 97,6 alors que le cumul exact donne **97,7**. **On cumule exact, on arrondit
+à la fin.**
+:::
+
+### Plusieurs distributions et les graphiques
+
+::: carte
+Dans quelle optique présente-t-on plusieurs distributions d'un même caractère ?
+--
+**Dans une optique comparative.** « Plusieurs populations ou sous-populations sont définies
+selon une **autre** variable — par année, zone géographique, etc. » Il y a **une distribution
+par sous-population**, et elles sont **juxtaposées**.
+:::
+
+::: carte
+Quel est le but d'une présentation juxtaposée ?
+--
+**« La comparaison de la répartition de la variable entre sous-populations. »**
+:::
+
+::: carte
+Quand choisir un diagramme colonnes groupées **par catégorie** ?
+--
+**« Si l'on s'intéresse à l'évolution des effectifs de chaque catégorie. »** Titre type :
+« Évolution, **pour chaque catégorie**, du nombre de… ».
+:::
+
+::: carte
+Quand choisir un diagramme colonnes groupées **par année** ?
+--
+**« Si l'on s'intéresse à l'évolution de la structure des effectifs. »** Titre type :
+« Évolution, **pour chaque année**, des… ».
+:::
+
+::: carte
+Que représente la hauteur d'un diagramme empilé ?
+--
+**« La hauteur de l'empilement correspond à l'ensemble »** — on voit **à la fois** la
+composition **et** le total.
+:::
+
+::: carte
+Qu'est-ce qu'un empilé à 100 %, et à quoi sert-il ?
+--
+On empile les **fréquences et non les effectifs** : toutes les colonnes ont la **même
+hauteur**. On ne voit plus le total, **on voit uniquement la structure** — ce qui permet de
+comparer des populations de **tailles différentes**.
+:::
+
+::: carte
+Cite les quatre règles de présentation d'un tableau ou d'un graphique.
+--
+**① Intitulés précis** — pas de noms obscurs · **② lisibles par un non-spécialiste** ·
+**③ compréhension immédiate**, sinon **note de lecture en bas de tableau** · **④ indiquer les
+unités de mesure, la population, les choix méthodologiques**.
+:::
+
+::: carte
+Que signifie « informer », selon le support ?
+--
+**« Donner une forme, une signification à des données, le plus souvent numériques brutes. »**
+Les tableaux et graphiques **« produisent de l'information, ils sont des outils de
+communication »**.
+:::
+
+### La conclusion et les exemples chiffrés
+
+::: carte
+Cite les quatre chapitres du cours et ce que chacun fait.
+--
+**CHAP 1** présenter **sans perte d'information** · **CHAP 2** **résumer** variable par
+variable · **CHAP 3** les **évolutions temporelles** · **CHAP 4** **croiser** plusieurs
+variables.
+:::
+
+::: carte
+Qu'est-ce que la statistique inférentielle ?
+--
+**« Les techniques statistiques permettant de déduire des éléments d'une population à partir
+d'un échantillon aléatoire. »** On y recourt quand **« on ne dispose pas de l'information
+exhaustive »** et qu'il faut **« tirer aléatoirement un échantillon »**.
+:::
+
+::: carte
+Distingue statistique descriptive et inférentielle.
+--
+La **descriptive** décrit **ce qu'on a observé** — tout ce chapitre. L'**inférentielle**
+énonce ce qu'on peut conclure **sur ce qu'on n'a pas observé**, à partir d'un échantillon
+aléatoire.
+:::
+
+::: carte
+Pourquoi le tirage d'un échantillon doit-il être aléatoire ?
+--
+C'est la seule façon de garantir que l'échantillon ne soit pas **systématiquement différent**
+de la population. Interroger les clients un samedi après-midi donne un échantillon **biaisé**,
+pas aléatoire.
+:::
+
+::: carte
+Dans l'exemple des 87 étudiants : population, taille, caractère, type ?
+--
+**Population :** l'ensemble des **87 étudiants** d'une promotion. **Taille : $ n = 87 $ unités
+statistiques.** **Caractère :** « nombre de frères et sœurs ». **Type : quantitatif
+discret.**
+:::
+
+::: carte
+Donne la distribution des 87 étudiants, telle que le support la présente.
+--
+0 → **11** · 1 → **33** · 2 → **23** · 3 → **7** · 4 → **3** · 5 → **4** · 6 → **1** ·
+7 → **2** · 9 → **1** · 13 → **1** · 14 → **1**. **Ensemble : 87.** Donc $ p = 11 $.
+:::
+
+::: carte
+Quelle anomalie contient l'exemple des 87 étudiants ?
+--
+La **série brute** (d. 17) contient **10 zéros et 24 « 2 »** ; la **série ordonnée** (d. 18) et
+le **tableau** (d. 19) en contiennent **11 et 23**. Un « 2 » est devenu un « 0 » au tri. Les
+deux totaux font bien 87.
+:::
+
+::: carte
+Dans le tableau des familles (d. 22) : les cinq fréquences et les cinq fréquences cumulées ?
+--
+**Fréquences :** 48,0 · 22,3 · 20,1 · 7,2 · 2,3 %. **Cumulées :** 48,0 · 70,3 · 90,4 · 97,7 ·
+100,0 %. **Effectif total : 17 132 milliers de familles.**
+:::
+
+::: carte
+Quelle imprécision le tableau de la diapositive 22 contient-il, et quelle est l'année ?
+--
+Le texte dit **« 17 132 familles »** alors que la colonne est **« en milliers »** : ce sont
+**17,1 millions**. Et l'**« année donnée »** non précisée est **2008**, révélée par le
+graphique de la diapositive 31.
+:::
+
+::: carte
+Personnes écrouées : total 2020 et total 2023, et l'évolution en % ?
+--
+**73 834** en 2020, **90 071** en 2023, soit **+ 22,0 %**.
+:::
+
+::: carte
+Dans le tableau des personnes écrouées, quel est le caractère et quelle est la variable de
+découpage ?
+--
+**Le caractère étudié est la catégorie pénale** (qualitative nominale). **La variable de
+découpage en sous-populations est l'année.**
+:::
+
+::: carte
+À quoi correspond le chiffre 12,6 de la diapositive 30 ?
+--
+À la **fréquence des familles à 3 enfants mineurs en 2017** :
+$ 1\,012{,}2 / 8\,014{,}7 = 12{,}6\ \% $. Le dénominateur est **le total de l'année 2017**,
+pas le total général.
+:::
+
+::: carte
+Quel champ porte le tableau des enfants par famille ?
+--
+**« France hors Mayotte, familles vivant en ménage ordinaire ayant au moins un enfant
+mineur. »** Unité : **milliers de familles**. Source : **Insee, recensements de la
+population**.
+:::
+
+::: carte
+Cite les trois sources de données utilisées dans le chapitre.
+--
+L'enquête **« Vécu et ressenti en matière de sécurité »**, diffusion **Insee** · le
+**ministère de la Justice** · l'**Insee, recensements de la population**.
+:::
+
+### Le vocabulaire des exemples, et les pièges
+
+::: carte
+Délimiter une population, c'est répondre à quelles trois questions ?
+--
+**Qui ?** *(quel type d'unité, avec quelle restriction)* · **Où ?** *(quel territoire)* ·
+**Quand ?** *(quelle date d'observation)*. **C'est exactement ce qu'on appelle le champ**, au
+bas de chaque tableau.
+:::
+
+::: carte
+« Ce n'est pas le rapport statistique qui décide » : qui apporte quoi ?
+--
+**Le statisticien apporte** des faits, des incertitudes et des méthodes. **Le décideur
+ajoute** des objectifs, des contraintes et un arbitrage. **Les données ne contiennent pas la
+décision** — d'où l'obligation de joindre les éléments méthodologiques.
+:::
+
+::: carte
+Définis les quatre catégories pénales du tableau de la diapositive 25.
+--
+**Écroué :** inscrit au registre d'écrou — **plus large que « détenu »**. **Prévenu :**
+poursuivi, **pas encore jugé définitivement**. **Condamné :** condamnation **définitive**.
+**Condamné-prévenu :** **condamné dans une affaire et encore prévenu dans une autre.**
+:::
+
+::: carte
+« Ménage ordinaire » et « enfant mineur » : les deux définitions Insee du champ de la
+diapositive 28 ?
+--
+**Ménage ordinaire :** personnes partageant un même **logement ordinaire** — cela **exclut**
+foyers, internats, maisons de retraite, casernes, établissements pénitentiaires.
+**Enfant mineur :** enfant de **moins de 18 ans** vivant dans la famille.
+:::
+
+::: carte
+Combien font, additionnées, les huit fréquences du tableau des infractions — et pourquoi ?
+--
+**100,2 %.** **Sept des huit s'arrondissent vers le haut.** Les valeurs exactes, elles,
+somment à 100,000 %. **En examen : on signale le cumul d'arrondis, on ne truque aucun
+chiffre.**
+:::
+
+::: carte
+Quel écart le contrôle « Σ nᵢ = n » donne-t-il sur le tableau de la diapositive 28, et que
+faut-il en faire ?
+--
+**0,1 millier sur 1999 et 2007** *(7 627,4 contre 7 627,5 · 7 873,4 contre 7 873,5)*.
+**On ne corrige rien** : lignes et total sont arrondis **séparément** au dixième. On écrit une
+ligne de nota.
+:::
+
+::: carte
+Un écart entre deux pourcentages se dit comment ?
+--
+**En points de pourcentage**, jamais en pourcent. De 20,0 % à 30,0 % : **+ 10 points** de
+part, et **+ 50 %** d'effectif. **Les deux chiffres sont vrais et différents.**
+:::
+
+<!--saut-->
+
+## Série B — Les cinq exercices que le support pose et ne corrige jamais
+
+> **C'est le cœur du bloc 4.** Ces cinq énoncés sont **dans les diapositives**, mot pour mot.
+> Aucun n'a de corrigé dans le support. Ils sont corrigés ici, intégralement, au barème.
+> **Fais-les document fermé, en S4, puis compare ligne à ligne.**
+
+### B1 — Diapositive 12 : les infractions déclarées en France en 2024 *(15 min — /6)*
+
+::: examen Diapositive 12 — l'énoncé, mot pour mot
+*« Selon l'enquête "Vécu et ressenti en matière de sécurité", la répartition des infractions
+a été la suivante en France en 2024. »*
 
 | Atteinte déclarée | Nombre d'infractions |
 |---|---:|
@@ -520,498 +1649,186 @@ une question à l'amphithéâtre**. La réponse n'existe que dans l'oral du cour
 | Vols ou tentatives de vol de deux-roues motorisés | 264 000 |
 | **Ensemble** | **9 376 000** |
 
-*Champ : France métropolitaine, Martinique, Guadeloupe et La Réunion. Diffusion Insee.*
+*Champ : France métropolitaine, Martinique, Guadeloupe et La Réunion, diffusion Insee.*
 
-::: correction La question posée : population, unités statistiques, effectif total, variable, modalités
-**Population.** L'ensemble des **infractions déclarées** en 2024 sur le champ indiqué
-(France métropolitaine, Martinique, Guadeloupe, La Réunion).
-
-**Unités statistiques.** **Une infraction déclarée.** C'est l'objet qui est compté ; chaque
-ligne du tableau dénombre des infractions, pas des personnes.
-
-**Effectif total.** $ n = 9\,376\,000 $ infractions. **Vérification par recomptage :**
-$ 2\,893 + 1\,544 + 1\,516 + 1\,141 + 853 + 616 + 549 + 264 = 9\,376 $ (en milliers). ✔ La
-ligne « Ensemble » est bien la somme des huit modalités.
-
-**Variable.** Une seule : le **type d'atteinte déclarée**. Elle est **qualitative
-nominale** — ses modalités sont des mots, et il n'existe aucun ordre qui ait un sens entre
-« vandalisme contre la voiture » et « vol de vélo ».
-
-**Modalités.** Les **huit** types d'atteinte listés.
+**▶ Indiquez la population, les unités statistiques, l'effectif total, la ou les variables
+ainsi que les modalités.**
 :::
 
-::: piege Deux pièges que cette illustration tend
-**Piège 1 — l'unité statistique.** Il est tentant de répondre « la population, ce sont les
-ménages français » ou « les personnes interrogées ». C'est faux **ici** : le tableau
-totalise 9 376 000 **infractions**, pas 9 376 000 personnes. Un même ménage peut avoir subi
-deux atteintes et compter deux fois. **Le test décisif : ce que compte la ligne
-« Ensemble » est l'unité statistique.**
+::: correction Copie de major — les cinq éléments demandés
+**① La population** *(1 pt)* — **l'ensemble des infractions déclarées en 2024** sur le champ
+de l'enquête, c'est-à-dire **la France métropolitaine, la Martinique, la Guadeloupe et La
+Réunion**. *Ce n'est pas « la France », ni « les Français » : une population statistique est
+l'ensemble des objets sur lesquels on observe le caractère.*
 
-**Piège 2 — le classement décroissant.** Les modalités sont rangées de la plus fréquente à
-la moins fréquente. Cet ordre est un **choix de présentation**, il ne rend pas la variable
-ordinale. Une variable est ordinale quand l'ordre est **intrinsèque aux modalités**
-(« mauvais < moyen < bon »), pas quand il résulte des effectifs observés.
+**② Les unités statistiques** *(1 pt)* — **une infraction déclarée**. *Pas « une victime » :
+une même personne peut déclarer plusieurs atteintes, et le tableau compte des atteintes.*
+
+**③ L'effectif total** *(1 pt)* — $ n = 9\,376\,000 $ infractions déclarées.
+**Vérification faite : la somme des huit effectifs vaut exactement 9 376 000.**
+
+**④ La variable** *(1,5 pt)* — **une seule** : le **type d'atteinte déclarée**, notée $ X $.
+*Le pluriel de l'énoncé est un piège : « nombre d'infractions » n'est pas une seconde
+variable, c'est la colonne des effectifs $ n_i $.*
+**Type : qualitative nominale.** *Justification exigée : les modalités sont des libellés, et
+aucun ordre entre « vandalisme contre la voiture » et « vol de vélo » n'aurait de sens.*
+
+**⑤ Les modalités** *(1,5 pt)* — **les huit libellés de lignes**, donc $ p = 8 $ :
+vandalisme voiture · vol d'objet dans la voiture · vol avec effraction de la résidence
+principale · vandalisme logement · vol de vélo · vol sans effraction de la résidence
+principale · vol de voiture · vol de deux-roues motorisés.
+*« Ensemble » n'est pas une modalité : c'est la ligne de total.*
 :::
 
-#### 2.2.3 Les types de variables (diapositive 13)
+::: piege Les trois points que 80 % des copies perdent ici
+**① Répondre « la population, c'est la France ».** La population est l'ensemble des **unités
+observées**, et ici les unités sont des **infractions**, pas des territoires ni des personnes.
 
-::: definition Deux types, quatre sous-types
-**Les modalités de la variable qualitative ne sont pas des nombres.**
-- **Nominale** : il **n'est pas possible** de classer les modalités selon un ordre qui a du
-  sens.
-- **Ordinale** : il **est possible** de classer les modalités selon un ordre qui a du sens.
+**② Classer la variable en quantitative** parce que la colonne contient de gros nombres. Les
+nombres sont les **effectifs**, pas les **modalités**. **Le test : peut-on calculer la moyenne
+des modalités ?** Moyenne de « vol de vélo » et « vandalisme » : aucun sens → **qualitative**.
 
-**Les modalités de la variable quantitative sont des nombres.**
-- **Discrète** : les modalités relèvent du **comptage** (ensemble dénombrable).
-- **Continue** : les modalités relèvent de la **mesure** (ensemble non dénombrable).
-
-**Avertissement du support :** *attention aux confusions, une variable qualitative peut
-être codée dans une base de données sous forme de nombre, un mot valant un chiffre.*
+**③ Oublier le champ.** *« France métropolitaine, Martinique, Guadeloupe et La Réunion »* —
+donc **ni la Guyane ni Mayotte**. Le champ fait partie de la définition de la population, et
+il est **noté**.
 :::
 
-::: demo L'arbre de décision — comment trancher en trois questions
-Pour qualifier n'importe quelle variable, posez ces trois questions **dans cet ordre**.
+::: correction Les points volés — ce qu'ajoute une copie à 18
+**On ne demandait pas les fréquences. Les donner en deux lignes vaut un point d'initiative,
+et prouve la maîtrise de $ f_i = n_i/n $.**
 
-1. **Les modalités sont-elles des nombres qui ont un sens numérique ?**
-   → Non : variable **qualitative**, aller en 2. Oui : **quantitative**, aller en 3.
-2. **Les modalités peuvent-elles être classées selon un ordre qui a du sens ?**
-   → Non : **qualitative nominale**. Oui : **qualitative ordinale**.
-3. **Les valeurs relèvent-elles du comptage ou de la mesure ?**
-   → Comptage : **quantitative discrète**. Mesure : **quantitative continue**.
+| Modalité | $ n_i $ | $ f_i $ (%) |
+|---|---:|---:|
+| Vandalisme contre la voiture | 2 893 000 | **30,9** |
+| Vol d'objet dans ou sur la voiture | 1 544 000 | **16,5** |
+| Vol avec effraction de la résidence principale | 1 516 000 | **16,2** |
+| Vandalisme contre le logement | 1 141 000 | **12,2** |
+| Vol de vélo | 853 000 | **9,1** |
+| Vol sans effraction de la résidence principale | 616 000 | **6,6** |
+| Vol de voiture | 549 000 | **5,9** |
+| Vol de deux-roues motorisés | 264 000 | **2,8** |
+| **Ensemble** | **9 376 000** | **100,0** |
 
-**Le mot « qui ont un sens numérique » à l'étape 1 est décisif** : c'est lui qui bloque le
-piège du codage.
-:::
+**Et la remarque qui fait la différence :** $ 30{,}9 + 16{,}5 + \ldots + 2{,}8 = 100{,}2 $.
+**Sept des huit fréquences s'arrondissent vers le haut**, la somme des valeurs arrondies
+dépasse donc 100. Les valeurs exactes, elles, somment bien à 100,000 %.
+**En examen : on écrit « somme à 100,2 % par cumul d'arrondis » — on ne truque aucun
+chiffre pour retomber sur 100.**
 
-::: piege Le piège du codage numérique — développé
-Une base de données code souvent le sexe par 1 = homme, 2 = femme. Le codage ne transforme
-pas la nature de la variable. Le test qui tranche : **les opérations arithmétiques ont-elles
-un sens ?**
-
-- Sur des codes 1/2 : la moyenne vaut 1,5. Que signifie « le sexe moyen vaut 1,5 » ?
-  **Rien.** → Variable **qualitative nominale**, codée numériquement.
-- Sur un nombre d'enfants : la moyenne vaut 1,8 enfant. Cela a un sens. → Variable
-  **quantitative**.
-
-**Formulation à retenir** : un nombre qui n'est qu'une **étiquette** ne rend pas la
-variable quantitative. La conséquence est lourde : on n'a pas le droit de calculer une
-moyenne sur une variable qualitative, même codée en chiffres — c'est l'erreur
-d'interprétation la plus répandue en statistique appliquée.
-:::
-
-::: piege Le cas limite : l'ordinale codée
-« Qualité du service » codée 1 = mauvaise, 2 = plutôt mauvaise, 3 = plutôt bonne, 4 = très
-bonne. L'ordre est réel, donc la variable est **qualitative ordinale**. Mais les écarts
-entre codes **n'ont pas de sens** : rien ne garantit que l'écart entre « mauvaise » et
-« plutôt mauvaise » soit le même qu'entre « plutôt bonne » et « très bonne ». On peut donc
-**classer** les réponses, mais pas les **additionner**. C'est la frontière exacte entre
-ordinale et quantitative, et c'est un excellent sujet de question piège.
-:::
-
-#### 2.2.4 Illustration des quatre types (diapositive 14)
-
-Le support donne un exemple par sous-type — mais **sans indiquer le type** de chacun. Le
-voici, complété et justifié.
-
-| Caractère (variable) | Modalités données par le support | Type | Pourquoi |
-|---|---|---|---|
-| **Sexe** | « homme », « femme », « autre » | **Qualitative nominale** | Modalités non numériques, aucun ordre qui ait un sens |
-| **Qualité du service** | « mauvaise », « plutôt mauvaise », « plutôt bonne », « très bonne » | **Qualitative ordinale** | Modalités non numériques, mais un ordre incontestable du pire au meilleur |
-| **Nombre d'enfants** | 0, 1, 2, 3, 4, 5 | **Quantitative discrète** | Nombres issus d'un **comptage** ; entre 2 et 3, aucune valeur possible |
-| **Taille en cm** | 179, 182, 183, 165, 148, 205, etc. | **Quantitative continue** | Nombres issus d'une **mesure** ; entre 179 et 180 il existe une infinité de valeurs |
-
-::: examen
-Cette diapositive est un exercice déguisé : les quatre exemples couvrent exactement les
-quatre sous-types, dans l'ordre du tableau de la diapositive 13. **Une question d'examen
-très probable donne quatre variables nouvelles et demande de les qualifier.** Entraînez-vous
-sur : code postal, note sur 20, mention au baccalauréat, chiffre d'affaires, catégorie
-socioprofessionnelle, âge, tranche d'âge, numéro de téléphone. *(Réponses au §5, niveau 2,
-exercice 1.)*
+**Deux observations de plus, gratuites :**
+- **Pas de fréquence cumulée possible ici.** Le support le dit à la diapositive 21 :
+  la fréquence cumulée n'existe que **« pour un caractère quantitatif »**. Ce caractère est
+  qualitatif nominal — cumuler des libellés non ordonnés n'a aucun sens.
+- **Le tableau est trié par effectif décroissant.** C'est un **choix de présentation**, pas
+  une propriété des données : il applique la règle « compréhension immédiate » de la
+  diapositive 32. Pour un caractère nominal, le tri par effectif décroissant est la
+  convention.
 :::
 
 <!--saut-->
-### 2.3 — Section 3 : la présentation des données
 
-#### 2.3.1 Deux façons de présenter une variable (diapositive 15)
+### B2 — Diapositive 22 : les familles selon le nombre d'enfants *(20 min — /8)*
 
-::: definition Les deux présentations, sans perte d'information
-Il y a **deux grandes façons** de présenter une variable **sans perte d'information** :
+::: examen Diapositive 22 — l'énoncé, mot pour mot
+*« Enquête menée auprès de 17 132 familles. On a demandé à chaque famille le nombre d'enfants
+pour une année donnée. »*
 
-- sous forme de **série** ou **données brutes** (en anglais : *raw data*) ;
-- sous forme de **distribution observée des effectifs** (en anglais : *frequencies*).
-
-**Le passage de l'une à l'autre demande un traitement** qui nécessite, dans le cas
-quantitatif ou qualitatif ordinal : **un tri des modalités, puis un comptage des effectifs**.
-:::
-
-::: demo Pourquoi « sans perte d'information », et pourquoi le tri ne s'applique pas au nominal
-**Pourquoi il n'y a pas de perte.** À partir du tableau des effectifs, on peut reconstruire
-une série brute équivalente : il suffit d'écrire 11 fois la valeur 0, 33 fois la valeur 1,
-etc. On ne retrouve pas l'**ordre** dans lequel les étudiants ont répondu — mais cet ordre
-n'est pas de l'information statistique : il ne dit rien sur la variable étudiée. Tout ce
-qui est statistiquement pertinent est conservé.
-
-**Pourquoi le tri est réservé au quantitatif et au qualitatif ordinal.** Trier suppose un
-ordre. Pour une variable **nominale**, aucun ordre n'a de sens : on peut compter les
-effectifs, mais l'ordre des lignes du tableau est un pur choix de présentation (par ordre
-alphabétique, par effectif décroissant…). C'est très exactement ce que fait le tableau des
-infractions de la diapositive 12, rangé par effectif décroissant.
-:::
-
-#### 2.3.2 La distribution observée des effectifs (diapositive 16)
-
-::: definition Distribution observée des effectifs
-Une **distribution observée des effectifs** **associe à chaque modalité** d'une variable
-statistique **l'effectif observé correspondant**.
-
-L'**effectif d'une modalité** est le **nombre d'individus présentant une modalité donnée**
-du caractère statistique.
-
-La représentation d'une telle distribution peut être **un tableau** ou **un diagramme
-colonne**.
-
-**Il n'y a pas de perte d'information ; il s'agit souvent de l'étape n° 1 d'une analyse
-statistique.**
-:::
-
-Notez la construction du mot : une distribution est une **application de second niveau**.
-La variable associe une modalité à chaque individu ; la distribution associe un effectif à
-chaque modalité. On passe de l'individu à la modalité, puis de la modalité au nombre.
-
-#### 2.3.3 L'exemple des 87 étudiants (diapositives 17 à 20)
-
-**L'énoncé.** Mini-enquête : **87 étudiants** d'une promotion ont répondu à la question
-*« Combien avez-vous de frères et sœurs ? »*. Dans la population de l'ensemble des 87
-étudiants — **taille de la population = 87 unités statistiques** — le caractère statistique
-est **quantitatif discret**.
-
-**Étape 1 — la série brute (diapositive 17).** Les 87 réponses, dans l'ordre où elles ont
-été collectées :
-
-```
- 2   2   5   2    3   1   1   1    1   2   1   1   0   2   2
- 5   1   4   2    2   1   0   2    2   1   2   1   1   2   1
- 3   1   2   1    0   0   1   3   13   2   1   1   2   1   1
- 1   6   1   3    1   0   1   5    7   2   1   2   2   3   0
- 3   2   2   7   14   9   5   4    1   0   1   2   1   3   2
- 1   2   2   0    4   1   0   1    0   1   1   1
-```
-
-**Étape 2 — la série ordonnée (diapositive 18).** On trie. La lecture devient possible :
-on voit immédiatement le minimum (0), le maximum (14), et la concentration sur les petites
-valeurs.
-
-```
- 0   1   1   1   2   2   2    5
- 0   1   1   1   2   2   3    5
- 0   1   1   1   2   2   3    5
- 0   1   1   1   2   2   3    5
- 0   1   1   1   2   2   3    6
- 0   1   1   1   2   2   3    7
- 0   1   1   1   2   2   3    7
- 0   1   1   1   2   2   3    9
- 0   1   1   1   2   2   4   13
- 0   1   1   1   2   2   4   14
- 0   1   1   1   2   2   4
-```
-
-**Étape 3 — le tableau de distribution (diapositive 19).** On compte.
-
-| Nombre de frères et sœurs | Effectif |
-|---|---:|
-| 0 | 11 |
-| 1 | 33 |
-| 2 | 23 |
-| 3 | 7 |
-| 4 | 3 |
-| 5 | 4 |
-| 6 | 1 |
-| 7 | 2 |
-| 9 | 1 |
-| 13 | 1 |
-| 14 | 1 |
-| **Ensemble** | **87** |
-
-**Étape 4 — le diagramme colonne (diapositive 20).** La diapositive présente un diagramme
-en colonnes : en abscisse, **toutes les valeurs entières de 0 à 14** ; en ordonnée,
-l'effectif, gradué de 0 à 35 par pas de 5. Les colonnes décroissent fortement après la
-valeur 1 (la plus haute, à 33), et les valeurs 8, 10, 11 et 12 apparaissent **avec une
-colonne de hauteur nulle**.
-
-::: examen Le détail du diagramme qui vaut un point
-Les modalités 8, 10, 11 et 12 **n'existent pas dans les données** — aucun étudiant ne les a
-déclarées — et pourtant elles **figurent sur l'axe**, avec une colonne vide.
-
-C'est volontaire et c'est correct : pour une variable **quantitative**, l'axe des abscisses
-est un **axe numérique**, et les distances doivent y être respectées. Supprimer les
-modalités d'effectif nul rapprocherait visuellement 7 et 9, 7 et 13, et **déformerait la
-forme de la distribution**.
-
-Corollaire : pour une variable **qualitative**, il n'y a pas d'axe numérique, donc pas de
-modalité vide à représenter, et l'ordre des colonnes est libre.
-:::
-
-#### 2.3.4 Vérification des données — une anomalie dans le support
-
-::: piege Recomptage : la série brute et le tableau ne coïncident pas
-J'ai recompté, valeur par valeur, la série brute reproduite ci-dessus (relevée sur la
-diapositive 17 elle-même, et non sur une transcription).
-
-| Modalité | Effectif obtenu en recomptant **la série brute** (diapo 17) | Effectif de **la série ordonnée** (diapo 18) et du **tableau** (diapo 19) |
-|:---:|:---:|:---:|
-| 0 | **10** | **11** |
-| 1 | 33 | 33 |
-| 2 | **24** | **23** |
-| 3 | 7 | 7 |
-| 4 | 3 | 3 |
-| 5 | 4 | 4 |
-| 6 | 1 | 1 |
-| 7 | 2 | 2 |
-| 9 | 1 | 1 |
-| 13 | 1 | 1 |
-| 14 | 1 | 1 |
-| **Total** | **87** | **87** |
-
-Les deux colonnes totalisent bien 87 : il ne manque aucune donnée. Mais **la série brute
-contient un « 2 » de trop et un « 0 » de moins** par rapport à la série ordonnée et au
-tableau, qui, eux, **concordent parfaitement entre eux**.
-
-**Conclusion :** l'erreur est dans la **série brute de la diapositive 17** — l'un de ses
-« 2 » devrait être un « 0 ». Le tableau des effectifs de la diapositive 19, lui, est
-cohérent avec la série ordonnée de la diapositive 18.
-
-**Conduite à tenir.** En examen, **utilisez le tableau du cours** (0 → 11 ; 2 → 23) :
-c'est lui qui fait foi pour la correction, et il est cohérent avec la série ordonnée. Mais
-signalez la coquille à l'enseignante — c'est une remarque qui montre que vous avez
-réellement refait les calculs, ce que presque personne ne fait.
-
-**Ce que cet incident enseigne** — et c'est la vraie leçon : *trier puis compter* n'est pas
-une formalité. Le contrôle élémentaire consiste toujours à vérifier que **la somme des
-effectifs égale l'effectif total** ; ici, ce contrôle passe dans les deux cas (87 = 87) et
-ne suffit donc pas. Le seul contrôle qui détecte l'écart est le **recomptage modalité par
-modalité**.
-:::
-
-#### 2.3.5 Répartition, fréquences et fréquences cumulées (diapositive 21)
-
-::: definition Fréquence et fréquence cumulée
-La distribution d'une variable statistique peut aussi se représenter sous forme de
-**répartition des fréquences** : on associe à chaque modalité de la variable une
-**fréquence**.
-
-- La **fréquence** d'une modalité est la **proportion d'individus présentant une modalité
-  donnée** du caractère statistique **dans la population totale** (en pourcent de la
-  population).
-- Un **camembert** ou un **diagramme en barres** peuvent être choisis pour une telle
-  représentation.
-- Pour un caractère **quantitatif**, la **fréquence cumulée** d'une modalité est la
-  **proportion d'individus présentant une modalité donnée ou inférieure** dans la
-  population.
-:::
-
-::: piege Pourquoi la fréquence cumulée est réservée au quantitatif — et une nuance
-Le support précise « pour un caractère quantitatif », et la raison est logique : cumuler
-suppose de parcourir les modalités **dans un ordre**. Sans ordre, « les modalités
-inférieures » ne veut rien dire — on ne peut pas dire qu'un vol de vélo est « inférieur » à
-un acte de vandalisme.
-
-**Nuance à connaître :** le cumul a également un sens pour une variable **qualitative
-ordinale** (« au plus *plutôt bonne* »), puisque l'ordre y est défini. La restriction du
-support au quantitatif est une **simplification pédagogique** ; retenez la formulation du
-cours, mais comprenez que le critère réel est l'existence d'un ordre, pas la nature
-numérique des modalités.
-:::
-
-::: exemple Effectifs, fréquences et fréquences cumulées de l'exemple des 87 étudiants
-Le support s'arrête aux effectifs. Voici la distribution complète — c'est l'exercice type
-de l'examen.
-
-| Modalité $ x_i $ | Effectif $ n_i $ | Fréquence $ f_i $ (%) | Fréquence cumulée $ F_i $ (%) |
-|---:|---:|---:|---:|
-| 0 | 11 | 12,64 | 12,64 |
-| 1 | 33 | 37,93 | 50,57 |
-| 2 | 23 | 26,44 | 77,01 |
-| 3 | 7 | 8,05 | 85,06 |
-| 4 | 3 | 3,45 | 88,51 |
-| 5 | 4 | 4,60 | 93,10 |
-| 6 | 1 | 1,15 | 94,25 |
-| 7 | 2 | 2,30 | 96,55 |
-| 9 | 1 | 1,15 | 97,70 |
-| 13 | 1 | 1,15 | 98,85 |
-| 14 | 1 | 1,15 | 100,00 |
-| **Ensemble** | **87** | **100,00** | — |
-
-**Détail de trois calculs, pour la méthode :**
-1. $ f_1 = n_1 / n = 11/87 = 0{,}1264 $, soit **12,64 %** — la fréquence de la modalité 0.
-2. $ f_2 = 33/87 = 0{,}3793 $, soit **37,93 %**.
-3. $ F_3 = f_1 + f_2 + f_3 = 12{,}64 + 37{,}93 + 26{,}44 = 77{,}01 $ **%**.
-
-**Trois phrases de lecture, à savoir produire :**
-- *Fréquence :* « 37,93 % des 87 étudiants de la promotion déclarent avoir exactement un
-  frère ou une sœur. »
-- *Fréquence cumulée :* « 77,01 % des étudiants déclarent **au plus** deux frères et
-  sœurs. »
-- *Complément :* « Autrement dit, 22,99 % en déclarent **au moins trois** — car
-  $ 100 - 77{,}01 = 22{,}99 $. »
-:::
-
-::: marche
-La dernière ligne est exactement la mécanique d'un quantile. Lue à l'envers, la colonne des
-fréquences cumulées répond à : « en dessous de quelle valeur se situent 5 % des
-observations ? » Sur une distribution de rendements quotidiens, cette valeur porte un nom :
-la *Value at Risk* à 95 %. Le calcul est le même que celui que vous venez de faire — la
-seule différence est l'objet mesuré.
-:::
-
-#### 2.3.6 Illustration : la distribution du nombre d'enfants (diapositive 22)
-
-**Le tableau du support**
-
-| Modalités $ x_i $ | Effectifs $ n_i $ (en milliers) | Fréquences $ f_i $ (%) | Fréquences cumulées $ F(x_i) $ (%) |
+| Modalités $ x_i $ | Effectifs $ n_i $ en milliers | Fréquences $ f_i $ en % | Fréquences cumulées $ F(x_i) $ en % |
 |---|---:|---:|---:|
 | 0 enfant | 8 225 | 48,0 | 48,0 |
 | 1 enfant | 3 821 | 22,3 | 70,3 |
 | 2 enfants | 3 449 | 20,1 | 90,4 |
 | 3 enfants | 1 241 | 7,2 | 97,7 |
 | 4 enfants et plus | 396 | 2,3 | 100,0 |
-| **Ensemble** | **17 132** | **100,0** | — |
+| **Ensemble** | **17 132** | **100,0** | |
 
-::: correction La question posée : population, caractère statistique, unités statistiques, et comment ces chiffres ont été calculés
-**Population.** L'ensemble des **familles** enquêtées : 17 132 **milliers** de familles,
-soit environ **17,1 millions** de familles.
-
-**Unités statistiques.** **Une famille.**
-
-**Effectif total.** $ n = 17\,132 $ milliers.
-
-**Caractère statistique.** Le **nombre d'enfants** de la famille. Il est **quantitatif
-discret**… avec une réserve, développée dans l'encadré suivant.
-
-**Comment ont été calculés ces chiffres ?**
-- **Les fréquences** : $ f_i = n_i / n $, exprimé en pourcentage.
-  Vérification : $ 8\,225 / 17\,132 = 0{,}4801 $ → **48,0 %** ✔ ;
-  $ 3\,821/17\,132 = 0{,}2230 $ → **22,3 %** ✔ ;
-  $ 3\,449/17\,132 = 0{,}2013 $ → **20,1 %** ✔ ;
-  $ 1\,241/17\,132 = 0{,}0724 $ → **7,2 %** ✔ ;
-  $ 396/17\,132 = 0{,}0231 $ → **2,3 %** ✔.
-- **Les fréquences cumulées** : $ F_k = f_1 + f_2 + \ldots + f_k $.
-  $ 48{,}0 $ ; $ 48{,}0 + 22{,}3 = 70{,}3 $ ; $ + 20{,}1 = 90{,}4 $ ; $ + 7{,}2 = 97{,}7 $ ;
-  $ + 2{,}3 = 100{,}0 $ ✔.
-- **Contrôle de cohérence** : la somme des effectifs vaut
-  $ 8\,225 + 3\,821 + 3\,449 + 1\,241 + 396 = 17\,132 $ ✔, et la dernière fréquence cumulée
-  vaut exactement 100,0 % ✔.
+**▶ Indiquez la population, le caractère statistique, les unités statistiques. Comment ont
+été calculés ces chiffres ?**
 :::
 
-::: piege Trois remarques que le support laisse de côté
-**1. « 17 132 familles » ou 17 132 **milliers** de familles ?** Le texte de la diapositive
-annonce « enquête menée auprès de 17 132 familles », mais l'en-tête de colonne précise
-« effectifs $ n_i $ **en milliers** ». Les deux ne peuvent pas être vrais simultanément :
-la lecture correcte est **17 132 milliers de familles**, soit 17,1 millions — l'ordre de
-grandeur d'un recensement, pas d'une enquête de terrain. **Retenez l'unité de la colonne.**
+::: correction Copie de major, première partie : identifier *(4 pts)*
+**① La population** — **l'ensemble des familles interrogées pour l'année considérée**, soit
+**17 132 milliers de familles**, c'est-à-dire **environ 17,1 millions**.
+*L'énoncé écrit « 17 132 familles », mais la colonne est intitulée « effectifs en milliers ».
+Signaler l'incohérence et retenir la bonne lecture vaut un point.* ➔ bloc 5, **A2**.
 
-**2. La dernière modalité, « 4 enfants et plus », est une classe ouverte.** Ce n'est pas
-une valeur unique mais un **regroupement**. Conséquence importante pour la suite du cours :
-on ne peut pas calculer de moyenne exacte à partir de ce tableau, puisqu'on ignore ce que
-vaut réellement « et plus ».
+**② Les unités statistiques** — **une famille**. *L'enquête interroge « chaque famille », pas
+chaque enfant ni chaque individu.*
 
-**3. Le caractère est-il vraiment discret ?** Oui, le nombre d'enfants relève du comptage.
-Mais **regroupé en classes** comme ici, le tableau se manipule comme une distribution en
-classes. La nuance sera exploitée au chapitre 2.
+**③ Le caractère statistique** — le **nombre d'enfants**, noté $ X $.
+**Type : quantitatif discret** — il relève du **comptage**, et entre 2 et 3 enfants il
+n'existe aucune valeur possible.
+**Nuance qui rapporte :** la dernière modalité, **« 4 enfants et plus »**, est une **classe
+ouverte** : on a **regroupé** toutes les valeurs $ \geq 4 $. La variable reste discrète, mais
+sa présentation est **partiellement regroupée** — et ce regroupement **interdit tout calcul
+de moyenne** sans hypothèse supplémentaire sur cette classe.
+
+**④ Les effectifs** — $ n = 17\,132 $ milliers ; **$ p = 5 $ modalités**.
 :::
 
-#### 2.3.7 Formalisation (diapositive 23)
+::: correction Copie de major, deuxième partie : « comment ont été calculés ces chiffres ? » *(4 pts)*
+**Il y a trois colonnes, donc trois réponses. Les donner toutes les trois.**
 
-::: formule Les notations du cours
-- Le caractère statistique est noté $ X $ ; les modalités $ x_i $ sont ordonnées de
-  $ i = 1, \ldots, p $.
-- À chaque modalité $ x_i $ correspond un effectif $ n_i $, et l'effectif total vaut
-  $$ n = \sum_{i=1}^{p} n_i = n_1 + n_2 + \ldots + n_p $$
-- Les **fréquences** $ f_i $, pour $ i = 1, \ldots, p $, sont calculées ainsi :
-  $$ f_i = \frac{n_i}{n} $$
-- Les **fréquences cumulées** $ F_k $, pour $ k = 1, \ldots, p $, sont telles que :
-  $$ F_k = \sum_{i=1}^{k} f_i $$
+**Colonne 1 — les effectifs $ n_i $.** Ils ne sont pas *calculés* : ils sont **comptés**. Pour
+chaque modalité, on dénombre les familles qui la déclarent. C'est l'étape « comptage » du
+passage série brute → distribution.
+**Contrôle : $ \sum n_i = 8\,225 + 3\,821 + 3\,449 + 1\,241 + 396 = 17\,132 $** ✔
+
+**Colonne 2 — les fréquences $ f_i $.** Formule :
+
+$$ f_i = \frac{n_i}{n} \times 100 $$
+
+| | Application numérique | Résultat exact | Arrondi |
+|---|---|---:|---:|
+| 0 enfant | $ 8\,225 / 17\,132 $ | 48,0096 % | **48,0** |
+| 1 enfant | $ 3\,821 / 17\,132 $ | 22,3033 % | **22,3** |
+| 2 enfants | $ 3\,449 / 17\,132 $ | 20,1319 % | **20,1** |
+| 3 enfants | $ 1\,241 / 17\,132 $ | 7,2438 % | **7,2** |
+| 4 enfants et plus | $ 396 / 17\,132 $ | 2,3115 % | **2,3** |
+
+**Les cinq valeurs du support sont exactes.** *(Je les ai toutes recalculées.)*
+
+**Colonne 3 — les fréquences cumulées $ F(x_k) $.** Formule :
+
+$$ F(x_k) = \sum_{i=1}^{k} f_i $$
+
+$ F(0) = 48{,}0 $ · $ F(1) = 48{,}0 + 22{,}3 = 70{,}3 $ ·
+$ F(2) = 70{,}3 + 20{,}1 = 90{,}4 $ · $ F(3) = 90{,}4 + 7{,}2 = 97{,}7 $ ·
+$ F(4^{+}) = 97{,}7 + 2{,}3 = 100{,}0 $ ✔
+
+**Les trois contrôles de fin :** $ \sum n_i = n $ ✔ · $ \sum f_i = 100{,}0 $ ✔ ·
+$ F(\text{dernière}) = 100{,}0 $ ✔
 :::
 
-**Chaque symbole, un par un** — le support ne les explicite pas :
+::: correction Les points volés — ce qu'ajoute une copie à 18
+**① Justifier que la colonne cumulée a le droit d'exister.** La diapositive 21 réserve la
+fréquence cumulée aux **caractères quantitatifs**. Ici le caractère est quantitatif discret,
+donc ordonné : **« 2 enfants ou moins » a un sens**, et le cumul est légitime. *Dans le
+tableau des infractions (B1), il serait absurde.*
 
-| Symbole | Ce qu'il désigne | Attention |
-|:---:|---|---|
-| $ X $ | La **variable** (majuscule, par convention du cours) | Ce n'est pas un nombre |
-| $ x_i $ | La **i-ème modalité** (minuscule) | Les modalités sont **ordonnées** : $ x_1 < x_2 < \ldots < x_p $ |
-| $ i $ | L'**indice** de la modalité, de 1 à $ p $ | Il ne numérote pas les individus |
-| $ p $ | Le **nombre de modalités** | À ne jamais confondre avec $ n $ |
-| $ n_i $ | L'**effectif** de la modalité $ x_i $ | Un nombre d'individus, donc entier |
-| $ n $ | L'**effectif total** | $ n = \sum n_i $ |
-| $ f_i $ | La **fréquence** de la modalité $ x_i $ | Entre 0 et 1 (ou en %) |
-| $ F_k $ | La **fréquence cumulée** jusqu'à la modalité $ x_k $ | Croissante, de $ f_1 $ à 1 |
+**② Donner une phrase de lecture par colonne**, sans qu'on la demande :
+- **Effectif :** « 3 449 milliers de familles, soit près de 3,4 millions, avaient deux
+  enfants. »
+- **Fréquence :** « 20,1 % des familles avaient deux enfants. »
+- **Cumulée :** « 90,4 % des familles avaient **deux enfants ou moins**. »
 
-::: demo Trois propriétés à savoir démontrer
-**Propriété 1 — la somme des fréquences vaut 1.**
-$$ \sum_{i=1}^{p} f_i = \sum_{i=1}^{p} \frac{n_i}{n} = \frac{1}{n} \sum_{i=1}^{p} n_i = \frac{n}{n} = 1 $$
-*Justification de chaque étape :* on remplace $ f_i $ par sa définition ; comme $ n $ ne
-dépend pas de $ i $, on le sort de la somme ; la somme des effectifs vaut $ n $ par
-définition ; le quotient vaut 1. **En pourcentage : 100 %.**
+**③ Signaler les deux imprécisions du support**, en une ligne chacune : *« 17 132 familles »*
+au lieu de *« 17 132 milliers »* ; *« une année donnée »* jamais précisée — **c'est 2008**, la
+diapositive 31 reproduisant exactement ces cinq fréquences dans sa colonne 2008.
+➔ bloc 5, **A2** et **A3**.
 
-**Propriété 2 — la dernière fréquence cumulée vaut 1.**
-$ F_p = \sum_{i=1}^{p} f_i = 1 $ d'après la propriété 1. C'est le **contrôle systématique**
-d'un tableau de fréquences cumulées : la dernière ligne doit valoir 100 % (aux arrondis
-près).
-
-**Propriété 3 — les fréquences cumulées sont croissantes.**
-$ F_k - F_{k-1} = f_k \ge 0 $, puisqu'une fréquence est toujours positive ou nulle. Donc
-$ F_k \ge F_{k-1} $ : **la suite des fréquences cumulées ne peut jamais décroître.** Une
-colonne de fréquences cumulées qui diminue signale immédiatement une erreur de calcul.
-:::
-
-::: examen
-Le support annonce : *« À présent amusons-nous à mettre les notations mathématiques en
-adéquation avec l'illustration de la diapo 21 »* — il s'agit du **tableau des 17 132
-milliers de familles** (diapositive 22 dans la numérotation du PDF). La correspondance :
-$ p = 5 $ modalités ; $ x_1 = 0 $ enfant, …, $ x_5 = $ 4 enfants et plus ;
-$ n_1 = 8\,225 $ ; $ n = 17\,132 $ ; $ f_1 = n_1/n = 48{,}0 $ % ; $ F_3 = 90{,}4 $ %.
-
-**Sachez faire cet aller-retour dans les deux sens** : d'un tableau vers les notations, et
-d'une formule vers sa traduction en français. C'est la compétence la plus régulièrement
-testée sur ce chapitre.
+**④ Le contraste qui prouve qu'on a compris le champ.** Ce tableau **inclut les familles sans
+enfant** (48 % du total !). Celui de la diapositive 28 ne porte que sur les familles **ayant
+au moins un enfant mineur** — d'où l'absence de ligne « 0 enfant ». **Deux tableaux sur le
+même sujet, deux populations différentes : leurs chiffres ne sont pas comparables.**
 :::
 
 <!--saut-->
-#### 2.3.8 Plusieurs distributions d'un même caractère (diapositive 24)
 
-::: definition Le principe de la comparaison
-- Il arrive **fréquemment** que **plusieurs distributions statistiques d'un même caractère**
-  soient présentées **simultanément**, dans une **optique comparative**.
-- Plusieurs **populations** (ou **sous-populations**) sont définies **selon une autre
-  variable** — par année, par zone géographique, etc.
-- Il y a en fait **une distribution par sous-population**. Ces distributions sont
-  présentées **juxtaposées**.
-- **Le but d'une telle présentation est la comparaison de la répartition de la variable
-  entre sous-populations.**
-:::
+### B3 — Diapositive 25 : les personnes écrouées, 2020-2023 *(20 min — /8)*
 
-::: demo Ce qui se passe réellement : deux variables, pas une
-Une comparaison de distributions met en jeu **deux variables**, et c'est ce que le support
-dit en une ligne (« sous-populations définies selon une autre variable »).
-
-1. La variable **étudiée** — celle dont on regarde la distribution : la catégorie pénale,
-   le nombre d'enfants.
-2. La variable **de découpage** — celle qui définit les sous-populations : l'année, la
-   région, le sexe.
-
-On construit alors **une distribution de la première variable à l'intérieur de chaque
-modalité de la seconde**, et on les juxtapose. C'est déjà, en germe, le croisement de deux
-variables qui fera l'objet du **chapitre 4** : ici on se contente de juxtaposer et de
-comparer visuellement.
-
-**Conséquence pratique immédiate :** on ne compare que ce qui est comparable. Si les
-sous-populations n'ont pas la même taille, la comparaison des **effectifs** est trompeuse
-et il faut comparer les **fréquences**. C'est exactement la raison d'être du diagramme
-empilé à 100 % (§2.3.11).
-:::
-
-#### 2.3.9 Premier exemple : les personnes écrouées en France (diapositive 25)
-
-**Le tableau du support** — Distribution des personnes écrouées en France, par année.
+::: examen Diapositive 25 — l'énoncé, mot pour mot
+*« Distribution des personnes écrouées en France, par année. »*
 
 | Catégorie | 2020 | 2021 | 2022 | 2023 |
 |---|---:|---:|---:|---:|
@@ -1021,110 +1838,108 @@ empilé à 100 % (§2.3.11).
 | Condamnés non détenus | 12 184 | 13 644 | 14 286 | 15 453 |
 | **Total des personnes écrouées** | **73 834** | **81 989** | **85 311** | **90 071** |
 
-*Source : Ministère de la justice.*
+*Source : ministère de la Justice.*
 
-::: correction La question posée : population, sous-populations, caractère, type
-**Population.** L'ensemble des **personnes écrouées en France**. *(Être « écroué » signifie
-être inscrit au registre d'écrou d'un établissement pénitentiaire — ce qui n'implique pas
-nécessairement d'être détenu, comme le montre la dernière catégorie.)*
-
-**Unités statistiques.** **Une personne écrouée.**
-
-**Sous-populations.** Les personnes écrouées **de chaque année** : 2020, 2021, 2022, 2023.
-La variable de découpage est donc l'**année**.
-
-**Caractère statistique étudié.** La **catégorie pénale** de la personne écrouée, à quatre
-modalités : prévenus détenus, condamnés-prévenus détenus, condamnés détenus, condamnés non
-détenus.
-
-**Type.** **Qualitative nominale.** Les modalités sont des situations juridiques, non des
-nombres, et aucun ordre naturel ne les hiérarchise.
-
-**Contrôle des données.** La somme des quatre catégories redonne exactement le total de
-chaque année : $ 17\,692 + 2\,405 + 41\,553 + 12\,184 = 73\,834 $ ✔ ; de même pour 2021
-(81 989), 2022 (85 311) et 2023 (90 071) ✔.
+**▶ Identifier la population, les sous-populations, le caractère statistique étudié, son
+type ?**
+**▶ Le choix du diagramme colonne groupé dépend de la comparaison [qui] est au centre de
+l'analyse…**
 :::
 
-::: methode Lire la structure derrière les modalités — remarque hors support
-Les quatre modalités croisent en réalité deux dimensions : le **statut judiciaire**
-(prévenu, c'est-à-dire en attente de jugement / condamné) et la **détention** (détenu / non
-détenu). On devrait donc attendre quatre combinaisons — mais « prévenu non détenu »
-n'existe pas ici, puisqu'une personne prévenue et libre n'est pas écrouée. C'est la
-population elle-même qui exclut cette modalité.
+::: definition Le vocabulaire pénal que le support emploie sans jamais le définir
+Quatre termes techniques, indispensables pour justifier le type du caractère. **Aucun n'est
+expliqué dans les diapositives.**
 
-Repérer ce genre de structure aide à mémoriser une nomenclature et à ne pas confondre les
-catégories.
+- **Écroué** — inscrit au **registre d'écrou** d'un établissement pénitentiaire. **C'est la
+  population totale du tableau**, et elle est plus large que « détenu » : on peut être écroué
+  **sans être enfermé** (bracelet électronique, placement extérieur).
+- **Prévenu** — personne **poursuivie et pas encore jugée définitivement**. Elle est
+  **présumée innocente**.
+- **Condamné** — personne dont la **condamnation est définitive**.
+- **Condamné-prévenu** — personne **condamnée définitivement dans une affaire et encore
+  prévenue dans une autre**. C'est la raison d'être de cette catégorie intermédiaire.
+
+**La clé de lecture :** les quatre modalités croisent **deux critères** — le **statut
+judiciaire** (prévenu / condamné) et la **détention effective** (détenu / non détenu).
 :::
 
-::: examen Ce que dit la dernière puce de la diapositive
-Le support écrit : *« Le choix du diagramme colonne groupé dépend de la comparaison [qui]
-est au centre de l'analyse… »* — la phrase est tronquée sur la diapositive, mais le sens
-est sans ambiguïté et c'est **la règle du chapitre** : **le diagramme ne se choisit pas
-pour lui-même, il se choisit en fonction de la comparaison que l'on veut faire voir.**
-C'est la déclinaison graphique du principe des six étapes : tous les choix sont guidés par
-la problématique.
+::: correction Copie de major — population, sous-populations, caractère, type
+**① La population** *(1 pt)* — **l'ensemble des personnes écrouées en France**, telles que
+recensées par le **ministère de la Justice**. *Attention : écrouées, donc y compris non
+détenues — 12 184 personnes en 2020, soit 16,5 % du total, ne sont pas enfermées.*
+
+**② Les sous-populations** *(2 pts)* — **quatre sous-populations, définies par l'année** :
+les personnes écrouées en **2020**, en **2021**, en **2022**, en **2023**.
+**La variable de découpage est donc l'année**, et il y a **une distribution par année**.
+Leurs effectifs totaux : **73 834 · 81 989 · 85 311 · 90 071**. *(Les quatre totaux du support
+ont été vérifiés : ils sont exacts.)*
+
+**③ Le caractère statistique étudié** *(2 pts)* — **la catégorie pénale de la personne
+écrouée**. **Quatre modalités**, donc $ p = 4 $ : prévenu détenu · condamné-prévenu détenu ·
+condamné détenu · condamné non détenu.
+
+**④ Le type** *(2 pts)* — **qualitatif nominal**. *Justification :* les modalités sont des
+**statuts**, pas des nombres, et **aucun ordre unique n'a de sens** — parce qu'elles croisent
+deux critères indépendants (statut judiciaire × détention). On ne peut pas dire qu'un
+« condamné non détenu » est « avant » ou « après » un « prévenu détenu ».
+
+**⑤ Le choix du graphique** *(1 pt)* — il **dépend de la question posée** :
+- *Comment évolue chaque catégorie ?* → **colonnes groupées par catégorie** (d. 26), intitulé
+  **« Évolution, pour chaque catégorie, du nombre de personnes écrouées en France »**.
+- *Comment évolue la structure ?* → **colonnes groupées par année** (d. 27), intitulé
+  **« Évolution, pour chaque année, des catégories de personnes écrouées en France »**.
 :::
 
-#### 2.3.10 Les deux diagrammes en colonnes groupées (diapositives 26 et 27)
+::: piege Le piège central de cet exercice — et il vaut 2 points
+**Inverser les deux rôles.** Il est tentant de répondre « les sous-populations sont les quatre
+catégories pénales ». **C'est faux, et voici le critère qui tranche :**
 
-Les deux diagrammes contiennent **exactement les mêmes chiffres**. Seul le **groupement**
-change — et il change complètement ce que l'œil perçoit.
+> **Le caractère étudié est celui dont on calcule la distribution ; la variable de découpage
+> est celle qui définit les colonnes qu'on compare.**
 
-::: definition Diagramme en colonnes groupées 1 — groupement par catégorie (diapo 26)
-**Titre du support :** « Évolution, pour chaque catégorie, du nombre de personnes écrouées
-en France ».
+Ici chaque **colonne-année** contient une distribution complète qui somme à son propre total.
+**L'année découpe, la catégorie est distribuée.** Si les catégories étaient les
+sous-populations, chacune devrait porter une distribution sommant à 100 % — ce n'est pas le
+cas.
 
-**Construction.** Quatre groupes en abscisse, un par **catégorie pénale**. Dans chaque
-groupe, quatre colonnes, une par **année** (2020, 2021, 2022, 2023, distinguées par un
-dégradé de bleus, du plus foncé au plus clair). Axe des ordonnées : effectifs, de 0 à
-60 000.
-
-**Ce que l'œil voit immédiatement :** l'**évolution dans le temps, catégorie par
-catégorie** — chaque groupe montre quatre barres qui montent régulièrement.
+**Le test en deux secondes : où est la ligne "Total" ?** Elle est **au bas de chaque année**.
+**Le total est du côté de la sous-population.**
 :::
 
-::: definition Diagramme en colonnes groupées 2 — groupement par année (diapo 27)
-**Titre du support :** « Évolution, pour chaque année, des catégories de personnes écrouées
-en France ».
+::: correction Les points volés — ce qu'ajoute une copie à 18
+**① Chiffrer l'évolution, puisque le tableau est là pour comparer.**
 
-**Construction.** Quatre groupes en abscisse, un par **année**. Dans chaque groupe, quatre
-colonnes, une par **catégorie**.
+| Catégorie | 2020 | 2023 | Évolution |
+|---|---:|---:|---:|
+| Prévenus détenus | 17 692 | 19 755 | **+ 11,7 %** |
+| Condamnés-prévenus détenus | 2 405 | 3 117 | **+ 29,6 %** |
+| Condamnés détenus | 41 553 | 51 746 | **+ 24,5 %** |
+| Condamnés non détenus | 12 184 | 15 453 | **+ 26,8 %** |
+| **Total** | **73 834** | **90 071** | **+ 22,0 %** |
 
-**Ce que l'œil voit immédiatement :** la **structure de la population une année donnée** —
-et la comparaison de cette structure d'une année à l'autre.
+**② Chiffrer la structure, ce que le tableau ne montre pas** *(c'est exactement ce que
+ferait un empilé à 100 %)* :
+
+| Catégorie | 2020 (%) | 2023 (%) |
+|---|---:|---:|
+| Prévenus détenus | **24,0** | **21,9** |
+| Condamnés-prévenus détenus | **3,3** | **3,5** |
+| Condamnés détenus | **56,3** | **57,5** |
+| Condamnés non détenus | **16,5** | **17,2** |
+
+**③ La phrase de conclusion qui vaut le point d'analyse :** *« Les effectifs augmentent dans
+les quatre catégories — de + 11,7 % à + 29,6 % — mais la structure ne bouge presque pas : les
+condamnés détenus restent un peu plus de 56 % des écroués. Le phénomène est une hausse de
+volume, pas une déformation de composition. »* **C'est la distinction d. 26 / d. 27 appliquée
+aux chiffres.**
 :::
 
-::: examen La règle de choix — à savoir énoncer et appliquer
-Le support la donne en une phrase par diapositive :
+<!--saut-->
 
-| Si la question porte sur… | Grouper par… | Le regard compare alors… |
-|---|---|---|
-| **« l'évolution des effectifs de chaque catégorie »** | **catégorie** (diapo 26) | Les **années** entre elles, à l'intérieur d'une catégorie |
-| **« l'évolution de la structure des effectifs »** | **année** (diapo 27) | Les **catégories** entre elles, à l'intérieur d'une année |
+### B4 — Diapositive 28 : le nombre d'enfants par famille, 1990-2023 *(20 min — /8)*
 
-**La règle générale**, qui vaut pour tout diagramme groupé : **ce que l'on met en groupe est
-ce que l'on veut voir comme un bloc ; ce que l'on met à l'intérieur du groupe est ce que
-l'on veut comparer.** L'œil compare spontanément les barres **voisines** — donc celles qui
-sont dans le même groupe.
-:::
-
-::: exemple Ce que chacun des deux diagrammes permet de dire
-**Avec le diagramme 1 (groupé par catégorie).** « Entre 2020 et 2023, les condamnés détenus
-passent de 41 553 à 51 746, soit **+10 193 personnes (+24,5 %)** ; c'est la catégorie qui
-progresse le plus en volume. »
-
-**Avec le diagramme 2 (groupé par année).** « En 2020 comme en 2023, les condamnés détenus
-représentent la catégorie la plus nombreuse — **56,3 % du total en 2020, 57,5 % en 2023** —
-tandis que les condamnés-prévenus détenus restent marginaux, autour de **3 %**. »
-
-Le premier énoncé est une **évolution** ; le second une **structure**. Les deux sont vrais,
-tirés du même tableau, et répondent à deux questions différentes.
-:::
-
-#### 2.3.11 Second exemple : le nombre d'enfants par famille (diapositives 28 à 31)
-
-**Le tableau du support** — Distribution du nombre d'enfants par famille (en milliers), par
-année.
+::: examen Diapositive 28 — l'énoncé, mot pour mot
+*« Distribution du nombre d'enfants par famille (en milliers), par année. »*
 
 | Nombre d'enfants mineurs | 1990 | 1999 | 2007 | 2012 | 2017 | 2023 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -1137,1665 +1952,882 @@ année.
 *Champ : France hors Mayotte, familles vivant en ménage ordinaire ayant au moins un enfant
 mineur. Unité : milliers de familles. Source : Insee, recensements de la population.*
 
-::: correction Les questions posées : population, sous-populations, caractère, type, et une phrase de lecture
-**Population.** Les **familles vivant en ménage ordinaire, ayant au moins un enfant
-mineur**, en France hors Mayotte. Le **champ** est ici essentiel : les familles sans enfant
-mineur sont **exclues** par construction.
-
-**Unités statistiques.** **Une famille.**
-
-**Sous-populations.** Les familles de chaque **année de recensement** : 1990, 1999, 2007,
-2012, 2017, 2023. Variable de découpage : l'**année**.
-
-**Caractère statistique.** Le **nombre d'enfants mineurs** de la famille.
-
-**Type.** **Quantitative discrète** — un comptage. Avec la même réserve que précédemment :
-la dernière modalité, « 4 enfants ou plus », est une **classe ouverte**, ce qui interdit
-tout calcul exact de moyenne.
-
-**Exemple de lecture.** *« En 2023, 3 578,3 milliers de familles — soit environ 3,58
-millions — vivant en ménage ordinaire en France hors Mayotte et comptant au moins un enfant
-mineur avaient exactement un enfant mineur. »*
-
-**Contrôle.** La somme de chaque colonne redonne bien la ligne « Ensemble », au dixième
-près : pour 1999, $ 3\,418{,}3 + 2\,841{,}1 + 1\,033{,}5 + 334{,}5 = 7\,627{,}4 $ contre
-7 627,5 annoncé — l'écart de 0,1 vient des **arrondis** des données publiées, et non d'une
-erreur.
+**▶ Identifier la population, les sous-populations, le caractère statistique étudié, son
+type**
+**▶ Donner un exemple de lecture de ce tableau**
 :::
 
-::: piege Le champ interdit une comparaison qui vient naturellement à l'esprit
-Il est tentant de rapprocher ce tableau de celui de la diapositive 22 (17 132 milliers de
-familles, dont **48 % sans enfant**). **C'est illégitime :** les deux populations ne sont
-pas les mêmes. Celui-ci exclut les familles sans enfant mineur ; l'autre les inclut.
+::: definition Les deux termes du champ que le support n'explique pas
+- **Ménage ordinaire** — au sens de l'Insee, l'ensemble des personnes **partageant le même
+  logement ordinaire**. Cela **exclut les ménages collectifs** : foyers de travailleurs,
+  internats, maisons de retraite, casernes, établissements pénitentiaires. *Une famille vivant
+  en foyer d'hébergement n'est donc pas dans ce tableau.*
+- **Enfant mineur** — enfant de **moins de 18 ans** vivant dans la famille. *Un enfant majeur
+  encore au domicile ne compte pas ici : c'est pourquoi une famille avec deux enfants de 19 et
+  16 ans figure dans la ligne « 1 enfant ».*
 
-**Règle générale : avant toute comparaison de deux tableaux, comparez d'abord leurs
-champs.** Deux distributions ne se comparent que si elles portent sur des populations
-définies de la même façon. C'est l'erreur d'interprétation la plus fréquente sur données
-publiées, et elle passe complètement inaperçue si l'on ne lit pas les notes de bas de
-tableau.
+**Ces deux restrictions expliquent pourquoi ce tableau n'a pas de ligne « 0 enfant » :** le
+champ ne retient que les familles **ayant au moins un enfant mineur**.
 :::
 
-::: definition Diagramme empilé — en effectifs (diapositive 29)
-**Titre du support :** « Évolution du nombre d'enfants par type de famille, par année ».
-Le support précise : **« la hauteur de l'empilement correspond à l'ensemble des enfants
-chaque année »**.
+::: correction Copie de major — les cinq questions, au barème
+**① La population** *(2 pts)* — **l'ensemble des familles vivant en ménage ordinaire, en
+France hors Mayotte, et ayant au moins un enfant mineur.**
+*Les trois restrictions du champ doivent être citées : elles font partie de la définition, et
+c'est le point que la majorité des copies oublie.*
 
-**Construction.** Une colonne par année (1990, 1999, 2007, 2012, 2017, 2023). Chaque
-colonne est découpée en quatre segments superposés — 1 enfant, 2 enfants, 3 enfants,
-4 enfants ou plus — dont la **hauteur est proportionnelle à l'effectif**, les valeurs étant
-inscrites dans les segments (3 354 / 2 801 / 1 087 / 411 pour 1990, etc.).
+**② Les unités statistiques** *(1 pt)* — **une famille**. **Unité de compte du tableau : le
+millier de familles** — les chiffres sont donc à multiplier par 1 000.
 
-**Ce que l'œil voit :** **deux informations à la fois** — la **hauteur totale** de chaque
-colonne (l'effectif total de l'année) **et** la composition interne.
+**③ Les sous-populations** *(1,5 pt)* — **six, définies par l'année** : 1990, 1999, 2007,
+2012, 2017, 2023. *Ce sont les années de recensement.* **La variable de découpage est
+l'année.** Chaque colonne porte **sa propre distribution**, avec **son propre total**, et ces
+totaux varient : de **7 627,5** milliers en 1999 à **8 014,7** en 2017.
+
+**④ Le caractère étudié** *(1,5 pt)* — le **nombre d'enfants mineurs de la famille**.
+**Type : quantitatif discret** — comptage, aucune valeur entre 2 et 3.
+**Nuance :** la dernière modalité **« 4 enfants ou plus »** est une **classe ouverte**, donc
+la présentation est **partiellement regroupée**. $ p = 4 $ modalités.
+
+**⑤ L'exemple de lecture** *(2 pts)* — **cinq éléments obligatoires : quand · combien · de
+quoi · dans quelle population · quelle modalité.**
+
+> **« En 2017, 1 012,2 milliers de familles — soit un peu plus d'un million — vivant en ménage
+> ordinaire en France hors Mayotte et ayant au moins un enfant mineur, avaient exactement
+> trois enfants mineurs. »**
 :::
 
-::: definition Diagramme empilé à 100 % (diapositive 30)
-Le support énonce le principe : *« Dans une optique comparative des structures des familles
-dans le temps, on peut procéder à un empilement à 100 %, ce qui revient à prendre **les
-fréquences et non les effectifs**, par année. »*
+::: piege Les quatre fautes de lecture de ce tableau
+**① Écrire « 1 012,2 familles ».** L'unité est le **millier** : c'est **1 012 200 familles**.
+**Erreur d'un facteur mille, et la faute la plus fréquente du chapitre.**
 
-**Titre du support :** « Répartition du nombre d'enfants par famille, par année ».
+**② Oublier « au moins un enfant mineur ».** Sans cette mention, la phrase prétend décrire
+**toutes** les familles de France — c'est faux, et le correcteur le sanctionne parce que
+c'est la règle « indiquer la population » de la diapositive 32.
 
-**Construction.** Toutes les colonnes ont la **même hauteur** (100 %). Chaque segment
-représente la **fréquence** de la modalité **dans l'année considérée**.
+**③ Dire « trois enfants ou plus ».** La ligne est **exactement trois**. Seule la dernière
+ligne, « 4 enfants ou plus », est cumulative — et **c'est une classe ouverte, pas une
+fréquence cumulée**.
 
-| Année | 1 enfant | 2 enfants | 3 enfants | 4 enfants ou plus |
-|---|---:|---:|---:|---:|
-| 1990 | 43,8 | 36,6 | 14,2 | 5,4 |
-| 1999 | 44,8 | 37,2 | 13,5 | 4,4 |
-| 2007 | 45,3 | 38,1 | 12,9 | 3,8 |
-| 2012 | 45,1 | 38,4 | 12,8 | 3,7 |
-| 2017 | 44,8 | 38,7 | **12,6** | 3,9 |
-| 2023 | 45,4 | 38,6 | 12,1 | 3,9 |
+**④ Comparer une colonne à une autre en oubliant que les totaux diffèrent.** 1 087,1 en 1990
+contre 1 012,2 en 2017 pour trois enfants : la baisse en **effectif** est de 6,9 %, mais la
+baisse en **part** est plus forte encore, puisque l'ensemble a **augmenté** sur la période.
+**➔ c'est exactement pourquoi la diapositive 30 passe en empilé à 100 %.**
 :::
 
-::: correction Les deux questions posées sur la diapositive 30
-**1. Écrire une phrase de lecture.**
-> « En 2017, **12,6 %** des familles vivant en ménage ordinaire en France hors Mayotte et
-> comptant au moins un enfant mineur avaient **exactement trois enfants mineurs**. »
+::: correction Les points volés — ce qu'ajoute une copie à 18
+**① Nommer la différence avec le tableau de la diapositive 22, en une phrase.** *« Les deux
+tableaux portent sur le nombre d'enfants par famille, mais pas sur la même population : la
+diapositive 22 inclut les familles sans enfant — 48 % de l'ensemble — alors que celui-ci ne
+retient que les familles ayant au moins un enfant mineur. Leurs chiffres ne sont pas
+comparables. »*
 
-Les trois éléments obligatoires d'une phrase de lecture : **l'année** (la sous-population),
-**la valeur avec son unité** (12,6 %), et **la modalité complète avec son champ** (trois
-enfants mineurs, parmi les familles ayant au moins un enfant mineur).
+**② Donner une lecture par nature de chiffre**, pas une seule :
+- **Effectif de colonne :** « En 2023, 7 881,9 milliers de familles avaient au moins un enfant
+  mineur. »
+- **Comparaison dans le temps :** « Entre 1990 et 2023, le nombre de familles à 4 enfants ou
+  plus est passé de 410,9 à 308,4 milliers, soit une baisse d'un quart. »
 
-**2. Comment a été calculé le chiffre 12,6 ?**
-C'est la **fréquence** de la modalité « 3 enfants » **dans la sous-population de l'année
-2017** :
-
-$$ f_{3\text{ enfants, }2017} = \frac{n_{3\text{ enfants, }2017}}{n_{2017}} = \frac{1\,012{,}2}{8\,014{,}7} = 0{,}12629\ldots $$
-
-soit **12,63 %**, arrondi à **12,6 %**.
-
-**Les deux erreurs à ne pas commettre :**
-- diviser par l'effectif total **de toutes les années** confondues : chaque colonne est
-  ramenée à 100 % **séparément** ;
-- diviser par l'effectif d'une autre année. Le dénominateur est **toujours** l'effectif de
-  la sous-population à laquelle appartient le numérateur.
+**③ Annoncer le graphique adapté, sans qu'on le demande :** *« Pour suivre chaque catégorie,
+colonnes groupées par nombre d'enfants ; pour comparer les structures malgré des totaux
+différents, empilé à 100 % — c'est le choix de la diapositive 30. »*
 :::
 
-::: examen Empilé simple ou empilé à 100 % — la règle de choix
-| Si la question porte sur… | Diagramme | Ce qu'on perd |
+<!--saut-->
+
+### B5 — Diapositive 30 : l'empilé à 100 % *(15 min — /6)*
+
+::: examen Diapositive 30 — l'énoncé, mot pour mot
+*« Dans une optique comparative des structures des familles dans le temps, on peut procéder à
+un empilement à 100 %, ce qui revient à prendre les fréquences et non les effectifs, par
+année. »* — **Graphique : « Répartition du nombre d'enfants par famille, par année ».**
+
+**▶ Écrire une phrase de lecture**
+**▶ Comment a été calculé le chiffre 12,6 ?**
+:::
+
+::: correction Copie de major — la phrase de lecture et le calcul du 12,6
+**① La phrase de lecture** *(2 pts)* — cinq éléments :
+
+> **« En 2017, 12,6 % des familles vivant en ménage ordinaire en France hors Mayotte et ayant
+> au moins un enfant mineur avaient exactement trois enfants mineurs. »**
+
+**② « Comment a été calculé le chiffre 12,6 ? »** *(4 pts)* — **les quatre lignes du
+gabarit 4 :**
+
+**a. La nature** — c'est une **fréquence**, exprimée en pourcentage, calculée **à l'intérieur
+de la seule année 2017**.
+
+**b. La formule en lettres** —
+
+$$ f_i = \frac{n_i}{n} \times 100 $$
+
+**c. L'application numérique** — avec les deux chiffres tirés du tableau de la diapositive 28 :
+
+$$ f_{3\text{ enfants, }2017} = \frac{1\,012{,}2}{8\,014{,}7} \times 100 = 12{,}63\ \% $$
+
+**d. Le résultat et sa lecture** — **12,6 %** après arrondi au dixième : en 2017, 12,6 % des
+familles du champ avaient trois enfants mineurs.
+
+**Le point décisif, celui qui sépare 4/4 de 2/4 :** le dénominateur est **le total de l'année
+2017 seule** — 8 014,7 milliers — **et non le total général des six années**. C'est
+**précisément** la raison pour laquelle **toutes les colonnes de l'empilé atteignent 100 %** :
+**chaque année a son propre dénominateur.**
+:::
+
+::: correction Le tableau complet des vingt-quatre fréquences — et sa lecture
+**Je les ai toutes recalculées à partir de la diapositive 28 : elles sont exactes.**
+
+| En % | 1990 | 1999 | 2007 | 2012 | 2017 | 2023 |
+|---|---:|---:|---:|---:|---:|---:|
+| **1 enfant** | 43,8 | 44,8 | 45,3 | 45,1 | 44,8 | 45,4 |
+| **2 enfants** | 36,6 | 37,2 | 38,1 | 38,4 | 38,7 | 38,6 |
+| **3 enfants** | 14,2 | 13,5 | 12,9 | 12,8 | **12,6** | 12,1 |
+| **4 enfants ou plus** | 5,4 | 4,4 | 3,8 | 3,7 | 3,9 | 3,9 |
+| **Ensemble** | **100,0** | **99,9** | **100,1** | **100,0** | **100,0** | **100,0** |
+
+*Les « 99,9 » et « 100,1 » sont des cumuls d'arrondis au dixième, pas des erreurs.*
+
+**La lecture d'ensemble, en trois phrases** — c'est ce que l'empilé à 100 % sert à voir :
+1. **Les familles à un enfant restent la modalité majoritaire**, autour de **45 %**, très
+   stable sur trente-trois ans.
+2. **Les familles à deux enfants progressent** de 36,6 % à 38,6 %.
+3. **Les familles nombreuses reculent** : trois enfants, de **14,2 % à 12,1 %** ; quatre
+   enfants ou plus, de **5,4 % à 3,9 %**. **La déformation de structure se fait au détriment
+   des grandes familles.**
+:::
+
+::: piege Ce que l'empilé à 100 % te fait perdre — et la phrase qui récupère le point
+**Un empilé à 100 % efface complètement les effectifs.** Toutes les colonnes ont la même
+hauteur : **on ne voit plus que l'ensemble est passé de 7 652,2 à 7 881,9 milliers de
+familles**.
+
+**La phrase qui montre qu'on l'a compris :** *« La part des familles à trois enfants passe de
+14,2 % à 12,1 %, mais ce graphique ne dit pas si leur nombre a baissé : il faut revenir aux
+effectifs de la diapositive 28, qui montrent une baisse de 1 087,1 à 956,2 milliers. »*
+
+**Et la comparaison de graphiques, en une ligne :** empilé **simple** (d. 29) = structure
+**+** total · empilé **à 100 %** (d. 30) = structure **seule**, mais comparable entre années.
+:::
+
+<!--saut-->
+
+## Série C — Les exercices de construction *(20 à 30 minutes chacun)*
+
+> **Série B = les questions du support. Série C = les gestes que le support ne fait jamais
+> faire, mais qu'il faudra savoir exécuter.** Toutes les données de cette série sont
+> construites pour l'entraînement : elles ne proviennent pas du cours.
+
+### C1 — De la série brute à la distribution complète *(/8)*
+
+::: examen C1 — Énoncé : 25 salariés, jours de télétravail
+On relève, auprès des **25 salariés** d'une PME, le **nombre de jours de télétravail par
+semaine** :
+
+```
+2  0  3  1  2  5  2  1  0  4  3  2  2  1  0  2  3  1  2  4  1  2  0  3  2
+```
+
+1. Identifiez la population, l'unité statistique, l'effectif total, le caractère et son type.
+2. Ordonnez la série.
+3. Construisez le tableau de la distribution : effectifs, fréquences, fréquences cumulées.
+4. Donnez une phrase de lecture pour chacune des trois colonnes.
+5. Choisissez et intitulez le graphique adapté.
+:::
+
+::: correction C1 — Corrigé : les cinq questions, au barème
+**1. Identification** *(2 pts)* — **Population :** l'ensemble des salariés de cette PME.
+**Unité statistique :** un salarié. **Effectif total :** $ n = 25 $. **Caractère :** le nombre
+de jours de télétravail hebdomadaire. **Type : quantitatif discret** — comptage, aucune valeur
+entre 2 et 3 jours.
+
+**2. La série ordonnée** *(1 pt)* — on trie par ordre croissant :
+
+```
+0  0  0  0  1  1  1  1  1  2  2  2  2  2  2  2  2  2  3  3  3  3  4  4  5
+```
+
+*Le tri rassemble les valeurs identiques : le comptage devient une lecture de longueurs de
+blocs.*
+
+**3. Le tableau** *(3 pts)* — $ p = 6 $ modalités.
+
+| $ x_i $ | $ n_i $ | $ f_i $ (%) | $ F(x_i) $ (%) |
+|---:|---:|---:|---:|
+| 0 | 4 | 16,0 | 16,0 |
+| 1 | 5 | 20,0 | 36,0 |
+| 2 | 9 | 36,0 | 72,0 |
+| 3 | 4 | 16,0 | 88,0 |
+| 4 | 2 | 8,0 | 96,0 |
+| 5 | 1 | 4,0 | 100,0 |
+| **Ensemble** | **25** | **100,0** | |
+
+**Détail des calculs :** $ f_1 = 4/25 = 0{,}16 $ soit 16,0 % · $ f_3 = 9/25 = 0{,}36 $ soit
+36,0 % · $ F(x_3) = 16{,}0 + 20{,}0 + 36{,}0 = 72{,}0 \% $.
+**Les trois contrôles :** $ \sum n_i = 25 $ ✔ · $ \sum f_i = 100{,}0 $ ✔ ·
+$ F(5) = 100{,}0 $ ✔
+
+**4. Les trois phrases de lecture** *(1,5 pt)*
+- **Effectif :** « 9 des 25 salariés de cette PME télétravaillent 2 jours par semaine. »
+- **Fréquence :** « 36,0 % des salariés télétravaillent 2 jours par semaine. »
+- **Cumulée :** « 72,0 % des salariés télétravaillent **2 jours ou moins** par semaine. »
+
+**5. Le graphique** *(0,5 pt)* — **un diagramme en colonnes**, une colonne par modalité,
+hauteur = effectif (ou fréquence). Intitulé : **« Distribution du nombre de jours de
+télétravail hebdomadaire parmi les 25 salariés de l'entreprise »**, avec **l'unité** (nombre
+de salariés) et **la source** (relevé interne). *Le camembert est acceptable pour les
+fréquences — six modalités, c'est la limite haute.*
+:::
+
+### C2 — Classer dix variables *(/10, un point par ligne)*
+
+::: examen C2 — Énoncé : dix variables à classer
+Donnez le type **précis** — qualitative nominale, qualitative ordinale, quantitative discrète,
+quantitative continue — et **justifiez en une ligne** :
+
+**a.** le code postal · **b.** la mention au baccalauréat · **c.** la taille en centimètres ·
+**d.** le nombre d'enfants · **e.** le chiffre d'affaires annuel en euros · **f.** le sexe
+codé « 1 = homme, 2 = femme » · **g.** le nombre d'abonnés d'un compte · **h.** la durée d'un
+appel en minutes · **i.** le numéro de département · **j.** la catégorie pénale d'une personne
+écrouée
+:::
+
+::: correction C2 — Corrigé : les dix types, avec la justification qui vaut le point
+| | Variable | Type | La justification qui vaut le point |
+|:---:|---|---|---|
+| **a** | Code postal | **Qualitative nominale** | C'est un **code**, pas une quantité. **Une moyenne de codes postaux n'a aucun sens.** |
+| **b** | Mention au bac | **Qualitative ordinale** | Passable < AB < B < TB : **l'ordre a un sens**, mais les modalités **ne sont pas des nombres** et les écarts ne se mesurent pas. |
+| **c** | Taille en cm | **Quantitative continue** | Elle se **mesure** ; entre 179 et 180 cm il existe 179,4 cm. **L'arrondi au centimètre est un affichage, pas la nature de la variable.** |
+| **d** | Nombre d'enfants | **Quantitative discrète** | Elle se **compte** ; rien entre 2 et 3. |
+| **e** | Chiffre d'affaires en € | **Quantitative continue** | Grandeur monétaire **mesurée** sur un ensemble non dénombrable de valeurs. *(Le centime est une unité d'affichage.)* |
+| **f** | Sexe codé 1/2 | **Qualitative nominale** | Exactement le cas du support : *« un mot valant un chiffre »*. **La moyenne « 1,5 » ne désigne personne.** |
+| **g** | Nombre d'abonnés | **Quantitative discrète** | Comptage d'individus, valeurs entières. |
+| **h** | Durée d'un appel | **Quantitative continue** | Le temps se **mesure** : entre 2 et 3 minutes, il y a 2,4 minutes. |
+| **i** | Numéro de département | **Qualitative nominale** | Un identifiant. *Et « 2A » et « 2B » ne sont même pas des nombres.* |
+| **j** | Catégorie pénale | **Qualitative nominale** | Des statuts, et **aucun ordre unique** : les modalités croisent statut judiciaire et détention. |
+
+**La règle qui règle les dix cas :**
+
+> **Un nombre n'est une quantité que si sa moyenne a un sens.**
+> **Et si la grandeur se mesure, elle est continue ; si elle se compte, elle est discrète.**
+:::
+
+### C3 — « Comment a été calculé ce chiffre ? » × 4 *(/8)*
+
+::: examen C3 — Énoncé : quatre chiffres à expliquer
+Pour chacun des quatre chiffres, appliquez le gabarit 4 en **quatre lignes** : nature, formule
+en lettres, application numérique, résultat et lecture.
+
+**a.** Le **90,4** de la diapositive 22. · **b.** Le **48,0** de la diapositive 22. ·
+**c.** Le **+ 22,0 %** d'évolution des personnes écrouées entre 2020 et 2023. ·
+**d.** Le **57,5 %** de condamnés détenus parmi les écroués de 2023.
+:::
+
+::: correction C3 — Corrigé : le gabarit 4 appliqué quatre fois
+**a. Le 90,4** — c'est une **fréquence cumulée**.
+$$ F(x_3) = \sum_{i=1}^{3} f_i = 48{,}0 + 22{,}3 + 20{,}1 = 90{,}4\ \% $$
+*Lecture :* **90,4 % des familles avaient deux enfants ou moins.** **Le « ou moins » est
+obligatoire.**
+
+**b. Le 48,0** — c'est une **fréquence**.
+$$ f_1 = \frac{n_1}{n} \times 100 = \frac{8\,225}{17\,132} \times 100 = 48{,}01\ \% $$
+*Lecture :* **48,0 % des familles n'avaient aucun enfant.**
+
+**c. Le + 22,0 %** — c'est un **taux de variation**, pas une fréquence. **La formule n'est pas
+dans le chapitre 1** ; elle est indispensable dès qu'on commente un tableau par année :
+$$ t = \frac{V_{\text{arrivée}} - V_{\text{départ}}}{V_{\text{départ}}} \times 100 = \frac{90\,071 - 73\,834}{73\,834} \times 100 = + 21{,}99\ \% $$
+*Lecture :* **le nombre de personnes écrouées a augmenté de 22,0 % entre 2020 et 2023.**
+**Le dénominateur est l'année de départ** — c'est l'erreur classique.
+
+**d. Le 57,5 %** — c'est une **fréquence à l'intérieur d'une sous-population**.
+$$ f = \frac{51\,746}{90\,071} \times 100 = 57{,}45\ \% $$
+*Lecture :* **en 2023, 57,5 % des personnes écrouées étaient des condamnés détenus.**
+**Le dénominateur est le total de 2023**, pas le total des quatre années.
+:::
+
+### C4 — Choisir et intituler le graphique × 6 *(/6)*
+
+::: examen C4 — Énoncé : six situations
+Pour chaque situation : quel graphique, et quel intitulé exact ?
+
+**a.** Présenter la répartition des 87 étudiants selon leur nombre de frères et sœurs. ·
+**b.** Montrer si chaque catégorie de personnes écrouées augmente ou diminue de 2020 à 2023. ·
+**c.** Montrer si la composition de la population écrouée se déforme d'une année à l'autre. ·
+**d.** Comparer la structure des familles en 1990 et en 2023, alors que les totaux diffèrent. ·
+**e.** Montrer à la fois la structure **et** le nombre total d'enfants chaque année. ·
+**f.** Présenter la répartition des 9 376 000 infractions de 2024.
+:::
+
+::: correction C4 — Corrigé : le graphique et son intitulé, pour les six
+| | Le graphique | L'intitulé |
+|:---:|---|---|
+| **a** | **Diagramme en colonnes**, une colonne par modalité *(11 modalités : trop pour un camembert)* | « Distribution du nombre de frères et sœurs parmi les 87 étudiants de la promotion » |
+| **b** | **Colonnes groupées par catégorie** *(d. 26)* | « **Évolution, pour chaque catégorie**, du nombre de personnes écrouées en France, 2020-2023 » |
+| **c** | **Colonnes groupées par année** *(d. 27)* | « **Évolution, pour chaque année**, des catégories de personnes écrouées en France » |
+| **d** | **Empilé à 100 %** *(d. 30)* — c'est **le seul** qui neutralise la différence de totaux | « **Répartition** du nombre d'enfants par famille, **par année** » |
+| **e** | **Empilé simple** *(d. 29)* — la hauteur de l'empilement porte le total | « Évolution du nombre d'enfants par type de famille, par année » |
+| **f** | **Colonnes triées par effectif décroissant** ; camembert acceptable mais **8 parts, dont trois sous 7 %** : la lecture devient difficile | « Répartition des infractions déclarées en France en 2024, par type d'atteinte » *(+ champ et source)* |
+
+**Les quatre mentions obligatoires dans les six cas :** titre précis · unité · population et
+champ · source. **Et une note de lecture en bas si la compréhension n'est pas immédiate.**
+:::
+
+### C5 — Corriger cinq phrases de lecture fausses *(/10)*
+
+::: examen C5 — Énoncé : cinq phrases à corriger
+Chacune de ces phrases contient **au moins une erreur**. Trouvez-la, et réécrivez la phrase.
+
+**a.** « 90,4 % des familles ont deux enfants. »
+**b.** « En 2023, 3 578,3 familles avaient un enfant mineur. »
+**c.** « En 2017, 12,6 % de toutes les familles françaises avaient trois enfants. »
+**d.** « Il y a 9 376 000 infractions : la moyenne des infractions vaut donc 1 172 000. »
+**e.** « En 2023, il y avait 90 071 détenus en France. »
+:::
+
+::: correction C5 — Corrigé : l'erreur, puis la phrase juste
+**a.** **Erreur : fréquence cumulée lue comme une fréquence.**
+✔ **« 90,4 % des familles avaient deux enfants *ou moins*. »** *(La fréquence simple des
+familles à deux enfants est 20,1 %.)*
+
+**b.** **Erreur : l'unité est le millier — facteur 1 000 — et la modalité est mal dite.**
+✔ **« En 2023, 3 578,3 *milliers* de familles, soit près de 3,6 millions, avaient *exactement
+un* enfant mineur. »**
+
+**c.** **Erreur : le champ.** Le dénominateur n'est pas « toutes les familles françaises »,
+mais les familles **vivant en ménage ordinaire, en France hors Mayotte, ayant au moins un
+enfant mineur** — et il s'agit d'enfants **mineurs**.
+✔ **« En 2017, 12,6 % des familles vivant en ménage ordinaire en France hors Mayotte et ayant
+au moins un enfant mineur avaient trois enfants mineurs. »**
+
+**d.** **Erreur : on calcule une moyenne sur une variable qualitative nominale.** 9 376 000 est
+un **effectif total**, et « type d'atteinte » ne se moyenne pas. Le chiffre 1 172 000 est
+seulement $ 9\,376\,000/8 $ : **l'effectif moyen par modalité**, une grandeur sans intérêt ici.
+✔ **« La modalité la plus fréquente est le vandalisme contre la voiture, avec 2 893 000
+infractions, soit 30,9 % de l'ensemble. »**
+
+**e.** **Erreur : « écroué » confondu avec « détenu ».** En 2023, sur 90 071 **écroués**,
+**15 453 n'étaient pas détenus**.
+✔ **« En 2023, 90 071 personnes étaient écrouées en France, dont 74 618 détenues. »**
+*(19 755 + 3 117 + 51 746 = 74 618.)*
+:::
+
+### C6 — La preuve du « sans perte d'information » *(/6)*
+
+::: examen C6 — Énoncé : reconstituer la série à partir du tableau
+On ne vous donne que le tableau de C1 :
+
+| $ x_i $ | 0 | 1 | 2 | 3 | 4 | 5 |
+|---:|---:|---:|---:|---:|---:|---:|
+| $ n_i $ | 4 | 5 | 9 | 4 | 2 | 1 |
+
+1. Reconstituez la série ordonnée des 25 observations.
+2. Peut-on reconstituer la série **brute**, c'est-à-dire l'ordre initial de collecte ?
+3. Que prouve cet exercice sur le titre du chapitre ?
+:::
+
+::: correction C6 — Corrigé : la démonstration du « sans perte d'information »
+**1.** On réécrit chaque modalité autant de fois que son effectif :
+
+```
+0  0  0  0  1  1  1  1  1  2  2  2  2  2  2  2  2  2  3  3  3  3  4  4  5
+```
+**25 valeurs** ✔ — **identiques à la série ordonnée de C1.**
+
+**2. Non — et c'est la nuance qui rapporte.** On retrouve **l'ensemble des valeurs
+observées**, pas **l'ordre dans lequel elles ont été collectées**. Or cet ordre **n'est pas
+de l'information statistique** : il dépend de l'ordre de passage des salariés, pas du
+caractère étudié. **L'information sur le caractère, elle, est intégralement conservée.**
+
+**3.** C'est exactement ce que signifie **« présenter sans perte d'information »**, le
+sous-titre de la diapositive 15 : **la distribution des effectifs et la série brute portent la
+même information**, seule la forme change.
+**Et c'est ce qui oppose le chapitre 1 au chapitre 2 :** une moyenne de 1,92 jour de
+télétravail **ne permet pas** de reconstituer les 25 réponses. **Résumer, c'est perdre.**
+*(Vérification : $ (4 \times 0 + 5 \times 1 + 9 \times 2 + 4 \times 3 + 2 \times 4 + 1 \times 5)/25 = 48/25 = 1{,}92 $.)*
+:::
+
+## Série D — Simulation d'examen *(1 h 00 — /20)*
+
+::: piege Le format simulé est une hypothèse, pas une information du support
+Les 33 diapositives ne donnent **ni la durée, ni la nature, ni le barème** de l'épreuve.
+**Durée et barème retenus ici : 1 h 00, sur 20 points, sans document** — calibrés sur les
+quatre gestes que le support fait répéter : **restituer, identifier, construire, lire**.
+Dès que tu me donnes le format réel, je recalibre cette simulation en une passe.
+:::
+
+### Le sujet
+
+**Techniques statistiques — Chapitre 1 — Durée : 1 h 00 — Aucun document autorisé.**
+
+::: examen Exercice 1 — Questions de cours *(6 points)*
+
+1. Énoncez la chaîne en trois maillons qui justifie toute étude statistique. *(0,5 pt)*
+2. Citez les six étapes d'une étude statistique, dans l'ordre. *(1,5 pt)*
+3. Définissez : population · unité statistique · caractère statistique · modalité. *(2 pts)*
+4. Donnez les deux types de variables et leurs quatre sous-types, avec un exemple par
+   sous-type. *(1,5 pt)*
+5. Quelle différence faites-vous entre statistique descriptive et statistique inférentielle ?
+   *(0,5 pt)*
+
+:::
+
+::: examen Exercice 2 — Identification *(5 points)*
+Une enquête est menée auprès des **1 200 étudiants** d'un portail universitaire. On leur
+demande leur appréciation du dispositif de tutorat.
+
+| Appréciation | Effectifs |
+|---|---:|
+| Très insatisfait | 96 |
+| Plutôt insatisfait | 204 |
+| Plutôt satisfait | 588 |
+| Très satisfait | 312 |
+| **Ensemble** | **1 200** |
+
+*Champ : étudiants inscrits au portail au 1er octobre. Source : enquête interne.*
+
+1. Population, unités statistiques, effectif total, caractère, modalités, type — **avec
+   justification du type**. *(3 pts)*
+2. Complétez le tableau par les fréquences et les fréquences cumulées. *(1,5 pt)*
+3. Une fréquence cumulée a-t-elle un sens ici ? Justifiez. *(0,5 pt)*
+
+:::
+
+::: examen Exercice 3 — Construction *(6 points)*
+On relève, pour **20 clients**, le **nombre d'achats en ligne effectués dans le mois** :
+
+```
+1  3  0  2  1  4  1  2  3  1  0  2  1  6  2  3  1  2  0  2
+```
+
+1. Identifiez la population, l'unité, l'effectif total, le caractère, son type. *(1,5 pt)*
+2. Ordonnez la série, puis construisez le tableau complet : $ x_i $, $ n_i $, $ f_i $,
+   $ F(x_i) $. *(3 pts)*
+3. Donnez une phrase de lecture d'une fréquence cumulée. *(0,5 pt)*
+4. Choisissez et **intitulez** le graphique adapté. *(1 pt)*
+
+:::
+
+::: examen Exercice 4 — Lecture et calcul *(3 points)*
+
+| Nombre d'achats | 2023 | 2024 |
+|---|---:|---:|
+| Aucun | 3 | 2 |
+| 1 à 3 achats | 13 | 12 |
+| 4 achats ou plus | 4 | 6 |
+| **Ensemble** | **20** | **20** |
+
+1. Identifiez le caractère étudié et la variable de découpage en sous-populations. *(1 pt)*
+2. Écrivez une phrase de lecture du chiffre **6**. *(1 pt)*
+3. En 2024, quelle est la fréquence des clients à 4 achats ou plus ? Détaillez le calcul et
+   commentez l'évolution depuis 2023. *(1 pt)*
+:::
+
+<!--saut-->
+
+### Le corrigé, au barème
+
+::: correction Exercice 1 — Questions de cours *(6 points)*
+**1.** *(0,5)* **Besoin de décider → besoin d'information → étude statistique.**
+*Une étude statistique n'existe jamais pour elle-même : elle sert une décision.*
+
+**2.** *(1,5 — 0,25 par étape)* ① Quel type de problématique ? · ② choix des données à
+observer · ③ choix de la méthode de recueil des données · ④ campagne de mesures · ⑤ traitement
+des données · ⑥ prise de décision.
+**Phrase qui rapporte le demi-point d'analyse :** *« tous les choix sont guidés par le type de
+problématique »* — c'est pourquoi les flèches du schéma remontent des cinq étapes suivantes
+vers la première.
+
+**3.** *(2 — 0,5 par définition)*
+- **Population** : l'**ensemble des individus** (ou objets) sur lesquels porte l'étude.
+- **Unité statistique** : **un élément** de cette population.
+- **Caractère (ou variable) $ X $** : une **application** qui associe à **chaque** individu
+  **une et une seule** valeur.
+- **Modalités $ x_i $** : les **valeurs possibles** prises par le caractère.
+
+**4.** *(1,5)* Deux types : **qualitatif** et **quantitatif**.
+| Sous-type | Critère | Exemple |
 |---|---|---|
-| Les **volumes** et leur évolution (« combien de familles ? ») | **Empilé en effectifs** (diapo 29) | La comparaison des structures est difficile à l'œil, car les colonnes n'ont pas la même hauteur |
-| La **structure** et son évolution (« quelle part ? ») | **Empilé à 100 %** (diapo 30) | **Toute information sur les volumes** : une colonne de 100 % peut représenter 8 millions de familles ou 800 |
+| Qualitative **nominale** | aucun ordre qui ait du sens | sexe, code postal |
+| Qualitative **ordinale** | un ordre qui a du sens | qualité du service : mauvaise → très bonne |
+| Quantitative **discrète** | comptage, ensemble dénombrable | nombre d'enfants |
+| Quantitative **continue** | mesure, ensemble non dénombrable | taille en cm |
 
-**La conséquence la plus importante :** un empilement à 100 % peut montrer une part
-**stable** alors que les effectifs **s'effondrent**, ou une part qui **baisse** alors que
-l'effectif **augmente**. C'est le procédé de présentation le plus trompeur du chapitre —
-et c'est pourquoi on ne le publie jamais sans donner, à côté, l'effectif total de chaque
-colonne.
+**5.** *(0,5)* La **descriptive** décrit **la population dont on dispose** ; l'**inférentielle**
+**déduit** des éléments d'une population **à partir d'un échantillon tiré aléatoirement**.
+**Tout le chapitre 1 est de la statistique descriptive.**
 :::
 
-::: exemple Le piège rendu concret sur les données du cours
-Entre 2017 et 2023, la part des familles à 3 enfants passe de 12,6 % à 12,1 % : **−0,5
-point**. Mais l'effectif, lui, passe de 1 012,2 à 956,2 milliers de familles :
-**−56 000 familles, soit −5,5 %**.
+::: correction Exercice 2 — Identification *(5 points)*
+**1.** *(3 points)*
+- **Population** *(0,5)* — l'ensemble des **1 200 étudiants inscrits au portail au 1er
+  octobre**. *Le champ fait partie de la réponse.*
+- **Unités statistiques** *(0,5)* — **un étudiant**.
+- **Effectif total** *(0,5)* — $ n = 1\,200 $.
+  **Vérification : $ 96 + 204 + 588 + 312 = 1\,200 $** ✔
+- **Caractère** *(0,5)* — l'**appréciation du dispositif de tutorat**.
+- **Modalités** *(0,5)* — **quatre**, donc $ p = 4 $ : très insatisfait, plutôt insatisfait,
+  plutôt satisfait, très satisfait.
+- **Type** *(0,5)* — **qualitatif ORDINAL**. **Justification exigée :** les modalités sont des
+  **libellés**, pas des nombres — donc **qualitatif** — mais elles se rangent dans un **ordre
+  qui a du sens**, du moins satisfait au plus satisfait — donc **ordinal**.
+  *C'est exactement l'exemple « qualité du service » de la diapositive 13.*
 
-Le diagramme à 100 % suggère une quasi-stabilité ; les effectifs révèlent une baisse dix
-fois plus marquée en proportion. **Les deux lectures sont exactes** : elles ne répondent
-simplement pas à la même question. La phrase à retenir : *une part stable dans un total qui
-diminue signifie un effectif qui diminue.*
+**2.** *(1,5 point)*
+
+| Appréciation | $ n_i $ | $ f_i $ (%) | $ F(x_i) $ (%) |
+|---|---:|---:|---:|
+| Très insatisfait | 96 | **8,0** | **8,0** |
+| Plutôt insatisfait | 204 | **17,0** | **25,0** |
+| Plutôt satisfait | 588 | **49,0** | **74,0** |
+| Très satisfait | 312 | **26,0** | **100,0** |
+| **Ensemble** | **1 200** | **100,0** | |
+
+**Détail :** $ 96/1\,200 = 0{,}08 $ soit 8,0 % · $ 204/1\,200 = 17{,}0\ \% $ ·
+$ 588/1\,200 = 49{,}0\ \% $ · $ 312/1\,200 = 26{,}0\ \% $.
+**Contrôles :** $ \sum n_i = 1\,200 $ ✔ · $ \sum f_i = 100{,}0 $ ✔ ·
+$ F(\text{dernier}) = 100{,}0 $ ✔
+
+**3.** *(0,5 point)* **Réponse en deux temps — et c'est la réponse complète qui prend le
+point :**
+> **« Le cours réserve la fréquence cumulée aux caractères quantitatifs. Ici le caractère est
+> qualitatif — mais il est *ordinal*, donc ses modalités sont ordonnées, et l'énoncé
+> "25,0 % des étudiants sont insatisfaits, au moins plutôt" a un sens parfaitement défini.
+> La fréquence cumulée est donc interprétable ici, alors qu'elle ne le serait pas pour un
+> caractère nominal comme le type d'infraction. »**
 :::
 
-::: definition Le diagramme de la diapositive 31
-**Titre du support :** « Répartition du nombre d'enfants par famille, par année ». Le
-support précise : **« ce diagramme colonne a le même contenu informationnel que le tableau
-précédent »**.
+::: correction Exercice 3 — Construction *(6 points)*
+**1.** *(1,5)* **Population :** l'ensemble des **20 clients** observés. **Unité :** un client.
+**Effectif total :** $ n = 20 $. **Caractère :** le **nombre d'achats en ligne dans le mois**.
+**Type : quantitatif discret** — comptage, aucune valeur entre 1 et 2 achats.
 
-**Construction.** Cinq colonnes, une par année — **1975, 1982, 1990, 1999, 2008** — toutes
-de même hauteur (empilement à 100 %), en **cinq** segments, car cette fois la modalité
-**« 0 enfant »** est présente.
+**2.** *(3)* **Série ordonnée :**
 
-| Année | 0 enfant | 1 enfant | 2 enfants | 3 enfants | 4 enfants et plus |
+```
+0  0  0  1  1  1  1  1  1  2  2  2  2  2  2  3  3  3  4  6
+```
+
+| $ x_i $ | $ n_i $ | $ f_i $ (%) | $ F(x_i) $ (%) |
+|---:|---:|---:|---:|
+| 0 | 3 | 15,0 | 15,0 |
+| 1 | 6 | 30,0 | 45,0 |
+| 2 | 6 | 30,0 | 75,0 |
+| 3 | 3 | 15,0 | 90,0 |
+| 4 | 1 | 5,0 | 95,0 |
+| 6 | 1 | 5,0 | 100,0 |
+| **Ensemble** | **20** | **100,0** | |
+
+**$ p = 6 $ modalités. Le piège est là : il n'y a pas de ligne « 5 »** — aucun client n'a
+effectué exactement 5 achats. **On n'invente pas une modalité d'effectif nul**, et on ne
+saute pas non plus la valeur extrême 6.
+**Contrôles :** $ \sum n_i = 3+6+6+3+1+1 = 20 $ ✔ · $ \sum f_i = 100{,}0 $ ✔ ·
+$ F(6) = 100{,}0 $ ✔
+
+**3.** *(0,5)* « **75,0 % des 20 clients observés ont effectué deux achats ou moins dans le
+mois.** » *(Le « ou moins » est obligatoire.)*
+
+**4.** *(1)* **Diagramme en colonnes**, une colonne par modalité, hauteur = effectif.
+Intitulé : **« Distribution du nombre d'achats en ligne effectués dans le mois par les
+20 clients observés »**, avec l'**unité** (nombre de clients) et la **source**.
+*Un camembert serait acceptable sur les fréquences, mais six modalités dont deux à 5 % le
+rendent peu lisible : les colonnes sont préférables.*
+:::
+
+::: correction Exercice 4 — Lecture et calcul *(3 points)*
+**1.** *(1)* **Le caractère étudié est le nombre d'achats**, présenté **regroupé en trois
+classes** — aucun · 1 à 3 · 4 ou plus — dont la dernière est **ouverte**. Il est
+**quantitatif discret regroupé**.
+**La variable de découpage en sous-populations est l'année** : deux sous-populations, les
+clients de **2023** et ceux de **2024**, chacune de 20 clients.
+
+**2.** *(1)* « **En 2024, 6 des 20 clients observés ont effectué 4 achats ou plus dans le
+mois.** » *(Quand · combien · de quoi · dans quelle population · quelle modalité.)*
+
+**3.** *(1)* **Nature :** une fréquence, calculée **à l'intérieur de 2024**.
+$$ f = \frac{6}{20} \times 100 = 30{,}0\ \% $$
+**En 2023 :** $ 4/20 = 20{,}0\ \% $. **La part des gros acheteurs passe donc de 20,0 % à
+30,0 %, soit + 10 points de pourcentage** — ou **une hausse de 50 % de leur effectif**
+$ (6-4)/4 $.
+**Le point volé :** écrire **« + 10 points de pourcentage »** et non « + 10 % ». **Un écart
+entre deux pourcentages se dit en points, jamais en pourcent.** Ici les deux chiffres
+coexistent : **+ 10 points** de part, **+ 50 %** d'effectif.
+:::
+
+::: methode Grille d'auto-évaluation — à remplir juste après la simulation
+| Bloc de points | Obtenu | Seuil de sécurité | Si tu es en dessous |
+|---|:---:|:---:|---|
+| **Ex. 1 — cours** *(6)* | ___ | **6/6** | Le bloc 1 n'est pas su. Rien d'autre ne se rattrape sans lui. |
+| **Ex. 2 — identifier** *(5)* | ___ | **4,5/5** | Reprends le gabarit 1 (§ 3.2) et refais B1 et B3. |
+| **Ex. 3 — construire** *(6)* | ___ | **5/6** | Reprends le gabarit 2 (§ 3.3) et refais C1. |
+| **Ex. 4 — lire** *(3)* | ___ | **2,5/3** | Reprends les gabarits 3 et 4 (§ 3.4 et 3.5) et refais B5. |
+| **Total** | ___ | **18/20** | |
+
+**Les trois contrôles de fin d'épreuve, encore :** $ \sum n_i = n $ · $ \sum f_i = 100 $ ·
+dernière cumulée $ = 100 $. **Trente secondes, et ils rattrapent presque toutes les erreurs
+de calcul de ce chapitre.**
+:::
+
+<!--saut-->
+
+# Bloc 5 — Pièges et points volés
+
+> **Relu deux fois : en S5, et la veille.** Quatre pages qui valent les quatre derniers points.
+
+## 5.1 — Les quatre anomalies du support, et la conduite à tenir
+
+**Chacune a été vérifiée, chiffre par chiffre, en relisant les diapositives à l'image.** Tu
+n'as pas à les chercher : tu dois seulement savoir **quoi écrire** si la question tombe
+dessus.
+
+::: piege A1 — La série brute ne donne pas la distribution du tableau *(diapositives 17 à 19)*
+**Le fait.** La **série brute** de la diapositive 17 contient **10 zéros et 24 « 2 »**. La
+**série ordonnée** (d. 18) et le **tableau** (d. 19) en contiennent **11 et 23**.
+**Un « 2 » est devenu un « 0 » au tri.** Les deux totaux font bien **87**, et **toutes les
+autres modalités concordent**.
+
+**Conduite à tenir — et elle dépend de l'énoncé :**
+- *« Construisez la distribution **à partir de la série** »* → **compte ce qui est écrit** :
+  **10 et 24**. Puis **ajoute une ligne** : *« Nota : le tableau du cours indique 11 et 23 ;
+  l'écart provient d'une valeur modifiée au tri. L'effectif total, 87, est identique. »*
+- *« Rappelez la distribution du cours »* → **11 et 23**, les chiffres du tableau.
+
+**Ne jamais corriger silencieusement l'enseignante, ne jamais la contredire sans montrer le
+comptage.** Une ligne de nota suffit : **elle prouve que tu as recompté**, et c'est exactement
+ce qui distingue une copie à 18.
+:::
+
+::: piege A2 — « 17 132 familles » alors que la colonne est « en milliers » *(diapositive 22)*
+**Le fait.** L'énoncé écrit *« enquête menée auprès de 17 132 familles »*, mais la colonne est
+intitulée *« effectifs $ n_i $ **en milliers** »*.
+
+**La bonne lecture : 17 132 milliers, soit environ 17,1 millions de familles.**
+
+**Conduite à tenir.** Écris **« 17 132 milliers de familles, soit 17,1 millions »**. **Tout
+raisonnement reste valide** — les fréquences sont des rapports, l'unité se simplifie. C'est
+donc **une faute d'unité, pas une faute de calcul**.
+
+**Et c'est le piège d'unité n° 1 du chapitre :** le même problème se pose à la diapositive 28,
+dont l'unité est également le **millier de familles**. « 1 012,2 familles » au lieu de
+**« 1 012,2 milliers »** est une **erreur d'un facteur mille**.
+:::
+
+::: piege A3 — La diapositive 31 n'illustre pas « le tableau précédent » *(diapositives 28 et 31)*
+**Le fait.** La diapositive 31 affirme : *« ce diagramme colonne a le même contenu
+informationnel que le tableau précédent »*. Le tableau qui précède est celui de la
+**diapositive 28** — enfants **mineurs**, six années de 1990 à 2023, **champ restreint aux
+familles ayant au moins un enfant mineur**.
+
+Or le graphique de la diapositive 31 porte sur **cinq années — 1975, 1982, 1990, 1999, 2008**
+— et sur **cinq modalités dont « 0 enfant »**. Ses colonnes valent :
+
+| Année | 0 enfant | 1 | 2 | 3 | 4 et plus |
 |---|---:|---:|---:|---:|---:|
 | 1975 | 37,0 | 25,3 | 20,2 | 9,8 | 7,7 |
 | 1982 | 38,4 | 25,1 | 22,1 | 9,4 | 5,0 |
 | 1990 | 42,1 | 23,8 | 21,7 | 8,8 | 3,5 |
 | 1999 | 45,8 | 22,8 | 20,5 | 8,0 | 2,9 |
-| 2008 | **48,0** | **22,3** | **20,1** | **7,2** | **2,3** |
+| **2008** | **48,0** | **22,3** | **20,1** | **7,2** | **2,3** |
+
+**La colonne 2008 reproduit exactement les cinq fréquences de la diapositive 22.**
+
+**Deux conséquences, et la seconde est un point gratuit :**
+1. Le renvoi *« le tableau précédent »* est **faux** : la 31 illustre la **diapositive 22**.
+2. **L'« année donnée » de la diapositive 22, jamais précisée, est donc 2008.**
+
+**Conduite à tenir.** Si on te demande l'année du tableau de la diapositive 22, réponds
+**2008** et **justifie par la concordance des cinq fréquences**. C'est une réponse
+démontrable, pas une hypothèse.
 :::
 
-::: methode Résoudre l'ambiguïté : de quel « tableau précédent » s'agit-il ?
-Le renvoi est ambigu : le tableau qui précède immédiatement (diapositive 28) porte sur
-1990-2023 et **exclut** les familles sans enfant, alors que ce diagramme couvre 1975-2008 et
-**inclut** la modalité « 0 enfant ».
+::: piege A4 — Le renvoi à la « diapo 21 » *(diapositive 23)*
+**Le fait.** La diapositive 23, qui pose les notations formelles, conclut : *« à présent
+amusons-nous à mettre les notations mathématiques en adéquation avec l'illustration de la
+diapo 21 »*.
 
-**La colonne 2008 tranche la question.** Ses cinq valeurs — 48,0 ; 22,3 ; 20,1 ; 7,2 ;
-2,3 — sont **exactement** les fréquences du tableau de la **diapositive 22** (les 17 132
-milliers de familles). Le renvoi désigne donc ce tableau-là, et non celui de la diapositive
-28.
+**Mais la diapositive 21 ne contient aucune illustration** : elle contient les **définitions**
+de la fréquence et de la fréquence cumulée. **L'illustration est à la diapositive 22** — le
+tableau des familles.
 
-**Ce que cette identification apprend en plus du cours :** l'enquête de la diapositive 22
-porte sur l'année **2008**, information que la diapositive ne donnait pas. Le diagramme de
-la diapositive 31 en est la **série longue** : il montre l'évolution, sur trente-trois ans,
-de la répartition dont la diapositive 22 ne donnait qu'une coupe.
-
-*(Il s'agit d'une déduction établie par comparaison des chiffres, non d'une information
-écrite dans le support. Elle est cohérente à la décimale près sur les cinq modalités.)*
-
-**Lecture d'ensemble.** Entre 1975 et 2008, la part des familles sans enfant passe de
-37,0 % à 48,0 % (**+11 points**) tandis que celle des familles de quatre enfants et plus
-tombe de 7,7 % à 2,3 % (**divisée par plus de trois**). Contrôle : chaque colonne totalise
-100 % (99,9 % en 1990 et 2008, effet d'arrondi).
+**Conduite à tenir.** Sans conséquence sur le contenu : c'est une coquille de numérotation.
+**Sache seulement que « l'illustration des notations » est le tableau des familles**, pour ne
+pas chercher une diapositive qui n'existe pas si l'énoncé y renvoie.
 :::
 
-#### 2.3.12 Les règles de présentation (diapositive 32)
+## 5.2 — Le faux problème : l'écart de 0,1 de la diapositive 28
 
-::: formule Le principe
-**La présentation des données sous forme de tableau ou de graphique sert à informer,
-c'est-à-dire donner une forme, une signification à des données** (le plus souvent
-numériques brutes). **Les tableaux ou graphiques produisent de l'information, ils sont des
-outils de communication.** Il est **primordial de les choisir et de les intituler à bon
-escient** pour que l'information utile passe.
-:::
+::: piege Tu vas le trouver en faisant le contrôle « Σ nᵢ = n » — ce n'est pas une erreur
+**Le fait, vérifié.** Sur le tableau de la diapositive 28, **quatre colonnes sur six** somment
+exactement au total annoncé. **Deux ne le font pas :**
 
-**Les quatre règles du support**, et ce qu'elles interdisent concrètement :
-
-| Règle | Ce qu'elle exige | Ce qu'elle interdit |
-|---|---|---|
-| **Intitulés précis** | Des titres explicites, sans noms de variables ou de modalités obscurs | « VAR_03 », « CSP4 », « Q12b » — les noms de colonnes de la base de données |
-| **Lisibles par un non-spécialiste** | Un lecteur non statisticien doit comprendre | Le jargon technique dans un titre de graphique |
-| **Compréhension immédiate ou simplifiée au maximum** ; si complexité : **note de lecture** en bas de tableau | Une phrase de lecture pour tout tableau non trivial | Laisser le lecteur deviner comment lire une cellule |
-| **Indiquer les unités de mesure, la population, les choix méthodologiques** | Champ, unité, source, méthode | Un tableau de nombres sans unité — le cas de « 17 132 » de la diapositive 22 |
-
-::: examen L'origine du mot « informer »
-Le support insiste : informer, c'est **« donner une forme »**. Le mot vient du latin
-*informare*, « façonner, donner une forme ». Ce n'est pas une coquetterie
-étymologique — c'est la thèse du chapitre : **des données brutes ne sont pas de
-l'information ; elles le deviennent quand une présentation leur donne une forme
-interprétable.** Le titre du chapitre, « Présenter pour informer », dit exactement cela.
-
-C'est une phrase d'introduction ou de conclusion parfaite pour une copie.
-:::
-
-### 2.4 — Remarques conclusives (diapositive 33)
-
-::: synthese Le bilan du chapitre, selon le support
-- Nous venons de voir les **principales étapes d'une étude statistique**.
-- Nous avons appris à présenter la distribution d'un caractère statistique d'une population
-  **en effectifs, en fréquences ou en fréquences cumulées**.
-- Il s'agit souvent de la **première étape** de différents traitements de statistique
-  descriptive, étudiés dans les chapitres suivants.
-:::
-
-**L'ouverture.** Le support conclut sur une limite de tout ce qui précède :
-
-> « Nous ne disposons pas toujours de l'information exhaustive sur une population
-> d'intérêt. Il faut parfois tirer aléatoirement un échantillon. Les techniques
-> statistiques permettant de déduire des éléments d'une population à partir d'un
-> échantillon aléatoire relèvent de la **statistique inférentielle**. »
-
-::: definition Statistique descriptive et statistique inférentielle
-| | **Statistique descriptive** | **Statistique inférentielle** |
-|---|---|---|
-| **Sur quoi elle porte** | La population **observée en entier** (ou les données dont on dispose, prises pour elles-mêmes) | Une **population** que l'on n'observe pas, à partir d'un **échantillon** |
-| **Ce qu'elle produit** | Une **description certaine** de ce qui a été observé | Une **estimation**, assortie d'une **marge d'erreur** et d'un **degré de confiance** |
-| **Le risque** | Aucun risque d'erreur d'inférence : on décrit ce qu'on a | Un risque de se tromper, que l'on **quantifie** |
-| **Où** | Ce cours, chapitres 1 à 4 | La suite du cursus |
-
-**Le mot clé est « aléatoirement ».** Un échantillon ne permet de conclure sur la population
-que s'il a été **tiré au hasard** : c'est le tirage aléatoire qui rend l'échantillon
-représentatif *en probabilité* et qui autorise le calcul d'une marge d'erreur. Un
-échantillon de volontaires ou de personnes faciles à atteindre ne le permet pas.
-:::
-
-::: marche
-La distinction descriptive / inférentielle est **le** problème du backtest. Décrire la
-performance passée d'une stratégie sur 2004-2025 est de la statistique **descriptive** :
-c'est exact, sans risque d'erreur, et cela ne dit rien de l'avenir. Affirmer que cette
-performance se reproduira est une **inférence** — on traite l'historique comme un
-échantillon tiré de l'ensemble des marchés possibles. Et cet échantillon n'est
-précisément **pas** tiré au hasard : il est daté, contingent, marqué par des régimes de
-marché particuliers. C'est pourquoi la découpe en périodes d'apprentissage et de contrôle
-(*train / test*) existe : c'est une tentative de rétablir les conditions d'une inférence
-valide. Vous manipulez déjà cette distinction ; ce cours lui donne son nom.
-:::
-
-<!--saut-->
-## 3. Points de vigilance
-
-### 3.1 — Les confusions classiques
-
-Douze couples de notions voisines. Pour chacun, **le critère qui tranche**.
-
-| Notion A | Notion B | Le critère qui les sépare |
-|---|---|---|
-| **Variable** | **Modalité** | La variable est la **question posée** ; la modalité est la **réponse possible**. « Nombre d'enfants » est la variable, « 3 » une modalité |
-| **Individu** | **Population** | L'individu est l'**élément**, la population l'**ensemble**. Le test : ce que compte la ligne « Ensemble » d'un tableau est l'individu |
-| **Effectif $ n_i $** | **Fréquence $ f_i $** | L'effectif est un **nombre d'individus** (entier) ; la fréquence une **proportion** ($ f_i = n_i/n $, entre 0 et 1) |
-| **Fréquence** | **Fréquence cumulée** | La fréquence répond à « **exactement** cette modalité » ; la cumulée à « **au plus** cette modalité » |
-| **Effectif total $ n $** | **Nombre de modalités $ p $** | $ n $ compte les **individus**, $ p $ les **valeurs distinctes**. Pour les 87 étudiants : $ n = 87 $, $ p = 11 $ |
-| **Qualitative nominale** | **Qualitative ordinale** | L'existence d'un **ordre qui a du sens** entre les modalités |
-| **Qualitative codée en chiffres** | **Quantitative** | La **moyenne a-t-elle un sens ?** « Sexe moyen = 1,5 » n'en a pas → qualitative |
-| **Quantitative discrète** | **Quantitative continue** | **Compter** ou **mesurer**. Entre deux valeurs voisines, une valeur intermédiaire a-t-elle un sens ? |
-| **Série brute** | **Distribution des effectifs** | La série liste **un individu par case** ; la distribution liste **une modalité par ligne** avec son effectif. On passe de l'une à l'autre par **tri puis comptage**, sans perte |
-| **Présenter (CHAP 1)** | **Résumer (CHAP 2)** | Présenter **conserve toute** l'information ; résumer en **perd** volontairement |
-| **Diagramme groupé par catégorie** | **Diagramme groupé par année** | Ce qui est **dans le même groupe** est ce que l'œil compare. Groupé par catégorie → on voit l'**évolution** ; groupé par année → on voit la **structure** |
-| **Empilé en effectifs** | **Empilé à 100 %** | Le premier conserve les **volumes** (hauteurs inégales) ; le second ne montre que la **structure** (hauteurs égales) et **détruit** l'information de volume |
-| **Statistique descriptive** | **Statistique inférentielle** | La descriptive **décrit ce qui a été observé** ; l'inférentielle **estime** ce qu'on n'a pas observé, à partir d'un échantillon **aléatoire**, avec une marge d'erreur |
-
-### 3.2 — Les erreurs que commet la majorité des étudiants
-
-1. **Confondre l'unité statistique avec « les gens ».** Dans le tableau des infractions, la
-   population n'est pas faite de personnes mais d'**infractions**. Le test : ce que totalise
-   la ligne « Ensemble ».
-2. **Calculer une moyenne sur une variable qualitative codée en chiffres.** Un code n'est
-   pas une quantité.
-3. **Oublier la ligne « Ensemble » ou le total dans un tableau.** C'est l'unique contrôle
-   qui détecte une erreur de comptage — et il n'est pas suffisant (§2.3.4).
-4. **Diviser par le mauvais dénominateur** dans un empilé à 100 % : chaque colonne est
-   ramenée à 100 % **avec son propre total**.
-5. **Comparer deux tableaux dont les champs diffèrent** — familles avec et sans enfant, par
-   exemple. Lire le champ **avant** les chiffres.
-6. **Lire une part comme un volume.** Une part stable dans un total qui baisse est un
-   effectif qui baisse.
-7. **Écrire « les chiffres montrent qu'il faut… ».** Le rapport statistique n'a jamais
-   décidé de rien : la décision est politique (diapositive 10).
-8. **Supprimer d'un diagramme quantitatif les modalités d'effectif nul.** Cela déforme la
-   forme de la distribution : l'axe des abscisses est un axe numérique.
-9. **Confondre le tri et le comptage.** « Trier puis compter » est une séquence en deux
-   temps ; sauter le tri sur une variable quantitative conduit aux oublis exacts de la
-   diapositive 17.
-10. **Donner une phrase de lecture incomplète.** Une lecture correcte comporte toujours la
-    **sous-population** (l'année), la **valeur avec son unité**, et la **modalité avec son
-    champ**.
-
-### 3.3 — Ce qui sépare une copie moyenne d'une excellente copie
-
-| La copie moyenne | La copie excellente |
-|---|---|
-| Énumère les six étapes | Cite les six étapes **et** la légende du schéma : « tous les choix sont guidés par le type de problématique », en montrant sur un exemple que changer la problématique change la population à observer |
-| Dit qu'une variable est « quantitative » | Précise **discrète ou continue** et **justifie** par le critère comptage / mesure |
-| Calcule une fréquence | Vérifie que **la somme fait 100 %** et le **signale**, ou explique l'écart par les arrondis |
-| Donne un chiffre | Écrit une **phrase de lecture complète** : sous-population, valeur, unité, modalité, champ |
-| Choisit un diagramme | **Justifie** le choix par la comparaison que la problématique met au centre |
-| Utilise un empilé à 100 % | Rappelle qu'il **détruit l'information de volume** et donne l'effectif total à côté |
-| S'arrête aux données du cours | **Recalcule** et signale une incohérence quand il y en a une — comme celle du §2.3.4 |
-| Termine sur les diagrammes | Ouvre sur la **statistique inférentielle** et sur la condition du tirage **aléatoire** |
-
-<!--saut-->
-
-## 4. Système d'ancrage mémoriel
-
-### 4.1 — Fiche de synthèse
-
-::: synthese Chapitre 1 « Présenter pour informer » — l'essentiel sur une page
-**LA CHAÎNE.** Besoin de décider → besoin d'information → étude statistique.
-
-**LES 6 ÉTAPES.** ① Quel type de **problématique** ? ② Choix des données à observer :
-**qui** ? ③ Choix de la **méthode de recueil** : expérimentation · observation ou enquête
-qualitative · données de seconde main · enquête quantitative. ④ **Campagne de mesures** :
-combien, quand, comment (l'option la plus coûteuse). ⑤ **Traitement** : présenter (CHAP 1),
-résumer (CHAP 2), évolutions temporelles (CHAP 3), croiser (CHAP 4). ⑥ **Prise de
-décision** : le rapport contient les résultats **et** la méthodologie ; toute information
-non informative est bannie ; **ce n'est pas le rapport qui décide, la décision est
-politique**. → **Tous les choix sont guidés par le type de problématique.**
-
-**LE VOCABULAIRE.** **Population** : l'ensemble étudié. **Individus / unités statistiques** :
-ses éléments. **Taille / effectif total** : leur nombre. **Variable (ou caractère)** :
-une **application** associant à chaque individu **une** valeur ; notée en **majuscule**.
-**Modalités** : les valeurs prises ; notées en **minuscule**.
-
-**LES TYPES.** Qualitative (modalités **non numériques**) → **nominale** (pas d'ordre) /
-**ordinale** (ordre qui a du sens). Quantitative (modalités **numériques**) → **discrète**
-(comptage, dénombrable) / **continue** (mesure, non dénombrable). ⚠ Une qualitative codée
-en chiffres reste qualitative — test : *la moyenne a-t-elle un sens ?*
-
-**PRÉSENTER SANS PERTE.** Deux formes : **série brute** (*raw data*) et **distribution
-observée des effectifs** (*frequencies*). Passage : **tri des modalités, puis comptage**
-(quantitatif ou qualitatif ordinal). Représentations : **tableau** ou **diagramme colonne**.
-
-**LES FORMULES.** $ n = \sum_{i=1}^{p} n_i $ · $ f_i = \dfrac{n_i}{n} $ ·
-$ F_k = \sum_{i=1}^{k} f_i $. Propriétés : $ \sum f_i = 1 $ ; $ F_p = 1 $ ; $ F $ est
-**croissante**. **Fréquence** = « exactement cette modalité » ; **fréquence cumulée** =
-« **au plus** cette modalité » (réservée par le cours au **quantitatif**).
-
-**PLUSIEURS DISTRIBUTIONS.** Sous-populations définies par une **autre variable** (année,
-zone…), distributions **juxtaposées**, **but = comparer**. Quatre diagrammes :
-**groupé par catégorie** (voir l'évolution de chaque catégorie) · **groupé par année**
-(voir la structure de chaque année) · **empilé en effectifs** (volumes **et** composition) ·
-**empilé à 100 %** (structures seules, **volumes détruits**). Règle : *ce qui est dans le
-même groupe est ce que l'œil compare.*
-
-**PRÉSENTER, C'EST INFORMER** = donner une **forme**. Intitulés précis · lisibles par un
-non-spécialiste · compréhension immédiate ou note de lecture · **unités, population, choix
-méthodologiques** indiqués.
-
-**OUVERTURE.** Population non observable en entier → **échantillon tiré aléatoirement** →
-**statistique inférentielle** (estimation + marge d'erreur), par opposition à la
-**statistique descriptive** de ce cours.
-:::
-
-### 4.2 — Cartes de révision
-
-Quarante-cinq cartes couvrant l'intégralité du chapitre.
-
-**La démarche**
-
-::: carte
-Quelle est la chaîne qui justifie l'existence d'une étude statistique ?
---
-**Besoin de décider → besoin d'information → étude statistique.** On ne fait pas une étude
-parce qu'on a des données, mais parce qu'on a une **décision à prendre**.
-:::
-
-::: carte
-Citez les six étapes d'une étude statistique.
---
-① Quel type de **problématique** ? ② Choix des **données à observer** (qui ?) ③ Choix de la
-**méthode de recueil** ④ **Campagne de mesures** ⑤ **Traitement** des données ⑥ **Prise de
-décision**.
-:::
-
-::: carte
-Que disent les flèches de retour du schéma des six étapes ?
---
-Elles remontent de chaque étape vers l'étape 1, et portent la légende : **« Tous les choix
-sont guidés par le type de problématique. »** Il n'existe pas de bonne méthode dans
-l'absolu : seulement des méthodes adaptées, ou non, à la question posée.
-:::
-
-::: carte
-Pourquoi « faites-moi une enquête de satisfaction » est-il une commande inexploitable ?
---
-Parce que la demande est **trop vague** : elle est compatible avec des problématiques qui
-imposent des choix **incompatibles** aux étapes suivantes (rayon, affichage, choix des
-produits, horaires et conseil). Interroger les clients **en magasin** sur les horaires
-d'ouverture ne peut pas répondre à la question, puisqu'on n'interroge que ceux à qui les
-horaires conviennent.
-:::
-
-::: carte
-Quelles sont les quatre méthodes de recueil des données, et laquelle est la plus coûteuse ?
---
-**Expérimentation** (protocole mesurant l'effet d'une variable de contrôle sur une variable
-d'observation) · **observation ou enquête qualitative** (peu d'individus, observés de façon
-extensive) · **données de seconde main** (réutilisation d'informations existantes) ·
-**enquête quantitative** (travail sur-mesure) — **c'est cette dernière qui est la plus
-coûteuse**.
-:::
-
-::: carte
-Que doit définir une campagne de mesures ?
---
-**Combien** de personnes enquêter, **quand** les enquêter, **comment** les enquêter.
-:::
-
-::: carte
-Quelles sont les quatre familles de traitements annoncées, et à quel chapitre chacune ?
---
-**Présenter sans perte d'information (CHAP 1)** · **résumer variable par variable (CHAP 2)**
-· **évolutions temporelles (CHAP 3)** · **croiser plusieurs variables (CHAP 4)**.
-:::
-
-::: carte
-Que doit contenir un rapport statistique, et qui décide ?
---
-Le **résultat des traitements** **et** les **éléments méthodologiques**, le tout orienté
-selon la problématique. Toute information **non informative** au regard de la problématique
-doit être **bannie**. **Ce n'est pas le rapport qui décide** : toute décision est
-**politique** et repose aussi sur d'autres considérations, comme le coût.
-:::
-
-::: carte
-Pourquoi une statistique ne peut-elle pas décider à la place du décideur ?
---
-Parce qu'elle établit **ce qui est**, alors qu'une décision énonce **ce qu'il faut faire** —
-ce qui suppose un **critère de choix** (préférence, objectif, contrainte) qu'aucun tableau
-de chiffres ne contient. La statistique **éclaire** la décision, elle ne la remplace pas.
-:::
-
-**Le vocabulaire**
-
-::: carte
-Définissez : population, individu, effectif total.
---
-**Population** : l'**ensemble (mathématique) étudié**. **Individus** ou **unités
-statistiques** : les **éléments** de cette population. **Taille de la population** ou
-**effectif total** : leur **nombre**.
-:::
-
-::: carte
-Qu'est-ce qu'une variable statistique, et pourquoi le cours la définit-il comme une
-« application » ?
---
-Une **application associant à chaque individu une valeur**. Le mot « application » impose
-deux contraintes : **chaque** individu reçoit une valeur (les non-réponses doivent être
-traitées) et **une seule** (les modalités sont **exhaustives et exclusives**). Une question
-à réponses multiples n'est donc pas une variable, mais **plusieurs** variables binaires.
-:::
-
-::: carte
-Quelle est la convention d'écriture du cours pour les variables et leurs valeurs ?
---
-Les **variables** sont notées en **majuscule** ($ X $), leurs **valeurs prises** —
-les **modalités** — en **minuscule** ($ x_i $).
-:::
-
-::: carte
-Quelle est la différence entre une variable et une modalité ?
---
-La **variable** est la **question posée** (« nombre de frères et sœurs ») ; les
-**modalités** sont les **réponses possibles** (0, 1, 2, 3…).
-:::
-
-::: carte
-Quels sont les deux types et les quatre sous-types de variables ?
---
-**Qualitative** (modalités **non numériques**) : **nominale** (pas d'ordre qui ait du sens)
-et **ordinale** (ordre qui a du sens). **Quantitative** (modalités **numériques**) :
-**discrète** (comptage, ensemble dénombrable) et **continue** (mesure, ensemble non
-dénombrable).
-:::
-
-::: carte
-Comment savoir si une variable codée en chiffres est réellement quantitative ?
---
-**Test : la moyenne a-t-elle un sens ?** Si le sexe est codé 1/2, « sexe moyen = 1,5 » ne
-signifie rien → la variable est **qualitative nominale codée numériquement**. Un nombre qui
-n'est qu'une **étiquette** ne rend pas la variable quantitative.
-:::
-
-::: carte
-Discrète ou continue : quel est le test ?
---
-**Compter ou mesurer.** Entre deux valeurs voisines, une valeur intermédiaire a-t-elle un
-sens ? Nombre d'enfants : entre 2 et 3, rien → **discrète**. Taille : entre 179 et 180, une
-infinité de valeurs → **continue**. La précision de l'instrument ne change pas la nature de
-la grandeur.
-:::
-
-::: carte
-Une variable ordinale codée 1, 2, 3, 4 est-elle quantitative ?
---
-**Non.** L'ordre est réel, mais les **écarts entre codes n'ont pas de sens** : rien ne
-garantit que l'écart « mauvaise → plutôt mauvaise » vaille l'écart « plutôt bonne → très
-bonne ». On peut **classer**, pas **additionner**. Elle reste **qualitative ordinale**.
-:::
-
-::: carte
-Enquête sur les infractions (diapo 12) : population, unités, effectif total, variable, type ?
---
-**Population** : l'ensemble des **infractions déclarées** en 2024 sur le champ Insee.
-**Unités** : **une infraction**. **Effectif total** : **9 376 000** infractions (somme
-vérifiée des huit modalités). **Variable** : le **type d'atteinte déclarée**, **qualitative
-nominale**. **Modalités** : les **huit** types listés.
-:::
-
-::: carte
-Pourquoi le classement décroissant d'un tableau ne rend-il pas la variable ordinale ?
---
-Parce que l'ordre y résulte des **effectifs observés**, et non des modalités elles-mêmes.
-Une variable est ordinale quand l'ordre est **intrinsèque aux modalités** (« mauvais <
-moyen < bon »). Ranger par fréquence est un **choix de présentation**.
-:::
-
-**Présenter une distribution**
-
-::: carte
-Quelles sont les deux façons de présenter une variable sans perte d'information, et comment
-passe-t-on de l'une à l'autre ?
---
-La **série brute** (*raw data*) et la **distribution observée des effectifs**
-(*frequencies*). Le passage exige un traitement : **tri des modalités, puis comptage des
-effectifs** — dans le cas quantitatif ou qualitatif ordinal.
-:::
-
-::: carte
-Qu'est-ce qu'une distribution observée des effectifs ? Qu'est-ce que l'effectif d'une
-modalité ?
---
-Une distribution observée des effectifs **associe à chaque modalité l'effectif observé
-correspondant**. L'**effectif d'une modalité** est le **nombre d'individus présentant cette
-modalité**. Représentation : **tableau** ou **diagramme colonne**. **Sans perte
-d'information** — c'est souvent l'**étape n° 1** d'une analyse.
-:::
-
-::: carte
-Pourquoi le tri ne s'applique-t-il pas aux variables nominales ?
---
-Parce que trier suppose un **ordre**, et qu'aucun ordre n'a de sens entre des modalités
-nominales. On peut compter leurs effectifs, mais l'ordre des lignes du tableau reste un pur
-**choix de présentation**.
-:::
-
-::: carte
-Sur un diagramme en colonnes d'une variable quantitative, pourquoi représenter les
-modalités d'effectif nul ?
---
-Parce que l'axe des abscisses est un **axe numérique** : les distances doivent être
-respectées. Supprimer les modalités vides (8, 10, 11, 12 dans l'exemple des 87 étudiants)
-rapprocherait visuellement des valeurs éloignées et **déformerait la forme de la
-distribution**.
-:::
-
-::: carte
-Définissez la fréquence et la fréquence cumulée.
---
-La **fréquence** d'une modalité est la **proportion d'individus présentant cette modalité**
-dans la population totale (en % de la population). La **fréquence cumulée** d'une modalité
-est la proportion d'individus présentant **cette modalité ou une modalité inférieure** —
-autrement dit « **au plus** ». Le cours la réserve au caractère **quantitatif**.
-:::
-
-::: carte
-Quelles représentations le cours associe-t-il à une répartition en fréquences ?
---
-Un **camembert** ou un **diagramme en barres**.
-:::
-
-::: carte
-Écrivez les quatre formules du cours.
---
-$$ n = \sum_{i=1}^{p} n_i \qquad f_i = \frac{n_i}{n} \qquad F_k = \sum_{i=1}^{k} f_i $$
-avec $ X $ le caractère, $ x_i $ les modalités ordonnées pour $ i = 1, \ldots, p $.
-:::
-
-::: carte
-Que valent $ n $ et $ p $, et pourquoi ne faut-il pas les confondre ?
---
-$ n $ est l'**effectif total** — le nombre d'**individus**. $ p $ est le nombre de
-**modalités** — le nombre de **valeurs distinctes**. Dans l'exemple des 87 étudiants :
-$ n = 87 $ mais $ p = 11 $.
-:::
-
-::: carte
-Démontrez que la somme des fréquences vaut 1.
---
-$$ \sum_{i=1}^{p} f_i = \sum_{i=1}^{p} \frac{n_i}{n} = \frac{1}{n}\sum_{i=1}^{p} n_i = \frac{n}{n} = 1 $$
-On remplace $ f_i $ par sa définition, on sort $ n $ de la somme (il ne dépend pas de
-$ i $), et la somme des effectifs vaut $ n $. En pourcentage : **100 %**.
-:::
-
-::: carte
-Pourquoi les fréquences cumulées sont-elles nécessairement croissantes ?
---
-Parce que $ F_k - F_{k-1} = f_k \ge 0 $ : une fréquence est toujours positive ou nulle.
-Une colonne de fréquences cumulées qui **diminue** signale donc immédiatement une **erreur
-de calcul**. Et $ F_p = 1 $ (100 %) est le contrôle final du tableau.
-:::
-
-::: carte
-Sur 87 étudiants, 33 déclarent un frère ou une sœur et 23 en déclarent deux ; 11 n'en ont
-aucun. Calculez $ F $ pour la modalité 2 et interprétez.
---
-$ F(2) = (11 + 33 + 23)/87 = 67/87 = 0{,}7701 $, soit **77,01 %**. Lecture : **77,01 % des
-étudiants déclarent au plus deux frères et sœurs** — donc 22,99 % en déclarent au moins
-trois.
-:::
-
-::: carte
-Tableau des 17 132 milliers de familles : population, unités, caractère, type, et comment
-les fréquences ont été calculées ?
---
-**Population** : les familles enquêtées (17 132 **milliers**, soit ≈ 17,1 millions).
-**Unités** : une **famille**. **Caractère** : le **nombre d'enfants**, **quantitatif
-discret** (dernière modalité en **classe ouverte**). **Fréquences** : $ f_i = n_i/n $ —
-$ 8\,225/17\,132 = 48{,}0 $ % ; **fréquences cumulées** : sommes successives — 48,0 ; 70,3 ;
-90,4 ; 97,7 ; 100,0.
-:::
-
-::: carte
-Pourquoi ne peut-on pas calculer une moyenne exacte à partir du tableau du nombre d'enfants ?
---
-Parce que la dernière modalité, « **4 enfants et plus** », est une **classe ouverte** : on
-ignore la valeur réelle des observations qu'elle contient.
-:::
-
-**Comparer plusieurs distributions**
-
-::: carte
-Qu'est-ce qu'une comparaison de plusieurs distributions d'un même caractère, et quelles
-variables met-elle en jeu ?
---
-Plusieurs **sous-populations** sont définies **selon une autre variable** (année, zone
-géographique…) ; il y a **une distribution par sous-population**, présentées
-**juxtaposées**, dans le but de **comparer la répartition** entre sous-populations. Deux
-variables sont donc en jeu : la variable **étudiée** et la variable de **découpage**.
-:::
-
-::: carte
-Personnes écrouées (diapo 25) : population, sous-populations, caractère, type ?
---
-**Population** : les personnes **écrouées en France**. **Unités** : une personne écrouée.
-**Sous-populations** : les années **2020, 2021, 2022, 2023**. **Caractère** : la **catégorie
-pénale** (prévenus détenus, condamnés-prévenus détenus, condamnés détenus, condamnés non
-détenus), **qualitative nominale**.
-:::
-
-::: carte
-Quelle est la règle de choix entre un diagramme groupé par catégorie et un diagramme groupé
-par année ?
---
-**Ce qui est dans le même groupe est ce que l'œil compare.** Grouper par **catégorie** →
-on voit l'**évolution dans le temps de chaque catégorie**. Grouper par **année** → on voit
-la **structure** de chaque année. Le choix dépend de la comparaison que la problématique
-met au centre.
-:::
-
-::: carte
-Distribution du nombre d'enfants par famille (diapo 28) : population, sous-populations,
-caractère, type ? Donnez une phrase de lecture.
---
-**Population** : les **familles vivant en ménage ordinaire ayant au moins un enfant
-mineur**, France hors Mayotte. **Sous-populations** : les années 1990, 1999, 2007, 2012,
-2017, 2023. **Caractère** : le **nombre d'enfants mineurs**, **quantitatif discret**.
-Lecture : « En 2023, **3 578,3 milliers de familles** du champ avaient **exactement un
-enfant mineur**. »
-:::
-
-::: carte
-Qu'est-ce qu'un diagramme empilé en effectifs, et que montre la hauteur totale ?
---
-Chaque colonne représente une sous-population ; les segments superposés représentent les
-**effectifs** de chaque modalité. La **hauteur totale** correspond à l'**effectif total de
-la sous-population** — ici, l'ensemble des familles de l'année. Il montre donc **volumes et
-composition** simultanément.
-:::
-
-::: carte
-Qu'est-ce qu'un diagramme empilé à 100 %, et que perd-on en l'utilisant ?
---
-Toutes les colonnes ont la **même hauteur** : on représente les **fréquences** et non les
-effectifs, **par sous-population**. On perd **toute l'information de volume** : une colonne
-peut représenter 8 millions de familles ou 800. C'est pourquoi on donne toujours l'effectif
-total à côté.
-:::
-
-::: carte
-Comment a été calculé le chiffre 12,6 % (3 enfants, 2017) ?
---
-C'est la **fréquence** de la modalité « 3 enfants » **dans la sous-population 2017** :
-$ 1\,012{,}2 / 8\,014{,}7 = 0{,}1263 $, soit **12,63 %**, arrondi à **12,6 %**. Le
-dénominateur est **toujours** l'effectif de la sous-population du numérateur.
-:::
-
-::: carte
-Entre 2017 et 2023, la part des familles à 3 enfants passe de 12,6 % à 12,1 %. Que dire de
-l'effectif ?
---
-Il baisse bien davantage en proportion : de **1 012,2 à 956,2 milliers**, soit **−56 000
-familles (−5,5 %)** contre −0,5 point de part. **Une part quasi stable dans un total qui
-diminue signifie un effectif qui diminue.**
-:::
-
-::: carte
-Pourquoi ne peut-on pas comparer le tableau des 17 132 milliers de familles et celui du
-nombre d'enfants mineurs par année ?
---
-Parce que **les champs diffèrent** : le premier inclut les familles **sans enfant** (48 %
-de l'effectif), le second ne retient que les familles ayant **au moins un enfant mineur**.
-Avant toute comparaison de deux tableaux, on compare d'abord leurs **champs**.
-:::
-
-**Communiquer et conclure**
-
-::: carte
-Quelles sont les quatre règles de présentation d'un tableau ou d'un graphique ?
---
-**Intitulés précis** (pas de noms de variables ou de modalités obscurs) · **lisibles par un
-non-spécialiste** · **compréhension immédiate** ou simplifiée au maximum, avec une **note de
-lecture** en bas de tableau en cas de complexité · **indiquer les unités de mesure, la
-population et les choix méthodologiques**.
-:::
-
-::: carte
-Que signifie « informer » selon le cours ?
---
-**Donner une forme, une signification à des données** (le plus souvent numériques brutes).
-Les tableaux et graphiques **produisent de l'information** : ce sont des **outils de
-communication**. D'où le titre du chapitre : « Présenter pour informer ».
-:::
-
-::: carte
-Qu'est-ce que la statistique inférentielle, et à quelle condition est-elle valide ?
---
-L'ensemble des techniques permettant de **déduire des éléments d'une population à partir
-d'un échantillon**. Condition : l'échantillon doit être **tiré aléatoirement** — c'est le
-hasard du tirage qui permet de calculer une **marge d'erreur**. Elle s'oppose à la
-**statistique descriptive**, qui décrit ce qui a été observé, sans risque d'inférence.
-:::
-
-::: carte
-Les trois éléments obligatoires d'une phrase de lecture ?
---
-**La sous-population** (l'année, la zone), **la valeur avec son unité** (12,6 % ; 3 578,3
-milliers), et **la modalité avec son champ** (exactement trois enfants mineurs, parmi les
-familles ayant au moins un enfant mineur, France hors Mayotte).
-:::
-
-### 4.3 — Moyens mnémotechniques
-
-::: methode Les six étapes — « Problématique, Qui, Comment, Combien, Traiter, Décider »
-Six mots, dans l'ordre, qui redonnent les six étapes :
-
-| Mot | Étape |
-|---|---|
-| **Problématique** | ① Quel type de problématique ? |
-| **Qui** | ② Choix des données à observer |
-| **Comment** | ③ Choix de la méthode de recueil |
-| **Combien** | ④ Campagne de mesures (combien, quand, comment) |
-| **Traiter** | ⑤ Traitement des données |
-| **Décider** | ⑥ Prise de décision |
-
-Et la légende du schéma, à réciter juste après : **tous les choix sont guidés par le type
-de problématique.**
-:::
-
-::: methode Les quatre types de variables — deux questions, jamais quatre
-Ne mémorisez pas quatre étiquettes : mémorisez **deux questions successives**.
-
-1. **Mots ou nombres ?** Mots → qualitative. Nombres → quantitative.
-2. Si **mots** : *un ordre a-t-il du sens ?* Non → **nominale**. Oui → **ordinale**.
-   Si **nombres** : *compte-t-on ou mesure-t-on ?* Compter → **discrète**. Mesurer →
-   **continue**.
-
-Et la question de contrôle, qui sauve du piège du codage : **la moyenne a-t-elle un sens ?**
-:::
-
-::: methode Fréquence et fréquence cumulée — « exactement » contre « au plus »
-- $ f_i $ répond à : « quelle part présente **exactement** cette modalité ? »
-- $ F_k $ répond à : « quelle part présente **au plus** cette modalité ? »
-
-Deux mots à retenir : **exactement / au plus**. Ils suffisent à ne jamais se tromper de
-colonne dans un tableau.
-:::
-
-::: methode Les notations — $ n $ comme individus, $ p $ comme possibilités
-$ n $ compte les **individus** (l'effectif) ; $ p $ compte les **possibilités**, c'est-à-dire
-les modalités. Et $ i $ est l'indice qui parcourt les modalités — **jamais** les individus.
-:::
-
-::: methode Le choix du diagramme — « le groupe est un bloc, l'intérieur se compare »
-L'œil compare spontanément les barres **voisines**. Donc : ce que vous placez **à
-l'intérieur d'un groupe** est ce que le lecteur comparera ; ce que vous placez **en
-groupes** est ce qu'il verra comme des blocs distincts.
-
-Et pour les empilés : **effectifs = volumes conservés ; 100 % = structure seule, volumes
-détruits.**
-:::
-
-::: methode Les contrôles de cohérence — les trois vérifications réflexes
-Avant de rendre un tableau, toujours vérifier :
-1. $ \sum n_i = n $ — la somme des effectifs égale l'effectif total ;
-2. $ \sum f_i = 100 $ % — aux arrondis près, et le dire si l'écart apparaît ;
-3. $ F $ **croissante** et $ F_p = 100 $ % — la dernière fréquence cumulée boucle à 100.
-
-Ces trois contrôles prennent dix secondes et attrapent l'essentiel des erreurs de calcul.
-:::
-
-### 4.4 — Schéma récapitulatif
-
-```
-              BESOIN DE DÉCIDER
-                     |
-              BESOIN D'INFORMATION
-                     |
-              ÉTUDE STATISTIQUE
-                     |
-   +-----------------+---------------------+
-   |                 |                     |
- SECTION 1        SECTION 2            SECTION 3
- LA DÉMARCHE      LE VOCABULAIRE       LA PRÉSENTATION
-   |                 |                     |
- 6 ÉTAPES         POPULATION            SANS PERTE D'INFORMATION
- 1 Problématique     |  (ensemble)         |
- 2 Qui ?          INDIVIDUS             +--> SÉRIE BRUTE (raw data)
- 3 Comment ?         |  (éléments)      |         |
- 4 Combien ?      EFFECTIF TOTAL n      |    tri + comptage
- 5 Traiter           |                  |         v
- 6 Décider        VARIABLE X            +--> DISTRIBUTION DES EFFECTIFS
-   |                 |  (application)             |
-   |              MODALITÉS x(i)         +--------+---------+
-   |                 |                   |                  |
-   |          +------+------+        EFFECTIFS n(i)    FRÉQUENCES f(i)=n(i)/n
-   |          |             |            |             FRÉQ. CUMULÉES F(k)
-   |     QUALITATIVE   QUANTITATIVE      |                  |
-   |     (mots)        (nombres)      tableau         camembert / barres
-   |       |               |          diagramme
-   |   nominale        discrète       colonne
-   |   ordinale        continue
-   |                                        PLUSIEURS SOUS-POPULATIONS
-   |                                                 |
-   |                                +----------------+----------------+
-   |                                |                                 |
-   |                          COLONNES GROUPÉES               DIAGRAMMES EMPILÉS
-   |                          par catégorie -> évolution      effectifs -> volumes
-   |                          par année     -> structure      100 %     -> structure
-   |                                                 |
-   +---> « TOUS LES CHOIX SONT GUIDÉS PAR LE TYPE DE PROBLÉMATIQUE » <---+
-                                 |
-                    PRÉSENTER POUR INFORMER
-             (intitulés, lisibilité, unités, champ, méthode)
-                                 |
-                    OUVERTURE : population non observable
-                    -> échantillon ALÉATOIRE
-                    -> STATISTIQUE INFÉRENTIELLE
-```
-
-**Les liens du schéma, énoncés un par un.**
-
-| Lien | Ce qu'il affirme |
-|---|---|
-| Décider → information → étude | L'étude est **causée** par une décision à prendre, jamais par la disponibilité de données |
-| Les 6 étapes → la légende | Chaque étape est un **choix**, et tous les choix découlent de l'étape 1 |
-| Population → individus → variable → modalités | Une **cascade** : l'ensemble, ses éléments, ce qu'on mesure sur eux, les valeurs obtenues |
-| Variable → 2 types → 4 sous-types | Le type **détermine les traitements autorisés** en aval |
-| Série brute ↔ distribution | Aller-retour **sans perte**, par tri puis comptage |
-| Effectifs → fréquences → fréquences cumulées | Trois lectures de la **même** distribution, de plus en plus synthétiques, toutes **sans perte** |
-| Une distribution → plusieurs sous-populations | Le passage de la **description** à la **comparaison** — et l'annonce du chapitre 4 |
-| Comparaison → quatre diagrammes | Le **type de comparaison** commande le diagramme, pas l'inverse |
-| Tout → « présenter pour informer » | Présenter, c'est **donner une forme** : sans forme, les données ne sont pas de l'information |
-| Descriptive → inférentielle | Quand la population n'est pas observable en entier, il faut **échantillonner au hasard** et accepter une marge d'erreur |
-
-<!--saut-->
-## 5. Entraînement progressif
-
-### Niveau 1 — Restitution
-
-Répondez sans regarder le document.
-
-1. Énoncez la chaîne qui justifie l'existence d'une étude statistique.
-2. Citez les six étapes d'une étude statistique, dans l'ordre.
-3. Quelle est la légende du schéma des six étapes, et que signifient les flèches de retour ?
-4. Citez les quatre méthodes de recueil des données. Laquelle est la plus coûteuse ?
-5. Que doit définir une campagne de mesures ?
-6. Citez les quatre familles de traitements et le chapitre correspondant.
-7. Que doit contenir un rapport statistique ? Qui décide, et pourquoi ?
-8. Définissez : population, individu, effectif total, variable, modalité.
-9. Pourquoi le cours définit-il la variable comme une « application » ? Deux conséquences.
-10. Quels sont les deux types et les quatre sous-types de variables ? Donnez le critère de
-    chaque bifurcation.
-11. Comment savoir si une variable codée en chiffres est réellement quantitative ?
-12. Quelles sont les deux façons de présenter une variable sans perte d'information ?
-    Comment passe-t-on de l'une à l'autre ?
-13. Définissez la distribution observée des effectifs et l'effectif d'une modalité.
-14. Définissez la fréquence, puis la fréquence cumulée. À quel type de variable le cours
-    réserve-t-il la seconde, et pourquoi ?
-15. Écrivez les formules de $ n $, $ f_i $ et $ F_k $.
-16. Démontrez que $ \sum f_i = 1 $ et que $ F $ est croissante.
-17. Qu'est-ce qu'une présentation de plusieurs distributions d'un même caractère ? Quelles
-    variables met-elle en jeu ?
-18. Quelle est la règle de choix entre un diagramme groupé par catégorie et un diagramme
-    groupé par année ?
-19. Quelle est la différence entre un diagramme empilé en effectifs et un empilé à 100 % ?
-    Que perd-on avec le second ?
-20. Citez les quatre règles de présentation d'un tableau ou d'un graphique.
-21. Que signifie « informer », selon le cours ?
-22. Qu'est-ce que la statistique inférentielle ? À quelle condition est-elle valide ?
-
-::: correction Corrigé du niveau 1
-1. **Besoin de décider → besoin d'information → étude statistique.**
-2. ① Problématique ② Choix des données à observer (qui ?) ③ Choix de la méthode de recueil
-   ④ Campagne de mesures ⑤ Traitement ⑥ Prise de décision.
-3. **« Tous les choix sont guidés par le type de problématique. »** Les flèches remontent de
-   chaque étape vers l'étape 1 : aucun choix technique n'est bon dans l'absolu, il n'est bon
-   que **relativement à la question posée**.
-4. **Expérimentation · observation ou enquête qualitative · données de seconde main ·
-   enquête quantitative.** La plus coûteuse : l'**enquête quantitative**.
-5. **Combien** de personnes enquêter, **quand**, **comment**.
-6. Présenter sans perte (**CHAP 1**) · résumer variable par variable (**CHAP 2**) ·
-   évolutions temporelles (**CHAP 3**) · croiser plusieurs variables (**CHAP 4**).
-7. Le **résultat des traitements** et les **éléments méthodologiques**, orientés selon la
-   problématique ; toute information non informative est **bannie**. **Ce n'est pas le
-   rapport qui décide** : la décision est **politique**, car passer de « ce qui est » à
-   « ce qu'il faut faire » exige un critère de choix qu'aucun tableau ne contient.
-8. **Population** : l'ensemble étudié. **Individu / unité statistique** : ses éléments.
-   **Effectif total** : leur nombre. **Variable** : une application associant à chaque
-   individu une valeur. **Modalités** : les valeurs prises.
-9. Parce qu'une application associe à **chaque** individu **une et une seule** valeur.
-   Conséquences : les **non-réponses** doivent être explicitement traitées, et les modalités
-   doivent être **exhaustives et exclusives** — une question à réponses multiples n'est pas
-   une variable mais plusieurs.
-10. **Qualitative** (modalités non numériques) → **nominale** / **ordinale**, critère :
-    *existe-t-il un ordre qui a du sens ?* **Quantitative** (modalités numériques) →
-    **discrète** / **continue**, critère : *compte-t-on ou mesure-t-on ?*
-11. **Test de la moyenne** : a-t-elle un sens ? « Sexe moyen = 1,5 » n'en a pas → la
-    variable reste qualitative.
-12. **Série brute** et **distribution observée des effectifs**. Passage : **tri des
-    modalités, puis comptage des effectifs**.
-13. Elle **associe à chaque modalité l'effectif observé correspondant** ; l'**effectif d'une
-    modalité** est le nombre d'individus qui la présentent.
-14. **Fréquence** : proportion d'individus présentant une modalité donnée, dans la
-    population totale. **Fréquence cumulée** : proportion présentant cette modalité **ou une
-    modalité inférieure**. Le cours la réserve au **quantitatif**, car cumuler suppose un
-    **ordre** sur les modalités.
-15. $ n = \sum_{i=1}^{p} n_i $ ; $ f_i = n_i/n $ ; $ F_k = \sum_{i=1}^{k} f_i $.
-16. $ \sum f_i = \sum n_i/n = (1/n)\sum n_i = n/n = 1 $. Et
-    $ F_k - F_{k-1} = f_k \ge 0 $, donc $ F $ est croissante.
-17. Plusieurs **sous-populations**, définies **selon une autre variable**, chacune avec sa
-    distribution, **juxtaposées** pour être **comparées**. Deux variables : celle qu'on
-    **étudie** et celle qui **découpe**.
-18. **Ce qui est dans le même groupe est ce que l'œil compare.** Groupé par catégorie → on
-    voit l'**évolution** ; groupé par année → on voit la **structure**.
-19. L'empilé en effectifs conserve les **volumes** (hauteurs inégales) ; l'empilé à 100 %
-    n'affiche que la **structure** (hauteurs égales) et **détruit toute information de
-    volume**.
-20. **Intitulés précis · lisibles par un non-spécialiste · compréhension immédiate ou note
-    de lecture · unités, population et choix méthodologiques indiqués.**
-21. **Donner une forme, une signification à des données** brutes. Les tableaux et graphiques
-    **produisent** de l'information.
-22. Les techniques permettant de **déduire des éléments d'une population à partir d'un
-    échantillon**. Condition : l'échantillon doit être **tiré aléatoirement**.
-:::
-
-### Niveau 2 — Application
-
-**Exercice 1 — Qualifier huit variables.** Pour chacune, donnez le type et le sous-type, et
-**justifiez par le critère**.
-
-a) code postal — b) note sur 20 — c) mention au baccalauréat — d) chiffre d'affaires annuel
-— e) catégorie socioprofessionnelle — f) âge en années révolues — g) tranche d'âge
-(« 18-24 », « 25-34 »…) — h) numéro de téléphone.
-
-::: correction Corrigé de l'exercice 1
-| Variable | Type | Justification par le critère |
-|---|---|---|
-| **a) Code postal** | **Qualitative nominale** | Ce sont des chiffres, mais des **étiquettes** : la moyenne de deux codes postaux n'a aucun sens, et 13100 n'est pas « supérieur » à 13001 |
-| **b) Note sur 20** | **Quantitative continue** | Elle relève de la **mesure** d'une performance ; une note de 12,5 ou 12,75 a un sens. *(Si le barème n'admet que des entiers, on la traite en pratique comme discrète : signalez-le, c'est ce qu'attend un correcteur exigeant.)* |
-| **c) Mention au baccalauréat** | **Qualitative ordinale** | Modalités non numériques (passable, assez bien, bien, très bien) mais **ordonnées** : l'ordre a du sens |
-| **d) Chiffre d'affaires annuel** | **Quantitative continue** | Grandeur **mesurée** ; entre 1,2 M€ et 1,3 M€, une infinité de valeurs |
-| **e) Catégorie socioprofessionnelle** | **Qualitative nominale** | Modalités non numériques, aucun ordre qui ait un sens — même si l'Insee les numérote |
-| **f) Âge en années révolues** | **Quantitative discrète** *(par convention)* | L'âge est une grandeur **continue** par nature ; « en années révolues », il relève du **comptage** et se traite comme discret. **Justifier ce choix est le vrai attendu** |
-| **g) Tranche d'âge** | **Qualitative ordinale** | Les modalités sont des **classes**, non des nombres, et elles sont **ordonnées**. *(On la traite aussi comme une quantitative regroupée en classes selon l'usage — mais elle n'est plus une variable numérique.)* |
-| **h) Numéro de téléphone** | **Qualitative nominale** | Pure **étiquette** : ni ordre ni opération arithmétique n'ont de sens |
-
-**Le fil rouge :** trois des huit variables (a, e, h) sont des **nombres qui n'en sont pas**.
-C'est exactement l'avertissement de la diapositive 13.
-:::
-
-**Exercice 2 — Construire une distribution complète.** Quarante clients d'une enseigne ont
-été interrogés sur leur nombre de visites en magasin au cours du mois écoulé. Série brute :
-
-```
-2 0 1 3 2 1 0 2 4 1   1 2 0 5 2 1 3 2 1 0
-2 1 4 2 0 1 2 3 1 2   0 1 2 1 3 2 0 1 2 1
-```
-
-1. Identifiez la population, les unités statistiques, l'effectif total, la variable et son
-   type.
-2. Construisez le tableau de la distribution : effectifs, fréquences, fréquences cumulées.
-3. Vérifiez vos calculs par les trois contrôles de cohérence.
-4. Écrivez une phrase de lecture pour $ f $ de la modalité 2 et pour $ F $ de la modalité 2.
-5. Quelle part des clients est venue **au moins trois fois** ?
-
-::: correction Corrigé détaillé de l'exercice 2
-**1. Identification.**
-- Population : les **40 clients interrogés** de l'enseigne.
-- Unités statistiques : **un client**.
-- Effectif total : $ n = 40 $.
-- Variable : le **nombre de visites en magasin au cours du mois écoulé**.
-- Type : **quantitative discrète** — un **comptage** ; entre 2 et 3 visites, rien.
-
-**2. Tri puis comptage.** On trie les 40 valeurs, puis on compte modalité par modalité.
-
-| $ x_i $ | $ n_i $ | $ f_i $ (%) | $ F_i $ (%) |
-|---:|---:|---:|---:|
-| 0 | 7 | 17,5 | 17,5 |
-| 1 | 13 | 32,5 | 50,0 |
-| 2 | 13 | 32,5 | 82,5 |
-| 3 | 4 | 10,0 | 92,5 |
-| 4 | 2 | 5,0 | 97,5 |
-| 5 | 1 | 2,5 | 100,0 |
-| **Ensemble** | **40** | **100,0** | — |
-
-*Détail de deux calculs :* $ f_1 = 7/40 = 0{,}175 = 17{,}5 $ % ;
-$ F_3 = 17{,}5 + 32{,}5 + 32{,}5 = 82{,}5 $ %.
-
-**3. Les trois contrôles.**
-- $ \sum n_i = 7+13+13+4+2+1 = 40 = n $ ✔
-- $ \sum f_i = 17{,}5+32{,}5+32{,}5+10+5+2{,}5 = 100{,}0 $ % ✔
-- $ F $ croissante et $ F_6 = 100{,}0 $ % ✔
-
-**4. Phrases de lecture.**
-- *Fréquence :* « **32,5 %** des 40 clients interrogés sont venus **exactement deux fois**
-  en magasin au cours du mois écoulé. »
-- *Fréquence cumulée :* « **82,5 %** des clients interrogés sont venus **au plus deux
-  fois**. »
-
-**5. Au moins trois visites.** Deux méthodes, même résultat :
-- par complément : $ 100 - F(2) = 100 - 82{,}5 = \mathbf{17{,}5} $ % ;
-- par addition directe : $ 10{,}0 + 5{,}0 + 2{,}5 = \mathbf{17{,}5} $ % ✔
-
-**La méthode par complément est celle à privilégier en examen** : un seul calcul, et elle
-utilise la colonne des fréquences cumulées, déjà construite.
-:::
-
-**Exercice 3 — Calculs inverses.**
-a) Dans une population de 1 240 individus, une modalité a une fréquence de 12,5 %. Quel est
-son effectif ?
-b) Une modalité regroupe 348 individus et représente 29 % de la population. Quel est
-l'effectif total ?
-c) Dans un tableau à quatre modalités, on lit $ F_1 = 18 $ %, $ F_2 = 47 $ %,
-$ F_3 = 81 $ %. Retrouvez les quatre fréquences $ f_1 $ à $ f_4 $.
-
-::: correction Corrigé de l'exercice 3
-**a)** De $ f_i = n_i/n $ on tire $ n_i = f_i \times n $ :
-$ n_i = 0{,}125 \times 1\,240 = \mathbf{155} $ individus.
-
-**b)** De la même relation, $ n = n_i / f_i = 348 / 0{,}29 = \mathbf{1\,200} $ individus.
-*Contrôle :* $ 348/1\,200 = 0{,}29 $ ✔
-
-**c)** Puisque $ F_k = F_{k-1} + f_k $, on a $ f_k = F_k - F_{k-1} $ :
-- $ f_1 = F_1 = \mathbf{18} $ %
-- $ f_2 = 47 - 18 = \mathbf{29} $ %
-- $ f_3 = 81 - 47 = \mathbf{34} $ %
-- $ f_4 = 100 - 81 = \mathbf{19} $ % *(car $ F_4 = 100 $ % nécessairement)*
-
-*Contrôle :* $ 18 + 29 + 34 + 19 = 100 $ % ✔ **La dernière fréquence s'obtient toujours par
-complément à 100 : c'est le point que la majorité des copies rate.**
-:::
-
-**Exercice 4 — Part et volume.** Une enseigne classe ses clients en quatre segments. Voici
-les effectifs de 2019 et 2024.
-
-| Segment | 2019 | 2024 |
-|---|---:|---:|
-| Occasionnels | 420 | 560 |
-| Réguliers | 310 | 395 |
-| Fidèles | 180 | 150 |
-| Premium | 90 | 55 |
-
-1. Calculez la structure (en %) de chaque année.
-2. Que devient le segment « Fidèles », en part et en effectif ?
-3. Un directeur commente : « la part des Fidèles n'a perdu que 5 points, ce n'est pas
-   grave ». Que lui répondez-vous ?
-4. Quel diagramme choisiriez-vous pour appuyer votre réponse, et pourquoi ?
-
-::: correction Corrigé de l'exercice 4
-**1. Structures.** Totaux : 2019 → $ 420+310+180+90 = 1\,000 $ ; 2024 →
-$ 560+395+150+55 = 1\,160 $.
-
-| Segment | 2019 (%) | 2024 (%) | Écart (points) |
+| Année | Somme des quatre lignes | « Ensemble » annoncé | Écart |
 |---|---:|---:|---:|
-| Occasionnels | 42,0 | 48,3 | +6,3 |
-| Réguliers | 31,0 | 34,1 | +3,1 |
-| **Fidèles** | **18,0** | **12,9** | **−5,1** |
-| Premium | 9,0 | 4,7 | −4,3 |
-| **Total** | **100,0** | **100,0** | — |
+| 1999 | 7 627,**4** | 7 627,**5** | **0,1** |
+| 2007 | 7 873,**4** | 7 873,**5** | **0,1** |
 
-**2. Le segment Fidèles.** En **part** : de 18,0 % à 12,9 %, soit **−5,1 points**. En
-**effectif** : de 180 à 150 clients, soit **−30 clients, c'est-à-dire −16,7 %**.
+**L'explication.** Les données sont publiées **en milliers, arrondies au dixième**. L'Insee
+arrondit **chaque ligne** et **le total séparément**, à partir des valeurs exactes. **La somme
+des arrondis n'est donc pas l'arrondi de la somme.** Un écart de 0,1 millier — **cent
+familles sur près de huit millions** — est le résidu normal de ce procédé.
 
-**3. Réponse au directeur.** Deux arguments.
-- La baisse de part **sous-estime** la baisse réelle en apparence, mais la vraie
-  information est ailleurs : **le segment perd un sixième de ses clients** (−16,7 %) dans un
-  total qui, lui, **augmente de 16 %**. La perte de part combine donc deux mouvements de
-  sens opposé.
-- Surtout, un **point de part n'est pas une unité homogène** : il ne dit rien du volume tant
-  qu'on ne connaît pas le total. Ici, 5 points de part valent 30 clients ; sur une base dix
-  fois plus grande, ils en vaudraient 300.
+**Conduite à tenir.** **Ne corrige rien.** Si tu fais le contrôle et que tu tombes dessus,
+écris une ligne : *« Écart de 0,1 millier sur deux colonnes, imputable aux arrondis au dixième
+des données publiées. »* **C'est une remarque de statisticien, et elle rapporte.**
 
-**4. Quel diagramme.** Un **diagramme empilé en effectifs** (et non à 100 %), parce que la
-problématique porte simultanément sur le **volume** et sur la **structure**. Un empilé à
-100 % masquerait précisément l'information qui fonde la réponse : que le total croît
-pendant que le segment recule. **Ou, mieux encore, les deux côte à côte** — la structure
-pour la part, les effectifs pour le volume.
+**Le même phénomène, en sens inverse, sur les fréquences :** les huit fréquences des
+infractions (B1) somment à **100,2 %** parce que sept d'entre elles s'arrondissent vers le
+haut. **On signale, on ne truque pas.**
 :::
 
-**Exercice 5 — Choisir le diagramme.** Pour chacune de ces quatre problématiques, dites
-quel diagramme choisir parmi : *colonnes groupées par catégorie*, *colonnes groupées par
-sous-population*, *empilé en effectifs*, *empilé à 100 %* — et justifiez en une phrase.
+## 5.3 — Les erreurs que fait la majorité de la promotion
 
-a) « Le nombre de condamnés détenus a-t-il augmenté entre 2020 et 2023 ? »
-b) « La composition de la population carcérale s'est-elle déformée entre 2020 et 2023 ? »
-c) « Combien de familles au total, et comment se répartissent-elles selon le nombre
-d'enfants, chaque année ? »
-d) « La part des familles nombreuses recule-t-elle sur trente ans ? »
-
-::: correction Corrigé de l'exercice 5
-**a) Colonnes groupées par catégorie.** La question porte sur l'**évolution d'une catégorie
-donnée** : il faut que les quatre années soient **côte à côte à l'intérieur du groupe
-« condamnés détenus »**, pour que l'œil les compare directement.
-
-**b) Colonnes groupées par sous-population (par année)** — ou empilé à 100 %. La question
-porte sur la **structure** et sa déformation : il faut voir, année par année, le poids
-relatif des catégories.
-
-**c) Empilé en effectifs.** La question demande **deux choses à la fois** : le total (la
-hauteur de la colonne) **et** la composition (les segments). C'est exactement ce que fait
-l'empilé en effectifs, et lui seul.
-
-**d) Empilé à 100 %.** La question ne porte que sur des **parts** (« la part des familles
-nombreuses »), sur une longue période. L'empilement à 100 % est le plus lisible — à
-condition de rappeler les effectifs totaux à côté, faute de quoi on ne saurait pas si le
-recul de la part correspond à un recul du nombre.
-
-**La règle qui produit ces quatre réponses est unique** : *tous les choix sont guidés par le
-type de problématique.*
+::: piege Les dix fautes, et le réflexe qui les évite
+| № | La faute | Le réflexe |
+|:---:|---|---|
+| **1** | Lire une **fréquence cumulée** comme une fréquence : « 90,4 % ont deux enfants » | **Le « ou moins » est obligatoire.** Sans lui, la phrase est fausse. |
+| **2** | Oublier l'**unité** : « 3 578,3 familles » | L'unité est **le millier** : facteur 1 000. **Vérifie l'en-tête de colonne avant d'écrire.** |
+| **3** | Oublier le **champ** : « toutes les familles françaises » | Le champ **définit la population**. Il est dans le bas du tableau, et il est **noté**. |
+| **4** | Confondre **unité statistique** et **caractère** | Le caractère est **ce qui varie d'une unité à l'autre**. |
+| **5** | Classer en **quantitatif** une variable codée en chiffres | **La moyenne a-t-elle un sens ?** Code postal, sexe codé 1/2 : non → **qualitatif**. |
+| **6** | Confondre **discret** et **continu** | **Compté** → discret. **Mesuré** → continu. *L'arrondi d'affichage ne change pas la nature.* |
+| **7** | Oublier la **qualitative ordinale** et répondre « nominale » | Des **libellés** + un **ordre qui a du sens** = **ordinale**. |
+| **8** | Inverser **caractère étudié** et **variable de découpage** | **Le total est du côté de la sous-population.** |
+| **9** | **Inventer une modalité d'effectif nul**, ou **oublier une valeur extrême** | Le tableau contient **exactement les modalités observées** : ni plus, ni moins. |
+| **10** | Calculer une fréquence sur le **total général** au lieu du **total de la colonne** | Dans un empilé à 100 %, **chaque colonne a son propre dénominateur**. |
 :::
 
-### Niveau 3 — Maîtrise
+::: piege Les deux fautes de vocabulaire qui coûtent le plus cher
+**① « Écroué » ≠ « détenu ».** En 2023 : **90 071 écroués**, dont **15 453 non détenus**.
+Écrire « 90 071 détenus » est **faux de 17 %**.
 
-**Question 1.** « Présenter des données, c'est déjà les interpréter. » Discutez, en vous
-appuyant sur au moins trois éléments précis du chapitre.
-
-**Question 2.** Un tableau publié indique : « Champ : France hors Mayotte, familles vivant
-en ménage ordinaire ayant au moins un enfant mineur. Unité : milliers. » Expliquez, en
-quatre points, pourquoi chacune de ces mentions est indispensable, et donnez un exemple
-d'erreur commise en leur absence.
-
-**Question 3 (question piège).** Un étudiant écrit : « la variable *note obtenue au
-contrôle*, codée de 0 à 20, est quantitative discrète, donc je peux calculer sa moyenne ;
-la variable *appréciation*, codée 1 = insuffisant, 2 = passable, 3 = bien, 4 = très bien,
-est aussi codée en chiffres, donc je peux aussi calculer sa moyenne. » Où est l'erreur, et
-que peut-on faire, exactement, avec chacune des deux variables ?
-
-**Question 4.** Vous devez présenter à un directeur commercial la répartition de son chiffre
-d'affaires par région, pour cinq régions et trois années. Décrivez la présentation que vous
-retenez — tableau, diagramme, intitulés, mentions obligatoires — et **justifiez chaque
-choix** par le cours.
-
-::: correction Corrigé du niveau 3 — question 1
-**Thèse : oui, et le chapitre en administre trois preuves.**
-
-**I — La présentation est un choix, et tout choix oriente.**
-Le chapitre montre que les mêmes chiffres produisent des lectures différentes selon la
-présentation. Les diapositives 26 et 27 contiennent **strictement les mêmes données** sur
-les personnes écrouées ; groupées par catégorie, elles racontent une **hausse** ; groupées
-par année, elles racontent une **structure stable**. Le statisticien qui choisit le
-groupement choisit ce que le lecteur verra en premier.
-
-**II — Certaines présentations détruisent de l'information.**
-L'empilement à 100 % (diapositive 30) supprime toute information de volume. Une part de
-12,6 % peut correspondre à un effectif en hausse ou en baisse ; le diagramme ne permet pas
-de trancher. **Choisir cette représentation, c'est décider que le volume n'est pas le
-sujet** — ce qui est une interprétation.
-
-**III — Le cours l'assume explicitement.**
-La diapositive 32 énonce que les tableaux et graphiques « **produisent de l'information** »
-et sont « des **outils de communication** », et que « informer » signifie « **donner une
-forme** ». Une donnée brute ne signifie rien ; c'est la mise en forme qui la rend
-interprétable. Il n'existe donc pas de présentation neutre.
-
-**Nuance à apporter — c'est ce qui distingue une excellente copie.** « Interpréter » n'est
-pas « déformer ». Le chapitre insiste sur le fait que ces présentations se font **sans
-perte d'information** : on peut toujours reconstruire les données. L'orientation est dans
-la **mise en évidence**, pas dans la falsification. D'où la contrepartie exigée par la
-diapositive 32 : indiquer les **unités, la population, les choix méthodologiques** — c'est
-ce qui permet au lecteur de refaire lui-même une autre lecture.
-
-**Conclusion.** Présenter, c'est interpréter — et c'est légitime **à condition que
-l'interprétation soit rendue vérifiable** par la mention des choix effectués. La
-transparence méthodologique n'est pas une formalité : c'est ce qui distingue une
-présentation d'une manipulation.
+**② « + 10 % » ≠ « + 10 points ».** Un écart entre deux pourcentages se dit **en points de
+pourcentage**. De 20,0 % à 30,0 % : **+ 10 points**, et **+ 50 %** d'effectif. **Les deux
+chiffres sont vrais, ils ne disent pas la même chose.**
 :::
 
-::: correction Corrigé du niveau 3 — question 2
-| Mention | Pourquoi elle est indispensable | Erreur commise en son absence |
-|---|---|---|
-| **« France hors Mayotte »** | Délimite géographiquement la population (étape 2 de la démarche) | Comparer ce tableau à un autre incluant Mayotte, et attribuer à une évolution réelle un simple changement de périmètre |
-| **« familles vivant en ménage ordinaire »** | Exclut les personnes vivant en collectivité (foyers, casernes, établissements) | Croire que le total couvre toutes les familles de France |
-| **« ayant au moins un enfant mineur »** | Exclut les familles sans enfant mineur — soit près de la moitié du total dans le tableau de la diapositive 22 | **L'erreur exacte du §2.3.11** : rapprocher ce tableau de celui des 17 132 milliers de familles et conclure à une chute du nombre de familles sans enfant, alors qu'elles sont simplement exclues du champ |
-| **« Unité : milliers »** | Fixe l'ordre de grandeur | Lire « 3 578,3 familles » au lieu de 3,58 millions — exactement l'ambiguïté que crée la diapositive 22 en annonçant « 17 132 familles » |
+## 5.4 — Ce qu'une copie à 18 écrit et qu'une copie à 14 n'écrit pas
 
-**Synthèse attendue :** ces quatre mentions constituent la **définition et la délimitation
-de la population** (étape 2) plus l'**unité de mesure** (diapositive 32). Sans elles, le
-tableau reste lisible mais devient **incomparable** — et la comparaison est précisément
-l'usage principal qu'on fait des données publiées.
+::: synthese Les huit réflexes qui valent les quatre derniers points
+| № | Ce que la copie à 18 ajoute | Pourquoi ça rapporte |
+|:---:|---|---|
+| **1** | **Elle justifie le type** au lieu de l'affirmer : « qualitatif, car les modalités sont des libellés ; nominal, car aucun ordre n'a de sens » | Le barème sépare presque toujours **la réponse** et **la justification** |
+| **2** | **Elle écrit les trois contrôles** : $ \sum n_i = n $, $ \sum f_i = 100 $, dernière cumulée $ = 100 $ | Trente secondes, et cela prouve la méthode même si un calcul est faux |
+| **3** | **Elle donne la formule en lettres avant l'application numérique** | La formule est notée séparément du résultat |
+| **4** | **Elle écrit une phrase de lecture complète** : quand · combien · de quoi · champ · modalité | C'est la question type de l'Insee, et le support la pose deux fois |
+| **5** | **Elle signale les arrondis** au lieu de les masquer : « somme à 100,2 % par cumul d'arrondis » | Une copie qui force un total à 100 est une copie qui triche |
+| **6** | **Elle intitule ses tableaux et graphiques** : titre, unité, population, champ, source | Ce sont les **quatre règles de la diapositive 32** — donc du barème explicite |
+| **7** | **Elle ajoute la grandeur qu'on ne demandait pas** — les fréquences quand on demande les effectifs, la structure quand on demande l'évolution | Un point d'initiative, à condition que le demandé soit complet |
+| **8** | **Elle nomme le mécanisme** : « l'année découpe, la catégorie est distribuée » ; « chaque colonne a son propre dénominateur » | Le correcteur cherche la compréhension, pas la récitation |
 :::
 
-::: correction Corrigé du niveau 3 — question 3
-**L'erreur est dans la seconde moitié de la phrase**, et elle porte sur la nature de la
-variable, pas sur le codage.
+::: synthese Les cinq phrases à recopier telles quelles le jour de l'épreuve
+1. *« La population est l'ensemble des [unités], sur le champ [champ]. L'unité statistique est
+   [une unité]. L'effectif total est n = [valeur]. »*
+2. *« Le caractère est [X]. Il est [type], car [justification en une ligne]. »*
+3. *« En [année], [valeur] [unité] de [population, champ] avaient [modalité]. »*
+4. *« [F] % de [population] présentaient [modalité] **ou moins**. »*
+5. *« Contrôles : la somme des effectifs vaut l'effectif total ; la somme des fréquences vaut
+   100 % ; la dernière fréquence cumulée vaut 100 %. »*
+:::
 
-**La variable *note*.** Les nombres de 0 à 20 sont de véritables **quantités** : l'écart
-entre 8 et 10 est le même qu'entre 16 et 18, et une note de 12,5 a un sens. La moyenne est
-donc licite. *(Sur son sous-type : la note relève d'une **mesure** de performance, donc
-techniquement d'une variable **continue** ; si le barème n'admet que des entiers, on la
-traite en pratique comme **discrète**. Signaler cette nuance est ce qu'attend un correcteur
-exigeant.)*
+## 5.5 — La check-list de la veille *(20 minutes, bloc 1 et bloc 5 seuls)*
 
-**La variable *appréciation*.** Les codes 1 à 4 sont des **étiquettes ordonnées**. L'ordre
-est réel — insuffisant < passable < bien < très bien — mais **les écarts n'ont aucun sens** :
-rien ne garantit que passer d'« insuffisant » à « passable » représente le même progrès que
-passer de « bien » à « très bien ». C'est une variable **qualitative ordinale**, et
-**calculer sa moyenne n'a pas de sens** : « appréciation moyenne = 2,7 » ne désigne aucune
-appréciation.
+::: methode Sept questions. Si tu réponds aux sept, tu es prêt.
+1. Les **six étapes**, dans l'ordre, et la phrase qui les commande ?
+2. Les **cinq définitions** : population, unité, caractère, modalité, effectif ?
+3. Les **quatre sous-types** de variables, avec **le critère** de chacun et un exemple ?
+4. $ f_i = ? $ · $ F_k = ? $ · $ n = ? $ — **en notations**, et ce que vaut $ p $ ?
+5. **Quand** une fréquence cumulée a-t-elle un sens, et **quand** n'en a-t-elle pas ?
+6. Les **quatre graphiques** du chapitre et **la question** à laquelle chacun répond ?
+7. Les **quatre règles de présentation** de la diapositive 32 ?
 
-**Ce qu'on peut faire, exactement, avec chacune :**
+**Puis : série A intégrale, à froid, en dix minutes.** Toute question ratée deux fois de suite
+renvoie au bloc 2 sur cette notion — **c'est un défaut de compréhension, pas de mémoire.**
+:::
 
-| Opération | Note | Appréciation |
+<!--saut-->
+
+# Bloc 6 — Annexe : tableau de couverture des 33 diapositives
+
+> **C'est la preuve vérifiable qu'aucun élément du support n'a été laissé de côté.**
+> Une ligne par diapositive, **sans trou de numérotation**, de 1 à 33.
+> **✔** traitée intégralement · **⚠** source incomplète, **reconstruite ici** ·
+> **✖** donnée manquante, **demande explicite formulée**.
+
+| № | Ce que contient la diapositive | État | Où c'est traité, et ce qui a été reconstruit |
+|:---:|---|:---:|---|
+| **1** | Page de titre — Hélène Couprie, Portail L1 Division A, 2026-27 | **✔** | Bloc 0, encadré d'identification |
+| **2** | Contenu et plan du chapitre en trois sections | **✔** | **N1** |
+| **3** | Section 1 · chaîne « décider → information → étude » + quatre exemples | **⚠** | **N2**, § 2.1.1 — les quatre exemples sont posés **sans commentaire** : chacun est décomposé en décision visée / information nécessaire |
+| **4** | **Schéma muet** des six étapes | **⚠** | **N3**, § 2.1.2 — diapositive **sans une ligne de texte** : les six étapes, le sens des flèches et la phrase qui les commande sont reconstruits |
+| **5** | Étape 1 · « quel type de problématique ? » + exemple de l'hypermarché | **⚠** | **N4**, § 2.1.2 — les quatre sous-questions sont énumérées sans être exploitées : ce qu'elles changent pour l'étude est explicité |
+| **6** | Étape 2 · « Qui ? » — choix des données à observer | **⚠** | **N4**, § 2.1.3 — « la population devra être définie, délimitée » : ce que *délimiter* veut dire est reconstruit |
+| **7** | Étape 3 · les **quatre méthodes de recueil** | **⚠** | **N5**, § 2.1.2 — les quatre méthodes sont **nommées sans critère de choix** : tableau comparatif coût / précision / usage ajouté |
+| **8** | Étape 4 · campagne de mesures, trois questions | **⚠** | **N4**, § 2.1.2 — « combien, quand, comment » sans réponse : les enjeux de chacune sont développés |
+| **9** | Étape 5 · traitement + annonce des quatre chapitres du cours | **✔** | **N1**, **N4** |
+| **10** | Étape 6 · prise de décision et contenu du rapport | **⚠** | **N6**, § 2.1.3 — « toute décision est politique » n'est pas expliqué : le partage entre statisticien et décideur est reconstruit |
+| **11** | Section 2 · les cinq définitions + convention de notation majuscule/minuscule | **⚠** | **N7**, § 2.2.1 — **« application »** est un terme mathématique **employé sans définition** : défini, avec ses deux exigences et leurs conséquences |
+| **12** | Illustration · infractions déclarées, France 2024 + **exercice sans corrigé** | **⚠** | **N21**, **N22**, **série B1** — l'exercice posé par la diapositive est **corrigé intégralement**, fréquences comprises |
+| **13** | Les deux types et **quatre sous-types** + avertissement sur le codage numérique | **⚠** | **N8**, § 2.2.2 — **« dénombrable »** et **« non dénombrable »** sont **employés sans définition** : définis, avec le test pratique d'examen |
+| **14** | Illustration · quatre couples caractère / modalités | **✔** | **N8** — les quatre exemples sont repris et classés |
+| **15** | Section 3 · les deux façons de présenter, et le traitement qui fait passer de l'une à l'autre | **✔** | **N9**, § 2.3.1 et § 2.3.2 |
+| **16** | Distribution observée des effectifs · définition + trois précisions | **✔** | **N10** |
+| **17** | Illustration · **série brute** des 87 étudiants | **⚠** | **N17**, § 2.3.2 — série **recomptée chiffre par chiffre à l'image** : **10 zéros et 24 « 2 »** ➔ anomalie **A1** |
+| **18** | Illustration · **série ordonnée** | **✔** | **N17** — recomptée : **11 zéros, 23 « 2 »**, conforme au tableau |
+| **19** | Illustration · **tableau** de la distribution, total 87 | **✔** | **N17** |
+| **20** | Illustration · **diagramme colonne** de la distribution *(image seule)* | **⚠** | **N14**, § 2.4.2 — graphique **sans aucun commentaire** : ce qu'il montre, ce qu'il permet de lire et pourquoi 11 modalités excluent le camembert |
+| **21** | Répartition · définitions de la **fréquence** et de la **fréquence cumulée** + camembert ou barres | **⚠** | **N11**, § 2.3.4 — la restriction *« pour un caractère quantitatif »* et le choix camembert/barres sont **posés sans justification** : les deux sont démontrés |
+| **22** | Illustration · **tableau des familles** + **exercice sans corrigé** | **⚠** | **N18**, **série B2** — exercice corrigé intégralement ; deux imprécisions relevées ➔ **A2**, **A3** |
+| **23** | Formellement · $ X $, $ x_i $, $ n_i $, $ n $, $ f_i $, $ F_k $ + renvoi « diapo 21 » | **⚠** | **N12**, § 2.3.4 — les notations sont **posées sans démonstration** : $ \sum n_i = n $ est démontré ; renvoi fautif ➔ **A4** |
+| **24** | Plusieurs distributions · le mécanisme en quatre puces | **⚠** | **N13**, § 2.4.1 — « définies selon une AUTRE variable » n'est pas explicité : le mécanisme en trois temps est reconstruit |
+| **25** | Tableau des **personnes écrouées** + **exercice sans corrigé** | **⚠** | **N19**, **série B3** — exercice corrigé ; **quatre termes pénaux employés sans définition** (écroué, prévenu, condamné, condamné-prévenu) : tous définis |
+| **26** | **Diagramme colonnes groupées 1** — groupement par catégorie *(image seule)* | **⚠** | **N14**, § 2.4.2 — la règle « le choix dépend de ce qui est au centre de l'analyse » est **énoncée sans être appliquée** : tableau comparatif d. 26 / d. 27 |
+| **27** | **Diagramme colonnes groupées 2** — groupement par année *(image seule)* | **⚠** | **N14**, § 2.4.2 — *idem*, avec la lecture chiffrée des deux graphiques |
+| **28** | Tableau **enfants par famille**, 1990-2023 + **exercice sans corrigé** | **⚠** | **N20**, **série B4** — exercice corrigé ; **« ménage ordinaire »** et **« enfant mineur »** définis ; écart d'arrondi de 0,1 expliqué ➔ § 5.2 |
+| **29** | **Diagramme empilé** *(image seule)* | **⚠** | **N14**, § 2.4.2 — « la hauteur correspond à l'ensemble » sans en tirer la conséquence : le critère de choix empilé / empilé 100 % est établi |
+| **30** | **Diagramme empilé à 100 %** + **exercice sans corrigé** | **⚠** | **N20**, **série B5** — exercice corrigé ; **les 24 fréquences recalculées** et vérifiées |
+| **31** | Diagramme colonne 1975-2008 + renvoi « le tableau précédent » | **⚠** | § 5.1 **A3** — les **25 valeurs relevées à l'image** ; le renvoi est faux, et sa correction **révèle l'année du tableau de la diapositive 22 : 2008** |
+| **32** | Section 3 · les **quatre règles** de présentation | **✔** | **N15**, § 2.5.1 |
+| **33** | Remarques conclusives + ouverture sur la **statistique inférentielle** | **⚠** | **N16**, § 2.5.2 — **« échantillon »** et **« inférentielle »** employés sans définition opératoire : définis, avec la raison du tirage aléatoire |
+
+## Le bilan de couverture
+
+::: synthese 33 diapositives, 0 trou, 24 compensations
+| | Nombre | Part |
 |---|:---:|:---:|
-| Compter les effectifs par modalité | oui | oui |
-| Calculer des fréquences | oui | oui |
-| **Ordonner** les modalités | oui | **oui** (elle est ordinale) |
-| Calculer des **fréquences cumulées** | oui | **oui** — l'ordre suffit |
-| Calculer une **moyenne** | **oui** | **non** |
-| Calculer un **écart** entre deux modalités | oui | **non** |
+| **✔ Diapositive traitée intégralement, source suffisante** | **9** | 27 % |
+| **⚠ Source incomplète — reconstruite ici de zéro** | **24** | **73 %** |
+| **✖ Donnée manquante, demande formulée** | **0** | 0 % |
+| **Total** | **33** | 100 % |
 
-**La formulation à retenir :** le **test du codage** n'est pas « y a-t-il des chiffres ? »
-mais « **les opérations arithmétiques ont-elles un sens ?** ». Et il faut distinguer deux
-seuils : l'**ordre** autorise le cumul et la médiane ; seule la **quantité** autorise la
-moyenne et les écarts.
+**Ce que ces 24 ⚠ recouvrent, concrètement :**
+
+| Type de trou comblé | Combien | Exemples |
+|---|:---:|---|
+| **Terme employé sans définition** | **8** | « application » · « dénombrable » · « écroué », « prévenu », « condamné-prévenu » · « ménage ordinaire » · « enfant mineur » · « échantillon » |
+| **Graphique ou schéma sans commentaire** | **6** | d. 4 *(schéma muet)* · d. 20 · d. 26 · d. 27 · d. 29 · d. 31 |
+| **Exercice posé et jamais corrigé** | **5** | d. 12 · d. 22 · d. 25 · d. 28 · d. 30 → **série B** |
+| **Règle énoncée sans justification** | **3** | la fréquence cumulée réservée au quantitatif · camembert ou barres · le choix du diagramme groupé |
+| **Liste sans mécanisme** | **2** | les quatre méthodes de recueil · les quatre puces de la d. 24 |
+
+**Et quatre anomalies vérifiées à l'image**, toutes développées au bloc 5 : **A1** série brute
+à 10 zéros et 24 « 2 » contre 11 et 23 · **A2** « 17 132 familles » au lieu de « milliers » ·
+**A3** renvoi fautif de la d. 31 · **A4** renvoi à la « diapo 21 ».
+**Plus un faux problème** : l'écart d'arrondi de 0,1 sur deux colonnes de la d. 28, § 5.2.
 :::
 
-::: correction Corrigé du niveau 3 — question 4
-**La démarche à montrer, avant toute réponse technique :** partir de la problématique. Que
-veut le directeur commercial ? Deux problématiques distinctes se cachent derrière la
-demande.
-
-**A. « Où est mon chiffre d'affaires, et comment évolue-t-il ? »** → question de **volume**.
-**B. « Mon poids par région se déforme-t-il ? »** → question de **structure**.
-
-Ne pouvant trancher, on **présente les deux**, en le disant.
-
-**1. Un tableau, d'abord.** Cinq lignes (régions) × trois colonnes (années), plus une ligne
-« Ensemble ». Le tableau est la **présentation sans perte** ; il permet de retrouver
-n'importe quel chiffre. Il porte : titre explicite, **unité** (« en milliers d'euros »),
-**champ** (« chiffre d'affaires hors taxes, périmètre France, hors ventes en ligne »),
-**source** et **date d'extraction**.
-
-**2. Un diagramme empilé en effectifs**, une colonne par année, cinq segments par colonne.
-Il répond à la problématique A : la **hauteur** donne le chiffre d'affaires total, les
-**segments** la contribution de chaque région.
-
-**3. Si et seulement si la question porte sur la structure**, un second diagramme **empilé
-à 100 %**, en rappelant les totaux annuels sous les colonnes — sans quoi le lecteur ne
-saurait pas si une part stable recouvre un volume en hausse ou en baisse.
-
-**4. Le choix de ne pas faire.** Un **camembert par année** obligerait à comparer des
-secteurs entre trois graphiques séparés : l'œil ne sait pas comparer des angles d'une figure
-à l'autre. Le cours réserve le camembert à **une** répartition, pas à une comparaison de
-répartitions.
-
-**5. Les mentions obligatoires** (diapositive 32) : intitulés précis — « Chiffre d'affaires
-hors taxes par région, 2022-2024 » et non « CA_REG » ; lisibilité par un non-spécialiste ;
-**note de lecture** sous le tableau : *« Lecture : en 2024, la région Sud a réalisé 4 250
-milliers d'euros de chiffre d'affaires hors taxes, soit 23,1 % du total. »*
-
-**La phrase qui doit apparaître dans la copie :** le choix de la présentation **découle de
-la problématique**, et non l'inverse.
-:::
-
-<!--saut-->
-### Niveau 4 — Simulation d'examen
-
-::: methode Conditions de passation
-**Le support ne donne aucune indication sur le format ni sur la durée de l'épreuve.** La
-simulation retient le format le plus courant pour un premier chapitre de statistique
-descriptive : **1 h 30**, sur **20 points**, avec des questions de cours et deux exercices
-chiffrés. **Calculatrice autorisée, documents interdits.** Ajustez ces paramètres dès que
-les modalités réelles seront annoncées.
-
-Chronomètre lancé. Répartition du temps conseillée : 20 min pour la partie A, 35 min pour
-la partie B, 30 min pour la partie C, 5 min de relecture.
-:::
-
-#### Sujet
-
-**PARTIE A — Questions de cours (6 points)**
-
-**A.1** *(2 pts)* Citez les six étapes d'une étude statistique et énoncez le principe qui
-relie chaque étape à la première.
-
-**A.2** *(2 pts)* Définissez la fréquence et la fréquence cumulée. Démontrez que la somme
-des fréquences vaut 1 et que la suite des fréquences cumulées est croissante.
-
-**A.3** *(1 pt)* Une enquête code la variable « niveau de satisfaction » ainsi : 1 = très
-insatisfait, 2 = insatisfait, 3 = satisfait, 4 = très satisfait. Quel est le type de cette
-variable ? Peut-on en calculer la moyenne ? Justifiez.
-
-**A.4** *(1 pt)* Qu'est-ce qu'un diagramme empilé à 100 % permet de voir, et qu'est-ce qu'il
-détruit ?
-
-**PARTIE B — Construction d'une distribution (7 points)**
-
-Cinquante ménages d'un quartier ont été interrogés sur le nombre de personnes composant le
-ménage. Série brute :
-
-```
-2 1 4 3 2 1 2 5 3 2   1 2 3 2 1 4 2 3 1 2
-2 3 1 2 6 2 1 3 2 4   1 2 2 1 3 2 5 1 2 3
-2 1 4 2 3 1 2 2 1 2
-```
-
-**B.1** *(2 pts)* Identifiez la population, les unités statistiques, l'effectif total, la
-variable et son type — en justifiant le sous-type.
-
-**B.2** *(3 pts)* Construisez le tableau complet de la distribution : modalités, effectifs,
-fréquences, fréquences cumulées. Effectuez les trois contrôles de cohérence.
-
-**B.3** *(1 pt)* Écrivez une phrase de lecture pour la fréquence de la modalité 2, puis pour
-la fréquence cumulée de la modalité 3.
-
-**B.4** *(1 pt)* Quelle part des ménages compte **au moins quatre personnes** ? Donnez les
-deux méthodes de calcul.
-
-**PARTIE C — Comparaison de deux distributions (7 points)**
-
-Une commune a recensé la composition de ses ménages en 2015 et en 2024.
-
-| Nombre de personnes | 2015 | 2024 |
-|---|---:|---:|
-| 1 personne | 1 240 | 1 560 |
-| 2 personnes | 2 180 | 2 460 |
-| 3 personnes | 860 | 700 |
-| 4 personnes ou plus | 320 | 180 |
-| **Ensemble** | **4 600** | **4 900** |
-
-**C.1** *(1 pt)* Identifiez la population, les sous-populations, la variable de découpage et
-la variable étudiée.
-
-**C.2** *(2 pts)* Calculez la structure de chaque année, en pourcentage. Vérifiez vos
-résultats.
-
-**C.3** *(2 pts)* Que devient la modalité « 3 personnes », en part et en effectif ? Rédigez
-une phrase de commentaire qui rende compte des deux.
-
-**C.4** *(1 pt)* Un élu déclare : « les ménages de quatre personnes ou plus ne représentent
-plus que 3,7 % : leur nombre s'est effondré. » L'affirmation est-elle correctement
-justifiée ? Que faut-il vérifier ?
-
-**C.5** *(1 pt)* Quel diagramme retenez-vous pour présenter ce tableau au conseil municipal ?
-Justifiez par la problématique et indiquez les mentions obligatoires.
-
-::: correction Corrigé type — « copie de major », avec le barème
-**PARTIE A (6 pts)**
-
-**A.1 (2 pts)** ① Quel type de **problématique** ? ② Choix des **données à observer**
-(qui ?) ③ Choix de la **méthode de recueil** ④ **Campagne de mesures** ⑤ **Traitement** des
-données ⑥ **Prise de décision**. *(1 pt pour les six étapes dans l'ordre.)*
-Principe : **« tous les choix sont guidés par le type de problématique »** — les flèches de
-retour du schéma remontent de chaque étape vers l'étape 1 ; aucune méthode n'est bonne dans
-l'absolu, seulement adaptée ou non à la question posée. *(1 pt.)*
-
-**A.2 (2 pts)** La **fréquence** $ f_i = n_i/n $ est la proportion d'individus présentant
-**exactement** la modalité $ x_i $. La **fréquence cumulée** $ F_k = \sum_{i=1}^{k} f_i $
-est la proportion présentant la modalité $ x_k $ **ou une modalité inférieure** — « au
-plus ». *(0,5 pt.)*
-$$ \sum_{i=1}^{p} f_i = \sum_{i=1}^{p}\frac{n_i}{n} = \frac{1}{n}\sum_{i=1}^{p} n_i = \frac{n}{n} = 1 $$
-*(0,75 pt : 0,25 par étape — définition, sortie de $ n $, somme des effectifs.)*
-$ F_k - F_{k-1} = f_k \ge 0 $ car une fréquence est positive ou nulle, donc
-$ F_k \ge F_{k-1} $ : la suite est croissante. *(0,75 pt.)*
-
-**A.3 (1 pt)** Variable **qualitative ordinale** *(0,5 pt)* : les modalités sont des
-appréciations, non des quantités, mais elles sont **ordonnées**. **On ne peut pas calculer
-sa moyenne** *(0,5 pt)* : les codes sont des étiquettes ordonnées et **les écarts entre eux
-n'ont pas de sens** — rien ne garantit que l'écart 1→2 vaille l'écart 3→4. On peut en
-revanche compter, calculer des fréquences, et cumuler, puisque l'ordre est défini.
-
-**A.4 (1 pt)** Il permet de voir la **structure** de chaque sous-population et sa
-déformation dans le temps, toutes les colonnes étant ramenées à la même hauteur. Il
-**détruit toute information de volume** : une colonne de 100 % peut représenter n'importe
-quel effectif total. D'où la règle : toujours indiquer les effectifs totaux à côté.
-
----
-
-**PARTIE B (7 pts)**
-
-**B.1 (2 pts)**
-- Population : les **50 ménages interrogés** du quartier *(0,5)*.
-- Unités statistiques : **un ménage** *(0,5)*.
-- Effectif total : $ n = 50 $ *(0,25)*.
-- Variable : le **nombre de personnes composant le ménage** *(0,25)*.
-- Type : **quantitative discrète** *(0,5)* — les modalités sont des nombres issus d'un
-  **comptage** ; entre 2 et 3 personnes, aucune valeur intermédiaire n'a de sens.
-
-**B.2 (3 pts)** Méthode : **tri des modalités, puis comptage des effectifs**.
-
-| $ x_i $ | $ n_i $ | $ f_i $ (%) | $ F_i $ (%) |
-|---:|---:|---:|---:|
-| 1 | 13 | 26,0 | 26,0 |
-| 2 | 21 | 42,0 | 68,0 |
-| 3 | 9 | 18,0 | 86,0 |
-| 4 | 4 | 8,0 | 94,0 |
-| 5 | 2 | 4,0 | 98,0 |
-| 6 | 1 | 2,0 | 100,0 |
-| **Ensemble** | **50** | **100,0** | — |
-
-*(2 pts pour le tableau : 1 pt effectifs exacts, 0,5 fréquences, 0,5 cumulées.)*
-Détail d'un calcul : $ f_2 = 21/50 = 0{,}42 = 42{,}0 $ %.
-**Contrôles** *(1 pt)* : $ \sum n_i = 13+21+9+4+2+1 = 50 = n $ ✔ ;
-$ \sum f_i = 100{,}0 $ % ✔ ; $ F $ croissante et $ F_6 = 100{,}0 $ % ✔.
-
-**B.3 (1 pt)**
-- « **42,0 %** des 50 ménages interrogés du quartier sont composés d'**exactement deux
-  personnes**. » *(0,5)*
-- « **86,0 %** des ménages interrogés comptent **au plus trois personnes**. » *(0,5)*
-
-**B.4 (1 pt)** **14,0 %**.
-- Par complément : $ 100 - F(3) = 100 - 86{,}0 = 14{,}0 $ % *(0,5)*.
-- Par addition : $ 8{,}0 + 4{,}0 + 2{,}0 = 14{,}0 $ % *(0,5)*. Les deux concordent ✔
-
----
-
-**PARTIE C (7 pts)**
-
-**C.1 (1 pt)** Population : les **ménages de la commune**. Unités : **un ménage**.
-Sous-populations : les ménages de **2015** et ceux de **2024**. Variable de **découpage** :
-l'**année** ; variable **étudiée** : le **nombre de personnes du ménage** (quantitative
-discrète, dernière modalité en **classe ouverte**).
-
-**C.2 (2 pts)**
-
-| Nombre de personnes | 2015 (%) | 2024 (%) | Écart (points) |
-|---|---:|---:|---:|
-| 1 personne | 27,0 | 31,8 | +4,8 |
-| 2 personnes | 47,4 | 50,2 | +2,8 |
-| **3 personnes** | **18,7** | **14,3** | **−4,4** |
-| 4 personnes ou plus | 7,0 | 3,7 | −3,3 |
-| **Total** | **100,1** | **100,0** | — |
-
-Détail : $ 1\,240/4\,600 = 0{,}2696 \rightarrow 27{,}0 $ % ;
-$ 860/4\,600 = 0{,}1870 \rightarrow 18{,}7 $ %.
-**Contrôle** : la colonne 2015 totalise **100,1 %** — l'écart de 0,1 point est un **effet
-d'arrondi**, et il doit être **signalé**, non corrigé en silence. *(1 pt structure exacte,
-0,5 détail d'au moins un calcul, 0,5 contrôle et mention de l'arrondi.)*
-
-**C.3 (2 pts)** La modalité « 3 personnes » perd **4,4 points de part** (18,7 % → 14,3 %)
-*(0,5)* et **160 ménages en effectif** (860 → 700), soit **−18,6 %** *(0,5)*.
-Commentaire attendu *(1 pt)* :
-> « Entre 2015 et 2024, les ménages de trois personnes reculent à la fois en nombre — de
-> 860 à 700, soit une baisse de 18,6 % — et en part — de 18,7 % à 14,3 %, soit 4,4 points.
-> Le recul en part sous-estime le phénomène, puisqu'il s'inscrit dans un total en hausse de
-> 6,5 % (4 600 à 4 900 ménages) : la part diminue **parce que** l'effectif baisse **et**
-> que le total augmente. »
-
-**C.4 (1 pt)** L'affirmation est **mal justifiée**. Une **part** ne dit rien du **nombre**
-tant qu'on ne connaît pas le total *(0,5)*. Il faut vérifier l'**effectif** : ici,
-320 → 180, soit **−140 ménages (−43,8 %)**. La conclusion de l'élu se trouve exacte, mais
-**pour une raison qu'il n'a pas donnée** : c'est le calcul en effectif qui l'établit, pas la
-part *(0,5)*. Une part peut chuter alors que l'effectif progresse, si le total progresse
-plus vite.
-
-**C.5 (1 pt)** **Un diagramme empilé en effectifs**, une colonne par année *(0,5)* : la
-problématique d'un conseil municipal porte à la fois sur le **volume** (combien de ménages,
-pour dimensionner écoles et services) et sur la **structure** (quelle composition). L'empilé
-en effectifs montre les deux ; un empilé à 100 % masquerait la hausse du nombre total de
-ménages.
-**Mentions obligatoires** *(0,5)* : titre explicite (« Composition des ménages de la
-commune, 2015 et 2024 »), **unité** (nombre de ménages), **champ** (ménages de la commune),
-**source** et date, et une **note de lecture** : *« Lecture : en 2024, 700 ménages de la
-commune étaient composés de trois personnes, soit 14,3 % de l'ensemble. »*
-
----
-
-**Les cinq points qui font la différence sur cette épreuve.** A.2 (la démonstration écrite,
-pas seulement la formule) · A.3 (refuser la moyenne sur une ordinale) · B.1 (justifier le
-sous-type par comptage/mesure, pas l'affirmer) · C.2 (signaler l'arrondi à 100,1 % au lieu
-de le masquer) · C.4 (démonter le raisonnement de l'élu tout en reconnaissant que sa
-conclusion est exacte).
-:::
-
-<!--saut-->
-
-## 6. Auto-évaluation finale
-
-### 6.1 — Liste de contrôle
-
-> Si l'une de ces questions reste sans réponse **sans regarder le document**, le chapitre
-> n'est pas maîtrisé.
-
-- [ ] J'énonce la chaîne « décider → information → étude » et j'explique son sens de lecture.
-- [ ] Je cite les six étapes dans l'ordre et la légende du schéma.
-- [ ] Je montre, sur l'exemple de l'hypermarché, pourquoi une problématique vague rend les
-      étapes suivantes indéterminées.
-- [ ] Je cite les quatre méthodes de recueil, avec pour chacune ce qu'elle permet et sa limite.
-- [ ] Je cite les quatre familles de traitements et le chapitre correspondant.
-- [ ] J'explique pourquoi ce n'est pas le rapport statistique qui décide.
-- [ ] Je définis population, individu, effectif total, variable, modalité — sans hésiter.
-- [ ] J'explique pourquoi la variable est définie comme une **application**, et j'en tire
-      deux conséquences.
-- [ ] Je qualifie n'importe quelle variable en deux questions, et je résiste au piège du
-      codage numérique.
-- [ ] Je distingue série brute et distribution, et je nomme le traitement qui fait passer de
-      l'une à l'autre.
-- [ ] J'écris $ n $, $ f_i $ et $ F_k $ de mémoire, et je démontre $ \sum f_i = 1 $ et la
-      croissance de $ F $.
-- [ ] Je construis un tableau complet à partir d'une série brute et j'effectue les trois
-      contrôles.
-- [ ] Je calcule un effectif à partir d'une fréquence, et une fréquence à partir de deux
-      fréquences cumulées.
-- [ ] J'écris une phrase de lecture complète : sous-population, valeur, unité, modalité, champ.
-- [ ] Je choisis entre les quatre diagrammes en justifiant par la problématique.
-- [ ] J'explique ce que l'empilement à 100 % détruit, et je sais démonter un raisonnement
-      qui confond part et volume.
-- [ ] Je cite les quatre règles de présentation et j'explique ce que signifie « informer ».
-- [ ] Je distingue statistique descriptive et inférentielle, et je nomme la condition du
-      tirage aléatoire.
-
-### 6.2 — Grille de vérification chiffrée
-
-| Épreuve | Conditions | Seuil | Résultat obtenu | Décision si sous le seuil |
-|---|---|:---:|:---:|---|
-| Niveau 1 — restitution | Sans document | 100 % | *…… / 22* | Reprendre la section du §2 correspondante, refaire la carte le jour même |
-| Niveau 2 — application | Chronométré, sans document | 80 % | *…… %* | Refaire les exercices ratés à J+1, sans regarder le corrigé avant d'avoir cherché |
-| Niveau 3 — maîtrise | Sans document | 3 sur 4 | *…… / 4* | Approfondissement sur la notion en cause |
-| Niveau 4 — simulation | 1 h 30, sans document | 14/20 | *…… / 20* | Nouvelle simulation à J+7 avec d'autres données |
-| Exposé blanc | À voix haute, 10 min, sans notes | Aucun blocage | *oui / non* | Le point de blocage **est** la notion mal comprise |
-
-**Lecture des échecs.** Échec au niveau 1 → défaut de **mémorisation**. Échec au niveau 2
-alors que le 1 est acquis → défaut de **méthode de calcul**. Échec au niveau 3 alors que le
-2 est acquis → défaut de **compréhension**. Trois causes, trois traitements.
-
-::: methode L'exposé blanc pour ce chapitre — le plan à tenir en 10 minutes
-1. **(2 min)** La démarche : la chaîne, les six étapes, le principe des flèches de retour.
-2. **(2 min)** Le vocabulaire : les cinq définitions, puis les deux questions qui donnent
-   les quatre types de variables.
-3. **(4 min)** La présentation : série brute → tri et comptage → distribution ; effectifs,
-   fréquences, fréquences cumulées, avec les trois formules et les deux propriétés
-   démontrées à voix haute.
-4. **(2 min)** La comparaison : sous-populations, les quatre diagrammes et leur règle de
-   choix ; puis « présenter, c'est informer » et l'ouverture inférentielle.
-:::
-
-### 6.3 — Protocole de révision daté
-
-Document produit le **4 septembre 2026**. Les échéances sont donc :
-
-| Échéance | Date | Durée | Ce qui est révisé |
-|---|---|:---:|---|
-| **J+1** | 5 septembre 2026 | 20 min | Fiche de synthèse (§4.1) + les 45 cartes (§4.2) + relecture du schéma (§4.4) |
-| **J+3** | 7 septembre 2026 | 30 min | Cartes échouées à J+1 + niveau 1 complet, chronométré |
-| **J+7** | 11 septembre 2026 | 45 min | Liste de contrôle à froid (§6.1) + exercices 2, 3 et 4 du niveau 2 + relecture des points de vigilance (§3) |
-| **J+21** | 25 septembre 2026 | 90 min | Simulation d'examen complète (niveau 4) en 1 h 30, puis auto-correction au barème |
-
-**Règle de décision.** Une carte échouée **deux fois de suite** relève de la compréhension,
-pas de la mémoire : reprenez la section du §2 correspondante, et non la carte.
-
-<!--saut-->
-
-## Annexe — Tableau de couverture du support d'origine
-
-Preuve de complétude, vérifiable en deux minutes. Le support d'origine — *CHAPITRE 1 :
-Présenter pour informer*, Hélène Couprie, 33 diapositives — est inventorié ci-dessous
-**diapositive par diapositive**, sans trou de numérotation.
-
-**Légende.** ✔ traité intégralement — ⚠ traité, mais support d'origine incomplet, ambigu ou
-erroné : la reconstruction est signalée à l'endroit exact — ✖ impossible à traiter, donnée
-manquante.
-
-| # | Élément du support d'origine | Nature | Traité dans | État |
-|:---:|---|---|---|:---:|
-| 1 | Page de titre : « CHAPITRE 1 : Présenter pour informer », Hélène Couprie, Portail L1 – DIV A, 2026-27 | titre | En-tête du document | ✔ |
-| 2 | Contenu et plan du chapitre (3 sections) | plan | §2, encadré d'ouverture — y compris l'écart « statisticienne / statisticien » | ✔ |
-| 3 | Section 1 ; chaîne « décider → information → étude » ; 4 exemples | problématisation | §2.1.1, avec la décision sous-jacente à chaque exemple | ✔ |
-| 4 | **Les 6 étapes d'une étude statistique** — schéma **sans aucun texte** | image non commentée | §2.1.2 : schéma redessiné, flèches de retour et légende explicitées | ✔ |
-| 5 | Étape 1 : quel type de problématique ? Exemple de l'hypermarché, 4 pistes | méthode | §2.1.3, avec la démonstration de l'indétermination des étapes suivantes | ✔ |
-| 6 | Étape 2 : choix des données à observer — « qui ? » | méthode | §2.1.4, « définir / délimiter » explicité, incise sur la taille inconnue commentée | ✔ |
-| 7 | Étape 3 : les 4 méthodes de recueil | méthode | §2.1.5, tableau avec apports et limites + grille de décision reconstruite | ✔ |
-| 8 | Étape 4 : campagne de mesures — combien, quand, comment | méthode | §2.1.6 | ✔ |
-| 9 | Étape 5 : traitement des données ; les 4 chapitres du cours | méthode + programme | §2.1.7, tableau des quatre traitements | ✔ |
-| 10 | Étape 6 : prise de décision ; contenu du rapport ; « la décision est politique » | méthode | §2.1.8, avec la démonstration du passage « ce qui est » → « ce qu'il faut faire » | ✔ |
-| 11 | Section 2 : les 5 définitions ; convention majuscule/minuscule | définitions | §2.2.1, « application » démontré terme à terme | ✔ |
-| 12 | Illustration Insee « Vécu et ressenti en matière de sécurité » 2024 + **question posée** | exercice oral | §2.2.2 : tableau reproduit, question **entièrement corrigée**, total recalculé | ✔ |
-| 13 | Types de variables : 2 types, 4 sous-types ; avertissement sur le codage | définitions | §2.2.3, arbre de décision + double piège du codage | ✔ |
-| 14 | Illustration : 4 exemples de variables **sans indication de type** | exercice implicite | §2.2.4 : type et justification ajoutés pour les quatre | ✔ |
-| 15 | Section 3 : 2 façons de présenter ; tri puis comptage | définitions | §2.3.1, avec la raison de la restriction au quantitatif/ordinal | ✔ |
-| 16 | Distribution observée des effectifs ; effectif d'une modalité | définition | §2.3.2 | ✔ |
-| 17 | **Série brute** des 87 étudiants | données | §2.3.3, série reproduite — **et recomptée** au §2.3.4 | ⚠ |
-| 18 | Série ordonnée | données | §2.3.3, reproduite et vérifiée (87 valeurs, effectifs conformes au tableau) | ✔ |
-| 19 | Tableau de la distribution des effectifs | données | §2.3.3 et §2.3.4 | ✔ |
-| 20 | Diagramme en colonnes de la distribution | graphique non commenté | §2.3.3 : construction décrite, **rôle des modalités d'effectif nul** expliqué | ✔ |
-| 21 | Répartition ; fréquence ; camembert ou barres ; fréquence cumulée | définitions | §2.3.5, avec la nuance sur le qualitatif ordinal | ✔ |
-| 22 | Tableau des 17 132 (milliers de) familles + **question posée** | exercice oral | §2.3.6 : question corrigée, **toutes les fréquences recalculées**, ambiguïté de l'unité signalée | ⚠ |
-| 23 | Formalisation : $ X $, $ x_i $, $ n_i $, $ n $, $ f_i $, $ F_k $ ; renvoi à « la diapo 21 » | notations | §2.3.7 : chaque symbole explicité, 3 propriétés démontrées, renvoi résolu | ✔ |
-| 24 | Plusieurs distributions d'un même caractère : principe | définition | §2.3.8, avec la mise en évidence des deux variables en jeu | ✔ |
-| 25 | Tableau des personnes écrouées 2020-2023 + **questions posées** | exercice oral | §2.3.9 : questions corrigées, totaux recalculés, structure des modalités explicitée | ✔ |
-| 26 | Diagramme colonnes groupées 1 — groupement par catégorie | graphique | §2.3.10, construction et lecture décrites | ✔ |
-| 27 | Diagramme colonnes groupées 2 — groupement par année | graphique | §2.3.10, avec la règle de choix entre les deux | ✔ |
-| 28 | Tableau du nombre d'enfants par famille 1990-2023 + **questions posées** | exercice oral | §2.3.11 : questions corrigées, colonnes vérifiées, piège du champ signalé | ✔ |
-| 29 | Diagramme de type empilé (effectifs) | graphique | §2.3.11 | ✔ |
-| 30 | Diagramme empilé à 100 % + **2 questions posées** (phrase de lecture, calcul du 12,6) | exercice oral | §2.3.11 : les deux questions corrigées, calcul refait, piège part/volume démontré | ✔ |
-| 31 | Diagramme colonne 1975-2008 ; « même contenu que le tableau précédent » | graphique + renvoi ambigu | §2.3.11 : valeurs relevées à haute résolution, **renvoi identifié** par comparaison des chiffres | ⚠ |
-| 32 | Les 4 règles de présentation ; « informer = donner une forme » | méthode | §2.3.12, avec ce que chaque règle interdit | ✔ |
-| 33 | Remarques conclusives ; ouverture sur la statistique inférentielle | synthèse | §2.4, tableau descriptive / inférentielle | ✔ |
-
-::: piege Les trois ⚠ — ce qui a été vérifié, corrigé ou reconstruit
-**Diapositive 17 — la série brute ne correspond pas au tableau.** Recomptée valeur par
-valeur (sur l'image d'origine, pas sur une transcription), elle donne **10 zéros et 24
-deux**, alors que la série ordonnée (diapo 18) et le tableau (diapo 19), **cohérents entre
-eux**, donnent **11 zéros et 23 deux**. L'un des « 2 » de la série brute devrait être un
-« 0 ». Les deux comptages totalisent bien 87. **Conduite à tenir :** utiliser le tableau du
-cours en examen, et signaler la coquille à l'enseignante. Traité au §2.3.4.
-
-**Diapositive 22 — l'unité.** Le texte annonce « enquête menée auprès de 17 132 familles »
-alors que l'en-tête de colonne indique « effectifs en **milliers** ». La lecture correcte
-est **17 132 milliers de familles**, soit environ 17,1 millions. Traité au §2.3.6.
-
-**Diapositive 31 — le renvoi « le tableau précédent ».** Le tableau qui précède
-immédiatement (diapo 28) ne correspond ni aux années ni aux modalités du diagramme. La
-comparaison des chiffres établit que le renvoi désigne **le tableau de la diapositive 22** :
-la colonne 2008 en reproduit exactement les cinq fréquences. Cette identification date de
-2008 l'enquête de la diapositive 22 — information absente du support. Traité au §2.3.11,
-avec mention explicite qu'il s'agit d'une déduction.
-
-**Aucun ✖ : aucune donnée du support n'était illisible ou manquante.** Les 33 diapositives
-sont couvertes.
-:::
-
----
-
-::: synthese Ce document est-il complet ?
-Les douze contrôles de la charte (`academy/SYSTEME.md`, section 9) ont été passés :
-définitions posées, notations expliquées symbole par symbole, formules démontrées et
-illustrées par des exemples chiffrés intégraux, prérequis enseignés (proportion, signe
-somme, dénombrabilité, lecture de tableau), **les six questions posées à l'amphithéâtre
-intégralement corrigées**, six sections obligatoires présentes, quatre niveaux
-d'entraînement corrigés, 45 cartes couvrant l'ensemble des notions, **tous les chiffres du
-support recalculés** — ce qui a révélé trois anomalies, toutes signalées et localisées —
-et un tableau de couverture des 33 diapositives sans trou de numérotation.
-
-**La relecture du support d'origine n'est pas nécessaire.**
+## Ce que je te demande pour ce cours
+
+::: objectif Cinq demandes, par ordre de rendement en points
+| № | Ce dont j'ai besoin | Ce que ça change |
+|:---:|---|---|
+| **1** | **Le format exact de l'épreuve** — nature, durée, barème, documents autorisés, part du contrôle continu | **La série D est calibrée sur une hypothèse.** Avec le format réel, je la recalibre en une passe, et le minutage du § 3.1 devient exact. |
+| **2** | **Les sujets de TD de Techniques statistiques** | Ce sont les exercices que l'enseignante corrige **elle-même** : ils révèlent la forme exacte des questions et le barème appliqué. |
+| **3** | **Les annales** du chapitre, ou d'une année précédente | Seule source qui donne le **niveau d'exigence réel** sur les trois gestes identifier / calculer / lire. |
+| **4** | **Les chapitres 2, 3 et 4** — résumer, évolutions temporelles, croiser les variables | Le support annonce **quatre chapitres** ; je n'en ai qu'un. La progression et les renvois entre chapitres se construisent sur l'ensemble. |
+| **5** | **Les questions Wooclap posées en amphi**, ou une photo des notes d'un camarade | C'est la **seule** catégorie de la parole enseignante que je ne peux pas reconstruire : **ce sur quoi elle a insisté**. Une photo suffit. |
+
+**Ce que je garantis en l'état :** les 33 diapositives sont couvertes sans trou, les cinq
+exercices posés sont corrigés, et tous les chiffres du support ont été recalculés. **Ce que je
+ne peux pas garantir sans la demande n° 1 :** que le format de la série D soit celui de
+l'épreuve. **Le bloc 1, lui, est valable quel que soit le format.**
 :::
