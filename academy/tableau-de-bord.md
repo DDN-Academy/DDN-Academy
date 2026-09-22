@@ -16,7 +16,7 @@ CC/CT, les dates et les formats d'épreuve restants ne sont pas supposés.**
 | **Principes d'économie** | **6** | 1 | **CT 1 h 30, questions de cours + exercices** · CC = examen de TD en présentiel | *[date]* | *[ ]* | **1** — Introduction générale ✔ | ✅ **V2** |
 | **Principes de gestion** | **6** | 1 | **CT = QCM** (pas de points négatifs, une mauvaise alternative annule une bonne, ≥ 2 correctes par question) · CC = écrit en TD à mi-semestre · note = $ \max(\text{CT}\ ;\ \tfrac{1}{3}\text{CC}+\tfrac{2}{3}\text{CT}) $ | *[date]* | *[ ]* | **2** — CM 1 ✔, CM 2 ✔ | ✅ **V2** |
 | **Techniques statistiques** | **5** | 2 | *[à confirmer]* | *[date]* | *[ ]* | **2 / 4** — CHAP 1, CHAP 2 ; restent « évolutions temporelles » et « croiser » | ⏳ à refaire en V2 |
-| **Institutions politiques** | **6** ¹ | 2 | *[à confirmer]* | *[date]* | *[ ]* | **1** — Partie 1, chapitre 1 « L'État » | ⏳ à refaire en V2 |
+| **Institutions politiques** | **6** ¹ | 2 | *[format non donné par le support — hypothèse : écrit, questions de cours et question développée]* | *[date]* | *[ ]* | **1** — Partie 1, chapitre 1 « L'État » ✔ | ✅ **V2** |
 | **Introduction au droit** | **6** ¹ | 2 | *[à confirmer]* | *[date]* | *[ ]* | **0** — aucun cours transmis | — |
 | **Mathématiques 1** | **5** | 3 | *[à confirmer]* | *[date]* | *[ ]* | **0** — aucun cours transmis | — |
 | Ecri+ | 1 | 3 | — | — | — | — | — |
@@ -26,7 +26,7 @@ CC/CT, les dates et les formats d'épreuve restants ne sont pas supposés.**
 « Environnement des organisations », dotée de **6 crédits** au total — la répartition interne
 entre les deux enseignements n'est pas donnée par le support.
 
-**Constat au 21 septembre 2026.** Deux matières sur six n'ont reçu aucun document :
+**Constat au 22 septembre 2026.** Deux matières sur six n'ont reçu aucun document :
 **introduction au droit** et **mathématiques 1**, soit **11 crédits sur 30** à l'aveugle.
 C'est le déséquilibre le plus coûteux du tableau : une matière à niveau 1 ou 2 offre
 mécaniquement le meilleur rendement horaire (section 2).
@@ -45,10 +45,17 @@ Depuis la refonte V2 du 15 septembre 2026, le critère est la **charge de lectur
 | `gestion-02-qui-doit-etre-roi` | **V2** | 46 | **23** | ✅ |
 | `stats-01-presenter-pour-informer` | V1 | 54 | 54 | ❌ à refaire |
 | `stats-02-resumer-pour-informer` | V1 | 73 | 27 | ❌ à refaire |
-| `institutions-01-l-etat` | V1 | 97 | 44 | ❌ à refaire |
+
+*La version intégrale de `institutions-01` (V1, 142 p.) a été supprimée : la V2 fusionne les deux
+sources dans un document unique, et ses numéros de paragraphes ne correspondaient plus. Elle
+reste récupérable dans l'historique git.*
+| `institutions-01-l-etat` | **V2** | 67 | **35** | ✅ *(au plafond)* |
 
 **Ordre de refonte retenu**, par crédits décroissants puis par lourdeur : ~~gestion 01~~ **fait** ·
-~~gestion 02~~ **fait** · **institutions 01** (44 pages à lire) · **stats 01** (54) · **stats 02** (27).
+~~gestion 02~~ **fait** · ~~institutions 01~~ **fait** · **stats 01** (54 pages à lire) · **stats 02** (27).
+
+**Quatre chapitres sur six sont en V2.** Restent les deux chapitres de Techniques statistiques,
+seule matière où le format d'épreuve reste entièrement inconnu.
 
 **Principes de gestion est désormais intégralement couvert en V2** : les deux CM transmis sont
 refondus, et la stratégie de QCM est commune aux deux documents.
