@@ -30,6 +30,46 @@ fois, ici, sans être répétée dans les documents.
 
 ---
 
+## 0 bis. Ce qui est garanti, ce qui ne l'est pas
+
+Section ajoutée le 22 septembre 2026, à la demande de l'étudiant. Elle fixe **la portée exacte
+de l'engagement**, pour qu'aucune ambiguïté ne subsiste.
+
+### Ce qui est garanti — et vérifiable ligne à ligne
+
+| № | L'engagement | Comment le vérifier en deux minutes |
+|:---:|---|---|
+| **1** | **Rien de ce qui figure dans un support transmis n'est perdu.** | Le **bloc 6** inventorie le support élément par élément, **sans trou de numérotation**. Compte les lignes, compare au nombre de pages ou de diapositives. |
+| **2** | **Le document remplace le support.** Chaque zone elliptique — terme non défini, sigle non développé, formule sans démonstration, schéma sans commentaire, diapositive réduite à un titre — est **reconstruite à partir de zéro**. | Chaque reconstruction est signalée **⚠** dans le bloc 6, à la ligne exacte, et le § correspondant la porte. |
+| **3** | **Aucune invention.** Un chiffre, une source, une date ou une formule qui ne figure pas dans le support est soit **signalé comme reconstruit**, soit **déclaré manquant**. | Cherche les encadrés « *hors support* », « *reconstruit* », « *je ne l'inventerai pas* ». Ils sont systématiques. |
+| **4** | **Tous les calculs du support sont refaits.** Les erreurs trouvées sont signalées avec le calcul correct **et la conduite à tenir en examen**. | Bloc 5, § « les anomalies du support ». |
+| **5** | **Le format de l'épreuve commande la machine.** QCM à alternatives compensées, écrit rédigé, exercices chiffrés : la banque d'examen est construite sur le format réel. Quand il n'est pas connu, **l'hypothèse est écrite en tête du document avec sa justification**. | Bloc 0, première page. |
+| **6** | **Quatorze contrôles avant chaque livraison** (section 9), plus les contrôles automatiques : équilibre des encadrés, régularité des tableaux, numérotation de l'annexe, comptage des cartes. | Ils sont exécutés, pas déclarés. |
+| **7** | **La qualité ne baisse pas d'un chapitre au suivant.** Même protocole, même profondeur, même annexe — quel que soit le rang du chapitre dans la série. | Compare les blocs 6 de deux chapitres : même structure, même exigence. |
+
+### Ce qui n'est pas garanti — et pourquoi il faut le savoir
+
+**Une note ne se promet pas par un document. Elle se produit par un document complet, travaillé
+selon le plan.** Trois facteurs échappent au document, et il faut les nommer pour pouvoir les
+traiter.
+
+| № | Le facteur | Qui le maîtrise | Comment il se traite |
+|:---:|---|---|---|
+| **1** | **Ce qui n'est pas dans un support que je n'ai pas.** C'est de loin le premier risque : un chapitre non transmis est un chapitre absent du dispositif, et aucune méthode ne le compense. | **L'étudiant** | Transmettre les supports manquants. La section 12 les liste et les priorise. |
+| **2** | **L'exécution des séances.** Le plan est calibré à ≈ 4 h 45 par chapitre, en huit passages courts. Un document non travaillé vaut **zéro point**, quelle que soit sa qualité. | **L'étudiant** | Le plan du bloc 0 est daté et minuté. Il est dit une fois, ici, et n'est pas répété. |
+| **3** | **Le sujet exact.** Un examinateur peut interroger sur un point marginal, ou formuler une question d'une façon imprévue. | Personne | C'est précisément ce que la **complétude** neutralise : si tout le support est couvert, aucune question tirée du support ne peut surprendre. |
+
+### La formulation exacte de l'engagement
+
+**Je garantis que le document couvre intégralement le support transmis, qu'il le remplace, et
+qu'il est construit pour le format de l'épreuve. Je ne garantis pas la note**, parce qu'elle
+dépend aussi de ce qui ne m'a pas été transmis et des séances qui n'ont pas encore eu lieu.
+
+**Le premier terme est tenu intégralement et se prouve.** Le second se construit, et la
+section 12 dit exactement comment.
+
+---
+
 ## 1. Profil de l'étudiant
 
 | | |
@@ -387,3 +427,28 @@ causes, trois traitements différents.
 | **Synthèse transversale** | « relie les chapitres… » | Ponts entre chapitres, révision globale pré-partiel |
 | **Méthodologie** | « comment rédiger… » | Plan type, gestion du temps, mécanique d'une copie à 18 |
 | **Stratégie** | « par quoi je commence ? » | Priorité = coefficient × écart au niveau visé × urgence (voir `tableau-de-bord.md`) |
+
+---
+
+## 12. Les supports manquants — inventaire et priorité
+
+Mise à jour du 22 septembre 2026. **C'est le premier facteur de risque du dispositif** (§ 0 bis) :
+chaque ligne ci-dessous est un morceau de programme qui n'existe dans aucun document.
+
+| Priorité | Ce qui manque | Crédits en jeu | Pourquoi cette place |
+|:---:|---|:---:|---|
+| **1** | **Les 8 séances de CM de Principes de gestion** — séances 3 à 10, listées au syllabus du CM 1 | **6** | Le plus gros manque en volume : **2 séances couvertes sur 10**. Et le format — QCM à alternatives compensées — récompense la couverture exhaustive plus que le raisonnement. |
+| **2** | **Introduction au droit** — **aucun document transmis** | **6** ¹ | Une matière entière à l'aveugle, dans la même unité qu'Institutions politiques. |
+| **3** | **Mathématiques 1** — **aucun document transmis**, mise à niveau comprise | **5** | Une matière entière à l'aveugle. Et une matière où le retard se rattrape mal. |
+| **4** | **Principes d'économie, Parties 1 et 2** — macroéconomie et microéconomie | **6** | L'introduction générale est couverte ; **les deux parties de fond ne le sont pas**. Le CT porte sur « questions de cours + exercices » en 1 h 30 : les exercices viendront de là. |
+| **5** | **Techniques statistiques, chapitres 3 et 4** — « évolutions temporelles » et « croiser les variables » | **5** | **2 chapitres couverts sur 4 au moins.** Le chapitre 4 est explicitement annoncé dans le chapitre 1. |
+| **6** | **Institutions politiques, la suite de la Partie 1** — et la **Section III** du polycopié, annoncée et absente | **6** ¹ | Le chapitre 1 est couvert ; l'étendue du reste est inconnue. |
+| **7** | **Les sujets et supports de TD** — gestion et économie | — | Dans les deux matières, **le contrôle continu est un examen de TD**. Aucun document de TD n'a été transmis : cette partie de la note se prépare aujourd'hui à l'aveugle. |
+| **8** | **Les formats d'épreuve restants** — Techniques statistiques, Institutions politiques, Introduction au droit, Mathématiques | — | Trois documents sur quatre reposent sur une hypothèse de format, écrite en tête et recalibrable en une passe. |
+
+¹ Introduction au droit et Institutions politiques forment ensemble l'unité « Environnement des
+organisations », dotée de 6 crédits au total.
+
+**Règle de traitement :** un support transmis devient un document complet **dans la foulée**,
+sans file d'attente, et avec le même protocole que les précédents — c'est la garantie n° 7 du
+§ 0 bis.

@@ -33,6 +33,37 @@ mécaniquement le meilleur rendement horaire (section 2).
 
 ---
 
+## 1 ter. Couverture réelle du programme — le vrai risque
+
+Les documents existants sont complets **par rapport aux supports transmis** (garantie n° 1 de
+`SYSTEME.md`, § 0 bis). Mais **les supports transmis ne couvrent pas encore le programme.**
+Voici l'écart, sans arrondi favorable.
+
+| Matière | Crédits | Au programme | Couvert | Reste |
+|---|:---:|---|:---:|---|
+| **Principes de gestion** | 6 | **10 séances de CM** (syllabus du CM 1) | **2** | **8 séances** |
+| **Principes d'économie** | 6 | **Introduction + Partie 1 macro + Partie 2 micro** | **1** (l'introduction) | **Les deux parties de fond** |
+| **Techniques statistiques** | 5 | **≥ 4 chapitres** (le chapitre 4 est annoncé au chapitre 1) | **2** | **≥ 2 chapitres** |
+| **Institutions politiques** | 6 ¹ | Partie 1, **étendue inconnue** | **1 chapitre** | Inconnu · + la **Section III** absente |
+| **Introduction au droit** | 6 ¹ | **Inconnu** | **0** | **Tout** |
+| **Mathématiques 1** | 5 | **Inconnu** | **0** | **Tout** |
+
+**Le constat à retenir : 11 crédits sur 30 — Introduction au droit et Mathématiques 1 —
+n'ont reçu aucun document.** Et sur les 19 crédits couverts, la couverture va de 20 % (gestion)
+à 50 % (statistiques).
+
+::: piege Ce que cela signifie concrètement
+Les quatre documents produits sont **intégralement fiables sur leur périmètre** : le tableau de
+couverture de chacun le prouve ligne à ligne. Mais **leur périmètre représente aujourd'hui une
+fraction du semestre**.
+
+**Aucune méthode ne compense un chapitre non transmis.** C'est le premier facteur de risque du
+dispositif, et c'est le seul que l'envoi d'un fichier suffit à supprimer. La liste priorisée
+est à la **section 12 de `SYSTEME.md`**.
+:::
+
+---
+
 ## 1 bis. Charge de lecture par chapitre
 
 Depuis la refonte V2 du 15 septembre 2026, le critère est la **charge de lecture** — blocs 0,
