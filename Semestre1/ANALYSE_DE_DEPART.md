@@ -14,7 +14,7 @@ sommaire: oui
 4. **Priorités de fond** : Économie et Mathématiques, puis Statistiques et Gestion, puis Droit et Institutions — au prorata **crédits × difficulté**.
 5. **Priorités de calendrier** : le **CC de gestion** (mi-semestre) et le **CC d'économie** (en TD) sont les premières notes du semestre.
 6. **Les points faciles** : Ecri+ et GoFluent (régularité hebdomadaire), le CC de gestion (sans risque grâce à la règle du max), la stratégie de coche du QCM de gestion.
-7. **L'alerte de départ** : au protocole complet, **ton plan horaire ne couvre qu'environ un tiers du programme estimé** ; octobre à 4 h/jour en couvre près des deux tiers (§ 5).
+7. **L'alerte de départ** : au protocole complet, **ton plan horaire ne couvre qu'environ un tiers du programme estimé** (10 chapitres sur 36) ; tu as décidé le 28 septembre de le garder tel quel — le § 5 dit ce qui est sacrifié.
 8. **Quatre demandes cette semaine** : les supports de Maths, ceux de Droit, ton emploi du temps de TD, les modalités de contrôle et le calendrier des examens.
 
 <!--saut-->
@@ -183,26 +183,33 @@ révisions espacées et examens blancs sont incompressibles et identiques pour c
 7 décembre, qui est déjà un jour d'examen.
 
 **Demande estimée** : 102 sections × 4 pomodoros = **408 pomodoros d'apprentissage**, auxquels
-s'ajoutent les préparations et consolidations de TD (≈ 80), les examens blancs exigés (85), les
+s'ajoutent les préparations et consolidations de TD (≈ 80), les examens blancs exigés (89 — au moins deux
+complets par matière, comme l'exige la charte), les
 révisions espacées, les contrôles continus, la marge hebdomadaire et Ecri+/GoFluent.
 
-**Résultat de la simulation jour par jour** (détail dans `PLANNING.md`) :
+**Résultat de la simulation jour par jour** (détail dans `PLANNING.md`) : **10 chapitres sur 36
+sont appris à temps**, 26 ne le sont pas (238 pomodoros d'apprentissage manquants).
 
-| Scénario | Chapitres appris à temps |
-|---|:---:|
-| **Ton plan** — 2 h/jour en octobre | **11 sur 36** |
-| Octobre à 3 h/jour | 14 sur 36 |
-| **Octobre à 4 h/jour** — recommandé | **19 sur 36** |
-| Octobre à 4 h + cycle d'apprentissage de 3 pomodoros en Gestion, Droit, Institutions | 23 sur 36 |
-| Octobre à 4 h, puis 6 h du 1er au 15 novembre | 23 sur 36 |
+**Ta décision du 28 septembre : le plan horaire reste tel quel** — 2 h par jour en octobre, 4 h du
+1ᵉʳ au 15 novembre, 6 h du 16 novembre au 7 décembre. Je ne propose plus d'heures supplémentaires,
+et le protocole de la charte n'est pas allégé : chaque section se travaille en quatre pomodoros.
 
-**Pourquoi octobre.** C'est le mois où tu cesses d'aller en amphi — tu libères 12 à 15 h par
-semaine — et c'est le seul où ton plan est à 2 h par jour. Chaque heure ajoutée en octobre sert
-deux fois : elle apprend un chapitre, **et** elle déclenche plus tôt ses révisions espacées.
+**Ce qui est sacrifié** — les chapitres qui ne tiennent pas, choisis par la pondération crédits ×
+difficulté :
 
-**Ce que je fais en attendant ta décision :** le planning respecte **exactement** ton plan. Les
-chapitres qui ne tiennent pas sont listés « hors capacité » ; la répartition par crédits ×
-difficulté garantit que le sacrifice porte d'abord sur ce qui pèse le moins dans ta moyenne.
+| Matière | Chapitres appris à temps | Chapitres hors capacité |
+|---|:---:|---|
+| Économie (6 ECTS) | 2 / 7 | Ch03 à Ch07 — la fin de la macroéconomie et la microéconomie |
+| Gestion (6 ECTS) | 2 / 10 | CM 3 à 10 |
+| Statistiques (5 ECTS) | 2 / 4 | Ch03 et Ch04 |
+| Mathématiques (5 ECTS) | 2 / 6 | Ch03 à Ch06 |
+| Institutions (3 ECTS) | 1 / 4 | Ch02 à Ch04 |
+| Droit (3 ECTS) | 1 / 5 | Ch02 à Ch05 |
+
+**Pourquoi cet ordre, et pas un autre.** Les chapitres déjà reçus passent d'abord : ils sont
+certains, les autres ne sont que des estimations. Un ordre purement pondéré apprendrait trois
+chapitres de plus, mais tous estimés, en abandonnant Statistiques Ch02 et tout Institutions — pour
+une couverture pondérée à peine supérieure (13,6 contre 13,3). L'ordre actuel est retenu.
 
 **Ces chiffres bougeront** : 30 des 36 chapitres sont estimés. Chaque support reçu remplace une
 estimation par un chiffre réel.

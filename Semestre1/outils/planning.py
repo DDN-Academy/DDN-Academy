@@ -346,6 +346,13 @@ class Planificateur:
             if d <= self.finp:
                 self.jour(d)
         self.periode_examens()
+        # charte : « au moins deux examens blancs complets par matière avant le 7 décembre »
+        for m in self.examens:
+            n = sum(1 for eb in self.cfg["examens_blancs"] if eb["matiere"] == m and eb["type"] == "complet"
+                    and D(eb["date"]) <= self.finp
+                    and any(ch["matiere"] == m and ch["fin"] and ch["fin"] < D(eb["date"]) for ch in self.chap))
+            if n < 2:
+                self.alertes.append("%s : %d examen(s) blanc(s) complet(s) avant le 7 décembre — la charte en exige au moins deux." % (self.mat[m]["nom"], n))
         return self
 
 
@@ -385,7 +392,7 @@ def rendu(P, cfg, scen):
     b = bilan(P)
     A("# Lire d'abord")
     A("")
-    A("## L'alerte de départ — le volume dépasse la capacité")
+    A("## L'alerte de départ — le volume dépasse la capacité" + (" : ce qui est sacrifié" if cfg.get("decision_horaire") else ""))
     A("")
     A("::: piege %d chapitres sur %d tiennent dans ton plan horaire au protocole complet" % (b["appris"], b["total"]))
     A("**Capacité avant le 7 décembre : %d pomodoros.** Les %d pomodoros annoncés comptent le 7 décembre, qui est déjà un jour d'examen." % (b["cap"], b["cap"] + 12))
@@ -394,13 +401,32 @@ def rendu(P, cfg, scen):
     A("")
     A("**Résultat de la simulation :** avec 4 pomodoros par jour en octobre, **%d chapitres sont appris à temps, %d ne le sont pas** (%d pomodoros d'apprentissage manquants). « À temps » : au plus tard dix jours avant l'épreuve de la matière, et le %s au plus tard — pour que les révisions J+1, J+3 et J+7 aient lieu avant elle." % (b["appris"], b["total"] - b["appris"], b["manque"], fr(P.limite, False)))
     A("")
-    A("| Scénario | Octobre | 1er-15 nov. | Chapitres appris | Apprentissage manquant |")
-    A("|---|:---:|:---:|:---:|:---:|")
-    for nom, s, o_, n_ in scen:
-        A("| %s | %s | %s | **%d / %d** | %d P |" % (nom, o_, n_, s["appris"], s["total"], s["manque"]))
-    A("")
-    A("**Ce que ça veut dire :** le goulot est **octobre**. C'est le mois où tu ne vas plus en amphi — tu libères environ 12 à 15 h par semaine — et c'est celui où ton plan est le plus bas. **Recommandation : passer octobre à 4 h par jour.** Tant que tu ne l'as pas décidé, ce planning respecte exactement ton plan (2 h/jour) et place les chapitres qui ne tiennent pas en « hors capacité », en bas du document.")
-    A("")
+    dec = cfg.get("decision_horaire")
+    if dec:
+        A("**Ta décision du %s : ton plan horaire est maintenu tel quel** — %s. Ce planning le respecte exactement, et le protocole de la charte n'est pas allégé : chaque section se travaille en quatre pomodoros, P1 → P4." % (fr(D(dec["date"]), False), dec["plan"]))
+        A("")
+        A("**Ce qui est sacrifié, matière par matière** — le choix suit la pondération ECTS × difficulté, et la date de parution estimée de chaque chapitre :")
+        A("")
+        A("| Matière | ECTS | Chapitres appris à temps | Chapitres hors capacité | Pomodoros d'apprentissage manquants |")
+        A("|---|:---:|:---:|---|:---:|")
+        for m in P.cours:
+            chs = [ch for ch in P.chap if ch["matiere"] == m]
+            if not chs:
+                continue
+            hors = [ch for ch in chs if not ch["fin"]]
+            A("| %s | %s | %d / %d | %s | %d |" % (P.mat[m]["nom"], P.mat[m]["ects"], len(chs) - len(hors), len(chs),
+              ", ".join("Ch" + ch["id"].split("_Ch")[1] for ch in hors) or "—", sum(ch["total"] - ch["fait"] for ch in hors)))
+        A("")
+        A("**Ce qui peut encore réduire le sacrifice sans ajouter une heure :** recevoir vite les supports — 30 chapitres sur 36 sont des estimations, et un chapitre réel peut être plus court que prévu (il peut aussi être plus long) ; ne perdre aucun pomodoro, la marge du dimanche absorbant les imprévus ; les questions de marche de chaque cours, révision gratuite hors pomodoros. **Le planning est recalculé à chaque bilan du dimanche**, et je te dis à chaque fois ce qui est sacrifié.")
+        A("")
+    else:
+        A("| Scénario | Octobre | 1er-15 nov. | Chapitres appris | Apprentissage manquant |")
+        A("|---|:---:|:---:|:---:|:---:|")
+        for nom, s, o_, n_ in scen:
+            A("| %s | %s | %s | **%d / %d** | %d P |" % (nom, o_, n_, s["appris"], s["total"], s["manque"]))
+        A("")
+        A("**Ce que ça veut dire :** le goulot est **octobre**. C'est le mois où tu ne vas plus en amphi — tu libères environ 12 à 15 h par semaine — et c'est celui où ton plan est le plus bas. **Recommandation : passer octobre à 4 h par jour.** Tant que tu ne l'as pas décidé, ce planning respecte exactement ton plan (2 h/jour) et place les chapitres qui ne tiennent pas en « hors capacité », en bas du document.")
+        A("")
     A("**Deux inconnues peuvent faire bouger ce chiffre dans les deux sens :** le nombre réel de chapitres de Mathématiques, Droit, Institutions politiques et des parties 1-2 d'Économie (estimé, rien n'a été reçu), et le nombre réel de TD par semaine (5 supposés).")
     A(":::")
     A("")
@@ -591,7 +617,6 @@ def main():
     scen = [("**Ton plan**", b, "4 P/j", "8 P/j"),
             ("Octobre à 3 h/jour", scenario(cfg, 6), "6 P/j", "8 P/j"),
             ("**Octobre à 4 h/jour** — recommandé", scenario(cfg, 8), "8 P/j", "8 P/j"),
-            ("Octobre à 4 h + cycle de 3 P en Gestion, Droit, Institutions", scenario(cfg, 8, None, True), "8 P/j", "8 P/j"),
             ("Octobre à 4 h, 1er-15 nov. à 6 h", scenario(cfg, 8, 12), "8 P/j", "12 P/j")]
     for nom, s, _, _ in scen:
         print("%-40s appris %2d/%d · manque %d P" % (nom.replace("*", ""), s["appris"], s["total"], s["manque"]))

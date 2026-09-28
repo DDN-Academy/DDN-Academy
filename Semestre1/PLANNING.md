@@ -8,24 +8,29 @@ sommaire: oui
 
 # Lire d'abord
 
-## L'alerte de départ — le volume dépasse la capacité
+## L'alerte de départ — le volume dépasse la capacité : ce qui est sacrifié
 
-::: piege 11 chapitres sur 36 tiennent dans ton plan horaire au protocole complet
+::: piege 10 chapitres sur 36 tiennent dans ton plan horaire au protocole complet
 **Capacité avant le 7 décembre : 496 pomodoros.** Les 508 pomodoros annoncés comptent le 7 décembre, qui est déjà un jour d'examen.
 
 **Volume estimé du programme : 36 chapitres, 102 sections d'apprentissage**, soit 408 pomodoros d'APPRENDRE au protocole P1 → P4 — avant révisions, TD, contrôles et examens blancs.
 
-**Résultat de la simulation :** avec 4 pomodoros par jour en octobre, **11 chapitres sont appris à temps, 25 ne le sont pas** (235 pomodoros d'apprentissage manquants). « À temps » : au plus tard dix jours avant l'épreuve de la matière, et le 29 novembre au plus tard — pour que les révisions J+1, J+3 et J+7 aient lieu avant elle.
+**Résultat de la simulation :** avec 4 pomodoros par jour en octobre, **10 chapitres sont appris à temps, 26 ne le sont pas** (238 pomodoros d'apprentissage manquants). « À temps » : au plus tard dix jours avant l'épreuve de la matière, et le 29 novembre au plus tard — pour que les révisions J+1, J+3 et J+7 aient lieu avant elle.
 
-| Scénario | Octobre | 1er-15 nov. | Chapitres appris | Apprentissage manquant |
-|---|:---:|:---:|:---:|:---:|
-| **Ton plan** | 4 P/j | 8 P/j | **11 / 36** | 235 P |
-| Octobre à 3 h/jour | 6 P/j | 8 P/j | **14 / 36** | 200 P |
-| **Octobre à 4 h/jour** — recommandé | 8 P/j | 8 P/j | **19 / 36** | 155 P |
-| Octobre à 4 h + cycle de 3 P en Gestion, Droit, Institutions | 8 P/j | 8 P/j | **23 / 36** | 114 P |
-| Octobre à 4 h, 1er-15 nov. à 6 h | 8 P/j | 12 P/j | **23 / 36** | 118 P |
+**Ta décision du 28 septembre : ton plan horaire est maintenu tel quel** — 2 h par jour en octobre, 4 h par jour du 1er au 15 novembre, 6 h par jour du 16 novembre au 7 décembre, en pomodoros de 25 minutes. Ce planning le respecte exactement, et le protocole de la charte n'est pas allégé : chaque section se travaille en quatre pomodoros, P1 → P4.
 
-**Ce que ça veut dire :** le goulot est **octobre**. C'est le mois où tu ne vas plus en amphi — tu libères environ 12 à 15 h par semaine — et c'est celui où ton plan est le plus bas. **Recommandation : passer octobre à 4 h par jour.** Tant que tu ne l'as pas décidé, ce planning respecte exactement ton plan (2 h/jour) et place les chapitres qui ne tiennent pas en « hors capacité », en bas du document.
+**Ce qui est sacrifié, matière par matière** — le choix suit la pondération ECTS × difficulté, et la date de parution estimée de chaque chapitre :
+
+| Matière | ECTS | Chapitres appris à temps | Chapitres hors capacité | Pomodoros d'apprentissage manquants |
+|---|:---:|:---:|---|:---:|
+| Principes d'économie | 6 | 2 / 7 | Ch03, Ch04, Ch05, Ch06, Ch07 | 60 |
+| Principes de gestion | 6 | 2 / 10 | Ch03, Ch04, Ch05, Ch06, Ch07, Ch08, Ch09, Ch10 | 64 |
+| Techniques statistiques | 5 | 2 / 4 | Ch03, Ch04 | 24 |
+| Mathématiques 1 | 5 | 2 / 6 | Ch03, Ch04, Ch05, Ch06 | 37 |
+| Institutions politiques | 3 | 1 / 4 | Ch02, Ch03, Ch04 | 24 |
+| Introduction au droit | 3 | 1 / 5 | Ch02, Ch03, Ch04, Ch05 | 29 |
+
+**Ce qui peut encore réduire le sacrifice sans ajouter une heure :** recevoir vite les supports — 30 chapitres sur 36 sont des estimations, et un chapitre réel peut être plus court que prévu (il peut aussi être plus long) ; ne perdre aucun pomodoro, la marge du dimanche absorbant les imprévus ; les questions de marche de chaque cours, révision gratuite hors pomodoros. **Le planning est recalculé à chaque bilan du dimanche**, et je te dis à chaque fois ce qui est sacrifié.
 
 **Deux inconnues peuvent faire bouger ce chiffre dans les deux sens :** le nombre réel de chapitres de Mathématiques, Droit, Institutions politiques et des parties 1-2 d'Économie (estimé, rien n'a été reçu), et le nombre réel de TD par semaine (5 supposés).
 :::
@@ -67,14 +72,14 @@ sommaire: oui
 | Matière | ECTS | Poids ECTS × difficulté | Part visée de l'apprentissage et de l'entraînement | Obtenue | Pomodoros au total, TD et révisions compris |
 |---|:---:|:---:|:---:|:---:|:---:|
 | Principes d'économie | 6 | 7.80 | 23 % | 19 % | 78 |
-| Principes de gestion | 6 | 6.00 | 18 % | 14 % | 66 |
+| Principes de gestion | 6 | 6.00 | 18 % | 15 % | 66 |
 | Techniques statistiques | 5 | 6.75 | 20 % | 27 % | 93 |
-| Mathématiques 1 | 5 | 7.50 | 22 % | 22 % | 88 |
-| Institutions politiques | 3 | 3.00 | 9 % | 11 % | 34 |
-| Introduction au droit | 3 | 3.00 | 9 % | 8 % | 52 |
+| Mathématiques 1 | 5 | 7.50 | 22 % | 21 % | 82 |
+| Institutions politiques | 3 | 3.00 | 9 % | 11 % | 38 |
+| Introduction au droit | 3 | 3.00 | 9 % | 7 % | 50 |
 | Ecri+ | 1 | — | — | — | 10 |
 | GoFluent (anglais) | 1 | — | — | — | 10 |
-| *Entraînement transversal, toutes matières* | — | — | — | — | 27 |
+| *Entraînement transversal, toutes matières* | — | — | — | — | 31 |
 | *Marge* | — | — | — | — | 38 |
 | **Total avant le 7 décembre** | **30** | | **100 %** | **100 %** | **496** |
 
@@ -82,13 +87,13 @@ sommaire: oui
 
 | Type de travail | Pomodoros | Part |
 |---|:---:|:---:|
-| APPRENDRE | 173 | 35 % |
-| S'ENTRAÎNER | 85 | 17 % |
-| EXAMEN BLANC | 85 | 17 % |
+| APPRENDRE | 170 | 34 % |
+| EXAMEN BLANC | 89 | 18 % |
+| S'ENTRAÎNER | 87 | 18 % |
 | TD — CONSOLIDATION | 40 | 8 % |
 | PRÉPARATION DE TD | 39 | 8 % |
 | MARGE | 38 | 8 % |
-| RÉVISER | 30 | 6 % |
+| RÉVISER | 27 | 5 % |
 | PRÉPARATION CC | 6 | 1 % |
 
 ## Les chapitres — apprentissage et révisions espacées
@@ -104,7 +109,7 @@ sommaire: oui
 | Maths Ch01 — Chapitre 1 | à recevoir | 3 *(est.)* | 3 octobre | 18 octobre → **24 octobre** | 25 octobre | 27 octobre | 31 octobre | 14 novembre |
 | Droit Ch01 — Chapitre 1 | à recevoir | 2 *(est.)* | 3 octobre | 3 novembre → **6 novembre** | 7 novembre | 9 novembre | 13 novembre | 27 novembre |
 | Maths Ch02 — Chapitre 2 | à recevoir | 3 *(est.)* | 3 octobre | 9 novembre → **17 novembre** | 18 novembre | 20 novembre | 24 novembre | *veille d'examen* |
-| Droit Ch02 — Chapitre 2 | à recevoir | 2 *(est.)* | 3 octobre | **hors capacité** (5/8 étapes) | — | — | — | — |
+| Droit Ch02 — Chapitre 2 | à recevoir | 2 *(est.)* | 3 octobre | **hors capacité** (3/8 étapes) | — | — | — | — |
 | Gestion Ch03 — Management ou gestion ? De la mesure à la performance | à recevoir | 2 *(est.)* | 3 octobre | **hors capacité** (0/8 étapes) | — | — | — | — |
 | Éco Ch02 — Partie 1 (macroéconomie), chapitre 1 | à recevoir | 3 *(est.)* | 3 octobre | 21 novembre → **25 novembre** | 26 novembre | 28 novembre | 2 décembre | *veille d'examen* |
 | Gestion Ch04 — Du manager au leader : faire agir un collectif | à recevoir | 2 *(est.)* | 3 octobre | **hors capacité** (0/8 étapes) | — | — | — | — |
@@ -112,7 +117,7 @@ sommaire: oui
 | Institutions Ch02 — Partie 1, chapitre 2 | à recevoir | 2 *(est.)* | 5 octobre | **hors capacité** (0/8 étapes) | — | — | — | — |
 | Gestion Ch05 — L'étude de cas en gestion | à recevoir | 2 *(est.)* | 5 octobre | **hors capacité** (0/8 étapes) | — | — | — | — |
 | Éco Ch03 — Partie 1 (macroéconomie), chapitre 2 | à recevoir | 3 *(est.)* | 12 octobre | **hors capacité** (0/12 étapes) | — | — | — | — |
-| Maths Ch03 — Chapitre 3 | à recevoir | 3 *(est.)* | 12 octobre | 23 novembre → **29 novembre** | 30 novembre | 2 décembre | 6 décembre | *veille d'examen* |
+| Maths Ch03 — Chapitre 3 | à recevoir | 3 *(est.)* | 12 octobre | **hors capacité** (11/12 étapes) | — | — | — | — |
 | Droit Ch03 — Chapitre 3 | à recevoir | 2 *(est.)* | 19 octobre | **hors capacité** (0/8 étapes) | — | — | — | — |
 | Gestion Ch06 — Pouvoir et rapports sociaux dans l'organisation | à recevoir | 2 *(est.)* | 12 octobre | **hors capacité** (0/8 étapes) | — | — | — | — |
 | Éco Ch04 — Partie 1 (macroéconomie), chapitre 3 | à recevoir | 3 *(est.)* | 26 octobre | **hors capacité** (0/12 étapes) | — | — | — | — |
@@ -430,27 +435,24 @@ sommaire: oui
 |  | Maths | Ch03 | APPRENDRE | § 2.1 — P3 cartes de la section → P4 exercices niveau 1 | 2 |
 |  | Droit | Ch02 | APPRENDRE | § 2.1 — P1 lecture active → P2 restitution Feynman | 2 |
 |  | Maths | Ch03 | APPRENDRE | § 2.2 — P1 lecture active → P2 restitution Feynman | 2 |
-| **vendredi 27 novembre** · 12 P | Institutions | Ch01 | EXAMEN BLANC | partiel, conditions réelles, sans document | 2 |
+| **vendredi 27 novembre** · 12 P | Institutions | Ch01 | EXAMEN BLANC | complet, durée réelle (5 P), sans document | 5 |
 |  | Droit | TD du jour | TD — CONSOLIDATION | exercices corrigés refaits de mémoire ; attentes du chargé de TD notées | 1 |
 |  | Droit | Ch01 J+21 | RÉVISER | Anki dues → fiche(s) restituée(s) de mémoire → correction des oublis | 1 |
 |  | Maths | Ch03 | APPRENDRE | § 2.2 — P3 cartes de la section → P4 exercices niveau 1 | 2 |
-|  | Droit | Ch02 | APPRENDRE | § 2.1 — P3 cartes de la section → P4 exercices niveau 1 | 2 |
-|  | Maths | Ch03 | APPRENDRE | § 2.3 — P1 lecture active | 1 |
+|  | Droit | Ch02 | APPRENDRE | § 2.1 — P3 cartes de la section | 1 |
 |  | Éco | Ch02 | S'ENTRAÎNER | niveau 2 — exercices types chronométrés ; correction ; analyse des erreurs | 1 |
 |  | Institutions | Ch01 | S'ENTRAÎNER | niveau 2 — exercices types chronométrés ; correction ; analyse des erreurs | 1 |
-|  | Stats | Ch02 | S'ENTRAÎNER | niveau 4 — sujet au format de l'examen ; correction ; analyse des erreurs | 1 |
-| **samedi 28 novembre** · 12 P | Institutions | examen blanc de la veille | EXAMEN BLANC | correction au corrigé, analyse de chaque erreur | 1 |
-|  | Éco | Ch01, Ch02 | EXAMEN BLANC | complet, durée réelle (4 P), sans document | 4 |
+| **samedi 28 novembre** · 12 P | Éco | Ch01, Ch02 | EXAMEN BLANC | complet, durée réelle (4 P), sans document | 4 |
+|  | Institutions | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
 |  | Éco | fiche du TD de lundi | PRÉPARATION DE TD | exercices de la fiche tentés seul ; notions à revoir listées | 1 |
 |  | Ecri+ | plateforme en ligne | S'ENTRAÎNER | activités de la semaine | 1 |
 |  | GoFluent | plateforme en ligne | S'ENTRAÎNER | activités de la semaine | 1 |
 |  | Institutions + Éco | Ch01 J+3 + Ch02 J+3 | RÉVISER | Anki dues → fiche(s) restituée(s) de mémoire → correction des oublis | 1 |
-|  | Maths | Ch03 | APPRENDRE | § 2.3 — P2 restitution Feynman → P3 cartes de la section | 2 |
+|  | Maths | Ch03 | APPRENDRE | § 2.3 — P1 lecture active | 1 |
 |  | Stats | Ch02 | S'ENTRAÎNER | niveau 4 — sujet au format de l'examen ; correction ; analyse des erreurs | 1 |
 | **dimanche 29 novembre** · 12 P | — | — | MARGE | demi-journée de rattrapage ; si rien à rattraper : cartes Anki | 6 |
 |  | Éco | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
-|  | Maths | Ch03 | APPRENDRE | § 2.3 — P4 exercices niveau 1 | 1 |
-|  | Droit | Ch02 | APPRENDRE | § 2.2 — P1 lecture active | 1 |
+|  | Maths | Ch03 | APPRENDRE | § 2.3 — P2 restitution Feynman → P3 cartes de la section | 2 |
 |  | Éco | Ch02 | S'ENTRAÎNER | niveau 3 — réflexion, cas, pièges ; correction ; analyse des erreurs | 1 |
 |  | Institutions | Ch01 | S'ENTRAÎNER | niveau 3 — réflexion, cas, pièges ; correction ; analyse des erreurs | 1 |
 
@@ -461,39 +463,35 @@ sommaire: oui
 | **lundi 30 novembre** · 12 P | Gestion | Ch01, Ch02 | EXAMEN BLANC | complet, durée réelle (3 P), sans document | 3 |
 |  | Éco | TD du jour | TD — CONSOLIDATION | exercices corrigés refaits de mémoire ; attentes du chargé de TD notées | 1 |
 |  | Gestion | fiche du TD de mardi | PRÉPARATION DE TD | exercices de la fiche tentés seul ; notions à revoir listées | 1 |
-|  | Maths | Ch03 J+1 | RÉVISER | Anki dues → fiche(s) restituée(s) de mémoire → correction des oublis | 1 |
+|  | Stats | Ch02 | S'ENTRAÎNER | niveau 4 — sujet au format de l'examen ; correction ; analyse des erreurs | 1 |
 |  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 6 |
 | **mardi 1er décembre** · 12 P | Gestion | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
 |  | Stats | Ch01, Ch02 | EXAMEN BLANC | complet, durée réelle (4 P), sans document | 4 |
 |  | Gestion | TD du jour | TD — CONSOLIDATION | exercices corrigés refaits de mémoire ; attentes du chargé de TD notées | 1 |
 |  | Maths | fiche du TD de mercredi | PRÉPARATION DE TD | exercices de la fiche tentés seul ; notions à revoir listées | 1 |
-|  | Maths | Ch03 | S'ENTRAÎNER | niveau 2 — exercices types chronométrés ; correction ; analyse des erreurs | 1 |
-|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 3 |
+|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 4 |
 | **mercredi 2 décembre** · 12 P | Stats | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
-|  | Maths | Ch01, Ch02, Ch03 | EXAMEN BLANC | complet, durée réelle (5 P), sans document | 5 |
+|  | Maths | Ch01, Ch02 | EXAMEN BLANC | complet, durée réelle (5 P), sans document | 5 |
 |  | Stats | fiche du TD de jeudi | PRÉPARATION DE TD | exercices de la fiche tentés seul ; notions à revoir listées | 1 |
 |  | Maths | TD du jour | TD — CONSOLIDATION | exercices corrigés refaits de mémoire ; attentes du chargé de TD notées | 1 |
 |  | Institutions + Éco | Ch01 J+7 + Ch02 J+7 | RÉVISER | Anki dues → fiche(s) restituée(s) de mémoire → correction des oublis | 1 |
-|  | Maths | Ch03 J+3 | RÉVISER | Anki dues → fiche(s) restituée(s) de mémoire → correction des oublis | 1 |
-|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 1 |
+|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 2 |
 | **jeudi 3 décembre** · 12 P | Maths | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
 |  | Institutions | Ch01 | EXAMEN BLANC | complet, durée réelle (5 P), sans document | 5 |
 |  | Stats | TD du jour | TD — CONSOLIDATION | exercices corrigés refaits de mémoire ; attentes du chargé de TD notées | 1 |
 |  | Droit | fiche du TD de vendredi | PRÉPARATION DE TD | exercices de la fiche tentés seul ; notions à revoir listées | 1 |
 |  | Éco | Ch02 | S'ENTRAÎNER | niveau 4 — sujet au format de l'examen ; correction ; analyse des erreurs | 2 |
-|  | Maths | Ch03 | S'ENTRAÎNER | niveau 3 — réflexion, cas, pièges ; correction ; analyse des erreurs | 1 |
+|  | Institutions | Ch01 | S'ENTRAÎNER | niveau 4 — sujet au format de l'examen ; correction ; analyse des erreurs | 1 |
 | **vendredi 4 décembre** · 12 P | Institutions | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
 |  | Droit | Ch01 | EXAMEN BLANC | complet, durée réelle (4 P), sans document | 4 |
 |  | Droit | TD du jour | TD — CONSOLIDATION | exercices corrigés refaits de mémoire ; attentes du chargé de TD notées | 1 |
-|  | Institutions | Ch01 | S'ENTRAÎNER | niveau 4 — sujet au format de l'examen ; correction ; analyse des erreurs | 1 |
-|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 4 |
+|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 5 |
 | **samedi 5 décembre** · 12 P | Droit | examen blanc de la veille | EXAMEN BLANC | correction de correcteur, note estimée, lacunes nommées | 2 |
 |  | Ecri+ | plateforme en ligne | S'ENTRAÎNER | activités de la semaine | 1 |
 |  | GoFluent | plateforme en ligne | S'ENTRAÎNER | activités de la semaine | 1 |
 |  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 8 |
 | **dimanche 6 décembre** · 12 P | — | — | MARGE | demi-journée de rattrapage ; si rien à rattraper : cartes Anki | 6 |
-|  | Maths | Ch03 J+7 | RÉVISER | Anki dues → fiche(s) restituée(s) de mémoire → correction des oublis | 1 |
-|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 5 |
+|  | — | chapitres déjà appris | S'ENTRAÎNER | entraînement transversal : exercices mélangés des chapitres appris | 6 |
 
 ## Semaine du 7 décembre au 13 décembre — 35 pomodoros
 
@@ -531,13 +529,14 @@ sommaire: oui
 
 | Chapitre | Disponible le | Pomodoros d'apprentissage faits | Manquants | Soit |
 |---|---|:---:|:---:|:---:|
-| Droit Ch02 — Chapitre 2 | 3 octobre | 5 / 8 | 3 | 1 h 15 |
+| Droit Ch02 — Chapitre 2 | 3 octobre | 3 / 8 | 5 | 2 h 05 |
 | Gestion Ch03 — Management ou gestion ? De la mesure à la performance | 3 octobre | 0 / 8 | 8 | 3 h 20 |
 | Gestion Ch04 — Du manager au leader : faire agir un collectif | 3 octobre | 0 / 8 | 8 | 3 h 20 |
 | Stats Ch03 — Évolutions temporelles | 12 octobre | 0 / 12 | 12 | 5 h 00 |
 | Institutions Ch02 — Partie 1, chapitre 2 | 5 octobre | 0 / 8 | 8 | 3 h 20 |
 | Gestion Ch05 — L'étude de cas en gestion | 5 octobre | 0 / 8 | 8 | 3 h 20 |
 | Éco Ch03 — Partie 1 (macroéconomie), chapitre 2 | 12 octobre | 0 / 12 | 12 | 5 h 00 |
+| Maths Ch03 — Chapitre 3 | 12 octobre | 11 / 12 | 1 | 0 h 25 |
 | Droit Ch03 — Chapitre 3 | 19 octobre | 0 / 8 | 8 | 3 h 20 |
 | Gestion Ch06 — Pouvoir et rapports sociaux dans l'organisation | 12 octobre | 0 / 8 | 8 | 3 h 20 |
 | Éco Ch04 — Partie 1 (macroéconomie), chapitre 3 | 26 octobre | 0 / 12 | 12 | 5 h 00 |
@@ -556,7 +555,7 @@ sommaire: oui
 | Droit Ch05 — Chapitre 5 | 16 novembre | 0 / 8 | 8 | 3 h 20 |
 | Éco Ch07 — Partie 2 (microéconomie), chapitre 3 | 16 novembre | 0 / 12 | 12 | 5 h 00 |
 | Maths Ch06 — Chapitre 6 | 16 novembre | 0 / 12 | 12 | 5 h 00 |
-| **Total** | | | **235** | **97 h 55** |
+| **Total** | | | **238** | **99 h 10** |
 
 ## Alertes de la simulation
 

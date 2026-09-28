@@ -54,7 +54,7 @@ longueur à « celle que le chapitre exige » : rien n'a été condensé au dét
 | **Principes de gestion** | 6 | 2 / 10 | — | — | examen blanc partiel, **dimanche 1ᵉʳ novembre** ; CC supposé **mardi 3 novembre** | Ch01 du 1ᵉʳ au 6 octobre, Ch02 du 26 octobre au 4 novembre ; **CM 3 à 5 à recevoir** |
 | **Techniques statistiques** | 5 | 2 / 4 | — | — | examen blanc partiel, **samedi 7 novembre** | Ch01 du 25 octobre au 2 novembre, Ch02 du 6 au 19 novembre ; **chapitre 3 à recevoir** |
 | **Mathématiques 1** | 5 | 0 / 6 | — | — | examen blanc partiel, **mardi 10 novembre** | **Aucun support reçu** — alerte n° 2 |
-| **Institutions politiques** | 3 | 1 / 4 | — | — | examen blanc partiel, **vendredi 27 novembre** | Ch01 du 18 au 25 novembre ; **suite de la Partie 1 et Section III à recevoir** |
+| **Institutions politiques** | 3 | 1 / 4 | — | — | examen blanc complet, **vendredi 27 novembre** | Ch01 du 18 au 25 novembre ; **suite de la Partie 1 et Section III à recevoir** |
 | **Introduction au droit** | 3 | 0 / 5 | — | — | examen blanc partiel, **samedi 14 novembre** | **Aucun support reçu** — alerte n° 2 |
 | **Ecri+** | 1 | — | — | — | modalités inconnues | Un pomodoro par semaine, le samedi |
 | **GoFluent** | 1 | — | — | — | modalités inconnues | Un pomodoro par semaine, le samedi |
@@ -65,12 +65,11 @@ trajectoire — je te l'annonce au bilan du dimanche et je réorganise le plan p
 # 3 — Alertes en cours
 
 ::: piege Cinq alertes, par ordre de gravité
-1. **Capacité.** Au protocole de la charte, ton plan horaire permet d'apprendre à temps **11
-   chapitres sur 36** (235 pomodoros d'apprentissage manquants). **Octobre à 4 h par jour** en
-   apprend **19** ; en ajoutant un cycle de 3 pomodoros au lieu de 4 dans les matières de
-   mémoire (Gestion, Droit, Institutions), **23**. **Recommandation : octobre à 4 h par jour** —
-   c'est le mois où tu ne vas plus en amphi. Le planning respecte ton plan tant que tu n'as pas
-   décidé (décision D11).
+1. **Capacité.** Ton plan horaire est **maintenu par ta décision du 28 septembre** (D16). Au
+   protocole de la charte, il permet d'apprendre à temps **10 chapitres sur 36** (238 pomodoros
+   d'apprentissage manquants). Ce qui est sacrifié est listé matière par matière en tête de
+   `PLANNING.md`. **La plus touchée est la Gestion : 2 CM sur 10** — mais les CM 3 à 10 ne sont
+   pas encore reçus, et leur taille réelle décidera. Chaque support reçu vite réduit l'incertitude.
 2. **Mathématiques et Introduction au droit : zéro document.** 8 crédits sans cours, TD de maths
    chaque semaine. C'est la demande n° 1 et n° 2 de `SOURCES.md`.
 3. **Emploi du temps de TD, MCC et calendrier des examens inconnus.** Jours de TD, dates des CC et
@@ -78,7 +77,8 @@ trajectoire — je te l'annonce au bilan du dimanche et je réorganise le plan p
 4. **Les chapitres reçus sont plus denses qu'estimé** : 28 sections réelles contre 21 estimées
    (+28 pomodoros). Les chapitres à venir risquent d'être sous-estimés de la même façon.
 5. **Institutions politiques s'apprend tard** au rythme de ton plan : Ch01 du 18 au 25 novembre,
-   seulement trois semaines avant l'épreuve. Avec octobre à 4 h, il remonte en octobre.
+   trois semaines avant l'épreuve. Aucun examen blanc partiel n'est possible en novembre ; les
+   deux examens blancs complets exigés par la charte ont lieu les **27 novembre et 3 décembre**.
 :::
 
 # 4 — Décisions prises
@@ -98,11 +98,13 @@ trajectoire — je te l'annonce au bilan du dimanche et je réorganise le plan p
 | **D8** | 28 sept. | **Date limite d'apprentissage** : dix jours avant l'épreuve de la matière et le 29 novembre au plus tard | Les révisions J+1, J+3 et J+7 doivent précéder l'épreuve ; un chapitre appris trop tard est mal retenu |
 | **D9** | 28 sept. | **Période d'examens (7-18 décembre)** : révision de l'épreuve suivante entre les épreuves, veille allégée à 6 pomodoros, arrêt à 21 h, sommeil protégé | Charte : révisions ciblées entre les épreuves |
 | **D10** | 28 sept. | **Hypothèses en vigueur**, toutes signalées comme telles : jours de TD (Éco lundi, Gestion mardi, Maths mercredi, Stats jeudi, Droit vendredi) ; CC de gestion le 3 novembre et d'économie le 23 novembre ; épreuves du 7 au 18 décembre ; formats de Stats, Maths, Institutions (écrit de 2 h), Droit, Ecri+, GoFluent | Aucune de ces informations n'a été transmise ; chacune se remplace dans `planning.json` dès réception |
-| **D11** | 28 sept. | **Le planning respecte exactement ton plan horaire**, malgré le déficit : ce qui ne tient pas est listé « hors capacité », le sacrifice portant d'abord sur ce qui pèse le moins | C'est ta décision de passer octobre à 4 h, pas la mienne ; je t'en donne le coût chiffré |
+| **D11** | 28 sept. | **Le planning respecte exactement ton plan horaire**, malgré le déficit : ce qui ne tient pas est listé « hors capacité », le sacrifice portant d'abord sur ce qui pèse le moins | Charte, Livrable 2 : « qui respecte exactement mon plan de travail » ; confirmé par ta décision (D16) |
 | **D12** | 28 sept. | **Seuils d'auto-évaluation alignés sur 18/20** dans tous les cours : niveau 2 ≥ 90 %, niveau 4 ≥ 18/20 | Ton objectif est 18-20 ; les seuils de 14 ou 16 des versions précédentes ne suffisaient pas |
 | **D13** | 28 sept. | **Statistiques — densité d'un histogramme = fréquence / amplitude**, et c'est l'aire qui représente la fréquence, partout | C'est la convention du support ; la version précédente mêlait effectif et fréquence |
-| **D14** | 28 sept. | **Institutions** : examen blanc partiel déplacé au **27 novembre** (après l'apprentissage du Ch01) ; l'examen blanc complet du 24 novembre supprimé, celui du 3 décembre maintenu ; le planificateur refuse désormais un examen blanc sans chapitre appris | Avec 5 sections, le Ch01 ne se termine qu'au 25 novembre au rythme de ton plan |
+| **D14** | 28 sept. | **Institutions** : pas d'examen blanc partiel (rien n'est appris avant le 18 novembre) ; **deux examens blancs complets, le 27 novembre et le 3 décembre**. Le planificateur refuse un examen blanc sans chapitre appris, et signale toute matière qui aurait moins de deux examens blancs complets avant le 7 décembre | Avec 5 sections, le Ch01 ne se termine qu'au 25 novembre au rythme de ton plan ; la charte exige « au moins deux examens blancs complets par matière avant le 7 décembre » |
 | **D15** | 28 sept. | **`academy/` est une archive** des versions 1 et 2 : on n'y travaille plus ; seul `Semestre1/` fait référence | Les six supports sont migrés au format de la charte |
+| **D16** | 28 sept. | **Ta décision : le plan horaire reste tel quel** — 2 h par jour en octobre, 4 h du 1ᵉʳ au 15 novembre, 6 h du 16 novembre au 7 décembre. Je ne propose plus d'heures supplémentaires. La piste d'un cycle de 3 pomodoros par section est **abandonnée** | C'est ta décision. Le cycle de 3 pomodoros contredisait le protocole APPRENDRE de la charte (P1 → P4) : la qualité n'est pas négociable |
+| **D17** | 28 sept. | **L'ordre d'apprentissage D7 est maintenu** : les chapitres reçus d'abord, puis la file pondérée | Testé : un ordre purement pondéré apprendrait 13 chapitres au lieu de 10, mais tous estimés et non reçus, en abandonnant Statistiques Ch02 et tout Institutions — couverture pondérée 13,6 contre 13,3 : gain négligeable, risque élevé |
 
 # 5 — Erreurs trouvées dans les documents précédents, et corrigées
 
@@ -129,6 +131,7 @@ trajectoire — je te l'annonce au bilan du dimanche et je réorganise le plan p
 | | Le Gini d'ensemble est « supérieur à la moyenne pondérée » des Gini régionaux | Affirmation non démontrée, retirée : le Gini d'ensemble **ne se déduit pas** des Gini régionaux |
 | | Arbre de décision : « quantitative ordinale / cardinale » ; mnémonique « MO-MÉ-MÉ » (médium) ; moustaches « aux extrêmes » | Qualitative **nominale** / **ordinale** / **quantitative** ; « les trois M » (mode, médiane, **moyenne**) ; convention des moustaches **à préciser** |
 | | Deux renvois internes faux ; « 1 h 30 du chapitre précédent » | Renvois corrigés ; « l'heure retenue pour le chapitre précédent » |
+| **Planning** (même session) | Examen blanc complet d'Institutions du 24 novembre supprimé : il n'en restait qu'un | La charte en exige deux : **27 novembre et 3 décembre** ; contrôle ajouté au planificateur |
 | **Institutions Ch01** | La Tchécoslovaquie « jusqu'en 1991 » | Dissoute le **31 décembre 1992** (l'URSS, elle, en décembre 1991) |
 | | 200 milles : « étendue minimale » ; ZEE : « souveraineté étendue » ; espace aérien au-dessus de « l'espace maritime » | 200 milles est un **plafond** ; ZEE = **droits souverains économiques**, navigation libre ; espace aérien souverain au-dessus de la **mer territoriale** seulement |
 | | Composition du Bundesrat : article 50 | **Article 51** de la Loi fondamentale |
@@ -138,7 +141,8 @@ trajectoire — je te l'annonce au bilan du dimanche et je réorganise le plan p
 
 | Date | Ce qui a été produit | Ce que tu as fait | Ce qui reste |
 |---|---|---|---|
-| **28 sept. 2026** | Charte enregistrée ; arborescence ; `SOURCES.md` ; Livrable 1 ; Livrable 2 (planning du 1ᵉʳ octobre au 18 décembre) ; chaîne de publication (PDF, Anki, fiches, formulaires, glossaire) ; **six cours reconstruits** au format de la charte, 28 sections, 563 cartes, 289 termes ; planning régénéré après reconstruction (0 alerte) ; ce tableau de bord | — (début du travail le 1ᵉʳ octobre) | Recevoir les supports de Maths et de Droit, l'emploi du temps de TD, les MCC ; décider du volume horaire d'octobre ; premier bilan dominical le 4 octobre |
+| **28 sept. 2026** | Charte enregistrée ; arborescence ; `SOURCES.md` ; Livrable 1 ; Livrable 2 (planning du 1ᵉʳ octobre au 18 décembre) ; chaîne de publication (PDF, Anki, fiches, formulaires, glossaire) ; **six cours reconstruits** au format de la charte, 28 sections, 563 cartes, 289 termes ; planning régénéré après reconstruction (0 alerte) ; ce tableau de bord | — (début du travail le 1ᵉʳ octobre) | Recevoir les supports de Maths et de Droit, l'emploi du temps de TD, les MCC ; premier bilan dominical le 4 octobre |
+| **28 sept. 2026** (suite) | Ta décision sur les heures enregistrée (D16) ; recommandation retirée ; tableau « ce qui est sacrifié » en tête du planning ; erreur sur les examens blancs d'Institutions corrigée (D14) ; ordre d'apprentissage testé et maintenu (D17) ; planning régénéré, 0 alerte | — | Idem |
 
 # 7 — Le bilan du dimanche — le modèle à m'envoyer
 

@@ -225,12 +225,6 @@
       "date": "2026-11-10"
     },
     {
-      "matiere": "Institutions_politiques",
-      "type": "partiel",
-      "date": "2026-11-27",
-      "_note": "après l'apprentissage du chapitre 1, qui se termine le 25 novembre au rythme de ton plan (5 sections depuis la reconstruction du 28 septembre)"
-    },
-    {
       "matiere": "Droit",
       "type": "partiel",
       "date": "2026-11-14"
@@ -289,6 +283,12 @@
       "matiere": "Droit",
       "type": "complet",
       "date": "2026-12-04"
+    },
+    {
+      "matiere": "Institutions_politiques",
+      "type": "complet",
+      "date": "2026-11-27",
+      "_note": "premier des deux examens blancs complets exigés par la charte ; le chapitre 1 s'apprend du 18 au 25 novembre au rythme du plan, aucun examen blanc partiel n'est donc possible en novembre"
     }
   ],
   "chapitres": [
@@ -598,5 +598,10 @@
   ],
   "avancement": {},
   "apprentissage_jusqu_au": "2026-11-29",
-  "_ordre": "Les chapitres portant un champ « ordre » passent en tête de la file d'apprentissage, dans cet ordre ; les autres suivent la file pondérée ECTS × difficulté."
+  "_ordre": "Les chapitres portant un champ « ordre » passent en tête de la file d'apprentissage, dans cet ordre ; les autres suivent la file pondérée ECTS × difficulté.",
+  "decision_horaire": {
+    "date": "2026-09-28",
+    "plan": "2 h par jour en octobre, 4 h par jour du 1er au 15 novembre, 6 h par jour du 16 novembre au 7 décembre, en pomodoros de 25 minutes",
+    "_note": "décision de l'étudiant, définitive : ne plus proposer d'heures supplémentaires ; optimiser à l'intérieur de ce plan"
+  }
 }
