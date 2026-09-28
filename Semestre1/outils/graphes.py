@@ -117,6 +117,7 @@ def barres(chemin, categories, series, mode="simple", titre=None, etiq_y="", lar
     mode : 'simple' (1 série), 'groupe', 'empile', 'cent' (empilé à 100 %)."""
     couleurs = couleurs or PALETTE
     g, d, h, b = 56, 16, 34 if titre else 16, 70 if legende and len(series) > 1 else 46
+    _f = fmt if callable(fmt) else fmt.format
     W, H = largeur, hauteur
     n = len(categories)
     if mode == "cent":
@@ -133,7 +134,7 @@ def barres(chemin, categories, series, mode="simple", titre=None, etiq_y="", lar
     for k in range(5):
         v = top * k / 4
         el.append('<line x1="%d" y1="%.1f" x2="%d" y2="%.1f" stroke="#e3e6ea"/>' % (g, Y(v), W - d, Y(v)))
-        el.append(_t(g - 6, Y(v) + 4, fmt.format(round(v, 1)) if mode != "cent" else "%d %%" % round(v), 10, GRIS, "end"))
+        el.append(_t(g - 6, Y(v) + 4, _f(round(v, 1)) if mode != "cent" else "%d %%" % round(v), 10, GRIS, "end"))
     if etiq_y:
         el.append(_t(14, (H - b + h) / 2, etiq_y, 11, NOIR, rot=-90))
     pas = (W - g - d) / n
@@ -147,7 +148,7 @@ def barres(chemin, categories, series, mode="simple", titre=None, etiq_y="", lar
                 x = x0 + pas * 0.14 + j * lb
                 el.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="%s"/>' % (x, Y(v), lb - 2, Y(0) - Y(v), couleurs[j % len(couleurs)]))
                 if valeurs:
-                    el.append(_t(x + (lb - 2) / 2, Y(v) - 4, fmt.format(v), 9.5 if m > 2 else 10.5, NOIR))
+                    el.append(_t(x + (lb - 2) / 2, Y(v) - 4, _f(v), 9.5 if m > 2 else 10.5, NOIR))
         else:
             cumul = 0
             lb = pas * 0.6
@@ -156,7 +157,7 @@ def barres(chemin, categories, series, mode="simple", titre=None, etiq_y="", lar
                 v = vals[k]
                 el.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="%s" stroke="#fff" stroke-width="0.8"/>' % (x, Y(cumul + v), lb, Y(cumul) - Y(cumul + v), couleurs[j % len(couleurs)]))
                 if valeurs and (Y(cumul) - Y(cumul + v)) > 13:
-                    el.append(_t(x + lb / 2, (Y(cumul) + Y(cumul + v)) / 2 + 4, fmt.format(round(v, 1)), 10, "#ffffff", gras=True))
+                    el.append(_t(x + lb / 2, (Y(cumul) + Y(cumul + v)) / 2 + 4, _f(round(v, 1)), 10, "#ffffff", gras=True))
                 cumul += v
         el.append(_t(x0 + pas / 2, Y(0) + 15, cat, 10.5, NOIR))
     if legende and len(series) > 1:
