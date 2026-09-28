@@ -28,11 +28,11 @@ l'annexe B du nouveau cours.
 |---|---|---|:---:|---|---|---|
 | **Principes d'économie** | « 26-27 Partie 1 intro » | Diapositives de CM — introduction générale | **53 diapositives** | non nommé sur le support | `Economie/Cours/Economie_Ch01_Introduction_generale` | 53 lignes · 34 ✔ · 19 ⚠ · 0 ✖ |
 | **Principes de gestion** | CM 1 — Introduction au management | Diapositives de CM | **49 diapositives** | Pr. Agulhon (coordination CM, Aix) | `Gestion/Cours/Gestion_Ch01_Introduction_au_management` | 49 lignes · 24 ✔ · 25 ⚠ · 0 ✖ |
-| **Principes de gestion** | CM 2 — Actionnaire, client, salarié ou public : qui doit être roi ? | Diapositives de CM | **50 diapositives** | *idem* | `Gestion/Cours/Gestion_Ch02_Qui_doit_etre_roi` | 50 lignes · 26 ✔ · 24 ⚠ · 0 ✖ |
+| **Principes de gestion** | CM 2 — Actionnaire, client, salarié ou public : qui doit être roi ? | Diapositives de CM | **50 diapositives** | *idem* | `Gestion/Cours/Gestion_Ch02_Qui_doit_etre_roi` | 50 lignes · 26 ✔ · 21 ⚠ · **3 ✖** (Wooclap et vidéo Sayna, absents du support) |
 | **Techniques statistiques** | CHAPITRE 1 — Présenter pour informer | Diapositives de CM | **33 diapositives** | Hélène Couprie, L1 Portail Division A | `Statistiques/Cours/Statistiques_Ch01_Presenter_pour_informer` | 33 lignes · 9 ✔ · 24 ⚠ · 0 ✖ |
-| **Techniques statistiques** | CHAPITRE 2 — Résumer pour informer | Diapositives de CM | **70 diapositives** | *idem* | `Statistiques/Cours/Statistiques_Ch02_Resumer_pour_informer` | 70 diapositives couvertes · 4 anomalies du support |
+| **Techniques statistiques** | CHAPITRE 2 — Résumer pour informer | Diapositives de CM | **70 diapositives** | *idem* | `Statistiques/Cours/Statistiques_Ch02_Resumer_pour_informer` | 70 lignes · 46 ✔ · 24 ⚠ · 0 ✖ |
 | **Institutions politiques** | Polycopié — M. Verpeaux, *Droit constitutionnel 1*, Leçon 1 « L'État et le pouvoir politique », UNJF | Cours rédigé | **16 pages** | — | `Institutions_politiques/Cours/Institutions_politiques_Ch01_L_Etat` | fusionné avec la ligne suivante |
-| **Institutions politiques** | Diapositives « L'État » | Diapositives de CM | **10 diapositives** | signées S.H. | *idem* | 27 éléments · 12 ✔ · 14 ⚠ · **1 ✖** (Section III annoncée, absente) |
+| **Institutions politiques** | Diapositives « L'État » | Diapositives de CM | **10 diapositives** | signées S.H. | *idem* | 27 lignes · 9 ✔ · 17 ⚠ · **1 ✖** (Section III annoncée, absente) |
 | Introduction au droit | — | — | **rien** | — | — | — |
 | Mathématiques 1 | — | — | **rien** | — | — | — |
 | Ecri+ | — | — | **rien** | — | — | — |
@@ -59,16 +59,17 @@ Division A**, site d'Aix (Pauliane) — scolarité : **Virginie Bamas**.
 
 | Priorité | Ce qui manque | Matière | Crédits en jeu | Où le trouver |
 |:---:|---|---|:---:|---|
-| **5** | Les CM parus depuis ceux que j'ai : **CM 3 à 5 de gestion** (déjà faits en amphi), la **Partie 1 d'économie**, le **chapitre 3 de statistiques**, la **suite d'Institutions politiques** et la **Section III** annoncée et absente du polycopié | Toutes | 22 | Ametice |
+| **5** | Les CM parus depuis ceux que j'ai : **CM 3 à 5 de gestion** (déjà faits en amphi), la **Partie 1 d'économie**, le **chapitre 3 de statistiques**, la **suite d'Institutions politiques** et la **Section III** annoncée et absente du polycopié — et, dans ce polycopié, **deux passages à vérifier** : la date de fin de la Tchécoslovaquie (p. 6 ; elle a été dissoute le 31 décembre 1992) et l'article cité pour la composition du Bundesrat (p. 16 ; c'est l'article 51) | Toutes | 22 | Ametice |
 | **6** | **Les fiches de TD** — énoncés, puis corrections — au fil des séances | Toutes | — | Tes TD |
 | **7** | **Les documents de ta marraine** — annales et corrigés d'abord, puis notes de CM, puis fiches | Toutes | — | Ta marraine ; photos acceptées, je transcris |
 | **8** | Les **modalités d'Ecri+ et de GoFluent** : heures ou activités exigées, tests, dates limites | Ecri+, GoFluent | 2 | Ametice / plateformes |
 | **9** | Le **nom du manuel de référence** d'économie (annoncé, non nommé, diapositive 9) | Économie | — | L'enseignant, un camarade |
-| **10** | Les **questions Wooclap** posées en amphi, ou une photo des notes d'un camarade | Toutes | — | Seule trace de ce sur quoi l'enseignant insiste |
+| **10** | Les **questions Wooclap** posées en amphi, ou une photo des notes d'un camarade — en priorité, pour le **CM 2 de gestion** : l'**autoévaluation Wooclap** (code **UIACLQ**, diapositive 5), les **questions de l'exercice Sayna** (diapositive 48) et le contenu de la **vidéo Sayna** (12 min 22, diapositive 49) — les trois ✖ de ce cours | Toutes | — | Seule trace de ce sur quoi l'enseignant insiste |
 | **11** | *Facultatif* : les **fichiers originaux des six supports déjà traités**, pour un second contrôle croisé | Économie, Gestion, Stats, Institutions | — | Ametice |
 
 # 3 — Journal des réceptions
 
 | Date | Document | Matière | Déposé dans `Sources/` | Traité dans |
 |---|---|---|:---:|---|
-| septembre 2026 | Les sept documents du § 1 | Économie, Gestion, Stats, Institutions | non conservés | cours reconstruits, versions 1 et 2 ; reconstruits au format du 28 septembre (version 3) |
+| septembre 2026 | Les sept documents du § 1 | Économie, Gestion, Stats, Institutions | non conservés | cours reconstruits, versions 1 et 2 |
+| 28 septembre 2026 | Aucun nouveau document — **reconstruction des six cours au format du semestre** (version 3) : sections d'apprentissage, figures, cartes Anki, fiches, glossaire | Économie, Gestion, Stats, Institutions | — | `*/Cours/*_Ch0*.md` ; les erreurs trouvées dans les versions 2 sont corrigées ; leur liste est dans `TABLEAU_DE_BORD.md` |

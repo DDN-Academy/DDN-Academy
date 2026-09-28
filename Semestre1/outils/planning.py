@@ -202,7 +202,11 @@ class Planificateur:
                     libre -= self.c["eb_partiel"]["correction"]
             else:
                 p = self.mat[m]["examen"]["duree_p"]
-                perim = ", ".join("Ch" + ch["id"].split("_Ch")[1] for ch in appris) or "—"
+                if not appris:  # un examen blanc sans chapitre appris ne mesure rien : on le signale au lieu de le placer
+                    if dd == d:
+                        self.alertes.append("%s : examen blanc complet de %s sans objet — aucun chapitre appris à cette date ; à déplacer dans planning.json." % (fr(d), self.mat[m]["nom"]))
+                    continue
+                perim = ", ".join("Ch" + ch["id"].split("_Ch")[1] for ch in appris)
                 if dd == d:
                     self.ajouter(d, m, perim, "EXAMEN BLANC", "complet, durée réelle (%d P), sans document" % p, p)
                     libre -= p
@@ -418,7 +422,7 @@ def rendu(P, cfg, scen):
     ex = " · ".join("%s %s" % (P.mat[m]["court"], fr(dd)) for dd, m in sorted((v, k) for k, v in P.examens.items()))
     A("| **Calendrier des épreuves** | %s | le calendrier officiel |" % ex)
     A("| **Chapitres à venir** | nombre et date de disponibilité estimés par matière (tableau « Les chapitres ») | chaque support dès sa parution, et les notes de ta marraine |")
-    A("| **Examens** | durées supposées : Éco 1 h 30 (connue), Gestion 1 h, Stats 1 h 30, Maths 2 h, Institutions et Droit 1 h 30 | les modalités de contrôle des connaissances |")
+    A("| **Examens** | durées supposées : Éco 1 h 30 (connue), Gestion 1 h, Stats 1 h 30, Maths et Institutions 2 h, Droit 1 h 30 | les modalités de contrôle des connaissances |")
     A("| **Ecri+ et GoFluent** | un pomodoro par semaine chacun, le samedi | leurs modalités d'évaluation |")
     A("")
     A("## Les protocoles — ce que tu fais dans chaque pomodoro")

@@ -163,8 +163,8 @@
       "exercices": false,
       "examen": {
         "date": "2026-12-16",
-        "duree_p": 4,
-        "nature": "format inconnu — hypothèse : écrit, questions de cours + question développée",
+        "duree_p": 5,
+        "nature": "format inconnu — hypothèse : écrit de 2 h, questions de cours + qualification + question développée",
         "hypothese_date": true
       },
       "_ects": "unité « Environnement des organisations » de 6 ECTS partagée avec Introduction au droit — répartition 3/3 supposée"
@@ -227,8 +227,8 @@
     {
       "matiere": "Institutions_politiques",
       "type": "partiel",
-      "date": "2026-11-21",
-      "_note": "après l'apprentissage du chapitre 1, qui ne se termine qu'au 19 novembre au rythme actuel"
+      "date": "2026-11-27",
+      "_note": "après l'apprentissage du chapitre 1, qui se termine le 25 novembre au rythme de ton plan (5 sections depuis la reconstruction du 28 septembre)"
     },
     {
       "matiere": "Droit",
@@ -254,11 +254,6 @@
       "matiere": "Mathematiques",
       "type": "complet",
       "date": "2026-11-20"
-    },
-    {
-      "matiere": "Institutions_politiques",
-      "type": "complet",
-      "date": "2026-11-24"
     },
     {
       "matiere": "Droit",
@@ -322,7 +317,7 @@
       "matiere": "Statistiques",
       "titre": "Présenter pour informer",
       "fichier": "Statistiques/Cours/Statistiques_Ch01_Presenter_pour_informer.md",
-      "sections": 3,
+      "sections": 4,
       "statut": "recu",
       "dispo": "2026-10-01",
       "ordre": 4
@@ -332,7 +327,7 @@
       "matiere": "Institutions_politiques",
       "titre": "L'État",
       "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch01_L_Etat.md",
-      "sections": 4,
+      "sections": 5,
       "statut": "recu",
       "dispo": "2026-10-01",
       "ordre": 9
@@ -342,7 +337,7 @@
       "matiere": "Gestion",
       "titre": "Qui doit être roi ?",
       "fichier": "Gestion/Cours/Gestion_Ch02_Qui_doit_etre_roi.md",
-      "sections": 2,
+      "sections": 3,
       "statut": "recu",
       "dispo": "2026-10-01",
       "ordre": 5
@@ -352,7 +347,7 @@
       "matiere": "Statistiques",
       "titre": "Résumer pour informer",
       "fichier": "Statistiques/Cours/Statistiques_Ch02_Resumer_pour_informer.md",
-      "sections": 4,
+      "sections": 8,
       "statut": "recu",
       "dispo": "2026-10-01",
       "ordre": 7

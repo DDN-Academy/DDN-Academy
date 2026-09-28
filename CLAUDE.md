@@ -4,6 +4,11 @@ Ce dépôt contient plusieurs projets. **Le travail universitaire vit dans `Seme
 d'un étudiant de L1 Économie-Gestion (AMU, FEG), examens du 7 au 18 décembre 2026. Les autres
 dossiers (trading, `dania/`, `demos/`, `studio-3d/`…) sont sans rapport : ne pas y toucher.
 
+**`academy/` est une archive** des versions 1 et 2 des cours (septembre 2026, avant la charte) :
+ne plus y travailler ni s'en servir comme référence. Les six supports qu'elle contenait sont
+reconstruits dans `Semestre1/` ; les erreurs qu'elle contenait sont listées dans
+`Semestre1/TABLEAU_DE_BORD.md`, § 5.
+
 ## Au début de CHAQUE session sur les études — avant toute autre action
 
 1. Lire **`Semestre1/TABLEAU_DE_BORD.md`** puis **`Semestre1/PLANNING.md`**.

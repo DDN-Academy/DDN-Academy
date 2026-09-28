@@ -57,7 +57,7 @@ matière où **un retard ne se rattrape pas** : chaque chapitre s'appuie sur le 
 | Économie | Partie 1 — Raisonner à l'échelle macroéconomique | à recevoir | nombre de chapitres inconnu — **3 estimés** | 3 chacun (est.) |
 | Économie | Partie 2 — Raisonner à l'échelle microéconomique | à recevoir | **3 chapitres estimés** | 3 chacun (est.) |
 | Gestion | **Ch01 — Introduction au management** | **reçu** | 49 diapositives | 3 |
-| Gestion | **Ch02 — Actionnaire, client, salarié ou public : qui doit être roi ?** | **reçu** | 50 diapositives | 2 |
+| Gestion | **Ch02 — Actionnaire, client, salarié ou public : qui doit être roi ?** | **reçu** | 50 diapositives | 3 |
 | Gestion | Ch03 — Management ou gestion ? De la mesure à la performance | à recevoir | — | 2 (est.) |
 | Gestion | Ch04 — Du manager au leader : faire agir un collectif | à recevoir | — | 2 (est.) |
 | Gestion | Ch05 — L'étude de cas en gestion | à recevoir | — | 2 (est.) |
@@ -66,19 +66,24 @@ matière où **un retard ne se rattrape pas** : chaque chapitre s'appuie sur le 
 | Gestion | Ch08 — Réseaux et innovations | à recevoir | — | 2 (est.) |
 | Gestion | Ch09 — Transformation digitale et management | à recevoir | — | 2 (est.) |
 | Gestion | Ch10 — Management durable | à recevoir | — | 2 (est.) |
-| Statistiques | **Ch01 — Présenter pour informer** | **reçu** | 33 diapositives | 3 |
-| Statistiques | **Ch02 — Résumer pour informer** | **reçu** | 70 diapositives | 4 |
+| Statistiques | **Ch01 — Présenter pour informer** | **reçu** | 33 diapositives | 4 |
+| Statistiques | **Ch02 — Résumer pour informer** | **reçu** | 70 diapositives | 8 |
 | Statistiques | Ch03 — Évolutions temporelles | à recevoir | — | 3 (est.) |
 | Statistiques | Ch04 — Croiser les variables | à recevoir | — | 3 (est.) |
-| Institutions | **Ch01 — L'État** (Partie 1, chapitre 1) | **reçu** — sauf la Section III annoncée | 16 p. + 10 diapositives | 4 |
+| Institutions | **Ch01 — L'État** (Partie 1, chapitre 1) | **reçu** — sauf la Section III annoncée | 16 p. + 10 diapositives | 5 |
 | Institutions | Suite de la Partie 1 | à recevoir | **3 chapitres estimés** | 2 chacun (est.) |
 | Droit | Tout le cours | à recevoir | **5 chapitres estimés** | 2 chacun (est.) |
 | Mathématiques | Tout le cours, mise à niveau comprise | à recevoir | **6 chapitres estimés** | 3 chacun (est.) |
 | Ecri+ · GoFluent | Activités sur plateforme | modalités inconnues | — | 1 pomodoro par semaine chacun |
 
-**Total estimé : 36 chapitres, 95 sections d'apprentissage.** Les titres des séances de gestion
+**Total estimé : 36 chapitres, 102 sections d'apprentissage.** Les titres des séances de gestion
 viennent du syllabus du CM 1 ; ceux de statistiques, du chapitre 1 ; le plan d'économie, de sa
 diapositive 3. Tout le reste est une estimation, remplacée chapitre après chapitre.
+
+**Mise à jour du 28 septembre, après la reconstruction des six cours reçus :** leurs sections
+d'apprentissage sont passées de **21 estimées à 28 réelles** — Gestion Ch02 +1, Statistiques Ch01
++1, Statistiques Ch02 +4, Institutions Ch01 +1. Les chapitres reçus sont plus denses que prévu :
+**+7 sections, soit +28 pomodoros d'apprentissage.** Les chiffres du § 5 en tiennent compte.
 
 <!--saut-->
 
@@ -107,7 +112,7 @@ Par ordre d'urgence :
 | **Gestion** | **QCM** : pas de points négatifs, mais une mauvaise alternative **annule** une bonne ; au moins 2 bonnes réponses par question | **Écrit en TD à mi-semestre** | **connu** (d. 21) ; note = **max(CT ; ⅓ CC + ⅔ CT)** | **Frontières exactes** entre notions voisines, listes complètes, dates et noms ; entraînement au QCM avec la **stratégie de coche** (ne cocher que si la probabilité d'avoir raison dépasse ½) ; le CC ne peut jamais faire baisser la note |
 | **Statistiques** | *Hypothèse* : écrit, exercices d'application + questions de cours | *inconnu* | **hypothèse** — le support pose cinq fois les mêmes trois gestes : identifier, calculer, lire | Les trois gestes en automatismes, chaque formule démontrée puis appliquée, les trois contrôles de fin (Σ nᵢ = n, Σ fᵢ = 100 %, dernière cumulée = 100 %) |
 | **Mathématiques** | *Hypothèse* : écrit, exercices, 2 h | *inconnu* | **inconnu** | Volume d'exercices chronométrés, méthodes-types rédigées, erreurs classées ; rien d'autre ne fait monter une note de maths |
-| **Institutions politiques** | *Hypothèse* : écrit, questions de cours + question développée | *inconnu* | **hypothèse** | Définitions, distinctions (État unitaire / fédéral / confédération…), auteurs et formules à citer, plan de réponse structuré en deux parties |
+| **Institutions politiques** | *Hypothèse* : écrit de 2 h, questions de cours + qualification de situations + question développée | *inconnu* | **hypothèse** | Définitions, distinctions (État unitaire / fédéral / confédération…), auteurs et formules à citer, plan de réponse structuré en deux parties |
 | **Introduction au droit** | *Hypothèse* : écrit, questions de cours + cas pratique | *inconnu* | **inconnu** | Méthode du cas pratique (faits → problème de droit → règle → application → solution), vocabulaire juridique exact |
 | **Ecri+** | *inconnu* — plateforme d'évaluation du français écrit | — | **inconnu** | Activité régulière chaque semaine ; les tests se préparent sur la plateforme elle-même |
 | **GoFluent** | *inconnu* — plateforme d'anglais | — | **inconnu** | Activité régulière chaque semaine ; ton niveau bilingue fait de ces crédits les plus faciles du semestre |
@@ -177,18 +182,19 @@ révisions espacées et examens blancs sont incompressibles et identiques pour c
 **Capacité avant le 7 décembre : 496 pomodoros** (248 h). Les 508 annoncés comptent le
 7 décembre, qui est déjà un jour d'examen.
 
-**Demande estimée** : 95 sections × 4 pomodoros = **380 pomodoros d'apprentissage**, auxquels
-s'ajoutent les préparations et consolidations de TD (≈ 80), les examens blancs exigés (≈ 90), les
+**Demande estimée** : 102 sections × 4 pomodoros = **408 pomodoros d'apprentissage**, auxquels
+s'ajoutent les préparations et consolidations de TD (≈ 80), les examens blancs exigés (85), les
 révisions espacées, les contrôles continus, la marge hebdomadaire et Ecri+/GoFluent.
 
 **Résultat de la simulation jour par jour** (détail dans `PLANNING.md`) :
 
 | Scénario | Chapitres appris à temps |
 |---|:---:|
-| **Ton plan** — 2 h/jour en octobre | **13 sur 36** |
-| Octobre à 3 h/jour | 16 sur 36 |
-| **Octobre à 4 h/jour** — recommandé | **21 sur 36** |
-| Octobre à 4 h + cycle d'apprentissage de 3 pomodoros en Gestion, Droit, Institutions | 25 sur 36 |
+| **Ton plan** — 2 h/jour en octobre | **11 sur 36** |
+| Octobre à 3 h/jour | 14 sur 36 |
+| **Octobre à 4 h/jour** — recommandé | **19 sur 36** |
+| Octobre à 4 h + cycle d'apprentissage de 3 pomodoros en Gestion, Droit, Institutions | 23 sur 36 |
+| Octobre à 4 h, puis 6 h du 1er au 15 novembre | 23 sur 36 |
 
 **Pourquoi octobre.** C'est le mois où tu cesses d'aller en amphi — tu libères 12 à 15 h par
 semaine — et c'est le seul où ton plan est à 2 h par jour. Chaque heure ajoutée en octobre sert

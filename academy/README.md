@@ -1,5 +1,10 @@
 # academy/ — atelier de tutorat
 
+> **Archive — ne plus utiliser.** Depuis le 28 septembre 2026, tout le travail universitaire vit dans
+> `Semestre1/` (charte, planning, tableau de bord, cours reconstruits au format de la charte). Les
+> chapitres de ce dossier sont les versions 1 et 2, remplacées ; leurs erreurs sont listées dans
+> `Semestre1/TABLEAU_DE_BORD.md`, § 5.
+
 Chaîne complète qui transforme un cours de faculté en document d'apprentissage
 autonome : structuré, exhaustif, imprimable, révisable.
 
