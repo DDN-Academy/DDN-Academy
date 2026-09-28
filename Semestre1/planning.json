@@ -1,0 +1,607 @@
+{
+  "_lire": "Données du planning. Toute valeur marquée hypothese:true est une supposition à remplacer dès que l'étudiant donne l'information réelle ; puis lancer python3 Semestre1/outils/planning.py.",
+  "mise_a_jour": "2026-09-28",
+  "debut": "2026-10-01",
+  "fin_preparation": "2026-12-06",
+  "examens_fin": "2026-12-18",
+  "capacite": [
+    {
+      "du": "2026-10-01",
+      "au": "2026-10-31",
+      "p": 4
+    },
+    {
+      "du": "2026-11-01",
+      "au": "2026-11-15",
+      "p": 8
+    },
+    {
+      "du": "2026-11-16",
+      "au": "2026-12-06",
+      "p": 12
+    }
+  ],
+  "marge": {
+    "jour": 6,
+    "part": 0.5,
+    "_note": "jour 6 = dimanche ; la moitié des pomodoros du dimanche est laissée libre pour le rattrapage"
+  },
+  "couts": {
+    "app_par_section": 4,
+    "revisions_par_pomodoro": 2,
+    "td_preparation": 1,
+    "td_consolidation": 1,
+    "cc_preparation": [
+      2,
+      2
+    ],
+    "entrainement_exercices": {
+      "N2": 1,
+      "N3": 1,
+      "N4": 2
+    },
+    "entrainement_memoire": {
+      "N2": 1,
+      "N3": 1,
+      "N4": 1
+    },
+    "eb_partiel": {
+      "p": 2,
+      "correction": 1
+    },
+    "eb_complet_correction": 2,
+    "plateforme_hebdo": 1
+  },
+  "vacances": [
+    {
+      "du": "2026-10-26",
+      "au": "2026-10-30",
+      "nom": "Toussaint — pas de TD",
+      "hypothese": true
+    }
+  ],
+  "matieres": {
+    "Economie": {
+      "nom": "Principes d'économie",
+      "court": "Éco",
+      "ects": 6,
+      "difficulte": 1.3,
+      "exercices": true,
+      "td": {
+        "jour": 0,
+        "debut": "2026-10-05",
+        "fin": "2026-12-04",
+        "hypothese": true
+      },
+      "examen": {
+        "date": "2026-12-07",
+        "duree_p": 4,
+        "nature": "CT 1 h 30 — questions de cours + exercices",
+        "hypothese_date": true
+      },
+      "cc": [
+        {
+          "date": "2026-11-23",
+          "nature": "examen de TD en présentiel",
+          "hypothese_date": true
+        }
+      ]
+    },
+    "Gestion": {
+      "nom": "Principes de gestion",
+      "court": "Gestion",
+      "ects": 6,
+      "difficulte": 1.0,
+      "exercices": false,
+      "td": {
+        "jour": 1,
+        "debut": "2026-10-06",
+        "fin": "2026-12-01",
+        "hypothese": true
+      },
+      "examen": {
+        "date": "2026-12-09",
+        "duree_p": 3,
+        "nature": "CT QCM à alternatives compensées",
+        "hypothese_date": true
+      },
+      "cc": [
+        {
+          "date": "2026-11-03",
+          "nature": "écrit en TD, mi-semestre",
+          "hypothese_date": true,
+          "preparation": [
+            2
+          ],
+          "_note": "l'examen blanc partiel du dimanche 1er novembre sert aussi de préparation"
+        }
+      ]
+    },
+    "Statistiques": {
+      "nom": "Techniques statistiques",
+      "court": "Stats",
+      "ects": 5,
+      "difficulte": 1.35,
+      "exercices": true,
+      "td": {
+        "jour": 3,
+        "debut": "2026-10-01",
+        "fin": "2026-12-03",
+        "hypothese": true
+      },
+      "examen": {
+        "date": "2026-12-11",
+        "duree_p": 4,
+        "nature": "format inconnu — hypothèse : écrit, exercices + questions de cours",
+        "hypothese_date": true
+      }
+    },
+    "Mathematiques": {
+      "nom": "Mathématiques 1",
+      "court": "Maths",
+      "ects": 5,
+      "difficulte": 1.5,
+      "exercices": true,
+      "td": {
+        "jour": 2,
+        "debut": "2026-10-07",
+        "fin": "2026-12-02",
+        "hypothese": true
+      },
+      "examen": {
+        "date": "2026-12-14",
+        "duree_p": 5,
+        "nature": "format inconnu — hypothèse : écrit, exercices, 2 h",
+        "hypothese_date": true
+      }
+    },
+    "Institutions_politiques": {
+      "nom": "Institutions politiques",
+      "court": "Institutions",
+      "ects": 3,
+      "difficulte": 1.0,
+      "exercices": false,
+      "examen": {
+        "date": "2026-12-16",
+        "duree_p": 4,
+        "nature": "format inconnu — hypothèse : écrit, questions de cours + question développée",
+        "hypothese_date": true
+      },
+      "_ects": "unité « Environnement des organisations » de 6 ECTS partagée avec Introduction au droit — répartition 3/3 supposée"
+    },
+    "Droit": {
+      "nom": "Introduction au droit",
+      "court": "Droit",
+      "ects": 3,
+      "difficulte": 1.0,
+      "exercices": false,
+      "td": {
+        "jour": 4,
+        "debut": "2026-10-02",
+        "fin": "2026-12-04",
+        "hypothese": true
+      },
+      "examen": {
+        "date": "2026-12-18",
+        "duree_p": 4,
+        "nature": "format inconnu — hypothèse : écrit, questions de cours + cas pratique",
+        "hypothese_date": true
+      }
+    },
+    "Ecriplus": {
+      "nom": "Ecri+",
+      "court": "Ecri+",
+      "ects": 1,
+      "plateforme": true,
+      "jour": 5
+    },
+    "GoFluent": {
+      "nom": "GoFluent (anglais)",
+      "court": "GoFluent",
+      "ects": 1,
+      "plateforme": true,
+      "jour": 5
+    }
+  },
+  "examens_blancs": [
+    {
+      "matiere": "Economie",
+      "type": "partiel",
+      "date": "2026-11-05"
+    },
+    {
+      "matiere": "Gestion",
+      "type": "partiel",
+      "date": "2026-11-01"
+    },
+    {
+      "matiere": "Statistiques",
+      "type": "partiel",
+      "date": "2026-11-07"
+    },
+    {
+      "matiere": "Mathematiques",
+      "type": "partiel",
+      "date": "2026-11-10"
+    },
+    {
+      "matiere": "Institutions_politiques",
+      "type": "partiel",
+      "date": "2026-11-21",
+      "_note": "après l'apprentissage du chapitre 1, qui ne se termine qu'au 19 novembre au rythme actuel"
+    },
+    {
+      "matiere": "Droit",
+      "type": "partiel",
+      "date": "2026-11-14"
+    },
+    {
+      "matiere": "Economie",
+      "type": "complet",
+      "date": "2026-11-17"
+    },
+    {
+      "matiere": "Gestion",
+      "type": "complet",
+      "date": "2026-11-18"
+    },
+    {
+      "matiere": "Statistiques",
+      "type": "complet",
+      "date": "2026-11-19"
+    },
+    {
+      "matiere": "Mathematiques",
+      "type": "complet",
+      "date": "2026-11-20"
+    },
+    {
+      "matiere": "Institutions_politiques",
+      "type": "complet",
+      "date": "2026-11-24"
+    },
+    {
+      "matiere": "Droit",
+      "type": "complet",
+      "date": "2026-11-25"
+    },
+    {
+      "matiere": "Economie",
+      "type": "complet",
+      "date": "2026-11-28"
+    },
+    {
+      "matiere": "Gestion",
+      "type": "complet",
+      "date": "2026-11-30"
+    },
+    {
+      "matiere": "Statistiques",
+      "type": "complet",
+      "date": "2026-12-01"
+    },
+    {
+      "matiere": "Mathematiques",
+      "type": "complet",
+      "date": "2026-12-02"
+    },
+    {
+      "matiere": "Institutions_politiques",
+      "type": "complet",
+      "date": "2026-12-03"
+    },
+    {
+      "matiere": "Droit",
+      "type": "complet",
+      "date": "2026-12-04"
+    }
+  ],
+  "chapitres": [
+    {
+      "id": "Gestion_Ch01",
+      "matiere": "Gestion",
+      "titre": "Introduction au management",
+      "fichier": "Gestion/Cours/Gestion_Ch01_Introduction_au_management.md",
+      "sections": 3,
+      "statut": "recu",
+      "dispo": "2026-10-01",
+      "ordre": 1
+    },
+    {
+      "id": "Economie_Ch01",
+      "matiere": "Economie",
+      "titre": "Introduction générale — trop d'aides sociales ?",
+      "fichier": "Economie/Cours/Economie_Ch01_Introduction_generale.md",
+      "sections": 5,
+      "statut": "recu",
+      "dispo": "2026-10-01",
+      "ordre": 2
+    },
+    {
+      "id": "Statistiques_Ch01",
+      "matiere": "Statistiques",
+      "titre": "Présenter pour informer",
+      "fichier": "Statistiques/Cours/Statistiques_Ch01_Presenter_pour_informer.md",
+      "sections": 3,
+      "statut": "recu",
+      "dispo": "2026-10-01",
+      "ordre": 4
+    },
+    {
+      "id": "Institutions_politiques_Ch01",
+      "matiere": "Institutions_politiques",
+      "titre": "L'État",
+      "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch01_L_Etat.md",
+      "sections": 4,
+      "statut": "recu",
+      "dispo": "2026-10-01",
+      "ordre": 9
+    },
+    {
+      "id": "Gestion_Ch02",
+      "matiere": "Gestion",
+      "titre": "Qui doit être roi ?",
+      "fichier": "Gestion/Cours/Gestion_Ch02_Qui_doit_etre_roi.md",
+      "sections": 2,
+      "statut": "recu",
+      "dispo": "2026-10-01",
+      "ordre": 5
+    },
+    {
+      "id": "Statistiques_Ch02",
+      "matiere": "Statistiques",
+      "titre": "Résumer pour informer",
+      "fichier": "Statistiques/Cours/Statistiques_Ch02_Resumer_pour_informer.md",
+      "sections": 4,
+      "statut": "recu",
+      "dispo": "2026-10-01",
+      "ordre": 7
+    },
+    {
+      "id": "Mathematiques_Ch01",
+      "matiere": "Mathematiques",
+      "titre": "Chapitre 1",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03",
+      "ordre": 3
+    },
+    {
+      "id": "Droit_Ch01",
+      "matiere": "Droit",
+      "titre": "Chapitre 1",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03",
+      "ordre": 6
+    },
+    {
+      "id": "Mathematiques_Ch02",
+      "matiere": "Mathematiques",
+      "titre": "Chapitre 2",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03",
+      "ordre": 8
+    },
+    {
+      "id": "Droit_Ch02",
+      "matiere": "Droit",
+      "titre": "Chapitre 2",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03"
+    },
+    {
+      "id": "Gestion_Ch03",
+      "matiere": "Gestion",
+      "titre": "Management ou gestion ? De la mesure à la performance",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03"
+    },
+    {
+      "id": "Economie_Ch02",
+      "matiere": "Economie",
+      "titre": "Partie 1 (macroéconomie), chapitre 1",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03"
+    },
+    {
+      "id": "Gestion_Ch04",
+      "matiere": "Gestion",
+      "titre": "Du manager au leader : faire agir un collectif",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-03"
+    },
+    {
+      "id": "Statistiques_Ch03",
+      "matiere": "Statistiques",
+      "titre": "Évolutions temporelles",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-12"
+    },
+    {
+      "id": "Institutions_politiques_Ch02",
+      "matiere": "Institutions_politiques",
+      "titre": "Partie 1, chapitre 2",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-05"
+    },
+    {
+      "id": "Gestion_Ch05",
+      "matiere": "Gestion",
+      "titre": "L'étude de cas en gestion",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-05"
+    },
+    {
+      "id": "Economie_Ch03",
+      "matiere": "Economie",
+      "titre": "Partie 1 (macroéconomie), chapitre 2",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-12"
+    },
+    {
+      "id": "Mathematiques_Ch03",
+      "matiere": "Mathematiques",
+      "titre": "Chapitre 3",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-12"
+    },
+    {
+      "id": "Droit_Ch03",
+      "matiere": "Droit",
+      "titre": "Chapitre 3",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-19"
+    },
+    {
+      "id": "Gestion_Ch06",
+      "matiere": "Gestion",
+      "titre": "Pouvoir et rapports sociaux dans l'organisation",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-12"
+    },
+    {
+      "id": "Economie_Ch04",
+      "matiere": "Economie",
+      "titre": "Partie 1 (macroéconomie), chapitre 3",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-26"
+    },
+    {
+      "id": "Gestion_Ch07",
+      "matiere": "Gestion",
+      "titre": "Organiser le travail : motivés, motivés…",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-19"
+    },
+    {
+      "id": "Institutions_politiques_Ch03",
+      "matiere": "Institutions_politiques",
+      "titre": "Partie 1, chapitre 3",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-26"
+    },
+    {
+      "id": "Mathematiques_Ch04",
+      "matiere": "Mathematiques",
+      "titre": "Chapitre 4",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-26"
+    },
+    {
+      "id": "Statistiques_Ch04",
+      "matiere": "Statistiques",
+      "titre": "Croiser les variables",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-02"
+    },
+    {
+      "id": "Gestion_Ch08",
+      "matiere": "Gestion",
+      "titre": "Réseaux et innovations",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-10-26"
+    },
+    {
+      "id": "Droit_Ch04",
+      "matiere": "Droit",
+      "titre": "Chapitre 4",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-02"
+    },
+    {
+      "id": "Economie_Ch05",
+      "matiere": "Economie",
+      "titre": "Partie 2 (microéconomie), chapitre 1",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-02"
+    },
+    {
+      "id": "Gestion_Ch09",
+      "matiere": "Gestion",
+      "titre": "Transformation digitale et management",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-02"
+    },
+    {
+      "id": "Mathematiques_Ch05",
+      "matiere": "Mathematiques",
+      "titre": "Chapitre 5",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-09"
+    },
+    {
+      "id": "Institutions_politiques_Ch04",
+      "matiere": "Institutions_politiques",
+      "titre": "Partie 1, chapitre 4",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-09"
+    },
+    {
+      "id": "Economie_Ch06",
+      "matiere": "Economie",
+      "titre": "Partie 2 (microéconomie), chapitre 2",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-09"
+    },
+    {
+      "id": "Gestion_Ch10",
+      "matiere": "Gestion",
+      "titre": "Management durable",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-09"
+    },
+    {
+      "id": "Droit_Ch05",
+      "matiere": "Droit",
+      "titre": "Chapitre 5",
+      "sections": 2,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-16"
+    },
+    {
+      "id": "Economie_Ch07",
+      "matiere": "Economie",
+      "titre": "Partie 2 (microéconomie), chapitre 3",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-16"
+    },
+    {
+      "id": "Mathematiques_Ch06",
+      "matiere": "Mathematiques",
+      "titre": "Chapitre 6",
+      "sections": 3,
+      "statut": "a_recevoir",
+      "dispo": "2026-11-16"
+    }
+  ],
+  "avancement": {},
+  "apprentissage_jusqu_au": "2026-11-29",
+  "_ordre": "Les chapitres portant un champ « ordre » passent en tête de la file d'apprentissage, dans cet ordre ; les autres suivent la file pondérée ECTS × difficulté."
+}
