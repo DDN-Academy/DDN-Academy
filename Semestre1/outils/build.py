@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-build.py — convertit un chapitre écrit en Markdown étendu (syntaxe DDN Academy)
+build.py — convertit un chapitre écrit en Markdown étendu (syntaxe maison)
 en un fichier HTML autonome, lisible à l'écran et prêt à imprimer en A4.
 
     python3 academy/outils/build.py academy/chapitres/micro-ch1.md
@@ -46,6 +46,7 @@ sont séparées par une ligne contenant seulement « -- » :
 """
 
 import argparse
+import base64
 import html as _html
 import os
 import re
@@ -343,6 +344,31 @@ ETIQUETTES = {
 }
 
 
+# Dossier du fichier .md en cours de construction : les images s'y résolvent.
+DOSSIER_SOURCE = "."
+
+RE_IMAGE = re.compile(r"^!\[(.*?)\]\(([^)\s]+)\)\s*$")
+
+
+def figure(legende, chemin):
+    """Image sur sa propre ligne -> figure autonome (SVG incrusté, PNG/JPG en data URI)."""
+    vrai = os.path.normpath(os.path.join(DOSSIER_SOURCE, chemin))
+    if not os.path.isfile(vrai):
+        return '<p class="manque">[figure introuvable : %s]</p>' % esc(chemin)
+    ext = os.path.splitext(vrai)[1].lower()
+    if ext == ".svg":
+        with open(vrai, encoding="utf-8") as f:
+            contenu = f.read()
+        contenu = re.sub(r"^<\?xml[^>]*>\s*", "", contenu)
+    else:
+        mime = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}.get(ext, "application/octet-stream")
+        with open(vrai, "rb") as f:
+            donnees = base64.b64encode(f.read()).decode("ascii")
+        contenu = '<img alt="%s" src="data:%s;base64,%s">' % (esc(legende), mime, donnees)
+    leg = '<figcaption>%s</figcaption>' % inline(legende) if legende else ""
+    return '<figure class="graphe">%s%s</figure>' % (contenu, leg)
+
+
 class Rendu:
     def __init__(self):
         self.sommaire = []          # (niveau, texte, ancre)
@@ -544,6 +570,13 @@ class Rendu:
                 out.append('<div class="math math-display">%s</div>' % maths(esc(expr)))
                 continue
 
+            # figure : ![légende](fichier.svg)
+            m = RE_IMAGE.match(s)
+            if m:
+                out.append(figure(m.group(1), m.group(2)))
+                i += 1
+                continue
+
             # titres
             m = RE_TITRE.match(s)
             if m:
@@ -692,7 +725,7 @@ GABARIT = """<!doctype html>
 </style>
 </head>
 <body>
-<div class="bandeau">DDN Academy — {matiere} &nbsp;·&nbsp; <b>Ctrl / Cmd + P → Enregistrer en PDF</b></div>
+<div class="bandeau">Semestre 1 — {matiere} &nbsp;·&nbsp; <b>Ctrl / Cmd + P → Enregistrer en PDF</b></div>
 <main class="feuille">
 {couverture}
 {sommaire}
@@ -712,6 +745,8 @@ def construire(chemin_md, chemin_css=None):
         m = re.search(r"^#\s+(.*)$", corps_md, re.M)
         meta["titre"] = m.group(1).strip() if m else os.path.basename(chemin_md)
 
+    global DOSSIER_SOURCE
+    DOSSIER_SOURCE = os.path.dirname(os.path.abspath(chemin_md))
     rendu = Rendu()
     corps = rendu.blocs(corps_md.splitlines())
 
@@ -722,7 +757,7 @@ def construire(chemin_md, chemin_css=None):
     veut_sommaire = meta.get("sommaire", "oui").lower() not in ("non", "no", "false", "0")
     return GABARIT.format(
         titre=esc(re.sub(r"<[^>]+>", "", meta["titre"])),
-        matiere=esc(meta.get("matiere", "Économie · Gestion · Finance")),
+        matiere=esc(meta.get("matiere", "L1 Économie-Gestion")),
         css=css,
         couverture=couverture(meta),
         sommaire=sommaire_html(rendu.sommaire) if veut_sommaire else "",
@@ -742,9 +777,7 @@ def main():
 
     sortie = args.sortie
     if not sortie:
-        racine = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        base = os.path.splitext(os.path.basename(args.source))[0] + ".html"
-        sortie = os.path.join(racine, "export", base)
+        sortie = os.path.splitext(os.path.abspath(args.source))[0] + ".html"
     os.makedirs(os.path.dirname(os.path.abspath(sortie)), exist_ok=True)
 
     with open(sortie, "w", encoding="utf-8") as f:

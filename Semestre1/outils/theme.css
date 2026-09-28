@@ -1,5 +1,5 @@
 /* ============================================================================
-   theme.css — feuille de style des chapitres DDN Academy.
+   theme.css — feuille de style des documents du Semestre 1.
    Pensée pour deux usages simultanés : lecture à l'écran, et impression A4.
    Aucune ressource externe : le HTML produit est autonome et fonctionne hors ligne.
    ========================================================================== */
@@ -260,3 +260,9 @@ mark{ background:#fdf2c0; padding:0 .8mm; }
   a{ color:var(--encre); text-decoration:none; }
   h2{ break-before:auto; }
 }
+
+/* ---- figures (graphiques SVG incrustés) ---- */
+figure.graphe{ margin:14px auto 18px; text-align:center; break-inside:avoid; page-break-inside:avoid; }
+figure.graphe svg, figure.graphe img{ max-width:100%; height:auto; }
+figure.graphe figcaption{ font-size:9pt; color:#5a6270; margin-top:6px; font-style:italic; }
+p.manque{ color:#b3261e; font-weight:600; }
