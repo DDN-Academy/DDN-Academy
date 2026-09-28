@@ -95,13 +95,26 @@ def vers_html_anki(txt):
     txt = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", txt, flags=re.S)
     txt = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"<i>\1</i>", txt, flags=re.S)
     txt = re.sub(r"==(.+?)==", r"<u>\1</u>", txt)
-    lignes = []
+    # une ligne de source n'est qu'un retour à la ligne d'édition : on recolle les paragraphes,
+    # et on ne garde un <br> que devant un élément de liste ou après une ligne vide
+    blocs, courant = [], ""
     for l in txt.splitlines():
-        l = l.rstrip()
-        if re.match(r"^\s*[-*]\s+", l):
-            l = "• " + re.sub(r"^\s*[-*]\s+", "", l)
-        lignes.append(l)
-    return "<br>".join(x for x in lignes if x is not None)
+        l = l.strip()
+        if not l:
+            if courant:
+                blocs.append(courant)
+            courant = ""
+            continue
+        m = re.match(r"^([-*]|\d+[.)])\s+(.*)$", l)
+        if m:
+            if courant:
+                blocs.append(courant)
+            courant = ("• " if m.group(1) in "-*" else m.group(1) + " ") + m.group(2)
+        else:
+            courant = (courant + " " + l) if courant else l
+    if courant:
+        blocs.append(courant)
+    return "<br>".join(blocs)
 
 
 def anki(chemin, meta, corps):

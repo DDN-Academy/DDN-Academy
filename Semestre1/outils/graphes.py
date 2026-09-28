@@ -172,3 +172,78 @@ def barres(chemin, categories, series, mode="simple", titre=None, etiq_y="", lar
     with open(chemin, "w", encoding="utf-8") as f:
         f.write(svg)
     return chemin
+
+
+class Schema:
+    """Schéma de boîtes reliées par des flèches (coordonnées en pixels)."""
+
+    def __init__(self, largeur=620, hauteur=360):
+        self.W, self.H = largeur, hauteur
+        self.b, self.el = {}, []
+
+    def boite(self, nom, x, y, l, h, texte, couleur=BLEU, fond=None, taille=11.5, gras_premiere=True):
+        fond = fond or "#ffffff"
+        self.b[nom] = (x, y, l, h)
+        self.el.append('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="7" fill="%s" stroke="%s" stroke-width="1.6"/>' % (x, y, l, h, fond, couleur))
+        lignes = texte.split("\n")
+        y0 = y + h / 2 - (len(lignes) - 1) * (taille + 3) / 2 + taille / 3
+        for k, li in enumerate(lignes):
+            self.el.append(_t(x + l / 2, y0 + k * (taille + 3), li, taille, couleur if k == 0 else NOIR, gras=(k == 0 and gras_premiere)))
+        return self
+
+    def _ancre(self, nom, cote):
+        x, y, l, h = self.b[nom]
+        return {"h": (x + l / 2, y), "b": (x + l / 2, y + h), "g": (x, y + h / 2), "d": (x + l, y + h / 2)}[cote]
+
+    def fleche(self, a, ca, b, cb, couleur=GRIS, etiquette=None, courbe=0):
+        x1, y1 = self._ancre(a, ca)
+        x2, y2 = self._ancre(b, cb)
+        mid = ""
+        if courbe:
+            mx, my = (x1 + x2) / 2 + courbe, (y1 + y2) / 2 - abs(courbe) / 2
+            d = "M%.1f,%.1f Q%.1f,%.1f %.1f,%.1f" % (x1, y1, mx, my, x2, y2)
+        else:
+            d = "M%.1f,%.1f L%.1f,%.1f" % (x1, y1, x2, y2)
+        self.el.append('<defs><marker id="s%s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker></defs>' % (couleur[1:], couleur))
+        self.el.append('<path d="%s" fill="none" stroke="%s" stroke-width="1.8" marker-end="url(#s%s)"/>' % (d, couleur, couleur[1:]))
+        if etiquette:
+            self.el.append(_t((x1 + x2) / 2 + (courbe or 0) / 2, (y1 + y2) / 2 - 5, etiquette, 10.5, couleur, gras=True))
+        return self
+
+    def texte(self, x, y, txt, taille=11, couleur=NOIR, ancre="middle", gras=False, italique=False):
+        self.el.append(_t(x, y, txt, taille, couleur, ancre, gras, italique))
+        return self
+
+    def enregistrer(self, chemin, titre=None):
+        t = _t(self.W / 2, 18, titre, 13, NOIR, gras=True) if titre else ""
+        with open(chemin, "w", encoding="utf-8") as f:
+            f.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s%s</svg>' % (self.W, self.H, self.W, self.H, t, "".join(self.el)))
+        return chemin
+
+
+def frise(chemin, debut, fin, periodes, evenements, largeur=640, hauteur=250, titre=None, pas=10):
+    """Frise chronologique. periodes : [(a, b, libellé, couleur)] ; evenements : [(année, libellé, haut=True)]."""
+    g, d = 30, 20
+    W, H = largeur, hauteur
+    yl = H / 2 + 10
+    X = lambda a: g + (a - debut) / (fin - debut) * (W - g - d)
+    el = ['<line x1="%d" y1="%.1f" x2="%d" y2="%.1f" stroke="%s" stroke-width="2"/>' % (g, yl, W - d, yl, NOIR)]
+    for a in range(debut - debut % pas + pas, fin + 1, pas):
+        el.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s"/>' % (X(a), yl - 4, X(a), yl + 4, NOIR))
+        el.append(_t(X(a), yl + 17, a, 9.5, GRIS))
+    for k, (a, b, lib, coul) in enumerate(periodes):
+        yb = yl + 26 + (k % 2) * 30
+        el.append('<rect x="%.1f" y="%.1f" width="%.1f" height="14" rx="3" fill="%s" fill-opacity="0.85"/>' % (X(a), yb, max(3, X(b) - X(a)), coul))
+        el.append(_t((X(a) + X(b)) / 2, yb + 27, "%s (%d-%d)" % (lib, a, b), 10, coul, gras=True))
+    hauts = [e for e in evenements if e[2]]
+    for k, (a, lib, haut) in enumerate(evenements):
+        niveau = hauts.index((a, lib, haut)) if haut else 0
+        y2 = yl - 20 - niveau * 19 if haut else yl + 90
+        el.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-dasharray="2 2"/>' % (X(a), yl, X(a), y2 + 3, GRIS))
+        el.append('<circle cx="%.1f" cy="%.1f" r="3.5" fill="%s"/>' % (X(a), yl, ROUGE))
+        a_droite = X(a) > W * 0.55
+        el.append(_t(X(a) + (-5 if a_droite else 5), y2, "%d — %s" % (a, lib), 10, NOIR, "end" if a_droite else "start"))
+    t = _t(W / 2, 16, titre, 12.5, NOIR, gras=True) if titre else ""
+    with open(chemin, "w", encoding="utf-8") as f:
+        f.write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s%s</svg>' % (W, H, W, H, t, "".join(el)))
+    return chemin
