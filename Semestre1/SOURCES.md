@@ -11,23 +11,24 @@ sommaire: non
 | Règle | Pourquoi |
 |---|---|
 | Chaque document reçu est rangé dans `Semestre1/<Matière>/Sources/` et inscrit ici **le jour même** | Garder la trace de chaque source, même si le fichier disparaît |
-| `Sources/` est **exclu de GitHub** tant que le dépôt est public | Ne publier ni les cours de la fac ni les notes de ta marraine |
+| `Sources/` est **exclu de GitHub** : le dépôt est public | Ne publier ni les cours de la fac ni les notes de ta marraine |
+| **Une copie de sauvegarde** de chaque document est gardée dans une page privée de ton compte Claude — une par matière, « Documents — <Matière> », visible par toi seul ; son adresse est notée dans le tableau ci-dessous | L'espace de travail de Claude est effacé entre deux sessions : les documents doivent survivre jusqu'à la fin du semestre |
 | Les notes manuscrites et les photos sont **transcrites intégralement** avant d'être exploitées | Charte |
 | **Annales et TD priment** sur tout pour définir ce qu'il faut savoir, le niveau et le format | Charte |
 | Deux sources qui se contredisent : la contradiction est **signalée**, avec la source retenue | Charte |
 
 # Documents reçus, par matière
 
-| Matière | Cours de la fac | Documents de ta marraine | Chapitres identifiés | Format probable de l'examen | Documents manquants |
-|---|---|---|---|---|---|
-| Principes d'économie | à recevoir | à recevoir | — | — | — |
-| Principes de gestion | à recevoir | à recevoir | — | — | — |
-| Techniques statistiques | à recevoir | à recevoir | — | — | — |
-| Mathématiques 1 | à recevoir | à recevoir | — | — | — |
-| Institutions politiques | à recevoir | à recevoir | — | — | — |
-| Introduction au droit | à recevoir | à recevoir | — | — | — |
-| Ecri+ | à recevoir | à recevoir | — | — | — |
-| GoFluent (anglais) | à recevoir | à recevoir | — | — | — |
+| Matière | Cours de la fac | Documents de ta marraine | Chapitres identifiés | Format probable de l'examen | Documents manquants | Sauvegarde privée |
+|---|---|---|---|---|---|---|
+| Principes d'économie | à recevoir | à recevoir | — | — | — | — |
+| Principes de gestion | à recevoir | à recevoir | — | — | — | — |
+| Techniques statistiques | à recevoir | à recevoir | — | — | — | — |
+| Mathématiques 1 | à recevoir | à recevoir | — | — | — | — |
+| Institutions politiques | à recevoir | à recevoir | — | — | — | — |
+| Introduction au droit | à recevoir | à recevoir | — | — | — | — |
+| Ecri+ | à recevoir | à recevoir | — | — | — | — |
+| GoFluent (anglais) | à recevoir | à recevoir | — | — | — | — |
 
 # Journal des réceptions
 
