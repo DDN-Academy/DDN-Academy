@@ -24,6 +24,11 @@ foi.** Elle impose un déroulement en trois étapes — l'étape en cours est no
 
 **Ne jamais produire un cours avant l'étape 3.**
 
+Ordre des envois annoncé le 29 septembre : **d'abord les notes de la marraine pour tout le semestre**
+(2 ou 3 envois) — les ranger par matière dans `Sources/`, les sauvegarder, les analyser à fond, **ne
+rien produire** à partir d'elles ; elles servent ensuite avec les cours de chaque matière. Puis les
+matières une par une, **en commençant par les Institutions politiques**.
+
 ## Au début de CHAQUE session sur les études — avant toute autre action
 
 1. Lire **`Semestre1/TABLEAU_DE_BORD.md`** puis **`Semestre1/PLANNING.md`**.

@@ -30,6 +30,10 @@ sommaire: non
 | Ecri+ | à recevoir | à recevoir | — | — | — | — |
 | GoFluent (anglais) | à recevoir | à recevoir | — | — | — | — |
 
+**Annoncé le 29 septembre :** les notes de ta marraine pour **tout le semestre**, en 2 ou 3 envois,
+avant les cours de la fac. Elles sont rangées par matière dans `Sources/`, sauvegardées, analysées,
+et utilisées avec les cours de chaque matière à mesure qu'ils arrivent.
+
 # Journal des réceptions
 
 | Date | Matière | Document | Origine | Nature | Volume | Rangé dans |

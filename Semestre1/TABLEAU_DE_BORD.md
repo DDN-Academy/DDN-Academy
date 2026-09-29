@@ -16,8 +16,14 @@ sommaire: oui
 | **2** — « Toutes les matières sont envoyées » | Analyse globale (Livrable 1) et emploi du temps complet (Livrable 2) | à venir |
 | **3** — Production des cours | Cours reconstruits (Livrable 3), dans l'ordre de priorité du planning | à venir |
 
-**Prochaine action : recevoir la première matière.** Aucun cours n'est produit avant le message
-« toutes les matières sont envoyées ».
+**D'abord : les notes de ta marraine pour tout le semestre, en 2 ou 3 envois** (annoncé le
+29 septembre). Je les range par matière, j'en garde une copie de sauvegarde, je les analyse et je
+m'en sers au fur et à mesure avec les cours de chaque matière ; **rien n'est produit à partir
+d'elles pour l'instant.** Ensuite, les matières une par une, en commençant par les **Institutions
+politiques**.
+
+**Prochaine action : recevoir le premier envoi des notes de ta marraine.** Aucun cours n'est produit
+avant le message « toutes les matières sont envoyées ».
 
 # 2 — Par matière
 
@@ -61,4 +67,5 @@ organisations » (6 ECTS) ; la répartition interne n'est pas donnée — 3 + 3 
 | Date | Ce qui a été produit | Ce que tu as fait | Ce qui reste |
 |---|---|---|---|
 | **28 sept. 2026** | Nouvelle consigne enregistrée ; arborescence et fichiers de suivi recréés ; travail précédent archivé | — | Recevoir la première matière |
+| **29 sept. 2026** (suite) | Ordre des envois noté : d'abord les notes de ta marraine pour tout le semestre (2 ou 3 envois, à analyser sans rien produire), puis les matières, en commençant par les Institutions politiques | — | Recevoir les notes de ta marraine |
 | **29 sept. 2026** | Dépôt GitHub privé abandonné (création refusée à Claude, et tu préfères ne pas le créer) ; sauvegarde de tes documents organisée dans des pages privées de ton compte Claude (décision 6) | — | Recevoir la première matière |
