@@ -25,7 +25,7 @@ Les profs publient les cours au fil du semestre ; l'étudiant a demandé qu'ils 
 
 | Quand | On fait… |
 |---|---|
-| **Un cours reçu** | Ranger les documents dans `<Matiere>/Sources/` (jamais commité), en publier une copie de sauvegarde dans l'artefact privé « Dossier <Matière> » (adresse dans `SOURCES.md`, analyse jointe en `analyse.md`), les inscrire dans `SOURCES.md`, transcrire intégralement les notes manuscrites, analyser et croiser avec les notes de la marraine — **puis reconstruire le cours aussitôt** (Livrable 3), le publier en PDF avec ses cartes Anki et **l'envoyer à l'étudiant directement dans la conversation** (`SendUserFile`) : il ne va jamais sur GitHub |
+| **Un cours reçu** | Ranger les documents dans `<Matiere>/Sources/` (jamais commité), en publier une copie de sauvegarde dans l'artefact privé « Dossier <Matière> » (adresse dans `SOURCES.md`, analyse jointe en `analyse.md`), les inscrire dans `SOURCES.md`, transcrire intégralement les notes manuscrites, analyser et croiser avec les notes de la marraine — **puis reconstruire le cours aussitôt** (Livrable 3), le publier en PDF avec ses cartes Anki et **n'envoyer à l'étudiant que le PDF du cours**, directement dans la conversation (`SendUserFile`) — il contient déjà la fiche, les cartes et les questions de marche ; le CSV Anki seulement s'il le demande ; il ne va jamais sur GitHub |
 | **Après chaque cours et chaque bilan du dimanche** | Régénérer le planning glissant (`planning.json` → `planning.py` → `PLANNING.md` + PDF, envoyé à l'étudiant) ; mettre à jour le tableau de bord |
 | **Une nouvelle matière** | Compléter l'analyse globale (Livrable 1) : chapitres, format probable de l'examen, documents manquants, preuve que tout tient dans les 560 pomodoros |
 

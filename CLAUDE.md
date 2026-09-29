@@ -55,10 +55,13 @@ Commiter et pousser.
   le calendrier 7 j/7 (4 pomodoros par jour du 1er au 15 octobre, 8 du 16 octobre au 15 novembre,
   12 du 16 novembre au 6 décembre : 560 au total).
 - **Ne jamais éditer à la main un fichier dérivé** : corriger la source, republier.
-- **L'étudiant ne va jamais sur GitHub.** Chaque document à travailler (cours en PDF, cartes Anki,
-  feuille de route…) lui est **envoyé directement dans la conversation** (outil `SendUserFile`),
-  avec une phrase simple qui dit quoi en faire. Ses propres documents sont dans sa page privée
-  « Dossier <Matière> ».
+- **L'étudiant ne va jamais sur GitHub.** Ce qu'il doit travailler lui est **envoyé directement
+  dans la conversation** (outil `SendUserFile`), avec une phrase simple qui dit quoi en faire —
+  **un seul fichier par cours : le PDF du cours**, qui contient déjà la fiche, les cartes et les
+  questions de marche ; le planning en PDF quand il change ; le CSV Anki seulement s'il le demande
+  (le 29 septembre, il avait pris le CSV pour le cours). Vérifier que chaque envoi est bien arrivé :
+  le service renvoie parfois des erreurs, il faut alors réessayer. Ses propres documents sont dans
+  sa page privée « Dossier <Matière> ».
 
 ## Règles fixes
 
