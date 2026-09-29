@@ -55,6 +55,8 @@ Commiter et pousser.
   jamais le passer en privé). Ne jamais y pousser les supports de la faculté ni les notes de la
   marraine : ils vont dans `Semestre1/<Matiere>/Sources/`, exclu par `.gitignore`, et sont
   inscrits dans `SOURCES.md`. Le conteneur étant éphémère, ces originaux disparaissent en fin de
-  session. Un dépôt privé dédié au semestre a été proposé à l'étudiant (voir le tableau de bord,
-  alertes) : ne le créer qu'avec son accord explicite.
+  session. Un dépôt privé dédié au semestre, `DDN-Academy/L1-Semestre1`, a été **accepté le
+  29 septembre** ; Claude ne peut pas le créer (GitHub refuse : 403), l'étudiant le crée et donne
+  l'accès. Dès qu'il existe : l'attacher (`add_repo`, accès push), y déplacer `Semestre1/` et
+  `academy/`, y enregistrer les documents reçus, et faire de ce fichier un simple renvoi vers lui.
 - Recalculer chaque chiffre, ne rien inventer ; un point incertain est signalé comme tel.
