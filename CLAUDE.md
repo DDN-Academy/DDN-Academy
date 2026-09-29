@@ -61,8 +61,10 @@ Commiter et pousser.
   marraine : ils vont dans `Semestre1/<Matiere>/Sources/`, exclu par `.gitignore`, et sont
   inscrits dans `SOURCES.md`. Le conteneur étant éphémère, ces originaux disparaissent en fin de
   session : **une copie de sauvegarde de chaque document est publiée dans un artefact privé
-  claude.ai, un par matière (« Documents — <Matière> »)**, dont l'adresse est notée dans
-  `SOURCES.md` ; une session suivante récupère un fichier avec l'outil Artifact (`read`, `path`).
+  claude.ai, un par matière (« Dossier <Matière> »)**, dont l'adresse est notée dans `SOURCES.md` ;
+  l'analyse de chaque envoi y est jointe (`analyse.md`), jamais dans le dépôt public. Une session
+  suivante récupère un fichier avec l'outil Artifact (`read`, `path` ou `paths`), puis republie le
+  dossier (même `url`) quand un document s'ajoute.
   Pas de dépôt GitHub privé : Claude n'a pas le droit d'en créer (403) et l'étudiant a décliné le
   29 septembre — ne plus le lui proposer.
 - Recalculer chaque chiffre, ne rien inventer ; un point incertain est signalé comme tel.

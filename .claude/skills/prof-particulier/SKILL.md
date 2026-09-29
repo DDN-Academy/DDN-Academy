@@ -22,7 +22,7 @@ au 15 novembre, 12 du 16 novembre au 6 décembre — **560 pomodoros**.
 
 | Étape | Déclencheur | On fait… |
 |---|---|---|
-| **1** | Une matière reçue | Ranger les documents dans `<Matiere>/Sources/` (jamais commité), en publier une copie de sauvegarde dans l'artefact privé « Documents — <Matière> », les inscrire dans `SOURCES.md`, transcrire intégralement les notes manuscrites, analyser, faire un **court bilan** (chapitres, format probable, documents manquants), **puis attendre** |
+| **1** | Une matière reçue | Ranger les documents dans `<Matiere>/Sources/` (jamais commité), en publier une copie de sauvegarde dans l'artefact privé « Dossier <Matière> » (adresse dans `SOURCES.md`, analyse jointe en `analyse.md`), les inscrire dans `SOURCES.md`, transcrire intégralement les notes manuscrites, analyser, faire un **court bilan** (chapitres, format probable, documents manquants), **puis attendre** |
 | **2** | « Toutes les matières sont envoyées » | Analyse globale (Livrable 1) et emploi du temps complet (Livrable 2) |
 | **3** | Après l'étape 2 | Cours reconstruits (Livrable 3) dans l'ordre du planning, publiés en PDF avec cartes Anki |
 
