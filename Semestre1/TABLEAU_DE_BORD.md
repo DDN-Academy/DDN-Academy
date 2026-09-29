@@ -8,26 +8,15 @@ sommaire: oui
 
 # 1 — Où on en est — mardi 29 septembre 2026
 
-**Étape 1 sur 3 — réception des matières, une par une. En cours : Institutions politiques.**
+**Mode de travail : les cours au fil de l'eau** (décision 9). Chaque cours reçu est reconstruit
+aussitôt et t'est envoyé ; le planning est glissant et recalculé à chaque cours.
 
-| Étape de la charte | Ce qui se passe | État |
-|---|---|---|
-| **1** — Réception, matière par matière | À chaque matière : ranger les documents, les analyser, faire un court bilan (chapitres identifiés, format probable de l'examen, documents manquants), puis attendre la matière suivante | **en cours** — Institutions politiques en réception (notes de ta marraine + cours n° 1 de la fac) ; 0 matière complète |
-| **2** — « Toutes les matières sont envoyées » | Analyse globale (Livrable 1) et emploi du temps complet (Livrable 2) | à venir |
-| **3** — Production des cours | Cours reconstruits (Livrable 3), dans l'ordre de priorité du planning | à venir |
-
-**D'abord : les notes de ta marraine pour tout le semestre, en 2 ou 3 envois** (annoncé le
-29 septembre). Je les range par matière, j'en garde une copie de sauvegarde, je les analyse et je
-m'en sers au fur et à mesure avec les cours de chaque matière ; **rien n'est produit à partir
-d'elles pour l'instant.** Ensuite, les matières une par une, en commençant par les **Institutions
-politiques**.
-
-**Reçus le 29 septembre, en Institutions politiques : les notes de ta marraine (10 fichiers,
-34 pages), puis le cours n° 1 de la fac — l'État (polycopié de 16 pages et 10 diapositives)** —
-rangés, sauvegardés dans le dossier privé, lus, analysés et croisés. **Prochaine action : recevoir
-la suite des cours d'Institutions politiques** (et les notes de ta marraine pour les autres
-matières, si elle en a). Aucun cours n'est produit avant le message « toutes les matières sont
-envoyées ».
+| Où | État |
+|---|---|
+| **Reçu** | Institutions politiques : les notes de ta marraine pour toute la matière (10 fichiers, 34 pages) ; le cours n° 1 de la fac — l'État (polycopié de 16 pages, 10 diapositives) |
+| **Reconstruit et envoyé** | **Institutions politiques, chapitre 1 — l'État** : cours de 32 pages, 57 cartes Anki, fiche d'une page et 35 questions de marche, entraînement en 4 niveaux |
+| **Planning** | Glissant, à partir du jeudi 1ᵉʳ octobre : chapitre 1 appris du 1ᵉʳ au 3 octobre ; révisions le 4, le 6, le 10 et le 24 octobre, puis le 14 novembre et le 5 décembre ; entraînement les 5, 7 et 12 octobre. **495 pomodoros sur 560 attendent tes prochains cours** |
+| **Prochaine action** | Recevoir les cours déjà publiés dans les autres matières et la suite d'Institutions politiques, ton emploi du temps de TD, les dates des contrôles continus |
 
 # 2 — Par matière
 
@@ -40,20 +29,24 @@ envoyées ».
 | Principes de gestion | 6 | — | 0 % | 0 % | — | — | — |
 | Techniques statistiques | 5 | — | 0 % | 0 % | — | — | — |
 | Mathématiques 1 | 5 | — | 0 % | 0 % | — | — | — |
-| Institutions politiques | 3 ² | Notes de la marraine (10 fichiers) ; cours de la fac : n° 1 (l'État), la suite à recevoir | 0 % | 0 % | — | — | — |
+| Institutions politiques | 3 ² | Notes de la marraine (10 fichiers) ; cours de la fac : n° 1 (l'État), reconstruit — la suite à recevoir | 0 % | 0 % | — | — | Apprendre le chapitre 1 du 1ᵉʳ au 3 octobre |
 | Introduction au droit | 3 ² | — | 0 % | 0 % | — | — | — |
 | Ecri+ | 1 | — | 0 % | 0 % | — | — | — |
 | GoFluent (anglais) | 1 | — | 0 % | 0 % | — | — | — |
 
 ¹ D'après la maquette vue dans les supports de septembre — 30 crédits. **À confirmer par tes
-envois** : la liste des matières elle-même sera vérifiée à l'étape 1.
+envois** : la liste des matières elle-même sera vérifiée à mesure que les cours arrivent.
 ² Institutions politiques et Introduction au droit forment l'unité « Environnement des
 organisations » (6 ECTS) ; la répartition interne n'est pas donnée — 3 + 3 supposé.
 
 # 3 — Alertes
 
-1. **Le planning démarre le jeudi 1ᵉʳ octobre.** Les cours ne sont produits qu'une fois toutes
-   les matières envoyées : plus tôt tu envoies tout, plus tôt ta première séance est prête.
+1. **Le planning démarre le jeudi 1ᵉʳ octobre** avec le chapitre 1 d'Institutions politiques.
+   Dès le 4 octobre, la plupart des créneaux sont « en attente » : **envoie vite les cours déjà
+   publiés dans les autres matières**, pour que je les reconstruise et que les matières alternent.
+2. **Aucune annale ni modalité d'examen reçue** : le format des épreuves n'est connu dans aucune
+   matière. Les sujets de niveau 4 suivent le format le plus courant en première année ; ils seront
+   recalés dès réception des annales.
 
 # 4 — Décisions prises
 
@@ -67,6 +60,7 @@ organisations » (6 ECTS) ; la répartition interne n'est pas donnée — 3 + 3 
 | **6** | 29 sept. | **Pas de dépôt GitHub privé** : tu préfères ne pas le créer, et Claude n'en a pas le droit. Tes documents sont rangés dans `Semestre1/<Matière>/Sources/` (hors de GitHub) **et une copie de sauvegarde est gardée dans une page privée de ton compte Claude, une par matière** (« Dossier <Matière> »), visible par toi seul ; son adresse est notée dans `SOURCES.md` | Ne rien publier, ne rien perdre entre deux sessions, sans rien te demander |
 | **7** | 29 sept. | Les cours de la fac sont rangés dans `Sources/Fac/`, numérotés dans l'ordre d'envoi, les notes de ta marraine dans `Sources/Marraine/`. **Une seule analyse par matière** (`Sources/ANALYSE.md`, jointe au dossier privé sous le nom `analyse.md`) réunit les deux : plan, croisement des sources, manques, points à corriger | Retrouver chaque document et chaque correction au même endroit, sans rien publier |
 | **8** | 29 sept. | **Où tu trouves tes documents** : tu n'as jamais à aller sur GitHub. Chaque document à travailler (cours en PDF, cartes Anki, feuille de route) t'est **envoyé directement dans la conversation**, avec ce qu'il faut en faire ; tes propres documents restent dans ta page privée « Dossier <Matière> ». Avant l'étape 3, il n'y a rien à travailler | Tu ne trouvais pas tes documents (question du 29 septembre) |
+| **9** | 29 sept. | **Cours au fil de l'eau** — ta demande, qui prime sur le déroulement en trois étapes de la charte : chaque cours reçu est reconstruit **aussitôt** et t'est envoyé ; le planning est **glissant**, régénéré à chaque cours reçu et à chaque bilan du dimanche, à partir du 1ᵉʳ octobre ; l'analyse globale se complète matière par matière. Toutes les autres règles de la charte restent intactes | Les profs publient les cours au fil du semestre : attendre « toutes les matières » t'aurait laissé sans rien à travailler |
 
 # 5 — Journal des sessions
 
@@ -78,3 +72,4 @@ organisations » (6 ECTS) ; la répartition interne n'est pas donnée — 3 + 3 
 | **29 sept. 2026** (suite) | Notes d'Institutions politiques reçues (10 fichiers) : rangées, sauvegardées dans le [dossier privé](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL), analysées — plan du cours, manques et erreurs notés dans `analyse.md` | Envoi des notes | Notes des autres matières |
 | **29 sept. 2026** (suite) | Institutions politiques, **cours n° 1 de la fac reçu** — l'État (polycopié de 16 pages, 10 diapositives) : rangé, ajouté au dossier privé, analysé et croisé avec les notes de ta marraine (même plan cette année) ; 23 points à corriger relevés dans les supports, 3 de plus dans les notes | Envoi du cours n° 1 | Suite des cours d'Institutions politiques |
 | **29 sept. 2026** (suite) | Réponse à ta question « où sont mes documents ? » : aucun cours n'existe encore (consigne : rien avant « toutes les matières sont envoyées ») ; dès l'étape 3, chaque document à travailler te sera envoyé directement dans la conversation (décision 8) | — | Suite des cours d'Institutions politiques |
+| **29 sept. 2026** (suite) | **Cours au fil de l'eau** (décision 9). Outils adaptés à la charte : modèle de cours et contrôle qualité (Livrable 3), planning glissant sur le calendrier 7 j/7 (560 pomodoros vérifiés). **Premier cours reconstruit : Institutions politiques, chapitre 1 — l'État** (32 pages, 4 schémas, 57 cartes Anki, fiche, 35 questions de marche, 4 niveaux d'entraînement, glossaire de 34 termes) ; **planning** à partir du 1ᵉʳ octobre. Envoyés dans la conversation | Demande des cours au fil de l'eau | Cours des autres matières, emploi du temps de TD, dates des contrôles continus |

@@ -1,0 +1,38 @@
+{
+  "_lire": "Données du planning glissant. Seules des informations réelles y figurent : un chapitre n'y entre que lorsque son cours reconstruit existe. Après chaque cours reçu et chaque bilan du dimanche : mettre à jour ce fichier, puis lancer python3 Semestre1/outils/planning.py.",
+  "mise_a_jour": "2026-09-29",
+  "debut": "2026-10-01",
+  "fin_preparation": "2026-12-06",
+  "examens": {"du": "2026-12-07", "au": "2026-12-18"},
+  "capacite": [
+    {"du": "2026-10-01", "au": "2026-10-15", "p": 4},
+    {"du": "2026-10-16", "au": "2026-11-15", "p": 8},
+    {"du": "2026-11-16", "au": "2026-12-06", "p": 12}
+  ],
+  "marge": {"jour": 6, "part": 0.5, "_note": "jour 6 = dimanche : la moitié des pomodoros du dimanche sert de marge hebdomadaire (charte : « une petite marge intégrée chaque semaine »)"},
+  "semaines_detaillees": 3,
+  "matieres": {
+    "Economie": {"nom": "Principes d'économie", "court": "Éco", "ects": 6},
+    "Gestion": {"nom": "Principes de gestion", "court": "Gestion", "ects": 6},
+    "Statistiques": {"nom": "Techniques statistiques", "court": "Stats", "ects": 5},
+    "Mathematiques": {"nom": "Mathématiques 1", "court": "Maths", "ects": 5},
+    "Institutions_politiques": {"nom": "Institutions politiques", "court": "Institutions", "ects": 3},
+    "Droit": {"nom": "Introduction au droit", "court": "Droit", "ects": 3},
+    "Ecriplus": {"nom": "Ecri+", "court": "Ecri+", "ects": 1},
+    "GoFluent": {"nom": "GoFluent (anglais)", "court": "GoFluent", "ects": 1}
+  },
+  "_ects": "D'après la maquette vue dans les supports de septembre ; à confirmer. Institutions politiques et Introduction au droit forment l'unité « Environnement des organisations » (6 ECTS), répartition 3 + 3 supposée.",
+  "chapitres": [
+    {"id": "Institutions_politiques_Ch01", "matiere": "Institutions_politiques", "titre": "L'État",
+     "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch01_L_Etat.md",
+     "recu": "2026-09-29", "dispo": "2026-10-01"}
+  ],
+  "avancement": {},
+  "_avancement": "Rempli à chaque bilan du dimanche : {\"<id>\": {\"etapes_faites\": n, \"appris_le\": \"AAAA-MM-JJ\"}}.",
+  "td": [],
+  "_td": "À recevoir : ton emploi du temps de TD. Format : {\"matiere\": \"<code>\", \"jour\": 0-6 (0 = lundi), \"du\": \"AAAA-MM-JJ\", \"au\": \"AAAA-MM-JJ\"}.",
+  "controles_continus": [],
+  "_controles_continus": "À recevoir : les dates des contrôles continus. Format : {\"matiere\": \"<code>\", \"date\": \"AAAA-MM-JJ\", \"nature\": \"…\"}.",
+  "examens_blancs": [],
+  "_examens_blancs": "Placés quand le programme d'une matière le permet. Format : {\"matiere\": \"<code>\", \"date\": \"AAAA-MM-JJ\", \"p\": n}."
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<line x1="345.0" y1="225.0" x2="140.0" y2="95.0" stroke="#6b7280" stroke-width="1.6"/>
+<line x1="345.0" y1="225.0" x2="570.0" y2="105.0" stroke="#6b7280" stroke-width="1.6"/>
+<line x1="345.0" y1="225.0" x2="345.0" y2="280.0" stroke="#6b7280" stroke-width="1.6"/>
+<rect x="12.0" y="20.0" width="250.0" height="150.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="137.0" y="42.0" font-size="13" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">QUAND ? — l'origine</text>
+<text x="137.0" y="62.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">Contrat social</tspan> (Rousseau, 1762) :</text>
+<text x="137.0" y="78.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">l'État voulu, né d'un pacte</text>
+<text x="137.0" y="94.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">critique : fiction, unanimité</text>
+<text x="137.0" y="110.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">Évolution naturelle</tspan> (Weber) :</text>
+<text x="137.0" y="126.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">l'État subi, né des conflits</text>
+<text x="137.0" y="142.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">critique : nie la volonté</text>
+<rect x="450.0" y="10.0" width="242.0" height="190.0" rx="8" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="571.0" y="32.0" font-size="13" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">QUOI ? — 3 éléments</text>
+<text x="571.0" y="52.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">Territoire</tspan> : surface, sol, sous-sol,</text>
+<text x="571.0" y="69.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">mer territoriale (12 milles), air</text>
+<text x="571.0" y="86.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">Population</tspan> : les nationaux</text>
+<text x="571.0" y="103.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">(droit du sang, droit du sol)</text>
+<text x="571.0" y="120.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">Souveraineté</tspan> : suprême, indivisible,</text>
+<text x="571.0" y="137.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">perpétuelle ; interne et externe</text>
+<text x="571.0" y="154.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">titulaires : un seul, quelques-uns,</text>
+<text x="571.0" y="171.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le peuple</text>
+<rect x="250.0" y="193.0" width="190.0" height="64.0" rx="10" fill="#e8eef6" stroke="#1f4e79" stroke-width="2"/>
+<text x="345.0" y="219.0" font-size="17" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">L'ÉTAT</text>
+<text x="345.0" y="241.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">personne morale</text>
+<rect x="125.0" y="280.0" width="440.0" height="132.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="345.0" y="302.0" font-size="13" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">COMMENT ? — 2 formes</text>
+<text x="345.0" y="322.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">État fédéral</tspan> : superposition, autonomie, participation</text>
+<text x="345.0" y="339.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">État unitaire</tspan> : déconcentration (agents nommés, hiérarchie),</text>
+<text x="345.0" y="356.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">décentralisation (collectivités élues, contrôle de légalité)</text>
+<text x="345.0" y="373.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">→ variante très décentralisée : l'État régional</text>
+<text x="345.0" y="390.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">≠ <tspan font-weight="700">confédération</tspan> : un traité entre États, pas un État</text>
+</svg>

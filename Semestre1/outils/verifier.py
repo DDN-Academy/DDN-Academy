@@ -19,7 +19,7 @@ import sys
 CONNUS = {"definition", "formule", "demo", "exemple", "piege", "examen", "methode",
           "correction", "marche", "synthese", "objectif", "carte"}
 SECTIONS_COURS = [r"^# 1 — Carte du chapitre", r"^# 2 — Le cours reconstruit",
-                  r"^# 3 — Points de vigilance", r"^# 4 — Ancrage mémoriel",
+                  r"^# 3 — Pièges et points bonus", r"^# 4 — Ancrage mémoriel",
                   r"^## 4\.1 — Fiche de synthèse", r"^## 4\.2 — Cartes de révision",
                   r"^## 4\.3 — Moyens mnémotechniques", r"^## 4\.4 — Le schéma qui relie tout",
                   r"^# 5 — Entraînement", r"^## Niveau 1\b", r"^## Niveau 2\b", r"^## Niveau 3\b",

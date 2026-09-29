@@ -18,15 +18,16 @@ points est supprimé. L'étudiant n'ouvre jamais les supports de la fac et ne va
 à prendre. Volume fixe, 7 jours sur 7 : 4 pomodoros par jour du 1er au 15 octobre, 8 du 16 octobre
 au 15 novembre, 12 du 16 novembre au 6 décembre — **560 pomodoros**.
 
-## Le déroulement imposé — l'étape en cours est dans le tableau de bord
+## Le déroulement — au fil de l'eau depuis le 29 septembre
 
-| Étape | Déclencheur | On fait… |
-|---|---|---|
-| **1** | Une matière reçue | Ranger les documents dans `<Matiere>/Sources/` (jamais commité), en publier une copie de sauvegarde dans l'artefact privé « Dossier <Matière> » (adresse dans `SOURCES.md`, analyse jointe en `analyse.md`), les inscrire dans `SOURCES.md`, transcrire intégralement les notes manuscrites, analyser, faire un **court bilan** (chapitres, format probable, documents manquants), **puis attendre** |
-| **2** | « Toutes les matières sont envoyées » | Analyse globale (Livrable 1) et emploi du temps complet (Livrable 2) |
-| **3** | Après l'étape 2 | Cours reconstruits (Livrable 3) dans l'ordre du planning, publiés en PDF avec cartes Anki et **envoyés à l'étudiant directement dans la conversation** (`SendUserFile`) — il ne va jamais sur GitHub |
+Les profs publient les cours au fil du semestre ; l'étudiant a demandé qu'ils soient reconstruits
+**dès réception** (amendement du 29 septembre, qui prime sur les trois étapes de la charte).
 
-**Aucun cours avant l'étape 3.**
+| Quand | On fait… |
+|---|---|
+| **Un cours reçu** | Ranger les documents dans `<Matiere>/Sources/` (jamais commité), en publier une copie de sauvegarde dans l'artefact privé « Dossier <Matière> » (adresse dans `SOURCES.md`, analyse jointe en `analyse.md`), les inscrire dans `SOURCES.md`, transcrire intégralement les notes manuscrites, analyser et croiser avec les notes de la marraine — **puis reconstruire le cours aussitôt** (Livrable 3), le publier en PDF avec ses cartes Anki et **l'envoyer à l'étudiant directement dans la conversation** (`SendUserFile`) : il ne va jamais sur GitHub |
+| **Après chaque cours et chaque bilan du dimanche** | Régénérer le planning glissant (`planning.json` → `planning.py` → `PLANNING.md` + PDF, envoyé à l'étudiant) ; mettre à jour le tableau de bord |
+| **Une nouvelle matière** | Compléter l'analyse globale (Livrable 1) : chapitres, format probable de l'examen, documents manquants, preuve que tout tient dans les 560 pomodoros |
 
 ## Ensuite, selon ce qui arrive
 
@@ -48,7 +49,7 @@ TD. Chaque calcul est refait une seconde fois.
 
 ```bash
 Semestre1/outils/publier.sh <fichier.md>   # PDF, et pour un cours : Anki, fiche, formulaire, glossaire
-python3 Semestre1/outils/planning.py       # planning — à adapter au calendrier 7 j/7 avant l'étape 2
+python3 Semestre1/outils/planning.py       # planning glissant, calendrier 7 j/7, lu dans Semestre1/planning.json
 ```
 
 Git : branche `claude/personal-tutor-econ-finance-h4q17d` uniquement. Dépôt **public** : aucun

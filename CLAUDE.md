@@ -12,22 +12,26 @@ référence.
 ## La consigne — à suivre à la lettre
 
 `Semestre1/CHARTE.md` reproduit à l'identique la consigne permanente de l'étudiant : **elle fait
-foi.** Elle impose un déroulement en trois étapes — l'étape en cours est notée dans
-`Semestre1/TABLEAU_DE_BORD.md`, § 1 :
+foi**, avec l'amendement ci-dessous, qui prime sur son déroulement en trois étapes.
 
-1. **Réception, matière par matière** : à chaque matière reçue (cours de la fac + documents de la
-   marraine), ranger les documents, les analyser, faire un **court bilan** — chapitres identifiés,
-   format probable de l'examen, documents manquants — puis **attendre** la matière suivante.
-2. **« Toutes les matières sont envoyées »** : analyse globale (Livrable 1) et emploi du temps
-   complet (Livrable 2).
-3. **Seulement ensuite** : produire les cours reconstruits (Livrable 3), dans l'ordre du planning.
+**Amendement du 29 septembre — cours au fil de l'eau (demande de l'étudiant).** Les profs publient
+les cours au fil du semestre : l'étudiant n'aura jamais « toutes les matières » d'un coup. Donc :
 
-**Ne jamais produire un cours avant l'étape 3.**
+1. **Chaque cours reçu** (support de la fac, avec les documents de la marraine qui s'y rapportent)
+   est rangé, sauvegardé et analysé, **puis reconstruit aussitôt** au format du Livrable 3, publié
+   en PDF avec ses cartes Anki, et envoyé à l'étudiant.
+2. **Le planning (Livrable 2) est glissant** : régénéré à chaque cours reçu et à chaque bilan du
+   dimanche, à partir du 1er octobre, en respectant exactement le volume de la charte.
+3. **L'analyse globale (Livrable 1)** se complète matière par matière ; la preuve que tout tient
+   dans les 560 pomodoros est refaite à chaque nouvelle matière.
 
-Ordre des envois annoncé le 29 septembre : **d'abord les notes de la marraine pour tout le semestre**
-(2 ou 3 envois) — les ranger par matière dans `Sources/`, les sauvegarder, les analyser à fond, **ne
-rien produire** à partir d'elles ; elles servent ensuite avec les cours de chaque matière. Puis les
-matières une par une, **en commençant par les Institutions politiques**.
+Toutes les autres règles de la charte restent intactes : tout su par cœur avant le 7 décembre,
+protocoles, révisions J+1 · J+3 · J+7 · J+21, entrelacement, contrôle qualité. Le mode en vigueur
+est rappelé dans `Semestre1/TABLEAU_DE_BORD.md`, § 1.
+
+Ordre des envois annoncé le 29 septembre : d'abord les notes de la marraine (reçues pour les
+Institutions politiques), puis les cours des matières, **en commençant par les Institutions
+politiques**.
 
 ## Au début de CHAQUE session sur les études — avant toute autre action
 
@@ -44,17 +48,17 @@ Commiter et pousser.
 
 - Un cours = `Semestre1/<Matiere>/Cours/<Matiere>_ChNN_<Sujet>.md`.
 - Outils dans `Semestre1/outils/` : `publier.sh <fichier.md>` (PDF, cartes Anki, fiche, formulaire,
-  glossaire), `graphes.py` (figures SVG), `planning.py`. **Avant l'étape 3**, adapter
-  `MODELE_COURS.md`, `verifier.py` et `extraire.py` à la structure du Livrable 3 de la charte
-  (carte · cours · pièges et points bonus · ancrage · entraînement en 4 niveaux · auto-évaluation,
-  plus les questions de marche) ; **avant l'étape 2**, adapter `planning.py` au calendrier 7 j/7
-  (4 pomodoros par jour du 1er au 15 octobre, 8 du 16 octobre au 15 novembre, 12 du 16 novembre au
-  6 décembre : 560 au total).
+  glossaire), `graphes.py` (figures SVG), `planning.py` (planning glissant, lu dans
+  `Semestre1/planning.json`). `MODELE_COURS.md`, `verifier.py` et `extraire.py` suivent la
+  structure du Livrable 3 de la charte (carte · cours · pièges et points bonus · ancrage ·
+  entraînement en 4 niveaux · auto-évaluation, plus les questions de marche) ; `planning.py` suit
+  le calendrier 7 j/7 (4 pomodoros par jour du 1er au 15 octobre, 8 du 16 octobre au 15 novembre,
+  12 du 16 novembre au 6 décembre : 560 au total).
 - **Ne jamais éditer à la main un fichier dérivé** : corriger la source, republier.
 - **L'étudiant ne va jamais sur GitHub.** Chaque document à travailler (cours en PDF, cartes Anki,
   feuille de route…) lui est **envoyé directement dans la conversation** (outil `SendUserFile`),
   avec une phrase simple qui dit quoi en faire. Ses propres documents sont dans sa page privée
-  « Dossier <Matière> ». Avant l'étape 3, il n'a rien à travailler : le lui dire simplement.
+  « Dossier <Matière> ».
 
 ## Règles fixes
 

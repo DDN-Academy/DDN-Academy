@@ -4,60 +4,59 @@ code: Dossier de la matière (Economie, Gestion, Statistiques, Institutions_poli
 chapitre: Chapitre N — Titre court
 titre: Titre du chapitre
 sous_titre: Ce que le chapitre apprend à faire, en une ligne
-resume: Sources utilisées, nombre d'éléments couverts, ce que le document ajoute au support.
+resume: Sources utilisées, ce que le document corrige et ajoute au support.
 date: jour mois année
-duree: Apprentissage — k sections × 4 pomodoros · révisions J+1, J+3, J+7, J+21
-version: 3.0
+duree: Apprendre — k sections × 4 pomodoros · réviser — J+1, J+3, J+7, J+21 · s'entraîner — n pomodoros
+version: 1.0
 sommaire: oui
 ---
 
-# Modèle de cours reconstruit — structure obligatoire
+# Modèle de cours reconstruit — structure obligatoire (Livrable 3 de la charte)
 
 *Cette page d'introduction ne figure pas dans un vrai cours. Tout le reste en est le squelette :
 titres identiques, dans le même ordre — `verifier.py` refuse un cours auquel il en manque un,
 et `extraire.py` s'en sert pour produire la fiche, les cartes Anki, le formulaire et le glossaire.*
 
-| Section | Ce qu'elle contient | Protocole de la charte |
+| Section | Ce qu'elle contient (charte, Livrable 3) | Protocole de la charte |
 |---|---|---|
-| **1 — Carte du chapitre** | Vue d'ensemble en 10 lignes · idées maîtresses · prérequis · lien finance · ce qui servira au TAGE MAGE | Lue au premier pomodoro |
-| **2 — Le cours reconstruit** | Tout le contenu, ordre pédagogique. **Chaque `## 2.k` est une section d'apprentissage** : un cycle APPRENDRE P1 → P4, soit 25 min de lecture active | APPRENDRE |
-| **3 — Points de vigilance** | Confusions, erreurs fréquentes, copie moyenne contre copie à 18-20 | Relu avant chaque examen blanc |
-| **4 — Ancrage mémoriel** | 4.1 fiche d'une page · 4.2 cartes · 4.3 moyens mnémotechniques · 4.4 schéma qui relie tout | RÉVISER |
-| **5 — Entraînement** | Niveau 1 questions de cours · Niveau 2 exercices types · Niveau 3 réflexion et pièges · Niveau 4 sujet au format réel, barème, copie de major | P4 d'APPRENDRE puis S'ENTRAÎNER |
-| **6 — Auto-évaluation** | « Si tu ne sais pas répondre sans regarder, tu ne maîtrises pas le chapitre » | Fin de J+7 |
+| **1 — Carte du chapitre** | Vue d'ensemble en quelques lignes · ce qui tombe à l'examen · ce qu'il faut savoir par cœur | Lue au premier pomodoro |
+| **2 — Le cours reconstruit** | Tout le contenu évaluable, dans l'ordre le plus logique pour comprendre et retenir. **Chaque `## 2.k` est une section d'apprentissage** : un cycle APPRENDRE de 4 pomodoros — sa lecture active tient en 25 minutes | APPRENDRE : P1 lecture active → P2 restitution de mémoire → P3 cartes de la section → P4 exercices de niveau 1 |
+| **3 — Pièges et points bonus** | Confusions classiques, erreurs fréquentes, et ce que les correcteurs récompensent pour passer d'une bonne note à 18-20 | Relu avant chaque entraînement de niveau 3 et 4 |
+| **4 — Ancrage mémoriel** | 4.1 fiche de synthèse d'une page · 4.2 cartes question / réponse (export Anki) · 4.3 moyens mnémotechniques · 4.4 schéma reliant les concepts | RÉVISER |
+| **5 — Entraînement** | Niveau 1 questions de cours · Niveau 2 exercices types d'examen corrigés étape par étape · Niveau 3 questions pièges et cas transversaux · Niveau 4 sujet au format réel, barème, corrigé type copie de major | P4 d'APPRENDRE, puis S'ENTRAÎNER |
+| **6 — Auto-évaluation** | « Si tu ne sais pas répondre à ces questions sans regarder, tu ne maîtrises pas encore le chapitre » | Fin de la révision J+7 |
 | **7 — Révision en marchant** | Questions orales courtes, réponse attendue en une phrase | Hors pomodoros |
 | **Annexe A — Glossaire du chapitre** | Tableau Terme · En une phrase · Définition académique → GLOSSAIRE.md | — |
-| **Annexe B — Tableau de couverture** | Une ligne par diapositive/page du support, ✔ / ⚠ / ✖, sans trou → contrôle qualité | — |
+| **Annexe B — Tableau de couverture** | Une ligne par élément des sources (diapositive, page, notes), ✔ / ⚠ / ✖, sans trou → contrôle qualité | — |
+
+**Règles d'écriture (charte).** Chaque terme technique défini à sa première apparition, d'abord
+simplement, puis dans la formulation exacte attendue à l'examen. Chaque formule énoncée, expliquée
+terme par terme, justifiée, illustrée par un exemple chiffré. Chaque raisonnement décomposé. Les
+schémas à savoir reproduire sont dessinés et commentés. Aucune digression, aucun « pour aller plus
+loin » hors examen ; une analogie avec les marchés seulement si elle accélère la compréhension ou
+la mémorisation. Tout point incertain est signalé, à vérifier en TD.
 
 <!--saut-->
 
 # 1 — Carte du chapitre
 
-::: synthese Le chapitre en dix lignes
-Dix lignes au plus : la question que pose le chapitre, la réponse qu'il construit, les étapes.
+::: synthese Le chapitre en quelques lignes
+La question que pose le chapitre, la réponse qu'il construit, ses étapes.
 :::
 
-**Les idées maîtresses à retenir absolument**
+**Ce qui tombe à l'examen** — …
 
-1. …
-
-**Prérequis** — ce qu'il faut savoir avant, et où c'est enseigné (dans ce document si absent ailleurs).
-
-::: marche Le lien avec la finance
-Seulement quand il est réel.
-:::
-
-**Pour plus tard** — notions utiles au TAGE MAGE (calcul, logique) ou à la culture financière.
+**Ce qu'il faut savoir par cœur** — …
 
 # 2 — Le cours reconstruit
 
 ## 2.1 — Première section d'apprentissage
 
-**À quoi ça sert, d'où ça vient, quel problème ça résout** — toujours en tête de concept.
+**À quoi ça sert, quel problème ça résout** — toujours en tête de concept.
 
 ::: definition Terme
 **En une phrase :** la version simple.
-**Définition académique :** la version rigoureuse, celle qu'on recopie en copie.
+**Définition à connaître :** la version rigoureuse, celle qu'on écrit sur la copie.
 :::
 
 ::: formule Nom de la formule
@@ -65,7 +64,7 @@ $$ f_i = \frac{n_i}{n} $$
 Chaque terme expliqué. Puis démonstration (`::: demo`) et exemple chiffré complet (`::: exemple`).
 :::
 
-![Légende du graphique, à savoir reproduire](figures/chapitre/graphe.svg)
+![Légende du schéma, à savoir reproduire](figures/chapitre/schema.svg)
 
 ::: piege Ce qui piège
 :::
@@ -73,7 +72,7 @@ Chaque terme expliqué. Puis démonstration (`::: demo`) et exemple chiffré com
 ::: examen Ce qui tombe
 :::
 
-# 3 — Points de vigilance
+# 3 — Pièges et points bonus
 
 # 4 — Ancrage mémoriel
 
@@ -99,7 +98,7 @@ Réponse.
 
 ## Niveau 2 — Exercices types d'examen
 
-## Niveau 3 — Réflexion, cas transversaux, questions pièges
+## Niveau 3 — Questions pièges et cas transversaux
 
 ## Niveau 4 — Sujet au format de l'examen
 
@@ -115,9 +114,9 @@ Réponse.
 |---|---|---|
 | Terme | … | … |
 
-# Annexe B — Tableau de couverture du support
+# Annexe B — Tableau de couverture des sources
 
-| № | Élément du support | État | Où c'est traité |
+| № | Élément des sources | État | Où c'est traité |
 |:---:|---|:---:|---|
 | **1** | … | **✔** | § 2.1 |
 
