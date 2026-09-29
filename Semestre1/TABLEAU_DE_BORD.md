@@ -8,11 +8,11 @@ sommaire: oui
 
 # 1 — Où on en est — mardi 29 septembre 2026
 
-**Étape 1 sur 3 — réception des matières, une par une. Aucune matière reçue pour l'instant.**
+**Étape 1 sur 3 — réception des matières, une par une. En cours : Institutions politiques.**
 
 | Étape de la charte | Ce qui se passe | État |
 |---|---|---|
-| **1** — Réception, matière par matière | À chaque matière : ranger les documents, les analyser, faire un court bilan (chapitres identifiés, format probable de l'examen, documents manquants), puis attendre la matière suivante | **en cours** — 0 matière reçue |
+| **1** — Réception, matière par matière | À chaque matière : ranger les documents, les analyser, faire un court bilan (chapitres identifiés, format probable de l'examen, documents manquants), puis attendre la matière suivante | **en cours** — Institutions politiques en réception (notes de ta marraine + cours n° 1 de la fac) ; 0 matière complète |
 | **2** — « Toutes les matières sont envoyées » | Analyse globale (Livrable 1) et emploi du temps complet (Livrable 2) | à venir |
 | **3** — Production des cours | Cours reconstruits (Livrable 3), dans l'ordre de priorité du planning | à venir |
 
@@ -22,10 +22,12 @@ m'en sers au fur et à mesure avec les cours de chaque matière ; **rien n'est p
 d'elles pour l'instant.** Ensuite, les matières une par une, en commençant par les **Institutions
 politiques**.
 
-**Reçu le 29 septembre : les notes d'Institutions politiques (10 fichiers, 34 pages)** — rangées,
-sauvegardées dans le dossier privé, lues et analysées. **Prochaine action : recevoir les notes des
-autres matières**, puis les cours de la fac, matière par matière. Aucun cours n'est produit avant le
-message « toutes les matières sont envoyées ».
+**Reçus le 29 septembre, en Institutions politiques : les notes de ta marraine (10 fichiers,
+34 pages), puis le cours n° 1 de la fac — l'État (polycopié de 16 pages et 10 diapositives)** —
+rangés, sauvegardés dans le dossier privé, lus, analysés et croisés. **Prochaine action : recevoir
+la suite des cours d'Institutions politiques** (et les notes de ta marraine pour les autres
+matières, si elle en a). Aucun cours n'est produit avant le message « toutes les matières sont
+envoyées ».
 
 # 2 — Par matière
 
@@ -38,7 +40,7 @@ message « toutes les matières sont envoyées ».
 | Principes de gestion | 6 | — | 0 % | 0 % | — | — | — |
 | Techniques statistiques | 5 | — | 0 % | 0 % | — | — | — |
 | Mathématiques 1 | 5 | — | 0 % | 0 % | — | — | — |
-| Institutions politiques | 3 ² | Notes de la marraine (10 fichiers) ; cours de la fac à recevoir | 0 % | 0 % | — | — | — |
+| Institutions politiques | 3 ² | Notes de la marraine (10 fichiers) ; cours de la fac : n° 1 (l'État), la suite à recevoir | 0 % | 0 % | — | — | — |
 | Introduction au droit | 3 ² | — | 0 % | 0 % | — | — | — |
 | Ecri+ | 1 | — | 0 % | 0 % | — | — | — |
 | GoFluent (anglais) | 1 | — | 0 % | 0 % | — | — | — |
@@ -61,14 +63,16 @@ organisations » (6 ECTS) ; la répartition interne n'est pas donnée — 3 + 3 
 | **2** | 28 sept. | Tout le travail fait sous la consigne précédente — six cours, planning, analyse, glossaire — est **archivé** dans `academy/version3/`, sans rien supprimer. Il ne sert plus de référence ; quand un support déjà traité sera renvoyé, ses calculs vérifiés pourront être réutilisés, jamais à la place du support | Repartir de zéro sans perdre ce qui a été vérifié |
 | **3** | 28 sept. | **Volume horaire vérifié** : 60 + 248 + 252 = **560 pomodoros, soit 280 h** avant le 7 décembre (détail dans `PLANNING.md`) | Chaque chiffre est recalculé |
 | **4** | 28 sept. | Les documents reçus sont rangés dans `Semestre1/<Matière>/Sources/`, **exclu de GitHub**, et inscrits dans `SOURCES.md` le jour même | Le dépôt actuel est public |
-| **6** | 29 sept. | **Pas de dépôt GitHub privé** : tu préfères ne pas le créer, et Claude n'en a pas le droit. Tes documents sont rangés dans `Semestre1/<Matière>/Sources/` (hors de GitHub) **et une copie de sauvegarde est gardée dans une page privée de ton compte Claude, une par matière** (« Dossier <Matière> »), visible par toi seul ; son adresse est notée dans `SOURCES.md` | Ne rien publier, ne rien perdre entre deux sessions, sans rien te demander |
 | **5** | 28 sept. | Le dossier `Semestre1/outils/` est conservé (export PDF, cartes Anki, glossaire, planning). Avant l'étape 3, le modèle de cours et le contrôle qualité seront adaptés à la structure du Livrable 3 de la charte | La charte exige des PDF soignés et un export Anki |
+| **6** | 29 sept. | **Pas de dépôt GitHub privé** : tu préfères ne pas le créer, et Claude n'en a pas le droit. Tes documents sont rangés dans `Semestre1/<Matière>/Sources/` (hors de GitHub) **et une copie de sauvegarde est gardée dans une page privée de ton compte Claude, une par matière** (« Dossier <Matière> »), visible par toi seul ; son adresse est notée dans `SOURCES.md` | Ne rien publier, ne rien perdre entre deux sessions, sans rien te demander |
+| **7** | 29 sept. | Les cours de la fac sont rangés dans `Sources/Fac/`, numérotés dans l'ordre d'envoi, les notes de ta marraine dans `Sources/Marraine/`. **Une seule analyse par matière** (`Sources/ANALYSE.md`, jointe au dossier privé sous le nom `analyse.md`) réunit les deux : plan, croisement des sources, manques, points à corriger | Retrouver chaque document et chaque correction au même endroit, sans rien publier |
 
 # 5 — Journal des sessions
 
 | Date | Ce qui a été produit | Ce que tu as fait | Ce qui reste |
 |---|---|---|---|
 | **28 sept. 2026** | Nouvelle consigne enregistrée ; arborescence et fichiers de suivi recréés ; travail précédent archivé | — | Recevoir la première matière |
-| **29 sept. 2026** (suite) | Notes d'Institutions politiques reçues (10 fichiers) : rangées, sauvegardées dans le [dossier privé](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL), analysées — plan du cours, manques et erreurs notés dans `analyse.md` | Envoi des notes | Notes des autres matières |
-| **29 sept. 2026** (suite) | Ordre des envois noté : d'abord les notes de ta marraine pour tout le semestre (2 ou 3 envois, à analyser sans rien produire), puis les matières, en commençant par les Institutions politiques | — | Recevoir les notes de ta marraine |
 | **29 sept. 2026** | Dépôt GitHub privé abandonné (création refusée à Claude, et tu préfères ne pas le créer) ; sauvegarde de tes documents organisée dans des pages privées de ton compte Claude (décision 6) | — | Recevoir la première matière |
+| **29 sept. 2026** (suite) | Ordre des envois noté : d'abord les notes de ta marraine pour tout le semestre (2 ou 3 envois, à analyser sans rien produire), puis les matières, en commençant par les Institutions politiques | — | Recevoir les notes de ta marraine |
+| **29 sept. 2026** (suite) | Notes d'Institutions politiques reçues (10 fichiers) : rangées, sauvegardées dans le [dossier privé](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL), analysées — plan du cours, manques et erreurs notés dans `analyse.md` | Envoi des notes | Notes des autres matières |
+| **29 sept. 2026** (suite) | Institutions politiques, **cours n° 1 de la fac reçu** — l'État (polycopié de 16 pages, 10 diapositives) : rangé, ajouté au dossier privé, analysé et croisé avec les notes de ta marraine (même plan cette année) ; 23 points à corriger relevés dans les supports, 3 de plus dans les notes | Envoi du cours n° 1 | Suite des cours d'Institutions politiques |

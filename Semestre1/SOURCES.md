@@ -25,7 +25,7 @@ sommaire: non
 | Principes de gestion | à recevoir | à recevoir | — | — | — | — |
 | Techniques statistiques | à recevoir | à recevoir | — | — | — | — |
 | Mathématiques 1 | à recevoir | à recevoir | — | — | — | — |
-| Institutions politiques | à recevoir | **reçus le 29/09** : 10 fichiers de notes tapées, cours 2025-2026, 34 p. — du 15 septembre au 24 novembre 2025 | D'après les notes de l'an dernier : introduction ; Partie 1 — Ch. 1 l'État, Ch. 2 démocratie, constitution, séparation des pouvoirs ; Partie 2 (Ve République) — Ch. 1 histoire des institutions, Ch. 2 l'exécutif, Ch. 3 le Parlement | Rien dans les notes | Début de la section « démocratie » ; tout ce qui suit le 24 novembre 2025 (contrôle du Parlement, fin du cours) ; informations sur l'examen | [Dossier Institutions politiques](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL) |
+| Institutions politiques | **cours n° 1 reçu le 29/09** : l'État — polycopié (M. Verpeaux, UNJF, 16 p.) et diapositives du cours magistral (10) ; la suite est à recevoir | **reçus le 29/09** : 10 fichiers de notes tapées, cours 2025-2026, 34 p. — du 15 septembre au 24 novembre 2025 | D'après les notes de l'an dernier — plan **confirmé pour le Ch. 1 par les diapositives de cette année** : introduction ; Partie 1 — Ch. 1 l'État, Ch. 2 démocratie, constitution, séparation des pouvoirs ; Partie 2 (Ve République) — Ch. 1 histoire des institutions, Ch. 2 l'exécutif, Ch. 3 le Parlement | Rien dans les notes ni dans le cours n° 1 | Les cours de la fac suivants ; début de la section « démocratie » ; tout ce qui suit le 24 novembre 2025 (contrôle du Parlement, fin du cours) ; la Section III annoncée dans le polycopié du Ch. 1 ; informations sur l'examen | [Dossier Institutions politiques](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL) |
 | Introduction au droit | à recevoir | à recevoir | — | — | — | — |
 | Ecri+ | à recevoir | à recevoir | — | — | — | — |
 | GoFluent (anglais) | à recevoir | à recevoir | — | — | — | — |
@@ -33,9 +33,10 @@ sommaire: non
 **Annoncé le 29 septembre :** les notes de ta marraine pour **tout le semestre**, en 2 ou 3 envois,
 avant les cours de la fac. Elles sont rangées par matière dans `Sources/`, sauvegardées, analysées,
 et utilisées avec les cours de chaque matière à mesure qu'ils arrivent. **Premier envoi reçu le
-29 septembre : Institutions politiques, complet (10 fichiers).** L'analyse détaillée — plan du cours,
-manques, 37 erreurs ou imprécisions à corriger — est jointe au dossier privé (`analyse.md`), pas au
-dépôt public.
+29 septembre : Institutions politiques, complet (10 fichiers).** Puis, le même jour, **le cours
+n° 1 de la fac d'Institutions politiques** (l'État). L'analyse détaillée — plan du cours, manques,
+croisement des sources, points à corriger (40 dans les notes, 23 dans les supports du cours n° 1) —
+est jointe au dossier privé (`analyse.md`), pas au dépôt public.
 
 # Journal des réceptions
 
@@ -51,6 +52,8 @@ dépôt public.
 | 29/09/2026 | Institutions politiques | `08_Fin_President_debut_Gouvernement.pdf` — Pouvoirs partagés du Président ; organisation du Gouvernement | Marraine | Notes de cours tapées, année 2025-2026 | 3 p. | `Sources/Marraine/` + dossier privé |
 | 29/09/2026 | Institutions politiques | `09_Gouvernement_et_rapports_President_Gouvernement.pdf` — Attributions du Gouvernement ; rapports Président / Gouvernement | Marraine | Notes de cours tapées, année 2025-2026 | 4 p. | `Sources/Marraine/` + dossier privé |
 | 29/09/2026 | Institutions politiques | `10_Absence_de_majorite_et_Parlement.pdf` — Absence de majorité ; le Parlement, procédure législative | Marraine | Notes de cours tapées, année 2025-2026 | 4 p. | `Sources/Marraine/` + dossier privé |
+| 29/09/2026 | Institutions politiques | `01_L_Etat_polycopie.pdf` — Cours n° 1 : l'État et le pouvoir politique (M. Verpeaux, *Droit constitutionnel 1*, leçon 1, UNJF) | Fac | Polycopié rédigé | 16 p. | `Sources/Fac/` + dossier privé |
+| 29/09/2026 | Institutions politiques | `01_L_Etat_diapos.pdf` — Cours n° 1 : le cadre d'exercice du pouvoir politique, l'État | Fac | Diapositives du cours magistral | 10 diapos | `Sources/Fac/` + dossier privé |
 
 # Historique
 
@@ -59,4 +62,5 @@ introduction générale (53 diapositives) ; Gestion, CM 1 (49 diapositives) et C
 (50 diapositives) ; Statistiques, chapitres 1 et 2 (33 et 70 diapositives) ; Institutions
 politiques, polycopié de 16 pages et 10 diapositives. **Leurs fichiers originaux ne sont plus
 disponibles : renvoie-les avec le reste de chaque matière.** Les cours qui en avaient été tirés
-sont archivés dans `academy/version3/`.
+sont archivés dans `academy/version3/`. **Renvoyés depuis : le polycopié et les diapositives
+d'Institutions politiques (29 septembre, cours n° 1).**
