@@ -51,6 +51,10 @@ Commiter et pousser.
   (4 pomodoros par jour du 1er au 15 octobre, 8 du 16 octobre au 15 novembre, 12 du 16 novembre au
   6 décembre : 560 au total).
 - **Ne jamais éditer à la main un fichier dérivé** : corriger la source, republier.
+- **L'étudiant ne va jamais sur GitHub.** Chaque document à travailler (cours en PDF, cartes Anki,
+  feuille de route…) lui est **envoyé directement dans la conversation** (outil `SendUserFile`),
+  avec une phrase simple qui dit quoi en faire. Ses propres documents sont dans sa page privée
+  « Dossier <Matière> ». Avant l'étape 3, il n'a rien à travailler : le lui dire simplement.
 
 ## Règles fixes
 
