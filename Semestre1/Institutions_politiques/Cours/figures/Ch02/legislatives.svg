@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="230.0" y="8.0" width="240.0" height="50.0" rx="8" fill="#f1f2f4" stroke="#1d2330" stroke-width="1.4"/>
+<text x="350.0" y="30.0" font-size="13" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">1er TOUR</text>
+<text x="350.0" y="50.0" font-size="11" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">577 circonscriptions, un député chacune</text>
+<line x1="350.0" y1="58.0" x2="350.0" y2="84.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<rect x="150.0" y="86.0" width="400.0" height="52.0" rx="8" fill="#ffffff" stroke="#1f4e79" stroke-width="1.6"/>
+<text x="350.0" y="106.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Un candidat a-t-il <tspan font-weight="700">plus de 50 % des exprimés</tspan></text>
+<text x="350.0" y="124.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">et</tspan> au moins <tspan font-weight="700">25 % des inscrits</tspan> ?</text>
+<line x1="550.0" y1="112.0" x2="598.0" y2="112.0" stroke="#2e7d32" stroke-width="1.6" marker-end="url(#fl)"/>
+<text x="574.0" y="104.0" font-size="11" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">oui</text>
+<rect x="600.0" y="88.0" width="92.0" height="48.0" rx="8" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="646.0" y="110.0" font-size="13" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">ÉLU</text>
+<text x="646.0" y="130.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">au 1er tour</text>
+<line x1="350.0" y1="138.0" x2="350.0" y2="164.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<text x="362.0" y="156.0" font-size="11" fill="#b3261e" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">non</text>
+<rect x="150.0" y="166.0" width="400.0" height="52.0" rx="8" fill="#ffffff" stroke="#b35c00" stroke-width="1.6"/>
+<text x="350.0" y="186.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Qui a obtenu au moins <tspan font-weight="700">12,5 % des inscrits</tspan> ?</text>
+<text x="350.0" y="204.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">(les inscrits, pas les exprimés)</text>
+<line x1="350.0" y1="218.0" x2="120.0" y2="246.0" stroke="#6b7280" stroke-width="1.2" marker-end="url(#fl)"/>
+<rect x="20.0" y="248.0" width="200.0" height="76.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="120.0" y="270.0" font-size="13" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">2 candidats ou plus</text>
+<text x="120.0" y="290.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">ils peuvent se maintenir :</text>
+<text x="120.0" y="304.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">duel, ou triangulaire</text>
+<text x="120.0" y="318.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">sauf désistement</text>
+<line x1="350.0" y1="218.0" x2="350.0" y2="246.0" stroke="#6b7280" stroke-width="1.2" marker-end="url(#fl)"/>
+<rect x="250.0" y="248.0" width="200.0" height="76.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="350.0" y="270.0" font-size="13" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">1 seul candidat</text>
+<text x="350.0" y="290.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">il se maintient, avec</text>
+<text x="350.0" y="304.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le deuxième du 1er tour</text>
+<line x1="350.0" y1="218.0" x2="580.0" y2="246.0" stroke="#6b7280" stroke-width="1.2" marker-end="url(#fl)"/>
+<rect x="480.0" y="248.0" width="200.0" height="76.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="580.0" y="270.0" font-size="13" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">aucun candidat</text>
+<text x="580.0" y="290.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">les deux premiers</text>
+<text x="580.0" y="304.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">du 1er tour se maintiennent</text>
+<line x1="350.0" y1="324.0" x2="350.0" y2="346.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<rect x="150.0" y="348.0" width="400.0" height="44.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.6"/>
+<text x="350.0" y="368.0" font-size="12.5" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">2d TOUR : est élu celui qui a <tspan font-weight="700">le plus de voix</tspan></text>
+<text x="350.0" y="384.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">la majorité relative suffit (art. L. 126 et L. 162 du Code électoral)</text>
+</svg>

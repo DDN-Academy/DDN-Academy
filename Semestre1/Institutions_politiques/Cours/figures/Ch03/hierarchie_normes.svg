@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<polygon points="262.0,14.0 338.0,14.0 387.9,72.0 212.1,72.0" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="300.0" y="40.0" font-size="12.5" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">CONSTITUTION</text>
+<text x="300.0" y="57.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">et bloc de constitutionnalité</text>
+<polygon points="212.1,72.0 387.9,72.0 437.8,130.0 162.2,130.0" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="300.0" y="98.0" font-size="12.5" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">TRAITÉS</text>
+<text x="300.0" y="115.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">au-dessus des lois (art. 55)</text>
+<polygon points="162.2,130.0 437.8,130.0 487.6,188.0 112.4,188.0" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="300.0" y="156.0" font-size="12.5" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">LOIS</text>
+<text x="300.0" y="173.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">votées par le Parlement</text>
+<polygon points="112.4,188.0 487.6,188.0 537.5,246.0 62.5,246.0" fill="#f1f2f4" stroke="#6b7280" stroke-width="1.4"/>
+<text x="300.0" y="214.0" font-size="12.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">RÈGLEMENTS</text>
+<text x="300.0" y="231.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">décrets, arrêtés</text>
+<polygon points="62.5,246.0 537.5,246.0 587.4,304.0 12.6,304.0" fill="#ffffff" stroke="#6b7280" stroke-width="1.4"/>
+<text x="300.0" y="272.0" font-size="12.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">ACTES INDIVIDUELS</text>
+<text x="300.0" y="289.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">décisions administratives</text>
+<line x1="490.0" y1="135.0" x2="490.0" y2="71.0" stroke="#1f4e79" stroke-width="1.8" marker-end="url(#fl)"/>
+<text x="502.0" y="99.0" font-size="11.5" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">contrôle de constitutionnalité</text>
+<text x="502.0" y="115.0" font-size="11" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le Conseil constitutionnel</text>
+<line x1="490.0" y1="222.0" x2="490.0" y2="158.0" stroke="#b35c00" stroke-width="1.8" marker-end="url(#fl)"/>
+<text x="502.0" y="186.0" font-size="11.5" fill="#b35c00" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">contrôle de légalité</text>
+<text x="502.0" y="202.0" font-size="11" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le juge administratif</text>
+<text x="502.0" y="131.0" font-size="10.5" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">(art. 54 pour les traités)</text>
+<text x="20.0" y="150.0" font-size="11.5" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Chaque norme doit</text>
+<text x="20.0" y="166.0" font-size="11.5" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">respecter la norme</text>
+<text x="20.0" y="182.0" font-size="11.5" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">supérieure</tspan></text>
+<text x="20.0" y="202.0" font-size="11" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">(Kelsen)</text>
+<text x="350.0" y="330.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Bloc de constitutionnalité : la Constitution de 1958 et son Préambule — Déclaration de 1789, Préambule de 1946, Charte de 2004</text>
+</svg>

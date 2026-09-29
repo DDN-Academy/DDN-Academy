@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 416" width="700" height="416">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="40.0" y="8.0" width="290.0" height="62.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="185.0" y="30.0" font-size="13" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">PROJET de révision</text>
+<text x="185.0" y="50.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le <tspan font-weight="700">Président</tspan>, sur proposition</text>
+<text x="185.0" y="66.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">du <tspan font-weight="700">Premier ministre</tspan></text>
+<rect x="370.0" y="8.0" width="290.0" height="62.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="515.0" y="30.0" font-size="13" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">PROPOSITION de révision</text>
+<text x="515.0" y="50.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">des <tspan font-weight="700">membres du Parlement</tspan></text>
+<text x="515.0" y="66.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">(députés ou sénateurs)</text>
+<text x="350.0" y="90.0" font-size="11" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">① L'INITIATIVE (al. 1)</text>
+<line x1="185.0" y1="70.0" x2="300.0" y2="104.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<line x1="515.0" y1="70.0" x2="400.0" y2="104.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<rect x="130.0" y="106.0" width="440.0" height="62.0" rx="8" fill="#f1f2f4" stroke="#1d2330" stroke-width="1.4"/>
+<text x="350.0" y="128.0" font-size="13" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">VOTE DES DEUX ASSEMBLÉES EN TERMES IDENTIQUES</text>
+<text x="350.0" y="148.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Assemblée nationale et Sénat : le même texte, mot pour mot —</text>
+<text x="350.0" y="164.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">chacune peut bloquer la révision (al. 2)</text>
+<text x="350.0" y="188.0" font-size="11" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">② LE VOTE</text>
+<line x1="260.0" y1="168.0" x2="175.0" y2="208.0" stroke="#1f4e79" stroke-width="1.6" marker-end="url(#fl)"/>
+<line x1="440.0" y1="168.0" x2="525.0" y2="208.0" stroke="#6b7280" stroke-width="1.6" marker-end="url(#fl)"/>
+<text x="30.0" y="190.0" font-size="10.5" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">projet seulement, si le</text>
+<text x="30.0" y="203.0" font-size="10.5" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Président le décide</text>
+<rect x="40.0" y="212.0" width="270.0" height="72.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="175.0" y="234.0" font-size="13" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">CONGRÈS (al. 3)</text>
+<text x="175.0" y="254.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le Parlement réuni à Versailles :</text>
+<text x="175.0" y="271.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">3/5 des suffrages exprimés</tspan></text>
+<rect x="390.0" y="212.0" width="270.0" height="72.0" rx="8" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="525.0" y="234.0" font-size="13" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">RÉFÉRENDUM (al. 2)</text>
+<text x="525.0" y="254.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le principe — et obligatoire</text>
+<text x="525.0" y="271.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">pour une <tspan font-weight="700">proposition</tspan></text>
+<text x="350.0" y="304.0" font-size="11" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">③ L'APPROBATION</text>
+<line x1="175.0" y1="284.0" x2="300.0" y2="320.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<line x1="525.0" y1="284.0" x2="400.0" y2="320.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<rect x="230.0" y="322.0" width="240.0" height="34.0" rx="8" fill="#ffffff" stroke="#1d2330" stroke-width="1.8"/>
+<text x="350.0" y="344.0" font-size="13" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">RÉVISION DÉFINITIVE</text>
+<rect x="40.0" y="370.0" width="620.0" height="40.0" rx="6" fill="#fbe9e7" stroke="#b3261e" stroke-width="1.2"/>
+<text x="350.0" y="386.0" font-size="11" fill="#b3261e" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">Jamais</tspan> quand l'intégrité du territoire est atteinte (al. 4) ni pendant l'intérim de la présidence (art. 7) ;</text>
+<text x="350.0" y="402.0" font-size="11" fill="#b3261e" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">jamais</tspan> contre la forme républicaine du Gouvernement (al. 5)</text>
+</svg>

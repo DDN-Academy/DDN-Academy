@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 334" width="700" height="334">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<circle cx="40.0" cy="20.0" r="7.0" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.8"/>
+<text x="54.0" y="25.0" font-size="11.5" fill="#b35c00" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">modèle américain</text>
+<rect x="213.0" y="13.0" width="14.0" height="14.0" rx="2" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.8"/>
+<text x="234.0" y="25.0" font-size="11.5" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">modèle européen</text>
+<rect x="380.0" y="16.0" width="26.0" height="8.0" rx="3" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="414.0" y="25.0" font-size="11.5" fill="#2e7d32" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">France depuis la QPC (2010)</text>
+<text x="20.0" y="74.0" font-size="12" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">L'ORGANE</text>
+<text x="20.0" y="90.0" font-size="10.5" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">qui contrôle ?</text>
+<line x1="250.0" y1="70.0" x2="530.0" y2="70.0" stroke="#6b7280" stroke-width="1.6"/>
+<text x="238.0" y="74.0" font-size="12" fill="#b35c00" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">diffus</text>
+<text x="238.0" y="89.0" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">tous les juges</text>
+<text x="542.0" y="74.0" font-size="12" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">concentré</text>
+<text x="542.0" y="89.0" font-size="10" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">une seule cour</text>
+<rect x="504.0" y="79.0" width="26.0" height="8.0" rx="3" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<circle cx="250.0" cy="70.0" r="7.0" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.8"/>
+<rect x="523.0" y="63.0" width="14.0" height="14.0" rx="2" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.8"/>
+<text x="20.0" y="136.0" font-size="12" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">LE MOMENT</text>
+<text x="20.0" y="152.0" font-size="10.5" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">quand ?</text>
+<line x1="250.0" y1="132.0" x2="530.0" y2="132.0" stroke="#6b7280" stroke-width="1.6"/>
+<text x="238.0" y="136.0" font-size="12" fill="#b35c00" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">a posteriori</text>
+<text x="238.0" y="151.0" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">loi en vigueur</text>
+<text x="542.0" y="136.0" font-size="12" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">a priori</text>
+<text x="542.0" y="151.0" font-size="10" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">avant l'entrée en vigueur</text>
+<rect x="250.0" y="141.0" width="280.0" height="8.0" rx="3" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<circle cx="250.0" cy="132.0" r="7.0" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.8"/>
+<rect x="523.0" y="125.0" width="14.0" height="14.0" rx="2" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.8"/>
+<text x="20.0" y="198.0" font-size="12" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">LA NATURE</text>
+<text x="20.0" y="214.0" font-size="10.5" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">comment ?</text>
+<line x1="250.0" y1="194.0" x2="530.0" y2="194.0" stroke="#6b7280" stroke-width="1.6"/>
+<text x="238.0" y="198.0" font-size="12" fill="#b35c00" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">concret</text>
+<text x="238.0" y="213.0" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">dans un procès</text>
+<text x="542.0" y="198.0" font-size="12" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">abstrait</text>
+<text x="542.0" y="213.0" font-size="10" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">la loi en elle-même</text>
+<rect x="504.0" y="203.0" width="26.0" height="8.0" rx="3" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<circle cx="250.0" cy="194.0" r="7.0" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.8"/>
+<rect x="523.0" y="187.0" width="14.0" height="14.0" rx="2" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.8"/>
+<text x="20.0" y="260.0" font-size="12" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">L'EFFET</text>
+<text x="20.0" y="276.0" font-size="10.5" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">pour qui ?</text>
+<line x1="250.0" y1="256.0" x2="530.0" y2="256.0" stroke="#6b7280" stroke-width="1.6"/>
+<text x="238.0" y="260.0" font-size="12" fill="#b35c00" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">relatif</text>
+<text x="238.0" y="275.0" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">les parties</text>
+<text x="542.0" y="260.0" font-size="12" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">absolu</text>
+<text x="542.0" y="275.0" font-size="10" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">tout le monde</text>
+<rect x="504.0" y="265.0" width="26.0" height="8.0" rx="3" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<circle cx="250.0" cy="256.0" r="7.0" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.8"/>
+<rect x="523.0" y="249.0" width="14.0" height="14.0" rx="2" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.8"/>
+<text x="350.0" y="324.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Américain : Marbury v. Madison (1803) · européen : Kelsen, Autriche (1920) · la QPC n'ajoute que l'a posteriori</text>
+</svg>

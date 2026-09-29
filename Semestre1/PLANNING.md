@@ -24,7 +24,7 @@ sommaire: non
 | **Total avant le 7 décembre** | | **67** | **560** | **280** |
 | Du 7 au 18 décembre | révisions ciblées entre les épreuves, selon le calendrier d'examens | | | |
 
-**Où en est la répartition des 560 pomodoros** : en attente 495 · marge 42 · apprendre 12 · réviser 6 · s'entraîner 5.
+**Où en est la répartition des 560 pomodoros** : en attente 445 · apprendre 44 · marge 42 · s'entraîner 15 · réviser 14.
 
 # Ce que tu fais dans chaque pomodoro
 
@@ -50,6 +50,8 @@ sommaire: non
 | Chapitre | Sections | Apprentissage | J+1 | J+3 | J+7 | J+21 | Puis | Entraînement au plus tôt (niveaux 2 · 3 · 4) |
 |---|:---:|---|---|---|---|---|---|---|
 | Institutions Ch01 — L'État | 3 | du 1er octobre au 3 octobre | 4 octobre | 6 octobre | 10 octobre | 24 octobre | 14 novembre, 5 décembre | 5 octobre · 7 octobre · 11 octobre |
+| Institutions Ch02 — La démocratie | 4 | du 4 octobre au 9 octobre | 10 octobre | 12 octobre | 16 octobre | 30 octobre | 20 novembre | 11 octobre · 13 octobre · 17 octobre |
+| Institutions Ch03 — La constitution | 4 | du 9 octobre au 15 octobre | 16 octobre | 18 octobre | 22 octobre | 5 novembre | 26 novembre | 17 octobre · 19 octobre · 23 octobre |
 
 *L'entraînement se place au premier créneau libre à partir de ces dates ; le niveau 4 demande trois pomodoros d'affilée.*
 
@@ -64,38 +66,46 @@ sommaire: non
 | **samedi 3 octobre** · 4 P | Institutions | Ch01 | APPRENDRE | **§ 2.3** Comment : l'État fédéral, l'État unitaire et la confédération — P1 lecture active → P2 restitution de mémoire → P3 cartes de la section → P4 exercices de niveau 1 | 4 |
 | **dimanche 4 octobre** · 4 P | — | — | MARGE | rattrapage des pomodoros manqués de la semaine ; si rien à rattraper : cartes Anki en avance | 2 |
 |  | Institutions | Ch01 J+1 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 1 |
+|  | Institutions | Ch02 | APPRENDRE | **§ 2.1** La démocratie, ses trois formes et le cas français — P1 lecture active | 1 |
 
 ## Du lundi 5 octobre au dimanche 11 octobre — 28 pomodoros
 
 | Jour | Matière | Chapitre | Travail | Détail | P |
 |---|---|---|---|---|:---:|
 | **lundi 5 octobre** · 4 P | Institutions | Ch01 | S'ENTRAÎNER | § 5, niveau 2 — exercices types d'examen, chronométrés ; correction avec le corrigé ; chaque erreur analysée | 1 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 3 |
+|  | Institutions | Ch02 | APPRENDRE | **§ 2.1** La démocratie, ses trois formes et le cas français — P2 restitution de mémoire → P3 cartes de la section → P4 exercices de niveau 1 | 3 |
 | **mardi 6 octobre** · 4 P | Institutions | Ch01 J+3 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 3 |
+|  | Institutions | Ch02 | APPRENDRE | **§ 2.2** L'élection : qui vote, qui est élu, comment on vote — P1 lecture active → P2 restitution de mémoire → P3 cartes de la section | 3 |
 | **mercredi 7 octobre** · 4 P | Institutions | Ch01 | S'ENTRAÎNER | § 5, niveau 3 — questions pièges et cas transversaux ; correction ; chaque erreur analysée | 1 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 3 |
-| **jeudi 8 octobre** · 4 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 4 |
-| **vendredi 9 octobre** · 4 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 4 |
-| **samedi 10 octobre** · 4 P | Institutions | Ch01 J+7 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 3 |
+|  | Institutions | Ch02 | APPRENDRE | **§ 2.2** L'élection : qui vote, qui est élu, comment on vote — P4 exercices de niveau 1 · **§ 2.3** Le scrutin majoritaire — P1 lecture active → P2 restitution de mémoire | 3 |
+| **jeudi 8 octobre** · 4 P | Institutions | Ch02 | APPRENDRE | **§ 2.3** Le scrutin majoritaire — P3 cartes de la section → P4 exercices de niveau 1 · **§ 2.4** La représentation proportionnelle et le scrutin mixte — P1 lecture active → P2 restitution de mémoire | 4 |
+| **vendredi 9 octobre** · 4 P | Institutions | Ch02 | APPRENDRE | **§ 2.4** La représentation proportionnelle et le scrutin mixte — P3 cartes de la section → P4 exercices de niveau 1 | 2 |
+|  | Institutions | Ch03 | APPRENDRE | **§ 2.1** La notion de constitution — P1 lecture active → P2 restitution de mémoire | 2 |
+| **samedi 10 octobre** · 4 P | Institutions | Ch01 J+7 + Ch02 J+1 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
+|  | Institutions | Ch03 | APPRENDRE | **§ 2.1** La notion de constitution — P3 cartes de la section → P4 exercices de niveau 1 · **§ 2.2** L'élaboration : le pouvoir constituant originaire — P1 lecture active | 3 |
 | **dimanche 11 octobre** · 4 P | — | — | MARGE | rattrapage des pomodoros manqués de la semaine ; si rien à rattraper : cartes Anki en avance | 2 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 2 |
+|  | Institutions | Ch02 | S'ENTRAÎNER | § 5, niveau 2 — exercices types d'examen, chronométrés ; correction avec le corrigé ; chaque erreur analysée | 1 |
+|  | Institutions | Ch03 | APPRENDRE | **§ 2.2** L'élaboration : le pouvoir constituant originaire — P2 restitution de mémoire | 1 |
 
 ## Du lundi 12 octobre au dimanche 18 octobre — 40 pomodoros
 
 | Jour | Matière | Chapitre | Travail | Détail | P |
 |---|---|---|---|---|:---:|
-| **lundi 12 octobre** · 4 P | Institutions | Ch01 | S'ENTRAÎNER | § 5, niveau 4 — sujet au format de l'examen — P1 partie 1 → P2 partie 2 : introduction rédigée et plan détaillé → P3 correction au barème, avec la copie de major | 3 |
+| **lundi 12 octobre** · 4 P | Institutions | Ch02 J+3 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
+|  | Institutions | Ch01 | S'ENTRAÎNER | § 5, niveau 4 — sujet au format de l'examen — P1 partie 1 → P2 partie 2 : introduction rédigée et plan détaillé → P3 correction au barème, avec la copie de major | 3 |
+| **mardi 13 octobre** · 4 P | Institutions | Ch02 | S'ENTRAÎNER | § 5, niveau 3 — questions pièges et cas transversaux ; correction ; chaque erreur analysée | 1 |
+|  | Institutions | Ch03 | APPRENDRE | **§ 2.2** L'élaboration : le pouvoir constituant originaire — P3 cartes de la section → P4 exercices de niveau 1 · **§ 2.3** La révision : le pouvoir constituant dérivé — P1 lecture active | 3 |
+| **mercredi 14 octobre** · 4 P | Institutions | Ch03 | APPRENDRE | **§ 2.3** La révision : le pouvoir constituant dérivé — P2 restitution de mémoire → P3 cartes de la section → P4 exercices de niveau 1 · **§ 2.4** La protection de la constitution — P1 lecture active | 4 |
+| **jeudi 15 octobre** · 4 P | Institutions | Ch03 | APPRENDRE | **§ 2.4** La protection de la constitution — P2 restitution de mémoire → P3 cartes de la section → P4 exercices de niveau 1 | 3 |
 |  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 1 |
-| **mardi 13 octobre** · 4 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 4 |
-| **mercredi 14 octobre** · 4 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 4 |
-| **jeudi 15 octobre** · 4 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 4 |
-| **vendredi 16 octobre** · 8 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 8 |
-| **samedi 17 octobre** · 8 P | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 8 |
+| **vendredi 16 octobre** · 8 P | Institutions | Ch02 J+7 + Ch03 J+1 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
+|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 7 |
+| **samedi 17 octobre** · 8 P | Institutions | Ch02 | S'ENTRAÎNER | § 5, niveau 4 — sujet au format de l'examen — P1 partie 1 → P2 partie 2 : introduction rédigée et plan détaillé → P3 correction au barème, avec la copie de major | 3 |
+|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 5 |
 | **dimanche 18 octobre** · 8 P | — | — | MARGE | rattrapage des pomodoros manqués de la semaine ; si rien à rattraper : cartes Anki en avance | 4 |
-|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 4 |
+|  | Institutions | Ch03 J+3 | RÉVISER | cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis | 1 |
+|  | Institutions | Ch03 | S'ENTRAÎNER | § 5, niveau 2 — exercices types d'examen, chronométrés ; correction avec le corrigé ; chaque erreur analysée | 1 |
+|  | — | — | EN ATTENTE | réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche) | 2 |
 
 *La suite — du lundi 19 octobre au 6 décembre — se remplit à mesure que tes cours arrivent ; les révisions déjà prévues sont dans le tableau des chapitres.*
 

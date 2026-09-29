@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 440" width="700" height="440">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<line x1="350.0" y1="210.0" x2="150.0" y2="110.0" stroke="#6b7280" stroke-width="1.6"/>
+<line x1="350.0" y1="210.0" x2="560.0" y2="110.0" stroke="#6b7280" stroke-width="1.6"/>
+<line x1="350.0" y1="210.0" x2="350.0" y2="290.0" stroke="#6b7280" stroke-width="1.6"/>
+<rect x="8.0" y="10.0" width="300.0" height="168.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="158.0" y="32.0" font-size="13" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">EXERCER LE POUVOIR : 3 FORMES</text>
+<text x="158.0" y="52.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">directe</tspan> : le peuple décide (Landsgemeinde)</text>
+<text x="158.0" y="69.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">représentative</tspan> : des élus décident</text>
+<text x="158.0" y="86.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">(Sieyès : souveraineté nationale ;</text>
+<text x="158.0" y="103.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Rousseau : souveraineté populaire)</text>
+<text x="158.0" y="120.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">semi-représentative</tspan> : les deux</text>
+<text x="158.0" y="137.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">France</tspan> : art. 3, art. 27 ; référendum</text>
+<text x="158.0" y="154.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">de l'art. 11 (8 fois) et de l'art. 89</text>
+<rect x="392.0" y="10.0" width="300.0" height="168.0" rx="8" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="542.0" y="32.0" font-size="13" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">QUI VOTE ? QUI EST ÉLU ?</text>
+<text x="542.0" y="52.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">électorat</tspan> : suffrage universel</text>
+<text x="542.0" y="69.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">(1848, 1944, 1974) ; nationalité, âge,</text>
+<text x="542.0" y="86.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">droits civiques ; inscription ; art. 88-3</text>
+<text x="542.0" y="103.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">éligibilité</tspan> : 18 ans (24 au Sénat) ;</text>
+<text x="542.0" y="120.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">inéligibilité ≠ incompatibilité ; parité</text>
+<text x="542.0" y="137.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">suffrage</tspan> : universel, égal, secret</text>
+<text x="542.0" y="154.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">exprimés = votants − blancs − nuls</text>
+<rect x="240.0" y="178.0" width="220.0" height="64.0" rx="10" fill="#e8eef6" stroke="#1f4e79" stroke-width="2"/>
+<text x="350.0" y="204.0" font-size="17" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">LA DÉMOCRATIE</text>
+<text x="350.0" y="226.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le pouvoir du peuple — art. 2 al. 5</text>
+<rect x="110.0" y="290.0" width="480.0" height="140.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="350.0" y="312.0" font-size="13" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">DES VOIX AUX SIÈGES : 3 MODES DE SCRUTIN</text>
+<text x="350.0" y="332.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">majoritaire</tspan> : 1 tour (Royaume-Uni) ; 2 tours (législatives : 50 % des</text>
+<text x="350.0" y="350.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">exprimés + 25 % des inscrits, puis 12,5 % des inscrits) — stabilité</text>
+<text x="350.0" y="368.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">proportionnel</tspan> : quotient, plus fort reste, plus forte moyenne — représentativité</text>
+<text x="350.0" y="386.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">mixte</tspan> : prime majoritaire (municipales 50 %, régionales 25 %)</text>
+<text x="350.0" y="404.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Duverger (1951) : 1 tour → 2 partis ; 2 tours → alliances ; RP → multipartisme</text>
+</svg>

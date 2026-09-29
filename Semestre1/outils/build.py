@@ -317,7 +317,22 @@ def inline(txt):
     txt = RE_BALISES.sub(lambda m: "<%s%s>" % (m.group(1), m.group(2)), txt)
     # liens automatiques : <https://exemple.fr>
     txt = RE_AUTOLIEN.sub(lambda m: '<a href="%s">%s</a>' % (m.group(1), m.group(1)), txt)
+    txt = typographie(txt)
     txt = re.sub(r"\x00(\d+)\x00", lambda m: coffre[int(m.group(1))], txt)
+    return txt
+
+
+def typographie(txt):
+    """Espaces insécables du français : jamais de « » : ; ? ! % seul en début de ligne,
+    ni de nombre coupé (100 000, art. 3, n° 2). Le code et les maths sont déjà à l'abri."""
+    nb = " "
+    txt = txt.replace("« ", "«" + nb).replace(" »", nb + "»")
+    txt = re.sub(r" ([:;?!%])", nb + r"\1", txt)
+    txt = re.sub(r"(?<=\d) (?=\d{3}\b)", nb, txt)
+    txt = re.sub(r"\b(art|al|p)\. (?=\d)", r"\1." + nb, txt)
+    txt = re.sub(r"n° (?=\d)", "n°" + nb, txt)
+    # « 92-312 DC », « 1814-1848 », « art. 61-1 » : jamais coupés au trait d'union
+    txt = re.sub(r"(?<![\w-])(\d{1,4}-\d{1,5})(?![\w-])", r'<span style="white-space:nowrap">\1</span>', txt)
     return txt
 
 

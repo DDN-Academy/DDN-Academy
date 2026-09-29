@@ -25,7 +25,7 @@ sommaire: non
 | Principes de gestion | à recevoir | à recevoir | — | — | — | — |
 | Techniques statistiques | à recevoir | à recevoir | — | — | — | — |
 | Mathématiques 1 | à recevoir | à recevoir | — | — | — | — |
-| Institutions politiques | **cours n° 1 reçu le 29/09** : l'État — polycopié (M. Verpeaux, UNJF, 16 p.) et diapositives du cours magistral (10) ; la suite est à recevoir | **reçus le 29/09** : 10 fichiers de notes tapées, cours 2025-2026, 34 p. — du 15 septembre au 24 novembre 2025 | D'après les notes de l'an dernier — plan **confirmé pour le Ch. 1 par les diapositives de cette année** : introduction ; Partie 1 — Ch. 1 l'État, Ch. 2 démocratie, constitution, séparation des pouvoirs ; Partie 2 (Ve République) — Ch. 1 histoire des institutions, Ch. 2 l'exécutif, Ch. 3 le Parlement | Rien dans les notes ni dans le cours n° 1 | Les cours de la fac suivants ; début de la section « démocratie » ; tout ce qui suit le 24 novembre 2025 (contrôle du Parlement, fin du cours) ; la Section III annoncée dans le polycopié du Ch. 1 ; informations sur l'examen | [Dossier Institutions politiques](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL) |
+| Institutions politiques | **3 cours reçus le 29/09**, chacun avec un polycopié (M. Verpeaux, UNJF) et les diapositives du cours magistral : n° 1 l'État (16 p., 10 diapositives) ; n° 2 la démocratie (9 p., 11 diapositives) ; n° 3 la constitution (22 p., 11 diapositives, celles de l'an dernier) ; la suite est à recevoir | **reçus le 29/09** : 10 fichiers de notes tapées, cours 2025-2026, 34 p. — du 15 septembre au 24 novembre 2025 | D'après les notes de l'an dernier — plan **confirmé par les diapositives de cette année pour les Ch. 1 et 2** : introduction ; Partie 1 — Ch. 1 l'État, Ch. 2 l'organisation du pouvoir dans l'État (démocratie, constitution, séparation des pouvoirs) ; Partie 2 (Ve République) — Ch. 1 histoire des institutions, Ch. 2 l'exécutif, Ch. 3 le Parlement | Rien dans les notes ni dans les cours n° 1 à 3 | Les cours de la fac suivants (séparation des pouvoirs, puis la Partie 2) ; tout ce qui suit le 24 novembre 2025 (contrôle du Parlement, fin du cours) ; la Section III annoncée dans le polycopié du Ch. 1 ; informations sur l'examen | [Dossier Institutions politiques](https://claude.ai/artifact/8JZseSQBPadecRFj4wsfnL) |
 | Introduction au droit | à recevoir | à recevoir | — | — | — | — |
 | Ecri+ | à recevoir | à recevoir | — | — | — | — |
 | GoFluent (anglais) | à recevoir | à recevoir | — | — | — | — |
@@ -33,10 +33,14 @@ sommaire: non
 **Annoncé le 29 septembre :** les notes de ta marraine pour **tout le semestre**, en 2 ou 3 envois,
 avant les cours de la fac. Elles sont rangées par matière dans `Sources/`, sauvegardées, analysées,
 et utilisées avec les cours de chaque matière à mesure qu'ils arrivent. **Premier envoi reçu le
-29 septembre : Institutions politiques, complet (10 fichiers).** Puis, le même jour, **le cours
-n° 1 de la fac d'Institutions politiques** (l'État). L'analyse détaillée — plan du cours, manques,
-croisement des sources, points à corriger (40 dans les notes, 23 dans les supports du cours n° 1) —
-est jointe au dossier privé (`analyse.md`), pas au dépôt public.
+29 septembre : Institutions politiques, complet (10 fichiers).** Puis, le même jour, **les cours
+n° 1, n° 2 et n° 3 de la fac d'Institutions politiques** (l'État ; la démocratie ; la constitution).
+L'analyse détaillée — plan du cours, manques, croisement des sources, points à corriger (43 dans les
+notes ; dans les supports de la fac : 23 pour le cours n° 1, 18 pour le n° 2, 16 pour le n° 3) — est
+jointe au dossier privé (`analyse.md`), pas au dépôt public. Les dossiers privés n'acceptent pas les
+fichiers PowerPoint : celui du cours n° 3 y est gardé à l'identique sous forme de texte encodé
+(`fac/03_Constitution_diapos.pptx.base64.txt` ; le retrouver avec `base64 -d`), avec le texte des
+diapositives à part.
 
 # Journal des réceptions
 
@@ -54,6 +58,10 @@ est jointe au dossier privé (`analyse.md`), pas au dépôt public.
 | 29/09/2026 | Institutions politiques | `10_Absence_de_majorite_et_Parlement.pdf` — Absence de majorité ; le Parlement, procédure législative | Marraine | Notes de cours tapées, année 2025-2026 | 4 p. | `Sources/Marraine/` + dossier privé |
 | 29/09/2026 | Institutions politiques | `01_L_Etat_polycopie.pdf` — Cours n° 1 : l'État et le pouvoir politique (M. Verpeaux, *Droit constitutionnel 1*, leçon 1, UNJF) | Fac | Polycopié rédigé | 16 p. | `Sources/Fac/` + dossier privé |
 | 29/09/2026 | Institutions politiques | `01_L_Etat_diapos.pdf` — Cours n° 1 : le cadre d'exercice du pouvoir politique, l'État | Fac | Diapositives du cours magistral | 10 diapos | `Sources/Fac/` + dossier privé |
+| 29/09/2026 | Institutions politiques | `02_Democratie_polycopie.pdf` — Cours n° 2 : la démocratie et le citoyen (M. Verpeaux, *Droit constitutionnel 1*, leçon 3, UNJF) | Fac | Polycopié rédigé | 9 p. | `Sources/Fac/` + dossier privé |
+| 29/09/2026 | Institutions politiques | `02_Democratie_diapos.pdf` — Cours n° 2 : chapitre 2, l'organisation du pouvoir dans l'État ; section 1, la démocratie | Fac | Diapositives du cours magistral | 11 diapos | `Sources/Fac/` + dossier privé |
+| 29/09/2026 | Institutions politiques | `03_Constitution_polycopie.pdf` — Cours n° 3 : la Constitution (M. Verpeaux, *Droit constitutionnel 1*, leçon 2, UNJF) | Fac | Polycopié rédigé | 22 p. | `Sources/Fac/` + dossier privé |
+| 29/09/2026 | Institutions politiques | `03_Constitution_diapos.pptx` — Cours n° 3 : section 2, un pouvoir organisé par une Constitution | Fac | Diapositives du cours magistral (PowerPoint de l'an dernier, modifié le 13 octobre 2025) | 11 diapos | `Sources/Fac/` + dossier privé (texte encodé et texte des diapositives) |
 
 # Historique
 

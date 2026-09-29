@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 312" width="700" height="312">
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="8.0" y="10.0" width="220.0" height="250.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="118.0" y="34.0" font-size="12.5" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">DÉMOCRATIE DIRECTE</text>
+<circle cx="78.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#b35c00" stroke-width="1.2"/>
+<circle cx="98.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#b35c00" stroke-width="1.2"/>
+<circle cx="118.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#b35c00" stroke-width="1.2"/>
+<circle cx="138.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#b35c00" stroke-width="1.2"/>
+<circle cx="158.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#b35c00" stroke-width="1.2"/>
+<text x="118.0" y="118.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le peuple</text>
+<text x="118.0" y="150.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le peuple <tspan font-weight="700">décide lui-même</tspan></text>
+<text x="118.0" y="166.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">des lois et des décisions</text>
+<text x="118.0" y="196.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Landsgemeinde suisses</text>
+<text x="118.0" y="211.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">(Glaris, Appenzell R.-I.)</text>
+<text x="118.0" y="226.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">référendum, initiative,</text>
+<text x="118.0" y="241.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">révocation (recall)</text>
+<rect x="240.0" y="10.0" width="220.0" height="250.0" rx="8" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="350.0" y="34.0" font-size="12.5" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">SEMI-REPRÉSENTATIVE</text>
+<circle cx="310.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.2"/>
+<circle cx="330.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.2"/>
+<circle cx="350.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.2"/>
+<circle cx="370.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.2"/>
+<circle cx="390.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#2e7d32" stroke-width="1.2"/>
+<text x="350.0" y="118.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le peuple</text>
+<text x="350.0" y="150.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">des <tspan font-weight="700">élus</tspan> décident, et le peuple</text>
+<text x="350.0" y="166.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">peut décider lui-même</tspan></text>
+<text x="350.0" y="196.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">dite aussi « semi-directe »</text>
+<text x="350.0" y="211.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"><tspan font-weight="700">la France</tspan> : art. 3 —</text>
+<text x="350.0" y="226.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">« par ses représentants et</text>
+<text x="350.0" y="241.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">par la voie du référendum »</text>
+<rect x="472.0" y="10.0" width="220.0" height="250.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="582.0" y="34.0" font-size="12.5" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">DÉMOCRATIE REPRÉSENTATIVE</text>
+<circle cx="542.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#1f4e79" stroke-width="1.2"/>
+<circle cx="562.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#1f4e79" stroke-width="1.2"/>
+<circle cx="582.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#1f4e79" stroke-width="1.2"/>
+<circle cx="602.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#1f4e79" stroke-width="1.2"/>
+<circle cx="622.0" cy="92.0" r="7.0" fill="#ffffff" stroke="#1f4e79" stroke-width="1.2"/>
+<text x="582.0" y="118.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le peuple</text>
+<text x="582.0" y="150.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">le peuple <tspan font-weight="700">élit des représentants</tspan></text>
+<text x="582.0" y="166.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">qui <tspan font-weight="700">décident en son nom</tspan></text>
+<text x="582.0" y="196.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Sieyès (1789) :</text>
+<text x="582.0" y="211.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">« le peuple ne peut parler,</text>
+<text x="582.0" y="226.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">ne peut agir que par</text>
+<text x="582.0" y="241.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">ses représentants »</text>
+<line x1="20.0" y1="282.0" x2="680.0" y2="282.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#fl)"/>
+<text x="20.0" y="300.0" font-size="11" fill="#6b7280" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le peuple décide seul</text>
+<text x="350.0" y="300.0" font-size="11" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">les deux à la fois</text>
+<text x="680.0" y="300.0" font-size="11" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">les élus décident seuls</text>
+</svg>

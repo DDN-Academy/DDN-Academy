@@ -25,6 +25,12 @@
   "chapitres": [
     {"id": "Institutions_politiques_Ch01", "matiere": "Institutions_politiques", "titre": "L'État",
      "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch01_L_Etat.md",
+     "recu": "2026-09-29", "dispo": "2026-10-01"},
+    {"id": "Institutions_politiques_Ch02", "matiere": "Institutions_politiques", "titre": "La démocratie",
+     "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch02_Democratie.md",
+     "recu": "2026-09-29", "dispo": "2026-10-01"},
+    {"id": "Institutions_politiques_Ch03", "matiere": "Institutions_politiques", "titre": "La constitution",
+     "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch03_Constitution.md",
      "recu": "2026-09-29", "dispo": "2026-10-01"}
   ],
   "avancement": {},
