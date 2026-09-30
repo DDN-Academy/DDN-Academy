@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 238" width="800" height="238">
+<rect x="0" y="0" width="800" height="238" fill="#ffffff"/>
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="12.0" y="20.0" width="116.0" height="104.0" rx="8" fill="#1f4e79" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="70.0" y="46.0" font-size="12" fill="#ffffff" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">1. Quel type de</text>
+<text x="70.0" y="62.0" font-size="12" fill="#ffffff" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">problématique ?</text>
+<line x1="26.0" y1="74.0" x2="114.0" y2="74.0" stroke="#ffffff" stroke-width="1"/>
+<text x="70.0" y="92.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">pour quoi faire ?</text>
+<line x1="129.0" y1="72.0" x2="142.0" y2="72.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<rect x="143.0" y="20.0" width="116.0" height="104.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="201.0" y="46.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">2. Choix des</text>
+<text x="201.0" y="62.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">données</text>
+<line x1="157.0" y1="74.0" x2="245.0" y2="74.0" stroke="#c9d3e3" stroke-width="1"/>
+<text x="201.0" y="92.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">qui ? quelle</text>
+<text x="201.0" y="107.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">population ?</text>
+<line x1="260.0" y1="72.0" x2="273.0" y2="72.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<rect x="274.0" y="20.0" width="116.0" height="104.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="332.0" y="46.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">3. Méthode de</text>
+<text x="332.0" y="62.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">recueil</text>
+<line x1="288.0" y1="74.0" x2="376.0" y2="74.0" stroke="#c9d3e3" stroke-width="1"/>
+<text x="332.0" y="92.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">comment obtenir</text>
+<text x="332.0" y="107.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">l'information ?</text>
+<line x1="391.0" y1="72.0" x2="404.0" y2="72.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<rect x="405.0" y="20.0" width="116.0" height="104.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="463.0" y="46.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">4. Campagne</text>
+<text x="463.0" y="62.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">de mesures</text>
+<line x1="419.0" y1="74.0" x2="507.0" y2="74.0" stroke="#c9d3e3" stroke-width="1"/>
+<text x="463.0" y="92.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">combien, quand,</text>
+<text x="463.0" y="107.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">comment ?</text>
+<line x1="522.0" y1="72.0" x2="535.0" y2="72.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<rect x="536.0" y="20.0" width="116.0" height="104.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="594.0" y="46.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">5. Traitement</text>
+<text x="594.0" y="62.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">des données</text>
+<line x1="550.0" y1="74.0" x2="638.0" y2="74.0" stroke="#c9d3e3" stroke-width="1"/>
+<text x="594.0" y="92.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">présenter, résumer,</text>
+<text x="594.0" y="107.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">évolutions, croiser</text>
+<line x1="653.0" y1="72.0" x2="666.0" y2="72.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<rect x="667.0" y="20.0" width="116.0" height="104.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="725.0" y="46.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">6. Prise de</text>
+<text x="725.0" y="62.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">décision</text>
+<line x1="681.0" y1="74.0" x2="769.0" y2="74.0" stroke="#c9d3e3" stroke-width="1"/>
+<text x="725.0" y="92.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le rapport informe,</text>
+<text x="725.0" y="107.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">le décideur tranche</text>
+<line x1="201.0" y1="124.0" x2="201.0" y2="154.0" stroke="#b35c00" stroke-width="1.4"/>
+<line x1="332.0" y1="124.0" x2="332.0" y2="154.0" stroke="#b35c00" stroke-width="1.4"/>
+<line x1="463.0" y1="124.0" x2="463.0" y2="154.0" stroke="#b35c00" stroke-width="1.4"/>
+<line x1="594.0" y1="124.0" x2="594.0" y2="154.0" stroke="#b35c00" stroke-width="1.4"/>
+<path d="M594.0,154.0 L70.0,154.0 L70.0,127.0" fill="none" stroke="#b35c00" stroke-width="1.8" marker-end="url(#fl)"/>
+<rect x="250.0" y="172.0" width="300.0" height="32.0" rx="8" fill="#fdf0e0" stroke="#b35c00" stroke-width="1.4"/>
+<text x="400.0" y="193.0" font-size="12" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Tous les choix sont guidés par la problématique</text>
+</svg>

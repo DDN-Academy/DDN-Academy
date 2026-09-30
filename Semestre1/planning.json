@@ -1,6 +1,6 @@
 {
   "_lire": "Données du planning glissant. Seules des informations réelles y figurent : un chapitre n'y entre que lorsque son cours reconstruit existe. Après chaque cours reçu et chaque bilan du dimanche : mettre à jour ce fichier, puis lancer python3 Semestre1/outils/planning.py.",
-  "mise_a_jour": "2026-09-29",
+  "mise_a_jour": "2026-09-30",
   "debut": "2026-10-01",
   "fin_preparation": "2026-12-06",
   "examens": {"du": "2026-12-07", "au": "2026-12-18"},
@@ -31,7 +31,13 @@
      "recu": "2026-09-29", "dispo": "2026-10-01"},
     {"id": "Institutions_politiques_Ch03", "matiere": "Institutions_politiques", "titre": "La constitution",
      "fichier": "Institutions_politiques/Cours/Institutions_politiques_Ch03_Constitution.md",
-     "recu": "2026-09-29", "dispo": "2026-10-01"}
+     "recu": "2026-09-29", "dispo": "2026-10-01"},
+    {"id": "Statistiques_Ch01", "matiere": "Statistiques", "titre": "Présenter pour informer",
+     "fichier": "Statistiques/Cours/Statistiques_Ch01_Presenter_pour_informer.md",
+     "recu": "2026-09-30", "dispo": "2026-10-01"},
+    {"id": "Statistiques_Ch02", "matiere": "Statistiques", "titre": "Résumer pour informer",
+     "fichier": "Statistiques/Cours/Statistiques_Ch02_Resumer_pour_informer.md",
+     "recu": "2026-09-30", "dispo": "2026-10-01"}
   ],
   "avancement": {},
   "_avancement": "Rempli à chaque bilan du dimanche : {\"<id>\": {\"etapes_faites\": n, \"appris_le\": \"AAAA-MM-JJ\"}}.",

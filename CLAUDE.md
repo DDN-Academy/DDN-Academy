@@ -19,7 +19,7 @@ les cours au fil du semestre : l'étudiant n'aura jamais « toutes les matières
 
 1. **Chaque cours reçu** (support de la fac, avec les documents de la marraine qui s'y rapportent)
    est rangé, sauvegardé et analysé, **puis reconstruit aussitôt** au format du Livrable 3, publié
-   en PDF avec ses cartes Anki, et envoyé à l'étudiant.
+   en PDF et envoyé à l'étudiant.
 2. **Le planning (Livrable 2) est glissant** : régénéré à chaque cours reçu et à chaque bilan du
    dimanche, à partir du 1er octobre, en respectant exactement le volume de la charte.
 3. **L'analyse globale (Livrable 1)** se complète matière par matière ; la preuve que tout tient
@@ -28,6 +28,14 @@ les cours au fil du semestre : l'étudiant n'aura jamais « toutes les matières
 Toutes les autres règles de la charte restent intactes : tout su par cœur avant le 7 décembre,
 protocoles, révisions J+1 · J+3 · J+7 · J+21, entrelacement, contrôle qualité. Le mode en vigueur
 est rappelé dans `Semestre1/TABLEAU_DE_BORD.md`, § 1.
+
+**Décision 13 du 30 septembre — plus de cartes Anki (demande de l'étudiant).** Chaque cours
+reconstruit contient, en partie 5 (« Teste-toi »), **un QCM et des questions type examen** adaptés à
+la matière, faits directement sur le document ; **tous les corrigés sont regroupés dans une partie
+finale « # Corrigés », qui commence sur une nouvelle page** — aucun corrigé ni aucune carte avant elle.
+Dans les protocoles de la charte, le QCM remplace les cartes (P3 d'APPRENDRE, RÉVISER). Les cours
+d'Institutions politiques n° 1 à 3, faits avant, gardent leurs cartes (les outils gèrent les deux
+formats).
 
 Ordre des envois annoncé le 29 septembre : d'abord les notes de la marraine (reçues pour les
 Institutions politiques), puis les cours des matières, **en commençant par les Institutions
@@ -47,19 +55,21 @@ Commiter et pousser.
 ## Produire et publier
 
 - Un cours = `Semestre1/<Matiere>/Cours/<Matiere>_ChNN_<Sujet>.md`.
-- Outils dans `Semestre1/outils/` : `publier.sh <fichier.md>` (PDF, cartes Anki, fiche, formulaire,
-  glossaire), `graphes.py` (figures SVG), `planning.py` (planning glissant, lu dans
-  `Semestre1/planning.json`). `MODELE_COURS.md`, `verifier.py` et `extraire.py` suivent la
-  structure du Livrable 3 de la charte (carte · cours · pièges et points bonus · ancrage ·
-  entraînement en 4 niveaux · auto-évaluation, plus les questions de marche) ; `planning.py` suit
-  le calendrier 7 j/7 (4 pomodoros par jour du 1er au 15 octobre, 8 du 16 octobre au 15 novembre,
-  12 du 16 novembre au 6 décembre : 560 au total).
+- Outils dans `Semestre1/outils/` : `publier.sh <fichier.md>` (PDF, fiche, formulaire, glossaire ;
+  cartes Anki pour les seuls anciens cours à cartes), `graphes.py` (figures SVG), `planning.py`
+  (planning glissant, lu dans `Semestre1/planning.json`). `MODELE_COURS.md`, `verifier.py` et
+  `extraire.py` suivent la structure du Livrable 3 de la charte (carte · cours · pièges et points
+  bonus · ancrage · test en 4 niveaux — QCM, exercices types d'examen, pièges, sujet — ·
+  auto-évaluation · questions de marche · annexes · corrigés à la fin, sur une nouvelle page) ;
+  `planning.py` suit le calendrier 7 j/7 (4 pomodoros par jour du 1er au 15 octobre, 8 du
+  16 octobre au 15 novembre, 12 du 16 novembre au 6 décembre : 560 au total) et recalcule, à chaque
+  planning, la preuve que tout tient dans les 560 pomodoros (livrable 1, point 5).
 - **Ne jamais éditer à la main un fichier dérivé** : corriger la source, republier.
 - **L'étudiant ne va jamais sur GitHub.** Ce qu'il doit travailler lui est **envoyé directement
   dans la conversation** (outil `SendUserFile`), avec une phrase simple qui dit quoi en faire —
-  **un seul fichier par cours : le PDF du cours**, qui contient déjà la fiche, les cartes et les
-  questions de marche ; le planning en PDF quand il change ; le CSV Anki seulement s'il le demande
-  (le 29 septembre, il avait pris le CSV pour le cours). Vérifier que chaque envoi est bien arrivé :
+  **un seul fichier par cours : le PDF du cours**, qui contient déjà la fiche, le test (QCM et
+  questions type examen) avec ses corrigés à la fin, et les questions de marche ; le planning en PDF
+  quand il change. Vérifier que chaque envoi est bien arrivé :
   le service renvoie parfois des erreurs, il faut alors réessayer. Ses propres documents sont dans
   sa page privée « Dossier <Matière> ».
 

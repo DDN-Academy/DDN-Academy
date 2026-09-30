@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" width="720" height="250">
+<rect x="0" y="0" width="720" height="250" fill="#ffffff"/>
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<rect x="14.0" y="30.0" width="200.0" height="190.0" rx="8" fill="#f1f2f4" stroke="#6b7280" stroke-width="1.4"/>
+<text x="114.0" y="52.0" font-size="13" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Série brute</text>
+<text x="114.0" y="72.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">une ligne = un individu</text>
+<text x="114.0" y="91.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">dans l'ordre du recueil</text>
+<text x="114.0" y="110.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"></text>
+<text x="114.0" y="129.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">2 · 2 · 5 · 2 · 3 · 1 · 1 …</text>
+<text x="114.0" y="148.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">5 · 1 · 4 · 2 · 2 · 1 · 0 …</text>
+<text x="114.0" y="167.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">N = 87 valeurs</text>
+<rect x="260.0" y="30.0" width="200.0" height="190.0" rx="8" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="360.0" y="52.0" font-size="13" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Série ordonnée</text>
+<text x="360.0" y="72.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">les mêmes valeurs,</text>
+<text x="360.0" y="91.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">triées</text>
+<text x="360.0" y="110.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"></text>
+<text x="360.0" y="129.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0  0  0 …  (11 fois)</text>
+<text x="360.0" y="148.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">1  1  1 …  (33 fois)</text>
+<text x="360.0" y="167.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">… jusqu'à 14</text>
+<rect x="506.0" y="30.0" width="200.0" height="190.0" rx="8" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="606.0" y="52.0" font-size="13" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Distribution</text>
+<text x="606.0" y="72.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">une ligne = une modalité</text>
+<text x="606.0" y="91.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">avec son effectif</text>
+<text x="606.0" y="110.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"></text>
+<text x="606.0" y="129.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0 → 11 · 1 → 33</text>
+<text x="606.0" y="148.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">2 → 23 · 3 → 7 · …</text>
+<text x="606.0" y="167.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">Ensemble : 87</text>
+<line x1="216.0" y1="125.0" x2="256.0" y2="125.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<text x="236.0" y="112.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">trier</text>
+<line x1="462.0" y1="125.0" x2="502.0" y2="125.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<text x="482.0" y="112.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">compter</text>
+<text x="360.0" y="244.0" font-size="11" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Aucune information n'est perdue : on peut toujours revenir en arrière (sauf l'ordre du recueil).</text>
+</svg>

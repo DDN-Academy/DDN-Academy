@@ -89,6 +89,7 @@ SYMBOLES = {
     "degree": "°", "deg": "°", "euro": "€", "star": "★", "bullet": "•",
     "langle": "⟨", "rangle": "⟩", "lfloor": "⌊", "rfloor": "⌋",
     "lceil": "⌈", "rceil": "⌉", "perp": "⊥", "angle": "∠", "therefore": "∴",
+    "lvert": "|", "rvert": "|", "vert": "|", "mid": "|", "lVert": "‖", "rVert": "‖",
     "log": "log", "ln": "ln", "exp": "exp", "min": "min", "max": "max",
     "sin": "sin", "cos": "cos", "tan": "tan", "lim": "lim",
 }
@@ -101,7 +102,7 @@ RELATIONS = {
     "subset", "subseteq", "supset", "supseteq", "cup", "cap", "setminus",
     "rightarrow", "to", "leftarrow", "gets", "Rightarrow", "implies", "Leftarrow",
     "longrightarrow", "longleftarrow", "Longrightarrow", "longmapsto", "hookrightarrow",
-    "leftrightarrow", "Leftrightarrow", "iff", "mapsto", "perp", "therefore",
+    "leftrightarrow", "Leftrightarrow", "iff", "mapsto", "perp", "therefore", "mid",
 }
 
 # opérateurs à composer en romain (non italique) à l'intérieur d'une formule
@@ -212,6 +213,9 @@ def maths(src):
                     out.append('<span class="op">%s</span>'
                                % {"R": "ℝ", "N": "ℕ", "Z": "ℤ", "Q": "ℚ", "E": "𝔼"}.get(a, a))
                 elif nom in SYMBOLES:
+                    if nom in ("rvert", "rVert"):  # « \lvert x \rvert » -> « |x| », sans espace avant la barre
+                        while tampon and tampon[-1] == " ":
+                            tampon.pop()
                     tampon.append(SYMBOLES[nom])
                     if nom not in RELATIONS:
                         while i < n and src[i] == " ":  # « \Delta Q » -> « ΔQ »

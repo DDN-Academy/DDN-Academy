@@ -6,7 +6,11 @@ extraire.py — dérive d'un cours reconstruit tout ce qui doit en découler.
     python3 Semestre1/outils/extraire.py Semestre1/<Matiere>/Cours/<cours>.md
 
 Le cours est l'unique source de vérité. Ce script (ré)écrit, et affiche un chemin par ligne :
-  1. <Matiere>/Anki/<cours>.csv            toutes les cartes « ::: carte » du cours
+  1. <Matiere>/Anki/<cours>.csv            toutes les cartes « ::: carte » du cours — seulement
+                                            pour les cours au format avec cartes ; depuis la
+                                            décision 13 (30 septembre 2026), les cours n'ont plus
+                                            de cartes : aucun CSV n'est écrit, un CSV périmé est
+                                            supprimé
   2. <Matiere>/Fiches/<cours>_Fiche.md      la section « 4.1 — Fiche de synthèse »
                                             + la section « 7 — Révision en marchant »
   3. <Matiere>/Fiches/<Matiere>_Formulaire.md   tous les encadrés « ::: formule » de tous
@@ -125,8 +129,12 @@ def anki(chemin, meta, corps):
         parties = re.split(r"^\s*--\s*$", c, maxsplit=1, flags=re.M)
         cartes.append((vers_html_anki(parties[0]), vers_html_anki(parties[1])))
     dossier = os.path.join(os.path.dirname(os.path.dirname(chemin)), "Anki")
-    os.makedirs(dossier, exist_ok=True)
     sortie = os.path.join(dossier, os.path.splitext(os.path.basename(chemin))[0] + ".csv")
+    if not cartes:
+        if os.path.isfile(sortie):
+            os.remove(sortie)
+        return None, 0
+    os.makedirs(dossier, exist_ok=True)
     tampon = io.StringIO()
     tampon.write("#separator:Semicolon\n#html:true\n")
     tampon.write("#deck:Semestre1::%s\n" % meta.get("code", "Matiere"))
@@ -249,8 +257,11 @@ def main():
     chemin = os.path.abspath(sys.argv[1])
     meta, corps = entete(lire(chemin))
     csv_, n = anki(chemin, meta, corps)
-    sys.stderr.write("Anki : %d cartes\n" % n)
-    print(csv_)
+    if csv_:
+        sys.stderr.write("Anki : %d cartes\n" % n)
+        print(csv_)
+    else:
+        sys.stderr.write("Anki : aucune carte (format sans cartes, décision 13)\n")
     print(fiche(chemin, meta, corps))
     print(formulaire(chemin, meta))
     print(glossaire())

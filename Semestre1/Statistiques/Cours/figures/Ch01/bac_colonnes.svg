@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" width="660" height="340">
+<rect x="0" y="0" width="660" height="340" fill="#ffffff"/>
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<line x1="52" y1="270.0" x2="644" y2="270.0" stroke="#e3e6ea"/>
+<text x="46.0" y="274.0" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0 %</text>
+<line x1="52" y1="236.3" x2="644" y2="236.3" stroke="#e3e6ea"/>
+<text x="46.0" y="240.3" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">10 %</text>
+<line x1="52" y1="202.6" x2="644" y2="202.6" stroke="#e3e6ea"/>
+<text x="46.0" y="206.6" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">20 %</text>
+<line x1="52" y1="168.9" x2="644" y2="168.9" stroke="#e3e6ea"/>
+<text x="46.0" y="172.9" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">30 %</text>
+<line x1="52" y1="135.1" x2="644" y2="135.1" stroke="#e3e6ea"/>
+<text x="46.0" y="139.1" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">40 %</text>
+<line x1="52" y1="101.4" x2="644" y2="101.4" stroke="#e3e6ea"/>
+<text x="46.0" y="105.4" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">50 %</text>
+<line x1="52" y1="67.7" x2="644" y2="67.7" stroke="#e3e6ea"/>
+<text x="46.0" y="71.7" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">60 %</text>
+<line x1="52" y1="34.0" x2="644" y2="34.0" stroke="#e3e6ea"/>
+<text x="46.0" y="38.0" font-size="10" fill="#6b7280" text-anchor="end" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">70 %</text>
+<line x1="52.0" y1="270.0" x2="644.0" y2="270.0" stroke="#1d2330" stroke-width="1.3"/>
+<line x1="52.0" y1="270.0" x2="52.0" y2="28.0" stroke="#1d2330" stroke-width="1.3"/>
+<text x="46.0" y="22.0" font-size="10.5" fill="#1d2330" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Fréquence (en %)</text>
+<rect x="62.7" y="240.7" width="37.9" height="29.3" fill="#1f4e79"/>
+<text x="81.6" y="236.7" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">8,7</text>
+<text x="81.6" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">&lt; 18</text>
+<rect x="121.9" y="39.7" width="37.9" height="230.3" fill="#1f4e79"/>
+<text x="140.8" y="35.7" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">68,3</text>
+<text x="140.8" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">18</text>
+<rect x="181.1" y="216.7" width="37.9" height="53.3" fill="#1f4e79"/>
+<text x="200.0" y="212.7" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">15,8</text>
+<text x="200.0" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">19</text>
+<rect x="240.3" y="257.2" width="37.9" height="12.8" fill="#1f4e79"/>
+<text x="259.2" y="253.2" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">3,8</text>
+<text x="259.2" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">20</text>
+<rect x="299.5" y="265.6" width="37.9" height="4.4" fill="#1f4e79"/>
+<text x="318.4" y="261.6" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">1,3</text>
+<text x="318.4" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">21</text>
+<rect x="358.7" y="267.6" width="37.9" height="2.4" fill="#1f4e79"/>
+<text x="377.6" y="263.6" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0,7</text>
+<text x="377.6" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">22</text>
+<rect x="417.9" y="268.7" width="37.9" height="1.3" fill="#1f4e79"/>
+<text x="436.8" y="264.7" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0,4</text>
+<text x="436.8" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">23</text>
+<rect x="477.1" y="269.3" width="37.9" height="0.7" fill="#1f4e79"/>
+<text x="496.0" y="265.3" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0,2</text>
+<text x="496.0" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">24</text>
+<rect x="536.3" y="269.3" width="37.9" height="0.7" fill="#1f4e79"/>
+<text x="555.2" y="265.3" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">0,2</text>
+<text x="555.2" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">25</text>
+<rect x="595.5" y="266.0" width="37.9" height="4.0" fill="#1f4e79"/>
+<text x="614.4" y="262.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">1,2</text>
+<text x="614.4" y="285.0" font-size="10.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">26 et +</text>
+<text x="356.0" y="302.0" font-size="11.5" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Âge d'obtention du bac (en années)</text>
+<text x="356.0" y="318.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Étudiants en cours d'études au printemps 2020, répondants à l'enquête (n = 60 014)</text>
+<text x="356.0" y="333.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-style="italic">Échelle : 1 cm pour 10 % en ordonnée. Source : OVE, Conditions de vie des étudiants 2020.</text>
+</svg>

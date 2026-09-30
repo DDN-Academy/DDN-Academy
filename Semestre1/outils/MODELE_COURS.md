@@ -15,19 +15,26 @@ sommaire: oui
 
 *Cette page d'introduction ne figure pas dans un vrai cours. Tout le reste en est le squelette :
 titres identiques, dans le même ordre — `verifier.py` refuse un cours auquel il en manque un,
-et `extraire.py` s'en sert pour produire la fiche, les cartes Anki, le formulaire et le glossaire.*
+et `extraire.py` s'en sert pour produire la fiche, le formulaire et le glossaire.*
+
+*Décision 13 (30 septembre 2026, demande de l'étudiant) : **plus de cartes Anki**. Chaque cours
+contient un test directement dans le document — un QCM et des questions type examen, selon la
+matière — et **tous les corrigés sont regroupés à la fin**, dans la partie « Corrigés », qui
+commence sur une nouvelle page : l'étudiant se teste sans voir les réponses, puis les regarde.
+Les trois premiers cours d'Institutions politiques gardent leur format d'origine (avec cartes).*
 
 | Section | Ce qu'elle contient (charte, Livrable 3) | Protocole de la charte |
 |---|---|---|
 | **1 — Carte du chapitre** | Vue d'ensemble en quelques lignes · ce qui tombe à l'examen · ce qu'il faut savoir par cœur | Lue au premier pomodoro |
-| **2 — Le cours reconstruit** | Tout le contenu évaluable, dans l'ordre le plus logique pour comprendre et retenir. **Chaque `## 2.k` est une section d'apprentissage** : un cycle APPRENDRE de 4 pomodoros — sa lecture active tient en 25 minutes | APPRENDRE : P1 lecture active → P2 restitution de mémoire → P3 cartes de la section → P4 exercices de niveau 1 |
+| **2 — Le cours reconstruit** | Tout le contenu évaluable, dans l'ordre le plus logique pour comprendre et retenir. **Chaque `## 2.k` est une section d'apprentissage** : un cycle APPRENDRE de 4 pomodoros — sa lecture active tient en 25 minutes | APPRENDRE : P1 lecture active → P2 restitution de mémoire → P3 QCM de la section → P4 exercices de la section |
 | **3 — Pièges et points bonus** | Confusions classiques, erreurs fréquentes, et ce que les correcteurs récompensent pour passer d'une bonne note à 18-20 | Relu avant chaque entraînement de niveau 3 et 4 |
-| **4 — Ancrage mémoriel** | 4.1 fiche de synthèse d'une page · 4.2 cartes question / réponse (export Anki) · 4.3 moyens mnémotechniques · 4.4 schéma reliant les concepts | RÉVISER |
-| **5 — Entraînement** | Niveau 1 questions de cours · Niveau 2 exercices types d'examen corrigés étape par étape · Niveau 3 questions pièges et cas transversaux · Niveau 4 sujet au format réel, barème, corrigé type copie de major | P4 d'APPRENDRE, puis S'ENTRAÎNER |
+| **4 — Ancrage mémoriel** | 4.1 fiche de synthèse d'une page · 4.2 moyens mnémotechniques · 4.3 schéma reliant les concepts | RÉVISER |
+| **5 — Teste-toi** | Sans corrigé sous les questions. Niveau 1 **QCM** (chaque question renvoie à sa section `§ 2.k`) · Niveau 2 exercices types d'examen · Niveau 3 questions pièges et cas transversaux · Niveau 4 sujet au format réel, avec barème | P3-P4 d'APPRENDRE, RÉVISER, S'ENTRAÎNER |
 | **6 — Auto-évaluation** | « Si tu ne sais pas répondre à ces questions sans regarder, tu ne maîtrises pas encore le chapitre » | Fin de la révision J+7 |
 | **7 — Révision en marchant** | Questions orales courtes, réponse attendue en une phrase | Hors pomodoros |
 | **Annexe A — Glossaire du chapitre** | Tableau Terme · En une phrase · Définition académique → GLOSSAIRE.md | — |
 | **Annexe B — Tableau de couverture** | Une ligne par élément des sources (diapositive, page, notes), ✔ / ⚠ / ✖, sans trou → contrôle qualité | — |
+| **Corrigés** | Dernière partie, sur une nouvelle page (`<!--saut-->` juste avant) : réponses du QCM expliquées, corrigés étape par étape des exercices, corrigé type copie de major du sujet de niveau 4 | Après chaque test |
 
 **Règles d'écriture (charte).** Chaque terme technique défini à sa première apparition, d'abord
 simplement, puis dans la formulation exacte attendue à l'examen. Chaque formule énoncée, expliquée
@@ -80,21 +87,22 @@ Chaque terme expliqué. Puis démonstration (`::: demo`) et exemple chiffré com
 
 Une page imprimée, pas plus. Extraite telle quelle dans `Fiches/`.
 
-## 4.2 — Cartes de révision
+## 4.2 — Moyens mnémotechniques
 
-::: carte
-Question ?
---
-Réponse.
-:::
+## 4.3 — Le schéma qui relie tout
 
-## 4.3 — Moyens mnémotechniques
+# 5 — Teste-toi
 
-## 4.4 — Le schéma qui relie tout
+*Sur une feuille, sans regarder le cours ; le corrigé est à la fin du document.*
 
-# 5 — Entraînement
+## Niveau 1 — QCM
 
-## Niveau 1 — Questions de cours
+**1.** Question ? *(§ 2.1)*
+
+- **a)** proposition
+- **b)** proposition
+- **c)** proposition
+- **d)** proposition
 
 ## Niveau 2 — Exercices types d'examen
 
@@ -122,6 +130,22 @@ Réponse.
 
 <!--saut-->
 
+# Corrigés
+
+## Corrigé du niveau 1 — QCM
+
+| Question | Réponse | Pourquoi |
+|:---:|:---:|---|
+| 1 | b | … |
+
+## Corrigé du niveau 2 — Exercices types d'examen
+
+::: correction Exercice 1
+…
+:::
+
+<!--saut-->
+
 # Référence de syntaxe
 
 | Élément | Écriture |
@@ -135,7 +159,8 @@ Réponse.
 | Maths centrées | `$$ ... $$` sur leurs propres lignes |
 | Figure | `![légende](figures/<chapitre>/<nom>.svg)` sur sa propre ligne |
 | Encadré | `::: type Titre` … `:::` — types : `definition` `formule` `demo` `exemple` `piege` `examen` `methode` `correction` `marche` `synthese` `objectif` `carte` |
-| Carte | `::: carte` · question · `--` · réponse · `:::` |
+| QCM | `**1.** Question ? *(§ 2.k)*` puis une liste `- **a)** …` à `- **d)** …` ; réponses dans « Corrigés » |
+| Carte | `::: carte` · question · `--` · réponse · `:::` — anciens cours seulement (avant la décision 13) |
 
 Commandes LaTeX reconnues : `\frac` `\dfrac` `\sqrt` `\text` `\bar` `\overline` `\hat` `\vec`,
 exposants, indices, alphabet grec, `\times` `\cdot` `\le` `\ge` `\ne` `\approx` `\sum` `\prod`

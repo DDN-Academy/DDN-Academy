@@ -10,7 +10,13 @@ Erreurs bloquantes (code de sortie 1) :
   ligne de tableau irrégulière · en-tête de tableau vide · « $ » impair sur une ligne ·
   figure introuvable · (cours) section obligatoire absente · (cours) trou de numérotation
   dans le tableau de couverture.
-Informations : nombre de cartes, de formules, de termes de glossaire, bilan ✔ / ⚠ / ✖.
+Deux formats de cours :
+  - avec cartes (les premiers cours d'Institutions politiques, jusqu'au 29 septembre 2026) ;
+  - sans cartes (décision 13, 30 septembre 2026) : un test en partie 5 — QCM et questions type
+    examen — et tous les corrigés dans une partie finale « # Corrigés », qui commence sur une
+    nouvelle page ; aucun corrigé ni aucune carte avant elle.
+Informations : nombre de cartes ou de questions de QCM, de formules, de termes de glossaire,
+bilan ✔ / ⚠ / ✖.
 """
 import os
 import re
@@ -18,13 +24,21 @@ import sys
 
 CONNUS = {"definition", "formule", "demo", "exemple", "piege", "examen", "methode",
           "correction", "marche", "synthese", "objectif", "carte"}
-SECTIONS_COURS = [r"^# 1 — Carte du chapitre", r"^# 2 — Le cours reconstruit",
+SECTIONS_AVEC_CARTES = [r"^# 1 — Carte du chapitre", r"^# 2 — Le cours reconstruit",
                   r"^# 3 — Pièges et points bonus", r"^# 4 — Ancrage mémoriel",
                   r"^## 4\.1 — Fiche de synthèse", r"^## 4\.2 — Cartes de révision",
                   r"^## 4\.3 — Moyens mnémotechniques", r"^## 4\.4 — Le schéma qui relie tout",
                   r"^# 5 — Entraînement", r"^## Niveau 1\b", r"^## Niveau 2\b", r"^## Niveau 3\b",
                   r"^## Niveau 4\b", r"^# 6 — Auto-évaluation", r"^# 7 — Révision en marchant",
                   r"^# Annexe A — Glossaire du chapitre", r"^# Annexe B — Tableau de couverture"]
+SECTIONS_SANS_CARTES = [r"^# 1 — Carte du chapitre", r"^# 2 — Le cours reconstruit",
+                        r"^# 3 — Pièges et points bonus", r"^# 4 — Ancrage mémoriel",
+                        r"^## 4\.1 — Fiche de synthèse", r"^## 4\.2 — Moyens mnémotechniques",
+                        r"^## 4\.3 — Le schéma qui relie tout", r"^# 5 — Teste-toi",
+                        r"^## Niveau 1 — QCM", r"^## Niveau 2\b", r"^## Niveau 3\b", r"^## Niveau 4\b",
+                        r"^# 6 — Auto-évaluation", r"^# 7 — Révision en marchant",
+                        r"^# Annexe A — Glossaire du chapitre", r"^# Annexe B — Tableau de couverture",
+                        r"^# Corrigés"]
 
 
 def main():
@@ -108,11 +122,32 @@ def main():
 
     if "/Cours/" in os.path.abspath(chemin).replace("\\", "/"):
         texte = "\n".join(L)
-        for motif in SECTIONS_COURS:
+        avec_cartes = bool(re.search(r"^## 4\.2 — Cartes de révision", texte, re.M))
+        for motif in (SECTIONS_AVEC_CARTES if avec_cartes else SECTIONS_SANS_CARTES):
             if not re.search(motif, texte, re.M):
                 err.append("section obligatoire absente : %s" % motif.replace("^", "").replace("\\", ""))
-        # couverture : numérotation continue
-        m = re.search(r"^# Annexe B — Tableau de couverture.*?$(.*)", texte, re.M | re.S)
+        if not avec_cartes:
+            # format sans cartes : pas de carte ; corrigés seulement dans la partie finale, sur une nouvelle page
+            m = re.search(r"^# Corrigés", texte, re.M)
+            if m:
+                avant = texte[:m.start()]
+                if re.search(r"^\s*:::\s*carte\b", texte, re.M):
+                    err.append("format sans cartes : un encadré « carte » subsiste")
+                n_av = len(re.findall(r"^\s*:::\s*correction\b", avant, re.M))
+                if n_av:
+                    err.append("format sans cartes : %d corrigé(s) avant la partie « # Corrigés » — ils doivent être à la fin" % n_av)
+                derniere = [l for l in avant.splitlines() if l.strip()][-1:]
+                if derniere != ["<!--saut-->"]:
+                    err.append("format sans cartes : la partie « # Corrigés » doit commencer sur une nouvelle page (<!--saut--> juste avant)")
+                if re.search(r"^# ", texte[m.end():], re.M):
+                    err.append("format sans cartes : la partie « # Corrigés » doit être la dernière du document")
+            else:
+                err.append("format sans cartes : partie « # Corrigés » absente")
+            qcm = re.search(r"^## Niveau 1 — QCM.*?$(.*?)^## ", texte, re.M | re.S)
+            if qcm:
+                info.append("QCM : %d questions" % len(re.findall(r"^\*\*\d+\.\*\*", qcm.group(1), re.M)))
+        # couverture : numérotation continue (jusqu'à la partie suivante)
+        m = re.search(r"^# Annexe B — Tableau de couverture.*?$(.*?)(?=^# |\Z)", texte, re.M | re.S)
         if m:
             nums = [int(x) for x in re.findall(r"^\|\s*\**(\d+)\**\s*\|", m.group(1), re.M)]
             if nums:

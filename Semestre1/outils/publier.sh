@@ -6,7 +6,8 @@
 #
 # Pour tout fichier .md : produit le PDF A4 paginé à côté du .md.
 # Pour un cours (dossier Cours/) : produit en plus, par extraction
-#   - Anki/<cours>.csv                  cartes « question ; réponse ; matière ; chapitre »
+#   - Anki/<cours>.csv                  cartes Anki — seulement pour les cours au format avec cartes
+#                                       (jusqu'au 29 septembre 2026 ; décision 13 : plus de cartes)
 #   - Fiches/<cours>_Fiche.md + .pdf    fiche de synthèse + questions pour la marche
 #   - Fiches/<Matiere>_Formulaire.md + .pdf   formulaire cumulatif de la matière
 #   - GLOSSAIRE.md + .pdf               glossaire cumulatif, toutes matières

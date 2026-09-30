@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" width="680" height="280">
+<rect x="0" y="0" width="680" height="280" fill="#ffffff"/>
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<text x="90.0" y="48.0" font-size="12" fill="#1f4e79" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Fréquences cumulées F</text>
+<line x1="90.0" y1="90.0" x2="610.0" y2="90.0" stroke="#1f4e79" stroke-width="2.4"/>
+<line x1="90.0" y1="82.0" x2="90.0" y2="98.0" stroke="#1f4e79" stroke-width="1.6"/>
+<text x="90.0" y="76.0" font-size="11.5" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">F(x_A) = 0,48</text>
+<line x1="610.0" y1="82.0" x2="610.0" y2="98.0" stroke="#1f4e79" stroke-width="1.6"/>
+<text x="610.0" y="76.0" font-size="11.5" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">F(x_B) = 0,703</text>
+<line x1="136.6" y1="82.0" x2="136.6" y2="98.0" stroke="#b3261e" stroke-width="2.2"/>
+<text x="142.6" y="112.0" font-size="11.5" fill="#b3261e" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">0,5 : la médiane</text>
+<text x="90.0" y="246.0" font-size="12" fill="#2e7d32" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Nombre d'enfants x</text>
+<line x1="90.0" y1="200.0" x2="610.0" y2="200.0" stroke="#2e7d32" stroke-width="2.4"/>
+<line x1="90.0" y1="192.0" x2="90.0" y2="208.0" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="90.0" y="224.0" font-size="11.5" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">x_A = 0</text>
+<line x1="610.0" y1="192.0" x2="610.0" y2="208.0" stroke="#2e7d32" stroke-width="1.6"/>
+<text x="610.0" y="224.0" font-size="11.5" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">x_B = 1</text>
+<line x1="136.6" y1="192.0" x2="136.6" y2="208.0" stroke="#b3261e" stroke-width="2.2"/>
+<text x="142.6" y="186.0" font-size="11.5" fill="#b3261e" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Med ≈ 0,089</text>
+<line x1="136.6" y1="124.0" x2="136.6" y2="174.0" stroke="#b3261e" stroke-width="1.4" marker-end="url(#fl)" stroke-dasharray="5 4"/>
+<text x="152.6" y="149.0" font-size="11" fill="#b3261e" text-anchor="start" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">même proportion du chemin : (0,5 − 0,48) / (0,703 − 0,48) = 0,02 / 0,223 ≈ 0,089</text>
+<text x="340.0" y="270.0" font-size="11" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">Med ≈ x_A + (x_B − x_A) × (0,5 − F(x_A)) / (F(x_B) − F(x_A)) = 0 + 1 × 0,089 ≈ 0,089 enfant (méthode du cours)</text>
+</svg>

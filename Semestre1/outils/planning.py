@@ -16,7 +16,8 @@ Chaque jour de préparation, du 1er octobre au 6 décembre, dans cet ordre :
      lendemain), préparation de contrôle continu (J-2 et J-1), préparation de TD (la veille ;
      le samedi pour un TD du lundi), consolidation de TD (le jour même) ;
   3. les révisions espacées dues — J+1, J+3, J+7, J+21 après la fin de l'apprentissage d'un
-     chapitre, puis tous les 21 jours —, deux chapitres par pomodoro ;
+     chapitre, puis tous les 21 jours —, un chapitre par pomodoro : son QCM (ou ses cartes) puis
+     sa fiche restituée de mémoire tiennent à peine en 25 minutes ;
   4. l'entraînement dû — niveau 2 à J+2, niveau 3 à J+4, niveau 4 à J+8 —, un pomodoro par jour ;
   5. l'apprentissage — cycles APPRENDRE P1 → P4, une section du cours par cycle — ; deux
      chapitres de matières différentes sont entrelacés quand c'est possible ;
@@ -35,12 +36,23 @@ SEM = os.path.dirname(ICI)
 JOURS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 MOIS = ["", "janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
         "septembre", "octobre", "novembre", "décembre"]
-ETAPES = ["P1 lecture active", "P2 restitution de mémoire", "P3 cartes de la section", "P4 exercices de niveau 1"]
+# Deux formats de cours (décision 13, 30 septembre 2026) : avec cartes (cours d'Institutions n° 1 à 3),
+# ou sans cartes — un QCM et des exercices en partie 5, corrigés à la fin du cours.
+ETAPES_CARTES = ["P1 lecture active", "P2 restitution de mémoire", "P3 cartes de la section (partie 4.2)", "P4 exercices de niveau 1"]
+ETAPES_QCM = ["P1 lecture active", "P2 restitution de mémoire", "P3 QCM de la section (partie 5, niveau 1)", "P4 exercices de la section (partie 5)"]
+REVISION_CARTES = "cartes du chapitre (partie 4.2), réponse cachée"
+REVISION_QCM = "QCM du chapitre refait sur une feuille (partie 5), corrigé à la fin du cours"
 REVISIONS = (1, 3, 7, 21)
 BOUCLE = 21
-ENTRAINEMENT = [(2, "niveau 2", "exercices types d'examen, chronométrés ; correction avec le corrigé ; chaque erreur analysée", 1),
-                (4, "niveau 3", "questions pièges et cas transversaux ; correction ; chaque erreur analysée", 1),
-                (8, "niveau 4", "sujet au format de l'examen — P1 partie 1 → P2 partie 2 : introduction rédigée et plan détaillé → P3 correction au barème, avec la copie de major", 3)]
+# Entraînement : (jours après la fin de l'apprentissage, niveau, consigne selon le format du cours, pomodoros).
+# Dans le format à QCM, les exercices de chaque section sont faits en P4 : le niveau 2 reprend ceux qui ont
+# été ratés ou pas finis. Le niveau 4 suit le découpage en trois pomodoros écrit en tête du niveau 4 du cours.
+ENTRAINEMENT = [(2, "niveau 2", {"cartes": "exercices types d'examen, chronométrés ; correction avec le corrigé ; chaque erreur analysée",
+                                 "qcm": "les exercices ratés ou pas finis en P4, refaits chronomètre en main, dans l'ordre du cours ; correction avec le corrigé de la fin du cours ; chaque erreur analysée"}, 1),
+                (4, "niveau 3", {"cartes": "questions pièges et cas transversaux ; correction ; chaque erreur analysée",
+                                 "qcm": "questions pièges et cas transversaux ; correction avec le corrigé de la fin du cours ; chaque erreur analysée"}, 1),
+                (8, "niveau 4", {"cartes": "sujet au format de l'examen", "qcm": "sujet au format de l'examen"}, 3)]
+DECOUPAGE4 = "P1 · P2 · P3, selon le découpage écrit en tête du niveau 4 du cours"
 
 
 def D(s):
@@ -79,7 +91,11 @@ class Planificateur:
             if not secs:
                 self.alertes.append("%s : aucune section « ## 2.k » dans le cours — chapitre non planifié." % c["id"])
                 continue
-            ch = dict(c, rang=k, sections=secs, total=4 * len(secs), dispo=D(c["dispo"]),
+            texte = open(chemin, encoding="utf-8").read()
+            cartes = bool(re.search(r"^\s*:::\s*carte\b", texte, re.M))
+            m4 = re.search(r"\*\*En trois pomodoros\*\*\s*:\s*([^\n]+?)\.(?:\s+[A-ZÀ-Ý]|\s*$)", texte, re.M)
+            ch = dict(c, rang=k, sections=secs, total=4 * len(secs), dispo=D(c["dispo"]), cartes=cartes,
+                      decoupage4=m4.group(1) if m4 else DECOUPAGE4,
                       fait=av.get(c["id"], {}).get("etapes_faites", 0), fin=None, debut_app=None,
                       revs=[], ents=[])
             if av.get(c["id"], {}).get("appris_le"):
@@ -122,6 +138,9 @@ class Planificateur:
                 ch["revs"].append((j, dd))
                 self.revs[dd].append((ch, j))
         for j, niv, quoi, p in ENTRAINEMENT:
+            quoi = quoi["cartes" if ch["cartes"] else "qcm"]
+            if niv == "niveau 4":
+                quoi += " — " + ch["decoupage4"]
             item = {"ch": ch, "niv": niv, "quoi": quoi, "p": p, "des": f + timedelta(j)}
             ch["ents"].append(item)
             self.ents.append(item)
@@ -146,7 +165,7 @@ class Planificateur:
         if ch["fait"] >= ch["total"]:
             ch["fin"] = d
             self.programmer(ch)
-        return num, titre, ETAPES[k % 4]
+        return num, titre, (ETAPES_CARTES if ch["cartes"] else ETAPES_QCM)[k % 4]
 
     # ---------------------------------------------------------------- une journée
     def jour(self, d):
@@ -154,7 +173,7 @@ class Planificateur:
         libre = C
         if d.weekday() == self.cfg["marge"]["jour"]:
             mg = int(C * self.cfg["marge"]["part"])
-            self.ajouter(d, "—", "—", "MARGE", "rattrapage des pomodoros manqués de la semaine ; si rien à rattraper : cartes Anki en avance", mg)
+            self.ajouter(d, "—", "—", "MARGE", "rattrapage des pomodoros manqués de la semaine ; si rien à rattraper : le QCM d'un chapitre déjà appris", mg)
             libre -= mg
         # engagements fixes
         for eb in self.cfg.get("examens_blancs", []):
@@ -186,10 +205,13 @@ class Planificateur:
         # révisions espacées dues
         dues = self.revs.pop(d, [])
         while dues and libre > 0:
-            paquet, dues = dues[:2], dues[2:]
+            paquet, dues = dues[:1], dues[1:]
             mats = list(dict.fromkeys(self.court(ch["matiere"]) for ch, _ in paquet))
+            formats = [REVISION_CARTES if ch["cartes"] else REVISION_QCM for ch, _ in paquet]
+            test = formats[0] if len(set(formats)) == 1 else " ; ".join(
+                "%s : %s" % (self.numero(ch), f) for (ch, _), f in zip(paquet, formats))
             self.ajouter(d, " + ".join(mats), " + ".join("%s J+%d" % (self.numero(ch), j) for ch, j in paquet), "RÉVISER",
-                         "cartes Anki dues → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis", 1)
+                         test + " → fiche de synthèse restituée de mémoire sur feuille blanche → correction des oublis", 1)
             libre -= 1
         if dues:
             self.revs[d + timedelta(1)] = dues + self.revs[d + timedelta(1)]
@@ -219,7 +241,7 @@ class Planificateur:
             if tour > 20:
                 break
         if libre > 0:
-            self.ajouter(d, "—", "—", "EN ATTENTE", "réservé à tes prochains cours (tant qu'il est vide : cartes Anki dues, puis questions de marche)", libre)
+            self.ajouter(d, "—", "—", "EN ATTENTE", "réservé à tes prochains cours (tant qu'il est vide : le QCM du dernier chapitre appris, puis ses questions de marche)", libre)
         total = sum(b["p"] for b in self.plan[d])
         if total != C:
             self.alertes.append("%s : %d pomodoros planifiés pour une capacité de %d." % (fr(d), total, C))
@@ -227,7 +249,17 @@ class Planificateur:
     def lancer(self):
         for d in self.jours:
             self.jour(d)
+        # charte : tout le programme appris vers la mi-novembre, puis consolidation jusqu'au 6 décembre
+        for ch in self.chap:
+            if not ch["fin"]:
+                self.alertes.append("%s : apprentissage non terminé le 6 décembre." % ch["id"])
+            elif ch["fin"] > self.fin_apprentissage():
+                self.alertes.append("%s : appris le %s, après la mi-novembre (fin de la phase d'apprentissage de la charte)." % (ch["id"], fr(ch["fin"], False)))
         return self
+
+    def fin_apprentissage(self):
+        """La veille de la dernière période (16 novembre) : la charte prévoit l'apprentissage jusqu'à la mi-novembre."""
+        return D(self.cfg["capacite"][-1]["du"]) - timedelta(1)
 
 
 # ==================================================================== rendu
@@ -264,6 +296,84 @@ def blocs_affiches(P, d):
     return res
 
 
+def nb(x):
+    """Nombre à la française : entier tel quel, sinon une décimale avec virgule."""
+    return ("%d" % round(x)) if abs(x - round(x)) < 1e-9 else ("%.1f" % x).replace(".", ",")
+
+
+def preuve(P):
+    """Charte, livrable 1, point 5 : volume à apprendre par matière, pomodoros alloués, date à laquelle
+    chaque matière reçue est entièrement apprise, et place restante. Recalculée à chaque planning."""
+    code = {v["court"]: k for k, v in P.mat.items()}
+    alloue = defaultdict(lambda: defaultdict(float))
+    fin_app = P.fin_apprentissage()
+    attente_av = attente_ap = marge = 0
+    for d in P.jours:
+        for b in P.plan[d]:
+            if b["t"] == "EN ATTENTE":
+                if d <= fin_app:
+                    attente_av += b["p"]
+                else:
+                    attente_ap += b["p"]
+            elif b["t"] == "MARGE":
+                marge += b["p"]
+            elif b["t"] == "RÉVISER":  # « Institutions + Stats » : le pomodoro est partagé
+                mats = b["m"].split(" + ")
+                for m in mats:
+                    alloue[code.get(m, m)]["rev"] += b["p"] / len(mats)
+            elif b["t"] == "APPRENDRE":
+                alloue[b["m"]]["app"] += b["p"]
+            elif b["t"] == "S'ENTRAÎNER":
+                alloue[b["m"]]["ent"] += b["p"]
+            else:  # préparation et consolidation de TD, contrôles, examens blancs
+                alloue[b["m"]]["aut"] += b["p"]
+    o = ["# La preuve que tout tient dans tes 560 pomodoros", "",
+         "*Charte, livrable 1, point 5 — recalculée à chaque nouveau planning : pour chaque matière, le volume reçu, "
+         "les pomodoros alloués et la date à laquelle elle est entièrement apprise.*", "",
+         "| Matière | Chapitres reçus | Sections | Apprendre | S'entraîner | Réviser | TD, contrôles, examens blancs | Total | Entièrement apprise |",
+         "|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|"]
+    tot, nsec = defaultdict(float), 0
+    for m, info in P.mat.items():
+        chs = [c for c in P.chap if c["matiere"] == m]
+        a = alloue[m]
+        if not chs:
+            o.append("| %s | — | — | — | — | — | %s | %s | cours à recevoir |" % (
+                info["nom"], nb(a["aut"]) if a["aut"] else "—", nb(a["aut"]) if a["aut"] else "—"))
+            tot["aut"] += a["aut"]
+            continue
+        ns = sum(len(c["sections"]) for c in chs)
+        nsec += ns
+        for k in ("app", "ent", "rev", "aut"):
+            tot[k] += a[k]
+        fins = [c["fin"] for c in chs]
+        quand = ("le %s, pour les chapitres reçus" % fr(max(fins), False)) if all(fins) else "**pas avant le 6 décembre**"
+        o.append("| %s | %d | %d | %s | %s | %s | %s | **%s** | %s |" % (
+            info["nom"], len(chs), ns, nb(a["app"]), nb(a["ent"]), nb(a["rev"]), nb(a["aut"]) if a["aut"] else "—",
+            nb(a["app"] + a["ent"] + a["rev"] + a["aut"]), quand))
+    engage = tot["app"] + tot["ent"] + tot["rev"] + tot["aut"]
+    o.append("| **Chapitres reçus, ensemble** | **%d** | **%d** | **%s** | **%s** | **%s** | **%s** | **%s** | |" % (
+        len(P.chap), nsec, nb(tot["app"]), nb(tot["ent"]), nb(tot["rev"]), nb(tot["aut"]), nb(engage)))
+    o.append("| Marge du dimanche | | | | | | | %d | |" % marge)
+    o.append("| En attente de tes prochains cours | | | | | | | %d | |" % (attente_av + attente_ap))
+    o.append("| **Total** | | | | | | | **%s** | |" % nb(engage + marge + attente_av + attente_ap))
+    o.append("")
+    if nsec:
+        cout = engage / nsec
+        o.append("**Le bilan.** Les chapitres reçus occupent **%s** pomodoros ; avec la marge du dimanche (**%d**), il en reste **%d** "
+                 "pour tes prochains cours : **%d** d'ici le %s, fin de la phase d'apprentissage prévue par la charte, et **%d** du %s "
+                 "au 6 décembre, pour la consolidation, les examens blancs et les derniers cours." % (
+                     nb(engage), marge, attente_av + attente_ap, attente_av, fr(fin_app, False), attente_ap,
+                     fr(fin_app + timedelta(1), False)))
+        o.append("")
+        o.append("**Ce que cette place permet.** Au coût actuel — **%s** pomodoros par section, entraînement et révisions compris —, "
+                 "elle suffit pour environ **%d** sections d'ici le %s, et **%d** au total, examens blancs non compris. Si les cours "
+                 "à venir dépassent cette place, je ne retire rien au programme : j'optimise la façon de l'apprendre "
+                 "(décision 14 du tableau de bord), et je te le signale ici." % (
+                     nb(round(cout, 1)), int(attente_av // cout), fr(fin_app, False), int((attente_av + attente_ap) // cout)))
+        o.append("")
+    return o
+
+
 def rendu(P):
     cfg = P.cfg
     maj = D(cfg["mise_a_jour"])
@@ -282,7 +392,7 @@ def rendu(P):
     A("- **Il est glissant.** Les profs publient les cours au fil du semestre : chaque fois que tu m'en envoies un, je le reconstruis, je l'ajoute ici et je te renvoie le planning recalculé. Il est aussi recalculé à chaque bilan du dimanche.")
     A("- **Chaque jour, suis les lignes dans l'ordre**, sans rien décider : elles disent la matière, le chapitre, le type de travail, la section du cours et le nombre de pomodoros.")
     A("- **Un pomodoro** = 25 minutes de travail + 5 minutes de pause ; une pause longue de 20 minutes toutes les 4 sessions.")
-    A("- **« En attente »** = un créneau réservé aux cours que tu vas m'envoyer. Tant qu'il est vide : cartes Anki dues, puis les questions de marche du dernier chapitre, à voix haute.")
+    A("- **« En attente »** = un créneau réservé aux cours que tu vas m'envoyer. Tant qu'il est vide : le QCM du dernier chapitre appris, puis ses questions de marche, à voix haute.")
     A("- **En marchant**, hors pomodoros : les questions de la section 7 du dernier cours appris.")
     A("")
     # volume
@@ -313,12 +423,12 @@ def rendu(P):
     A("")
     A("| Type | Déroulé exact |")
     A("|---|---|")
-    A("| **APPRENDRE** | Un cycle de 4 pomodoros par section `§ 2.k` du cours : **P1** lecture active, crayon en main · **P2** restitution de mémoire, cours fermé, à l'écrit ou à voix haute · **P3** cartes de la section · **P4** exercices de niveau 1 |")
-    A("| **RÉVISER** | Cartes Anki dues · puis la fiche de synthèse du chapitre, restituée de mémoire sur une feuille blanche · puis comparaison et correction des oublis |")
-    A("| **S'ENTRAÎNER** | Les exercices du niveau indiqué (§ 5 du cours), chronométrés · correction avec le corrigé · chaque erreur classée : connaissance, méthode ou inattention |")
+    A("| **APPRENDRE** | Un cycle de 4 pomodoros par section `§ 2.k` du cours : **P1** lecture active, crayon en main · **P2** restitution de mémoire, cours fermé, à l'écrit ou à voix haute · **P3** le QCM de la section (partie 5 du cours ; pour les cours d'Institutions n° 1 à 3 : ses cartes, partie 4.2) · **P4** ses exercices ; corrigés à la fin du cours |")
+    A("| **RÉVISER** | Le QCM du chapitre, refait sur une feuille et corrigé avec le corrigé de la fin du cours (pour les cours d'Institutions n° 1 à 3 : ses cartes, partie 4.2, réponse cachée) · puis la fiche de synthèse du chapitre, restituée de mémoire sur une feuille blanche · puis comparaison et correction des oublis |")
+    A("| **S'ENTRAÎNER** | Les exercices du niveau indiqué (partie 5 du cours), chronométrés · correction avec le corrigé (à la fin du cours) · chaque erreur classée : connaissance, méthode ou inattention |")
     A("| **EXAMEN BLANC** | Conditions réelles : durée exacte, sans document, téléphone éteint · correction le lendemain, puis tu m'envoies ta copie |")
-    A("| **MARGE** | Le dimanche : rattrapage des pomodoros manqués de la semaine ; si rien à rattraper, cartes Anki en avance |")
-    A("| **EN ATTENTE** | Réservé à tes prochains cours ; tant qu'il est vide : cartes Anki dues, puis questions de marche du dernier chapitre, à voix haute |")
+    A("| **MARGE** | Le dimanche : rattrapage des pomodoros manqués de la semaine ; si rien à rattraper, le QCM d'un chapitre déjà appris |")
+    A("| **EN ATTENTE** | Réservé à tes prochains cours ; tant qu'il est vide : le QCM du dernier chapitre appris, puis ses questions de marche, à voix haute |")
     A("")
     A("**Relecture passive interdite** : rappel actif, restitution, révisions à J+1, J+3, J+7 et J+21 puis en boucle, entrelacement des matières dès que tu en as plusieurs.")
     A("")
@@ -366,6 +476,7 @@ def rendu(P):
     if reste:
         A("*La suite — du %s au 6 décembre — se remplit à mesure que tes cours arrivent ; les révisions déjà prévues sont dans le tableau des chapitres.*" % fr(reste[0]))
         A("")
+    o.extend(preuve(P))
     # ce qui manque
     A("# Ce qu'il me faut pour compléter le planning")
     A("")

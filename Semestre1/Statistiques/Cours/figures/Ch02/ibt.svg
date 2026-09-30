@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230" width="700" height="230">
+<rect x="0" y="0" width="700" height="230" fill="#ffffff"/>
+<defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+<line x1="60.0" y1="120.0" x2="640.0" y2="120.0" stroke="#1d2330" stroke-width="1.6" marker-end="url(#fl)"/>
+<line x1="110.0" y1="113.0" x2="110.0" y2="127.0" stroke="#1d2330" stroke-width="1.6"/>
+<text x="110.0" y="144.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">m − 3σ</text>
+<line x1="190.0" y1="113.0" x2="190.0" y2="127.0" stroke="#1d2330" stroke-width="1.6"/>
+<text x="190.0" y="144.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">m − 2σ</text>
+<line x1="350.0" y1="113.0" x2="350.0" y2="127.0" stroke="#1d2330" stroke-width="1.6"/>
+<text x="350.0" y="144.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">m</text>
+<line x1="510.0" y1="113.0" x2="510.0" y2="127.0" stroke="#1d2330" stroke-width="1.6"/>
+<text x="510.0" y="144.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">m + 2σ</text>
+<line x1="590.0" y1="113.0" x2="590.0" y2="127.0" stroke="#1d2330" stroke-width="1.6"/>
+<text x="590.0" y="144.0" font-size="12" fill="#1d2330" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">m + 3σ</text>
+<rect x="190.0" y="80.0" width="320.0" height="26.0" rx="4" fill="#e8eef6" stroke="#1f4e79" stroke-width="1.4"/>
+<text x="350.0" y="98.0" font-size="12" fill="#1f4e79" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">au moins 75 % des observations (k = 2)</text>
+<rect x="110.0" y="44.0" width="480.0" height="26.0" rx="4" fill="#e6f2e7" stroke="#2e7d32" stroke-width="1.4"/>
+<text x="350.0" y="62.0" font-size="12" fill="#2e7d32" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-weight="700">au moins 1 − 1/9 ≈ 89 % des observations (k = 3)</text>
+<text x="110.0" y="180.0" font-size="11" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">au plus 25 % en dehors de m ± 2σ ;</text>
+<text x="590.0" y="180.0" font-size="11" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">si la distribution est symétrique,</text>
+<text x="110.0" y="196.0" font-size="11" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">au plus 11 % en dehors de m ± 3σ</text>
+<text x="590.0" y="196.0" font-size="11" fill="#b35c00" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">au plus la moitié de chaque côté</text>
+</svg>
