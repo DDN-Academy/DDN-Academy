@@ -1,0 +1,33 @@
+[project]
+name = "goldpilot"
+version = "1.0.0"
+description = "GoldPilot : recherche, risque et alertes de day trading sur l'or (MGC) pour FundedNext Futures"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "sqlalchemy>=2.0.30",
+  "alembic>=1.13",
+  "psycopg[binary]>=3.2",
+  "httpx>=0.27",
+  "pydantic>=2.7",
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "scipy>=1.13",
+]
+
+[project.optional-dependencies]
+databento = ["databento>=0.40"]
+research = ["pyarrow>=16", "matplotlib>=3.8"]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["goldpilot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

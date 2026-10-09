@@ -1,0 +1,1006 @@
+{
+  "periode": "2011-05-02 08:30:00+00:00 → 2018-12-31 18:45:00+00:00 (entraînement uniquement)",
+  "cout_median_aller_retour_ATR": 0.114,
+  "profil_volatilite": [
+    {
+      "heure_new_york": "00:00",
+      "amplitude_relative": 0.72
+    },
+    {
+      "heure_new_york": "00:15",
+      "amplitude_relative": 0.723
+    },
+    {
+      "heure_new_york": "00:30",
+      "amplitude_relative": 0.947
+    },
+    {
+      "heure_new_york": "00:45",
+      "amplitude_relative": 0.876
+    },
+    {
+      "heure_new_york": "01:00",
+      "amplitude_relative": 0.974
+    },
+    {
+      "heure_new_york": "01:15",
+      "amplitude_relative": 0.921
+    },
+    {
+      "heure_new_york": "01:30",
+      "amplitude_relative": 1.178
+    },
+    {
+      "heure_new_york": "01:45",
+      "amplitude_relative": 1.114
+    },
+    {
+      "heure_new_york": "02:00",
+      "amplitude_relative": 1.35
+    },
+    {
+      "heure_new_york": "02:15",
+      "amplitude_relative": 1.269
+    },
+    {
+      "heure_new_york": "02:30",
+      "amplitude_relative": 1.309
+    },
+    {
+      "heure_new_york": "02:45",
+      "amplitude_relative": 1.339
+    },
+    {
+      "heure_new_york": "03:00",
+      "amplitude_relative": 1.658
+    },
+    {
+      "heure_new_york": "03:15",
+      "amplitude_relative": 1.435
+    },
+    {
+      "heure_new_york": "03:30",
+      "amplitude_relative": 1.35
+    },
+    {
+      "heure_new_york": "03:45",
+      "amplitude_relative": 1.277
+    },
+    {
+      "heure_new_york": "04:00",
+      "amplitude_relative": 1.337
+    },
+    {
+      "heure_new_york": "04:15",
+      "amplitude_relative": 1.171
+    },
+    {
+      "heure_new_york": "04:30",
+      "amplitude_relative": 1.169
+    },
+    {
+      "heure_new_york": "04:45",
+      "amplitude_relative": 1.126
+    },
+    {
+      "heure_new_york": "05:00",
+      "amplitude_relative": 1.171
+    },
+    {
+      "heure_new_york": "05:15",
+      "amplitude_relative": 1.095
+    },
+    {
+      "heure_new_york": "05:30",
+      "amplitude_relative": 1.187
+    },
+    {
+      "heure_new_york": "05:45",
+      "amplitude_relative": 1.031
+    },
+    {
+      "heure_new_york": "06:00",
+      "amplitude_relative": 1.105
+    },
+    {
+      "heure_new_york": "06:15",
+      "amplitude_relative": 1.039
+    },
+    {
+      "heure_new_york": "06:30",
+      "amplitude_relative": 1.085
+    },
+    {
+      "heure_new_york": "06:45",
+      "amplitude_relative": 1.103
+    },
+    {
+      "heure_new_york": "07:00",
+      "amplitude_relative": 1.294
+    },
+    {
+      "heure_new_york": "07:15",
+      "amplitude_relative": 1.252
+    },
+    {
+      "heure_new_york": "07:30",
+      "amplitude_relative": 1.339
+    },
+    {
+      "heure_new_york": "07:45",
+      "amplitude_relative": 1.358
+    },
+    {
+      "heure_new_york": "08:00",
+      "amplitude_relative": 1.626
+    },
+    {
+      "heure_new_york": "08:15",
+      "amplitude_relative": 2.059
+    },
+    {
+      "heure_new_york": "08:30",
+      "amplitude_relative": 2.397
+    },
+    {
+      "heure_new_york": "08:45",
+      "amplitude_relative": 1.672
+    },
+    {
+      "heure_new_york": "09:00",
+      "amplitude_relative": 1.754
+    },
+    {
+      "heure_new_york": "09:15",
+      "amplitude_relative": 1.515
+    },
+    {
+      "heure_new_york": "09:30",
+      "amplitude_relative": 1.821
+    },
+    {
+      "heure_new_york": "09:45",
+      "amplitude_relative": 1.6
+    },
+    {
+      "heure_new_york": "10:00",
+      "amplitude_relative": 1.776
+    },
+    {
+      "heure_new_york": "10:15",
+      "amplitude_relative": 1.413
+    },
+    {
+      "heure_new_york": "10:30",
+      "amplitude_relative": 1.341
+    },
+    {
+      "heure_new_york": "10:45",
+      "amplitude_relative": 1.269
+    },
+    {
+      "heure_new_york": "11:00",
+      "amplitude_relative": 1.19
+    },
+    {
+      "heure_new_york": "11:15",
+      "amplitude_relative": 1.099
+    },
+    {
+      "heure_new_york": "11:30",
+      "amplitude_relative": 1.033
+    },
+    {
+      "heure_new_york": "11:45",
+      "amplitude_relative": 0.936
+    },
+    {
+      "heure_new_york": "12:00",
+      "amplitude_relative": 0.949
+    },
+    {
+      "heure_new_york": "12:15",
+      "amplitude_relative": 0.869
+    },
+    {
+      "heure_new_york": "12:30",
+      "amplitude_relative": 0.844
+    },
+    {
+      "heure_new_york": "12:45",
+      "amplitude_relative": 0.82
+    },
+    {
+      "heure_new_york": "13:00",
+      "amplitude_relative": 0.908
+    },
+    {
+      "heure_new_york": "13:15",
+      "amplitude_relative": 0.988
+    },
+    {
+      "heure_new_york": "13:30",
+      "amplitude_relative": 0.817
+    },
+    {
+      "heure_new_york": "13:45",
+      "amplitude_relative": 0.742
+    },
+    {
+      "heure_new_york": "14:00",
+      "amplitude_relative": 0.915
+    },
+    {
+      "heure_new_york": "14:15",
+      "amplitude_relative": 0.764
+    },
+    {
+      "heure_new_york": "14:30",
+      "amplitude_relative": 0.731
+    },
+    {
+      "heure_new_york": "14:45",
+      "amplitude_relative": 0.69
+    },
+    {
+      "heure_new_york": "15:00",
+      "amplitude_relative": 0.692
+    },
+    {
+      "heure_new_york": "15:15",
+      "amplitude_relative": 0.628
+    },
+    {
+      "heure_new_york": "15:30",
+      "amplitude_relative": 0.638
+    },
+    {
+      "heure_new_york": "15:45",
+      "amplitude_relative": 0.709
+    },
+    {
+      "heure_new_york": "16:00",
+      "amplitude_relative": 0.548
+    },
+    {
+      "heure_new_york": "16:15",
+      "amplitude_relative": 0.424
+    },
+    {
+      "heure_new_york": "16:30",
+      "amplitude_relative": 0.51
+    },
+    {
+      "heure_new_york": "16:45",
+      "amplitude_relative": 0.43
+    },
+    {
+      "heure_new_york": "18:00",
+      "amplitude_relative": 0.518
+    },
+    {
+      "heure_new_york": "18:15",
+      "amplitude_relative": 0.536
+    },
+    {
+      "heure_new_york": "18:30",
+      "amplitude_relative": 0.532
+    },
+    {
+      "heure_new_york": "18:45",
+      "amplitude_relative": 0.519
+    },
+    {
+      "heure_new_york": "19:00",
+      "amplitude_relative": 0.636
+    },
+    {
+      "heure_new_york": "19:15",
+      "amplitude_relative": 0.603
+    },
+    {
+      "heure_new_york": "19:30",
+      "amplitude_relative": 0.635
+    },
+    {
+      "heure_new_york": "19:45",
+      "amplitude_relative": 0.667
+    },
+    {
+      "heure_new_york": "20:00",
+      "amplitude_relative": 1.021
+    },
+    {
+      "heure_new_york": "20:15",
+      "amplitude_relative": 0.841
+    },
+    {
+      "heure_new_york": "20:30",
+      "amplitude_relative": 0.813
+    },
+    {
+      "heure_new_york": "20:45",
+      "amplitude_relative": 0.822
+    },
+    {
+      "heure_new_york": "21:00",
+      "amplitude_relative": 1.128
+    },
+    {
+      "heure_new_york": "21:15",
+      "amplitude_relative": 0.925
+    },
+    {
+      "heure_new_york": "21:30",
+      "amplitude_relative": 0.942
+    },
+    {
+      "heure_new_york": "21:45",
+      "amplitude_relative": 0.841
+    },
+    {
+      "heure_new_york": "22:00",
+      "amplitude_relative": 0.846
+    },
+    {
+      "heure_new_york": "22:15",
+      "amplitude_relative": 0.765
+    },
+    {
+      "heure_new_york": "22:30",
+      "amplitude_relative": 0.791
+    },
+    {
+      "heure_new_york": "22:45",
+      "amplitude_relative": 0.743
+    },
+    {
+      "heure_new_york": "23:00",
+      "amplitude_relative": 0.778
+    },
+    {
+      "heure_new_york": "23:15",
+      "amplitude_relative": 0.726
+    },
+    {
+      "heure_new_york": "23:30",
+      "amplitude_relative": 0.74
+    },
+    {
+      "heure_new_york": "23:45",
+      "amplitude_relative": 0.696
+    }
+  ],
+  "predictibilite_segments": [
+    {
+      "segment_A": "Asie 18:00→02:00",
+      "segment_B": "Londres 02:00→08:00",
+      "jours": 1967,
+      "beta": -0.0038,
+      "correlation": -0.0028,
+      "t_correlation": -0.12,
+      "suivre_signe_A_moyenne_ATR": -0.121,
+      "t": -1.13
+    },
+    {
+      "segment_A": "Londres 02:00→08:00",
+      "segment_B": "NY matin 08:00→12:00",
+      "jours": 1967,
+      "beta": 0.0554,
+      "correlation": 0.0329,
+      "t_correlation": 1.46,
+      "suivre_signe_A_moyenne_ATR": 0.319,
+      "t": 2.4
+    },
+    {
+      "segment_A": "Nuit 18:00→08:00",
+      "segment_B": "NY matin 08:00→12:00",
+      "jours": 1976,
+      "beta": 0.0437,
+      "correlation": 0.0335,
+      "t_correlation": 1.49,
+      "suivre_signe_A_moyenne_ATR": 0.142,
+      "t": 1.07
+    },
+    {
+      "segment_A": "08:00→09:30",
+      "segment_B": "09:30→12:00",
+      "jours": 1976,
+      "beta": 0.0301,
+      "correlation": 0.0255,
+      "t_correlation": 1.13,
+      "suivre_signe_A_moyenne_ATR": 0.062,
+      "t": 0.81
+    },
+    {
+      "segment_A": "08:00→10:00",
+      "segment_B": "10:00→14:00",
+      "jours": 1976,
+      "beta": 0.014,
+      "correlation": 0.012,
+      "t_correlation": 0.53,
+      "suivre_signe_A_moyenne_ATR": 0.028,
+      "t": 0.34
+    },
+    {
+      "segment_A": "NY matin 08:00→12:00",
+      "segment_B": "NY après-midi 12:00→15:45",
+      "jours": 1976,
+      "beta": -0.0066,
+      "correlation": -0.0087,
+      "t_correlation": -0.39,
+      "suivre_signe_A_moyenne_ATR": -0.004,
+      "t": -0.06
+    },
+    {
+      "segment_A": "Séance 18:00→15:00",
+      "segment_B": "Fin 15:00→16:00",
+      "jours": 1976,
+      "beta": -0.0011,
+      "correlation": -0.006,
+      "t_correlation": -0.27,
+      "suivre_signe_A_moyenne_ATR": -0.019,
+      "t": -0.89
+    }
+  ],
+  "autocorrelation_barres": [
+    {
+      "unite": "15 min",
+      "seance": "Asie",
+      "n": 62352,
+      "autocorrelation": -0.0109,
+      "t": -2.73
+    },
+    {
+      "unite": "15 min",
+      "seance": "Londres",
+      "n": 47041,
+      "autocorrelation": -0.0213,
+      "t": -4.63
+    },
+    {
+      "unite": "15 min",
+      "seance": "NY matin",
+      "n": 31349,
+      "autocorrelation": 0.007,
+      "t": 1.24
+    },
+    {
+      "unite": "15 min",
+      "seance": "NY après-midi",
+      "n": 30524,
+      "autocorrelation": 0.0005,
+      "t": 0.08
+    },
+    {
+      "unite": "30 min",
+      "seance": "Asie",
+      "n": 31181,
+      "autocorrelation": -0.0145,
+      "t": -2.57
+    },
+    {
+      "unite": "30 min",
+      "seance": "Londres",
+      "n": 23523,
+      "autocorrelation": -0.023,
+      "t": -3.53
+    },
+    {
+      "unite": "30 min",
+      "seance": "NY matin",
+      "n": 15673,
+      "autocorrelation": -0.0069,
+      "t": -0.86
+    },
+    {
+      "unite": "30 min",
+      "seance": "NY après-midi",
+      "n": 15201,
+      "autocorrelation": 0.0315,
+      "t": 3.88
+    },
+    {
+      "unite": "60 min",
+      "seance": "Asie",
+      "n": 15691,
+      "autocorrelation": 0.0137,
+      "t": 1.72
+    },
+    {
+      "unite": "60 min",
+      "seance": "Londres",
+      "n": 11844,
+      "autocorrelation": -0.0071,
+      "t": -0.77
+    },
+    {
+      "unite": "60 min",
+      "seance": "NY matin",
+      "n": 7884,
+      "autocorrelation": 0.0259,
+      "t": 2.3
+    },
+    {
+      "unite": "60 min",
+      "seance": "NY après-midi",
+      "n": 7579,
+      "autocorrelation": 0.0143,
+      "t": 1.25
+    }
+  ],
+  "suite_des_cassures": [
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 1,
+      "n": 7861,
+      "suite_moyenne_ATR": -0.036,
+      "t": -1.59,
+      "cout_moyen_ATR": 0.146
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 2,
+      "n": 7861,
+      "suite_moyenne_ATR": -0.008,
+      "t": -0.24,
+      "cout_moyen_ATR": 0.146
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 4,
+      "n": 7832,
+      "suite_moyenne_ATR": -0.007,
+      "t": -0.13,
+      "cout_moyen_ATR": 0.147
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 1,
+      "n": 4369,
+      "suite_moyenne_ATR": -0.014,
+      "t": -0.33,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 2,
+      "n": 4361,
+      "suite_moyenne_ATR": 0.026,
+      "t": 0.48,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 4,
+      "n": 4313,
+      "suite_moyenne_ATR": 0.052,
+      "t": 0.75,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 1,
+      "n": 2858,
+      "suite_moyenne_ATR": -0.015,
+      "t": -0.51,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 2,
+      "n": 2841,
+      "suite_moyenne_ATR": 0.001,
+      "t": 0.03,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 4,
+      "n": 1600,
+      "suite_moyenne_ATR": 0.006,
+      "t": 0.09,
+      "cout_moyen_ATR": 0.09
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 1,
+      "n": 9180,
+      "suite_moyenne_ATR": -0.052,
+      "t": -3.74,
+      "cout_moyen_ATR": 0.133
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 2,
+      "n": 9178,
+      "suite_moyenne_ATR": -0.087,
+      "t": -4.24,
+      "cout_moyen_ATR": 0.133
+    },
+    {
+      "cassure_N_heures": 2,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 4,
+      "n": 9177,
+      "suite_moyenne_ATR": 0.003,
+      "t": 0.12,
+      "cout_moyen_ATR": 0.133
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 1,
+      "n": 5633,
+      "suite_moyenne_ATR": -0.043,
+      "t": -1.6,
+      "cout_moyen_ATR": 0.148
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 2,
+      "n": 5633,
+      "suite_moyenne_ATR": -0.008,
+      "t": -0.21,
+      "cout_moyen_ATR": 0.148
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 4,
+      "n": 5613,
+      "suite_moyenne_ATR": 0.06,
+      "t": 0.99,
+      "cout_moyen_ATR": 0.148
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 1,
+      "n": 3500,
+      "suite_moyenne_ATR": 0.032,
+      "t": 0.67,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 2,
+      "n": 3492,
+      "suite_moyenne_ATR": 0.076,
+      "t": 1.21,
+      "cout_moyen_ATR": 0.115
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 4,
+      "n": 3457,
+      "suite_moyenne_ATR": 0.077,
+      "t": 0.97,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 1,
+      "n": 1672,
+      "suite_moyenne_ATR": 0.042,
+      "t": 1.01,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 2,
+      "n": 1661,
+      "suite_moyenne_ATR": 0.027,
+      "t": 0.48,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 4,
+      "n": 1015,
+      "suite_moyenne_ATR": -0.044,
+      "t": -0.51,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 1,
+      "n": 5819,
+      "suite_moyenne_ATR": -0.039,
+      "t": -2.13,
+      "cout_moyen_ATR": 0.135
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 2,
+      "n": 5819,
+      "suite_moyenne_ATR": -0.065,
+      "t": -2.5,
+      "cout_moyen_ATR": 0.135
+    },
+    {
+      "cassure_N_heures": 4,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 4,
+      "n": 5819,
+      "suite_moyenne_ATR": -0.014,
+      "t": -0.37,
+      "cout_moyen_ATR": 0.135
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 1,
+      "n": 4046,
+      "suite_moyenne_ATR": -0.071,
+      "t": -2.24,
+      "cout_moyen_ATR": 0.148
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 2,
+      "n": 4046,
+      "suite_moyenne_ATR": -0.022,
+      "t": -0.46,
+      "cout_moyen_ATR": 0.148
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "Londres 02:00-08:00",
+      "horizon_h": 4,
+      "n": 4033,
+      "suite_moyenne_ATR": 0.062,
+      "t": 0.85,
+      "cout_moyen_ATR": 0.149
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 1,
+      "n": 2690,
+      "suite_moyenne_ATR": 0.067,
+      "t": 1.25,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 2,
+      "n": 2683,
+      "suite_moyenne_ATR": 0.126,
+      "t": 1.76,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "NY 08:00-11:00",
+      "horizon_h": 4,
+      "n": 2657,
+      "suite_moyenne_ATR": 0.179,
+      "t": 1.96,
+      "cout_moyen_ATR": 0.114
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 1,
+      "n": 1311,
+      "suite_moyenne_ATR": 0.055,
+      "t": 1.14,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 2,
+      "n": 1306,
+      "suite_moyenne_ATR": 0.024,
+      "t": 0.38,
+      "cout_moyen_ATR": 0.091
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "NY 11:00-14:00",
+      "horizon_h": 4,
+      "n": 830,
+      "suite_moyenne_ATR": -0.076,
+      "t": -0.83,
+      "cout_moyen_ATR": 0.092
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 1,
+      "n": 3273,
+      "suite_moyenne_ATR": -0.043,
+      "t": -1.66,
+      "cout_moyen_ATR": 0.14
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 2,
+      "n": 3273,
+      "suite_moyenne_ATR": -0.069,
+      "t": -1.89,
+      "cout_moyen_ATR": 0.14
+    },
+    {
+      "cassure_N_heures": 8,
+      "fenetre": "Asie 19:00-02:00",
+      "horizon_h": 4,
+      "n": 3273,
+      "suite_moyenne_ATR": -0.011,
+      "t": -0.21,
+      "cout_moyen_ATR": 0.14
+    }
+  ],
+  "range_ouverture_ny": [
+    {
+      "horizon_h": 1,
+      "n": 1517,
+      "suite_moyenne_ATR": -0.04,
+      "t": -0.73
+    },
+    {
+      "horizon_h": 2,
+      "n": 1514,
+      "suite_moyenne_ATR": -0.087,
+      "t": -1.22
+    },
+    {
+      "horizon_h": 4,
+      "n": 1481,
+      "suite_moyenne_ATR": -0.086,
+      "t": -0.91
+    }
+  ],
+  "balayage_veille": [
+    {
+      "horizon_h": 1,
+      "n": 3086,
+      "retournement_moyen_ATR": 0.001,
+      "t": 0.03
+    },
+    {
+      "horizon_h": 2,
+      "n": 3077,
+      "retournement_moyen_ATR": -0.015,
+      "t": -0.26
+    },
+    {
+      "horizon_h": 4,
+      "n": 3057,
+      "retournement_moyen_ATR": -0.101,
+      "t": -1.22
+    }
+  ],
+  "retour_moyenne_seance": [
+    {
+      "ecart_min_ATR": 2,
+      "horizon_h": 1,
+      "n": 42425,
+      "retour_moyen_ATR": -0.03,
+      "t": -3.11
+    },
+    {
+      "ecart_min_ATR": 2,
+      "horizon_h": 2,
+      "n": 42326,
+      "retour_moyen_ATR": -0.075,
+      "t": -5.47
+    },
+    {
+      "ecart_min_ATR": 3,
+      "horizon_h": 1,
+      "n": 26988,
+      "retour_moyen_ATR": -0.048,
+      "t": -3.94
+    },
+    {
+      "ecart_min_ATR": 3,
+      "horizon_h": 2,
+      "n": 26932,
+      "retour_moyen_ATR": -0.094,
+      "t": -5.52
+    },
+    {
+      "ecart_min_ATR": 4,
+      "horizon_h": 1,
+      "n": 16397,
+      "retour_moyen_ATR": -0.087,
+      "t": -5.55
+    },
+    {
+      "ecart_min_ATR": 4,
+      "horizon_h": 2,
+      "n": 16369,
+      "retour_moyen_ATR": -0.135,
+      "t": -6.17
+    },
+    {
+      "ecart_min_ATR": 5,
+      "horizon_h": 1,
+      "n": 9435,
+      "retour_moyen_ATR": -0.11,
+      "t": -5.43
+    },
+    {
+      "ecart_min_ATR": 5,
+      "horizon_h": 2,
+      "n": 9417,
+      "retour_moyen_ATR": -0.202,
+      "t": -7.26
+    }
+  ],
+  "conditionnement_regime": [
+    {
+      "variable": "volatilité de la veille",
+      "tercile": "bas",
+      "n": 1155,
+      "suite_moyenne_ATR": 0.149,
+      "t": 1.33,
+      "cout_moyen_ATR": 0.146
+    },
+    {
+      "variable": "volatilité de la veille",
+      "tercile": "moyen",
+      "n": 1153,
+      "suite_moyenne_ATR": 0.236,
+      "t": 2.14,
+      "cout_moyen_ATR": 0.115
+    },
+    {
+      "variable": "volatilité de la veille",
+      "tercile": "haut",
+      "n": 1154,
+      "suite_moyenne_ATR": -0.13,
+      "t": -1.27,
+      "cout_moyen_ATR": 0.083
+    },
+    {
+      "variable": "tendance journalière (ER 10 j)",
+      "tercile": "bas",
+      "n": 1157,
+      "suite_moyenne_ATR": 0.115,
+      "t": 1.11,
+      "cout_moyen_ATR": 0.117
+    },
+    {
+      "variable": "tendance journalière (ER 10 j)",
+      "tercile": "moyen",
+      "n": 1157,
+      "suite_moyenne_ATR": 0.172,
+      "t": 1.44,
+      "cout_moyen_ATR": 0.115
+    },
+    {
+      "variable": "tendance journalière (ER 10 j)",
+      "tercile": "haut",
+      "n": 1157,
+      "suite_moyenne_ATR": -0.053,
+      "t": -0.53,
+      "cout_moyen_ATR": 0.113
+    }
+  ]
+}

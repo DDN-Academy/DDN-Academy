@@ -1,2 +1,9 @@
 __pycache__/
 *.pyc
+# GoldPilot
+goldpilot/**/.env
+goldpilot/var/
+goldpilot/frontend/node_modules/
+goldpilot/frontend/dist/
+*.egg-info/
+.pytest_cache/

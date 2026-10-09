@@ -1,0 +1,22 @@
+{
+  "source": "research/01_audit_donnees.py",
+  "regle": "heure_new_york = heure_fichier - decalage_h",
+  "segments_15m": [
+    {
+      "debut": "2004-06",
+      "fin": "2011-03",
+      "decalage_h": 6
+    },
+    {
+      "debut": "2011-04",
+      "fin": "2025-07",
+      "decalage_h": 7
+    }
+  ],
+  "mois_exclus": [
+    "2011-04"
+  ],
+  "fichier_5m_decalage_h": 7,
+  "fichier_5m_justification": "pause quotidienne \u00e0 00:00 heure fichier tous les jours (17:00 New York) et pic des NFP \u00e0 15:30",
+  "bascule_15m_vers_5m": "2025-02-13 22:30:00"
+}

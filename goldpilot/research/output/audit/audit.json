@@ -1,0 +1,164 @@
+{
+  "xau_15m": {
+    "lignes": 480717,
+    "debut": "2004-06-11 07:15:00",
+    "fin": "2025-09-30 19:30:00",
+    "ordre_croissant": true,
+    "doublons": 0,
+    "ohlc_incoherents": 0,
+    "prix_non_positifs": 0,
+    "pas_attendu_pct": 98.26,
+    "trous_plus_de_4_jours": [
+      {
+        "apres": "2005-11-23 19:15:00",
+        "reprise": "2005-11-28 08:30:00",
+        "jours": 4.6
+      },
+      {
+        "apres": "2006-11-22 19:00:00",
+        "reprise": "2006-11-27 01:00:00",
+        "jours": 4.2
+      },
+      {
+        "apres": "2025-03-21 22:45:00",
+        "reprise": "2025-04-01 01:00:00",
+        "jours": 10.1
+      },
+      {
+        "apres": "2025-04-04 23:45:00",
+        "reprise": "2025-05-01 01:00:00",
+        "jours": 26.1
+      },
+      {
+        "apres": "2025-06-13 23:45:00",
+        "reprise": "2025-07-01 01:00:00",
+        "jours": 17.1
+      },
+      {
+        "apres": "2025-07-11 23:45:00",
+        "reprise": "2025-09-30 19:15:00",
+        "jours": 80.8
+      }
+    ],
+    "volume": "entier (nombre de ticks du broker, pas un volume d'échange)",
+    "plus_fortes_variations_barre_a_barre": [
+      {
+        "barre": "2025-09-30 19:15:00",
+        "log_rendement": 0.1352,
+        "trou_minutes_avant": 116370.0
+      },
+      {
+        "barre": "2025-05-01 01:00:00",
+        "log_rendement": 0.0755,
+        "trou_minutes_avant": 37515.0
+      },
+      {
+        "barre": "2008-10-16 15:30:00",
+        "log_rendement": -0.051,
+        "trou_minutes_avant": 15.0
+      },
+      {
+        "barre": "2009-03-18 19:15:00",
+        "log_rendement": 0.0395,
+        "trou_minutes_avant": 15.0
+      },
+      {
+        "barre": "2025-07-01 01:00:00",
+        "log_rendement": -0.038,
+        "trou_minutes_avant": 24555.0
+      },
+      {
+        "barre": "2021-08-09 01:45:00",
+        "log_rendement": -0.0356,
+        "trou_minutes_avant": 15.0
+      },
+      {
+        "barre": "2025-04-01 01:00:00",
+        "log_rendement": 0.0329,
+        "trou_minutes_avant": 14535.0
+      },
+      {
+        "barre": "2015-07-20 04:15:00",
+        "log_rendement": -0.029,
+        "trou_minutes_avant": 15.0
+      }
+    ]
+  },
+  "xau_5m": {
+    "lignes": 50000,
+    "debut": "2025-02-13 22:30:00",
+    "fin": "2025-10-28 17:20:00",
+    "ordre_croissant": true,
+    "doublons": 0,
+    "ohlc_incoherents": 0,
+    "prix_non_positifs": 0,
+    "pas_attendu_pct": 99.63,
+    "trous_plus_de_4_jours": [],
+    "volume": "entier (nombre de ticks du broker, pas un volume d'échange)",
+    "plus_fortes_variations_barre_a_barre": [
+      {
+        "barre": "2025-04-23 01:00:00",
+        "log_rendement": -0.0168,
+        "trou_minutes_avant": 65.0
+      },
+      {
+        "barre": "2025-05-12 01:00:00",
+        "log_rendement": -0.0102,
+        "trou_minutes_avant": 2945.0
+      },
+      {
+        "barre": "2025-10-21 11:10:00",
+        "log_rendement": -0.0084,
+        "trou_minutes_avant": 5.0
+      },
+      {
+        "barre": "2025-10-17 17:00:00",
+        "log_rendement": -0.0084,
+        "trou_minutes_avant": 5.0
+      },
+      {
+        "barre": "2025-10-22 03:00:00",
+        "log_rendement": -0.008,
+        "trou_minutes_avant": 5.0
+      },
+      {
+        "barre": "2025-10-14 08:35:00",
+        "log_rendement": -0.008,
+        "trou_minutes_avant": 5.0
+      },
+      {
+        "barre": "2025-10-22 16:00:00",
+        "log_rendement": 0.008,
+        "trou_minutes_avant": 5.0
+      },
+      {
+        "barre": "2025-08-01 15:30:00",
+        "log_rendement": 0.0078,
+        "trou_minutes_avant": 5.0
+      }
+    ]
+  },
+  "segments_convention_15m": [
+    {
+      "debut_mois": "2004-06",
+      "fin_mois": "2011-03",
+      "decalage_h": 6,
+      "n_mois": 82
+    },
+    {
+      "debut_mois": "2011-04",
+      "fin_mois": "2025-07",
+      "decalage_h": 7,
+      "n_mois": 171
+    }
+  ],
+  "decalages_5m": {
+    "7": 6,
+    "8": 3
+  },
+  "recoupement_15m_5m": {
+    "barres_communes": 6399,
+    "ecart_median_cloture": 0.13,
+    "ecart_p99_cloture": 8.401
+  }
+}
