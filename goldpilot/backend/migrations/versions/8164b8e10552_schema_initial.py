@@ -1,15 +1,15 @@
 """schema initial
 
-Revision ID: 75d68a52bd16
+Revision ID: 8164b8e10552
 Revises: 
-Create Date: 2026-10-09 18:35:58.466905
+Create Date: 2026-10-09 23:44:21.032352
 """
 from alembic import op
 import sqlalchemy as sa
 import goldpilot.db
 
 
-revision = '75d68a52bd16'
+revision = '8164b8e10552'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,6 +41,7 @@ def upgrade():
     sa.Column('source', sa.String(length=24), nullable=False),
     sa.Column('symbol', sa.String(length=32), nullable=False),
     sa.Column('ts', goldpilot.db.UTC(timezone=True), nullable=False),
+    sa.Column('minutes', sa.Integer(), nullable=False),
     sa.Column('open', sa.Float(), nullable=False),
     sa.Column('high', sa.Float(), nullable=False),
     sa.Column('low', sa.Float(), nullable=False),

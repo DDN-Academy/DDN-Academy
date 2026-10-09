@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
 
-from ..timeutil import is_open
+from ..timeutil import is_open, trading_date
 from .contracts import active_contract, parse_tv_symbol
 
 STALE_AFTER = timedelta(minutes=3)
@@ -36,7 +36,7 @@ class Quality:
 
 def assess(bars: pd.DataFrame, now: datetime, delays_s: list[float] | None = None) -> Quality:
     """bars : barres d'une minute récentes (index UTC = début), colonnes open/high/low/close/symbol."""
-    expected = active_contract((now.astimezone() if now.tzinfo else now).date()).code
+    expected = active_contract(trading_date(now)).code
     q = Quality("ok", expected_symbol=expected)
     if bars.empty:
         q.level, q.problems = "bloquant", ["aucune donnée de marché reçue"]

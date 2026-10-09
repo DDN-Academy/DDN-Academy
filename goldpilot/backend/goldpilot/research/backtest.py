@@ -7,6 +7,7 @@ Pour chaque barre de décision i :
 """
 from __future__ import annotations
 
+import json
 from dataclasses import asdict
 
 import numpy as np
@@ -58,7 +59,7 @@ def trades_frame(trades: list[Trade]) -> pd.DataFrame:
     cols = list(Trade.__dataclass_fields__.keys())
     if not trades:
         return pd.DataFrame(columns=cols + ["entry_time", "year"])
-    d = pd.DataFrame([{k: v for k, v in asdict(t).items()} for t in trades])
+    d = pd.DataFrame([{k: (json.dumps(v, default=str) if k == "meta" else v) for k, v in asdict(t).items()} for t in trades])
     d["entry_time"] = pd.to_datetime(d["entry_ts"], utc=True, unit="ns")
     d["year"] = d["entry_time"].dt.year
     return d

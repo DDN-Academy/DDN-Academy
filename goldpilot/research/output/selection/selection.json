@@ -1,0 +1,780 @@
+{
+  "genere_utc": "2026-10-09T23:48:08.438882+00:00",
+  "essais_cette_session": 32,
+  "essais_comptes_pour_DSR": 200,
+  "familles": {
+    "S1": {
+      "walk_forward": {
+        "choix": [
+          {
+            "annee": 2014,
+            "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.41,
+            "n": 102,
+            "esperance_R": 0.183
+          },
+          {
+            "annee": 2015,
+            "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.86,
+            "n": 89,
+            "esperance_R": 0.191
+          },
+          {
+            "annee": 2016,
+            "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.95,
+            "n": 84,
+            "esperance_R": -0.037
+          },
+          {
+            "annee": 2017,
+            "config": "S1|F=False,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.38,
+            "n": 130,
+            "esperance_R": 0.021
+          },
+          {
+            "annee": 2018,
+            "config": "S1|F=False,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 0.84,
+            "n": 121,
+            "esperance_R": 0.172
+          },
+          {
+            "annee": 2019,
+            "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.27,
+            "n": 93,
+            "esperance_R": -0.009
+          },
+          {
+            "annee": 2020,
+            "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.38,
+            "n": 70,
+            "esperance_R": 0.108
+          },
+          {
+            "annee": 2021,
+            "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+            "t_fenetre": 1.49,
+            "n": 101,
+            "esperance_R": 0.011
+          }
+        ],
+        "resume": {
+          "n": 790,
+          "taux_de_gain": 0.37341772151898733,
+          "gain_moyen_R": 1.428768626198148,
+          "perte_moyenne_R": -0.7225705353948774,
+          "esperance_R": 0.0807776325417586,
+          "ecart_type_R": 1.4227908216049776,
+          "t": 1.5957454372578437,
+          "profit_factor": 1.1784155753368295,
+          "total_R": 63.814329707989295,
+          "drawdown_max_R": -19.204442316657122,
+          "serie_pertes_max": 11,
+          "serie_gains_max": 6,
+          "trades_par_mois": 8.260941257299898,
+          "duree_moyenne_barres": 8.39240506329114,
+          "glissement_entree_moyen_oz": 0.025238580379743348,
+          "sorties": {
+            "stop suiveur": 527,
+            "sortie temporelle": 112,
+            "stop": 107,
+            "stop (barre d'entrée)": 33,
+            "stop (gap)": 11
+          },
+          "ic95_bas": -0.019265305937637225,
+          "ic95_haut": 0.183396889619222,
+          "ic_unilateral95_bas": -0.00278357739936854
+        }
+      },
+      "production": "S1|F=True,k=5.0,s=2.5,t=3.0",
+      "entrainement": {
+        "n": 684,
+        "taux_de_gain": 0.3815789473684211,
+        "gain_moyen_R": 1.5369592391104347,
+        "perte_moyenne_R": -0.7188507813783931,
+        "esperance_R": 0.1419188317028702,
+        "ecart_type_R": 1.478517255270676,
+        "t": 2.5103928007857457,
+        "profit_factor": 1.3192397871128607,
+        "total_R": 97.07248088476322,
+        "drawdown_max_R": -13.789906640143997,
+        "serie_pertes_max": 10,
+        "serie_gains_max": 6,
+        "trades_par_mois": 7.962126195028681,
+        "duree_moyenne_barres": 8.279239766081872,
+        "glissement_entree_moyen_oz": 0.03989080043859722,
+        "sorties": {
+          "stop suiveur": 455,
+          "stop": 102,
+          "sortie temporelle": 96,
+          "stop (barre d'entrée)": 18,
+          "stop (gap)": 13
+        },
+        "ic95_bas": 0.03489029217852914,
+        "ic95_haut": 0.2554428606911233,
+        "ic_unilateral95_bas": 0.05077517387056458
+      },
+      "validation": {
+        "n": 264,
+        "taux_de_gain": 0.3560606060606061,
+        "gain_moyen_R": 1.3765061812331507,
+        "perte_moyenne_R": -0.715202595240384,
+        "esperance_R": 0.029572499413071596,
+        "ecart_type_R": 1.3901944519671157,
+        "t": 0.34563239784609784,
+        "profit_factor": 1.064211668603182,
+        "total_R": 7.8071398450509015,
+        "drawdown_max_R": -19.204442316657122,
+        "serie_pertes_max": 11,
+        "serie_gains_max": 5,
+        "trades_par_mois": 7.365866177818515,
+        "duree_moyenne_barres": 8.363636363636363,
+        "glissement_entree_moyen_oz": 0.022274970643936187,
+        "sorties": {
+          "stop suiveur": 167,
+          "sortie temporelle": 44,
+          "stop": 34,
+          "stop (barre d'entrée)": 18,
+          "stop (gap)": 1
+        },
+        "ic95_bas": -0.12665134960989177,
+        "ic95_haut": 0.19825089536905297,
+        "ic_unilateral95_bas": -0.10398916867019563
+      },
+      "validation_couts_x2_esperance_R": -0.01650519126902757,
+      "couts_fixes_2011_2021": {
+        "n": 948,
+        "taux_de_gain": 0.35232067510548526,
+        "gain_moyen_R": 1.5046697669886224,
+        "perte_moyenne_R": -0.7816092046619699,
+        "esperance_R": 0.023894146109441357,
+        "ecart_type_R": 1.4579906172410793,
+        "t": 0.5045926899101119,
+        "profit_factor": 1.0471999801488696,
+        "total_R": 22.651650511750407,
+        "drawdown_max_R": -29.403155371777068,
+        "serie_pertes_max": 12,
+        "serie_gains_max": 5,
+        "trades_par_mois": 7.776103476151981,
+        "duree_moyenne_barres": 8.302742616033756,
+        "glissement_entree_moyen_oz": 0.0670991561180973,
+        "sorties": {
+          "stop suiveur": 622,
+          "sortie temporelle": 140,
+          "stop": 136,
+          "stop (barre d'entrée)": 36,
+          "stop (gap)": 14
+        }
+      },
+      "par_annee": [
+        {
+          "year": 2011,
+          "count": 19,
+          "mean": -0.0103,
+          "sum": -0.1956
+        },
+        {
+          "year": 2012,
+          "count": 110,
+          "mean": 0.1575,
+          "sum": 17.3276
+        },
+        {
+          "year": 2013,
+          "count": 84,
+          "mean": 0.1676,
+          "sum": 14.0802
+        },
+        {
+          "year": 2014,
+          "count": 102,
+          "mean": 0.1828,
+          "sum": 18.6422
+        },
+        {
+          "year": 2015,
+          "count": 89,
+          "mean": 0.1907,
+          "sum": 16.9701
+        },
+        {
+          "year": 2016,
+          "count": 84,
+          "mean": -0.0375,
+          "sum": -3.1492
+        },
+        {
+          "year": 2017,
+          "count": 107,
+          "mean": 0.0447,
+          "sum": 4.7825
+        },
+        {
+          "year": 2018,
+          "count": 89,
+          "mean": 0.3215,
+          "sum": 28.6146
+        },
+        {
+          "year": 2019,
+          "count": 93,
+          "mean": -0.0092,
+          "sum": -0.8573
+        },
+        {
+          "year": 2020,
+          "count": 70,
+          "mean": 0.1079,
+          "sum": 7.5523
+        },
+        {
+          "year": 2021,
+          "count": 101,
+          "mean": 0.011,
+          "sum": 1.1122
+        }
+      ],
+      "fraction_annees_positives": 0.7272727272727273,
+      "voisins": {
+        "S1|F=True,k=4.0,s=2.5,t=3.0": true,
+        "S1|F=True,k=5.0,s=1.5,t=3.0": true,
+        "S1|F=True,k=5.0,s=2.5,t=2.0": true,
+        "S1|F=False,k=5.0,s=2.5,t=3.0": true
+      },
+      "fraction_voisins_positifs": 1.0,
+      "sharpe_journalier": 0.04450052373400457,
+      "DSR_200": 0.0051975893362758395,
+      "DSR_32": 0.09248435977372804,
+      "criteres": {
+        "1_walk_forward_esperance_et_IC_unilateral_bas_>0": false,
+        "2_validation_esperance_>0_et_PF_>=1.10": false,
+        "3_couts_x2_validation_>=0": false,
+        "4_annees_positives_>=60%": true,
+        "5_voisins_positifs_>=70%": true,
+        "6_DSR_200_essais_>=0.90": false
+      },
+      "eligible": false,
+      "toutes_configurations": [
+        {
+          "config": "S1|F=False,k=3.0,s=1.5,t=2.0",
+          "n_entr": 1968,
+          "esp_entr": -0.1073,
+          "n_val": 768,
+          "esp_val": -0.1199,
+          "t_2011_2021": -4.26
+        },
+        {
+          "config": "S1|F=True,k=3.0,s=1.5,t=2.0",
+          "n_entr": 1340,
+          "esp_entr": -0.0774,
+          "n_val": 499,
+          "esp_val": -0.0994,
+          "t_2011_2021": -2.54
+        },
+        {
+          "config": "S1|F=False,k=3.0,s=1.5,t=3.0",
+          "n_entr": 1968,
+          "esp_entr": -0.0639,
+          "n_val": 768,
+          "esp_val": -0.1511,
+          "t_2011_2021": -2.39
+        },
+        {
+          "config": "S1|F=True,k=3.0,s=1.5,t=3.0",
+          "n_entr": 1340,
+          "esp_entr": -0.0198,
+          "n_val": 499,
+          "esp_val": -0.136,
+          "t_2011_2021": -1.09
+        },
+        {
+          "config": "S1|F=False,k=3.0,s=2.5,t=2.0",
+          "n_entr": 1968,
+          "esp_entr": -0.0671,
+          "n_val": 768,
+          "esp_val": -0.0585,
+          "t_2011_2021": -3.93
+        },
+        {
+          "config": "S1|F=True,k=3.0,s=2.5,t=2.0",
+          "n_entr": 1340,
+          "esp_entr": -0.0451,
+          "n_val": 499,
+          "esp_val": -0.0367,
+          "t_2011_2021": -2.07
+        },
+        {
+          "config": "S1|F=False,k=3.0,s=2.5,t=3.0",
+          "n_entr": 1968,
+          "esp_entr": -0.0244,
+          "n_val": 768,
+          "esp_val": -0.0501,
+          "t_2011_2021": -1.25
+        },
+        {
+          "config": "S1|F=True,k=3.0,s=2.5,t=3.0",
+          "n_entr": 1340,
+          "esp_entr": 0.0179,
+          "n_val": 499,
+          "esp_val": -0.0335,
+          "t_2011_2021": 0.12
+        },
+        {
+          "config": "S1|F=False,k=4.0,s=1.5,t=2.0",
+          "n_entr": 1459,
+          "esp_entr": -0.0639,
+          "n_val": 559,
+          "esp_val": -0.1506,
+          "t_2011_2021": -2.87
+        },
+        {
+          "config": "S1|F=True,k=4.0,s=1.5,t=2.0",
+          "n_entr": 1000,
+          "esp_entr": -0.0362,
+          "n_val": 370,
+          "esp_val": -0.149,
+          "t_2011_2021": -1.77
+        },
+        {
+          "config": "S1|F=False,k=4.0,s=1.5,t=3.0",
+          "n_entr": 1459,
+          "esp_entr": -0.0126,
+          "n_val": 559,
+          "esp_val": -0.1303,
+          "t_2011_2021": -1.04
+        },
+        {
+          "config": "S1|F=True,k=4.0,s=1.5,t=3.0",
+          "n_entr": 1000,
+          "esp_entr": 0.0606,
+          "n_val": 370,
+          "esp_val": -0.1235,
+          "t_2011_2021": 0.2
+        },
+        {
+          "config": "S1|F=False,k=4.0,s=2.5,t=2.0",
+          "n_entr": 1459,
+          "esp_entr": -0.026,
+          "n_val": 559,
+          "esp_val": -0.0918,
+          "t_2011_2021": -2.22
+        },
+        {
+          "config": "S1|F=True,k=4.0,s=2.5,t=2.0",
+          "n_entr": 1000,
+          "esp_entr": -0.0139,
+          "n_val": 370,
+          "esp_val": -0.0915,
+          "t_2011_2021": -1.41
+        },
+        {
+          "config": "S1|F=False,k=4.0,s=2.5,t=3.0",
+          "n_entr": 1459,
+          "esp_entr": 0.0334,
+          "n_val": 559,
+          "esp_val": -0.0524,
+          "t_2011_2021": 0.31
+        },
+        {
+          "config": "S1|F=True,k=4.0,s=2.5,t=3.0",
+          "n_entr": 1000,
+          "esp_entr": 0.0844,
+          "n_val": 370,
+          "esp_val": -0.0238,
+          "t_2011_2021": 1.38
+        },
+        {
+          "config": "S1|F=False,k=5.0,s=1.5,t=2.0",
+          "n_entr": 992,
+          "esp_entr": -0.0374,
+          "n_val": 378,
+          "esp_val": -0.0278,
+          "t_2011_2021": -0.91
+        },
+        {
+          "config": "S1|F=True,k=5.0,s=1.5,t=2.0",
+          "n_entr": 684,
+          "esp_entr": -0.0337,
+          "n_val": 264,
+          "esp_val": -0.0041,
+          "t_2011_2021": -0.54
+        },
+        {
+          "config": "S1|F=False,k=5.0,s=1.5,t=3.0",
+          "n_entr": 992,
+          "esp_entr": 0.08,
+          "n_val": 378,
+          "esp_val": -0.0668,
+          "t_2011_2021": 0.74
+        },
+        {
+          "config": "S1|F=True,k=5.0,s=1.5,t=3.0",
+          "n_entr": 684,
+          "esp_entr": 0.1541,
+          "n_val": 264,
+          "esp_val": -0.0828,
+          "t_2011_2021": 1.3
+        },
+        {
+          "config": "S1|F=False,k=5.0,s=2.5,t=2.0",
+          "n_entr": 992,
+          "esp_entr": -0.0059,
+          "n_val": 378,
+          "esp_val": -0.0209,
+          "t_2011_2021": -0.41
+        },
+        {
+          "config": "S1|F=True,k=5.0,s=2.5,t=2.0",
+          "n_entr": 684,
+          "esp_entr": 0.005,
+          "n_val": 264,
+          "esp_val": 0.0058,
+          "t_2011_2021": 0.17
+        },
+        {
+          "config": "S1|F=False,k=5.0,s=2.5,t=3.0",
+          "n_entr": 992,
+          "esp_entr": 0.0863,
+          "n_val": 378,
+          "esp_val": 0.0031,
+          "t_2011_2021": 1.69
+        },
+        {
+          "config": "S1|F=True,k=5.0,s=2.5,t=3.0",
+          "n_entr": 684,
+          "esp_entr": 0.1419,
+          "n_val": 264,
+          "esp_val": 0.0296,
+          "t_2011_2021": 2.34
+        }
+      ]
+    },
+    "S2": {
+      "walk_forward": {
+        "choix": [
+          {
+            "annee": 2014,
+            "config": "S2|E=suivi,q=4.0,s=3.0",
+            "t_fenetre": 1.04,
+            "n": 74,
+            "esperance_R": 0.235
+          },
+          {
+            "annee": 2015,
+            "config": "S2|E=suivi,q=4.0,s=3.0",
+            "t_fenetre": 1.3,
+            "n": 61,
+            "esperance_R": -0.014
+          },
+          {
+            "annee": 2016,
+            "config": "S2|E=suivi,q=4.0,s=3.0",
+            "t_fenetre": 1.38,
+            "n": 52,
+            "esperance_R": 0.056
+          },
+          {
+            "annee": 2017,
+            "config": "S2|E=suivi,q=2.0,s=3.0",
+            "t_fenetre": 1.67,
+            "n": 154,
+            "esperance_R": 0.1
+          },
+          {
+            "annee": 2018,
+            "config": "S2|E=suivi,q=2.0,s=3.0",
+            "t_fenetre": 1.99,
+            "n": 158,
+            "esperance_R": 0.067
+          },
+          {
+            "annee": 2019,
+            "config": "S2|E=suivi,q=2.0,s=3.0",
+            "t_fenetre": 1.41,
+            "n": 158,
+            "esperance_R": -0.124
+          },
+          {
+            "annee": 2020,
+            "config": "S2|E=suivi,q=2.0,s=3.0",
+            "t_fenetre": 0.24,
+            "n": 134,
+            "esperance_R": 0.138
+          },
+          {
+            "annee": 2021,
+            "config": "S2|E=12:00,q=4.0,s=2.0",
+            "t_fenetre": 1.09,
+            "n": 49,
+            "esperance_R": -0.134
+          }
+        ],
+        "resume": {
+          "n": 840,
+          "taux_de_gain": 0.33690476190476193,
+          "gain_moyen_R": 1.4207499044322658,
+          "perte_moyenne_R": -0.6541329497144192,
+          "esperance_R": 0.04490496424214247,
+          "ecart_type_R": 1.335274200659659,
+          "t": 0.9746833336337546,
+          "profit_factor": 1.1035267117442003,
+          "total_R": 37.72016996339968,
+          "drawdown_max_R": -31.50856498482419,
+          "serie_pertes_max": 12,
+          "serie_gains_max": 5,
+          "trades_par_mois": 8.795872033023736,
+          "duree_moyenne_barres": 6.5773809523809526,
+          "glissement_entree_moyen_oz": 0.025269075595240664,
+          "sorties": {
+            "stop suiveur": 678,
+            "sortie temporelle": 78,
+            "stop": 59,
+            "stop (gap)": 16,
+            "stop (barre d'entrée)": 9
+          },
+          "ic95_bas": -0.042494065528221305,
+          "ic95_haut": 0.13707583006147198,
+          "ic_unilateral95_bas": -0.030126907244821886
+        }
+      },
+      "production": "S2|E=suivi,q=2.0,s=3.0",
+      "entrainement": {
+        "n": 1158,
+        "taux_de_gain": 0.3531951640759931,
+        "gain_moyen_R": 1.3843934615480087,
+        "perte_moyenne_R": -0.6270500361245696,
+        "esperance_R": 0.08338208006548621,
+        "ecart_type_R": 1.3866579130827583,
+        "t": 2.0462451840208176,
+        "profit_factor": 1.205587766977574,
+        "total_R": 96.55644871583303,
+        "drawdown_max_R": -20.505573911351185,
+        "serie_pertes_max": 20,
+        "serie_gains_max": 5,
+        "trades_par_mois": 12.598112937812722,
+        "duree_moyenne_barres": 6.468048359240069,
+        "glissement_entree_moyen_oz": 0.02206612877806855,
+        "sorties": {
+          "stop suiveur": 997,
+          "sortie temporelle": 91,
+          "stop": 28,
+          "stop (gap)": 26,
+          "stop (barre d'entrée)": 16
+        },
+        "ic95_bas": 0.001941811322636824,
+        "ic95_haut": 0.16213499140804244,
+        "ic_unilateral95_bas": 0.0161653470948866
+      },
+      "validation": {
+        "n": 424,
+        "taux_de_gain": 0.3089622641509434,
+        "gain_moyen_R": 1.3580972539275886,
+        "perte_moyenne_R": -0.6052397599398514,
+        "esperance_R": 0.0013572891559849865,
+        "ecart_type_R": 1.1560167055627035,
+        "t": 0.024176375786181682,
+        "profit_factor": 1.003245212687457,
+        "total_R": 0.5754906021376343,
+        "drawdown_max_R": -29.40499160619361,
+        "serie_pertes_max": 12,
+        "serie_gains_max": 4,
+        "trades_par_mois": 11.81919413919414,
+        "duree_moyenne_barres": 6.311320754716981,
+        "glissement_entree_moyen_oz": 0.026682715507076692,
+        "sorties": {
+          "stop suiveur": 363,
+          "sortie temporelle": 35,
+          "stop": 17,
+          "stop (gap)": 5,
+          "stop (barre d'entrée)": 4
+        },
+        "ic95_bas": -0.10566499932600679,
+        "ic95_haut": 0.11087189665001916,
+        "ic_unilateral95_bas": -0.08986522649804346
+      },
+      "validation_couts_x2_esperance_R": -0.03845046005558388,
+      "couts_fixes_2011_2021": {
+        "n": 1582,
+        "taux_de_gain": 0.3242730720606827,
+        "gain_moyen_R": 1.3780270394150873,
+        "perte_moyenne_R": -0.6826165948667641,
+        "esperance_R": -0.014405353155898215,
+        "ecart_type_R": 1.332539644844923,
+        "t": -0.4299787675845968,
+        "profit_factor": 0.9687697226142153,
+        "total_R": -22.789268692630976,
+        "drawdown_max_R": -57.43644153486438,
+        "serie_pertes_max": 21,
+        "serie_gains_max": 5,
+        "trades_par_mois": 12.369915232468534,
+        "duree_moyenne_barres": 6.426042983565107,
+        "glissement_entree_moyen_oz": 0.05548672566367368,
+        "sorties": {
+          "stop suiveur": 1363,
+          "sortie temporelle": 126,
+          "stop": 42,
+          "stop (gap)": 31,
+          "stop (barre d'entrée)": 20
+        }
+      },
+      "par_annee": [
+        {
+          "year": 2011,
+          "count": 103,
+          "mean": 0.0235,
+          "sum": 2.4234
+        },
+        {
+          "year": 2012,
+          "count": 118,
+          "mean": 0.1125,
+          "sum": 13.2759
+        },
+        {
+          "year": 2013,
+          "count": 169,
+          "mean": 0.0023,
+          "sum": 0.3921
+        },
+        {
+          "year": 2014,
+          "count": 157,
+          "mean": 0.0597,
+          "sum": 9.379
+        },
+        {
+          "year": 2015,
+          "count": 151,
+          "mean": 0.2096,
+          "sum": 31.6436
+        },
+        {
+          "year": 2016,
+          "count": 148,
+          "mean": 0.0913,
+          "sum": 13.5072
+        },
+        {
+          "year": 2017,
+          "count": 154,
+          "mean": 0.0999,
+          "sum": 15.3893
+        },
+        {
+          "year": 2018,
+          "count": 158,
+          "mean": 0.0667,
+          "sum": 10.5459
+        },
+        {
+          "year": 2019,
+          "count": 158,
+          "mean": -0.1244,
+          "sum": -19.6539
+        },
+        {
+          "year": 2020,
+          "count": 134,
+          "mean": 0.1385,
+          "sum": 18.5527
+        },
+        {
+          "year": 2021,
+          "count": 132,
+          "mean": 0.0127,
+          "sum": 1.6767
+        }
+      ],
+      "fraction_annees_positives": 0.9090909090909091,
+      "voisins": {
+        "S2|E=suivi,q=2.0,s=2.0": true,
+        "S2|E=12:00,q=2.0,s=3.0": true,
+        "S2|E=suivi,q=4.0,s=3.0": true
+      },
+      "fraction_voisins_positifs": 1.0,
+      "sharpe_journalier": 0.034999456342177215,
+      "DSR_200": 0.0012623352453021057,
+      "DSR_32": 0.0344302463830592,
+      "criteres": {
+        "1_walk_forward_esperance_et_IC_unilateral_bas_>0": false,
+        "2_validation_esperance_>0_et_PF_>=1.10": false,
+        "3_couts_x2_validation_>=0": false,
+        "4_annees_positives_>=60%": true,
+        "5_voisins_positifs_>=70%": true,
+        "6_DSR_200_essais_>=0.90": false
+      },
+      "eligible": false,
+      "toutes_configurations": [
+        {
+          "config": "S2|E=12:00,q=2.0,s=2.0",
+          "n_entr": 1158,
+          "esp_entr": 0.006,
+          "n_val": 424,
+          "esp_val": -0.0149,
+          "t_2011_2021": 0.01
+        },
+        {
+          "config": "S2|E=suivi,q=2.0,s=2.0",
+          "n_entr": 1158,
+          "esp_entr": 0.0734,
+          "n_val": 424,
+          "esp_val": 0.032,
+          "t_2011_2021": 1.32
+        },
+        {
+          "config": "S2|E=12:00,q=2.0,s=3.0",
+          "n_entr": 1158,
+          "esp_entr": 0.0676,
+          "n_val": 424,
+          "esp_val": -0.014,
+          "t_2011_2021": 1.16
+        },
+        {
+          "config": "S2|E=suivi,q=2.0,s=3.0",
+          "n_entr": 1158,
+          "esp_entr": 0.0834,
+          "n_val": 424,
+          "esp_val": 0.0014,
+          "t_2011_2021": 1.84
+        },
+        {
+          "config": "S2|E=12:00,q=4.0,s=2.0",
+          "n_entr": 510,
+          "esp_entr": -0.032,
+          "n_val": 173,
+          "esp_val": 0.038,
+          "t_2011_2021": -0.19
+        },
+        {
+          "config": "S2|E=suivi,q=4.0,s=2.0",
+          "n_entr": 510,
+          "esp_entr": 0.0792,
+          "n_val": 173,
+          "esp_val": 0.001,
+          "t_2011_2021": 0.81
+        },
+        {
+          "config": "S2|E=12:00,q=4.0,s=3.0",
+          "n_entr": 510,
+          "esp_entr": 0.0191,
+          "n_val": 173,
+          "esp_val": -0.0059,
+          "t_2011_2021": 0.22
+        },
+        {
+          "config": "S2|E=suivi,q=4.0,s=3.0",
+          "n_entr": 510,
+          "esp_entr": 0.096,
+          "n_val": 173,
+          "esp_val": -0.0516,
+          "t_2011_2021": 1.13
+        }
+      ]
+    }
+  }
+}

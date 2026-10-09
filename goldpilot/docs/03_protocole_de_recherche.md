@@ -118,3 +118,23 @@ backtests ; il ne peut que retirer des trades.
 Paper trading sur le flux MGC réel : au moins 60 jours de trading, espérance > 0 avec borne basse
 unilatérale à 95 % > 0 sur les signaux paper, glissement réel ≤ glissement supposé, résultats au-dessus
 du 5e centile Monte-Carlo. Le passage au réel reste une décision manuelle de l'utilisateur.
+
+## 10. Résultat de la sélection et suite (ajouté avant toute lecture de 2022-2025)
+
+Résultat (`research/output/selection/selection.md`) : **aucune famille éligible**. S1 : walk-forward
++0,081 R (IC95 [−0,019 ; +0,183]), validation +0,030 R (PF 1,06), coûts ×2 −0,017 R, DSR(200) 0,005.
+S2 : walk-forward +0,045 R, validation +0,001 R, DSR(200) 0,001. Conformément à la section 6, **aucun
+test final confirmatoire n'est exécuté** et le système affiche « STRATÉGIE NON VALIDÉE ».
+
+Règles ajoutées pour la suite (objectives, fixées avant de voir 2022-2025) :
+1. **Candidat de simulation** : la famille dont la borne basse unilatérale du walk-forward est la plus
+   élevée (S1 : −0,003 contre −0,030 pour S2), avec sa configuration de production
+   `S1|F=True,k=5.0,s=2.5,t=3.0`. Il ne fonctionne qu'en simulation ; le mode réel reste verrouillé.
+2. **Évaluation exploratoire, non confirmatoire**, de ce candidat sur 2022-01-01 → 2025-10-28 (coûts de
+   base, ×2, fixes) et contrôle de résolution sur barres de 5 minutes (février → octobre 2025). Quel que
+   soit le résultat, le statut reste « non validée ».
+3. **Profil de risque** (section 7) calculé avec les trades **hors échantillon du walk-forward S1
+   (2014-2021)** ; résultat avec les trades 2022-2025 publié à côté pour information.
+4. **Seuils de suspension automatique** : drawdown inférieur au 1er centile et série de pertes
+   supérieure au 99e centile de la distribution Monte-Carlo des trades walk-forward, pour 100 trades.
+5. **Validation prospective** (section 9) : seule voie vers le mode réel.

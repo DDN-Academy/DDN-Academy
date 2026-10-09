@@ -64,7 +64,8 @@ class Bar(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     source: Mapped[str] = mapped_column(String(24))
     symbol: Mapped[str] = mapped_column(String(32))  # ex. MGCZ2026
-    ts: Mapped[datetime] = mapped_column(UTC())  # début de la barre d'une minute
+    ts: Mapped[datetime] = mapped_column(UTC())  # début de la barre
+    minutes: Mapped[int] = mapped_column(Integer, default=1)  # durée de la barre (1 en direct, 5 en rejeu)
     open: Mapped[float] = mapped_column(Float)
     high: Mapped[float] = mapped_column(Float)
     low: Mapped[float] = mapped_column(Float)
