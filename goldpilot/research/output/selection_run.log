@@ -1,0 +1,90 @@
+S1|F=False,k=3.0,s=1.5,t=2.0
+S1|F=True,k=3.0,s=1.5,t=2.0
+S1|F=False,k=3.0,s=1.5,t=3.0
+S1|F=True,k=3.0,s=1.5,t=3.0
+S1|F=False,k=3.0,s=2.5,t=2.0
+S1|F=True,k=3.0,s=2.5,t=2.0
+S1|F=False,k=3.0,s=2.5,t=3.0
+S1|F=True,k=3.0,s=2.5,t=3.0
+S1|F=False,k=4.0,s=1.5,t=2.0
+S1|F=True,k=4.0,s=1.5,t=2.0
+S1|F=False,k=4.0,s=1.5,t=3.0
+S1|F=True,k=4.0,s=1.5,t=3.0
+S1|F=False,k=4.0,s=2.5,t=2.0
+S1|F=True,k=4.0,s=2.5,t=2.0
+S1|F=False,k=4.0,s=2.5,t=3.0
+S1|F=True,k=4.0,s=2.5,t=3.0
+S1|F=False,k=5.0,s=1.5,t=2.0
+S1|F=True,k=5.0,s=1.5,t=2.0
+S1|F=False,k=5.0,s=1.5,t=3.0
+S1|F=True,k=5.0,s=1.5,t=3.0
+S1|F=False,k=5.0,s=2.5,t=2.0
+S1|F=True,k=5.0,s=2.5,t=2.0
+S1|F=False,k=5.0,s=2.5,t=3.0
+S1|F=True,k=5.0,s=2.5,t=3.0
+S2|E=12:00,q=2.0,s=2.0
+S2|E=suivi,q=2.0,s=2.0
+S2|E=12:00,q=2.0,s=3.0
+S2|E=suivi,q=2.0,s=3.0
+S2|E=12:00,q=4.0,s=2.0
+S2|E=suivi,q=4.0,s=2.0
+S2|E=12:00,q=4.0,s=3.0
+S2|E=suivi,q=4.0,s=3.0
+Traceback (most recent call last):
+  File "/home/user/DDN-Academy/goldpilot/research/03_selection.py", line 198, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/DDN-Academy/goldpilot/research/03_selection.py", line 104, in main
+    t.to_parquet(OUT / f"trades_{v}.parquet")
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py", line 3135, in to_parquet
+    return to_parquet(
+        self,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py", line 490, in to_parquet
+    impl.write(
+    ~~~~~~~~~~^
+        df,
+        ^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/parquet.py", line 229, in write
+    self.api.parquet.write_table(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        table,
+        ^^^^^^
+    ...<3 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/pyarrow/parquet/core.py", line 2048, in write_table
+    with ParquetWriter(
+         ~~~~~~~~~~~~~^
+            where, table.schema,
+            ^^^^^^^^^^^^^^^^^^^^
+    ...<26 lines>...
+            use_content_defined_chunking=use_content_defined_chunking,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            **kwargs) as writer:
+            ^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pyarrow/parquet/core.py", line 1125, in __init__
+    self.writer = _parquet.ParquetWriter(
+                  ~~~~~~~~~~~~~~~~~~~~~~^
+        sink, schema,
+        ^^^^^^^^^^^^^
+    ...<22 lines>...
+        use_content_defined_chunking=use_content_defined_chunking,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **options)
+        ^^^^^^^^^^
+  File "pyarrow/_parquet.pyx", line 2459, in pyarrow._parquet.ParquetWriter.__cinit__
+  File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
+  File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+    raise convert_status(status)
+pyarrow.lib.ArrowNotImplementedError: Cannot write struct type 'meta' with no child field to Parquet. Consider adding a dummy child field.
