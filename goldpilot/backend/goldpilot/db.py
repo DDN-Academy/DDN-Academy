@@ -75,6 +75,21 @@ class Bar(Base):
     processed: Mapped[bool] = mapped_column(Boolean, default=False, index=True)
 
 
+class DailyBar(Base):
+    """Historique journalier (amplitude des journées passées), envoyé par TradingView (MGC continu)."""
+
+    __tablename__ = "daily_bars"
+    __table_args__ = (UniqueConstraint("source", "td", name="uq_daily"),)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    source: Mapped[str] = mapped_column(String(24))
+    symbol: Mapped[str] = mapped_column(String(32))
+    td: Mapped[int] = mapped_column(Integer, index=True)  # journée de trading, jours depuis 1970
+    high: Mapped[float] = mapped_column(Float)
+    low: Mapped[float] = mapped_column(Float)
+    close: Mapped[float] = mapped_column(Float)
+    received_at: Mapped[datetime] = mapped_column(UTC(), default=now)
+
+
 class Decision(Base):
     """Chaque analyse à la clôture d'une barre de décision : trade ou absence de trade, avec les raisons."""
 

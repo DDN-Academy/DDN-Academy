@@ -1,0 +1,391 @@
+{
+  "prix_reference": 4000.0,
+  "trades_wf": 790,
+  "jours_wf": 2068,
+  "challenge_wf": [
+    {
+      "risk_per_trade_usd": 75.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0001,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9999,
+      "jours_median_reussite": 107.0,
+      "jours_p75_reussite": 107.0,
+      "p_objectif_releve": 0.0,
+      "profit_median": 71.75622478361402,
+      "profit_p05": -284.15188482637933,
+      "trades_moyens": 8.199,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 100.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0017,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9983,
+      "jours_median_reussite": 106.0,
+      "jours_p75_reussite": 111.0,
+      "p_objectif_releve": 0.0,
+      "profit_median": 212.79248110119806,
+      "profit_p05": -627.4292352799515,
+      "trades_moyens": 25.7638,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 125.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0123,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9877,
+      "jours_median_reussite": 98.0,
+      "jours_p75_reussite": 111.0,
+      "p_objectif_releve": 0.0,
+      "profit_median": 285.39009104164506,
+      "profit_p05": -885.3781734377656,
+      "trades_moyens": 35.6943,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 150.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0332,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9668,
+      "jours_median_reussite": 95.5,
+      "jours_p75_reussite": 108.0,
+      "p_objectif_releve": 0.0,
+      "profit_median": 283.99184503839933,
+      "profit_p05": -995.5752165891782,
+      "trades_moyens": 39.1779,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 200.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0835,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9165,
+      "jours_median_reussite": 85.0,
+      "jours_p75_reussite": 102.0,
+      "p_objectif_releve": 0.0943,
+      "profit_median": 191.29859867726918,
+      "profit_p05": -1053.6770164695408,
+      "trades_moyens": 37.4946,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 250.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.1071,
+      "p_violation": 0.0,
+      "p_en_cours": 0.8929,
+      "jours_median_reussite": 77.0,
+      "jours_p75_reussite": 97.0,
+      "p_objectif_releve": 0.1902,
+      "profit_median": 145.96063742774277,
+      "profit_p05": -1068.9928656268567,
+      "trades_moyens": 35.7901,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    }
+  ],
+  "challenge_2022_2025": [
+    {
+      "risk_per_trade_usd": 75.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0,
+      "p_violation": 0.0,
+      "p_en_cours": 1.0,
+      "jours_median_reussite": null,
+      "jours_p75_reussite": null,
+      "p_objectif_releve": 0.0,
+      "profit_median": 0.0,
+      "profit_p05": -128.0665354745288,
+      "trades_moyens": 2.5265,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 100.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0,
+      "p_violation": 0.0,
+      "p_en_cours": 1.0,
+      "jours_median_reussite": null,
+      "jours_p75_reussite": null,
+      "p_objectif_releve": 0.0,
+      "profit_median": 91.24874149426978,
+      "profit_p05": -442.7958619854133,
+      "trades_moyens": 11.4817,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 125.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0006,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9994,
+      "jours_median_reussite": 103.0,
+      "jours_p75_reussite": 104.75,
+      "p_objectif_releve": 0.0,
+      "profit_median": 13.798544280653005,
+      "profit_p05": -865.1409125239385,
+      "trades_moyens": 23.7369,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 150.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.009,
+      "p_violation": 0.0,
+      "p_en_cours": 0.991,
+      "jours_median_reussite": 97.0,
+      "jours_p75_reussite": 112.0,
+      "p_objectif_releve": 0.0975,
+      "profit_median": 8.517874484445201,
+      "profit_p05": -961.5081944804627,
+      "trades_moyens": 30.4908,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 200.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0375,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9625,
+      "jours_median_reussite": 90.0,
+      "jours_p75_reussite": 107.0,
+      "p_objectif_releve": 0.0873,
+      "profit_median": 62.95725189972654,
+      "profit_p05": -986.7511490807185,
+      "trades_moyens": 32.1871,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 250.0,
+      "trajectoires": 10000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0671,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9329,
+      "jours_median_reussite": 80.0,
+      "jours_p75_reussite": 101.0,
+      "p_objectif_releve": 0.0797,
+      "profit_median": -0.5589325937144167,
+      "profit_p05": -1003.5322218017791,
+      "trades_moyens": 30.4423,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    }
+  ],
+  "challenge_wf_prix_4500": [
+    {
+      "risk_per_trade_usd": 75.0,
+      "trajectoires": 5000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0,
+      "p_violation": 0.0,
+      "p_en_cours": 1.0,
+      "jours_median_reussite": null,
+      "jours_p75_reussite": null,
+      "p_objectif_releve": 0.0,
+      "profit_median": -4.936481814394938,
+      "profit_p05": -210.6757586479918,
+      "trades_moyens": 3.9612,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 100.0,
+      "trajectoires": 5000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0012,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9988,
+      "jours_median_reussite": 110.0,
+      "jours_p75_reussite": 111.5,
+      "p_objectif_releve": 0.0,
+      "profit_median": 227.2185249665199,
+      "profit_p05": -529.4504914017809,
+      "trades_moyens": 18.1078,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 125.0,
+      "trajectoires": 5000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0054,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9946,
+      "jours_median_reussite": 104.0,
+      "jours_p75_reussite": 110.0,
+      "p_objectif_releve": 0.0,
+      "profit_median": 170.8864412425828,
+      "profit_p05": -896.0064469583034,
+      "trades_moyens": 30.6516,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 150.0,
+      "trajectoires": 5000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0264,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9736,
+      "jours_median_reussite": 95.5,
+      "jours_p75_reussite": 110.0,
+      "p_objectif_releve": 0.0432,
+      "profit_median": 256.82312549695416,
+      "profit_p05": -974.6248350785896,
+      "trades_moyens": 36.015,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 200.0,
+      "trajectoires": 5000,
+      "horizon_jours": 120,
+      "p_reussite": 0.077,
+      "p_violation": 0.0,
+      "p_en_cours": 0.923,
+      "jours_median_reussite": 88.0,
+      "jours_p75_reussite": 105.0,
+      "p_objectif_releve": 0.1728,
+      "profit_median": 233.55875304089932,
+      "profit_p05": -1021.5156001335527,
+      "trades_moyens": 36.1838,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    },
+    {
+      "risk_per_trade_usd": 250.0,
+      "trajectoires": 5000,
+      "horizon_jours": 120,
+      "p_reussite": 0.0984,
+      "p_violation": 0.0,
+      "p_en_cours": 0.9016,
+      "jours_median_reussite": 77.0,
+      "jours_p75_reussite": 98.0,
+      "p_objectif_releve": 0.145,
+      "profit_median": 138.78522397995403,
+      "profit_p05": -1042.1960700679695,
+      "trades_moyens": 34.1952,
+      "survie": {
+        "21": 1.0,
+        "63": 1.0
+      },
+      "retraits": {}
+    }
+  ],
+  "profil_retenu": {
+    "risque_par_trade_usd": 250.0,
+    "regle": "P(réussite) maximale sous P(violation) ≤ 20 % (trades walk-forward)",
+    "contrainte_respectee": true
+  },
+  "finance_wf": {
+    "risk_per_trade_usd": 250.0,
+    "trajectoires": 5000,
+    "horizon_jours": 252,
+    "p_reussite": 0.0,
+    "p_violation": 0.0,
+    "p_en_cours": 1.0,
+    "jours_median_reussite": null,
+    "jours_p75_reussite": null,
+    "p_objectif_releve": 0.0,
+    "profit_median": 599.3388254568927,
+    "profit_p05": -1123.550516043615,
+    "trades_moyens": 38.2008,
+    "survie": {
+      "21": 1.0,
+      "63": 1.0,
+      "126": 1.0,
+      "252": 1.0
+    },
+    "retraits": {
+      "moyenne_payee": 626.7754152062382,
+      "mediane_payee": 470.9515661854717,
+      "p_au_moins_un": 0.5632
+    }
+  },
+  "suspension": {
+    "n_trades": 100,
+    "dd_median": -10.92848678432412,
+    "dd_p05": -21.403394064780752,
+    "dd_p01": -27.273049425388173,
+    "serie_pertes_p95": 13.0,
+    "serie_pertes_p99": 17.0
+  }
+}

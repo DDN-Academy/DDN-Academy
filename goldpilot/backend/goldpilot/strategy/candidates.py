@@ -17,7 +17,7 @@ from .indicators import atr, prev_day_range_rank, price_at_msess, session_mean, 
 BAR_MIN = 15
 
 
-def base_features(bars: pd.DataFrame, need_range_rank: bool = False) -> pd.DataFrame:
+def base_features(bars: pd.DataFrame, need_range_rank: bool = False, daily_history: pd.DataFrame | None = None) -> pd.DataFrame:
     tc = time_columns(bars.index)
     F = pd.DataFrame(index=tc.index)
     for k in ("open", "high", "low", "close"):
@@ -27,7 +27,7 @@ def base_features(bars: pd.DataFrame, need_range_rank: bool = False) -> pd.DataF
     F["sm"] = session_mean(F["high"], F["low"], F["close"], F["td"])
     F["z"] = (F["close"] - F["sm"]) / F["atr"]
     if need_range_rank:
-        F["rr_rank"] = prev_day_range_rank(F["high"], F["low"], F["close"], F["td"])
+        F["rr_rank"] = prev_day_range_rank(F["high"], F["low"], F["close"], F["td"], daily_history=daily_history)
     return F
 
 
@@ -69,8 +69,10 @@ class S1SessionExtension(_Candidate):
         self.w0, self.w1, self.exit = msess_of("03:00"), msess_of("13:00"), msess_of("15:30")
         self.warmup_bars = 60 if not F else 60
 
-    def prepare(self, bars: pd.DataFrame) -> pd.DataFrame:
-        return base_features(bars, need_range_rank=self.use_filter)
+    needs_daily_history = property(lambda self: self.use_filter)
+
+    def prepare(self, bars: pd.DataFrame, daily_history: pd.DataFrame | None = None) -> pd.DataFrame:
+        return base_features(bars, need_range_rank=self.use_filter, daily_history=daily_history)
 
     def evaluate(self, i: int, F: pd.DataFrame, st: StrategyState) -> Evaluation:
         A = arrays(F)
@@ -138,7 +140,9 @@ class S2LondonToNewYork(_Candidate):
         self.exit = msess_of("12:00") if E == "12:00" else msess_of("15:30")
         self.trail = None if E == "12:00" else 3.0
 
-    def prepare(self, bars: pd.DataFrame) -> pd.DataFrame:
+    needs_daily_history = False
+
+    def prepare(self, bars: pd.DataFrame, daily_history: pd.DataFrame | None = None) -> pd.DataFrame:
         F = base_features(bars)
         F["c02"] = price_at_msess(F["close"], F["msess"], F["td"], self.m02, BAR_MIN)
         return F

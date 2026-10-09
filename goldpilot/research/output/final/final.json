@@ -1,0 +1,226 @@
+{
+  "candidat": "S1|F=True,k=5.0,s=2.5,t=3.0",
+  "statut": "exploratoire — non confirmatoire",
+  "exploratoire_base": {
+    "n": 327,
+    "taux_de_gain": 0.3547400611620795,
+    "gain_moyen_R": 1.3387096370327134,
+    "perte_moyenne_R": -0.6415461818698613,
+    "esperance_R": 0.060929888444201837,
+    "ecart_type_R": 1.3157124504473046,
+    "t": 0.8374198959470861,
+    "profit_factor": 1.1471864246017396,
+    "total_R": 19.924073521254,
+    "drawdown_max_R": -15.345033832250294,
+    "serie_pertes_max": 12,
+    "serie_gains_max": 6,
+    "trades_par_mois": 7.249730517115805,
+    "duree_moyenne_barres": 8.666666666666666,
+    "glissement_entree_moyen_oz": 0.0296972133027539,
+    "sorties": {
+      "stop suiveur": 213,
+      "sortie temporelle": 61,
+      "stop": 34,
+      "stop (barre d'entrée)": 12,
+      "stop (gap)": 7
+    },
+    "ic95_bas": -0.07581705842978581,
+    "ic95_haut": 0.20724558500538373,
+    "ic_unilateral95_bas": -0.05504059479768293
+  },
+  "exploratoire_par_annee": [
+    {
+      "year": 2022,
+      "n": 74,
+      "esperance_R": 0.1021,
+      "total_R": 7.5533,
+      "taux_de_gain": 0.3784
+    },
+    {
+      "year": 2023,
+      "n": 101,
+      "esperance_R": 0.1011,
+      "total_R": 10.213,
+      "taux_de_gain": 0.3762
+    },
+    {
+      "year": 2024,
+      "n": 83,
+      "esperance_R": -0.0295,
+      "total_R": -2.45,
+      "taux_de_gain": 0.2892
+    },
+    {
+      "year": 2025,
+      "n": 69,
+      "esperance_R": 0.0668,
+      "total_R": 4.6077,
+      "taux_de_gain": 0.3768
+    }
+  ],
+  "exploratoire_par_seance": [
+    {
+      "index": "Londres",
+      "n": 129,
+      "esperance_R": -0.0246,
+      "total_R": -3.1795,
+      "taux_de_gain": 0.2946
+    },
+    {
+      "index": "New York après-midi",
+      "n": 17,
+      "esperance_R": -0.0991,
+      "total_R": -1.6841,
+      "taux_de_gain": 0.3529
+    },
+    {
+      "index": "New York matin",
+      "n": 181,
+      "esperance_R": 0.1369,
+      "total_R": 24.7877,
+      "taux_de_gain": 0.3978
+    }
+  ],
+  "exploratoire_par_sens": [
+    {
+      "side": "achat",
+      "n": 186,
+      "esperance_R": 0.0699,
+      "total_R": 13.0041,
+      "taux_de_gain": 0.3495
+    },
+    {
+      "side": "vente",
+      "n": 141,
+      "esperance_R": 0.0491,
+      "total_R": 6.92,
+      "taux_de_gain": 0.3617
+    }
+  ],
+  "exploratoire_couts_x2": {
+    "n": 327,
+    "taux_de_gain": 0.345565749235474,
+    "gain_moyen_R": 1.337402965611813,
+    "perte_moyenne_R": -0.6753569545028231,
+    "esperance_R": 0.020183935322723976,
+    "ecart_type_R": 1.3180035090169029,
+    "t": 0.276925632092823,
+    "profit_factor": 1.0456674170705256,
+    "total_R": 6.600146850530741,
+    "drawdown_max_R": -17.052785710877192,
+    "serie_pertes_max": 12,
+    "serie_gains_max": 6,
+    "trades_par_mois": 7.249730517115805,
+    "duree_moyenne_barres": 8.666666666666666,
+    "glissement_entree_moyen_oz": 0.058171185015296924,
+    "sorties": {
+      "stop suiveur": 213,
+      "sortie temporelle": 61,
+      "stop": 34,
+      "stop (barre d'entrée)": 12,
+      "stop (gap)": 7
+    }
+  },
+  "exploratoire_couts_fixes": {
+    "n": 327,
+    "taux_de_gain": 0.345565749235474,
+    "gain_moyen_R": 1.3413311331729743,
+    "perte_moyenne_R": -0.6705197025320685,
+    "esperance_R": 0.02470703885835904,
+    "ecart_type_R": 1.3177582406972144,
+    "t": 0.33904616300382295,
+    "profit_factor": 1.056304503597175,
+    "total_R": 8.079201706683406,
+    "drawdown_max_R": -17.407741169859193,
+    "serie_pertes_max": 12,
+    "serie_gains_max": 6,
+    "trades_par_mois": 7.249730517115805,
+    "duree_moyenne_barres": 8.666666666666666,
+    "glissement_entree_moyen_oz": 0.05122324159027178,
+    "sorties": {
+      "stop suiveur": 213,
+      "sortie temporelle": 61,
+      "stop": 34,
+      "stop (barre d'entrée)": 12,
+      "stop (gap)": 7
+    }
+  },
+  "controle_resolution_2025": {
+    "periode": "2025-02-13 20:30:00+00:00 → 2025-10-28 14:20:00+00:00",
+    "barres_15min": {
+      "n": 55,
+      "taux_de_gain": 0.41818181818181815,
+      "gain_moyen_R": 1.0990792793302935,
+      "perte_moyenne_R": -0.5744647379981895,
+      "esperance_R": 0.12538094197553984,
+      "ecart_type_R": 1.0143669598939813,
+      "t": 0.916680046722749,
+      "profit_factor": 1.3751291937802772,
+      "total_R": 6.895951808654692,
+      "drawdown_max_R": -5.476621806894669,
+      "serie_pertes_max": 5,
+      "serie_gains_max": 4,
+      "trades_par_mois": 7.124255319148936,
+      "duree_moyenne_barres": 10.527272727272727,
+      "glissement_entree_moyen_oz": 0.03704067045454477,
+      "sorties": {
+        "stop suiveur": 32,
+        "sortie temporelle": 15,
+        "stop": 5,
+        "stop (barre d'entrée)": 2,
+        "stop (gap)": 1
+      }
+    },
+    "execution_5min": {
+      "n": 55,
+      "taux_de_gain": 0.41818181818181815,
+      "gain_moyen_R": 1.0990792793302935,
+      "perte_moyenne_R": -0.5735634980097546,
+      "esperance_R": 0.12590529978699294,
+      "ecart_type_R": 1.013948621313251,
+      "t": 0.9208934991087209,
+      "profit_factor": 1.377289933476927,
+      "total_R": 6.924791488284612,
+      "drawdown_max_R": -5.44778212726475,
+      "serie_pertes_max": 5,
+      "serie_gains_max": 4,
+      "trades_par_mois": 7.124255319148936,
+      "duree_moyenne_barres": 34.18181818181818,
+      "glissement_entree_moyen_oz": 0.03704067045454477,
+      "sorties": {
+        "stop suiveur": 32,
+        "sortie temporelle": 15,
+        "stop": 6,
+        "stop (gap)": 1,
+        "stop (barre d'entrée)": 1
+      }
+    }
+  },
+  "walk_forward_S1": {
+    "n": 790,
+    "taux_de_gain": 0.37341772151898733,
+    "gain_moyen_R": 1.428768626198148,
+    "perte_moyenne_R": -0.7225705353948774,
+    "esperance_R": 0.0807776325417586,
+    "ecart_type_R": 1.4227908216049776,
+    "t": 1.5957454372578437,
+    "profit_factor": 1.1784155753368295,
+    "total_R": 63.814329707989295,
+    "drawdown_max_R": -19.204442316657122,
+    "serie_pertes_max": 11,
+    "serie_gains_max": 6,
+    "trades_par_mois": 8.260941257299898,
+    "duree_moyenne_barres": 8.39240506329114,
+    "glissement_entree_moyen_oz": 0.025238580379743348,
+    "sorties": {
+      "stop suiveur": 527,
+      "sortie temporelle": 112,
+      "stop": 107,
+      "stop (barre d'entrée)": 33,
+      "stop (gap)": 11
+    },
+    "ic95_bas": -0.019265305937637225,
+    "ic95_haut": 0.183396889619222,
+    "ic_unilateral95_bas": -0.00278357739936854
+  }
+}

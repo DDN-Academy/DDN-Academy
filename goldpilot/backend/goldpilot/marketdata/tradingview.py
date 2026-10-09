@@ -61,6 +61,29 @@ class MirrorMsg(BaseModel):
     price: float
 
 
+class DailyMsg(BaseModel):
+    """Historique journalier du MGC continu (amplitudes des journées passées) : [[t_ms, haut, bas, clôture], ...]."""
+
+    model_config = ConfigDict(extra="forbid")
+    v: Literal[1]
+    kind: Literal["daily"]
+    token: str = Field(min_length=1, max_length=200)
+    ticker: str = Field(min_length=3, max_length=40)
+    t: int
+    days: list[list[float]] = Field(min_length=1, max_length=80)
+
+    @field_validator("days")
+    @classmethod
+    def check_days(cls, v: list[list[float]]) -> list[list[float]]:
+        for row in v:
+            if len(row) != 4 or not all(math.isfinite(x) for x in row):
+                raise ValueError("ligne journalière invalide")
+            _, h, l, c = row
+            if not (0 < l <= c <= h < 100_000):
+                raise ValueError("haut/bas/clôture incohérents")
+        return v
+
+
 class Rejected(Exception):
     def __init__(self, status: int, reason: str):
         super().__init__(reason)
@@ -75,16 +98,21 @@ def ms_to_dt(ms: int) -> datetime:
     return datetime.fromtimestamp(ms / 1000, tz=timezone.utc)
 
 
-def parse(payload: dict, expected_token: str, now: datetime) -> BarMsg | MirrorMsg:
+def parse(payload: dict, expected_token: str, now: datetime) -> BarMsg | MirrorMsg | DailyMsg:
     kind = payload.get("kind") if isinstance(payload, dict) else None
+    models = {"bar": BarMsg, "mirror": MirrorMsg, "daily": DailyMsg}
     try:
-        msg = BarMsg.model_validate(payload) if kind == "bar" else MirrorMsg.model_validate(payload) if kind == "mirror" else None
+        msg = models[kind].model_validate(payload) if kind in models else None
     except ValidationError as e:
         raise Rejected(400, f"message invalide : {e.errors()[0].get('msg', 'schéma')}") from None
     if msg is None:
         raise Rejected(400, "type de message inconnu")
     if not token_ok(msg.token, expected_token):
         raise Rejected(401, "jeton invalide")
+    if isinstance(msg, DailyMsg):
+        if not msg.ticker.split(":")[-1].upper().startswith("MGC"):
+            raise Rejected(422, f"historique journalier : symbole MGC attendu, reçu {msg.ticker}")
+        return msg
     if parse_tv_symbol(msg.ticker) is None:
         raise Rejected(422, f"symbole non accepté : {msg.ticker} (attendu : contrat MGC daté, ex. MGCZ2026)")
     t = ms_to_dt(msg.t)

@@ -37,13 +37,21 @@ def session_mean(h: pd.Series, l: pd.Series, c: pd.Series, td: pd.Series) -> pd.
     return tp.groupby(td.to_numpy()).cumsum() / (tp.groupby(td.to_numpy()).cumcount() + 1)
 
 
-def prev_day_range_rank(h: pd.Series, l: pd.Series, c: pd.Series, td: pd.Series, lookback: int = 250) -> pd.Series:
-    """Rang centile (0-1) de l'amplitude relative de la VEILLE parmi les `lookback` journées précédentes.
+def prev_day_range_rank(h: pd.Series, l: pd.Series, c: pd.Series, td: pd.Series, lookback: int = 250,
+                        daily_history: pd.DataFrame | None = None) -> pd.Series:
+    """Rang centile (0-1) de l'amplitude relative (H−L)/C de la VEILLE parmi les `lookback` journées précédentes.
 
     Calculé uniquement avec des journées complètes antérieures à la journée courante.
+    `daily_history` (optionnel, index = td, colonnes h, l, c) fournit les journées que les barres intraday ne
+    couvrent pas (en production : historique journalier envoyé par TradingView) ; il remplace aussi les
+    journées intraday incomplètes. Sans lui, seules les barres fournies sont utilisées (cas du backtest).
     """
     df = pd.DataFrame({"h": h.to_numpy(), "l": l.to_numpy(), "c": c.to_numpy(), "td": td.to_numpy()})
     daily = df.groupby("td").agg(h=("h", "max"), l=("l", "min"), c=("c", "last"))
+    if daily_history is not None and len(daily_history):
+        dh = daily_history[["h", "l", "c"]].astype(float)
+        dh = dh[dh.index < daily.index.max()]  # jamais la journée en cours
+        daily = pd.concat([dh, daily[~daily.index.isin(dh.index)]]).sort_index()
     rr = (daily["h"] - daily["l"]) / daily["c"]
     prev = rr.shift(1)
     hist = rr.shift(2)  # journées antérieures à la veille

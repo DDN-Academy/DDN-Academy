@@ -1,15 +1,15 @@
 """schema initial
 
-Revision ID: 8164b8e10552
+Revision ID: 26ebde2c15bc
 Revises: 
-Create Date: 2026-10-09 23:44:21.032352
+Create Date: 2026-10-09 23:52:43.144570
 """
 from alembic import op
 import sqlalchemy as sa
 import goldpilot.db
 
 
-revision = '8164b8e10552'
+revision = '26ebde2c15bc'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -54,6 +54,19 @@ def upgrade():
     )
     op.create_index(op.f('ix_bars_processed'), 'bars', ['processed'], unique=False)
     op.create_index('ix_bars_symbol_ts', 'bars', ['symbol', 'ts'], unique=False)
+    op.create_table('daily_bars',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+    sa.Column('source', sa.String(length=24), nullable=False),
+    sa.Column('symbol', sa.String(length=32), nullable=False),
+    sa.Column('td', sa.Integer(), nullable=False),
+    sa.Column('high', sa.Float(), nullable=False),
+    sa.Column('low', sa.Float(), nullable=False),
+    sa.Column('close', sa.Float(), nullable=False),
+    sa.Column('received_at', goldpilot.db.UTC(timezone=True), nullable=False),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('source', 'td', name='uq_daily')
+    )
+    op.create_index(op.f('ix_daily_bars_td'), 'daily_bars', ['td'], unique=False)
     op.create_table('decisions',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('created_at', goldpilot.db.UTC(timezone=True), nullable=False),
@@ -233,6 +246,8 @@ def downgrade():
     op.drop_index(op.f('ix_decisions_created_at'), table_name='decisions')
     op.drop_index(op.f('ix_decisions_bar_ts'), table_name='decisions')
     op.drop_table('decisions')
+    op.drop_index(op.f('ix_daily_bars_td'), table_name='daily_bars')
+    op.drop_table('daily_bars')
     op.drop_index('ix_bars_symbol_ts', table_name='bars')
     op.drop_index(op.f('ix_bars_processed'), table_name='bars')
     op.drop_table('bars')

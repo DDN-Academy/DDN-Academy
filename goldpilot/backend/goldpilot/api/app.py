@@ -516,12 +516,21 @@ async def tradingview_webhook(request: Request):
             if isinstance(msg, tv.BarMsg):
                 s.add(db.Bar(source="tradingview", symbol=sym, ts=tv.ms_to_dt(msg.t), minutes=1, open=msg.o, high=msg.h, low=msg.l,
                              close=msg.c, volume=msg.vol, received_at=received, processed=False))
+            elif isinstance(msg, tv.DailyMsg):
+                for t_ms, h, l, c in msg.days:
+                    td = (trading_date(tv.ms_to_dt(int(t_ms)) + timedelta(hours=1)) - datetime(1970, 1, 1).date()).days
+                    row = s.execute(select(db.DailyBar).where(db.DailyBar.source == "tradingview", db.DailyBar.td == td)).scalars().first()
+                    if row is None:
+                        s.add(db.DailyBar(source="tradingview", symbol=sym, td=td, high=h, low=l, close=c))
+                    else:
+                        row.high, row.low, row.close, row.received_at = h, l, c, received
             else:
                 s.add(db.MirrorSignal(symbol=sym, bar_ts=tv.ms_to_dt(msg.t), side=msg.side, price=msg.price))
     except IntegrityError:
         return {"ok": True, "doublon": True}  # renvoi TradingView : déjà enregistré
     delay = tv.delay_of(msg, received).total_seconds() if isinstance(msg, tv.BarMsg) else None
-    log_row(msg.kind, True, f"retard {delay:.0f} s" if delay is not None else "", payload)
+    logged = {k: v for k, v in payload.items() if k != "days"} | ({"jours": len(msg.days)} if isinstance(msg, tv.DailyMsg) else {})
+    log_row(msg.kind, True, f"retard {delay:.0f} s" if delay is not None else "", logged)
     return {"ok": True}
 
 

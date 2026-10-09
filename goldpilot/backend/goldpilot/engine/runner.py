@@ -225,7 +225,8 @@ class Engine:
             record("suspendu", "Préchauffage : historique insuffisant",
                    [f"{len(F15)} barres de 15 min disponibles, {MIN_DECISION_BARS} nécessaires"], {})
             return
-        F = self.strategy.prepare(F15)
+        daily = self._daily_history(s) if getattr(self.strategy, "needs_daily_history", False) else None
+        F = self.strategy.prepare(F15, daily_history=daily)
         A = arrays(F)
         i = len(F) - 1
         for sig in sm.open_signals(s):
@@ -286,6 +287,14 @@ class Engine:
             enqueue(s, f"new:{sig.id}", "signal", messages.new_signal(sig, label, (self.conf or {}).get("rapport_gain_perte_historique"),
                                                                        sig.calendar_note), sig.id, notify)
             record("signal", f"Signal {'LONG' if su.side > 0 else 'SHORT'} émis ({mode})", [su.rationale], ctx_info, checks, sig.id)
+
+    @staticmethod
+    def _daily_history(s) -> pd.DataFrame | None:
+        rows = s.execute(select(db.DailyBar).order_by(db.DailyBar.td.desc()).limit(300)).scalars().all()
+        if not rows:
+            return None
+        return pd.DataFrame({"h": [r.high for r in rows], "l": [r.low for r in rows], "c": [r.close for r in rows]},
+                            index=[r.td for r in rows]).sort_index()
 
     @staticmethod
     def _exit_deadline(bar_ts: datetime, exit_msess: int) -> datetime:

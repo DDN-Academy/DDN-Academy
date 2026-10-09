@@ -1,0 +1,36 @@
+{
+  "strategy": "S1",
+  "params": {
+    "k": "5.0",
+    "s": "2.5",
+    "t": "3.0",
+    "F": "True"
+  },
+  "version": "S1-extension-seance-k5-s2.5-t3-F (2026-10-09)",
+  "validated": false,
+  "verdict": "NON VALIDÉE. Sur 2011-2021, aucune famille n'a satisfait les critères pré-enregistrés : espérance walk-forward S1 +0.081 R par trade (IC95 -0.019 ; +0.183), non distinguable de zéro après correction des tests multiples, et négative si les coûts doublent. Le système fonctionne en SIMULATION uniquement ; le passage au réel exige une validation prospective.",
+  "rapport_gain_perte_historique": 1.9773413891245104,
+  "trades_par_mois_attendus": 8.260941257299898,
+  "risk_settings_default": {
+    "risk_per_trade_usd": 250.0,
+    "max_cushion_fraction": 0.2,
+    "daily_loss_stop_usd": 500.0,
+    "max_trades_per_day": 3,
+    "max_losses_per_day": 2,
+    "consistency_lock_fraction": 0.8,
+    "safety_margin_usd": 100.0,
+    "slippage_allowance_oz": 0.3,
+    "commission_per_contract_rt": 2.0,
+    "max_contracts_personal": 30
+  },
+  "seuils_suspension": {
+    "drawdown_R": -27.27,
+    "serie_pertes": 17
+  },
+  "historique_journalier_requis": 250,
+  "references": {
+    "selection": "research/output/selection/selection.md",
+    "final": "research/output/final/final.md",
+    "protocole": "docs/03_protocole_de_recherche.md"
+  }
+}
