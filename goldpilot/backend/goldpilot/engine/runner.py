@@ -6,12 +6,14 @@ Boucle (toutes les 2 s) :
    création éventuelle d'un signal ; CHAQUE analyse est journalisée (signal, refus ou absence de setup) ;
 3. modes : pause (toi), arrêt de sécurité (anomalie grave), mode sécurisé (données), préchauffage ;
 4. calendrier officiel, avertissements d'annonces, rappel de changement d'échéance ;
+   contexte macro FRED (taux réels, dollar) toutes les 6 h, information seulement, jamais lu par la décision ;
 5. fin de journée : plancher trailing du compte simulé ; seuils de suspension automatique ;
 6. envoi des notifications en attente ; battement de cœur pour le site.
 """
 from __future__ import annotations
 
 import logging
+import threading
 import time
 from collections import deque
 from datetime import datetime, timedelta, timezone
@@ -23,6 +25,7 @@ from sqlalchemy import desc, func, select
 from .. import db
 from ..calendar.events import Event, next_event, parse_ics, seed_events
 from ..config import settings
+from ..context import fred as macro
 from ..marketdata import quality as dq
 from ..marketdata.contracts import active_contract, add_bdays, next_contract
 from ..notify import messages
@@ -45,6 +48,8 @@ KEEP = timedelta(days=8)
 MIN_DECISION_BARS = 45
 MIRROR_WAIT = timedelta(minutes=5)  # délai laissé au moteur pour décider avant de juger un signal miroir
 EPOCH = datetime(1970, 1, 1).date()
+MACRO_EVERY = timedelta(hours=6)  # contexte macro FRED : rafraîchissement normal
+MACRO_RETRY = timedelta(minutes=30)  # nouvel essai après un échec (3 requêtes, très loin de la limite FRED)
 
 
 def td_int(dt: datetime) -> int:
@@ -80,6 +85,11 @@ class Engine:
         self.decided: set[int] = set()
         self.current_bucket: pd.Timestamp | None = None
         self.last_decision_atr = float("nan")  # ATR de la dernière barre de décision clôturée (comme le backtest)
+        self.last_macro: datetime | None = None
+        self.macro_ok = True
+        self.macro_async = True  # False uniquement dans les tests (appel synchrone)
+        self.macro_thread: threading.Thread | None = None
+        self.macro_result: tuple[dict, bool] | None = None
 
     # ------------------------------------------------------------------ démarrage
     def startup(self) -> None:
@@ -164,6 +174,7 @@ class Engine:
                 self._decide(s, self.current_bucket, now, notify)
             self._update_mode(s, now, expected, notify)
             self._calendar(s, now)
+            self._macro_context(s, now)
             self._news_warning(s, now, notify)
             self._roll_reminder(s, now, notify)
             self._check_mirrors(s, now, notify)
@@ -481,6 +492,67 @@ class Engine:
         s.flush()
         rows = s.execute(select(db.EconomicEvent)).scalars().all()
         self.events = [Event(r.source, r.uid, r.title, r.impact, r.ts, r.source_url) for r in rows]
+
+    # ------------------------------------------------------------------ contexte macro (information seulement)
+    def _macro_context(self, s, now: datetime) -> None:
+        """Rafraîchit le contexte macro FRED (KV « macro_context ») ; n'influence ni la stratégie ni le risque.
+
+        Choix : la requête réseau (3 séries, délai 10 s chacune) tourne dans un fil d'exécution séparé. Faite dans la
+        boucle, elle garderait ouverte jusqu'à ~30 s la transaction de la boucle (base SQLite verrouillée pour le
+        webhook TradingView) et retarderait d'autant une décision de clôture de 15 min. Le fil ne touche pas à la
+        base : il dépose son résultat, que la boucle enregistre au passage suivant (toutes les 2 s). Toute erreur
+        ici est journalisée et ignorée : le contexte ne doit jamais bloquer les signaux."""
+        try:
+            if self.macro_thread is not None:
+                if self.macro_thread.is_alive():
+                    return
+                self.macro_thread = None
+                done, self.macro_result = self.macro_result, None
+                if done is not None:
+                    self._store_macro(s, *done)
+            due = self.last_macro is None or now - self.last_macro >= (MACRO_EVERY if self.macro_ok else MACRO_RETRY)
+            if not due:
+                return
+            self.last_macro = now
+            st = settings()
+            if st.data_source == "replay":  # le contexte du jour ne correspond pas à l'horloge virtuelle
+                self._store_macro(s, macro.unavailable(macro.REPLAY), False)
+                return
+            if not st.fred_api_key:  # configuration facultative : pas d'incident, le site affiche le problème
+                self._store_macro(s, macro.unavailable(macro.KEY_MISSING), False)
+                return
+            key = st.fred_api_key
+            if not self.macro_async:
+                self._store_macro(s, *self._fetch_macro(key))
+                return
+            self.macro_thread = threading.Thread(target=lambda: setattr(self, "macro_result", self._fetch_macro(key)),
+                                                 name="goldpilot-fred", daemon=True)
+            self.macro_thread.start()
+        except Exception as e:  # pragma: no cover - filet de sécurité
+            log.warning("contexte macro ignoré (%s)", type(e).__name__)
+
+    @staticmethod
+    def _fetch_macro(key: str) -> tuple[dict, bool]:
+        """(contexte, échec ?) — exécuté hors de la boucle ; aucune exception ne sort, la clé n'est jamais citée."""
+        try:
+            ctx = macro.build_context(key)
+        except Exception as e:  # imprévu : seul le type est repris (le message pourrait contenir l'URL)
+            ctx = macro.unavailable(f"erreur interne ({type(e).__name__})")
+        return ctx, ctx["probleme"] is not None
+
+    def _store_macro(self, s, ctx: dict, failed: bool) -> None:
+        prev = db.kv_get(s, "macro_context") or {}
+        if failed and not ctx["disponible"] and ctx["maj"] is None and prev.get("maj"):
+            ctx = {**ctx, "maj": prev["maj"]}  # date du dernier rafraîchissement réussi
+        if failed:
+            db.open_incident(s, "avertissement", "contexte", "fred",
+                             f"Contexte macro FRED : {ctx['probleme']}. Information de contexte uniquement : "
+                             "les signaux ne sont pas affectés.")
+        else:
+            db.resolve_incident(s, "contexte", "fred")
+        self.macro_ok = not failed
+        if prev != ctx:
+            db.kv_set(s, "macro_context", ctx)
 
     def _news_warning(self, s, now: datetime, notify: bool) -> None:
         opens = [o for o in sm.open_signals(s) if o.status == "ACTIF"]

@@ -1,0 +1,37 @@
+# Contexte de construction de l'image GoldPilot (dossier goldpilot/).
+# Règle : rien de secret, rien de volumineux, rien d'inutile à l'exécution.
+
+# Secrets et données locales — ne doivent JAMAIS entrer dans l'image
+**/.env
+**/.env.*
+!deploy/.env.example
+deploy/backups/
+deploy/data/
+var/
+**/*.db
+**/*.sqlite*
+**/*.dump
+**/*.pem
+**/*.key
+
+# Dépendances et compilations locales (reconstruites dans l'image)
+frontend/node_modules/
+frontend/dist/
+**/__pycache__/
+**/*.pyc
+**/*.egg-info/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# Inutile à l'exécution
+backend/tests/
+research/*.py
+research/output/**/*.parquet
+research/output/**/*.csv
+research/output/*.log
+docs/
+.git
+.github
+Dockerfile
+.dockerignore

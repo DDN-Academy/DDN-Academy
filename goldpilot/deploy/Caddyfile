@@ -1,0 +1,45 @@
+# ---------------------------------------------------------------------------------------------------
+# Caddy : point d'entrée HTTPS unique de GoldPilot (ports 80 et 443).
+#  - certificat Let's Encrypt obtenu et renouvelé automatiquement pour {$GOLDPILOT_DOMAIN}
+#    (le nom de domaine doit pointer vers l'adresse IPv4 du serveur : enregistrement DNS « A ») ;
+#  - le port 80 ne sert qu'à la validation du certificat et à la redirection vers https:// ;
+#  - transmet au service web l'adresse IP réelle du visiteur (X-Forwarded-For) : le backend applique
+#    la liste des IP TradingView et les limites anti-abus avec TRUST_PROXY=true.
+# Les variables {$...} viennent de deploy/.env (via docker-compose.yml).
+# ---------------------------------------------------------------------------------------------------
+{
+	email {$ACME_EMAIL}
+	# Pas de page d'administration Caddy accessible depuis le réseau.
+	admin localhost:2019
+}
+
+{$GOLDPILOT_DOMAIN} {
+	encode zstd gzip
+
+	header {
+		# HTTPS obligatoire pendant 1 an pour ce domaine (le backend envoie aussi cet en-tête en production).
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+		-Via
+	}
+
+	# Les webhooks TradingView font moins de 4 Ko ; le site n'envoie que de petits formulaires JSON.
+	request_body {
+		max_size 64KB
+	}
+
+	reverse_proxy web:8000 {
+		# Remplace (et non complète) X-Forwarded-For par l'adresse réellement connectée à Caddy :
+		# un visiteur ne peut pas se faire passer pour une adresse IP TradingView en envoyant cet en-tête.
+		header_up X-Forwarded-For {remote_host}
+		header_up -X-Real-IP
+	}
+
+	# Journal d'accès (JSON, sortie standard -> journaux Docker avec rotation). Caddy masque par défaut
+	# les en-têtes Cookie / Authorization ; le corps des requêtes (qui contient le jeton webhook) n'est
+	# jamais journalisé.
+	log {
+		output stdout
+		format json
+	}
+}

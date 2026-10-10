@@ -21,6 +21,7 @@ from sqlalchemy.exc import IntegrityError
 from .. import __version__, db
 from ..calendar.events import next_event, Event
 from ..config import settings
+from ..context import fred as macro_context
 from ..engine import strategy_config
 from ..marketdata import tradingview as tv
 from ..marketdata.contracts import active_contract, next_contract
@@ -186,6 +187,8 @@ def dashboard(user: str = Depends(require_user)):
         "regime": (last_dec.context or {}).get("regime") if last_dec else None,
         "ecart_moyenne_atr": (last_dec.context or {}).get("z") if last_dec else None,
         "prochaine_annonce": {"titre": nxt.title, "quand": fmt_paris(nxt.ts), "ny": fmt_ny(nxt.ts)} if nxt else None,
+        # Information seulement (FRED) : non utilisée par la stratégie ni le risque ; page secondaire du site.
+        "contexte_macro": macro_context.read_for_dashboard(),
     }
     trading = {
         "setup": ("Signal en cours" if open_sig else "Aucun setup valide : les conditions ne sont pas réunies"),
