@@ -1,0 +1,142 @@
+// GoldPilot Bridge — script Pine v6 à installer sur le graphique 1 minute du contrat MGC actif
+// (ex. COMEX:MGCZ2026). Une seule alerte « Tout appel de la fonction alert() » suffit.
+//
+// Rôle :
+//   1. envoyer au serveur GoldPilot chaque barre d'une minute CLÔTURÉE (prix du contrat négocié) ;
+//   2. envoyer l'historique journalier du MGC continu (300 jours) en 5 morceaux au démarrage, puis chaque jour ;
+//   3. afficher la moyenne de séance et les bandes ±k ATR de la stratégie (contrôle visuel) et signaler
+//      au serveur, à titre de CONTRÔLE CROISÉ uniquement, les franchissements vus côté TradingView.
+// Le serveur reste seul décideur : il recalcule tout à partir de ses propres données.
+//
+// Prérequis TradingView (vérifiés le 9 octobre 2026) : abonnement payant (webhooks), double
+// authentification activée, forfait temps réel CME/COMEX (sinon données différées de 10 minutes,
+// détectées et refusées par le serveur).
+// NON TESTÉ SUR TRADINGVIEW par son auteur (aucun accès à TradingView depuis l'environnement de
+// développement) : vérifie l'onglet « Journal » de l'alerte et la page Journal > Webhooks du site.
+//@version=6
+indicator("GoldPilot Bridge", overlay = true, max_bars_back = 400, max_labels_count = 100)
+
+token      = input.string("", "Jeton secret (TV_WEBHOOK_TOKEN du serveur)", confirm = true)
+dailySym   = input.symbol("COMEX:MGC1!", "Symbole continu pour l'historique journalier")
+kExt       = input.float(5.0, "Seuil d'extension k (ATR)", step = 0.5)
+showBands  = input.bool(true, "Afficher moyenne de séance et bandes ±k ATR")
+
+isOneMinute = timeframe.isminutes and timeframe.multiplier == 1
+ready = barstate.isrealtime and barstate.isconfirmed and isOneMinute and str.length(token) > 0 and not str.endswith(syminfo.ticker, "!")
+
+f_num(float x) => str.tostring(x, "#.##")
+
+// ---------------------------------------------------------------- 1. barre d'une minute
+barJson() =>
+    '{"v":1,"kind":"bar","token":"' + token + '","ticker":"' + syminfo.ticker + '","tf":"1","t":' + str.tostring(time) +
+     ',"o":' + f_num(open) + ',"h":' + f_num(high) + ',"l":' + f_num(low) + ',"c":' + f_num(close) +
+     ',"vol":' + str.tostring(nz(volume)) + ',"tnow":' + str.tostring(timenow) + '}'
+
+// ---------------------------------------------------------------- 2. historique journalier
+// Construit dans le contexte journalier : uniquement des journées TERMINÉES (décalage ≥ 1 + lookahead_on,
+// méthode anti-repaint recommandée par la documentation Pine).
+f_days(int a, int b) =>
+    string s = ""
+    for i = a to b
+        if not na(close[i])
+            s := s + (s == "" ? "" : ",") + "[" + str.tostring(time[i]) + "," + f_num(high[i]) + "," + f_num(low[i]) + "," + f_num(close[i]) + "]"
+    s
+
+d1 = request.security(dailySym, "D", f_days(1, 60),    lookahead = barmerge.lookahead_on)
+d2 = request.security(dailySym, "D", f_days(61, 120),  lookahead = barmerge.lookahead_on)
+d3 = request.security(dailySym, "D", f_days(121, 180), lookahead = barmerge.lookahead_on)
+d4 = request.security(dailySym, "D", f_days(181, 240), lookahead = barmerge.lookahead_on)
+d5 = request.security(dailySym, "D", f_days(241, 300), lookahead = barmerge.lookahead_on)
+dLast = request.security(dailySym, "D", f_days(1, 1),  lookahead = barmerge.lookahead_on)
+dTime = request.security(dailySym, "D", time,          lookahead = barmerge.lookahead_on)
+
+dailyJson(string rows) =>
+    '{"v":1,"kind":"daily","token":"' + token + '","ticker":"' + dailySym + '","t":' + str.tostring(time) + ',"days":[' + rows + ']}'
+
+// ---------------------------------------------------------------- 3. contrôle croisé (miroir S1)
+// Barres de 15 minutes TERMINÉES : moyenne de séance (prix typique depuis l'ouverture de la séance CME,
+// 17:00 Chicago = 18:00 New York), ATR(40) moyenne simple du true range, écart z en ATR.
+// f_ctxPrev() renvoie les valeurs de la barre de 15 minutes PRÉCÉDENTE (donc terminée) ; appelée avec
+// lookahead_on, c'est la méthode sans repeinture recommandée par la documentation Pine.
+f_ctxPrev() =>
+    newSession = ta.change(time("D")) != 0
+    var float cum = 0.0
+    var int n = 0
+    if newSession
+        cum := 0.0
+        n := 0
+    cum += hlc3
+    n += 1
+    sm = cum / n
+    a = ta.sma(ta.tr(true), 40)
+    z = (close - sm) / a
+    [z[1], z[2], newSession[1], sm[1], a[1], close[1], time_close[1]]
+
+f_ctxNow() =>
+    newSession = ta.change(time("D")) != 0
+    var float cum = 0.0
+    var int n = 0
+    if newSession
+        cum := 0.0
+        n := 0
+    cum += hlc3
+    n += 1
+    [cum / n, ta.sma(ta.tr(true), 40)]
+
+[zC, zP, nsC, smC, aC, cC, tcC] = request.security(syminfo.tickerid, "15", f_ctxPrev(), lookahead = barmerge.lookahead_on)
+[sm15, atr15] = request.security(syminfo.tickerid, "15", f_ctxNow(), lookahead = barmerge.lookahead_off)
+// Rang centile (0-100) de l'amplitude relative de la veille parmi les 250 journées précédentes
+// (Python : part des journées strictement inférieures ; Pine : inférieures ou égales — écart négligeable).
+rank = request.security(dailySym, "D", ta.percentrank((high - low) / close, 250)[1], lookahead = barmerge.lookahead_on)
+
+new15 = ta.change(tcC) != 0
+nyMin = hour(tcC, "America/New_York") * 60 + minute(tcC, "America/New_York")
+nyDay = dayofmonth(tcC, "America/New_York")
+inWindow = nyMin >= 3 * 60 and nyMin <= 13 * 60
+upCross = zC > kExt and (nsC or zP <= kExt)
+dnCross = zC < -kExt and (nsC or zP >= -kExt)
+filterOk = not na(rank) and rank <= 66.67
+
+var int lastUpDay = na
+var int lastDnDay = na
+mirrorSide = 0
+if new15 and inWindow and filterOk
+    if upCross and lastUpDay != nyDay
+        mirrorSide := 1
+        lastUpDay := nyDay
+    else if dnCross and lastDnDay != nyDay
+        mirrorSide := -1
+        lastDnDay := nyDay
+
+mirrorJson(int side) =>
+    '{"v":1,"kind":"mirror","token":"' + token + '","ticker":"' + syminfo.ticker + '","t":' + str.tostring(tcC - 15 * 60 * 1000) +
+     ',"side":' + str.tostring(side) + ',"price":' + f_num(cC) + '}'
+
+// ---------------------------------------------------------------- envois
+// Limite TradingView : une alerte déclenchée plus de 15 fois en 3 minutes est arrêtée automatiquement.
+// L'historique journalier est donc envoyé en 5 morceaux, un par minute : au plus 3 envois par minute pendant
+// les 5 premières minutes (barre + morceau + éventuel miroir), puis 1 à 2 par minute.
+var int chunksSent = 0
+if ready
+    alert(barJson(), alert.freq_all)
+    if chunksSent < 5
+        alert(dailyJson(chunksSent == 0 ? d1 : chunksSent == 1 ? d2 : chunksSent == 2 ? d3 : chunksSent == 3 ? d4 : d5), alert.freq_all)
+        chunksSent += 1
+    else if ta.change(dTime) != 0 and str.length(dLast) > 0
+        alert(dailyJson(dLast), alert.freq_all)
+    if mirrorSide != 0
+        alert(mirrorJson(mirrorSide), alert.freq_all)
+
+// ---------------------------------------------------------------- affichage
+plot(showBands ? sm15 : na, "Moyenne de séance", color = color.new(color.orange, 0), linewidth = 2)
+plot(showBands ? sm15 + kExt * atr15 : na, "Bande haute", color = color.new(color.green, 40))
+plot(showBands ? sm15 - kExt * atr15 : na, "Bande basse", color = color.new(color.red, 40))
+plotshape(mirrorSide == 1, "Franchissement haussier vu par TradingView", shape.triangleup, location.belowbar, color.green, size = size.small)
+plotshape(mirrorSide == -1, "Franchissement baissier vu par TradingView", shape.triangledown, location.abovebar, color.red, size = size.small)
+
+if barstate.islast and not isOneMinute
+    label.new(bar_index, high, "GoldPilot : passer le graphique en 1 minute", color = color.red, textcolor = color.white)
+if barstate.islast and str.endswith(syminfo.ticker, "!")
+    label.new(bar_index, high, "GoldPilot : utiliser le contrat daté (ex. MGCZ2026), pas le continu", color = color.red, textcolor = color.white, style = label.style_label_down)
+if barstate.islast and str.length(token) == 0
+    label.new(bar_index, low, "GoldPilot : renseigner le jeton secret", color = color.red, textcolor = color.white, style = label.style_label_up)
