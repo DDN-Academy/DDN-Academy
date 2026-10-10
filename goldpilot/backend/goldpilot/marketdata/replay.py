@@ -32,10 +32,27 @@ class ReplayFeeder:
         self.minutes = minutes
         self._now = d.index[0].to_pydatetime() if len(d) else datetime.now(tz=timezone.utc)
 
+    def resume_from_db(self) -> int:
+        """Après un redémarrage : reprend après la dernière barre déjà rejouée (aucun doublon). Renvoie l'index."""
+        from sqlalchemy import func, select
+
+        with db.session() as s:
+            last = s.execute(select(func.max(db.Bar.ts)).where(db.Bar.source == "replay")).scalar()
+        if last is not None:
+            self.i = int((self.data.index <= pd.Timestamp(last)).sum())
+            if self.i:
+                self._now = self.data.index[self.i - 1].to_pydatetime() + timedelta(minutes=self.minutes, seconds=1)
+        return self.i
+
     def seed_daily_history(self, days: int = 300) -> int:
         """Historique journalier antérieur au début du rejeu (équivalent du message « daily » de TradingView)."""
         if not len(self.data):
             return 0
+        from sqlalchemy import select
+
+        with db.session() as s:
+            if s.execute(select(db.DailyBar.id).where(db.DailyBar.source == "replay").limit(1)).first():
+                return 0  # déjà chargé (redémarrage)
         h = load_15m()
         h = h[h.index < self.data.index[0]]
         tc = time_columns(h.index)

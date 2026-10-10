@@ -55,6 +55,8 @@ class RiskContext:
     duplicate: bool
     events: list[Event]
     blackout: Blackout = field(default_factory=Blackout)
+    real_mode: bool = False  # signal destiné au compte réel (sinon : simulation)
+    rules_confirmed_in_writing: bool = False  # confirmation écrite de FundedNext déclarée (règle « signaux externes »)
 
 
 def evaluate(setup: Setup, ctx: RiskContext, settings: RiskSettings) -> RiskDecision:
@@ -67,6 +69,18 @@ def evaluate(setup: Setup, ctx: RiskContext, settings: RiskSettings) -> RiskDeci
     add(Check("Paramètres de risque", not errs, "valides" if not errs else " ; ".join(errs)))
     a = ctx.account
     add(Check("Programme FundedNext", a.program.user_confirmed, a.program.label if a.program.user_confirmed else "programme non confirmé"))
+    # Règle contradictoire = incertitude sur la conformité : bloquant en réel (cahier des charges §8). Les règles
+    # « inconnues » (ex. commission) sont couvertes par une hypothèse prudente dans les paramètres de risque.
+    uncertain = [r.name for r in a.program.rules if r.status == "contradictoire"]
+    if not uncertain:
+        add(Check("Règles incertaines", True, "aucune"))
+    elif ctx.rules_confirmed_in_writing:
+        add(Check("Règles incertaines", True, "levées par la confirmation écrite de FundedNext que tu as déclarée"))
+    elif ctx.real_mode:
+        add(Check("Règles incertaines", False, "bloquant tant que FundedNext n'a pas confirmé par écrit : " + ", ".join(uncertain)))
+    else:
+        add(Check("Règles incertaines", True, "non bloquant en simulation ; bloquant en réel sans confirmation écrite de FundedNext : "
+                  + ", ".join(uncertain), blocking=False))
     add(Check("État du compte", ctx.account_state_known, ctx.account_note, blocking=False))
     add(Check("Compte non violé", not a.breached, "aucune violation" if not a.breached else a.breach_reason))
     add(Check("Une seule position à la fois", ctx.open_or_pending_signals == 0,

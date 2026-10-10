@@ -67,31 +67,52 @@ def enqueue(s, key: str, kind: str, text: str, signal_id: str | None = None, ena
     if s.execute(select(db.Notification.id).where(db.Notification.key == key)).first():
         return False
     n = db.Notification(key=key, kind=kind, text=text, signal_id=signal_id, status="a_envoyer" if enabled else "desactive")
-    s.add(n)
     try:
-        s.flush()
+        with s.begin_nested():  # point de sauvegarde : un doublon concurrent n'annule pas le reste de la transaction
+            s.add(n)
     except IntegrityError:
-        s.rollback()
         return False
     return True
 
 
-def deliver_pending(tg: Telegram, limit: int = 20) -> int:
-    """Envoie les notifications en attente (ordre chronologique). Renvoie le nombre envoyé."""
+BACKOFF_S = (0, 5, 15, 45, 135)  # attente avant chaque essai : ~3 min au total avant de déclarer l'échec
+_next_try: dict[int, float] = {}
+
+
+def deliver_pending(tg: Telegram, limit: int = 20, now=None) -> int:
+    """Envoie les notifications en attente (ordre chronologique). Renvoie le nombre envoyé.
+
+    Une alerte de signal (ou de déplacement de stop) n'est jamais envoyée si, au moment de l'envoi, le signal
+    n'est plus exploitable (clôturé, annulé, expiré, validité dépassée, prix sorti de la plage) : elle est
+    marquée « périmée » et visible dans le journal. `now` = horloge du moteur (virtuelle en rejeu)."""
+    now = now or db.now()
     sent = 0
     with db.session() as s:
         rows = s.execute(select(db.Notification).where(db.Notification.status == "a_envoyer")
                          .order_by(db.Notification.id).limit(limit)).scalars().all()
         for n in rows:
+            if n.kind in ("signal", "stop") and n.signal_id:
+                sig = s.get(db.Signal, n.signal_id)
+                stale = (sig is None or sig.status not in ("EN_ATTENTE", "ACTIF")
+                         or (n.kind == "signal" and (now >= sig.valid_until or (sig.meta or {}).get("band_exceeded"))))
+                if stale:
+                    n.status, n.error = "perime", "non envoyée : signal plus exploitable au moment de l'envoi"
+                    continue
+            if time.monotonic() < _next_try.get(n.id, 0.0):
+                continue
             ok, err = tg.send_now(n.text)
             n.attempts += 1
             if ok:
                 n.status, n.sent_at, n.error = "envoye", db.now(), ""
+                _next_try.pop(n.id, None)
                 sent += 1
             else:
                 n.error = err
                 if n.attempts >= MAX_ATTEMPTS or "non configuré" in err:
                     n.status = "echec"
+                    _next_try.pop(n.id, None)
                     log.warning("notification %s en échec : %s", n.id, err)
-                    break
+                else:
+                    _next_try[n.id] = time.monotonic() + BACKOFF_S[min(n.attempts, len(BACKOFF_S) - 1)]
+                break  # Telegram en erreur : on n'insiste pas sur les suivantes pendant ce passage
     return sent

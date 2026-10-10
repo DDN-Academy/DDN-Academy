@@ -222,6 +222,8 @@ class MirrorSignal(Base):
     side: Mapped[int] = mapped_column(Integer)
     price: Mapped[float] = mapped_column(Float)
     matched_signal_id: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    verdict: Mapped[str | None] = mapped_column(String(40), nullable=True)  # concordant | discordant | decision_absente
+    checked_at: Mapped[datetime | None] = mapped_column(UTC(), nullable=True)
 
 
 class AccountUpdate(Base):

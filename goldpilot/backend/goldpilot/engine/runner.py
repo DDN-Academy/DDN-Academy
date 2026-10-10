@@ -18,7 +18,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Callable
 
 import pandas as pd
-from sqlalchemy import func, select
+from sqlalchemy import desc, func, select
 
 from .. import db
 from ..calendar.events import Event, next_event, parse_ics, seed_events
@@ -43,6 +43,7 @@ BUCKET = timedelta(minutes=15)
 GRACE = timedelta(seconds=75)
 KEEP = timedelta(days=8)
 MIN_DECISION_BARS = 45
+MIRROR_WAIT = timedelta(minutes=5)  # délai laissé au moteur pour décider avant de juger un signal miroir
 EPOCH = datetime(1970, 1, 1).date()
 
 
@@ -74,6 +75,7 @@ class Engine:
         self.mode = "demarrage"
         self.last_beat = None
         self.last_cal = None
+        self.last_mirror_check = None
         self.source_filter = source_filter
         self.decided: set[int] = set()
         self.current_bucket: pd.Timestamp | None = None
@@ -164,6 +166,7 @@ class Engine:
             self._calendar(s, now)
             self._news_warning(s, now, notify)
             self._roll_reminder(s, now, notify)
+            self._check_mirrors(s, now, notify)
             self._end_of_day(s, now)
             cutoff = pd.Timestamp(now - KEEP)
             if len(self.bars) and self.bars.index[0] < cutoff:
@@ -173,10 +176,11 @@ class Engine:
                 db.beat(s, "engine", self.mode, {"version": self.version, "quality": q.level if q else None,
                                                   "problems": q.problems if q else [], "last_price": q.last_price if q else None,
                                                   "last_bar_end": q.last_bar_end.isoformat() if q and q.last_bar_end else None,
-                                                  "expected_symbol": expected, "bars_in_memory": len(self.bars)})
+                                                  "expected_symbol": expected, "bars_in_memory": len(self.bars),
+                                                  "clock": now.isoformat()})
                 self.last_beat = now
         if self.tg.configured:
-            deliver_pending(self.tg)
+            deliver_pending(self.tg, now=now)
 
     # ------------------------------------------------------------------ signaux ouverts
     def _track_signals(self, s, b: db.Bar, notify: bool) -> None:
@@ -249,7 +253,8 @@ class Engine:
                 data_ok=q.ok, data_problems=q.problems, last_price=q.last_price, account=acct, account_state_known=known,
                 account_note=note, trades_today=stats["trades"], losses_today=stats["losses"],
                 realized_loss_today=stats["realized_loss"], open_or_pending_signals=len(opens), duplicate=dup,
-                events=self.events)
+                events=self.events, real_mode=trading_mode == "reel",
+                rules_confirmed_in_writing=bool((db.kv_get(s, "fundednext_confirmation") or {}).get("confirme")))
             rs = risk_settings(s)
             rd = risk.evaluate(su, rctx, rs)
             checks = [{"controle": c.name, "ok": c.ok, "detail": c.detail, "bloquant": c.blocking} for c in rd.checks]
@@ -388,6 +393,59 @@ class Engine:
             self.mode = mode
         db.kv_set(s, "engine_mode", {"mode": mode, "problemes": q.problems, "qualite": q.level, "maj": now.isoformat()})
 
+    # ------------------------------------------------------------------ contrôle croisé TradingView
+    def _check_mirrors(self, s, now: datetime, notify: bool) -> None:
+        """Compare les franchissements calculés par le script Pine (signaux « miroir ») aux décisions du moteur.
+
+        Le miroir n'est jamais décisionnel. Un désaccord signale des données contradictoires (barres perdues,
+        décalées ou différentes) : incident visible sur le site et alerte téléphone."""
+        if self.last_mirror_check is not None and now - self.last_mirror_check < timedelta(seconds=30):
+            return
+        self.last_mirror_check = now
+        pending = s.execute(select(db.MirrorSignal).where(db.MirrorSignal.verdict.is_(None))
+                            .order_by(db.MirrorSignal.bar_ts).limit(50)).scalars().all()
+        for m in pending:
+            dec = s.execute(select(db.Decision).where(db.Decision.bar_ts == m.bar_ts).order_by(desc(db.Decision.id))).scalars().first()
+            if dec is None and now - m.received_at < MIRROR_WAIT:
+                continue
+            sens = "haussier" if m.side > 0 else "baissier"
+            heure = fmt_ny(m.bar_ts + BUCKET)
+            if dec is None:
+                m.verdict = "decision_absente"
+                why = "n'a analysé aucune barre de 15 minutes à cet instant"
+            else:
+                m.matched_signal_id = dec.signal_id
+                m.verdict = "concordant" if (dec.context or {}).get("franchissement") == m.side else "discordant"
+                why = f"ne l'a pas retrouvé (écart calculé par le moteur : {(dec.context or {}).get('z')} ATR)"
+            m.checked_at = now
+            if m.verdict == "concordant":
+                db.resolve_incident(s, "controle_croise", "miroir")
+                continue
+            msg = (f"TradingView a détecté un franchissement {sens} à la clôture de {heure} ; le moteur {why}. "
+                   "Causes possibles : barres d'une minute perdues ou décalées, historique journalier différent. "
+                   "Vérifie Journal › Webhooks avant de suivre un signal.")
+            db.open_incident(s, "avertissement", "controle_croise", "miroir", msg)
+            enqueue(s, f"mirror:{m.id}", "systeme", messages.system_alert("Contrôle croisé TradingView en désaccord", msg, now), enabled=notify)
+        # Sens inverse : signal du moteur que TradingView n'a pas signalé (seulement si le miroir fonctionne déjà)
+        if settings().data_source != "tradingview" or not s.execute(select(db.MirrorSignal.id).limit(1)).first():
+            return
+        recent = s.execute(select(db.Decision).where(db.Decision.outcome == "signal", db.Decision.bar_ts >= now - timedelta(hours=3),
+                                                     db.Decision.bar_ts <= now - BUCKET - MIRROR_WAIT)).scalars().all()
+        for d in recent:
+            sig = s.get(db.Signal, d.signal_id) if d.signal_id else None
+            if sig is None:
+                continue
+            seen = s.execute(select(db.MirrorSignal.id).where(db.MirrorSignal.bar_ts == d.bar_ts, db.MirrorSignal.side == sig.side)).first()
+            if seen:
+                continue
+            msg = (f"Le moteur a émis un signal {'LONG' if sig.side > 0 else 'SHORT'} à {fmt_ny(d.bar_ts + BUCKET)} que le script "
+                   "TradingView n'a pas confirmé. Causes possibles : barres perdues ou décalées, filtre de volatilité calculé "
+                   "différemment, signal antérieur dans le même sens côté TradingView. Prudence sur ce signal.")
+            if enqueue(s, f"mirror-missing:{sig.id}", "systeme", messages.system_alert("Contrôle croisé TradingView en désaccord", msg, now),
+                       sig.id, notify):
+                db.open_incident(s, "avertissement", "controle_croise", "miroir", msg)
+                s.add(db.SignalEvent(signal_id=sig.id, ts=now, kind="controle_croise", detail={"verdict": "non_confirme_par_tradingview"}))
+
     # ------------------------------------------------------------------ calendrier
     def _upsert_event(self, s, e: Event) -> None:
         if s.execute(select(db.EconomicEvent.id).where(db.EconomicEvent.source == e.source, db.EconomicEvent.uid == e.uid)).first():
@@ -455,25 +513,45 @@ def main() -> None:  # pragma: no cover - point d'entrée du processus
 
         feeder = ReplayFeeder(st.replay_from, st.replay_speed)
         feeder.seed_daily_history()
+        feeder.resume_from_db()
         eng = Engine(clock=feeder.now, source_filter="replay")
         eng.startup()
         while feeder.step():
             eng.tick()
-        log.info("rejeu terminé")
-        return
+        log.info("rejeu terminé : le moteur reste actif (horloge virtuelle figée) pour la consultation du site")
+        with db.session() as s:
+            db.kv_set(s, "replay_status", {"termine": True, "horloge": feeder.now().isoformat()})
+        while True:
+            eng.tick()
+            time.sleep(2)
     if st.data_source == "databento":
         from ..marketdata.databento_feed import start_databento_thread
 
         start_databento_thread(st.databento_api_key)
     eng = Engine()
     eng.startup()
+    failing = False
     while True:
         try:
             eng.tick()
+            if failing:  # retour à la normale après une erreur
+                with db.session() as s:
+                    db.resolve_incident(s, "moteur", "exception")
+                    enqueue(s, f"engine-recovered:{utcnow():%Y%m%d%H%M}", "systeme",
+                            messages.system_alert("Moteur rétabli", "Le moteur fonctionne de nouveau normalement.", utcnow()))
+                failing = False
         except Exception as e:
             log.exception("erreur du moteur")
-            with db.session() as s:
-                db.open_incident(s, "critique", "moteur", "exception", f"{type(e).__name__}: {e}"[:500])
+            try:
+                with db.session() as s:
+                    if db.open_incident(s, "critique", "moteur", "exception", f"{type(e).__name__}: {e}"[:500]):
+                        enqueue(s, f"engine-error:{utcnow():%Y%m%d%H%M}", "systeme", messages.system_alert(
+                            "Erreur du moteur", f"{type(e).__name__} : les signaux sont suspendus jusqu'au rétablissement.", utcnow()))
+                if eng.tg.configured:
+                    deliver_pending(eng.tg)
+            except Exception:  # base de données indisponible : le site affichera « moteur injoignable »
+                log.exception("impossible d'enregistrer l'incident")
+            failing = True
         time.sleep(2)
 
 

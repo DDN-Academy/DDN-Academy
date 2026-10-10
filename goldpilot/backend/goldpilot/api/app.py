@@ -14,7 +14,7 @@ from typing import Literal
 from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy import desc, func, select
 from sqlalchemy.exc import IntegrityError
 
@@ -26,7 +26,7 @@ from ..marketdata import tradingview as tv
 from ..marketdata.contracts import active_contract, next_contract
 from ..notify import messages
 from ..notify.telegram import Telegram
-from ..risk.rules import PROGRAMS, get_program
+from ..risk.rules import CHECKED_ON, PROGRAMS, get_program
 from ..risk.sizing import RiskSettings
 from ..timeutil import fmt_ny, fmt_paris, market_phase, trading_date, utcnow
 from .security import COOKIE, api_limiter, client_ip, create_session, end_session, login_limiter, require_user, verify_password, webhook_limiter
@@ -159,7 +159,8 @@ def dashboard(user: str = Depends(require_user)):
         user_mode = db.kv_get(s, "user_mode", "actif")
         halt = db.kv_get(s, "halt")
     engine_alive = hb_age is not None and hb_age < 60
-    data_age = (now - (last_bar.ts + timedelta(minutes=last_bar.minutes))).total_seconds() if last_bar else None
+    clock = datetime.fromisoformat(detail["clock"]) if st.data_source == "replay" and detail.get("clock") else now  # horloge virtuelle du rejeu
+    data_age = (clock - (last_bar.ts + timedelta(minutes=last_bar.minutes))).total_seconds() if last_bar else None
     contract = active_contract(trading_date(now))
     nxt = next_event(evs, now)
     tg_ok = bool(st.telegram_bot_token and st.telegram_chat_id)
@@ -201,7 +202,9 @@ def dashboard(user: str = Depends(require_user)):
         "compte_simule": paper,
         "compte_reel": ({"solde": upd.balance, "maj": fmt_paris(upd.created_at), "plancher": None} if upd else None),
     }
-    return {"maintenant": iso(now), "statut": status, "marche": market, "trading": trading,
+    replay = {"horloge": detail.get("clock"), "horloge_paris": fmt_paris(datetime.fromisoformat(detail["clock"])) if detail.get("clock") else None} \
+        if st.data_source == "replay" else None
+    return {"maintenant": iso(now), "rejeu": replay, "statut": status, "marche": market, "trading": trading,
             "incidents": [{"gravite": i.severity, "message": i.message, "depuis": fmt_paris(i.created_at)} for i in incidents]}
 
 
@@ -281,8 +284,11 @@ def signal_detail(sid: str, user: str = Depends(require_user)):
             raise HTTPException(404, "signal inconnu")
         evs = s.execute(select(db.SignalEvent).where(db.SignalEvent.signal_id == sid).order_by(db.SignalEvent.ts)).scalars().all()
         dec = s.execute(select(db.Decision).where(db.Decision.signal_id == sid)).scalars().first()
+        notes = s.execute(select(db.Notification).where(db.Notification.signal_id == sid).order_by(db.Notification.id)).scalars().all()
         return {"signal": sig_json(r), "evenements": [{"heure": fmt_paris(e.ts), "type": e.kind, "detail": e.detail} for e in evs],
-                "controles_risque": dec.risk_checks if dec else []}
+                "controles_risque": dec.risk_checks if dec else [], "contexte": dec.context if dec else {},
+                "alertes": [{"type": n.kind, "statut": n.status, "creee": fmt_paris(n.created_at),
+                             "envoyee": fmt_paris(n.sent_at) if n.sent_at else None, "erreur": n.error} for n in notes]}
 
 
 class Execution(BaseModel):
@@ -323,7 +329,7 @@ def cancel_signal(sid: str, user: str = Depends(require_user)):
 
 # ---------------------------------------------------------------------------------------------- journal
 @app.get("/api/journal")
-def journal(type: Literal["decisions", "incidents", "notifications", "webhooks", "audit"] = "decisions", limit: int = 100,
+def journal(type: Literal["decisions", "incidents", "notifications", "webhooks", "controle", "audit"] = "decisions", limit: int = 100,
             user: str = Depends(require_user)):
     lim = min(max(limit, 1), 500)
     with db.session() as s:
@@ -344,6 +350,10 @@ def journal(type: Literal["decisions", "incidents", "notifications", "webhooks",
             rows = s.execute(select(db.WebhookLog).order_by(desc(db.WebhookLog.id)).limit(lim)).scalars()
             return {"lignes": [{"heure": fmt_paris(w.received_at), "ip": w.ip, "type": w.kind, "accepte": w.accepted, "raison": w.reason}
                                for w in rows]}
+        if type == "controle":
+            rows = s.execute(select(db.MirrorSignal).order_by(desc(db.MirrorSignal.id)).limit(lim)).scalars()
+            return {"lignes": [{"heure": fmt_ny(m.bar_ts + timedelta(minutes=15)), "contrat": m.symbol, "sens": "LONG" if m.side > 0 else "SHORT",
+                                "prix": m.price, "verdict": m.verdict or "en attente", "signal": m.matched_signal_id} for m in rows]}
         rows = s.execute(select(db.Audit).order_by(desc(db.Audit.id)).limit(lim)).scalars()
         return {"lignes": [{"heure": fmt_paris(a.ts), "acteur": a.actor, "action": a.action, "detail": a.detail} for a in rows]}
 
@@ -364,7 +374,28 @@ def stats(user: str = Depends(require_user)):
                  "drawdown_max_R": float((eq - np.maximum.accumulate(np.r_[0, eq])[1:]).min()),
                  "pnl_usd": float(sum(r.sim_pnl_usd or 0 for r in closed)),
                  "courbe": [{"date": r.created_at.date().isoformat(), "R": float(x)} for r, x in zip(closed, eq)]}
-    return {"production": strategy_config.load_production(), "selection": research_json("selection/selection.json"),
+    with db.session() as s:
+        recent = s.execute(select(db.Signal).order_by(desc(db.Signal.created_at)).limit(500)).scalars().all()
+        sent = {n.signal_id: n.sent_at for n in s.execute(select(db.Notification).where(
+            db.Notification.kind == "signal", db.Notification.sent_at.is_not(None))).scalars()}
+        mirrors = s.execute(select(db.MirrorSignal.verdict, func.count()).group_by(db.MirrorSignal.verdict)).all()
+    engine_lat, alert_lat, slip_atr = [], [], []
+    for r in recent:
+        close = datetime.fromtimestamp(int((r.meta or {}).get("decision_bar_ts", 0)) / 1e9, tz=r.created_at.tzinfo) + timedelta(minutes=15)
+        engine_lat.append((r.created_at - close).total_seconds())
+        if sent.get(r.id):
+            alert_lat.append((sent[r.id] - close).total_seconds())
+        if r.sim_entry is not None and r.atr:
+            slip_atr.append((r.sim_entry - r.entry_ref) * r.side / r.atr)
+
+    def med(x):
+        return float(sorted(x)[len(x) // 2]) if x else None
+
+    execution = {"signaux": len(recent), "delai_moteur_median_s": med(engine_lat), "delai_alerte_median_s": med(alert_lat),
+                 "delai_alerte_max_s": max(alert_lat) if alert_lat else None,
+                 "ecart_entree_simulee_median_atr": med(slip_atr),
+                 "controle_croise": {(v or "en attente"): n for v, n in mirrors}}
+    return {"production": strategy_config.load_production(), "selection": research_json("selection/selection.json"), "execution": execution,
             "test_final": research_json("final/final.json"), "monte_carlo": research_json("final/montecarlo.json"),
             "paper": paper}
 
@@ -378,10 +409,12 @@ def get_settings(user: str = Depends(require_user)):
         rs = db.kv_get(s, "risk_settings") or conf.get("risk_settings_default") or RiskSettings().to_dict()
         prog_key = db.kv_get(s, "program", "flex_50k_challenge")
         trading_mode = db.kv_get(s, "trading_mode", "simulation")
+        fn = db.kv_get(s, "fundednext_confirmation") or {"confirme": False, "reference": ""}
     contract = active_contract(trading_date(utcnow()))
     return {
         "risque": rs, "programme": prog_key, "programmes": {k: p.to_dict() for k, p in PROGRAMS.items()},
-        "mode_trading": trading_mode, "strategie_validee": bool(conf.get("validated")),
+        "mode_trading": trading_mode, "strategie_validee": bool(conf.get("validated")), "confirmation_fundednext": fn,
+        "regles_verifiees_le": CHECKED_ON,
         "tradingview": {"url_webhook": f"{st.public_base_url}/api/webhooks/tradingview", "jeton_defini": bool(st.tv_webhook_token),
                         "symbole": contract.tradingview, "unite": "1 minute"},
         "telegram": {"configure": bool(st.telegram_bot_token and st.telegram_chat_id), "jeton_defini": bool(st.telegram_bot_token)},
@@ -389,12 +422,23 @@ def get_settings(user: str = Depends(require_user)):
     }
 
 
+class RiskBody(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    risk_per_trade_usd: float
+    max_cushion_fraction: float
+    daily_loss_stop_usd: float
+    max_trades_per_day: int
+    max_losses_per_day: int
+    consistency_lock_fraction: float
+    safety_margin_usd: float
+    slippage_allowance_oz: float
+    commission_per_contract_rt: float
+    max_contracts_personal: int
+
+
 @app.put("/api/settings/risk")
-def put_risk(body: dict, user: str = Depends(require_user)):
-    try:
-        rs = RiskSettings(**body)
-    except TypeError as e:
-        raise HTTPException(422, f"champ inconnu : {e}") from None
+def put_risk(body: RiskBody, user: str = Depends(require_user)):
+    rs = RiskSettings(**body.model_dump())
     errs = rs.validate()
     if errs:
         raise HTTPException(422, " ".join(errs))
@@ -430,11 +474,33 @@ def put_trading_mode(body: TradingModeBody, user: str = Depends(require_user)):
     if body.mode == "reel":
         if not conf.get("validated"):
             raise HTTPException(409, "Refusé : la stratégie n'a pas satisfait les critères de validation. Le mode réel reste verrouillé.")
+        with db.session() as s:
+            fn = db.kv_get(s, "fundednext_confirmation") or {}
+        if not fn.get("confirme"):
+            raise HTTPException(409, "Refusé : déclare d'abord la confirmation écrite de FundedNext (outil personnel de signaux autorisé).")
         if body.confirmation != "JE CONFIRME LE PASSAGE EN REEL":
             raise HTTPException(422, "Confirmation exacte requise : « JE CONFIRME LE PASSAGE EN REEL »")
     with db.session() as s:
         db.kv_set(s, "trading_mode", body.mode)
         db.audit(s, user, "mode_trading", {"mode": body.mode})
+    return {"ok": True}
+
+
+class FundedNextConfirmation(BaseModel):
+    confirme: bool
+    reference: str = Field(default="", max_length=200)  # numéro de ticket, date de l'e-mail…
+
+
+@app.put("/api/settings/fundednext-confirmation")
+def put_fundednext_confirmation(body: FundedNextConfirmation, user: str = Depends(require_user)):
+    if body.confirme and len(body.reference.strip()) < 3:
+        raise HTTPException(422, "Indique la référence de la réponse écrite de FundedNext (numéro de ticket ou date de l'e-mail).")
+    with db.session() as s:
+        db.kv_set(s, "fundednext_confirmation", {"confirme": body.confirme, "reference": body.reference.strip(), "date": utcnow().isoformat()})
+        db.audit(s, user, "confirmation_fundednext", body.model_dump())
+        if not body.confirme and db.kv_get(s, "trading_mode") == "reel":
+            db.kv_set(s, "trading_mode", "simulation")
+            db.audit(s, user, "mode_trading", {"mode": "simulation", "raison": "confirmation FundedNext retirée"})
     return {"ok": True}
 
 

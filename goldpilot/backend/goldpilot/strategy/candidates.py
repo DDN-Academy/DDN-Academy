@@ -85,8 +85,19 @@ class S1SessionExtension(_Candidate):
         if np.isfinite(z):
             regime = "extension haussière" if z > self.k else "extension baissière" if z < -self.k else (
                 "tendance modérée" if abs(z) > self.k / 2 else "équilibre autour de la moyenne")
+        same_day_prev = i > 0 and A["td"][i - 1] == A["td"][i]
+        zp = A["z"][i - 1] if same_day_prev else np.nan
+        up = bool(np.isfinite(z) and z > self.k and (not np.isfinite(zp) or zp <= self.k))
+        dn = bool(np.isfinite(z) and z < -self.k and (not np.isfinite(zp) or zp >= -self.k))
+        in_window = self.w0 <= close_m <= self.w1
+        # Information de contrôle (comparée au script Pine) : franchissement dans la fenêtre, filtre compris.
+        cross = (1 if up else -1 if dn else 0) if in_window else 0
+        if cross and self.use_filter:
+            rk = A["rr_rank"][i]
+            cross = cross if (np.isfinite(rk) and rk <= 2 / 3) else 0
+        ctx["franchissement"] = cross
         reasons: list[str] = []
-        if not (self.w0 <= close_m <= self.w1):
+        if not in_window:
             reasons.append("hors de la fenêtre de décision 03:00-13:00 New York")
         if not (np.isfinite(a) and a > 0 and np.isfinite(z)):
             reasons.append("indicateurs pas encore disponibles (historique insuffisant)")
@@ -94,10 +105,6 @@ class S1SessionExtension(_Candidate):
             reasons.append("une position est déjà en cours")
         if reasons:
             return Evaluation(ts, regime, ctx, [], reasons)
-        same_day_prev = i > 0 and A["td"][i - 1] == A["td"][i]
-        zp = A["z"][i - 1] if same_day_prev else np.nan
-        up = z > self.k and (not np.isfinite(zp) or zp <= self.k)
-        dn = z < -self.k and (not np.isfinite(zp) or zp >= -self.k)
         if not (up or dn):
             reasons.append(f"pas de franchissement du seuil d'extension ±{self.k:g} ATR (écart actuel {z:+.1f} ATR)")
             return Evaluation(ts, regime, ctx, [], reasons)
