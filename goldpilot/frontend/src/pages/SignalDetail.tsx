@@ -121,10 +121,12 @@ export function SignalDetail() {
                   <tr key={i} data-testid="ligne-controle">
                     <td>
                       {c.controle}
-                      {c.bloquant === false ? <div className="small muted">non bloquant</div> : null}
+                      {c.bloquant === false ? <div className="small muted">non bloquant (information) : {c.ok ? "OK" : "KO"}</div> : null}
                     </td>
                     <td>
-                      <Badge ton={c.ok ? "ok" : "bad"}>{c.ok ? "OK" : "KO"}</Badge>
+                      <Badge ton={c.bloquant === false ? "info" : c.ok ? "ok" : "bad"}>
+                        {c.bloquant === false ? "Info" : c.ok ? "OK" : "KO"}
+                      </Badge>
                     </td>
                     <td>{c.detail}</td>
                   </tr>

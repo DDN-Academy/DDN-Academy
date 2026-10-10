@@ -244,6 +244,7 @@ export const EVENEMENTS_SIGNAL: Record<string, string> = {
 export const GRAVITES: Record<string, { libelle: string; ton: Ton }> = {
   critique: { libelle: "Critique", ton: "bad" },
   alerte: { libelle: "Alerte", ton: "warn" },
+  avertissement: { libelle: "Avertissement", ton: "warn" },
   info: { libelle: "Information", ton: "info" },
 };
 

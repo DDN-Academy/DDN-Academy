@@ -408,6 +408,11 @@ function MonteCarlo({ s }: { s: StatsT }) {
   );
 }
 
+/** Décimales publiées par FRED : 4 pour l'indice dollar DTWEXBGS, 2 pour les taux. */
+export function decimalesMacro(id: string): number {
+  return id === "DTWEXBGS" ? 4 : 2;
+}
+
 function Macro({ ctx, charge }: { ctx: ContexteMacro | undefined; charge: boolean }) {
   return (
     <Card titre="Contexte macro" id="macro" testid="contexte-macro">
@@ -427,42 +432,39 @@ function Macro({ ctx, charge }: { ctx: ContexteMacro | undefined; charge: boolea
           <Badge ton="warn">Indisponible</Badge> {ctx.probleme ?? "Source injoignable ou non configurée."}
           {ctx.maj ? <span className="small muted"> Dernière mise à jour réussie : {dateHeure(ctx.maj)}.</span> : null}
         </p>
+      ) : ctx.probleme ? (
+        <p data-testid="macro-probleme">
+          <Badge ton="warn">Partiel</Badge> {ctx.probleme}
+        </p>
       ) : null}
       {ctx && ctx.series?.length ? (
-        <div className="table-wrap">
-          <table data-testid="table-macro">
-            <caption>
-              Source : {ctx.source}
-              {ctx.maj ? ` — mis à jour le ${dateHeure(ctx.maj)} (Paris)` : ""}
-              {!ctx.disponible ? " — valeurs possiblement anciennes" : ""}
-            </caption>
-            <thead>
-              <tr>
-                <th>Série</th>
-                <th className="n">Valeur</th>
-                <th className="n">Variation 5 j</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ctx.series.map((x) => (
-                <tr key={x.id}>
-                  <td>
-                    <a href={x.url} target="_blank" rel="noopener noreferrer">
-                      {x.nom}
-                    </a>{" "}
-                    <span className="small muted">({x.id})</span>
-                  </td>
-                  <td className="n">
-                    {estNombre(x.valeur) ? `${nombre(x.valeur, 2)} ${x.unite}` : "—"}
-                  </td>
-                  <td className="n">{estNombre(x.variation_5j) ? `${signe(x.variation_5j, 2)} ${x.unite === "%" ? "pt" : x.unite}` : "—"}</td>
-                  <td>{dateCourte(x.date)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <>
+          <p className="small muted" style={{ marginBottom: 4 }}>
+            Source : {ctx.source}
+            {ctx.maj ? ` — mis à jour le ${dateHeure(ctx.maj)} (heure de Paris)` : ""}
+            {!ctx.disponible ? " — valeurs possiblement anciennes" : ""}
+          </p>
+          <ul className="list" data-testid="table-macro">
+            {ctx.series.map((x) => (
+              <li key={x.id}>
+                <div>
+                  <a href={x.url} target="_blank" rel="noopener noreferrer">
+                    {x.nom}
+                  </a>{" "}
+                  <span className="small muted">({x.id})</span>
+                </div>
+                <div>
+                  <strong className="num">{estNombre(x.valeur) ? nombre(x.valeur, decimalesMacro(x.id)) : "—"}</strong>{" "}
+                  <span className="small">{x.unite}</span>
+                </div>
+                <div className="small muted">
+                  Valeur du {dateCourte(x.date)} · variation sur 5 jours ouvrés :{" "}
+                  {estNombre(x.variation_5j) ? `${signe(x.variation_5j, decimalesMacro(x.id))} ${x.unite === "%" ? "point(s) de %" : "point(s) d'indice"}` : "non calculée"}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </>
       ) : null}
       <p className="small muted" style={{ marginTop: 8, marginBottom: 0 }}>
         Ces séries aident à comprendre l'environnement de l'or (taux réels, dollar…). Elles ne déclenchent aucun signal. Voir aussi{" "}

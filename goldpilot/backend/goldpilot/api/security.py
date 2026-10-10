@@ -3,7 +3,8 @@
 * Mot de passe : hachage scrypt (bibliothèque standard), jamais stocké en clair ; seul le hachage est
   placé dans la variable ADMIN_PASSWORD_HASH.
 * Session : jeton aléatoire de 256 bits dans un cookie HttpOnly, SameSite=Strict, Secure en production ;
-  seul le SHA-256 du jeton est stocké en base (une fuite de la base ne permet pas de se connecter).
+  seule son empreinte HMAC-SHA256 (clé SECRET_KEY) est stockée en base : une fuite de la base ne permet pas de
+  se connecter, et changer SECRET_KEY révoque toutes les sessions d'un coup.
 * Protection CSRF : cookie SameSite=Strict + en-tête obligatoire X-GoldPilot sur toute requête qui modifie.
 * Connexion : 5 essais par 15 minutes et par adresse IP.
 """
@@ -71,8 +72,12 @@ webhook_limiter = RateLimiter(120, 60)
 api_limiter = RateLimiter(300, 60)
 
 
+DEV_KEY = "goldpilot-dev-insecure-key"  # développement/tests uniquement : la production exige SECRET_KEY (config.startup_problems)
+
+
 def _digest(token: str) -> str:
-    return hashlib.sha256(token.encode()).hexdigest()
+    """Empreinte HMAC-SHA256 du jeton de session, clé = SECRET_KEY. Changer SECRET_KEY déconnecte toutes les sessions."""
+    return hmac.new((settings().secret_key or DEV_KEY).encode(), token.encode(), hashlib.sha256).hexdigest()
 
 
 def create_session(ip: str) -> str:

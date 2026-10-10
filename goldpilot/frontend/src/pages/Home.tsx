@@ -14,6 +14,8 @@ export function Home() {
   const dash = d.data;
   const ind = indicateursSysteme(dash, d.joignable);
   const fiable = !!dash && d.joignable;
+  // Les avertissements du contexte macro (FRED, information seulement) restent au journal, pas sur l'accueil.
+  const incidents = dash ? dash.incidents.filter((i) => i.composant !== "contexte") : [];
 
   return (
     <>
@@ -31,11 +33,11 @@ export function Home() {
         <p>{ind.global.texte}</p>
       </Banner>
 
-      {fiable && dash.incidents.length > 0 ? (
+      {fiable && incidents.length > 0 ? (
         <section className="card" data-testid="incidents" aria-labelledby="incidents-titre" role="alert">
-          <h2 id="incidents-titre">Incidents ouverts ({dash.incidents.length})</h2>
+          <h2 id="incidents-titre">Incidents ouverts ({incidents.length})</h2>
           <ul className="list">
-            {dash.incidents.map((i, k) => (
+            {incidents.map((i, k) => (
               <li key={k}>
                 <div className="row">
                   <Badge ton={gravite(i.gravite).ton}>{gravite(i.gravite).libelle}</Badge>
@@ -328,10 +330,6 @@ function Actions({ dash, recharger }: { dash: Dashboard | null; recharger: () =>
         <Link to="/reglages" className="btn" data-testid="action-parametres">
           <Icon name="settings" />
           Paramètres
-        </Link>
-        <Link to="/aide" className="btn" data-testid="action-aide">
-          <Icon name="help" />
-          Aide
         </Link>
       </div>
       {arret ? (

@@ -1,0 +1,5 @@
+# Fichiers du serveur : jamais dans Git (secrets et données)
+.env
+.env.*
+!.env.example
+backups/

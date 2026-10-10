@@ -700,6 +700,7 @@ main {
   font-size: 0.9rem;
 }
 .btn svg {
+  flex-shrink: 0;
   width: 18px;
   height: 18px;
 }
@@ -1185,5 +1186,20 @@ code {
   * {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+}
+
+/* Petits écrans : tableaux plus compacts pour limiter le défilement horizontal. */
+@media (max-width: 520px) {
+  table {
+    font-size: 0.82rem;
+  }
+  th,
+  td {
+    padding: 6px 5px;
+  }
+  th {
+    font-size: 0.7rem;
+    letter-spacing: 0;
   }
 }

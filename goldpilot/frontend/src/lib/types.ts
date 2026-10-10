@@ -147,6 +147,8 @@ export interface Incident {
   gravite: string;
   message: string;
   depuis: string;
+  /** Composant source (si le serveur le fournit) : « contexte » = avertissements macro FRED, sans effet sur les signaux. */
+  composant?: string;
 }
 
 export interface Dashboard {

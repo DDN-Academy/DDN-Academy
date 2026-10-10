@@ -180,36 +180,25 @@ function ProgrammeSection({ reglages, recharger }: { reglages: Reglages; recharg
               ]}
             />
           </div>
-          <div className="table-wrap" style={{ marginTop: 12 }}>
-            <table data-testid="table-regles">
-              <caption>Règles et leur statut (une règle incertaine bloque les trades potentiellement non conformes en mode réel)</caption>
-              <thead>
-                <tr>
-                  <th>Règle</th>
-                  <th>Valeur</th>
-                  <th>Statut</th>
-                  <th>Source</th>
-                </tr>
-              </thead>
-              <tbody>
-                {p.rules.map((rg, i) => (
-                  <tr key={i}>
-                    <td>{rg.name}</td>
-                    <td>{rg.value}</td>
-                    <td>
-                      <Badge ton={STATUT_REGLE[rg.status] ?? "warn"}>{rg.status}</Badge>
-                    </td>
-                    <td>
-                      <a href={rg.source} target="_blank" rel="noopener noreferrer">
-                        page officielle
-                      </a>
-                      <div className="small muted">vérifié le {dateCourte(p.checked_on)}</div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h3 style={{ marginTop: 14 }}>Règles et leur statut</h3>
+          <p className="small muted">Une règle incertaine (contradictoire ou inconnue) bloque les trades potentiellement non conformes en mode réel.</p>
+          <ul className="list" data-testid="table-regles">
+            {p.rules.map((rg, i) => (
+              <li key={i} data-testid="ligne-regle">
+                <div className="row">
+                  <strong>{rg.name}</strong>
+                  <Badge ton={STATUT_REGLE[rg.status] ?? "warn"}>{rg.status}</Badge>
+                </div>
+                <div>{rg.value}</div>
+                <div className="small muted">
+                  <a href={rg.source} target="_blank" rel="noopener noreferrer">
+                    page officielle
+                  </a>{" "}
+                  · vérifié le {dateCourte(p.checked_on)}
+                </div>
+              </li>
+            ))}
+          </ul>
         </>
       ) : null}
     </Card>
@@ -508,6 +497,10 @@ function TradingView({ reglages }: { reglages: Reglages }) {
         <li>
           Vérifie dans <Link to="/journal?onglet=webhooks">Journal › Webhooks</Link> que des messages « Accepté » arrivent chaque minute
           pendant les heures de marché.
+        </li>
+        <li>
+          Note la <strong>date d'expiration</strong> de l'alerte : sauf sur les plans Premium et Ultimate, TradingView arrête une alerte
+          au bout de 2 mois. Recrée-la avant cette date (et à chaque changement d'échéance du contrat).
         </li>
         <li>À chaque changement de contrat (roll), refais l'alerte sur le nouveau contrat indiqué sur la page d'accueil.</li>
       </ol>

@@ -170,3 +170,16 @@ def test_stale_signal_alert_never_sent(env):
     with db.session() as s:
         st = {n.signal_id: n.status for n in s.execute(select(db.Notification)).scalars()}
     assert st[expired] == st[cancelled] == st[band] == "perime" and st[fresh] == "envoye"
+
+
+def test_logging_never_leaks_urls(caplog):
+    """httpx journalise l'URL complète au niveau INFO ; l'URL Telegram contient le jeton du bot."""
+    import logging
+
+    from goldpilot.engine.runner import configure_logging
+
+    logging.getLogger("httpx").setLevel(logging.NOTSET)
+    configure_logging("INFO")
+    with caplog.at_level(logging.INFO):  # niveau racine INFO, comme en production avec LOG_LEVEL=INFO
+        assert tg(FakeTelegram()).send_now("x")[0]
+    assert "123:ABC" not in caplog.text

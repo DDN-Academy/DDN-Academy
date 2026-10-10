@@ -3,9 +3,10 @@
 # Procédure complète, pas à pas : docs/05_deploiement_et_exploitation.md
 #
 #   cd goldpilot/deploy
-#   cp .env.example .env && chmod 600 .env     # puis remplir .env (jamais dans Git)
-#   docker compose build
+#   docker build -t goldpilot:latest ..        # première fois (ensuite : docker compose build)
+#   sh scripts/init-secrets.sh                 # crée .env (jamais dans Git) et ses secrets ; puis nano .env
 #   docker compose up -d
+#   sh scripts/status.sh
 #
 # Services :
 #   postgres  base de données (jamais exposée à l'extérieur, réseau interne sans accès Internet)

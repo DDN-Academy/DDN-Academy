@@ -573,8 +573,14 @@ class Engine:
                 f"Mets à jour le graphique TradingView (alerte GoldPilot Bridge) et Tradovate.", now), enabled=notify)
 
 
+def configure_logging(level: str) -> None:
+    logging.basicConfig(level=level, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    for noisy in ("httpx", "httpcore"):  # ces bibliothèques journalisent l'URL complète (jeton Telegram, clé FRED)
+        logging.getLogger(noisy).setLevel(logging.WARNING)
+
+
 def main() -> None:  # pragma: no cover - point d'entrée du processus
-    logging.basicConfig(level=settings().log_level, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    configure_logging(settings().log_level)
     st = settings()
     probs = st.startup_problems()
     if probs:

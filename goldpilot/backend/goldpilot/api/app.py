@@ -208,7 +208,8 @@ def dashboard(user: str = Depends(require_user)):
     replay = {"horloge": detail.get("clock"), "horloge_paris": fmt_paris(datetime.fromisoformat(detail["clock"])) if detail.get("clock") else None} \
         if st.data_source == "replay" else None
     return {"maintenant": iso(now), "rejeu": replay, "statut": status, "marche": market, "trading": trading,
-            "incidents": [{"gravite": i.severity, "message": i.message, "depuis": fmt_paris(i.created_at)} for i in incidents]}
+            "incidents": [{"gravite": i.severity, "composant": i.component, "message": i.message, "depuis": fmt_paris(i.created_at)}
+                          for i in incidents]}
 
 
 # ---------------------------------------------------------------------------------------------- actions

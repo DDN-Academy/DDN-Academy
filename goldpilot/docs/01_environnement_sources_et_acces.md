@@ -100,7 +100,10 @@ les niveaux du système pour vérification visuelle. On ne te demande jamais ton
 
 Avec un compte TradingView **gratuit** : pas de webhooks, et données COMEX différées de 10 minutes.
 Pour que « TradingView seul » fonctionne réellement, il faut :
-1. un abonnement **Essential** ou supérieur (prix sur https://www.tradingview.com/pricing/) ;
+1. un abonnement **Essential** ou supérieur (prix sur https://www.tradingview.com/pricing/) ; mise à jour du
+   10/10/2026 : des sources tierces divergent sur le plan minimum incluant les webhooks (Essential ou Plus) et,
+   hors Premium/Ultimate, une alerte expire au bout de 2 mois au maximum — détails et prix dans
+   `07_cles_abonnements_autorisations.md` ;
 2. la **double authentification** activée ;
 3. le forfait temps réel **CME/COMEX (9,95 $/mois non-pro)**, sinon les prix reçus auraient 10 minutes
    de retard et le système refuserait d'émettre des signaux.
@@ -130,7 +133,7 @@ Sources Telegram : [Bot API](https://core.telegram.org/bots/api), [FAQ limites](
 (texte ≤ 4 096 caractères, ~1 message/s par conversation). Web Push iOS :
 [WebKit](https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/).
 
-## 8. Ce que je ne peux pas obtenir moi-même (à faire par toi, détaillé dans le guide d'installation)
+## 8. Ce que je ne peux pas obtenir moi-même (à faire par toi, détaillé dans `05`, `06` et `07`)
 
 1. Passer TradingView en Essential + 2FA + forfait temps réel COMEX (section 6).
 2. Créer un bot Telegram (gratuit, 2 minutes) et me donner son jeton via la configuration du serveur.

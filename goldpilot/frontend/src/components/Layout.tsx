@@ -56,11 +56,13 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
           </Banner>
         ) : null}
         {dash?.rejeu ? (
-          <Banner ton="info" titre="REJEU HISTORIQUE — rien n'est réel" testid="bandeau-rejeu" className="compact">
-            <p>
-              Horloge virtuelle : {dash.rejeu.horloge_paris ?? "inconnue"}. Données XAUUSD passées : aucun prix ni signal ne correspond au
-              marché actuel.
-            </p>
+          <Banner
+            ton="info"
+            titre={`REJEU HISTORIQUE — horloge virtuelle ${dash.rejeu.horloge_paris ?? "inconnue"}, rien n'est réel`}
+            testid="bandeau-rejeu"
+            className="compact"
+          >
+            <p>Données XAUUSD passées rejouées : aucun prix ni signal ne correspond au marché actuel.</p>
           </Banner>
         ) : null}
         {!reel ? (

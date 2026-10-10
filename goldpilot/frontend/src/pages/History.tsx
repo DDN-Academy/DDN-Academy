@@ -80,7 +80,7 @@ export function History() {
                         <span className={s.sens === "LONG" ? "pos" : "neg"}>{s.sens === "LONG" ? "▲" : "▼"}</span> {s.sens} {s.contrat}
                       </span>
                       <span className={`sig-res ${classeSigne(s.simulation.r)}`}>
-                        {s.simulation.r !== null ? enR(s.simulation.r) : "—"}
+                        {s.simulation.r !== null ? enR(s.simulation.r) : null}
                         <span className="sig-meta" style={{ display: "block", fontWeight: 400 }}>
                           {s.simulation.pnl_usd !== null ? usd(s.simulation.pnl_usd, 0, true) : "pas de résultat"}
                         </span>
