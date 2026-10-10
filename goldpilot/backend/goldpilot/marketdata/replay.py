@@ -14,7 +14,8 @@ from datetime import datetime, timedelta, timezone
 import pandas as pd
 
 from .. import db
-from ..research.data import load_5m
+from ..research.data import load_15m, load_5m
+from ..strategy.indicators import time_columns
 from ..timeutil import trading_date
 from .contracts import active_contract
 
@@ -30,6 +31,22 @@ class ReplayFeeder:
         self.speed = speed
         self.minutes = minutes
         self._now = d.index[0].to_pydatetime() if len(d) else datetime.now(tz=timezone.utc)
+
+    def seed_daily_history(self, days: int = 300) -> int:
+        """Historique journalier antérieur au début du rejeu (équivalent du message « daily » de TradingView)."""
+        if not len(self.data):
+            return 0
+        h = load_15m()
+        h = h[h.index < self.data.index[0]]
+        tc = time_columns(h.index)
+        g = pd.DataFrame({"td": tc["td"].to_numpy(), "h": h["high"].to_numpy(), "l": h["low"].to_numpy(), "c": h["close"].to_numpy()})
+        first_td = int(time_columns(self.data.index[:1])["td"].iloc[0])
+        daily = g.groupby("td").agg(h=("h", "max"), l=("l", "min"), c=("c", "last"))
+        daily = daily[daily.index < first_td].iloc[-days:]  # journées complètes uniquement
+        with db.session() as s:
+            for td, r in daily.iterrows():
+                s.add(db.DailyBar(source="replay", symbol="XAUUSD-historique", td=int(td), high=float(r["h"]), low=float(r["l"]), close=float(r["c"])))
+        return len(daily)
 
     def now(self) -> datetime:
         return self._now

@@ -77,6 +77,7 @@ class Engine:
         self.source_filter = source_filter
         self.decided: set[int] = set()
         self.current_bucket: pd.Timestamp | None = None
+        self.last_decision_atr = float("nan")  # ATR de la dernière barre de décision clôturée (comme le backtest)
 
     # ------------------------------------------------------------------ démarrage
     def startup(self) -> None:
@@ -182,20 +183,12 @@ class Engine:
         opens = sm.open_signals(s)
         if not opens:
             return
-        a = self._last_atr(b.symbol)
+        a = self.last_decision_atr
         for sig in opens:
             before = sig.status
             sm.on_base_bar(s, sig, b.ts, b.open, b.high, b.low, b.close, a, td_int(b.ts), msess(b.ts), notify)
             if before != "CLOTURE" and sig.status == "CLOTURE":
                 self._on_closed(s, sig, notify)
-
-    def _last_atr(self, symbol: str) -> float:
-        b = self._symbol_bars(symbol)
-        if b.empty:
-            return float("nan")
-        r = resample(b[["open", "high", "low", "close", "volume"]].astype(float), 15).iloc[-41:]
-        tr = pd.concat([r["high"] - r["low"], (r["high"] - r["close"].shift()).abs(), (r["low"] - r["close"].shift()).abs()], axis=1).max(axis=1)
-        return float(tr.iloc[-40:].mean()) if len(tr) >= 40 else float("nan")
 
     def _on_closed(self, s, sig: db.Signal, notify: bool) -> None:
         acct = self._load_paper(s)
@@ -229,6 +222,7 @@ class Engine:
         F = self.strategy.prepare(F15, daily_history=daily)
         A = arrays(F)
         i = len(F) - 1
+        self.last_decision_atr = float(A["atr"][i])
         for sig in sm.open_signals(s):
             sm.on_decision_bar_close(s, sig, float(A["high"][i]), float(A["low"][i]), float(A["atr"][i]), float(A["close"][i]), notify)
         opens = sm.open_signals(s)
@@ -246,7 +240,7 @@ class Engine:
         program_key = db.kv_get(s, "program", DEFAULT_PROGRAM)
         trading_mode = db.kv_get(s, "trading_mode", "simulation")
         acct, known, note = self._account_for_risk(s, trading_mode, now)
-        q = self.last_quality or dq.assess(self._symbol_bars(expected).iloc[-300:], now, list(self.delays))
+        q = dq.assess(self.bars.sort_index().iloc[-300:], now, list(self.delays))  # état des données à l'instant de la décision
         for su in ev.setups:
             skey = f"{self.version}:{key}:{su.side}"
             dup = s.execute(select(db.Signal.id).where(db.Signal.key == skey)).first() is not None
@@ -266,7 +260,7 @@ class Engine:
             mode = "reel" if (trading_mode == "reel" and validated) else "simulation"
             nxt = next_event(self.events, now)
             sig = db.Signal(
-                key=skey, mode=mode, validated=validated, strategy_version=self.version, symbol=expected, side=su.side,
+                key=skey, created_at=now, mode=mode, validated=validated, strategy_version=self.version, symbol=expected, side=su.side,
                 entry_type=su.entry_type, entry_ref=su.planned_entry, entry_max_drift=su.max_price_drift_atr * su.atr,
                 stop=su.stop, target=su.target, trail_atr=su.trail_atr, atr=su.atr, contracts=rd.contracts,
                 risk_usd=rd.risk_usd, reward_risk=su.reward_risk,
@@ -282,7 +276,7 @@ class Engine:
             )
             s.add(sig)
             s.flush()
-            s.add(db.SignalEvent(signal_id=sig.id, kind="cree", detail={"contrats": rd.contracts, "risque": rd.risk_usd}))
+            s.add(db.SignalEvent(signal_id=sig.id, ts=now, kind="cree", detail={"contrats": rd.contracts, "risque": rd.risk_usd}))
             label = active_contract(trading_date(bar_ts)).label()
             enqueue(s, f"new:{sig.id}", "signal", messages.new_signal(sig, label, (self.conf or {}).get("rapport_gain_perte_historique"),
                                                                        sig.calendar_note), sig.id, notify)
@@ -460,6 +454,7 @@ def main() -> None:  # pragma: no cover - point d'entrée du processus
         from ..marketdata.replay import ReplayFeeder
 
         feeder = ReplayFeeder(st.replay_from, st.replay_speed)
+        feeder.seed_daily_history()
         eng = Engine(clock=feeder.now, source_filter="replay")
         eng.startup()
         while feeder.step():

@@ -74,8 +74,12 @@ def _persist_position(sig: db.Signal, sim: ExecutionSimulator) -> None:
 
 def on_base_bar(s, sig: db.Signal, ts: datetime, o: float, h: float, l: float, c: float, atr: float, td: int, msess_: int,
                 notify: bool) -> None:
-    """Applique une barre de base (1 min en direct) à un signal ouvert."""
-    if sig.status not in OPEN_STATUSES or ts < sig.created_at:
+    """Applique une barre de base (1 min en direct) à un signal ouvert.
+
+    Seules les barres commençant à ou après la clôture de la barre de décision sont prises en compte
+    (la barre suivante commence avant l'instant où le moteur crée le signal)."""
+    decision_close = dt_ns(int((sig.meta or {}).get("decision_bar_ts", 0)) + 15 * 60 * 1_000_000_000)
+    if sig.status not in OPEN_STATUSES or ts < decision_close:
         return
     m = dict(sig.meta or {})
     # Fenêtre d'entrée manuelle : prévenir une fois si le prix sort de la plage annoncée
@@ -146,10 +150,7 @@ def open_signals(s) -> list[db.Signal]:
 
 
 def today_stats(s, now: datetime) -> dict:
-    td = trading_date(now)
-    start = ny_time_on(td, "18:00") - timedelta(days=0)
-    if start > now:
-        start -= timedelta(days=1)
+    start = ny_time_on(trading_date(now), "18:00")  # début de la journée de trading (18:00 New York la veille)
     rows = s.execute(select(db.Signal).where(db.Signal.created_at >= start, db.Signal.status != "ANNULE")).scalars().all()
     closed = [r for r in rows if r.status == "CLOTURE" and r.sim_pnl_usd is not None]
     losses = [r for r in closed if r.sim_pnl_usd < 0]

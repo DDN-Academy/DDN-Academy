@@ -41,12 +41,13 @@ def assess(bars: pd.DataFrame, now: datetime, delays_s: list[float] | None = Non
     if bars.empty:
         q.level, q.problems = "bloquant", ["aucune donnée de marché reçue"]
         return q
-    last = bars.index[-1].to_pydatetime() + timedelta(minutes=1)
+    bar_min = int(bars["minutes"].iloc[-1]) if "minutes" in bars.columns else 1
+    last = bars.index[-1].to_pydatetime() + timedelta(minutes=bar_min)
     q.last_bar_end, q.last_price, q.symbol = last, float(bars["close"].iloc[-1]), str(bars["symbol"].iloc[-1])
     q.age_s = (now - last).total_seconds()
     blocking: list[str] = []
     degraded: list[str] = []
-    if is_open(now) and now - last > STALE_AFTER:
+    if is_open(now) and now - last > max(STALE_AFTER, timedelta(minutes=bar_min + 2)):
         blocking.append(f"données périmées : dernière barre il y a {int(q.age_s // 60)} min")
     if parse_tv_symbol(q.symbol) is None or q.symbol != expected:
         blocking.append(f"contrat reçu {q.symbol} différent du contrat actif {expected} : changer le graphique TradingView")
@@ -55,9 +56,10 @@ def assess(bars: pd.DataFrame, now: datetime, delays_s: list[float] | None = Non
         q.median_delay_s = med
         if med > MAX_DELAY.total_seconds():
             blocking.append(f"données en retard d'environ {int(med // 60)} min (forfait temps réel COMEX absent ?)")
-    recent = bars[bars.index >= bars.index[-1] - pd.Timedelta(minutes=60)]
-    if is_open(now) and len(recent) < 45 and len(bars) >= 60:
-        degraded.append(f"données incomplètes : {len(recent)} barres sur la dernière heure (60 attendues)")
+    expected_per_hour = 60 // max(bar_min, 1)
+    recent = bars[bars.index > bars.index[-1] - pd.Timedelta(minutes=60)]
+    if is_open(now) and len(recent) < 0.75 * expected_per_hour and len(bars) >= expected_per_hour:
+        degraded.append(f"données incomplètes : {len(recent)} barres sur la dernière heure ({expected_per_hour} attendues)")
     if len(bars) >= 30:
         rng = (bars["high"] - bars["low"]).iloc[-200:]
         med_rng = float(rng[rng > 0].median()) if (rng > 0).any() else 0.0
