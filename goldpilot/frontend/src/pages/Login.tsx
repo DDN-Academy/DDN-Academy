@@ -28,7 +28,7 @@ export function Login({ onSuccess }: { onSuccess: () => void }) {
     <div className="center-page">
       <main className="card login-card" id="contenu">
         <div className="brand">
-          <img src="/icon.svg" alt="" width={32} height={32} />
+          <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={32} height={32} />
           <span>GoldPilot</span>
         </div>
         <h1 style={{ fontSize: "1.2rem" }}>Connexion</h1>

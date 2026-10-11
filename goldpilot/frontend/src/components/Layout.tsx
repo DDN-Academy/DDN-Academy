@@ -25,7 +25,7 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
       <header className="topbar">
         <div className="topbar-inner">
           <Link to="/" className="brand" data-testid="nav-logo">
-            <img src="/icon.svg" alt="" width={28} height={28} />
+            <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" width={28} height={28} />
             <span>GoldPilot</span>
           </Link>
           <nav className="topnav" aria-label="Navigation principale">
@@ -47,6 +47,14 @@ export function Layout({ onLogout }: { onLogout: () => void }) {
       </header>
 
       <main id="contenu" tabIndex={-1}>
+        {import.meta.env.VITE_DEMO === "1" ? (
+          <Banner ton="info" titre="DÉMONSTRATION — données fictives" testid="bandeau-demo" className="compact">
+            <p>
+              Aperçu du site GoldPilot sans serveur : les signaux, prix et journaux sont des exemples de test, rien n'est réel et
+              aucun bouton n'envoie d'action. Le vrai site fonctionnera sur ton serveur (procédure : docs/05).
+            </p>
+          </Banner>
+        ) : null}
         {!d.joignable && !d.chargement ? (
           <Banner ton="bad" titre="Serveur injoignable" testid="bandeau-serveur-injoignable" role="alert">
             <p>

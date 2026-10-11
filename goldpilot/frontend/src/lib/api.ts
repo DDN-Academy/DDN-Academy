@@ -128,6 +128,10 @@ function traduireValidation(type?: string, msg?: string, ctx?: Record<string, un
 }
 
 async function request<T>(method: string, url: string, body?: unknown, asText = false): Promise<T> {
+  if (import.meta.env.VITE_DEMO === "1") {
+    const { demoRequest } = await import("./demo");
+    return demoRequest<T>(method, url);
+  }
   const headers: Record<string, string> = { Accept: asText ? "text/plain" : "application/json" };
   if (method !== "GET") headers["X-GoldPilot"] = "1";
   if (body !== undefined) headers["Content-Type"] = "application/json";

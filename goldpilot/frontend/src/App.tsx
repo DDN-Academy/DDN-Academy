@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter, HashRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { api, ApiError, onUnauthorized } from "./lib/api";
 import { DashboardProvider } from "./lib/dashboard";
 import { cheminInterne } from "./lib/navigation";
@@ -114,9 +114,11 @@ function Introuvable() {
 }
 
 export function App() {
+  // Démonstration hébergée comme page statique : routes dans le fragment d'URL (#/historique…).
+  const Router = import.meta.env.VITE_DEMO === "1" ? HashRouter : BrowserRouter;
   return (
-    <BrowserRouter>
+    <Router>
       <Racine />
-    </BrowserRouter>
+    </Router>
   );
 }
