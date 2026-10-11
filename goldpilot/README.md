@@ -89,7 +89,7 @@ Vérifié le 10/10/2026 : avec ces commandes, `/api/health` répond `{"web":"ok"
 fonctionne et le tableau de bord affiche le moteur « Surveille le marché » avec l'horloge du rejeu.
 
 Production : jamais avec ces réglages (le serveur refuse de démarrer en production avec `DATA_SOURCE=replay`,
-SQLite ou des secrets trop courts). Suivre [05 — Déploiement](docs/05_deploiement_et_exploitation.md).
+SQLite ou des secrets trop courts). Suivre [05 — Déploiement](docs/05_deploiement_et_exploitation.md) : sur un serveur neuf, une seule commande suffit (`deploy/installer.sh`, § 2 bis).
 
 ## Tests
 
