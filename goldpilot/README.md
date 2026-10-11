@@ -31,11 +31,11 @@ Détails : [architecture](docs/02_architecture.md).
 
 | Document | Contenu |
 |---|---|
-| [01 — Environnement, sources et accès](docs/01_environnement_sources_et_acces.md) | règles FundedNext Flex 50K, contrats COMEX, possibilités réelles de TradingView, services nécessaires |
-| [02 — Architecture](docs/02_architecture.md) | composants, choix techniques, modes du moteur |
+| [01 — Environnement, sources et accès](docs/01_environnement_sources_et_acces.md) | règles FundedNext Flex 50K, contrats COMEX, comparaison XAU/USD-GC-MGC, possibilités réelles de TradingView, services nécessaires, licences des données, banques centrales et géopolitique |
+| [02 — Architecture](docs/02_architecture.md) | composants, choix techniques, source des prix, jours fériés CME, modes du moteur, gouvernance des versions |
 | [03 — Protocole de recherche](docs/03_protocole_de_recherche.md) | protocole pré-enregistré, critères de validation |
-| [04 — Rapport de validation](docs/04_rapport_de_validation.md) | résultats honnêtes, Monte-Carlo, tests exécutés, ce qui reste à faire |
-| [05 — Déploiement et exploitation](docs/05_deploiement_et_exploitation.md) | mise en ligne sur un serveur, sauvegardes, mises à jour, pannes |
+| [04 — Rapport de validation](docs/04_rapport_de_validation.md) | résultats honnêtes, Monte-Carlo, tests exécutés, ce qui reste à faire ; [§ 14 compléments a posteriori](docs/04_rapport_de_validation.md#14-compléments-a-posteriori-ajoutés-le-11102026) (durée des drawdowns, résultats par séance et par régime, espérance en dollars, délai d'exécution) |
+| [05 — Déploiement et exploitation](docs/05_deploiement_et_exploitation.md) | mise en ligne sur un serveur, sauvegardes, mises à jour, pannes, approbation d'une nouvelle version, revue du samedi |
 | [06 — Guide utilisateur](docs/06_guide_utilisateur.md) | première mise en route (Telegram, TradingView) et usage quotidien |
 | [07 — Clés, abonnements et autorisations](docs/07_cles_abonnements_autorisations.md) | tout ce qu'il faut obtenir, obligatoire ou non, coûts indicatifs |
 | [08 — Limites](docs/08_limites.md) | ce qui empêche encore une utilisation réelle |
@@ -94,9 +94,9 @@ SQLite ou des secrets trop courts). Suivre [05 — Déploiement](docs/05_deploie
 ## Tests
 
 ```bash
-cd goldpilot/backend && python -m pytest -q -p no:cacheprovider   # 187 tests, ~3 à 4 min
-cd goldpilot/frontend && npm test                                  # 24 tests unitaires (Vitest)
-cd goldpilot/frontend && npm run test:e2e                          # tests de bout en bout (Playwright)
+cd goldpilot/backend && python -m pytest -q -p no:cacheprovider   # 279 tests, ~3 min
+cd goldpilot/frontend && npm test                                  # 36 tests unitaires (Vitest)
+cd goldpilot/frontend && npm run build && npm run test:e2e        # 68 tests de bout en bout (Playwright)
 cd goldpilot/frontend && npm run captures                          # régénère docs/captures/
 ```
 
@@ -106,6 +106,8 @@ Le workflow `.github/workflows/goldpilot-ci.yml` (à la racine du dépôt) relan
 
 ## Sécurité
 
-Aucun secret dans le code ni dans Git (le dépôt est publié sur GitHub Pages) : tous les secrets sont des
+Aucun secret dans le code ni dans Git : la branche `main`/`master` du dépôt est publiée sur GitHub Pages
+(`.github/workflows/deploy.yml`) ; GoldPilot vit sur la branche `claude/goldpilot` et ne doit pas y être
+fusionné ([05 — Déploiement, § 4](docs/05_deploiement_et_exploitation.md)). Tous les secrets sont des
 variables d'environnement sur le serveur (`deploy/.env.example`). On ne te demande jamais ton mot de passe
 TradingView, Tradovate ou FundedNext.

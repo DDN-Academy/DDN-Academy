@@ -25,7 +25,10 @@ le système, comment le mettre en route une première fois, et comment l'utilise
   sera autorisé) ;
 * il ne voit **pas** ton compte Tradovate/FundedNext : il ne sait pas si tu as réellement pris un trade,
   à quel prix, ni ton solde réel (tu peux les déclarer dans le site) ;
-* il ne garantit aucun gain ; il ne lit pas les actualités ; il ne trade que l'or (MGC).
+* il ne garantit aucun gain ; il ne lit pas les actualités ; il ne trade que l'or (MGC) ;
+* il ne connaît que les annonces datées du calendrier (FOMC, emploi, inflation, PCE, PIB) : les discours
+  des banquiers centraux, les autres banques centrales et les événements géopolitiques ne sont **pas**
+  surveillés (tu peux ajouter un événement daté dans Réglages › Calendrier économique).
 
 ---
 
@@ -113,18 +116,23 @@ Le bandeau du haut résume tout :
   sont masqués.
 
 Quatre tuiles : **Connexion**, **Données de marché** (source et âge de la dernière barre), **Moteur de
-stratégie** et **Notifications (Telegram)**. États du moteur :
+stratégie** et **Notifications (Telegram)**. La tuile Notifications n'est **verte** que si Telegram est
+configuré, les notifications sont actives et le **dernier envoi a réussi** ; elle est orange si Telegram
+n'est pas configuré, si tu as désactivé les notifications ou si aucun envoi n'a encore été vérifié (clique
+« Tester une notification ») ; rouge si le dernier envoi a échoué ; « inconnu » si le serveur ne répond
+plus. États du moteur :
 
 | État | Signification |
 |---|---|
 | Actif | il surveille le marché et peut émettre un signal |
 | Préchauffage | pas encore assez d'historique (45 barres de 15 min) ; aucun signal |
 | En pause | tu as cliqué « Suspendre les signaux » ; « Reprendre les signaux » pour relancer |
-| Mode sécurisé | données douteuses (périmées, en retard, mauvais contrat, saut de prix anormal) : aucun signal, les signaux en attente sont annulés ; reprise automatique quand les données redeviennent bonnes |
-| Arrêt de sécurité | performances dégradées au-delà des seuils pré-établis (ou aucune stratégie configurée) : reprise **manuelle** par le bouton de la page d'accueil, après lecture du journal |
+| Mode sécurisé | données douteuses (périmées, en retard, mauvais contrat, saut de prix anormal) : aucun signal ; tout signal **pas encore entré** est annulé (« Signal annulé — ne pas entrer ») ; une position simulée ouverte reste suivie et tu reçois « Ne plus entrer » et « Position ouverte, données interrompues » (surveille-la sur Tradovate) ; reprise automatique quand les données redeviennent bonnes |
+| Arrêt de sécurité | (1) performances dégradées au-delà des seuils pré-établis : reprise **manuelle** par le bouton « Reprendre après l'arrêt de sécurité » de l'accueil, après lecture du journal ; les seuils sont ensuite **recomptés à partir de la reprise** ; (2) **nouvelle version de stratégie** non approuvée : seule l'approbation la lève (voir « Nouvelle version de la stratégie ») ; (3) aucune stratégie configurée |
 | Arrêté | le moteur ne donne plus signe de vie depuis plus d'une minute |
 
-Plus bas : **État du marché** (contrat, prix, séance, régime, prochaine annonce, prochain roll) et
+Plus bas : **État du marché** (contrat, prix, séance, régime, prochaine annonce, prochain roll ; la séance
+affiche « fermé (jour férié) » ou « fermé (clôture anticipée) » les jours de fête du CME) et
 **État du trading** (« Aucun setup valide : les conditions ne sont pas réunies » ou le **signal en cours**,
 dernière analyse et ses raisons, risque, compte simulé). Les incidents ouverts s'affichent en haut.
 
@@ -133,7 +141,17 @@ Chaque alerte commence par **« 🧪 SIMULATION — NE PAS EXÉCUTER SUR LE COMP
 n'est pas validée. Elle contient : contrat exact, heure (Paris et New York), sens LONG/SHORT, entrée
 (immédiate au marché, avec une **plage acceptable**), stop-loss, sortie, rendement/risque, nombre de
 contrats MGC, risque estimé en dollars, validité, condition d'annulation, justification, calendrier
-économique, source et heure du prix, référence du signal.
+économique, source et heure du prix, référence du signal, et une ligne **« Niveaux : »** (plus haut / plus
+bas de la veille et de la séance, dernier sommet / creux de 15 minutes, avec leur distance au prix en ATR).
+
+Le **nombre de contrats** est calculé sur le **pire prix** de la plage acceptable (entrée prévue ± 0,5 ATR,
+côté opposé au stop) : même si tu entres au bord de la plage, le risque ne dépasse pas ton budget par trade.
+
+**Agir dans la minute.** S1 entre dans le sens d'un mouvement en cours : chaque minute de retard se paie.
+Un test historique (rapport de validation, § 14.3) montre qu'avec 5 minutes de retard l'espérance passe de
++0,126 à +0,045 R par trade et que le prix d'entrée s'écarte en moyenne de 1,21 $/once du prix de décision
+(contre 0,30 $/once de glissement supposé). Si un jour le mode réel est autorisé, n'entre que dans la
+minute qui suit l'alerte ; au-delà, ou si l'alerte dit « Ne plus entrer », laisse passer.
 
 **En simulation : ne fais rien sur ton compte.** Tu peux ouvrir le signal sur le site pour suivre la
 position simulée et apprendre comment il se comporte.
@@ -151,9 +169,11 @@ rapport gain moyen / perte moyenne historique (≈ 1,98, `production.json`).
 | **Déplacer le stop** | nouveau niveau du stop suiveur (toutes les 15 min si le prix progresse) |
 | **Ne plus entrer** | le prix est sorti de la plage d'entrée prévue : si tu n'es pas entré, laisse passer |
 | **Annonce imminente** | une annonce majeure arrive dans moins de 15 min alors qu'une position est active : vérifie ton stop |
-| **Fermer la position maintenant** | heure limite de sortie atteinte (sortie temporelle) |
+| **Fermer la position maintenant** | heure limite de sortie atteinte (sortie temporelle). Si les prix n'arrivent plus, l'alerte part quand même à l'heure limite (« sortie temporelle (sans données) ») : le résultat simulé est alors **inconnu** et laissé vide, jamais inventé |
+| **Position ouverte, données interrompues** | le site est passé en mode sécurisé alors qu'une position simulée est ouverte : surveille-la directement sur Tradovate et ferme-la au plus tard à l'heure indiquée |
 | **Position sortie** | le stop (ou stop suiveur) a été touché : résultat simulé en R et en dollars |
-| **Signal expiré** / **Signal annulé** | plus rien à faire ; la raison est indiquée |
+| **Signal expiré** / **Signal annulé** | plus rien à faire ; la raison est indiquée (un signal jamais entré expire aussi à l'horloge si les prix n'arrivent plus) |
+| **Compte simulé : perte maximale atteinte (latente)** | la perte flottante de la position simulée, au pire de la barre, a touché le plancher du compte simulé : sur un vrai compte FundedNext, le compte serait violé immédiatement (règle de la perte latente) |
 
 GoldPilot n'envoie **jamais** une alerte de signal devenue inexploitable (signal clos, validité dépassée,
 prix hors plage) : elle est marquée « périmée » dans Journal › Alertes.
@@ -165,7 +185,8 @@ par le courtier »** et compare tes prix à ceux prévus (page Statistiques › 
 aussi **annuler** un signal tant que sa position simulée n'est pas ouverte.
 
 ### Changement de contrat (roll)
-Le MGC change d'échéance environ tous les deux mois. GoldPilot t'envoie l'alerte **« Changement d'échéance
+Le MGC change d'échéance environ tous les deux mois (mois actifs : février, avril, juin, août, octobre,
+décembre ; en 2026 : août → octobre → décembre). GoldPilot t'envoie l'alerte **« Changement d'échéance
 à venir »** 3 jours ouvrés avant la date de roll (prochain : **20/11/2026**, MGCZ2026 → **MGCG2027**).
 À cette date : ouvre le graphique du nouveau contrat en 1 minute, ajoute le script, saisis le jeton et
 **recrée l'alerte** (puis supprime l'ancienne) ; change aussi de contrat sur Tradovate. Si tu oublies, le
@@ -178,7 +199,32 @@ site passe en mode sécurisé (« contrat reçu … différent du contrat actif 
 * **« Contrôle croisé TradingView en désaccord »** : le script TradingView et le moteur n'ont pas vu la même
   chose (barres perdues ou décalées). Ce contrôle ne décide jamais ; il te dit d'être prudent et de
   vérifier Journal › Webhooks.
+* **« Sources de prix en désaccord »** (seulement si Databento est la source principale) : Databento et
+  TradingView donnent pour la même minute des clôtures qui diffèrent de plus de 1,00 $ (seuil de prudence
+  non validé). Compare les deux graphiques avant de suivre un signal. Il n'y a pas de bascule automatique
+  d'une source à l'autre.
 * Si le serveur tombe, la procédure est dans `05_deploiement_et_exploitation.md`, section 14.
+
+### Jours fériés du CME
+Les jours de fête américains, le CME ferme toute la journée ou ferme plus tôt (13:00 ou 13:45 New York).
+GoldPilot le sait : aucun signal un jour fermé, et un jour de clôture anticipée la sortie doit être prévue
+au moins 25 minutes avant la clôture. À la réouverture de 18:00 New York, le site ne passe pas en mode
+sécurisé le temps que la première barre arrive. Les dates sont calculées par règle et sont **à vérifier**
+sur le calendrier officiel du CME : <https://www.cmegroup.com/trading-hours.html>.
+
+### Nouvelle version de la stratégie
+Une nouvelle version ne remplace **jamais** l'ancienne sans ton accord. Si une mise à jour en apporte une,
+le site passe en **arrêt de sécurité** (aucun signal) et tu reçois « Arrêt de sécurité : nouvelle version
+de stratégie ». Ouvre **Réglages › Gouvernance de la stratégie**, lis la comparaison, puis recopie
+exactement **J'APPROUVE CETTE VERSION** et clique « Approuver cette version ». Approuver ne valide pas la
+stratégie : le mode réel reste verrouillé. Détails : `05_deploiement_et_exploitation.md`, section 16.
+
+### La revue du samedi
+Chaque samedi, GoldPilot fait le bilan des trades simulés de la version en service (nombre de trades,
+espérance, borne basse à 95 %, pire drawdown, plus longue série de pertes, taux de gain) et le compare à la
+recherche. Tu le reçois sur Telegram (« Revue hebdomadaire des performances ») et tu le retrouves sur la
+page Statistiques. Moins de 30 trades : trop peu pour conclure. Cette revue **ne change jamais** la
+stratégie toute seule.
 
 ---
 
@@ -191,8 +237,9 @@ aujourd'hui. Voir `08_limites.md`.
 
 ## 5. Les autres pages
 * **Historique** : tous les signaux, filtrables par statut (en attente, actif, clôturé, annulé, expiré).
-* **Statistiques** : verdict de la recherche, suivi papier, qualité d'exécution, Monte-Carlo, contexte
-  macro (taux et dollar via FRED, **information seulement**, jamais utilisé pour décider).
+* **Statistiques** : verdict de la recherche, suivi papier, qualité d'exécution (dont tes prix déclarés
+  comparés aux prix prévus), gouvernance et revue du samedi, Monte-Carlo, contexte macro (taux et dollar
+  via FRED, **information seulement**, jamais utilisé pour décider).
 * **Journal** : Décisions, Incidents, Alertes, Webhooks, Contrôle croisé, Audit.
 * **Aide** : résumé de ce guide dans le site.
 * Captures d'écran (données fictives) : [`captures/`](captures/README.md).

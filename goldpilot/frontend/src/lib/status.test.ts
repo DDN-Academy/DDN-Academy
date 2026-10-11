@@ -76,12 +76,14 @@ describe("statuts des signaux (§11)", () => {
     expect(statutSignal("XYZ").libelle).toContain("inconnu");
   });
   it("position simulée et exécution déclarée distinctes", () => {
-    const s = sig({ simulation: { entree: 1, entree_ts: null, stop_actuel: 1, sortie: null, sortie_ts: null, raison: null, r: null, pnl_usd: null } });
-    expect(etiquettesSignal(s).map((e) => e.libelle)).toEqual(["Clôturé", "Position simulée ouverte"]);
+    const s = sig({ simulation: { entree: 1, entree_ts: null, stop_actuel: 1, sortie: 2, sortie_ts: null, raison: null, r: 0.5, pnl_usd: 10 } });
+    expect(etiquettesSignal(s).map((e) => e.libelle)).toEqual(["Clôturé", "Position simulée clôturée"]);
+    const ouverte = sig({ statut: "ACTIF", simulation: { entree: 1, entree_ts: null, stop_actuel: 1, sortie: null, sortie_ts: null, raison: null, r: null, pnl_usd: null } });
+    expect(etiquettesSignal(ouverte).map((e) => e.libelle)).toContain("Position simulée ouverte");
     const ex = sig({ execution_declaree: { executee: true, entree: 1, sortie: 2, contrats: 1, pnl_usd: 10, note: "" } });
     const lib = etiquettesSignal(ex).map((e) => e.libelle);
-    expect(lib[1]).toContain("déclarée par toi");
-    expect(lib[1]).toContain("non confirmée");
+    const decl = lib.find((l) => l.includes("déclarée par toi")) ?? "";
+    expect(decl).toContain("non confirmée");
   });
   it("annulation autorisée seulement sans position simulée ouverte", () => {
     expect(peutAnnuler(sig({ statut: "EN_ATTENTE" }))).toBe(true);

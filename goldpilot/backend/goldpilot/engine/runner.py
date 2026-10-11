@@ -527,6 +527,11 @@ class Engine:
             db.audit(s, "moteur", "version_approuvee", {"version": self.version, "par": "initialisation"})
             return
         if approved.get("version") == self.version:
+            halt = db.kv_get(s, "halt")
+            if halt and halt.get("type") == "version":  # retour à la version approuvée : l'arrêt « version » n'a plus d'objet
+                db.kv_set(s, "halt", None)
+                db.resolve_incident(s, "strategie", "version")
+                db.audit(s, "moteur", "arret_version_leve", {"version": self.version})
             return
         reason = f"nouvelle version de stratégie non approuvée : {self.version} (version approuvée : {approved.get('version')})"
         halt = db.kv_get(s, "halt")

@@ -168,6 +168,17 @@ def version_pending() -> None:
         db.kv_set(s, "halt", {"raison": "nouvelle version de stratégie non approuvée (test E2E)", "depuis": t.isoformat(), "type": "version"})
 
 
+def sans_donnees() -> str:
+    """Signal clôturé par l'horloge sans prix de sortie (« sortie temporelle (sans données) ») : résultat inconnu."""
+    db.init()
+    sid = "e2e" + uuid.uuid4().hex[:20]
+    with db.session() as s:
+        sig = make_signal(s, sid, "CLOTURE", now() - timedelta(days=40), 1, 3950.0, sim_entry=3950.3,
+                          reason="sortie temporelle (sans données) : prix de sortie inconnu, aucun résultat simulé enregistré")
+        sig.sim_exit_ts, sig.sim_exit_reason = sig.exit_deadline, "sortie temporelle (sans données)"
+    return sid
+
+
 def pending() -> str:
     db.init()
     sid = "e2e" + uuid.uuid4().hex[:20]
@@ -186,6 +197,8 @@ if __name__ == "__main__":
         heartbeat(False)
     elif cmd == "version-pending":
         version_pending()
+    elif cmd == "sans-donnees":
+        print(sans_donnees())
     elif cmd == "pending":
         print(pending())
     else:

@@ -20,8 +20,8 @@ toujours le prix sur la page officielle au moment de payer.**
 
 | # | Élément | À quoi il sert | Obligatoire ? | Coût indicatif (10/10/2026) |
 |---|---|---|---|---|
-| 1 | Serveur (VPS Linux) | faire tourner le site et le moteur 24 h/24 | **oui** | ≈ 4 à 8 €/mois (détail dans `05`, § 1) |
-| 2 | Nom de domaine | adresse HTTPS du site et du webhook | **oui** | ≈ 5 à 10 €/an pour un `.fr` |
+| 1 | Serveur (VPS Linux) | faire tourner le site et le moteur 24 h/24 | **oui** | ≈ 4,50 à 10 € HT/mois, adresse IPv4 comprise (détail dans `05`, § 1) |
+| 2 | Nom de domaine | adresse HTTPS du site et du webhook | **oui** | ≈ 5 à 8 € HT/an pour un `.fr` (4,99 € la 1re année, ≈ 7,79 € au renouvellement) |
 | 3 | Abonnement TradingView payant | envoi des webhooks (prix MGC chaque minute) | **oui** | Essential ≈ 12,95 $/mois (annuel) à 14,95 $/mois (mensuel) |
 | 4 | Double authentification TradingView | exigée par TradingView pour les webhooks | **oui** | gratuit |
 | 5 | Données temps réel CME/COMEX sur TradingView | prix sans retard de 10 min | **oui** | 9,95 $/mois (non professionnel) |
@@ -32,7 +32,8 @@ toujours le prix sur la page officielle au moment de payer.**
 | 10 | Challenge FundedNext Flex 50K | le compte d'évaluation | non (tu l'as déjà choisi) | ≈ 134 $ selon des sources tierces, non officiel |
 | 11 | Add-on TradingView côté Tradovate/FundedNext | trader depuis les graphiques TradingView | facultatif | ≈ 10 $/mois selon des sources tierces, à vérifier |
 | 12 | Clé FRED | contexte macro affiché (information seulement) | facultatif | gratuit |
-| 13 | Databento | flux de prix indépendant de TradingView, historique MGC réel | facultatif | live CME : 199 $/mois ; historique : à l'usage, 125 $ de crédits offerts |
+| 13 | Databento | source de prix principale indépendante (TradingView réduit au contrôle croisé), historique MGC réel | facultatif | live CME : 199 $/mois + frais de licence CME à vérifier ; historique : à l'usage, 125 $ de crédits offerts |
+| 14 | Confirmation des licences de données (TradingView, CME) | vérifier que le traitement automatique et le stockage des prix CME reçus par webhook sont permis | **oui avant de dépendre du webhook** | gratuit (question au support) |
 
 ---
 
@@ -139,14 +140,29 @@ Clé gratuite liée à un compte sur <https://fredaccount.stlouisfed.org> ([cond
 Statistiques ; **n'influence jamais** un signal. Premier appel réel non testé.
 
 ### 13 — Databento (facultatif)
-* **Flux temps réel** (`DATA_SOURCE=databento`) : supprime la dépendance unique à TradingView. Le
-  paiement à l'usage n'existe plus pour le temps réel CME ; formule Standard CME **199 $/mois** depuis le
+* **Flux temps réel** (`DATA_SOURCE=databento`) : Databento devient la **source principale** des prix
+  (décisions du moteur et suivi des signaux). Les barres TradingView, si l'alerte reste active, ne pilotent
+  plus rien : elles servent uniquement au **contrôle croisé** (clôture comparée minute par minute ; écart
+  supérieur à **1,00 $** → incident « Sources de prix en désaccord » et alerte Telegram ; seuil de prudence
+  de 10 ticks, **hypothèse non validée**, `engine/runner.py`, `CROSS_CHECK_TOL`). Il n'y a **aucune bascule
+  automatique** : si Databento tombe, le moteur passe en mode sécurisé, il ne repasse pas sur TradingView
+  (`08_limites.md`, n° 20). La dépendance unique change donc de fournisseur, elle ne disparaît pas.
+* Le paiement à l'usage n'existe plus pour le temps réel CME ; formule Standard CME **199 $/mois** depuis le
   22/06/2026 ([annonce Databento](https://databento.com/blog/updates-to-subscription-pricing),
   [plans CME](https://databento.com/blog/introducing-new-cme-pricing-plans)). Les frais de licence CME
-  pour un utilisateur non professionnel : **à vérifier** avec Databento avant souscription.
+  pour un utilisateur non professionnel : **à vérifier** avec Databento avant souscription (montants
+  contradictoires selon les sources, voir `docs/01` § 9 « Licences des données »).
 * **Historique MGC** (pour valider la stratégie sur le vrai contrat au lieu du XAUUSD) : à l'usage, avec
   **125 $ de crédits offerts** à l'inscription ([tarifs](https://databento.com/pricing)).
 * Le connecteur GoldPilot pour Databento n'a **jamais été testé** contre le service réel.
+
+### 14 — Licences des données (à faire confirmer)
+Selon un extrait des [conditions d'utilisation TradingView](https://www.tradingview.com/policies/), les
+données, **alertes et webhooks compris**, sont accordées pour un usage d'affichage personnel ; l'usage
+« hors affichage » (traitement automatique) est interdit. GoldPilot calcule des signaux automatiquement à
+partir des barres reçues et les stocke : **demande au support TradingView une confirmation écrite** que cet
+usage personnel est permis, et fais préciser ton statut CME (non professionnel, affichage ou hors
+affichage). Analyse complète : `docs/01` § 9 ; limite n° 27 de `08_limites.md`.
 
 ---
 
@@ -154,6 +170,7 @@ Statistiques ; **n'influence jamais** un signal. Premier appel réel non testé.
 
 1. Écrire à FundedNext pour la **confirmation écrite** et le **taux de commission MGC** (gratuit, peut
    prendre du temps : à lancer en premier).
+   Écrire aussi au support TradingView pour la **licence des données** (élément 14).
 2. Louer le **serveur** et le **nom de domaine**, puis déployer (`05`).
 3. Créer le **bot Telegram** et tester une notification.
 4. Passer TradingView en **plan payant avec webhooks**, activer la **2FA**, souscrire les **données

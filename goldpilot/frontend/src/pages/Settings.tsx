@@ -58,7 +58,7 @@ export const CHAMPS_RISQUE: ChampRisque[] = [
   { cle: "max_cushion_fraction", libelle: "Part maximale du coussin risquée", unite: "fraction", pas: "0.01", aide: "Part du coussin restant au-dessus du plancher qu'un trade peut risquer. Entre 0,05 et 0,35." },
   { cle: "safety_margin_usd", libelle: "Marge de sécurité au-dessus du plancher", unite: "$", pas: "10", aide: "Montant jamais engagé, retiré du coussin avant tout calcul." },
   { cle: "consistency_lock_fraction", libelle: "Verrouillage de consistance", unite: "fraction", pas: "0.05", aide: "Arrêt du jour quand le profit du jour atteint cette part du plafond de consistance (40 % de l'objectif). Entre 0,3 et 1." },
-  { cle: "slippage_allowance_oz", libelle: "Glissement prévu", unite: "$ / once", pas: "0.05", aide: "Ajouté à la distance au stop pour calculer la taille (1 MGC = 10 onces)." },
+  { cle: "slippage_allowance_oz", libelle: "Glissement prévu", unite: "$ / once", pas: "0.05", aide: "Ajouté à la distance entre la pire entrée de la plage et le stop pour calculer la taille (1 MGC = 10 onces)." },
   { cle: "commission_per_contract_rt", libelle: "Commission par contrat (aller-retour)", unite: "$", pas: "0.1", aide: "Hypothèse : le tarif tout compris FundedNext n'est pas publié." },
   { cle: "max_contracts_personal", libelle: "Plafond personnel de contrats", unite: "MGC", pas: "1", entier: true, aide: "Entre 1 et 30 (limite Flex 50K : 30 micros)." },
 ];

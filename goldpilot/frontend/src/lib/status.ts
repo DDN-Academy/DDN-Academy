@@ -58,6 +58,13 @@ export function etatEntree(sig: Signal, maintenant: Date = new Date()): { ouvert
   return { ouverte: false, raison: raisons.length ? raisons.join(" ; ") : "la fenêtre d'entrée est fermée" };
 }
 
+export const RESULTAT_INCONNU = "Résultat inconnu (données manquantes)";
+
+/** Signal clôturé sans résultat simulé (ex. « sortie temporelle (sans données) ») : aucun résultat n'est inventé. */
+export function resultatInconnu(sig: Signal): boolean {
+  return sig.statut === "CLOTURE" && (sig.simulation?.r ?? null) === null;
+}
+
 /** Étiquettes distinctes du cahier des charges §11 : statut du signal, fenêtre d'entrée, position simulée, exécution déclarée. */
 export function etiquettesSignal(sig: Signal, maintenant: Date = new Date()): { cle: string; libelle: string; ton: Ton }[] {
   const out: { cle: string; libelle: string; ton: Ton }[] = [];
@@ -73,12 +80,10 @@ export function etiquettesSignal(sig: Signal, maintenant: Date = new Date()): { 
   }
   const sim = sig.simulation;
   if (sim && sim.entree !== null && sim.entree !== undefined) {
-    out.push({
-      cle: "simulation",
-      libelle: sim.sortie !== null && sim.sortie !== undefined ? "Position simulée clôturée" : "Position simulée ouverte",
-      ton: "info",
-    });
+    const close = sig.statut === "CLOTURE" || (sim.sortie !== null && sim.sortie !== undefined);
+    out.push({ cle: "simulation", libelle: close ? "Position simulée clôturée" : "Position simulée ouverte", ton: "info" });
   }
+  if (resultatInconnu(sig)) out.push({ cle: "resultat", libelle: RESULTAT_INCONNU, ton: "warn" });
   const ex = sig.execution_declaree;
   if (ex) {
     out.push({

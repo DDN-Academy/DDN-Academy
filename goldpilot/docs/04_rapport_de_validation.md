@@ -181,13 +181,17 @@ en production, non testée sur TradingView.
 
 ## 10. Tests techniques exécutés (étape A)
 
-### Exécution du 10/10/2026
+### Exécution du 11/10/2026 (après les corrections de la revue adversariale)
+
+Les trois suites ont été lancées à la suite le 11/10/2026 entre 22:26:58 et 22:30:56 UTC.
 
 | Suite | Commande | Résultat |
 |---|---|---|
-| Backend (pytest) | `cd goldpilot/backend && python -m pytest -q -p no:cacheprovider` | **187 tests réussis, 0 échec**, 1 avertissement (dépréciation dans la bibliothèque Starlette, sans effet) ; lancé le 10/10/2026 à 23:21 UTC, terminé à 23:24 UTC, durée 201,65 s (Python 3.13.16, pytest 9.1.1) |
-| Frontend (Vitest) | `cd goldpilot/frontend && npm test` | **24 tests réussis** (2 fichiers), lancé le 10/10/2026 à 23:23 UTC, 0,77 s |
-| Frontend de bout en bout (Playwright) | `npm run test:e2e` | **non exécuté dans le cadre de ce rapport** (suite écrite par une autre étape du projet ; voir son propre compte rendu) |
+| Backend (pytest) | `cd goldpilot/backend && python -m pytest -q -p no:cacheprovider` | **279 tests réussis, 0 échec**, 1 avertissement (dépréciation dans la bibliothèque Starlette, sans effet), durée 174,98 s (Python 3.13, pytest 9.1.1) |
+| Frontend (Vitest) | `cd goldpilot/frontend && npm test` | **36 tests réussis** (3 fichiers), 0 échec |
+| Frontend de bout en bout (Playwright, Chromium, écran mobile 390×844 et écran d'ordinateur) | `cd goldpilot/frontend && npm run build && npm run test:e2e` | **68 tests réussis, 0 échec**, 4 ignorés (ce sont les tests qui produisent les captures d'écran, lancés seulement avec `npm run captures`), durée 55,1 s ; backend réel démarré avec une base SQLite temporaire et des données de test fictives |
+
+Exécution précédente (10/10/2026, avant la revue) : 187 tests backend et 24 tests Vitest réussis.
 
 ### Ce que vérifie chaque fichier de tests
 
@@ -204,6 +208,10 @@ Backend (`goldpilot/backend/tests/`) :
 | `test_mirror.py` | contrôle croisé TradingView ↔ moteur : concordance, désaccord (incident + alerte), résolution, décision absente, signal du moteur non confirmé par TradingView |
 | `test_notify.py` | alerte Telegram : présence de **chaque champ exigé** (§ 11 du cahier des charges), bandeau SIMULATION, formulations, troncature, erreurs sans jeton, idempotence, notifications désactivées, réessais avec attente progressive, **une alerte périmée n'est jamais envoyée** |
 | `test_risk.py` | règles Flex 50K (plancher fin de journée et verrouillage, perte latente, consistance, compte financé, source et statut de chaque règle) ; dimensionnement (valeur réelle MGC, coussin, plafond de contrats, refus si un contrat est trop risqué, perte du jour) ; **chaque contrôle bloquant** du moteur de risque, dont « Règles incertaines » bloquant en réel sans confirmation écrite |
+| `test_api_hardening.py` | durcissement issu de la revue : `entree_ouverte` / entrée interdite, glissement déclaré comparé à l'hypothèse de 0,30 $/oz, tuile notifications (verte seulement après un envoi réussi), webhook (NaN/Infini refusés, journal sans plantage, débit des requêtes non authentifiées séparé, bornes des horodatages, prix miroir), reprise après arrêt (point de reprise), gouvernance des versions (approbation, phrase exacte) |
+| `test_engine_robustness.py` | moteur : source principale seule, barres en retard ignorées, deux contrats sur la même minute, mode sécurisé qui annule les signaux non entrés, perte latente sur le compte simulé, mode recalculé avant chaque décision, expiration et sortie temporelle à l'horloge sans résultat inventé, reprise après une erreur sans perdre une décision, gouvernance des versions (dont levée de l'arrêt au retour à la version approuvée), revue hebdomadaire du samedi, compteur des jours de bourse |
+| `test_research_complements.py` | compléments de recherche a posteriori : durées de drawdown, conversion en dollars, causalité des terciles de volatilité, délais d'exécution (0 min inchangé, entrée retardée à l'ouverture suivante) |
+| `test_sessions_risk.py` | jours fériés et clôtures anticipées du CME (dates « à vérifier »), aucun faux mode sécurisé à la réouverture de 18:00, limite horaire = min(15:45, clôture réelle − 25 min), taille calculée sur la pire entrée de la plage, mois d'octobre actif, niveaux (veille, séance, swings) causaux et ligne « Niveaux » de l'alerte |
 | `test_webhook.py` | webhook TradingView : jeton, liste d'adresses IP, débit, taille, JSON, horodatages futurs ou non ronds, jeton jamais journalisé, historique journalier, signaux miroir, idempotence (renvoi TradingView), mesure du retard |
 
 Frontend (`goldpilot/frontend/`) :
@@ -217,6 +225,8 @@ Frontend (`goldpilot/frontend/`) :
 | `e2e/pages.spec.ts` | aucune erreur console, titre et bandeau SIMULATION sur chaque page, navigation mobile/ordinateur, onglets du journal, page Statistiques (verdict NON VALIDÉE, Monte-Carlo, suivi papier, contexte macro) |
 | `e2e/reglages.spec.ts` | risque invalide refusé et valeur valide conservée, mode réel refusé, référence obligatoire pour la confirmation FundedNext, programme, TradingView et Telegram |
 | `e2e/signaux.spec.ts` | historique filtré par statut, détail avec tous les champs § 11, contrôles du risque, déclaration d'exécution « déclaré par toi — non confirmé par le courtier », annulation |
+| `src/lib/hardening.test.ts` | libellés ajoutés par la revue (entrée fermée, résultat inconnu, glissement déclaré, gouvernance) |
+| `e2e/revue.spec.ts` | corrections de la revue vues dans le site : rappel « entrer dans la minute », taille sur la pire entrée, clôture sans données (« résultat inconnu »), entrée fermée, gouvernance des versions |
 | `e2e/captures.spec.ts` | production des captures d'écran de `docs/captures/` (données fictives) |
 
 ## 11. Paper trading en temps réel (étape D) : non réalisé

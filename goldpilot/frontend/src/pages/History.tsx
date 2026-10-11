@@ -82,7 +82,7 @@ export function History() {
                       <span className={`sig-res ${classeSigne(s.simulation.r)}`}>
                         {s.simulation.r !== null ? enR(s.simulation.r) : null}
                         <span className="sig-meta" style={{ display: "block", fontWeight: 400 }}>
-                          {s.simulation.pnl_usd !== null ? usd(s.simulation.pnl_usd, 0, true) : "pas de résultat"}
+                          {s.simulation.pnl_usd !== null ? usd(s.simulation.pnl_usd, 0, true) : s.statut === "CLOTURE" ? "résultat inconnu (données manquantes)" : "pas de résultat"}
                         </span>
                       </span>
                       <span className="sig-meta" style={{ gridColumn: "1 / -1" }}>

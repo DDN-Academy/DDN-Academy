@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { api } from "../lib/api";
 import { useAction, useRessource, useTitre } from "../lib/hooks";
 import type { SignalDetail as Detail, Signal } from "../lib/types";
-import { EVENEMENTS_SIGNAL, NOTIF_TYPES, etatEntree, notifStatut, peutAnnuler, statutSignal, verdict } from "../lib/status";
+import { EVENEMENTS_SIGNAL, NOTIF_TYPES, RESULTAT_INCONNU, etatEntree, notifStatut, peutAnnuler, resultatInconnu, statutSignal, verdict } from "../lib/status";
 import { dateHeure, enR, nombre, prix, usd } from "../lib/format";
 import { Badge, Card, Chargement, Erreur, JsonDetails, Kv, Msg, classeSigne } from "../components/ui";
 import { SignalCard, texteSortie, typeEntree } from "../components/SignalCard";
@@ -46,7 +46,11 @@ export function SignalDetail() {
             ["Take-profit", `${sortie.valeur} — ${sortie.detail}`],
             ["Rendement / risque", s.rr !== null ? nombre(s.rr, 2) : "non défini (pas d'objectif fixe)"],
             ["Risque estimé", usd(s.risque_usd)],
-            ["Taille", `${s.contrats} contrat(s) Micro Gold (risque par contrat = distance au stop + glissement prévu, × 10 onces, + commission)`],
+            [
+              "Taille",
+              `${s.contrats} contrat(s) Micro Gold — risque calculé depuis la pire entrée de la plage (${prix(s.sens === "LONG" ? s.plage[1] : s.plage[0])}) ` +
+                "jusqu'au stop, plus le glissement prévu, × 10 onces, plus la commission",
+            ],
             ["ATR (15 min)", s.atr !== null ? nombre(s.atr, 2) : "—"],
             ["Validité", `jusqu'à ${s.validite_ny}`],
             [
@@ -74,13 +78,24 @@ export function SignalDetail() {
             items={[
               ["Entrée simulée", `${prix(s.simulation.entree)} — ${dateHeure(s.simulation.entree_ts)}`],
               ["Stop actuel", prix(s.simulation.stop_actuel)],
-              ["Sortie simulée", s.simulation.sortie !== null ? `${prix(s.simulation.sortie)} — ${dateHeure(s.simulation.sortie_ts)}` : "position simulée encore ouverte"],
+              [
+                "Sortie simulée",
+                s.simulation.sortie !== null
+                  ? `${prix(s.simulation.sortie)} — ${dateHeure(s.simulation.sortie_ts)}`
+                  : s.statut === "CLOTURE"
+                    ? `prix de sortie inconnu (aucune donnée de prix)${s.simulation.sortie_ts ? ` — ${dateHeure(s.simulation.sortie_ts)}` : ""}`
+                    : "position simulée encore ouverte",
+              ],
               ["Raison de sortie", s.simulation.raison ?? "—"],
               [
                 "Résultat simulé",
-                <span className={classeSigne(s.simulation.r)}>
-                  {enR(s.simulation.r)} ({usd(s.simulation.pnl_usd, 0, true)})
-                </span>,
+                resultatInconnu(s) ? (
+                  <span data-testid="detail-resultat-inconnu">{RESULTAT_INCONNU.toLowerCase()} : rien n'est inventé, ce trade est exclu des statistiques</span>
+                ) : (
+                  <span className={classeSigne(s.simulation.r)}>
+                    {enR(s.simulation.r)} ({usd(s.simulation.pnl_usd, 0, true)})
+                  </span>
+                ),
               ],
             ]}
           />

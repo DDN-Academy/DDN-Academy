@@ -19,6 +19,34 @@ test.describe("Revue : affichages honnêtes", () => {
     await expect(page.getByTestId("signal-statut")).not.toContainText("Entrée exploitable maintenant");
   });
 
+  test("rappel « entre dans la minute », taille depuis la pire entrée de la plage", async ({ connecte: page }) => {
+    await page.goto("/");
+    const carte = page.getByTestId("carte-trading").getByTestId("signal-card");
+    await expect(carte.getByTestId("rappel-minute")).toContainText("Entre dans la minute");
+    await expect(carte.getByTestId("rappel-minute")).toContainText("+0,045 R");
+    await page.goto("/signal/e2eactif");
+    await expect(page.getByTestId("champs-alerte")).toContainText("pire entrée de la plage");
+    await expect(page.getByTestId("champs-alerte")).not.toContainText("distance au stop");
+    await page.goto("/signal/e2eattente"); // entrée fermée : pas d'incitation à entrer
+    await expect(page.getByTestId("rappel-minute")).toHaveCount(0);
+    await page.goto("/aide");
+    await expect(page.getByTestId("aide-rappel-minute")).toContainText("dans la minute");
+  });
+
+  test("clôture sans données : « résultat inconnu (données manquantes) », rien n'est inventé", async ({ connecte: page }) => {
+    const sid = seed("sans-donnees");
+    await page.goto(`/signal/${sid}`);
+    await expect(page.getByTestId("signal-statut")).toContainText("Résultat inconnu (données manquantes)");
+    await expect(page.getByTestId("signal-statut")).toContainText("Position simulée clôturée");
+    await expect(page.getByTestId("resultat-inconnu")).toContainText("résultat inconnu (données manquantes)");
+    const sim = page.getByTestId("position-simulee");
+    await expect(sim).toContainText("prix de sortie inconnu");
+    await expect(sim).not.toContainText("encore ouverte");
+    await expect(page.getByTestId("detail-resultat-inconnu")).toBeVisible();
+    await page.goto("/historique?statut=CLOTURE&limite=200");
+    await expect(page.locator(`a[href="/signal/${sid}"]`)).toContainText("résultat inconnu (données manquantes)");
+  });
+
   test("statistiques : glissement déclaré comparé à l'hypothèse, gouvernance et revue périodique", async ({ connecte: page }) => {
     await page.goto("/statistiques");
     const decl = page.getByTestId("execution-declaree");

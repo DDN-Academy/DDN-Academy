@@ -8,7 +8,7 @@ const ICI = path.dirname(fileURLToPath(import.meta.url));
 const BACKEND = path.resolve(ICI, "../../backend");
 
 /** Exécute une commande du jeu de données de test (écriture directe dans la base via les modèles GoldPilot). */
-export function seed(cmd: "heartbeat-on" | "heartbeat-off" | "pending" | "version-pending"): string {
+export function seed(cmd: "heartbeat-on" | "heartbeat-off" | "pending" | "version-pending" | "sans-donnees"): string {
   const dir = process.env.GOLDPILOT_E2E_DIR;
   if (!dir) throw new Error("GOLDPILOT_E2E_DIR non défini");
   return execFileSync(process.env.PYTHON ?? "python3", [path.join(ICI, "seed.py"), cmd], {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { etatEntree, etiquettesSignal, indicateursSysteme, statutSignal } from "./status";
+import { RESULTAT_INCONNU, etatEntree, etiquettesSignal, indicateursSysteme, resultatInconnu, statutSignal } from "./status";
 import { detailTexte, messageErreur } from "./api";
 import type { Dashboard, Signal } from "./types";
 
@@ -80,5 +80,21 @@ describe("messages d'erreur : jamais « Erreur du serveur (400) » ni de texte a
     expect(detailTexte([{ loc: ["body", "executee"], type: "bool_parsing", msg: "Input should be a valid boolean" }])).toBe("executee : oui ou non attendu");
     expect(detailTexte([{ loc: ["body"], type: "json_invalid", msg: "JSON decode error" }])).toBe("body : données mal formées");
     expect(detailTexte([{ loc: ["body", "x"], type: "type_inconnu", msg: "Some English message" }])).not.toContain("English");
+  });
+});
+
+describe("clôture sans données : résultat inconnu", () => {
+  const clos = sig({ statut: "CLOTURE", simulation: { ...SIM, entree: 4000, sortie: null, r: null, pnl_usd: null } });
+  it("étiquette « Résultat inconnu (données manquantes) » et position simulée clôturée (pas « ouverte »)", () => {
+    const l = etiquettesSignal(clos).map((e) => e.libelle);
+    expect(resultatInconnu(clos)).toBe(true);
+    expect(l).toContain(RESULTAT_INCONNU);
+    expect(l).toContain("Position simulée clôturée");
+    expect(l).not.toContain("Position simulée ouverte");
+  });
+  it("un signal clôturé avec un résultat n'est pas marqué inconnu", () => {
+    const ok = sig({ statut: "CLOTURE", simulation: { ...SIM, entree: 4000, sortie: 4010, r: 1.2, pnl_usd: 280 } });
+    expect(resultatInconnu(ok)).toBe(false);
+    expect(etiquettesSignal(ok).map((e) => e.libelle)).not.toContain(RESULTAT_INCONNU);
   });
 });

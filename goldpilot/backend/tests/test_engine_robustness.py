@@ -394,6 +394,25 @@ def test_governance_initialises_then_halts_on_unapproved_version(env):
     assert eng2.mode != "arret"
 
 
+def test_version_halt_cleared_when_back_on_approved_version(env):
+    """Retour au code de la version approuvée après un arrêt « version » : l'arrêt est levé au démarrage."""
+    box = {"now": T0}
+    eng = engine(box)
+    if eng.strategy is None:
+        pytest.skip("production.json absent")
+    with db.session() as s:
+        db.kv_set(s, "approved_version", {"version": eng.version, "approuve_le": T0.isoformat(), "par": "utilisateur"})
+        db.kv_set(s, "halt", {"raison": "nouvelle version de stratégie non approuvée : X (version approuvée : %s)" % eng.version,
+                              "depuis": T0.isoformat(), "type": "version"})
+        db.open_incident(s, "critique", "strategie", "version", "x")
+    eng.startup()
+    with db.session() as s:
+        assert db.kv_get(s, "halt") is None
+        assert not s.execute(select(db.Incident).where(db.Incident.code == "version", db.Incident.resolved_at.is_(None))).scalars().all()
+    eng.tick()
+    assert eng.mode != "arret"
+
+
 # ---------------------------------------------------------------- C3 revue périodique
 def test_periodic_review_on_saturday_once(env):
     sat = utc(2026, 10, 10, 15, 0)  # samedi

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Niveaux, Signal } from "../lib/types";
-import { etatEntree, etiquettesSignal, modeLibelle } from "../lib/status";
+import { RESULTAT_INCONNU, etatEntree, etiquettesSignal, modeLibelle, resultatInconnu } from "../lib/status";
 import { enR, entier, nombre, prix, usd } from "../lib/format";
 import { Badge, classeSigne } from "./ui";
 
@@ -82,6 +82,12 @@ export function SignalCard({ sig, titre, lienDetail = true }: { sig: Signal; tit
           <p className={`small entree-${e.ouverte ? "ouverte" : "fermee"}`} data-testid="signal-entree" role={e.ouverte ? undefined : "alert"}>
             <strong>{e.ouverte ? "Entrée exploitable maintenant" : "Entrée fermée — ne plus entrer"}</strong> : {e.raison}
             {e.ouverte ? "" : ". Si tu es déjà en position, garde ton stop ; la position simulée reste suivie."}
+            {e.ouverte ? (
+              <span style={{ display: "block", marginTop: 4 }} data-testid="rappel-minute">
+                Entre dans la minute : la recherche montre qu'un retard de 5 minutes fait perdre l'essentiel de l'avantage simulé
+                (espérance +0,126 R → +0,045 R). Au-delà, ne poursuis pas le prix.
+              </span>
+            ) : null}
           </p>
         );
       })()}
@@ -126,6 +132,11 @@ export function SignalCard({ sig, titre, lienDetail = true }: { sig: Signal; tit
             <dd className={classeSigne(sim.r)}>
               {enR(sim.r)} ({usd(sim.pnl_usd, 0, true)})
             </dd>
+          </>
+        ) : resultatInconnu(sig) ? (
+          <>
+            <dt>Résultat simulé</dt>
+            <dd data-testid="resultat-inconnu">{RESULTAT_INCONNU.toLowerCase()}</dd>
           </>
         ) : null}
       </dl>

@@ -59,6 +59,10 @@ export function Help() {
           </li>
           <li>Vérifie le contrat (par exemple MGCZ6 sur Tradovate), le sens (LONG = achat, SHORT = vente) et la plage d'entrée.</li>
           <li>Si le prix est déjà sorti de la plage, ou si la validité est dépassée, laisse passer : un signal ancien n'est plus exploitable.</li>
+          <li data-testid="aide-rappel-minute">
+            Si l'entrée est exploitable, entre <strong>dans la minute</strong> : dans la recherche, un retard de 5 minutes fait passer
+            l'espérance simulée de +0,126 R à +0,045 R par trade (l'essentiel de l'avantage disparaît). Ne poursuis jamais le prix.
+          </li>
           <li>Place le stop-loss exactement au prix indiqué, avec la taille indiquée (jamais plus).</li>
           <li>Suis les messages suivants : stop déplacé (stop suiveur), sortie, annulation. Ferme toujours avant l'heure de sortie maximale.</li>
           <li>Ensuite, ouvre le signal sur le site et utilise « Déclarer mon exécution » pour garder une trace (déclaré par toi, non confirmé).</li>
@@ -102,7 +106,10 @@ export function Help() {
           <dt>Expiré</dt>
           <dd>La durée de validité est dépassée sans entrée : ne pas entrer.</dd>
           <dt>Clôturé</dt>
-          <dd>La position simulée est sortie (stop, stop suiveur ou heure de sortie).</dd>
+          <dd>
+            La position simulée est sortie (stop, stop suiveur ou heure de sortie). Si les prix manquaient à l'heure de sortie, le résultat
+            s'affiche « Résultat inconnu (données manquantes) » : aucun résultat n'est inventé et ce trade n'entre pas dans les statistiques.
+          </dd>
           <dt>Position simulée</dt>
           <dd>Position fictive suivie par le système aux prix du marché, avec glissement et commission estimés.</dd>
           <dt>Exécution déclarée par toi (non confirmée)</dt>

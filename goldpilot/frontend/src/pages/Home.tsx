@@ -151,7 +151,17 @@ function Marche({ dash }: { dash: Dashboard }) {
               <span className="sub">{m.prix_maj ? `barre terminée à ${dateHeure(m.prix_maj)} (Paris)` : "aucune barre reçue"}</span>
             </span>,
           ],
-          ["Session actuelle", <span data-testid="marche-seance">{m.seance}</span>],
+          [
+            "Session actuelle",
+            <span data-testid="marche-seance">
+              {m.seance}
+              {m.seance === "fermé (jour férié)" || m.seance === "fermé (clôture anticipée)" ? (
+                <span className="sub" data-testid="marche-seance-calendrier">
+                  Calendrier CME des jours fériés et clôtures anticipées intégré à GoldPilot : dates à vérifier sur le site du CME Group.
+                </span>
+              ) : null}
+            </span>,
+          ],
           [
             "Régime identifié",
             <span data-testid="marche-regime">
