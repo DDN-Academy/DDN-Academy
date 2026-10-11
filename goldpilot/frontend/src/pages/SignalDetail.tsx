@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { api } from "../lib/api";
 import { useAction, useRessource, useTitre } from "../lib/hooks";
 import type { SignalDetail as Detail, Signal } from "../lib/types";
-import { EVENEMENTS_SIGNAL, NOTIF_TYPES, notifStatut, peutAnnuler, statutSignal, verdict } from "../lib/status";
+import { EVENEMENTS_SIGNAL, NOTIF_TYPES, etatEntree, notifStatut, peutAnnuler, statutSignal, verdict } from "../lib/status";
 import { dateHeure, enR, nombre, prix, usd } from "../lib/format";
 import { Badge, Card, Chargement, Erreur, JsonDetails, Kv, Msg, classeSigne } from "../components/ui";
 import { SignalCard, texteSortie, typeEntree } from "../components/SignalCard";
@@ -18,6 +18,7 @@ export function SignalDetail() {
   const { signal: s, evenements, controles_risque, contexte, alertes } = r.data;
   const st = statutSignal(s.statut);
   const sortie = texteSortie(s);
+  const entree = etatEntree(s);
 
   return (
     <>
@@ -48,6 +49,10 @@ export function SignalDetail() {
             ["Taille", `${s.contrats} contrat(s) Micro Gold (risque par contrat = distance au stop + glissement prévu, × 10 onces, + commission)`],
             ["ATR (15 min)", s.atr !== null ? nombre(s.atr, 2) : "—"],
             ["Validité", `jusqu'à ${s.validite_ny}`],
+            [
+              "Fenêtre d'entrée",
+              entree ? `${entree.ouverte ? "ouverte — exploitable maintenant" : "fermée — ne plus entrer"} (${entree.raison})` : "fermée (signal terminé)",
+            ],
             ["Sortie au plus tard", s.sortie_max],
             ["Condition d'annulation", s.invalidation],
             ["Justification", s.justification],
@@ -175,6 +180,8 @@ function resumeEvenement(type: string, d: Record<string, unknown> | null): strin
   switch (type) {
     case "cree":
       return `— ${d.contrats ?? "?"} contrat(s), risque ${usd(n("risque"))}`;
+    case "entree_interdite":
+      return d.raison ? `— ${String(d.raison)}` : "";
     case "plage_depassee":
     case "entree_simulee":
       return `— prix ${prix(n("prix"))}`;
@@ -249,6 +256,10 @@ function DeclarationExecution({ sig, onSaved }: { sig: Signal; onSaved: () => Pr
         return;
       }
     }
+    if (corps.contrats !== null && (!Number.isInteger(corps.contrats) || corps.contrats < 1 || corps.contrats > 30)) {
+      a.setMessage({ ton: "bad", texte: "Nombre de contrats MGC : nombre entier entre 1 et 30 attendu." });
+      return;
+    }
     const ok = await a.lancer(() => api.post(`/api/signals/${sig.id}/execution`, corps), "Déclaration enregistrée (déclarée par toi, non confirmée par le courtier).");
     if (ok) await onSaved();
   }
@@ -268,6 +279,13 @@ function DeclarationExecution({ sig, onSaved }: { sig: Signal; onSaved: () => Pr
         <p className="small" data-testid="declaration-existante">
           Déjà déclaré : {ex.executee ? `exécuté — entrée ${prix(ex.entree)}, sortie ${prix(ex.sortie)}, ${ex.contrats ?? "?"} contrat(s)` : "non exécuté"}
           {ex.pnl_usd !== null ? `, résultat ${usd(ex.pnl_usd, 0, true)} (calculé, hors commissions)` : ""}.
+          {ex.executee && ex.entree !== null ? (
+            <span data-testid="ecart-declare">
+              {" "}
+              Écart à l'entrée prévue ({prix(sig.entree)}) : {nombre((ex.entree - sig.entree) * (sig.sens === "LONG" ? 1 : -1), 2)} $/once
+              (positif = défavorable ; déclaré par toi, non confirmé).
+            </span>
+          ) : null}
         </p>
       ) : null}
       <form onSubmit={envoyer} data-testid="form-declaration" noValidate>

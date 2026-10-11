@@ -16,7 +16,9 @@ export const STATUTS_SIGNAL: Record<string, { libelle: string; ton: Ton; explica
   ACTIF: {
     libelle: "Actif",
     ton: "warn",
-    explication: "Le signal est exploitable maintenant (dans sa plage d'entrée et sa validité).",
+    explication:
+      "Le signal est ouvert. On ne peut y entrer que si l'étiquette « Entrée exploitable maintenant » est affichée ; " +
+      "sinon l'entrée est fermée et seule la position simulée est suivie jusqu'à sa sortie.",
   },
   ANNULE: { libelle: "Annulé", ton: "neutral", explication: "Le signal a été annulé : ne pas entrer." },
   EXPIRE: { libelle: "Expiré", ton: "neutral", explication: "La durée de validité est dépassée : ne pas entrer." },
@@ -36,11 +38,39 @@ export function statutSignal(statut: string): { libelle: string; ton: Ton; expli
   return STATUTS_SIGNAL[statut] ?? { libelle: `Statut inconnu (${statut})`, ton: "neutral", explication: "" };
 }
 
-/** Étiquettes distinctes du cahier des charges §11 : statut du signal, position simulée, exécution déclarée. */
-export function etiquettesSignal(sig: Signal): { cle: string; libelle: string; ton: Ton }[] {
+export function signalOuvert(sig: Signal): boolean {
+  return sig.statut === "EN_ATTENTE" || sig.statut === "ACTIF";
+}
+
+/**
+ * Fenêtre d'entrée d'un signal ouvert (cahier §11 : ne jamais présenter un ancien signal comme exploitable).
+ * Le serveur fournit `entree_ouverte` ; s'il est absent (ancien serveur), on reste prudent : validité écoulée → fermée.
+ */
+export function etatEntree(sig: Signal, maintenant: Date = new Date()): { ouverte: boolean; raison: string } | null {
+  if (!signalOuvert(sig)) return null;
+  const validiteEcoulee = sig.validite ? new Date(sig.validite).getTime() <= maintenant.getTime() : false;
+  const raisons: string[] = [];
+  if (sig.plage_depassee) raisons.push("le prix est sorti de la plage d'entrée");
+  if (sig.entree_interdite) raisons.push(sig.entree_interdite);
+  if (validiteEcoulee) raisons.push(`la validité est écoulée (${sig.validite_ny})`);
+  const ouverte = sig.entree_ouverte === undefined ? raisons.length === 0 : sig.entree_ouverte && !validiteEcoulee;
+  if (ouverte) return { ouverte: true, raison: `Dans la plage d'entrée et la validité (jusqu'à ${sig.validite_ny}).` };
+  return { ouverte: false, raison: raisons.length ? raisons.join(" ; ") : "la fenêtre d'entrée est fermée" };
+}
+
+/** Étiquettes distinctes du cahier des charges §11 : statut du signal, fenêtre d'entrée, position simulée, exécution déclarée. */
+export function etiquettesSignal(sig: Signal, maintenant: Date = new Date()): { cle: string; libelle: string; ton: Ton }[] {
   const out: { cle: string; libelle: string; ton: Ton }[] = [];
   const st = statutSignal(sig.statut);
   out.push({ cle: "statut", libelle: st.libelle, ton: st.ton });
+  const entree = etatEntree(sig, maintenant);
+  if (entree) {
+    out.push(
+      entree.ouverte
+        ? { cle: "entree", libelle: "Entrée exploitable maintenant", ton: "warn" }
+        : { cle: "entree", libelle: "Entrée fermée — ne plus entrer", ton: "bad" },
+    );
+  }
   const sim = sig.simulation;
   if (sim && sim.entree !== null && sim.entree !== undefined) {
     out.push({
@@ -53,9 +83,8 @@ export function etiquettesSignal(sig: Signal): { cle: string; libelle: string; t
   if (ex) {
     out.push({
       cle: "execution",
-      libelle: ex.executee
-        ? "Position réellement exécutée — déclarée par toi, non confirmée par le courtier"
-        : "Non exécuté — déclaré par toi",
+      // Cahier §11 : « réellement exécutée » seulement si une source fiable le confirme (aucune connexion courtier ici).
+      libelle: ex.executee ? "Exécution déclarée par toi — non confirmée par le courtier" : "Non exécuté — déclaré par toi",
       ton: "neutral",
     });
   }
@@ -163,6 +192,9 @@ export function indicateursSysteme(d: Dashboard | null, joignable: boolean): Ind
   } else if (!n.active) {
     tonNotif = "warn";
     titreNotif = "Désactivées";
+  } else if (n.verifiees === false) {
+    tonNotif = "warn";
+    titreNotif = "Jamais vérifiées";
   } else {
     tonNotif = "bad";
     titreNotif = "En erreur";
@@ -232,6 +264,7 @@ export function verdict(v: string): { libelle: string; ton: Ton } {
 export const EVENEMENTS_SIGNAL: Record<string, string> = {
   cree: "Signal créé",
   plage_depassee: "Prix sorti de la plage d'entrée",
+  entree_interdite: "Entrée interdite (ne plus entrer)",
   entree_simulee: "Entrée simulée",
   sortie_simulee: "Sortie simulée",
   stop_deplace: "Stop suiveur déplacé",

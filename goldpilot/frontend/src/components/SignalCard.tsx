@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import type { Signal } from "../lib/types";
-import { etiquettesSignal, modeLibelle } from "../lib/status";
+import type { Niveaux, Signal } from "../lib/types";
+import { etatEntree, etiquettesSignal, modeLibelle } from "../lib/status";
 import { enR, entier, nombre, prix, usd } from "../lib/format";
 import { Badge, classeSigne } from "./ui";
 
@@ -18,6 +18,38 @@ export function typeEntree(t: string): string {
   if (t === "limit") return "Conditionnelle (ordre limite)";
   if (t === "stop") return "Conditionnelle (ordre stop)";
   return t;
+}
+
+const NIVEAUX_LIBELLES: [keyof Omit<Niveaux, "distances_atr">, string][] = [
+  ["plus_haut_veille", "Plus haut de la veille"],
+  ["plus_bas_veille", "Plus bas de la veille"],
+  ["plus_haut_seance", "Plus haut de la séance"],
+  ["plus_bas_seance", "Plus bas de la séance"],
+  ["swing_haut_15m", "Dernier sommet 15 min"],
+  ["swing_bas_15m", "Dernier creux 15 min"],
+];
+
+/** Niveaux de contexte de la décision (contrat C4) : barres terminées uniquement, distance en ATR depuis le prix de décision. */
+export function NiveauxSignal({ niveaux }: { niveaux: Niveaux | null | undefined }) {
+  if (!niveaux) return null;
+  const lignes = NIVEAUX_LIBELLES.filter(([k]) => niveaux[k] !== null && niveaux[k] !== undefined);
+  if (lignes.length === 0) return null;
+  return (
+    <div data-testid="signal-niveaux" style={{ marginTop: 10 }}>
+      <div className="small" style={{ fontWeight: 600 }}>Niveaux de prix au moment de la décision</div>
+      <ul className="small" style={{ margin: "4px 0 0", paddingLeft: 18 }}>
+        {lignes.map(([k, lib]) => {
+          const dist = niveaux.distances_atr?.[k];
+          return (
+            <li key={k}>
+              {lib} : {prix(niveaux[k] as number)}
+              {dist !== null && dist !== undefined ? ` (prix ${dist >= 0 ? "+" : ""}${nombre(dist, 2)} ATR)` : ""}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
 export function SignalCard({ sig, titre, lienDetail = true }: { sig: Signal; titre?: string; lienDetail?: boolean }) {
@@ -43,6 +75,16 @@ export function SignalCard({ sig, titre, lienDetail = true }: { sig: Signal; tit
           </Badge>
         ))}
       </div>
+      {(() => {
+        const e = etatEntree(sig);
+        if (!e) return null;
+        return (
+          <p className={`small entree-${e.ouverte ? "ouverte" : "fermee"}`} data-testid="signal-entree" role={e.ouverte ? undefined : "alert"}>
+            <strong>{e.ouverte ? "Entrée exploitable maintenant" : "Entrée fermée — ne plus entrer"}</strong> : {e.raison}
+            {e.ouverte ? "" : ". Si tu es déjà en position, garde ton stop ; la position simulée reste suivie."}
+          </p>
+        );
+      })()}
       <div className="levels">
         <div className="level">
           <div className="k">Entrée</div>
@@ -87,6 +129,7 @@ export function SignalCard({ sig, titre, lienDetail = true }: { sig: Signal; tit
           </>
         ) : null}
       </dl>
+      <NiveauxSignal niveaux={sig.niveaux} />
       {lienDetail ? (
       <p style={{ marginTop: 12, marginBottom: 0 }}>
         <Link to={`/signal/${sig.id}`} className="btn small" data-testid="lien-detail-signal">

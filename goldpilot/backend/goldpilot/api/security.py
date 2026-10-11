@@ -7,6 +7,7 @@
   se connecter, et changer SECRET_KEY révoque toutes les sessions d'un coup.
 * Protection CSRF : cookie SameSite=Strict + en-tête obligatoire X-GoldPilot sur toute requête qui modifie.
 * Connexion : 5 essais par 15 minutes et par adresse IP.
+* Webhook : refus limités par IP ; messages authentifiés limités séparément (voir webhook_limiter).
 """
 from __future__ import annotations
 
@@ -68,7 +69,14 @@ class RateLimiter:
 
 
 login_limiter = RateLimiter(5, 15 * 60)
+# Webhook TradingView : TradingView envoie depuis 4 adresses IP partagées par TOUS ses utilisateurs. Un budget par IP
+# compté avant le jeton permettrait à n'importe quel compte TradingView de faire refuser tes vraies barres (429).
+# Donc : (1) les messages REFUSÉS sont limités par IP (webhook_fail_limiter) — au-delà, ils ne sont plus journalisés ;
+# (2) les messages AUTHENTIFIÉS (jeton vérifié) ont leur propre budget (webhook_limiter, clé WEBHOOK_AUTH_KEY),
+# que les messages refusés ne consomment jamais.
 webhook_limiter = RateLimiter(120, 60)
+webhook_fail_limiter = RateLimiter(120, 60)
+WEBHOOK_AUTH_KEY = "jeton-valide"
 api_limiter = RateLimiter(300, 60)
 
 

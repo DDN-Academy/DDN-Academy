@@ -13,6 +13,7 @@ Boucle (toutes les 2 s) :
 from __future__ import annotations
 
 import logging
+import math
 import threading
 import time
 from collections import deque
@@ -27,18 +28,18 @@ from ..calendar.events import Event, next_event, parse_ics, seed_events
 from ..config import settings
 from ..context import fred as macro
 from ..marketdata import quality as dq
-from ..marketdata.contracts import active_contract, add_bdays, next_contract
+from ..marketdata.contracts import active_contract, add_bdays, business_day, next_contract
 from ..notify import messages
 from ..notify.telegram import Telegram, deliver_pending, enqueue
 from ..research.data import resample
 from ..risk import engine as risk
 from ..risk.account import Account
 from ..risk.rules import DEFAULT_PROGRAM, get_program
-from ..risk.sizing import RiskSettings
+from ..risk.sizing import MGC_OZ, RiskSettings
 from ..signals import manager as sm
 from ..strategy.base import StrategyState
 from ..strategy.candidates import arrays
-from ..timeutil import fmt_ny, fmt_paris, is_open, msess, trading_date, utcnow
+from ..timeutil import NY, fmt_ny, fmt_paris, is_open, msess, trading_date, utcnow
 from . import strategy_config
 
 log = logging.getLogger("goldpilot.engine")
@@ -50,11 +51,22 @@ MIRROR_WAIT = timedelta(minutes=5)  # délai laissé au moteur pour décider ava
 EPOCH = datetime(1970, 1, 1).date()
 MACRO_EVERY = timedelta(hours=6)  # contexte macro FRED : rafraîchissement normal
 MACRO_RETRY = timedelta(minutes=30)  # nouvel essai après un échec (3 requêtes, très loin de la limite FRED)
+CLOCK_GRACE_MIN = timedelta(minutes=3)  # échéance à l'horloge : délai laissé à la barre attendue (= seuil « données périmées »)
+# Contrôle croisé des prix (DATA_SOURCE=databento) : écart de clôture toléré entre Databento et TradingView sur la même
+# minute. Seuil de prudence (10 ticks MGC), hypothèse NON validée : il sert à signaler des données contradictoires.
+CROSS_CHECK_TOL = 1.0
+MODE_LABELS = {"demarrage": "démarrage du moteur (état des données pas encore évalué)",
+               "prechauffage": "préchauffage (historique insuffisant)"}
 
 
 def td_int(dt: datetime) -> int:
     """Journée de trading en jours depuis 1970 (même convention que strategy.indicators.time_columns)."""
     return (trading_date(dt) - EPOCH).days
+
+
+def _parse_utc(x: str) -> datetime:
+    d = datetime.fromisoformat(x)
+    return d.replace(tzinfo=timezone.utc) if d.tzinfo is None else d
 
 
 def risk_settings(s) -> RiskSettings:
@@ -82,6 +94,8 @@ class Engine:
         self.last_cal = None
         self.last_mirror_check = None
         self.source_filter = source_filter
+        self.primary_source = source_filter or "tradingview"  # source des décisions ; les autres : contrôle croisé
+        self.last_bar_ts: dict[str, datetime] = {}  # dernière barre appliquée par contrat (jamais de retour en arrière)
         self.decided: set[int] = set()
         self.current_bucket: pd.Timestamp | None = None
         self.last_decision_atr = float("nan")  # ATR de la dernière barre de décision clôturée (comme le backtest)
@@ -108,16 +122,21 @@ class Engine:
             if db.kv_get(s, "paper_account") is None:
                 self._save_paper(s, Account.start(get_program(db.kv_get(s, "program"))), trading_date(now))
             since = now - KEEP
-            rows = s.execute(select(db.Bar).where(db.Bar.ts >= since, db.Bar.processed.is_(True)).order_by(db.Bar.ts)).scalars().all()
+            rows = s.execute(select(db.Bar).where(db.Bar.ts >= since, db.Bar.processed.is_(True), db.Bar.source == self.primary_source)
+                             .order_by(db.Bar.ts)).scalars().all()
             if rows:
                 self.bars = pd.DataFrame.from_records(
                     [(b.open, b.high, b.low, b.close, b.volume, b.minutes, b.symbol) for b in rows],
                     columns=["open", "high", "low", "close", "volume", "minutes", "symbol"],
                     index=pd.DatetimeIndex([b.ts for b in rows]).as_unit("ns"))
-                self.bars = self.bars[~self.bars.index.duplicated(keep="last")]
+                self.bars = self._dedupe(self.bars)
                 self.current_bucket = self.bars.index[-1].floor("15min")
+                for b in rows:
+                    if b.source == self.primary_source:
+                        self.last_bar_ts[b.symbol] = max(self.last_bar_ts.get(b.symbol, b.ts), b.ts)
             for (bt,) in s.execute(select(db.Decision.bar_ts).where(db.Decision.bar_ts >= since)).all():
                 self.decided.add(int(bt.timestamp()))
+            self._governance(s, now)
             db.beat(s, "engine", "demarrage", {"version": self.version})
             enqueue(s, f"engine-start:{now:%Y%m%d%H%M}", "systeme",
                     messages.system_alert("Moteur GoldPilot démarré", f"Stratégie : {self.version}.", now),
@@ -126,12 +145,37 @@ class Engine:
 
     # ------------------------------------------------------------------ données
     def _append(self, b: db.Bar) -> None:
-        self.bars.loc[pd.Timestamp(b.ts).as_unit("ns")] = [b.open, b.high, b.low, b.close, b.volume, b.minutes, b.symbol]
+        """Barres en mémoire indexées par minute : si deux contrats arrivent pour la même minute (autour du changement
+        d'échéance, deux alertes TradingView actives), la barre du contrat actif n'est jamais écrasée par l'autre."""
+        ts = pd.Timestamp(b.ts).as_unit("ns")
+        if ts in self.bars.index:
+            cur = self.bars.at[ts, "symbol"]
+            if cur != b.symbol and cur == active_contract(trading_date(b.ts)).code:
+                return
+        self.bars.loc[ts] = [b.open, b.high, b.low, b.close, b.volume, b.minutes, b.symbol]
+
+    @staticmethod
+    def _dedupe(bars: pd.DataFrame) -> pd.DataFrame:
+        """Une ligne par minute ; en cas de doublon, celle du contrat actif de la journée l'emporte."""
+        if not bars.index.duplicated().any():
+            return bars
+        active: dict = {}
+
+        def code(ts: pd.Timestamp) -> str:
+            td = trading_date(ts.to_pydatetime())
+            if td not in active:
+                active[td] = active_contract(td).code
+            return active[td]
+
+        pref = [sym == code(ts) for ts, sym in zip(bars.index, bars["symbol"])]
+        tmp = bars.assign(_pref=pref, _ts=bars.index)
+        tmp = tmp.sort_values(["_ts", "_pref"], kind="stable")
+        tmp = tmp[~tmp.index.duplicated(keep="last")]
+        return tmp.drop(columns=["_pref", "_ts"])
 
     def _fetch_new(self, s) -> list[db.Bar]:
-        q = select(db.Bar).where(db.Bar.processed.is_(False)).order_by(db.Bar.ts).limit(2000)
-        if self.source_filter:
-            q = q.where(db.Bar.source == self.source_filter)
+        q = (select(db.Bar).where(db.Bar.processed.is_(False), db.Bar.source == self.primary_source)
+             .order_by(db.Bar.ts).limit(2000))
         return s.execute(q).scalars().all()
 
     def _symbol_bars(self, symbol: str) -> pd.DataFrame:
@@ -147,51 +191,121 @@ class Engine:
         return r[r.index <= upto_bucket]
 
     # ------------------------------------------------------------------ boucle
+    def _snapshot(self) -> tuple:
+        return (set(self.decided), self.current_bucket, self.last_decision_atr, self.bars, deque(self.delays, maxlen=self.delays.maxlen),
+                dict(self.last_bar_ts), self.mode, self.last_mirror_check, self.last_cal, self.last_beat)
+
+    def _restore(self, snap: tuple) -> None:
+        (self.decided, self.current_bucket, self.last_decision_atr, self.bars, self.delays, self.last_bar_ts, self.mode,
+         self.last_mirror_check, self.last_cal, self.last_beat) = snap
+
     def tick(self) -> None:
+        """Un passage de la boucle. Si une erreur survient, la transaction est annulée (décisions, signaux, barres
+        marquées traitées) : l'état en mémoire est alors restauré pour que les mêmes barres soient retraitées et que
+        chaque créneau de 15 min soit bien décidé au passage suivant (aucune analyse perdue)."""
         now = self.clock()
-        with db.session() as s:
-            notify = bool(db.kv_get(s, "notifications", True))
-            expected = active_contract(trading_date(now)).code
-            new = self._fetch_new(s)
-            for b in new:
-                b.processed = True
-                self._append(b)
-                if b.source == "tradingview":
-                    self.delays.append((b.received_at - (b.ts + timedelta(minutes=b.minutes))).total_seconds())
-                if b.symbol != expected:
-                    continue
-                bucket = pd.Timestamp(b.ts).floor("15min")
-                # Un créneau précédent non clôturé (dernière minute manquante) est décidé AVANT de suivre
-                # la nouvelle barre : même ordre que le backtest.
-                if self.current_bucket is not None and self.current_bucket < bucket:
-                    self._decide(s, self.current_bucket, now, notify)
-                self.current_bucket = bucket
-                self._track_signals(s, b, notify)
-                if b.ts + timedelta(minutes=b.minutes) >= (bucket + BUCKET).to_pydatetime():
-                    self._decide(s, bucket, now, notify)
-            # Créneau terminé sans barre suivante (marché calme ou dernière minute manquante)
-            if self.current_bucket is not None and now >= (self.current_bucket + BUCKET).to_pydatetime() + GRACE:
-                self._decide(s, self.current_bucket, now, notify)
-            self._update_mode(s, now, expected, notify)
-            self._calendar(s, now)
-            self._macro_context(s, now)
-            self._news_warning(s, now, notify)
-            self._roll_reminder(s, now, notify)
-            self._check_mirrors(s, now, notify)
-            self._end_of_day(s, now)
-            cutoff = pd.Timestamp(now - KEEP)
-            if len(self.bars) and self.bars.index[0] < cutoff:
-                self.bars = self.bars[self.bars.index >= cutoff]
-            if self.last_beat is None or (now - self.last_beat).total_seconds() >= 10:
-                q = self.last_quality
-                db.beat(s, "engine", self.mode, {"version": self.version, "quality": q.level if q else None,
-                                                  "problems": q.problems if q else [], "last_price": q.last_price if q else None,
-                                                  "last_bar_end": q.last_bar_end.isoformat() if q and q.last_bar_end else None,
-                                                  "expected_symbol": expected, "bars_in_memory": len(self.bars),
-                                                  "clock": now.isoformat()})
-                self.last_beat = now
+        snap = self._snapshot()
+        try:
+            with db.session() as s:
+                self._tick(s, now)
+        except Exception:
+            self._restore(snap)
+            raise
         if self.tg.configured:
             deliver_pending(self.tg, now=now)
+
+    def _tick(self, s, now: datetime) -> None:
+        notify = bool(db.kv_get(s, "notifications", True))
+        expected = active_contract(trading_date(now)).code
+        new = self._fetch_new(s)
+        if new:
+            self.bars = self.bars.copy()  # la copie de l'instantané reste intacte en cas d'annulation
+        for b in new:
+            b.processed = True
+            self.delays.append((b.received_at - (b.ts + timedelta(minutes=b.minutes))).total_seconds())
+            last = self.last_bar_ts.get(b.symbol)
+            if last is not None and b.ts <= last:
+                # Barre arrivée en retard (renvoi) : jamais appliquée au suivi ni au créneau courant après une plus
+                # récente. Elle complète seulement le créneau de 15 min encore ouvert (pas encore décidé).
+                bucket = pd.Timestamp(b.ts).floor("15min")
+                if (b.symbol == expected and self.current_bucket is not None and bucket >= self.current_bucket
+                        and int(bucket.timestamp()) not in self.decided):
+                    self._append(b)
+                log.warning("barre %s %s reçue après une barre plus récente : ignorée pour le suivi", b.symbol, b.ts)
+                continue
+            self.last_bar_ts[b.symbol] = b.ts
+            self._append(b)
+            if b.symbol != expected:
+                continue
+            bucket = pd.Timestamp(b.ts).floor("15min")
+            # Un créneau précédent non clôturé (dernière minute manquante) est décidé AVANT de suivre
+            # la nouvelle barre : même ordre que le backtest.
+            if self.current_bucket is not None and self.current_bucket < bucket:
+                self._decide(s, self.current_bucket, now, notify)
+            if self.current_bucket is None or bucket > self.current_bucket:
+                self.current_bucket = bucket
+            self._track_signals(s, b, notify)
+            if b.ts + timedelta(minutes=b.minutes) >= (bucket + BUCKET).to_pydatetime():
+                self._decide(s, bucket, now, notify)
+        # Créneau terminé sans barre suivante (marché calme ou dernière minute manquante)
+        if self.current_bucket is not None and now >= (self.current_bucket + BUCKET).to_pydatetime() + GRACE:
+            self._decide(s, self.current_bucket, now, notify)
+        self._clock_deadlines(s, now, notify)
+        self._update_mode(s, now, expected, notify)
+        self._cross_check_sources(s, now, notify)
+        self._calendar(s, now)
+        self._macro_context(s, now)
+        self._news_warning(s, now, notify)
+        self._roll_reminder(s, now, notify)
+        self._check_mirrors(s, now, notify)
+        self._end_of_day(s, now)
+        self._periodic_review(s, now, notify)
+        cutoff = pd.Timestamp(now - KEEP)
+        if len(self.bars) and self.bars.index[0] < cutoff:
+            self.bars = self.bars[self.bars.index >= cutoff]
+        if self.last_beat is None or (now - self.last_beat).total_seconds() >= 10:
+            q = self.last_quality
+            db.beat(s, "engine", self.mode, {"version": self.version, "quality": q.level if q else None,
+                                              "problems": q.problems if q else [], "last_price": q.last_price if q else None,
+                                              "last_bar_end": q.last_bar_end.isoformat() if q and q.last_bar_end else None,
+                                              "expected_symbol": expected, "bars_in_memory": len(self.bars),
+                                              "source": self.primary_source, "clock": now.isoformat()})
+            self.last_beat = now
+
+    def _clock_deadlines(self, s, now: datetime, notify: bool) -> None:
+        """Validité et heure limite de sortie vérifiées à l'horloge (barres interrompues : voir sm.on_clock)."""
+        bar_min = int(self.bars["minutes"].iloc[-1]) if len(self.bars) else 1
+        grace = max(CLOCK_GRACE_MIN, timedelta(minutes=2 * bar_min + 1))
+        for sig in sm.open_signals(s):
+            sm.on_clock(s, sig, now, grace, notify)
+
+    def _cross_check_sources(self, s, now: datetime, notify: bool) -> None:
+        """DATA_SOURCE=databento : les barres TradingView ne pilotent ni les décisions ni le suivi ; chaque minute reçue
+        des deux sources est comparée (clôture). Un écart > CROSS_CHECK_TOL ouvre un incident « données contradictoires »."""
+        if self.primary_source != "databento" or not self.last_bar_ts:
+            return
+        upto = max(self.last_bar_ts.values())
+        rows = s.execute(select(db.Bar).where(db.Bar.processed.is_(False), db.Bar.source == "tradingview", db.Bar.ts <= upto)
+                         .order_by(db.Bar.ts).limit(2000)).scalars().all()
+        worst, compared = None, 0
+        for b in rows:
+            b.processed = True
+            ts = pd.Timestamp(b.ts).as_unit("ns")
+            if ts not in self.bars.index or self.bars.at[ts, "symbol"] != b.symbol:
+                continue
+            compared += 1
+            gap = abs(float(self.bars.at[ts, "close"]) - b.close)
+            if gap > CROSS_CHECK_TOL and (worst is None or gap > worst[0]):
+                worst = (gap, b)
+        if worst is not None:
+            gap, b = worst
+            msg = (f"Prix contradictoires entre Databento et TradingView : écart de {gap:.2f} $ sur la clôture de "
+                   f"{fmt_ny(b.ts + timedelta(minutes=b.minutes))} ({b.symbol}). Seuil de prudence {CROSS_CHECK_TOL:.2f} $ "
+                   "(hypothèse non validée). Vérifie les deux graphiques avant de suivre un signal.")
+            if db.open_incident(s, "avertissement", "controle_croise", "prix", msg):
+                enqueue(s, f"xsrc:{b.ts:%Y%m%d%H%M}", "systeme", messages.system_alert("Sources de prix en désaccord", msg, now), enabled=notify)
+        elif compared:
+            db.resolve_incident(s, "controle_croise", "prix")
 
     # ------------------------------------------------------------------ signaux ouverts
     def _track_signals(self, s, b: db.Bar, notify: bool) -> None:
@@ -204,6 +318,22 @@ class Engine:
             sm.on_base_bar(s, sig, b.ts, b.open, b.high, b.low, b.close, a, td_int(b.ts), msess(b.ts), notify)
             if before != "CLOTURE" and sig.status == "CLOTURE":
                 self._on_closed(s, sig, notify)
+            elif sig.status == "ACTIF" and sig.sim_entry is not None and sig.mode == "simulation":
+                self._check_floating_loss(s, sig, b, notify)
+
+    def _check_floating_loss(self, s, sig: db.Signal, b: db.Bar, notify: bool) -> None:
+        """Règle FundedNext « perte latente » : la perte flottante au pire extrême de la barre (bas pour un achat,
+        haut pour une vente) qui amène le solde simulé au plancher viole le compte immédiatement."""
+        worst = b.low if sig.side > 0 else b.high
+        floating = (worst - sig.sim_entry) * sig.side * MGC_OZ * sig.contracts
+        acct = self._load_paper(s)
+        if acct.breached or not acct.check_equity(floating):
+            return
+        self._save_paper(s, acct, db.kv_get(s, "paper_account")["day"])
+        enqueue(s, f"paper-breach:{sig.id}", "systeme", messages.system_alert(
+            "Compte simulé : perte maximale atteinte (latente)",
+            f"Perte flottante de {-floating:,.0f} $ au pire de la barre de {fmt_ny(b.ts)} : le solde simulé touche le plancher "
+            f"({acct.floor:,.0f} $). Sur un vrai compte FundedNext, le compte serait violé.".replace(",", " "), b.ts), enabled=notify)
 
     def _on_closed(self, s, sig: db.Signal, notify: bool) -> None:
         acct = self._load_paper(s)
@@ -218,6 +348,8 @@ class Engine:
         if key in self.decided:
             return
         self.decided.add(key)
+        # Mode mis à jour AVANT de décider (sinon : mode du passage précédent, ou « démarrage » après un redémarrage)
+        self._update_mode(s, now, active_contract(trading_date(now)).code, notify)
         bar_ts = bucket.to_pydatetime()
         expected = active_contract(trading_date(bar_ts)).code
         F15 = self.decision_frame(expected, bucket)
@@ -260,7 +392,7 @@ class Engine:
             skey = f"{self.version}:{key}:{su.side}"
             dup = s.execute(select(db.Signal.id).where(db.Signal.key == skey)).first() is not None
             rctx = risk.RiskContext(
-                now=now, system_mode=self.mode if self.mode in ("actif", "pause", "securise", "arret") else "securise",
+                now=now, system_mode=MODE_LABELS.get(self.mode, self.mode),
                 data_ok=q.ok, data_problems=q.problems, last_price=q.last_price, account=acct, account_state_known=known,
                 account_note=note, trades_today=stats["trades"], losses_today=stats["losses"],
                 realized_loss_today=stats["realized_loss"], open_or_pending_signals=len(opens), duplicate=dup,
@@ -288,7 +420,8 @@ class Engine:
                 price_source=f"{ {'tradingview': 'TradingView', 'databento': 'Databento', 'replay': 'REJEU HISTORIQUE (simulation)'}.get(settings().data_source, settings().data_source)} — {expected}",
                 price_ts=q.last_bar_end or now, status="EN_ATTENTE" if su.entry_type != "market" else "ACTIF",
                 meta={"strategy": su.strategy, "config_id": su.config_id, "td": su.td, "tag": su.tag,
-                      "exit_msess": su.exit_msess, "decision_bar_ts": su.decision_bar_ts},
+                      "exit_msess": su.exit_msess, "decision_bar_ts": su.decision_bar_ts,
+                      "niveaux": (getattr(su, "meta", None) or {}).get("niveaux")},
             )
             s.add(sig)
             s.flush()
@@ -346,15 +479,24 @@ class Engine:
         today = trading_date(now)
         if d and d.get("day") != str(today):
             a = self._load_paper(s)
-            a.end_day()
+            try:
+                prev = datetime.strptime(d.get("day"), "%Y-%m-%d").date()
+            except (TypeError, ValueError):
+                prev = None
+            if prev is None or business_day(prev):  # samedi, dimanche, jour férié CME : pas de journée de trading close
+                a.end_day()
             self._save_paper(s, a, today)
 
     def _performance_guard(self, s, notify: bool) -> None:
         lim = (self.conf or {}).get("seuils_suspension")
         if not lim:
             return
-        rs = [r for (r,) in s.execute(select(db.Signal.sim_r).where(db.Signal.status == "CLOTURE", db.Signal.strategy_version == self.version,
-                                                                      db.Signal.sim_r.is_not(None)).order_by(db.Signal.created_at)).all()]
+        q = select(db.Signal.sim_r).where(db.Signal.status == "CLOTURE", db.Signal.strategy_version == self.version, db.Signal.sim_r.is_not(None))
+        reset = db.kv_get(s, "halt_reset") or {}
+        if reset.get("version") == self.version and reset.get("depuis"):
+            # Reprise manuelle après un arrêt : les seuils sont recomptés sur les trades clôturés depuis la reprise
+            q = q.where(db.Signal.sim_exit_ts > _parse_utc(reset["depuis"]))
+        rs = [r for (r,) in s.execute(q.order_by(db.Signal.created_at)).all()]
         if not rs:
             return
         eq = pd.Series(rs).cumsum()
@@ -369,9 +511,79 @@ class Engine:
         elif streak >= lim["serie_pertes"]:
             reason = f"série de {streak} pertes au-delà du seuil pré-établi ({lim['serie_pertes']})"
         if reason and not db.kv_get(s, "halt"):
-            db.kv_set(s, "halt", {"raison": reason, "depuis": db.now().isoformat()})
+            db.kv_set(s, "halt", {"raison": reason, "depuis": db.now().isoformat(), "type": "performance"})
             db.open_incident(s, "critique", "performance", "degradation", reason)
             enqueue(s, f"halt:{reason}", "systeme", messages.system_alert("Arrêt de sécurité", reason + ". Reprise manuelle requise après analyse.", db.now()), enabled=notify)
+
+    # ------------------------------------------------------------------ gouvernance des versions (cahier §17)
+    def _governance(self, s, now: datetime) -> None:
+        """Aucune nouvelle version de stratégie ne remplace l'ancienne sans approbation explicite (Paramètres).
+        Première mise en service : la version courante est enregistrée comme approuvée (« initialisation »)."""
+        if self.strategy is None:
+            return
+        approved = db.kv_get(s, "approved_version")
+        if not approved:
+            db.kv_set(s, "approved_version", {"version": self.version, "approuve_le": now.isoformat(), "par": "initialisation"})
+            db.audit(s, "moteur", "version_approuvee", {"version": self.version, "par": "initialisation"})
+            return
+        if approved.get("version") == self.version:
+            return
+        reason = f"nouvelle version de stratégie non approuvée : {self.version} (version approuvée : {approved.get('version')})"
+        halt = db.kv_get(s, "halt")
+        if not halt or halt.get("type") != "version" or halt.get("raison") != reason:
+            db.kv_set(s, "halt", {"raison": reason, "depuis": now.isoformat(), "type": "version"})
+            db.audit(s, "moteur", "version_non_approuvee", {"version_courante": self.version, "version_approuvee": approved.get("version")})
+            db.open_incident(s, "critique", "strategie", "version", reason)
+            enqueue(s, f"version:{self.version}", "systeme", messages.system_alert(
+                "Arrêt de sécurité : nouvelle version de stratégie", reason + ". Compare-la puis approuve-la dans Paramètres.", now),
+                enabled=bool(db.kv_get(s, "notifications", True)))
+
+    # ------------------------------------------------------------------ revue périodique (cahier §17)
+    def _periodic_review(self, s, now: datetime, notify: bool) -> None:
+        """Chaque samedi (date de New York), bilan des trades simulés de la version en service comparé aux résultats
+        de la recherche. Information seulement : la stratégie n'est JAMAIS modifiée automatiquement."""
+        ny = now.astimezone(NY).date()
+        if ny.weekday() != 5 or self.strategy is None:
+            return
+        prev = db.kv_get(s, "revue_periodique") or {}
+        if prev.get("date") == ny.isoformat():
+            return
+        rs = [float(r) for (r,) in s.execute(select(db.Signal.sim_r).where(
+            db.Signal.status == "CLOTURE", db.Signal.strategy_version == self.version, db.Signal.mode == "simulation",
+            db.Signal.sim_r.is_not(None)).order_by(db.Signal.sim_exit_ts)).all()]
+        n = len(rs)
+        mean = sum(rs) / n if n else None
+        lb = dd = win = None
+        streak = cur = 0
+        if n:
+            if n >= 2:
+                sd = math.sqrt(sum((r - mean) ** 2 for r in rs) / (n - 1))
+                lb = round(mean - 1.645 * sd / math.sqrt(n), 3)  # borne basse unilatérale à 95 %
+            eq = pd.Series(rs).cumsum()
+            dd = round(float((eq - eq.cummax().clip(lower=0)).min()), 2)
+            win = round(sum(1 for r in rs if r > 0) / n, 3)
+            for r in rs:
+                cur = cur + 1 if r <= 0 else 0
+                streak = max(streak, cur)
+        ref = strategy_config.research_reference()
+        lim = (self.conf or {}).get("seuils_suspension")
+        if n < 30:
+            concl = (f"{n} trade(s) simulé(s) clôturé(s) avec cette version : échantillon trop petit pour conclure. "
+                     "Aucune modification de la stratégie.")
+        else:
+            wf = ref.get("esperance_R_walk_forward")
+            cmp_txt = (f"inférieure à l'espérance walk-forward de la recherche ({wf:+.3f} R)" if wf is not None and mean < wf
+                       else "conforme ou supérieure à la recherche" if wf is not None else "référence de recherche indisponible")
+            concl = (f"{n} trades simulés : espérance {mean:+.3f} R par trade ({cmp_txt}), borne basse 95 % {lb:+.3f} R. "
+                     + ("La borne basse est négative : aucun avantage démontré. " if lb is not None and lb <= 0 else "")
+                     + "Aucune modification automatique de la stratégie.")
+        review = {"date": ny.isoformat(), "version": self.version, "n": n,
+                  "esperance_R": None if mean is None else round(mean, 3), "borne_basse_95_R": lb, "drawdown_max_R": dd,
+                  "serie_pertes_max": streak, "taux_de_gain": win, "reference": ref, "seuils": lim, "conclusion": concl}
+        db.kv_set(s, "revue_periodique", review)
+        db.audit(s, "moteur", "revue_periodique", review)
+        enqueue(s, f"review:{ny.isoformat()}", "systeme", messages.system_alert("Revue hebdomadaire des performances", concl, now),
+                enabled=notify)
 
     # ------------------------------------------------------------------ modes
     def _update_mode(self, s, now: datetime, expected: str, notify: bool) -> None:
@@ -379,7 +591,8 @@ class Engine:
         self.last_quality = q
         user = db.kv_get(s, "user_mode", "actif")
         halt = db.kv_get(s, "halt")
-        if halt:
+        approved = db.kv_get(s, "approved_version")
+        if halt or (self.strategy is not None and approved and approved.get("version") != self.version):
             mode = "arret"
         elif user == "pause":
             mode = "pause"
@@ -393,10 +606,16 @@ class Engine:
             mode = "actif"
         if mode != self.mode:
             if mode == "securise":
-                n = sm.cancel_open(s, "Mode sécurisé : " + "; ".join(q.problems), notify, only_pending=True)
+                n = sm.cancel_open(s, "Mode sécurisé : " + "; ".join(q.problems), notify, only_pending=True, now=now)
                 if db.open_incident(s, "alerte", "donnees", "qualite", "; ".join(q.problems)):
                     enqueue(s, f"safe:{now:%Y%m%d%H%M}", "systeme", messages.system_alert(
-                        "Mode sécurisé : aucun signal", "; ".join(q.problems) + (f" ({n} signal(aux) en attente annulé(s))" if n else ""), now), enabled=notify)
+                        "Mode sécurisé : aucun signal", "; ".join(q.problems) + (f" ({n} signal(aux) non entré(s) annulé(s))" if n else ""), now), enabled=notify)
+                for sig in sm.open_signals(s):  # position simulée ouverte : prévenir explicitement
+                    if sig.status == "ACTIF" and sig.sim_entry is not None:
+                        enqueue(s, f"safe-open:{sig.id}:{now:%Y%m%d%H%M}", "systeme", messages.status_change(
+                            sig, "Position ouverte, données interrompues",
+                            f"{'; '.join(q.problems)}. Surveille-la directement sur Tradovate (stop simulé {sig.sim_stop or sig.stop:.1f}). "
+                            f"Fermeture au plus tard à {fmt_ny(sig.exit_deadline)}, même sans nouvelle alerte."), sig.id, notify)
             elif self.mode == "securise" and mode in ("actif", "prechauffage"):
                 if db.resolve_incident(s, "donnees", "qualite"):
                     enqueue(s, f"recover:{now:%Y%m%d%H%M}", "systeme", messages.system_alert("Données rétablies", "Le moteur reprend l'analyse.", now), enabled=notify)
@@ -606,7 +825,9 @@ def main() -> None:  # pragma: no cover - point d'entrée du processus
         from ..marketdata.databento_feed import start_databento_thread
 
         start_databento_thread(st.databento_api_key)
-    eng = Engine()
+    # Source primaire = celle des décisions et du suivi. Avec DATA_SOURCE=databento, les barres TradingView ne servent
+    # qu'au contrôle croisé des prix ; il n'y a PAS de bascule automatique vers une source de secours.
+    eng = Engine(source_filter="databento" if st.data_source == "databento" else "tradingview")
     eng.startup()
     failing = False
     while True:

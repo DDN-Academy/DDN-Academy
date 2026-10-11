@@ -25,6 +25,22 @@ from .contracts import parse_tv_symbol
 
 MAX_BODY = 4096
 DELAY_LIMIT = timedelta(minutes=3)
+# Bornes plausibles des horodatages (ms) : 2010-01-01 → 2100-01-01. Hors bornes → rejet 400 (jamais d'exception 500).
+T_MIN_MS, T_MAX_MS = 1_262_304_000_000, 4_102_444_800_000
+MAX_AGE = timedelta(days=3)  # barre ou signal miroir plus ancien : rejeté (renvoi tardif, script Pine mal réglé)
+KINDS = ("bar", "mirror", "daily")
+
+
+def _finite_price(x: float) -> float:
+    if not math.isfinite(x) or x <= 0 or x > 100_000:
+        raise ValueError("prix invalide")
+    return x
+
+
+def _ts(x: int) -> int:
+    if not (T_MIN_MS <= x <= T_MAX_MS):
+        raise ValueError("horodatage hors de la plage plausible (2010-2100)")
+    return x
 
 
 class BarMsg(BaseModel):
@@ -45,9 +61,19 @@ class BarMsg(BaseModel):
     @field_validator("o", "h", "l", "c")
     @classmethod
     def finite_positive(cls, x: float) -> float:
-        if not math.isfinite(x) or x <= 0 or x > 100_000:
-            raise ValueError("prix invalide")
+        return _finite_price(x)
+
+    @field_validator("vol")
+    @classmethod
+    def finite_volume(cls, x: float) -> float:
+        if not math.isfinite(x) or x < 0 or x > 1e12:
+            raise ValueError("volume invalide")
         return x
+
+    @field_validator("t", "tnow")
+    @classmethod
+    def plausible_ts(cls, x: int) -> int:
+        return _ts(x)
 
 
 class MirrorMsg(BaseModel):
@@ -59,6 +85,16 @@ class MirrorMsg(BaseModel):
     t: int
     side: Literal[1, -1]
     price: float
+
+    @field_validator("price")
+    @classmethod
+    def finite_positive(cls, x: float) -> float:
+        return _finite_price(x)
+
+    @field_validator("t")
+    @classmethod
+    def plausible_ts(cls, x: int) -> int:
+        return _ts(x)
 
 
 class DailyMsg(BaseModel):
@@ -72,12 +108,19 @@ class DailyMsg(BaseModel):
     t: int
     days: list[list[float]] = Field(min_length=1, max_length=80)
 
+    @field_validator("t")
+    @classmethod
+    def plausible_ts(cls, x: int) -> int:
+        return _ts(x)
+
     @field_validator("days")
     @classmethod
     def check_days(cls, v: list[list[float]]) -> list[list[float]]:
         for row in v:
             if len(row) != 4 or not all(math.isfinite(x) for x in row):
                 raise ValueError("ligne journalière invalide")
+            if not (T_MIN_MS <= row[0] <= T_MAX_MS):
+                raise ValueError("horodatage journalier hors de la plage plausible (2010-2100)")
             _, h, l, c = row
             if not (0 < l <= c <= h < 100_000):
                 raise ValueError("haut/bas/clôture incohérents")
@@ -102,7 +145,7 @@ def parse(payload: dict, expected_token: str, now: datetime) -> BarMsg | MirrorM
     kind = payload.get("kind") if isinstance(payload, dict) else None
     models = {"bar": BarMsg, "mirror": MirrorMsg, "daily": DailyMsg}
     try:
-        msg = models[kind].model_validate(payload) if kind in models else None
+        msg = models[kind].model_validate(payload) if isinstance(kind, str) and kind in models else None
     except ValidationError as e:
         raise Rejected(400, f"message invalide : {e.errors()[0].get('msg', 'schéma')}") from None
     if msg is None:
@@ -118,6 +161,8 @@ def parse(payload: dict, expected_token: str, now: datetime) -> BarMsg | MirrorM
     t = ms_to_dt(msg.t)
     if t > now + timedelta(minutes=2):
         raise Rejected(422, "horodatage dans le futur")
+    if t < now - MAX_AGE:
+        raise Rejected(422, "message trop ancien (plus de 3 jours)")
     if isinstance(msg, BarMsg):
         if msg.t % 60_000 != 0:
             raise Rejected(422, "la barre ne commence pas sur une minute ronde")

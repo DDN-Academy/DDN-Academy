@@ -8,6 +8,7 @@ Usage (avec DATABASE_URL défini et le dossier goldpilot/backend dans PYTHONPATH
     python seed.py heartbeat-on    # signe de vie récent du moteur + qualité des données « ok »
     python seed.py heartbeat-off   # supprime le signe de vie (moteur considéré arrêté)
     python seed.py pending         # crée un nouveau signal EN_ATTENTE sans position simulée, affiche son id
+    python seed.py version-pending # version approuvée ≠ version en service + arrêt de sécurité « version » (gouvernance)
 """
 from __future__ import annotations
 
@@ -103,7 +104,18 @@ def init() -> None:
         make_signal(s, "e2eexpire", "EXPIRE", t - timedelta(days=2), -1, 4010.0, reason="validité dépassée sans déclenchement")
         make_signal(s, "e2eannule", "ANNULE", t - timedelta(days=1), 1, 4021.0, reason="prix hors plage d'entrée")
         make_signal(s, "e2eattente", "EN_ATTENTE", t - timedelta(hours=2), -1, 4030.0)
-        make_signal(s, "e2eactif", "ACTIF", t - timedelta(minutes=5), 1, 4035.5, sim_entry=4035.8)
+        actif = make_signal(s, "e2eactif", "ACTIF", t - timedelta(minutes=5), 1, 4035.5, sim_entry=4035.8)
+        actif.meta = dict(actif.meta, niveaux={  # niveaux fictifs (test)
+            "plus_haut_veille": 4041.2, "plus_bas_veille": 4002.4, "plus_haut_seance": 4036.0, "plus_bas_seance": 4012.3,
+            "swing_haut_15m": None, "swing_bas_15m": 4020.1,
+            "distances_atr": {"plus_haut_veille": -1.36, "plus_bas_veille": 7.88, "plus_haut_seance": -0.12, "plus_bas_seance": 5.5,
+                              "swing_haut_15m": None, "swing_bas_15m": 3.69}})
+        db.kv_set(s, "revue_periodique", {
+            "date": (t - timedelta(days=1)).date().isoformat(), "version": "S1-test-e2e", "n": 3, "esperance_R": 0.12,
+            "borne_basse_95_R": None, "drawdown_max_R": -1.0, "serie_pertes_max": 1, "taux_de_gain": 0.667,
+            "reference": {"esperance_R_walk_forward": None, "esperance_R_2022_2025": None, "source": "research/output/selection,final"},
+            "seuils": {"drawdown_R": -27.27, "serie_pertes": 17},
+            "conclusion": f"3 trade(s) simulé(s) : échantillon trop petit pour conclure ({NOTE.lower()})."})
         s.add(db.Decision(bar_ts=t - timedelta(minutes=30), strategy_version="S1-test-e2e", outcome="aucun_setup",
                           summary="Aucun setup valide : les conditions ne sont pas réunies (test)", reasons=["pas de franchissement du seuil"],
                           context={"regime": "range (test)", "z": 0.4}, risk_checks=[]))
@@ -147,6 +159,15 @@ def heartbeat(on: bool) -> None:
             db.kv_set(s, "engine_mode", {"mode": "actif", "qualite": "ok", "problemes": []})
 
 
+def version_pending() -> None:
+    db.init()
+    t = now()
+    with db.session() as s:
+        db.kv_set(s, "approved_version", {"version": "S0-ancienne-version-e2e", "approuve_le": (t - timedelta(days=30)).isoformat(),
+                                          "par": "initialisation"})
+        db.kv_set(s, "halt", {"raison": "nouvelle version de stratégie non approuvée (test E2E)", "depuis": t.isoformat(), "type": "version"})
+
+
 def pending() -> str:
     db.init()
     sid = "e2e" + uuid.uuid4().hex[:20]
@@ -163,6 +184,8 @@ if __name__ == "__main__":
         heartbeat(True)
     elif cmd == "heartbeat-off":
         heartbeat(False)
+    elif cmd == "version-pending":
+        version_pending()
     elif cmd == "pending":
         print(pending())
     else:

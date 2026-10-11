@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { api } from "../lib/api";
 import { useDashboard } from "../lib/dashboard";
 import { useAction, useTitre } from "../lib/hooks";
-import { indicateursSysteme, gravite, statutSignal } from "../lib/status";
+import { etatEntree, indicateursSysteme, gravite, statutSignal } from "../lib/status";
 import { dateHeure, duree, ilYa, nombre, prix, usd, dateCourte } from "../lib/format";
 import { Badge, Banner, Card, Chargement, Icon, Kv, Msg, StatusTile } from "../components/ui";
 import { SignalCard } from "../components/SignalCard";
@@ -52,11 +52,20 @@ export function Home() {
       ) : null}
 
       {fiable && dash.trading.signal_en_cours ? (
-        <Banner ton="warn" titre="Un signal est en cours" testid="alerte-signal-en-cours">
-          <p>
-            <a href="#signal-en-cours">Voir le signal ci-dessous</a> — il reste soumis au bandeau SIMULATION.
-          </p>
-        </Banner>
+        etatEntree(dash.trading.signal_en_cours)?.ouverte === false ? (
+          <Banner ton="bad" titre="Entrée fermée — ne plus entrer" testid="alerte-signal-en-cours">
+            <p>
+              {etatEntree(dash.trading.signal_en_cours)?.raison}. La position simulée reste suivie jusqu'à sa sortie.{" "}
+              <a href="#signal-en-cours">Voir le signal ci-dessous</a>.
+            </p>
+          </Banner>
+        ) : (
+          <Banner ton="warn" titre="Un signal est en cours — entrée exploitable maintenant" testid="alerte-signal-en-cours">
+            <p>
+              <a href="#signal-en-cours">Voir le signal ci-dessous</a> — il reste soumis au bandeau SIMULATION.
+            </p>
+          </Banner>
+        )
       ) : null}
 
       <Card titre="État du système" testid="carte-systeme" id="systeme">
@@ -92,7 +101,7 @@ export function Home() {
                 {fiable && dash.statut.notifications.derniere ? (
                   <>
                     <br />
-                    Dernier envoi : {dateHeure(dash.statut.notifications.derniere)}
+                    Dernier envoi réussi : {dateHeure(dash.statut.notifications.derniere)}
                   </>
                 ) : null}
               </>
@@ -332,11 +341,23 @@ function Actions({ dash, recharger }: { dash: Dashboard | null; recharger: () =>
           Paramètres
         </Link>
       </div>
-      {arret ? (
+      {arret && arret.type === "version" ? (
+        <div style={{ marginTop: 12 }}>
+          <Banner ton="bad" titre="Arrêt de sécurité : nouvelle version de stratégie" testid="arret-securite">
+            <p>
+              {arret.raison} (depuis {dateHeure(arret.depuis)}). Aucun signal tant que tu n'as pas comparé puis approuvé cette version.
+            </p>
+          </Banner>
+          <Link to="/reglages#gouvernance" className="btn danger" data-testid="action-approuver-version">
+            Comparer et approuver la version (Paramètres)
+          </Link>
+        </div>
+      ) : arret ? (
         <div style={{ marginTop: 12 }}>
           <Banner ton="bad" titre="Arrêt de sécurité" testid="arret-securite">
             <p>
               {arret.raison} (depuis {dateHeure(arret.depuis)}). La reprise est manuelle : analyse d'abord les statistiques et le journal.
+              Après la reprise, les seuils (drawdown, série de pertes) sont recomptés à partir des trades clôturés après ce moment.
             </p>
           </Banner>
           <button

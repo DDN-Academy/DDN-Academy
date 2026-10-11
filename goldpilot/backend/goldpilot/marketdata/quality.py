@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
 
-from ..timeutil import is_open, trading_date
+from ..timeutil import is_open, last_open_time, trading_date
 from .contracts import active_contract, parse_tv_symbol
 
 STALE_AFTER = timedelta(minutes=3)
@@ -47,7 +47,11 @@ def assess(bars: pd.DataFrame, now: datetime, delays_s: list[float] | None = Non
     q.age_s = (now - last).total_seconds()
     blocking: list[str] = []
     degraded: list[str] = []
-    if is_open(now) and now - last > max(STALE_AFTER, timedelta(minutes=bar_min + 2)):
+    market_open = is_open(now)
+    # Fraîcheur mesurée depuis la plus récente des deux : fin de la dernière barre, ou réouverture du marché (18:00
+    # New York après la pause, le week-end ou un jour férié) — pas de faux « mode sécurisé » à chaque réouverture.
+    opened = last_open_time(now)
+    if market_open and now - max(last, opened) > max(STALE_AFTER, timedelta(minutes=bar_min + 2)):
         blocking.append(f"données périmées : dernière barre il y a {int(q.age_s // 60)} min")
     if parse_tv_symbol(q.symbol) is None or q.symbol != expected:
         blocking.append(f"contrat reçu {q.symbol} différent du contrat actif {expected} : changer le graphique TradingView")
@@ -57,9 +61,13 @@ def assess(bars: pd.DataFrame, now: datetime, delays_s: list[float] | None = Non
         if med > MAX_DELAY.total_seconds():
             blocking.append(f"données en retard d'environ {int(med // 60)} min (forfait temps réel COMEX absent ?)")
     expected_per_hour = 60 // max(bar_min, 1)
-    recent = bars[bars.index > bars.index[-1] - pd.Timedelta(minutes=60)]
-    if is_open(now) and len(recent) < 0.75 * expected_per_hour and len(bars) >= expected_per_hour:
-        degraded.append(f"données incomplètes : {len(recent)} barres sur la dernière heure ({expected_per_hour} attendues)")
+    # Fenêtre d'une heure, raccourcie à la période écoulée depuis la réouverture du marché.
+    span = min(60, int((last - opened).total_seconds() // 60))
+    expected = span // max(bar_min, 1)
+    recent = bars[bars.index >= pd.Timestamp(last) - pd.Timedelta(minutes=span)] if expected >= 1 else bars.iloc[:0]
+    if market_open and expected >= 1 and len(recent) < 0.75 * expected and len(bars) >= expected_per_hour:
+        degraded.append(f"données incomplètes : {len(recent)} barres sur {'la dernière heure' if span == 60 else f'les {span} dernières minutes'} "
+                        f"({expected} attendues)")
     if len(bars) >= 30:
         rng = (bars["high"] - bars["low"]).iloc[-200:]
         med_rng = float(rng[rng > 0].median()) if (rng > 0).any() else 0.0

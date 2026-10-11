@@ -94,8 +94,22 @@ class Event:
     trade: Trade | None = None
 
 
+DELAY_PRICES = ("interpole", "pire")
+
+
 class ExecutionSimulator:
-    def __init__(self, costs: CostModel = BASE_COSTS):
+    def __init__(self, costs: CostModel = BASE_COSTS, entry_delay_ns: int = 0, exec_bar_ns: int | None = None,
+                 delay_price: str = "interpole"):
+        """`entry_delay_ns` (test de sensibilité, recherche uniquement ; 0 = comportement standard) : une entrée au
+        marché n'a lieu qu'à décision + délai. Si une barre d'exécution (durée `exec_bar_ns`) commence exactement à
+        cet instant ou après, entrée à son ouverture ; si l'instant tombe à l'intérieur d'une barre, le prix intrabarre
+        est inconnu et estimé : « interpole » = ouverture + (clôture − ouverture) × fraction écoulée ;
+        « pire » = extrême défavorable de la barre (borne prudente). Demi-spread ajouté dans les deux cas."""
+        if entry_delay_ns and (not exec_bar_ns or delay_price not in DELAY_PRICES):
+            raise ValueError("entry_delay_ns exige exec_bar_ns et delay_price ∈ " + str(DELAY_PRICES))
+        self.entry_delay_ns = int(entry_delay_ns)
+        self.exec_bar_ns = exec_bar_ns
+        self.delay_price = delay_price
         self.costs = costs
         self.pending: list[Setup] = []
         self.position: OpenPosition | None = None
@@ -116,8 +130,19 @@ class ExecutionSimulator:
         fast = np.isfinite(atr) and atr > 0 and (h - l) > self.costs.fast_atr_mult * atr
         return self.costs.amount("fast_slip" if fast else "stop_slip", px)
 
-    def _fill(self, s: Setup, o: float, h: float, l: float, atr: float) -> float | None:
+    def _fill(self, s: Setup, o: float, h: float, l: float, atr: float, ts: int | None = None, c: float | None = None) -> float | None:
         hs = self.costs.amount("half_spread", o)
+        if s.entry_type == "market" and self.entry_delay_ns and ts is not None:
+            target = s.decision_ts + self.entry_delay_ns
+            if ts >= target:
+                return o + s.side * hs
+            if ts + self.exec_bar_ns <= target:
+                return None  # délai pas encore écoulé
+            if self.delay_price == "pire":
+                base = h if s.side > 0 else l
+            else:
+                base = o + (c - o) * (target - ts) / self.exec_bar_ns
+            return base + s.side * self.costs.amount("half_spread", base)
         if s.entry_type == "market":
             return o + s.side * hs
         p = s.entry
@@ -193,7 +218,7 @@ class ExecutionSimulator:
                 if filled or exited or self.position is not None:
                     keep.append(s)
                     continue
-                px = self._fill(s, o, h, l, atr)
+                px = self._fill(s, o, h, l, atr, ts, c) if self.entry_delay_ns else self._fill(s, o, h, l, atr)
                 if px is None:
                     keep.append(s)
                     continue

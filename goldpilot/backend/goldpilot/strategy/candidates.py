@@ -31,6 +31,40 @@ def base_features(bars: pd.DataFrame, need_range_rank: bool = False, daily_histo
     return F
 
 
+LEVEL_KEYS = ("plus_haut_veille", "plus_bas_veille", "plus_haut_seance", "plus_bas_seance", "swing_haut_15m", "swing_bas_15m")
+SWING_SIDE = 2  # pivot : plus haut (plus bas) de 2 barres de chaque côté, confirmé 2 barres plus tard
+
+
+def add_level_columns(F: pd.DataFrame) -> None:
+    """Niveaux de contexte (informatifs, sans effet sur les décisions), calculés uniquement sur des barres terminées :
+    extrêmes de la journée de trading précédente, extrêmes de la séance en cours jusqu'à la barre de décision incluse,
+    derniers points de retournement (swing) de 15 min confirmés."""
+    h, l, td = F["high"], F["low"], F["td"]
+    F["lv_sh"] = h.groupby(td.to_numpy()).cummax().to_numpy()
+    F["lv_sl"] = l.groupby(td.to_numpy()).cummin().to_numpy()
+    daily = pd.DataFrame({"h": h.to_numpy(), "l": l.to_numpy(), "td": td.to_numpy()}).groupby("td").agg(h=("h", "max"), l=("l", "min"))
+    prev = daily.shift(1)
+    F["lv_ph"] = td.map(prev["h"]).to_numpy(dtype=float)
+    F["lv_pl"] = td.map(prev["l"]).to_numpy(dtype=float)
+    w = 2 * SWING_SIDE + 1
+    hmax = h.rolling(w).max().shift(-SWING_SIDE)  # fenêtre centrée (sert uniquement à repérer le pivot…)
+    lmin = l.rolling(w).min().shift(-SWING_SIDE)
+    piv_h = h.where(h >= hmax)  # … qui n'est utilisé que SWING_SIDE barres plus tard (décalage ci-dessous)
+    piv_l = l.where(l <= lmin)
+    F["lv_swh"] = piv_h.shift(SWING_SIDE).ffill().to_numpy(dtype=float)
+    F["lv_swl"] = piv_l.shift(SWING_SIDE).ffill().to_numpy(dtype=float)
+
+
+def levels_at(A: dict, i: int) -> dict:
+    """Dictionnaire « niveaux » (contrat C4) à la clôture de la barre i ; distances en ATR depuis la clôture."""
+    c, a = float(A["close"][i]), float(A["atr"][i])
+    vals = dict(zip(LEVEL_KEYS, (A["lv_ph"][i], A["lv_pl"][i], A["lv_sh"][i], A["lv_sl"][i], A["lv_swh"][i], A["lv_swl"][i])))
+    out: dict = {k: (round(float(v), 2) if np.isfinite(v) else None) for k, v in vals.items()}
+    ok_atr = np.isfinite(a) and a > 0
+    out["distances_atr"] = {k: (round((c - float(v)) / a, 2) if (ok_atr and np.isfinite(v)) else None) for k, v in vals.items()}
+    return out
+
+
 def arrays(F: pd.DataFrame) -> dict:
     """Colonnes de F en tableaux numpy, mises en cache sur l'objet (F n'est jamais modifié après préparation)."""
     cache = F.attrs.get("_np")
@@ -72,7 +106,9 @@ class S1SessionExtension(_Candidate):
     needs_daily_history = property(lambda self: self.use_filter)
 
     def prepare(self, bars: pd.DataFrame, daily_history: pd.DataFrame | None = None) -> pd.DataFrame:
-        return base_features(bars, need_range_rank=self.use_filter, daily_history=daily_history)
+        F = base_features(bars, need_range_rank=self.use_filter, daily_history=daily_history)
+        add_level_columns(F)
+        return F
 
     def evaluate(self, i: int, F: pd.DataFrame, st: StrategyState) -> Evaluation:
         A = arrays(F)
@@ -81,6 +117,9 @@ class S1SessionExtension(_Candidate):
         a, z, sm, c = A["atr"][i], A["z"][i], A["sm"][i], A["close"][i]
         ctx = {"z": None if not np.isfinite(z) else round(float(z), 2), "session_mean": None if not np.isfinite(sm) else round(float(sm), 2),
                "atr": None if not np.isfinite(a) else round(float(a), 2)}
+        niveaux = levels_at(A, i) if "lv_sh" in A else None
+        if niveaux is not None:
+            ctx["niveaux"] = niveaux
         regime = "indéterminé"
         if np.isfinite(z):
             regime = "extension haussière" if z > self.k else "extension baissière" if z < -self.k else (
@@ -132,6 +171,8 @@ class S1SessionExtension(_Candidate):
             invalidation=(f"Stop initial {fmt(stop)} ({self.s:g} ATR), puis stop suiveur à {self.t:g} ATR de l'extrême atteint. "
                           f"Sortie au plus tard à 15:30 New York. Ne pas entrer si le prix s'est écarté de plus de 0,5 ATR de {fmt(c)}."),
         )
+        if niveaux is not None:
+            su.meta["niveaux"] = niveaux
         return Evaluation(ts, regime, ctx, [su], [])
 
 

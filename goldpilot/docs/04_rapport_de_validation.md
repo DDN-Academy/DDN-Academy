@@ -18,7 +18,9 @@ section 10 (« suite » après l'échec de la sélection) a été ajoutée **ava
 2022-2025 (commit `dbd6736` à 23:50 UTC, résultats 2022-2025 publiés au commit `7108a4e` à 23:52 UTC).
 
 Résumé :
-* données : XAUUSD spot en barres de 15 minutes (proxy du MGC, voir § 2 et les limites dans `08_limites.md`) ;
+* données : XAUUSD spot en barres de 15 minutes, **proxy non mesuré** du MGC (aucune donnée MGC n'a été
+  comparée : base de portage, corrélation intraday, horaires et liquidité non mesurés ; les résultats ne
+  sont pas transposables tels quels au MGC — voir § 2 et `08_limites.md`) ;
 * découpage chronologique : entraînement 01/05/2011 → 31/12/2018, validation 2019 → 2021,
   test 01/01/2022 → 28/10/2025 ; walk-forward avec années de test 2014 → 2021 ;
 * coûts proportionnels au prix calibrés sur un or à 4 000 $ (commission supposée 2 $/contrat aller-retour,
@@ -87,6 +89,8 @@ Source : `research/output/final/final.md` et `final.json`. Candidat `S1|F=True,k
 * Contrôle de résolution (13/02/2025 → 28/10/2025, 55 trades) : barres 15 min +0,125 R ; exécution sur
   barres 5 min +0,126 R (t = 0,92). L'exécution plus fine ne change pas le résultat, mais 55 trades ne
   permettent aucune conclusion.
+* Durée des drawdowns, espérance en dollars, résultats par séance et par régime de volatilité, effet d'un
+  délai d'exécution manuelle et autres combinaisons d'unités de temps : voir § 14 (compléments a posteriori).
 
 ## 6. Monte-Carlo FundedNext Flex 50K
 
@@ -160,11 +164,16 @@ de la version en cours à chaque clôture ; si un seuil est franchi, il passe en
 Test `backend/tests/test_e2e_parity.py` : le moteur de production complet (base de données, agrégation
 des barres, stratégie, moteur de risque, simulateur d'exécution, cycle de vie des signaux, file des
 notifications) rejoue le fichier 5 minutes du 01/06/2025 22:00 UTC au 21/06/2025, puis le résultat est
-comparé au backtest de recherche sur la même période. Il vérifie : l'historique journalier est chargé ;
-chaque barre de 15 minutes est analysée et journalisée ; les indicateurs sont identiques à chaque barre
-de décision ; les signaux (sens, prix d'entrée et de sortie, résultat en R, motif de sortie) sont
-identiques au trade près (tolérance 1e-9) et en même nombre ; une notification est mise en file pour
-chaque signal. Résultat : **réussi** dans l'exécution du § 10.
+comparé au backtest de recherche sur la même période. Il vérifie exactement ceci : l'historique journalier
+est chargé ; plus de 1 000 barres de 15 minutes sont analysées et journalisées, chaque absence de trade
+avec sa raison ; **l'indicateur de décision z**, tel que le moteur l'enregistre (arrondi à 0,01), concorde
+avec le z du backtest (écart ≤ 0,011) sur chaque barre de décision à partir du 03/06/2025 (plus de 800
+barres contrôlées) — les autres indicateurs (ATR, moyenne de séance, rang de volatilité de la veille) ne
+sont **pas** comparés séparément ; à partir du 03/06/2025, les **signaux** du moteur et les trades du
+backtest sont en même nombre et identiques un à un (sens, prix d'entrée et de sortie simulés, résultat en
+R à 1e-9 près, motif de sortie), sans aucun refus du moteur de risque (paramètres de risque volontairement
+permissifs pour ce test) ; une notification est mise en file pour chaque signal. Résultat : **réussi**
+dans l'exécution du § 10.
 
 Limite : cette parité porte sur des barres XAUUSD rejouées, pas sur un flux MGC réel venant de
 TradingView. Le contrôle croisé TradingView ↔ moteur (`test_mirror.py`, voir `02_architecture.md`) est la protection prévue
@@ -229,10 +238,20 @@ simulation à partir du **flux MGC réel** :
 5. puis, en plus : **confirmation écrite de FundedNext** (règle « signaux externes »), tarif réel de
    commission MGC, et ta décision manuelle explicite dans Réglages.
 
-Note sur la quantité de données : avec ~8,3 trades par mois attendus (`production.json`) et un écart-type
-d'environ 1 R par trade (`final.json`, contrôle de résolution), 60 jours de trading donneraient ~25 trades,
-très insuffisants pour détecter une espérance de l'ordre de +0,06 R ; il faudrait **plusieurs centaines
-de trades** (plusieurs années). Le critère n° 2 ne sera donc vraisemblablement pas atteint rapidement :
+Note sur la quantité de données (calcul) : au rythme attendu de 8,26 trades par mois (`production.json` →
+`trades_par_mois_attendus`), 60 jours de trading (≈ 2,9 mois de 21 jours) donnent **≈ 24 trades**. Pour
+que la borne basse unilatérale à 95 % soit positive quand l'espérance observée vaut μ avec un écart-type σ
+par trade, il faut n > (1,645 × σ / μ)². Avec les écarts-types des échantillons complets :
+* période exploratoire 2022-2025 (`final.json` → `exploratoire_base`, 327 trades) : σ = 1,316 R,
+  μ = +0,061 R → n > (1,645 × 1,316 / 0,061)² ≈ **1 262 trades**, soit ≈ 153 mois (≈ 13 ans) ;
+* walk-forward 2014-2021 (`final.json` → `walk_forward_S1`, 790 trades) : σ = 1,423 R, μ = +0,081 R →
+  n > (1,645 × 1,423 / 0,081)² ≈ **840 trades**, soit ≈ 102 mois (≈ 8,5 ans).
+
+Ce calcul suppose que l'espérance observée tombe exactement sur μ ; pour avoir 80 % de chances d'y
+parvenir si μ est la vraie espérance, il faudrait n ≈ ((1,645 + 0,842) × σ / μ)², soit ≈ 2 880 trades
+(2022-2025) ou ≈ 1 920 trades (walk-forward). (L'ancienne version de cette note utilisait σ ≈ 1 R, tiré des
+seuls 55 trades du contrôle de résolution : chiffre le moins représentatif, qui sous-estimait le besoin
+d'environ 1,7 fois.) Le critère n° 2 ne sera donc vraisemblablement pas atteint rapidement :
 c'est voulu, la règle protège ton argent. Toute nouvelle stratégie devra suivre un nouveau protocole
 pré-enregistré.
 
@@ -247,3 +266,114 @@ pré-enregistré.
 * Intégrations réelles **non testées** : réception d'un vrai webhook TradingView, script Pine sur
   TradingView, envoi Telegram réel, Databento, FRED.
 * Liste complète : [`08_limites.md`](08_limites.md).
+
+## 14. Compléments a posteriori (ajoutés le 11/10/2026)
+
+> **Complément a posteriori (non pré-enregistré, ne change pas le verdict).** Ces calculs ont été faits
+> après coup, en réponse à une revue de conformité au cahier des charges (§ 3.7, § 4 et § 5), après avoir vu
+> les résultats ci-dessus. Ils ne servent ni à choisir ni à modifier la stratégie : la configuration de
+> production reste `S1|F=True,k=5.0,s=2.5,t=3.0` et le verdict reste **NON VALIDÉE**. Méthode :
+> `docs/03` § 11. Script : `research/05_complements.py` (durée d'exécution ≈ 45 s). Chiffres :
+> `research/output/complements/complements.json` (tableaux bruts dans `complements.md`). Coûts de base.
+
+### 14.1 Durée des drawdowns et espérance en dollars (cahier des charges § 4)
+
+Montants en dollars au risque par défaut de **250 $ par trade** (`production.json`), en supposant 1 R =
+250 $ exactement (arrondi au nombre entier de contrats ignoré ; coûts inclus, car les R sont nets).
+Durée d'un drawdown = nombre de **jours de trading** passés sous le précédent sommet de la courbe des
+gains (journées sans trade comprises) ; la médiane inclut le drawdown encore ouvert en fin de période.
+
+| Période | Trades | Espérance (R) | Espérance par trade à 250 $ | IC95 en $ | Drawdown max (R / $ à risque constant) | Durée max d'un drawdown | Durée médiane | Drawdowns | En cours à la fin |
+|---|---|---|---|---|---|---|---|---|---|
+| Walk-forward 2014-2021 | 790 | +0,081 | **+20 $** | [−5 $ ; +46 $] | −19,2 R / −4 801 $ | **424 jours** | 25 jours | 26 | oui, 37 jours (2 068 jours au total) |
+| Exploratoire 2022-2025 | 327 | +0,061 | **+15 $** | [−19 $ ; +52 $] | −15,3 R / −3 836 $ | **232 jours** | 13 jours | 14 | oui, 23 jours (997 jours au total) |
+
+Lecture : l'espérance vaut **environ +15 à +20 $ par trade** à 250 $ de risque, mais l'intervalle de
+confiance inclut des valeurs négatives. Le plus long drawdown du walk-forward a duré **424 jours de
+trading (≈ 1 an et 8 mois)** : même si l'avantage historique était réel, des périodes de plus d'un an sans
+nouveau sommet sont normales pour cette stratégie. Le drawdown en dollars est théorique (risque constant de
+250 $) : en pratique, le dimensionnement réduit le risque quand le coussin au-dessus du plancher diminue (§ 6-7).
+
+### 14.2 Résultats par séance et par régime de volatilité (cahier des charges § 3.5 et § 4)
+
+Séance = heure d'entrée en New York (Londres : 03:00-08:00 ; New York matin : 08:00-12:00 ; après-midi :
+après 12:00 ; S1 ne décide pas en séance asiatique). Régime = tercile, parmi les 250 journées précédentes,
+de la moyenne sur 20 journées de l'amplitude relative (H−L)/C **connue la veille** (calcul causal ; à ne
+pas confondre avec le filtre F, qui porte sur la seule veille).
+
+| Séance (heure d'entrée, New York) | Walk-forward 2014-2021 : n / espérance R / $ | Exploratoire 2022-2025 : n / espérance R / $ |
+|---|---|---|
+| Londres | 353 / +0,068 / +17 $ | 129 / −0,025 / −6 $ |
+| New York matin | 411 / +0,114 / +29 $ | 181 / +0,137 / +34 $ |
+| New York après-midi | 26 / −0,266 / −67 $ | 17 / −0,099 / −25 $ |
+
+| Régime de volatilité | Walk-forward 2014-2021 : n / espérance R / $ | Exploratoire 2022-2025 : n / espérance R / $ |
+|---|---|---|
+| faible | 427 / +0,166 / +42 $ | 125 / +0,233 / +58 $ |
+| moyenne | 232 / −0,014 / −3 $ | 114 / −0,114 / −29 $ |
+| forte | 131 / −0,030 / −8 $ | 88 / +0,044 / +11 $ |
+
+Lecture prudente : la matinée de New York est positive sur les deux périodes ; Londres est positive sur
+2014-2021 mais négative sur 2022-2025 ; l'après-midi compte trop peu de trades pour conclure. Les
+journées de **faible** volatilité portent l'essentiel du résultat sur les deux périodes, les journées de
+volatilité moyenne sont négatives sur les deux. Ces découpages ont été faits **après** avoir vu les
+résultats, sur des sous-échantillons petits : ils ne justifient **aucun** filtre supplémentaire (ce serait
+ajuster la stratégie aux données). Ils pourront servir d'hypothèses à un futur protocole pré-enregistré.
+
+### 14.3 Délai d'exécution manuelle (cahier des charges § 3.7)
+
+Rejeu du contrôle de résolution (13/02/2025 → 28/10/2025, exécution sur barres de 5 minutes) avec une
+entrée retardée après la décision (clôture de la barre de 15 min). À 1 et 3 min, le prix exact n'est pas
+connu (il tombe au milieu d'une barre de 5 min) : il est encadré par une estimation interpolée et une borne
+prudente, le pire prix de cette barre (la même barre pour 1 et 3 min, d'où des lignes identiques).
+
+| Délai après la décision | Prix d'entrée | Trades | Espérance (R) | IC95 (R) | Drawdown max (R) | Écart moyen d'entrée vs clôture de décision ($/once) |
+|---|---|---|---|---|---|---|
+| 0 min | exact (ouverture 5 min) | 55 | +0,126 | [−0,142 ; +0,393] | −5,4 | 0,04 |
+| 1 min | estimé (interpolé) | 55 | +0,107 | [−0,151 ; +0,373] | −5,5 | 0,27 |
+| 1 min | borne prudente (pire prix de la barre) | 55 | −0,202 | [−0,453 ; +0,066] | −15,4 | 3,79 |
+| 3 min | estimé (interpolé) | 55 | +0,068 | [−0,179 ; +0,334] | −5,7 | 0,74 |
+| 3 min | borne prudente (pire prix de la barre) | 55 | −0,202 | [−0,453 ; +0,066] | −15,4 | 3,79 |
+| 5 min | exact (ouverture 5 min) | 55 | +0,045 | [−0,195 ; +0,301] | −6,1 | 1,21 |
+
+Lecture : à 55 trades, aucun de ces résultats n'est distinguable de zéro, mais le sens est net. S1 entre
+**dans le sens d'un mouvement en cours** : chaque minute perdue se paie. Avec 5 minutes de retard (prix
+exact), l'espérance passe de +0,126 à **+0,045 R** (environ deux tiers de l'avantage perdus) et le prix
+d'entrée s'écarte en moyenne de **1,21 $/once** de la clôture de décision, contre 0,04 $ sans délai et
+0,30 $/once de glissement supposé dans les réglages de risque (`slippage_allowance_oz`). Dans le cas
+défavorable (pire prix de la première barre de 5 min), l'espérance devient négative (−0,202 R).
+Conséquence pratique : si la stratégie était un jour validée, il faudrait entrer **dans la minute** qui suit
+l'alerte ; ce test n'inclut pas la règle « ne pas entrer si le prix s'est écarté de plus de 0,5 ATR », qui
+écarterait une partie des entrées tardives. Le délai réel (alerte → saisie sur Tradovate) n'a jamais été
+mesuré (aucun paper trading n'a eu lieu, § 11).
+
+### 14.4 Combinaisons d'unités de temps (cahier des charges § 5)
+
+Unités de temps effectivement utilisées et pourquoi : **15 minutes** pour la décision (seule résolution
+disponible sur tout l'historique 2004-2025 ; le fichier 5 min ne couvre que 2025) ; **journalier** comme
+contexte, par le filtre F (amplitude de la veille), testé oui/non dans la grille pré-enregistrée ;
+**5 minutes** pour le seul contrôle d'exécution. Aucune autre combinaison n'avait été testée avant le
+choix. Contrôle de robustesse a posteriori sur **2011-2021 uniquement** (aucune donnée 2022-2025 lue),
+avec les paramètres de production :
+
+| Combinaison | Entraînement 2011-2018 : n / espérance R | Validation 2019-2021 : n / espérance R / PF | 2011-2021 : espérance R [IC95] |
+|---|---|---|---|
+| décision 15 min + filtre de volatilité journalière (configuration de production) | 684 / +0,142 | 264 / +0,030 / 1,06 | +0,111 [+0,021 ; +0,205] |
+| décision 15 min, sans contexte journalier | 992 / +0,086 | 378 / +0,003 / 1,01 | +0,063 [−0,011 ; +0,137] |
+| décision 15 min + filtre journalier + contexte de tendance 1 h (EMA 20) | 657 / +0,105 | 263 / +0,034 / 1,07 | +0,084 [−0,005 ; +0,177] |
+| décision 30 min (mêmes paramètres en nombre de barres) + filtre journalier | 360 / +0,179 | 131 / +0,138 / 1,42 | +0,168 [+0,067 ; +0,269] |
+
+Lecture :
+* la ligne de référence reproduit exactement la sélection (684 et 264 trades, +0,142 et +0,030 R) ; son
+  intervalle sur 2011-2021 est positif, mais c'est la période même où la configuration a été choisie
+  (résultat optimiste par construction ; le critère pré-enregistré était le walk-forward, qui a échoué) ;
+* retirer le contexte journalier dégrade le résultat ; ajouter un contexte de tendance 1 h ne l'améliore
+  pas (+0,084 R contre +0,111 R sur 2011-2021) ;
+* la décision sur **30 minutes** donne un meilleur résultat sur 2011-2021 (+0,168 R, validation 2019-2021
+  +0,138 R, PF 1,42, mais 2 fois moins de trades). **Ce n'est pas une validation** : variante trouvée après
+  coup, l'une des deux variantes nouvelles de ce contrôle (tendance 1 h, 30 min), non comptées dans le
+  Deflated Sharpe Ratio, avec des paramètres
+  choisis en 15 min, et jamais testée sur 2022-2025. Elle n'est **pas** adoptée (pas de modification
+  silencieuse, cahier des charges § 17) ; c'est une piste pour un futur protocole pré-enregistré, à évaluer
+  sur des données non vues.
+

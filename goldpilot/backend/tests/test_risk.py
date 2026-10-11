@@ -164,7 +164,8 @@ def refused_by(d: risk.RiskDecision) -> set[str]:
 
 def test_nominal_signal_accepted():
     d = risk.evaluate(setup(), ctx(), S)
-    assert d.accepted and d.contracts == 2 and d.risk_usd == pytest.approx(210), d.refusals
+    # taille calculée sur la pire entrée de la plage (4 000 + 0,5 × 4 ATR = 4 002) : (12 + 0,3) × 10 + 2 = 125 $ par contrat
+    assert d.accepted and d.contracts == 2 and d.risk_usd == pytest.approx(250), d.refusals
 
 
 @pytest.mark.parametrize("kw,name", [

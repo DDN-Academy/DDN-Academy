@@ -88,19 +88,27 @@ export function Help() {
           <dt>En attente de déclenchement</dt>
           <dd>Le signal attend que le prix atteigne la zone d'entrée prévue.</dd>
           <dt>Actif</dt>
-          <dd>Le signal est exploitable maintenant, dans sa plage d'entrée et sa durée de validité.</dd>
+          <dd>
+            Le signal est ouvert (entrée déclenchée ou position simulée suivie). Regarde l'étiquette d'entrée juste à côté :
+            seule « Entrée exploitable maintenant » permet d'entrer (prix dans la plage et validité non écoulée).
+          </dd>
+          <dt>Entrée fermée — ne plus entrer</dt>
+          <dd>
+            Le prix est sorti de la plage d'entrée, la validité est écoulée ou le mode sécurisé interdit l'entrée : n'entre pas. Si tu es
+            déjà en position, garde ton stop ; la position simulée reste suivie jusqu'à sa sortie.
+          </dd>
           <dt>Annulé</dt>
-          <dd>Annulé par le système (données douteuses, prix trop éloigné…) ou par toi : ne pas entrer.</dd>
+          <dd>Annulé par le système (mode sécurisé, données douteuses…) ou par toi avant toute entrée simulée : ne pas entrer.</dd>
           <dt>Expiré</dt>
           <dd>La durée de validité est dépassée sans entrée : ne pas entrer.</dd>
           <dt>Clôturé</dt>
           <dd>La position simulée est sortie (stop, stop suiveur ou heure de sortie).</dd>
           <dt>Position simulée</dt>
           <dd>Position fictive suivie par le système aux prix du marché, avec glissement et commission estimés.</dd>
-          <dt>Position réellement exécutée</dt>
+          <dt>Exécution déclarée par toi (non confirmée)</dt>
           <dd>
-            Uniquement ce que tu déclares toi-même. GoldPilot n'est pas relié à Tradovate : il ne peut jamais confirmer qu'un ordre a été
-            exécuté.
+            Ce que tu déclares toi-même avoir exécuté. GoldPilot n'est pas relié à Tradovate : il ne peut jamais confirmer qu'un ordre a été
+            exécuté. Aucune position n'est donc affichée comme « réellement exécutée ».
           </dd>
         </dl>
       </Card>

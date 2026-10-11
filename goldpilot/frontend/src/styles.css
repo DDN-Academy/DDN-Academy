@@ -1203,3 +1203,22 @@ code {
     letter-spacing: 0;
   }
 }
+
+/* Fenêtre d'entrée d'un signal ouvert (cahier §11) */
+.entree-ouverte,
+.entree-fermee {
+  border-left: 4px solid;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 0 0 10px;
+}
+.entree-ouverte {
+  background: var(--warn-bg);
+  border-color: var(--warn-border);
+  color: var(--warn-ink);
+}
+.entree-fermee {
+  background: var(--bad-bg);
+  border-color: var(--bad-border);
+  color: var(--bad-ink);
+}

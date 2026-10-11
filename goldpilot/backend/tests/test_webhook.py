@@ -103,8 +103,8 @@ def test_ip_allowlist_enforced(client, monkeypatch):
 def test_webhook_rate_limit(client):
     from goldpilot.api import security
 
-    for _ in range(security.webhook_limiter.max):
-        security.webhook_limiter.allow("testclient")
+    for _ in range(security.webhook_limiter.max):  # budget des messages authentifiés (jeton vérifié) épuisé
+        security.webhook_limiter.allow(security.WEBHOOK_AUTH_KEY)
     assert post(client, bar()).status_code == 429
 
 
@@ -133,7 +133,8 @@ def test_daily_history_validation(client, days):
 
 
 def test_daily_history_other_symbol_rejected(client):
-    msg = {"v": 1, "kind": "daily", "token": TV_TOKEN, "ticker": "OANDA:XAUUSD", "t": 0, "days": [[0, 20, 10, 15]]}
+    t = minute_ms(datetime.now(tz=timezone.utc))
+    msg = {"v": 1, "kind": "daily", "token": TV_TOKEN, "ticker": "OANDA:XAUUSD", "t": t, "days": [[t, 20, 10, 15]]}
     assert post(client, msg).status_code == 422
 
 

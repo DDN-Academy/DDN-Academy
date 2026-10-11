@@ -75,6 +75,7 @@ def enqueue(s, key: str, kind: str, text: str, signal_id: str | None = None, ena
     return True
 
 
+STOPPED_MODES = {"securise": "sécurisé", "arret": "arrêt de sécurité", "pause": "pause"}  # aucune nouvelle entrée
 BACKOFF_S = (0, 5, 15, 45, 135)  # attente avant chaque essai : ~3 min au total avant de déclarer l'échec
 _next_try: dict[int, float] = {}
 
@@ -83,18 +84,24 @@ def deliver_pending(tg: Telegram, limit: int = 20, now=None) -> int:
     """Envoie les notifications en attente (ordre chronologique). Renvoie le nombre envoyé.
 
     Une alerte de signal (ou de déplacement de stop) n'est jamais envoyée si, au moment de l'envoi, le signal
-    n'est plus exploitable (clôturé, annulé, expiré, validité dépassée, prix sorti de la plage) : elle est
+    n'est plus exploitable (clôturé, annulé, expiré, validité dépassée, prix sorti de la plage, « ne plus entrer »)
+    ou si le moteur est en mode sécurisé, arrêt de sécurité ou pause (alerte de nouveau signal) : elle est
     marquée « périmée » et visible dans le journal. `now` = horloge du moteur (virtuelle en rejeu)."""
     now = now or db.now()
     sent = 0
     with db.session() as s:
+        mode = (db.kv_get(s, "engine_mode") or {}).get("mode")
         rows = s.execute(select(db.Notification).where(db.Notification.status == "a_envoyer")
                          .order_by(db.Notification.id).limit(limit)).scalars().all()
         for n in rows:
             if n.kind in ("signal", "stop") and n.signal_id:
                 sig = s.get(db.Signal, n.signal_id)
+                m = (sig.meta or {}) if sig is not None else {}
                 stale = (sig is None or sig.status not in ("EN_ATTENTE", "ACTIF")
-                         or (n.kind == "signal" and (now >= sig.valid_until or (sig.meta or {}).get("band_exceeded"))))
+                         or (n.kind == "signal" and (now >= sig.valid_until or m.get("band_exceeded") or m.get("entree_interdite"))))
+                if not stale and n.kind == "signal" and mode in STOPPED_MODES:
+                    n.status, n.error = "perime", f"non envoyée : moteur en mode {STOPPED_MODES[mode]} au moment de l'envoi"
+                    continue
                 if stale:
                     n.status, n.error = "perime", "non envoyée : signal plus exploitable au moment de l'envoi"
                     continue

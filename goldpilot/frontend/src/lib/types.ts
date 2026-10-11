@@ -54,6 +54,22 @@ export interface Signal {
   raison_statut: string;
   simulation: Simulation;
   execution_declaree: ExecutionDeclaree | null;
+  /** Vrai seulement si l'on peut encore ENTRER : statut ouvert, validité non écoulée, prix dans la plage, entrée non interdite. */
+  entree_ouverte?: boolean;
+  plage_depassee?: boolean;
+  entree_interdite?: string | null;
+  niveaux?: Niveaux | null;
+}
+
+/** Niveaux de contexte de la décision (barres terminées uniquement). Distances en ATR = (prix − niveau) / ATR. */
+export interface Niveaux {
+  plus_haut_veille?: number | null;
+  plus_bas_veille?: number | null;
+  plus_haut_seance?: number | null;
+  plus_bas_seance?: number | null;
+  swing_haut_15m?: number | null;
+  swing_bas_15m?: number | null;
+  distances_atr?: Record<string, number | null>;
 }
 
 export interface EtatComposant {
@@ -64,12 +80,15 @@ export interface EtatComposant {
 export interface StatutSysteme {
   connexion: EtatComposant;
   donnees: EtatComposant & { age_s: number | null; source: string };
-  moteur: EtatComposant & { etat: string; arret: { raison: string; depuis: string } | null };
+  moteur: EtatComposant & { etat: string; arret: { raison: string; depuis: string; type?: string } | null };
   notifications: EtatComposant & {
     active: boolean;
     configure: boolean;
     echecs_24h: number;
     derniere: string | null;
+    /** Faux si aucun envoi (alerte ou test) n'a jamais été tenté. */
+    verifiees?: boolean;
+    derniere_tentative?: { statut: string; erreur: string | null; type: string; quand: string } | null;
   };
 }
 
@@ -291,6 +310,7 @@ export interface Stats {
     delai_alerte_median_s: number | null;
     delai_alerte_max_s: number | null;
     ecart_entree_simulee_median_atr: number | null;
+    execution_declaree?: ExecutionDeclareeStats;
     controle_croise: Record<string, number>;
   };
   paper: {
@@ -366,4 +386,42 @@ export interface Reglages {
 export interface Calendrier {
   statut: { ok: boolean; maj: string; source: string } | null;
   evenements: { titre: string; impact: string; paris: string; new_york: string; source: string }[];
+}
+
+/** Glissement DÉCLARÉ par l'utilisateur ($/once, positif = défavorable) — jamais confirmé par le courtier. */
+export interface ExecutionDeclareeStats {
+  source: string;
+  n_entrees: number;
+  n_sorties: number;
+  glissement_entree_median_oz: number | null;
+  glissement_entree_max_oz: number | null;
+  glissement_sortie_median_oz: number | null;
+  glissement_sortie_max_oz: number | null;
+  ecart_pnl_par_contrat_median_usd: number | null;
+  hypothese_glissement_oz: number | null;
+  dans_hypothese: boolean | null;
+}
+
+export interface RevuePeriodique {
+  date: string;
+  version: string;
+  n: number;
+  esperance_R: number | null;
+  borne_basse_95_R: number | null;
+  drawdown_max_R: number | null;
+  serie_pertes_max: number;
+  taux_de_gain: number | null;
+  reference?: { esperance_R_walk_forward: number | null; esperance_R_2022_2025: number | null; source: string };
+  seuils?: { drawdown_R: number; serie_pertes: number } | null;
+  conclusion: string;
+}
+
+export interface Gouvernance {
+  version_courante: string | null;
+  version_approuvee: { version: string; approuve_le: string; par: string } | null;
+  en_attente: boolean;
+  comparaison: unknown;
+  revue_periodique: RevuePeriodique | null;
+  arret_version?: { raison: string; depuis: string; type: string } | null;
+  phrase_confirmation?: string;
 }

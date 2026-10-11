@@ -29,8 +29,9 @@ from ..notify import messages
 from ..notify.telegram import Telegram
 from ..risk.rules import CHECKED_ON, PROGRAMS, get_program
 from ..risk.sizing import RiskSettings
-from ..timeutil import fmt_ny, fmt_paris, market_phase, trading_date, utcnow
+from ..timeutil import NY, fmt_ny, fmt_paris, market_phase, trading_date, utcnow
 from .security import COOKIE, api_limiter, client_ip, create_session, end_session, login_limiter, require_user, verify_password, webhook_limiter
+from .security import WEBHOOK_AUTH_KEY, webhook_fail_limiter
 
 log = logging.getLogger("goldpilot.web")
 
@@ -61,7 +62,25 @@ def iso(dt: datetime | None) -> str | None:
     return dt.isoformat() if dt else None
 
 
-def sig_json(r: db.Signal) -> dict:
+def fmt_ny_date(dt: datetime) -> str:
+    """Date ET heure de New York (les journaux couvrent plusieurs jours : l'heure seule serait ambiguë)."""
+    return dt.astimezone(NY).strftime("%d/%m/%Y %H:%M") + " New York"
+
+
+OPEN_STATUSES = ("EN_ATTENTE", "ACTIF")
+
+
+def entree_ouverte(r: db.Signal, now: datetime | None = None) -> bool:
+    """Vrai seulement si l'on peut encore ENTRER sur ce signal : statut ouvert, validité non écoulée, prix resté dans la
+    plage d'entrée et aucune interdiction d'entrée (mode sécurisé…). Une position simulée peut rester suivie après."""
+    m = r.meta or {}
+    now = now or utcnow()
+    return bool(r.status in OPEN_STATUSES and r.valid_until is not None and now < r.valid_until
+                and not m.get("band_exceeded") and not m.get("entree_interdite"))
+
+
+def sig_json(r: db.Signal, now: datetime | None = None) -> dict:
+    m = r.meta or {}
     return {
         "id": r.id, "cree": iso(r.created_at), "cree_paris": fmt_paris(r.created_at), "mode": r.mode, "valide": r.validated,
         "version": r.strategy_version, "contrat": r.symbol, "sens": "LONG" if r.side > 0 else "SHORT", "type_entree": r.entry_type,
@@ -70,6 +89,8 @@ def sig_json(r: db.Signal) -> dict:
         "rr": r.reward_risk, "validite": iso(r.valid_until), "validite_ny": fmt_ny(r.valid_until), "sortie_max": fmt_ny(r.exit_deadline),
         "justification": r.rationale, "invalidation": r.invalidation, "calendrier": r.calendar_note, "source_prix": r.price_source,
         "prix_maj": iso(r.price_ts), "statut": r.status, "raison_statut": r.status_reason,
+        "entree_ouverte": entree_ouverte(r, now), "plage_depassee": bool(m.get("band_exceeded")),
+        "entree_interdite": m.get("entree_interdite") or None, "niveaux": m.get("niveaux"),
         "simulation": {"entree": r.sim_entry, "entree_ts": iso(r.sim_entry_ts), "stop_actuel": r.sim_stop, "sortie": r.sim_exit,
                        "sortie_ts": iso(r.sim_exit_ts), "raison": r.sim_exit_reason, "r": r.sim_r, "pnl_usd": r.sim_pnl_usd},
         "execution_declaree": None if r.user_executed is None else {"executee": r.user_executed, "entree": r.user_entry,
@@ -144,6 +165,10 @@ def dashboard(user: str = Depends(require_user)):
         notif_on = bool(db.kv_get(s, "notifications", True))
         last_notif = s.execute(select(db.Notification).where(db.Notification.status.in_(["envoye", "echec"]))
                                .order_by(desc(db.Notification.id)).limit(1)).scalars().first()
+        last_sent = s.execute(select(db.Notification).where(db.Notification.status == "envoye")
+                              .order_by(desc(db.Notification.sent_at)).limit(1)).scalars().first()
+        retrying = s.execute(select(db.Notification).where(db.Notification.status == "a_envoyer", db.Notification.attempts > 0)
+                             .order_by(desc(db.Notification.id)).limit(1)).scalars().first()
         failed = s.execute(select(func.count(db.Notification.id)).where(db.Notification.status == "echec",
                                                                          db.Notification.created_at >= now - timedelta(days=1))).scalar()
         last_sig = s.execute(select(db.Signal).order_by(desc(db.Signal.created_at)).limit(1)).scalars().first()
@@ -166,6 +191,25 @@ def dashboard(user: str = Depends(require_user)):
     nxt = next_event(evs, now)
     tg_ok = bool(st.telegram_bot_token and st.telegram_chat_id)
     eng_mode = mode.get("mode") if engine_alive else "arrete"
+    # Vert seulement si le DERNIER envoi réel (alerte ou test) a réussi ; jamais sur la seule présence des variables.
+    last_ok = last_notif is not None and last_notif.status == "envoye" and retrying is None
+    if not tg_ok:
+        notif_txt = "Telegram non configuré"
+    elif not notif_on:
+        notif_txt = "Désactivées par toi"
+    elif retrying is not None:
+        notif_txt = f"Envoi en échec, nouvel essai en cours : {retrying.error or 'erreur inconnue'}"
+    elif last_notif is not None and last_notif.status == "echec":
+        notif_txt = f"Dernier envoi en échec : {last_notif.error or 'erreur inconnue'}"
+    elif last_notif is None:
+        notif_txt = "Jamais vérifiées : utilise « Tester une notification »"
+    else:
+        notif_txt = "Opérationnelles (dernier envoi réussi)"
+    notif_status = {"ok": bool(notif_on and tg_ok and last_ok), "active": notif_on, "configure": tg_ok, "echecs_24h": failed,
+                    "verifiees": last_notif is not None, "texte": notif_txt,
+                    "derniere": iso(last_sent.sent_at) if last_sent else None,
+                    "derniere_tentative": ({"statut": last_notif.status, "erreur": last_notif.error or None, "type": last_notif.kind,
+                                            "quand": fmt_paris(last_notif.sent_at or last_notif.created_at)} if last_notif else None)}
     labels = {"actif": "Surveille le marché", "pause": "En pause (suspendu par toi)", "securise": "Mode sécurisé : aucun signal",
               "arret": "Arrêt de sécurité", "prechauffage": "Préchauffage (historique insuffisant)", "arrete": "Moteur arrêté",
               "demarrage": "Démarrage"}
@@ -175,10 +219,7 @@ def dashboard(user: str = Depends(require_user)):
                     "texte": ("Données à jour" if mode.get("qualite") == "ok" else "; ".join(mode.get("problemes") or ["Données indisponibles"])) if engine_alive else "Inconnu (moteur arrêté)",
                     "age_s": data_age, "source": {"tradingview": "TradingView (webhook)", "databento": "Databento", "replay": "Rejeu historique (simulation)"}.get(st.data_source, st.data_source)},
         "moteur": {"ok": eng_mode == "actif", "etat": eng_mode, "texte": labels.get(eng_mode, eng_mode), "arret": halt},
-        "notifications": {"ok": notif_on and tg_ok and not failed, "active": notif_on, "configure": tg_ok, "echecs_24h": failed,
-                          "texte": ("Telegram non configuré" if not tg_ok else "Désactivées par toi" if not notif_on else
-                                    f"{failed} échec(s) d'envoi sur 24 h" if failed else "Opérationnelles"),
-                          "derniere": iso(last_notif.sent_at) if last_notif else None},
+        "notifications": notif_status,
     }
     market = {
         "instrument": contract.label(), "contrat": contract.code, "tradingview": contract.tradingview, "tradovate": contract.short_code,
@@ -192,9 +233,9 @@ def dashboard(user: str = Depends(require_user)):
     }
     trading = {
         "setup": ("Signal en cours" if open_sig else "Aucun setup valide : les conditions ne sont pas réunies"),
-        "signal_en_cours": sig_json(open_sig) if open_sig else None,
-        "dernier_signal": sig_json(last_sig) if last_sig else None,
-        "derniere_analyse": {"heure": fmt_ny(last_dec.bar_ts + timedelta(minutes=15)), "resultat": last_dec.summary,
+        "signal_en_cours": sig_json(open_sig, clock) if open_sig else None,
+        "dernier_signal": sig_json(last_sig, clock) if last_sig else None,
+        "derniere_analyse": {"heure": fmt_ny_date(last_dec.bar_ts + timedelta(minutes=15)), "resultat": last_dec.summary,
                              "raisons": last_dec.reasons} if last_dec else None,
         "strategie": {"version": conf["version"] if conf else None, "validee": bool(conf and conf.get("validated")),
                       "verdict": conf.get("verdict") if conf else "Aucune stratégie configurée"},
@@ -227,12 +268,21 @@ def set_mode(body: ModeBody, user: str = Depends(require_user)):
 
 @app.post("/api/engine/resume-after-halt")
 def resume_after_halt(user: str = Depends(require_user)):
+    """Reprise manuelle après un arrêt de sécurité (performance). Un point de reprise est enregistré (contrat C1) :
+    le moteur recompte drawdown et série de pertes uniquement sur les trades simulés clôturés APRÈS la reprise."""
+    conf = strategy_config.load_production() or {}
     with db.session() as s:
         h = db.kv_get(s, "halt")
+        if h and h.get("type") == "version":
+            raise HTTPException(409, "Arrêt dû à une nouvelle version de stratégie non approuvée : compare-la puis approuve-la "
+                                     "dans Paramètres › Gouvernance de la stratégie.")
+        reset = {"depuis": utcnow().isoformat(), "version": conf.get("version")}
         db.kv_set(s, "halt", None)
+        if h:
+            db.kv_set(s, "halt_reset", reset)
         db.resolve_incident(s, "performance", "degradation")
-        db.audit(s, user, "reprise_apres_arret", {"arret": h})
-    return {"ok": True}
+        db.audit(s, user, "reprise_apres_arret", {"arret": h, "point_de_reprise": reset if h else None})
+    return {"ok": True, "point_de_reprise": reset if h else None}
 
 
 class Toggle(BaseModel):
@@ -251,8 +301,13 @@ def toggle_notif(body: Toggle, user: str = Depends(require_user)):
 def test_notif(user: str = Depends(require_user)):
     st = settings()
     tg = Telegram(st.telegram_bot_token, st.telegram_chat_id)
-    ok, err = tg.send_now(messages.test_message(utcnow()))
+    text = messages.test_message(utcnow())
+    ok, err = tg.send_now(text)
     with db.session() as s:
+        # Le test compte comme un envoi réel : son résultat met à jour l'état « Notifications » de l'accueil.
+        now = utcnow()
+        s.add(db.Notification(key=f"test:{db.uid()}", kind="test", text=text, status="envoye" if ok else "echec", attempts=1,
+                              error="" if ok else (err or "erreur inconnue"), sent_at=now if ok else None, created_at=now))
         db.audit(s, user, "test_notification", {"ok": ok, "erreur": err})
     if not ok:
         raise HTTPException(502, f"échec de l'envoi : {err}")
@@ -356,7 +411,7 @@ def journal(type: Literal["decisions", "incidents", "notifications", "webhooks",
                                for w in rows]}
         if type == "controle":
             rows = s.execute(select(db.MirrorSignal).order_by(desc(db.MirrorSignal.id)).limit(lim)).scalars()
-            return {"lignes": [{"heure": fmt_ny(m.bar_ts + timedelta(minutes=15)), "contrat": m.symbol, "sens": "LONG" if m.side > 0 else "SHORT",
+            return {"lignes": [{"heure": fmt_ny_date(m.bar_ts + timedelta(minutes=15)), "contrat": m.symbol, "sens": "LONG" if m.side > 0 else "SHORT",
                                 "prix": m.price, "verdict": m.verdict or "en attente", "signal": m.matched_signal_id} for m in rows]}
         rows = s.execute(select(db.Audit).order_by(desc(db.Audit.id)).limit(lim)).scalars()
         return {"lignes": [{"heure": fmt_paris(a.ts), "acteur": a.actor, "action": a.action, "detail": a.detail} for a in rows]}
@@ -383,8 +438,18 @@ def stats(user: str = Depends(require_user)):
         sent = {n.signal_id: n.sent_at for n in s.execute(select(db.Notification).where(
             db.Notification.kind == "signal", db.Notification.sent_at.is_not(None))).scalars()}
         mirrors = s.execute(select(db.MirrorSignal.verdict, func.count()).group_by(db.MirrorSignal.verdict)).all()
+        rs_kv = db.kv_get(s, "risk_settings")
     engine_lat, alert_lat, slip_atr = [], [], []
+    decl_entry, decl_exit, decl_pnl_gap = [], [], []
     for r in recent:
+        if r.user_executed:
+            # Glissement DÉCLARÉ par l'utilisateur ($/once, positif = défavorable), jamais confirmé par le courtier.
+            if r.user_entry is not None:
+                decl_entry.append((r.user_entry - r.entry_ref) * r.side)
+            if r.user_exit is not None and r.sim_exit is not None:
+                decl_exit.append((r.sim_exit - r.user_exit) * r.side)
+            if r.user_pnl_usd is not None and r.sim_pnl_usd is not None and r.user_contracts and r.contracts:
+                decl_pnl_gap.append(r.user_pnl_usd / r.user_contracts - r.sim_pnl_usd / r.contracts)
         close = datetime.fromtimestamp(int((r.meta or {}).get("decision_bar_ts", 0)) / 1e9, tz=r.created_at.tzinfo) + timedelta(minutes=15)
         engine_lat.append((r.created_at - close).total_seconds())
         if sent.get(r.id):
@@ -395,13 +460,72 @@ def stats(user: str = Depends(require_user)):
     def med(x):
         return float(sorted(x)[len(x) // 2]) if x else None
 
+    conf = strategy_config.load_production() or {}
+    risk = rs_kv or conf.get("risk_settings_default") or {}
+    hyp = risk.get("slippage_allowance_oz")
+    m_in = med(decl_entry)
+    declared = {
+        "source": "déclaré par toi — non confirmé par le courtier",
+        "n_entrees": len(decl_entry), "n_sorties": len(decl_exit),
+        "glissement_entree_median_oz": m_in, "glissement_entree_max_oz": max(decl_entry) if decl_entry else None,
+        "glissement_sortie_median_oz": med(decl_exit), "glissement_sortie_max_oz": max(decl_exit) if decl_exit else None,
+        "ecart_pnl_par_contrat_median_usd": med(decl_pnl_gap),
+        "hypothese_glissement_oz": hyp,
+        "dans_hypothese": None if m_in is None or hyp is None else bool(m_in <= hyp),
+    }
     execution = {"signaux": len(recent), "delai_moteur_median_s": med(engine_lat), "delai_alerte_median_s": med(alert_lat),
                  "delai_alerte_max_s": max(alert_lat) if alert_lat else None,
                  "ecart_entree_simulee_median_atr": med(slip_atr),
+                 "execution_declaree": declared,
                  "controle_croise": {(v or "en attente"): n for v, n in mirrors}}
     return {"production": strategy_config.load_production(), "selection": research_json("selection/selection.json"), "execution": execution,
             "test_final": research_json("final/final.json"), "monte_carlo": research_json("final/montecarlo.json"),
             "paper": paper}
+
+
+# ---------------------------------------------------------------------------------------------- gouvernance de la stratégie
+APPROVAL_PHRASE = "J'APPROUVE CETTE VERSION"
+
+
+@app.get("/api/strategy/governance")
+def strategy_governance(user: str = Depends(require_user)):
+    """Contrats C2/C3 : version en service, version approuvée, comparaison avant remplacement, revue périodique."""
+    conf = strategy_config.load_production() or {}
+    with db.session() as s:
+        approved = db.kv_get(s, "approved_version")
+        review = db.kv_get(s, "revue_periodique")
+        halt = db.kv_get(s, "halt")
+    current = conf.get("version")
+    return {"version_courante": current, "version_approuvee": approved,
+            "en_attente": bool(current and approved and approved.get("version") != current),
+            "comparaison": conf.get("comparaison"), "revue_periodique": review,
+            "arret_version": halt if halt and halt.get("type") == "version" else None,
+            "phrase_confirmation": APPROVAL_PHRASE}
+
+
+class ApproveBody(BaseModel):
+    version: str = Field(min_length=1, max_length=200)
+    confirmation: str = Field(default="", max_length=100)
+
+
+@app.post("/api/strategy/approve")
+def strategy_approve(body: ApproveBody, user: str = Depends(require_user)):
+    conf = strategy_config.load_production() or {}
+    current = conf.get("version")
+    if not current or body.version != current:
+        raise HTTPException(409, f"Refusé : la version à approuver doit être la version en service ({current or 'aucune'}).")
+    if body.confirmation != APPROVAL_PHRASE:
+        raise HTTPException(422, f"Confirmation exacte requise : « {APPROVAL_PHRASE} »")
+    with db.session() as s:
+        before = db.kv_get(s, "approved_version")
+        db.kv_set(s, "approved_version", {"version": current, "approuve_le": utcnow().isoformat(), "par": "utilisateur"})
+        halt = db.kv_get(s, "halt")
+        if halt and halt.get("type") == "version":
+            db.kv_set(s, "halt", None)
+            db.resolve_incident(s, "strategie", "version")
+        db.audit(s, user, "version_approuvee", {"version": current, "avant": before, "par": "utilisateur",
+                                                 "comparaison_disponible": conf.get("comparaison") is not None})
+    return {"ok": True}
 
 
 # ---------------------------------------------------------------------------------------------- réglages
@@ -550,36 +674,51 @@ def add_event(body: ManualEvent, user: str = Depends(require_user)):
 
 
 # ---------------------------------------------------------------------------------------------- webhook TradingView
+def _reject_constant(c: str):
+    raise ValueError(f"constante JSON non autorisée : {c}")  # NaN, Infinity, -Infinity
+
+
 @app.post("/api/webhooks/tradingview")
 async def tradingview_webhook(request: Request):
     st = settings()
     ip = client_ip(request)
     received = utcnow()
 
-    def log_row(kind: str, accepted: bool, reason: str, payload: dict):
-        safe = {k: v for k, v in payload.items() if k != "token"} if isinstance(payload, dict) else {}
-        with db.session() as s:
-            s.add(db.WebhookLog(ip=ip, kind=kind, accepted=accepted, reason=reason, payload=safe))
+    def log_row(kind: str, accepted: bool, reason: str, payload: dict) -> None:
+        """Journal des webhooks. Une erreur d'écriture du journal ne transforme JAMAIS la réponse en erreur 500."""
+        try:
+            safe = {k: v for k, v in payload.items() if k != "token"} if isinstance(payload, dict) else {}
+            k = kind if kind in tv.KINDS else "?"  # valeur choisie par l'expéditeur : liste fermée (colonne de 16 caractères)
+            with db.session() as s:
+                s.add(db.WebhookLog(ip=ip[:64], kind=k, accepted=accepted, reason=reason[:500], payload=safe))
+        except Exception:
+            log.exception("journal des webhooks : écriture impossible")
 
-    if not webhook_limiter.allow(ip):
-        return JSONResponse({"ok": False, "raison": "débit excessif"}, status_code=429)
+    def reject(kind: str, reason: str, payload: dict, status: int, body: dict | None = None) -> JSONResponse:
+        # Les refus sont limités par IP ; au-delà du budget, plus aucune écriture en base (anti-saturation).
+        # Ce budget est distinct de celui des messages authentifiés : un flot de messages refusés ne bloque pas tes barres.
+        if not webhook_fail_limiter.allow(ip):
+            return JSONResponse({"ok": False, "raison": "trop de messages refusés"}, status_code=429)
+        log_row(kind, False, reason, payload)
+        return JSONResponse(body if body is not None else {"ok": False, "raison": reason}, status_code=status)
+
     if st.tv_enforce_ip and ip not in st.tv_ip_allowlist:
-        log_row("?", False, "adresse IP non autorisée", {})
-        return JSONResponse({"ok": False}, status_code=403)
+        return reject("?", "adresse IP non autorisée", {}, 403, {"ok": False})
     raw = await request.body()
     if len(raw) > tv.MAX_BODY:
-        log_row("?", False, "message trop volumineux", {})
-        return JSONResponse({"ok": False}, status_code=413)
+        return reject("?", "message trop volumineux", {}, 413, {"ok": False})
     try:
-        payload = json.loads(raw)
-    except ValueError:
-        log_row("?", False, "JSON invalide", {})
-        return JSONResponse({"ok": False, "raison": "JSON invalide"}, status_code=400)
+        payload = json.loads(raw, parse_constant=_reject_constant)
+    except (ValueError, RecursionError):
+        return reject("?", "JSON invalide", {}, 400)
     try:
         msg = tv.parse(payload, st.tv_webhook_token, received)
     except tv.Rejected as e:
-        log_row(str(payload.get("kind", "?")) if isinstance(payload, dict) else "?", False, e.reason, payload if isinstance(payload, dict) else {})
-        return JSONResponse({"ok": False, "raison": e.reason}, status_code=e.status)
+        kind = payload.get("kind") if isinstance(payload, dict) else "?"
+        return reject(kind if isinstance(kind, str) else "?", e.reason, payload if isinstance(payload, dict) else {}, e.status)
+    # Jeton vérifié (temps constant) : budget propre aux messages authentifiés.
+    if not webhook_limiter.allow(WEBHOOK_AUTH_KEY):
+        return JSONResponse({"ok": False, "raison": "débit excessif"}, status_code=429)
     sym = msg.ticker.split(":")[-1].upper()
     try:
         with db.session() as s:

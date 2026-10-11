@@ -25,6 +25,8 @@ export function messageErreur(status: number, detail?: unknown): string {
   switch (status) {
     case 0:
       return "Serveur injoignable : vérifie ta connexion internet ou l'état du serveur.";
+    case 400:
+      return d ? `Action refusée : ${d}` : "Action refusée par le serveur.";
     case 401:
       return d ? `Connexion requise : ${d}` : "Connexion requise.";
     case 403:
@@ -98,14 +100,30 @@ function traduireValidation(type?: string, msg?: string, ctx?: Record<string, un
     case "int_parsing":
     case "float_type":
     case "int_type":
+    case "finite_number":
       return "nombre attendu";
+    case "int_from_float":
+      return "nombre entier attendu";
+    case "bool_parsing":
+    case "bool_type":
+      return "oui ou non attendu";
+    case "json_invalid":
+    case "json_type":
+      return "données mal formées";
+    case "string_type":
+      return "texte attendu";
+    case "literal_error":
+    case "enum":
+      return "valeur non autorisée";
+    case "value_error":
+      return msg ? msg.replace(/^Value error,\s*/, "") : "valeur invalide";
     case "datetime_parsing":
     case "datetime_from_date_parsing":
       return "date et heure invalides";
     case "extra_forbidden":
       return "champ non autorisé";
     default:
-      return msg ?? "valeur invalide";
+      return "valeur invalide"; // message Pydantic en anglais : jamais affiché tel quel
   }
 }
 

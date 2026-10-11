@@ -63,7 +63,7 @@ test.describe("Signaux", () => {
     await expect(page.getByTestId("chronologie")).toContainText("Sortie simulée");
     await expect(page.getByTestId("position-simulee")).toContainText("+1,18");
     await expect(page.getByTestId("contexte-decision")).toContainText("tendance haussière (test)");
-    await expect(page.getByTestId("signal-statut")).toContainText("Position réellement exécutée — déclarée par toi, non confirmée par le courtier");
+    await expect(page.getByTestId("signal-statut")).toContainText("Exécution déclarée par toi — non confirmée par le courtier");
     await expect(page.getByTestId("carte-annulation")).toHaveCount(0);
   });
 
@@ -78,7 +78,7 @@ test.describe("Signaux", () => {
     await page.getByTestId("champ-contrats").fill("1");
     await page.getByTestId("bouton-declarer").click();
     await expect(carte.getByTestId("message-action")).toContainText("déclarée par toi, non confirmée par le courtier");
-    await expect(page.getByTestId("signal-statut")).toContainText("Position réellement exécutée — déclarée par toi, non confirmée par le courtier");
+    await expect(page.getByTestId("signal-statut")).toContainText("Exécution déclarée par toi — non confirmée par le courtier");
     await expect(page.getByTestId("declaration-existante")).toContainText("+95 $");
   });
 

@@ -27,7 +27,7 @@ def test_active_contract_and_roll_dates():
 
 def test_only_active_months_are_traded():
     seen = {active_contract(date(2026, m, 15)).month for m in range(1, 13)}
-    assert seen <= {2, 4, 6, 8, 12}
+    assert seen <= {2, 4, 6, 8, 10, 12}
 
 
 def test_business_days_skip_holidays_and_weekends():

@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 
 from ..calendar.events import Blackout, Event, blocking_event
 from ..strategy.base import Setup
-from ..timeutil import fmt_ny, msess, msess_of
+from ..timeutil import HOLIDAY_SAFETY_MIN, fmt_ny, msess, msess_of, session_close_ny, trading_date
 from .account import Account
 from .sizing import RiskSettings, Sizing, size
 
@@ -94,9 +94,19 @@ def evaluate(setup: Setup, ctx: RiskContext, settings: RiskSettings) -> RiskDeci
     if cap is not None:
         lock = settings.consistency_lock_fraction * cap
         add(Check("Consistance 40 %", a.day_pnl < lock, f"profit du jour {a.day_pnl:.0f} $ (arrêt à {lock:.0f} $ pour ne pas relever l'objectif)"))
-    exit_ok = setup.exit_msess <= LATEST_EXIT
-    add(Check("Horaires FundedNext", exit_ok and msess(ctx.now) < setup.exit_msess,
-              "sortie prévue avant 15:45 New York (clôture FundedNext 16:10)" if exit_ok else "sortie prévue trop tardive"))
+    # Sortie au plus tard à min(15:45 New York, clôture réelle du CME − 25 min) : jours fériés et clôtures anticipées.
+    close = session_close_ny(trading_date(ctx.now))
+    if close is None:
+        add(Check("Horaires FundedNext", False, "marché fermé (jour férié CME)"))
+    else:
+        latest = min(LATEST_EXIT, msess(close) - HOLIDAY_SAFETY_MIN)
+        early = latest < LATEST_EXIT
+        exit_ok = setup.exit_msess <= latest
+        limit_txt = fmt_ny(close - timedelta(minutes=HOLIDAY_SAFETY_MIN)) if early else "15:45 New York"
+        why = f"clôture anticipée du CME à {fmt_ny(close)}" if early else "clôture FundedNext 16:10"
+        add(Check("Horaires FundedNext", exit_ok and msess(ctx.now) < setup.exit_msess,
+                  f"sortie prévue avant {limit_txt} ({why})" if exit_ok
+                  else f"sortie prévue trop tardive : limite {limit_txt} ({why})"))
     horizon = timedelta(minutes=30)
     ev = blocking_event(ctx.events, ctx.now, horizon, ctx.blackout)
     add(Check("Annonces économiques", ev is None,
@@ -107,7 +117,10 @@ def evaluate(setup: Setup, ctx: RiskContext, settings: RiskSettings) -> RiskDeci
         add(Check("Prix encore exploitable", drift <= lim, f"écart {drift:.2f} $ (max {lim:.2f} $)"))
     else:
         add(Check("Prix encore exploitable", False, "prix actuel inconnu"))
-    sz = size(setup.planned_entry, setup.stop, a, settings, ctx.realized_loss_today)
+    # Taille calculée sur la pire entrée de la plage acceptable (entrée prévue ± écart toléré, côté opposé au stop) :
+    # le risque réel ne dépasse jamais le budget, même en entrant au bord de la plage annoncée.
+    worst_entry = setup.planned_entry + setup.side * setup.max_price_drift_atr * setup.atr
+    sz = size(worst_entry, setup.stop, a, settings, ctx.realized_loss_today)
     add(Check("Taille de position", sz.contracts >= 1,
               f"{sz.contracts} contrat(s), risque {sz.risk_usd:.0f} $ (contrainte : {sz.binding})" if sz.contracts else sz.refusal))
     if sz.contracts >= 1:

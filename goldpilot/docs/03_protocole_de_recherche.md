@@ -14,8 +14,12 @@ Ratio est calculé en comptant **aussi** ces 168 essais antérieurs.
 
 ## 1. Données et découpage
 
-* XAUUSD spot (proxy du MGC : dynamique intraday quasi identique, niveau de prix différent de la base
-  de portage). Barres de 15 min en UTC selon `backend/goldpilot/research/conventions.json`.
+* XAUUSD spot, utilisé comme **proxy non mesuré** du MGC : aucune donnée MGC n'a été comparée à ces
+  fichiers (écart de prix lié à la base de portage, corrélation des rendements intraday, horaires, liquidité
+  et volume **non mesurés** ; voir `08_limites.md`). Les résultats ne sont donc pas transposables tels quels
+  au MGC. Barres de 15 min en UTC selon `backend/goldpilot/research/conventions.json`.
+  *(Formulation corrigée le 11/10/2026 : la version initiale qualifiait la dynamique intraday de « quasi
+  identique », affirmation qui n'avait jamais été mesurée.)*
 * Entraînement : 01/05/2011 → 31/12/2018 ; validation : 01/01/2019 → 31/12/2021 ;
   **test final : 01/01/2022 → 28/10/2025**, exécuté une seule fois, sur les seules configurations éligibles.
 * Walk-forward : fenêtres glissantes de 3 ans, test sur l'année suivante, années de test 2014 → 2021.
@@ -138,3 +142,41 @@ Règles ajoutées pour la suite (objectives, fixées avant de voir 2022-2025) :
 4. **Seuils de suspension automatique** : drawdown inférieur au 1er centile et série de pertes
    supérieure au 99e centile de la distribution Monte-Carlo des trades walk-forward, pour 100 trades.
 5. **Validation prospective** (section 9) : seule voie vers le mode réel.
+
+## 11. Compléments a posteriori (ajoutés le 11/10/2026)
+
+> **Complément a posteriori (non pré-enregistré, ne change pas le verdict).** Ajouté après une revue de
+> conformité au cahier des charges, **après** lecture des résultats 2011-2021 et 2022-2025. Rien de ce qui
+> suit ne sert à choisir, ajuster ou valider la stratégie ; la configuration de production reste celle du
+> § 10. Script : `research/05_complements.py` ; sorties : `research/output/complements/`.
+
+**Unités de temps (cahier des charges § 5) — choix effectif et justification.**
+* Décision sur barres de **15 minutes** : c'est la seule résolution disponible sur tout l'historique
+  (2004-2025 ; le fichier 5 min ne couvre que février → octobre 2025). L'étude exploratoire a comparé les
+  autocorrélations à 15, 30 et 60 min, mais les candidats S1 et S2 n'ont été formulés et testés qu'en 15 min.
+* Contexte **journalier** : uniquement le filtre F de S1 (rang de l'amplitude de la veille), testé dans la
+  grille pré-enregistrée (F oui / non).
+* Barres de **5 minutes** : contrôle de l'exécution seulement (2025), pas d'analyse.
+* Aucune autre combinaison n'avait été testée avant le choix. Contrôle de robustesse a posteriori, sur
+  **2011-2021 uniquement** (aucune donnée 2022-2025), avec la configuration de production : décision 15 min
+  sans filtre journalier ; décision 15 min + filtre journalier + contexte de tendance 1 h (achat seulement si
+  la clôture de la dernière barre 1 h terminée est au-dessus de sa moyenne exponentielle 20 périodes, vente
+  symétrique) ; décision sur barres de 30 min (mêmes paramètres en nombre de barres) + filtre journalier.
+  Ces variantes ne sont **pas** adoptées : toute nouvelle combinaison exigerait un nouveau protocole
+  pré-enregistré et une validation sur des données non vues.
+
+**Métriques complémentaires (cahier des charges § 4)**, pour le candidat S1 (walk-forward 2014-2021 et
+exploratoire 2022-2025, coûts de base) : durée maximale et médiane des drawdowns en jours de trading
+(journées sans trade comprises ; un drawdown dure du premier jour sous le sommet d'équité jusqu'à son
+retour) ; résultats par séance (heure d'entrée, New York) et par régime de volatilité (tercile, parmi les
+250 journées précédentes, de la moyenne sur 20 journées de l'amplitude relative (H−L)/C connue la veille :
+calcul causal) ; espérance en dollars au risque par défaut de `production.json` (250 $ ; 1 R = 250 $,
+arrondi au nombre entier de contrats ignoré).
+
+**Délai d'exécution manuelle (cahier des charges § 3.7)** : rejeu du contrôle de résolution (barres de
+5 min, février → octobre 2025) avec une entrée 0, 1, 3 ou 5 minutes après la décision
+(`ExecutionSimulator(entry_delay_ns=…)`). 0 et 5 min tombent sur l'ouverture d'une barre de 5 min (prix
+exact) ; 1 et 3 min tombent à l'intérieur d'une barre, dont le prix intrabarre est inconnu : il est
+encadré par une estimation interpolée (ouverture → clôture de la barre) et une borne prudente (extrême
+défavorable de la barre). Demi-spread ajouté dans tous les cas ; mêmes règles de sortie.
+

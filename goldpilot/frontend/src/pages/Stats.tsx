@@ -7,6 +7,7 @@ import { dateCourte, dateHeure, duree, enR, entier, nombre, pct, usd, signe, est
 import { verdict } from "../lib/status";
 import { Badge, Banner, Card, Chargement, Erreur, classeSigne } from "../components/ui";
 import { EquityChart } from "../components/EquityChart";
+import { GouvernanceCarte } from "../components/Gouvernance";
 
 export function Stats() {
   useTitre("Statistiques");
@@ -26,6 +27,7 @@ export function Stats() {
         <a href="#verdict">Verdict</a>
         <a href="#paper">Suivi papier</a>
         <a href="#execution">Exécution</a>
+        <a href="#gouvernance">Gouvernance</a>
         <a href="#selection">Sélection</a>
         <a href="#test-final">Test final</a>
         <a href="#montecarlo">Monte-Carlo</a>
@@ -55,6 +57,7 @@ export function Stats() {
 
       <Paper s={s} rejeu={!!dash.data?.rejeu} />
       <Execution s={s} />
+      <GouvernanceCarte />
       <Selection s={s} />
       <TestFinal s={s} />
       <MonteCarlo s={s} />
@@ -120,6 +123,7 @@ function Execution({ s }: { s: StatsT }) {
           s="positif = entrée moins favorable que prévu"
         />
       </div>
+      <Declaree s={s} />
       <h3>Contrôle croisé TradingView</h3>
       {cc.length === 0 ? (
         <p className="muted small">Aucun signal miroir reçu de TradingView : contrôle croisé non disponible.</p>
@@ -133,6 +137,60 @@ function Execution({ s }: { s: StatsT }) {
         </div>
       )}
     </Card>
+  );
+}
+
+/** Glissement de tes exécutions DÉCLARÉES, comparé au glissement supposé des réglages de risque (critère n° 3 du rapport). */
+function Declaree({ s }: { s: StatsT }) {
+  const d = s.execution.execution_declaree;
+  if (!d) return null;
+  const oz = (x: number | null) => (x !== null ? `${signe(x, 2)} $/once` : "—");
+  return (
+    <div data-testid="execution-declaree">
+      <h3>Prix prévus et prix déclarés</h3>
+      <p className="small">
+        <Badge ton="neutral" wrap>
+          {d.source}
+        </Badge>
+      </p>
+      {d.n_entrees === 0 ? (
+        <p className="muted small">
+          Aucune exécution déclarée avec un prix d'entrée : déclare tes prix sur la page de chaque signal pour comparer ton glissement réel au
+          glissement supposé ({d.hypothese_glissement_oz !== null ? `${nombre(d.hypothese_glissement_oz, 2)} $/once` : "non défini"}).
+        </p>
+      ) : (
+        <>
+          <div className="tiles">
+            <Tile
+              k="Glissement à l'entrée (médian)"
+              v={oz(d.glissement_entree_median_oz)}
+              s={`maximum ${oz(d.glissement_entree_max_oz)} · ${d.n_entrees} déclaration(s)`}
+              testid="glissement-declare"
+            />
+            <Tile
+              k="Glissement supposé"
+              v={d.hypothese_glissement_oz !== null ? `${nombre(d.hypothese_glissement_oz, 2)} $/once` : "—"}
+              s="réglages de risque (utilisé pour la taille)"
+            />
+            <Tile k="Écart à la sortie simulée (médian)" v={oz(d.glissement_sortie_median_oz)} s={`${d.n_sorties} déclaration(s)`} />
+            <Tile
+              k="Écart de résultat par contrat (médian)"
+              v={d.ecart_pnl_par_contrat_median_usd !== null ? usd(d.ecart_pnl_par_contrat_median_usd, 0, true) : "—"}
+              s="déclaré − simulé"
+            />
+          </div>
+          <p className="small" data-testid="verdict-glissement">
+            {d.dans_hypothese === null ? null : d.dans_hypothese ? (
+              <Badge ton="ok">Dans l'hypothèse</Badge>
+            ) : (
+              <Badge ton="bad">Au-delà de l'hypothèse</Badge>
+            )}{" "}
+            Positif = moins favorable que prévu. Prix saisis par toi : GoldPilot ne peut pas les vérifier auprès du courtier.
+            {d.n_entrees < 20 ? " Trop peu de déclarations pour conclure." : ""}
+          </p>
+        </>
+      )}
+    </div>
   );
 }
 

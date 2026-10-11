@@ -2,7 +2,11 @@
 
 Règles CME (sources : spécifications MGC et règlement COMEX chapitre 113, vérifiés le 9 octobre 2026) :
 * mois cotés : février, avril, juin, août, octobre, décembre ;
-* mois actifs (liquidité) : février, avril, juin, août, décembre ;
+* mois actifs (liquidité) : février, avril, juin, août, octobre, décembre — octobre est un mois « lead » de l'or COMEX
+  depuis la date de négociation du 12 janvier 2026 (CME Group, Special Executive Report SER#9637 du 9 décembre 2025,
+  rappelé par SER#9637R du 9 juin 2026 : https://www.cmegroup.com/content/dam/cmegroup/notices/ser/2025/12/ser-9637.pdf).
+  Le SER porte sur le Gold (GC) ; le règlement quotidien du Micro Gold (MGC) dérive de celui du GC, on applique donc la
+  même séquence au MGC (vérifié par recherche web le 11 octobre 2026, PDF officiel non consultable depuis l'environnement) ;
 * fin de négociation : 3e dernier jour ouvré du mois de livraison ;
 * premier jour d'avis (or COMEX) : dernier jour ouvré du mois précédant le mois de livraison.
 Le volume migre vers l'échéance suivante avant le premier jour d'avis : on roule 5 jours ouvrés avant
@@ -16,7 +20,7 @@ from datetime import date, timedelta
 from functools import lru_cache
 
 CODES = "FGHJKMNQUVXZ"
-ACTIVE_MONTHS = (2, 4, 6, 8, 12)
+ACTIVE_MONTHS = (2, 4, 6, 8, 10, 12)
 ROLL_BDAYS = 5
 
 

@@ -4,8 +4,10 @@ Budget d'un trade = minimum de :
 * risque par trade configuré ;
 * fraction du coussin restant au-dessus du plancher (on ne joue jamais tout le coussin) ;
 * perte journalière interne restante ;
-* marge de consistance (challenge) : pas de taille qui, en cas de gain, rendrait probable un jour > 40 %.
-Risque par contrat = (distance au stop + provision de glissement) × 10 onces + commission.
+La consistance 40 % (challenge) n'entre pas dans la taille : elle est gérée par le verrouillage du moteur de risque
+(arrêt des signaux du jour quand le profit du jour atteint consistency_lock_fraction × plafond de consistance).
+Risque par contrat = (distance au stop + provision de glissement) × 10 onces + commission ; le moteur de risque passe
+la pire entrée de la plage acceptable (entrée prévue ± 0,5 ATR, côté opposé au stop).
 """
 from __future__ import annotations
 

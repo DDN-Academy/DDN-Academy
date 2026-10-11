@@ -103,3 +103,69 @@ def session_of(trades: pd.DataFrame) -> pd.Series:
     m = ny.dt.hour * 60 + ny.dt.minute
     return pd.Series(np.select([(m >= 18 * 60) | (m < 3 * 60), m < 8 * 60, m < 12 * 60],
                                ["Asie", "Londres", "New York matin"], "New York après-midi"), index=trades.index)
+
+
+# ---------------------------------------------------------------- compléments (ajouts rétro-compatibles)
+def drawdown_durations(trades: pd.DataFrame, all_days: np.ndarray) -> dict:
+    """Durées des drawdowns en JOURS DE TRADING (journées sans trade comprises).
+
+    Équité = somme cumulée des R par journée de trading (`daily_series`), sommet initial = 0. Un drawdown
+    commence le premier jour où l'équité passe sous le dernier sommet et dure jusqu'à la veille du jour où
+    ce sommet est retrouvé ; durée = nombre de jours passés sous le sommet. Un drawdown non résorbé à la
+    fin de la période est compté avec sa durée observée et signalé (`drawdown_en_cours_fin`).
+    """
+    d = daily_series(trades, all_days)
+    eq = np.cumsum(d)
+    peak, start, durs = 0.0, None, []
+    for k, e in enumerate(eq):
+        if e < peak - 1e-12:
+            if start is None:
+                start = k
+        else:
+            if start is not None:
+                durs.append(k - start)
+                start = None
+            peak = max(peak, float(e))
+    ongoing = start is not None
+    if ongoing:
+        durs.append(len(eq) - start)
+    return {"duree_max_jours": int(max(durs)) if durs else 0,
+            "duree_mediane_jours": float(np.median(durs)) if durs else 0.0,
+            "nb_drawdowns": len(durs), "drawdown_en_cours_fin": bool(ongoing),
+            "duree_en_cours_jours": int(durs[-1]) if ongoing else 0, "jours_de_trading": int(len(eq))}
+
+
+def in_dollars(s: dict, risk_usd: float) -> dict:
+    """Conversion en dollars d'un `summary` en R, au risque exact `risk_usd` par trade (1 R = risk_usd, coûts
+    inclus car R est net). Ignore l'arrondi au nombre entier de contrats MGC."""
+    out = {"risque_par_trade_usd": float(risk_usd)}
+    names = {"esperance_R": "esperance_usd", "ic95_bas": "ic95_bas_usd", "ic95_haut": "ic95_haut_usd",
+             "ic_unilateral95_bas": "ic_unilateral95_bas_usd", "drawdown_max_R": "drawdown_max_usd", "total_R": "total_usd"}
+    for k, name in names.items():
+        v = s.get(k)
+        if v is not None and np.isfinite(v):
+            out[name] = round(float(v) * risk_usd, 2)
+    return out
+
+
+def volatility_tercile_by_day(bars: pd.DataFrame, td: np.ndarray, window: int = 20, lookback: int = 250) -> pd.Series:
+    """Régime de volatilité par journée de trading, calculé de façon CAUSALE.
+
+    Mesure = moyenne sur `window` journées complètes de l'amplitude relative (H−L)/C, connue la veille
+    (journées strictement antérieures). Régime = tercile de cette mesure parmi celles des `lookback`
+    journées précédentes : « faible », « moyenne », « forte » ; NaN si moins de lookback/2 journées d'historique.
+    """
+    df = pd.DataFrame({"h": bars["high"].to_numpy(float), "l": bars["low"].to_numpy(float), "c": bars["close"].to_numpy(float), "td": td})
+    daily = df.groupby("td").agg(h=("h", "max"), l=("l", "min"), c=("c", "last"))
+    known = ((daily["h"] - daily["l"]) / daily["c"]).rolling(window, min_periods=window).mean().shift(1).to_numpy()
+    lab = []
+    for i in range(len(known)):
+        hist = known[max(0, i - lookback):i]
+        hist = hist[np.isfinite(hist)]
+        x = known[i]
+        if not np.isfinite(x) or len(hist) < lookback // 2:
+            lab.append(np.nan)
+            continue
+        q = float((hist < x).mean())
+        lab.append("faible" if q < 1 / 3 else "moyenne" if q < 2 / 3 else "forte")
+    return pd.Series(lab, index=daily.index, dtype=object)

@@ -26,6 +26,26 @@ def header(mode: str, validated: bool) -> str:
             "<i>Stratégie non validée pour l'argent réel : signal destiné au suivi papier.</i>\n\n")
 
 
+LEVEL_LABELS = (("plus_haut_veille", "plus haut de la veille"), ("plus_bas_veille", "plus bas de la veille"),
+                ("plus_haut_seance", "plus haut de la séance"), ("plus_bas_seance", "plus bas de la séance"),
+                ("swing_haut_15m", "dernier sommet 15 min"), ("swing_bas_15m", "dernier creux 15 min"))
+
+
+def levels_line(niveaux: dict | None) -> str:
+    """Ligne « Niveaux » (contrat C4) : niveaux de contexte et distance au prix en ATR ; vide si absents."""
+    if not isinstance(niveaux, dict):
+        return ""
+    dist = niveaux.get("distances_atr") or {}
+    parts = []
+    for k, lab in LEVEL_LABELS:
+        v = niveaux.get(k)
+        if v is None:
+            continue
+        d = dist.get(k)
+        parts.append(f"{lab} {p(v)}" + (f" ({d:+.1f} ATR)" if d is not None else ""))
+    return f"<b>Niveaux :</b> {escape(' · '.join(parts))}\n" if parts else ""
+
+
 def new_signal(sig, contract_label: str, historical_rr: float | None, next_event_txt: str) -> str:
     side = "ACHAT (LONG) ⬆️" if sig.side > 0 else "VENTE (SHORT) ⬇️"
     lo, hi = sig.entry_ref - sig.entry_max_drift, sig.entry_ref + sig.entry_max_drift
@@ -51,11 +71,12 @@ def new_signal(sig, contract_label: str, historical_rr: float | None, next_event
         f"{exit_txt}\n"
         f"<b>Rendement/risque :</b> {rr_txt}\n"
         f"<b>Taille :</b> {sig.contracts} contrat(s) MGC\n"
-        f"<b>Risque estimé :</b> {usd(sig.risk_usd)} (stop + glissement + commission)\n"
+        f"<b>Risque estimé :</b> {usd(sig.risk_usd)} (maximum : entrée au pire bord de la plage, stop, glissement et commission)\n"
         f"<b>Validité :</b> jusqu'à {fmt_ny(sig.valid_until)} ({fmt_paris(sig.valid_until)})\n"
         f"<b>Annulation :</b> {escape(sig.invalidation)}\n"
         f"<b>Pourquoi :</b> {escape(sig.rationale)}\n"
-        f"<b>Calendrier :</b> {escape(sig.calendar_note or next_event_txt)}\n"
+        + levels_line((getattr(sig, "meta", None) or {}).get("niveaux"))
+        + f"<b>Calendrier :</b> {escape(sig.calendar_note or next_event_txt)}\n"
         f"<b>Prix :</b> {escape(sig.price_source)}, dernière mise à jour {fmt_ny(sig.price_ts)}\n"
         f"<i>Réf. {sig.id[:8]} — {escape(sig.strategy_version)}</i>"
     )

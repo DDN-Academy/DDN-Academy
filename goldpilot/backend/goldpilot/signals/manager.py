@@ -22,7 +22,7 @@ from ..notify.telegram import enqueue
 from ..research.execution import BASE_COSTS, ExecutionSimulator, OpenPosition
 from ..risk.sizing import MGC_OZ
 from ..strategy.base import Setup
-from ..timeutil import ny_time_on, trading_date
+from ..timeutil import fmt_ny, ny_time_on, trading_date
 
 log = logging.getLogger("goldpilot.signals")
 OPEN_STATUSES = ("EN_ATTENTE", "ACTIF")
@@ -132,17 +132,61 @@ def on_decision_bar_close(s, sig: db.Signal, h: float, l: float, atr: float, pri
         enqueue(s, f"stop:{sig.id}:{after:.1f}", "stop", messages.stop_update(sig, after, price), sig.id, notify)
 
 
-def cancel_open(s, reason: str, notify: bool, only_pending: bool = False) -> int:
+def cancel_open(s, reason: str, notify: bool, only_pending: bool = False, now: datetime | None = None) -> int:
+    """Annule les signaux encore exploitables pour une nouvelle entrée. Renvoie le nombre de signaux annulés.
+
+    only_pending=True (mode sécurisé) : les signaux en attente ET les signaux actifs dont l'entrée simulée n'a pas
+    encore eu lieu sont annulés ; une position simulée déjà ouverte reste suivie, mais si la fenêtre d'entrée est
+    encore ouverte (now < validité) l'utilisateur reçoit « Ne plus entrer » (il n'est peut-être pas encore entré)."""
     rows = s.execute(select(db.Signal).where(db.Signal.status.in_(OPEN_STATUSES))).scalars().all()
     n = 0
     for sig in rows:
-        if sig.status == "ACTIF" and (only_pending or sig.sim_entry is not None):
+        if sig.status == "ACTIF" and sig.sim_entry is not None:
+            if only_pending and now is not None and now < sig.valid_until and not (sig.meta or {}).get("entree_interdite"):
+                m = dict(sig.meta or {})
+                m["entree_interdite"] = reason
+                sig.meta = m
+                _event(s, sig, "entree_interdite", raison=reason)
+                enqueue(s, f"noentry:{sig.id}", "annule", messages.status_change(
+                    sig, "Ne plus entrer", f"{reason}. Si tu n'es pas encore entré, n'entre pas. "
+                    "Si tu es déjà en position, garde ton stop et surveille-la sur Tradovate."), sig.id, notify)
             continue
         sig.status, sig.status_reason = "ANNULE", reason
         _event(s, sig, "annule", raison=reason)
-        enqueue(s, f"cancel:{sig.id}", "annule", messages.status_change(sig, "Signal annulé", reason), sig.id, notify)
+        enqueue(s, f"cancel:{sig.id}", "annule", messages.status_change(sig, "Signal annulé — ne pas entrer", reason), sig.id, notify)
         n += 1
     return n
+
+
+def on_clock(s, sig: db.Signal, now: datetime, grace: timedelta, notify: bool) -> bool:
+    """Échéances à l'horloge quand les barres n'arrivent plus (flux interrompu, marché arrêté).
+
+    Le simulateur ne voit l'heure qu'à travers les barres : sans données, un signal resterait ouvert
+    indéfiniment. Passé l'échéance + `grace` (délai laissé à la barre qui aurait dû arriver) :
+    * entrée jamais simulée et validité écoulée → EXPIRE ;
+    * position simulée ouverte et heure limite de sortie passée → CLOTURE « sortie temporelle (sans données) ».
+      Le prix de sortie est inconnu : aucun résultat simulé n'est inventé (sim_exit / sim_r / P&L restent vides).
+    Renvoie True si le signal a changé de statut."""
+    if sig.status not in OPEN_STATUSES:
+        return False
+    if sig.sim_entry is None and now >= sig.valid_until + grace:
+        sig.status, sig.status_reason = "EXPIRE", "validité écoulée sans données de prix (aucune entrée simulée)"
+        _event(s, sig, "expire", raison="horloge (sans données)")
+        enqueue(s, f"expire:{sig.id}", "expire", messages.status_change(
+            sig, "Signal expiré", "Aucune entrée : la validité est écoulée et aucune donnée de prix n'a été reçue."), sig.id, notify)
+        return True
+    if sig.status == "ACTIF" and sig.sim_entry is not None and sig.exit_deadline is not None and now >= sig.exit_deadline + grace:
+        reason = "sortie temporelle (sans données)"
+        sig.status, sig.sim_exit_ts, sig.sim_exit_reason = "CLOTURE", sig.exit_deadline, reason
+        sig.sim_exit = sig.sim_r = sig.sim_pnl_usd = None
+        sig.status_reason = reason + " : prix de sortie inconnu, aucun résultat simulé enregistré"
+        _event(s, sig, "sortie_simulee", prix=None, raison=reason, r=None)
+        enqueue(s, f"exit:{sig.id}", "sortie", messages.status_change(
+            sig, "Fermer la position maintenant",
+            f"L'heure limite de sortie ({fmt_ny(sig.exit_deadline)}) est passée et aucune donnée de prix n'est reçue. "
+            "Ferme la position sur Tradovate si elle est ouverte. Résultat simulé inconnu (données manquantes)."), sig.id, notify)
+        return True
+    return False
 
 
 def open_signals(s) -> list[db.Signal]:

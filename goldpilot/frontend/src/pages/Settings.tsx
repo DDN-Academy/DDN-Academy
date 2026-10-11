@@ -8,6 +8,7 @@ import { STATUT_REGLE } from "../lib/status";
 import { etatReceptionTradingView } from "../lib/tradingview";
 import { dateCourte, dateHeure, nombre, pct, usd, versIsoAvecFuseau } from "../lib/format";
 import { Badge, Banner, BoutonCopier, Card, Chargement, Erreur, Icon, Kv, Msg } from "../components/ui";
+import { GouvernanceCarte } from "../components/Gouvernance";
 
 export function Settings() {
   useTitre("Réglages");
@@ -21,6 +22,7 @@ export function Settings() {
         <a href="#risque">Risque</a>
         <a href="#programme">Programme FundedNext</a>
         <a href="#mode">Mode de trading</a>
+        <a href="#gouvernance">Gouvernance</a>
         <a href="#compte">Compte réel</a>
         <a href="#tradingview">TradingView</a>
         <a href="#telegram">Telegram</a>
@@ -34,6 +36,7 @@ export function Settings() {
           <Risque reglages={r.data} recharger={r.recharger} />
           <ProgrammeSection reglages={r.data} recharger={r.recharger} />
           <ModeTrading reglages={r.data} recharger={r.recharger} />
+          <GouvernanceCarte approbation />
           <CompteReel />
           <TradingView reglages={r.data} />
           <Telegram reglages={r.data} />
@@ -532,13 +535,22 @@ function Telegram({ reglages }: { reglages: Reglages }) {
   const detect = useAction();
   const test = useAction();
   const [convs, setConvs] = useState<{ chat_id: string; nom: string }[] | null>(null);
-  const n = d.data?.statut.notifications;
+  // Jamais d'état vert tiré de données anciennes : si le serveur ne répond plus, l'état est inconnu.
+  const n = d.joignable ? d.data?.statut.notifications : undefined;
   return (
     <Card titre="Notifications Telegram" id="telegram" testid="reglages-telegram">
       <div className="row" style={{ marginBottom: 10 }} data-testid="etat-telegram">
         <Badge ton={tg.jeton_defini ? "ok" : "bad"}>{tg.jeton_defini ? "Jeton du bot défini" : "Jeton du bot absent"}</Badge>
         <Badge ton={tg.configure ? "ok" : "bad"}>{tg.configure ? "Identifiant de conversation défini" : "Identifiant de conversation absent"}</Badge>
-        {n ? <Badge ton={n.ok ? "ok" : "warn"}>{n.texte}</Badge> : null}
+        {n ? (
+          <Badge ton={n.ok ? "ok" : n.configure && n.active && n.verifiees !== false ? "bad" : "warn"} testid="etat-envoi-telegram">
+            {n.texte}
+          </Badge>
+        ) : (
+          <Badge ton="bad" testid="etat-envoi-telegram">
+            État des envois inconnu (serveur injoignable)
+          </Badge>
+        )}
       </div>
       <p className="small">Telegram est gratuit. Les secrets restent sur le serveur : ils ne sont jamais saisis ni affichés sur ce site.</p>
       <ol className="steps">
@@ -576,7 +588,10 @@ function Telegram({ reglages }: { reglages: Reglages }) {
           className="btn"
           disabled={test.enCours}
           data-testid="bouton-test-notification"
-          onClick={() => void test.lancer(() => api.post("/api/notifications/test"), "Notification de test envoyée : vérifie ton téléphone.")}
+          onClick={async () => {
+            await test.lancer(() => api.post("/api/notifications/test"), "Notification de test envoyée : vérifie ton téléphone.");
+            await d.recharger();
+          }}
         >
           <Icon name="send" />
           Tester une notification

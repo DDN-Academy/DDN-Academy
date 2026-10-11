@@ -66,7 +66,7 @@ rédigée largement. **Demande une confirmation écrite avant d'utiliser le syst
 | Tick | 0,10 $ = **1 $ par contrat** | 0,10 $ = 10 $ par contrat |
 | Horaires CME | dimanche 17:00 → vendredi 16:00 CT, pause quotidienne 16:00-17:00 CT | idem |
 | Mois cotés | février, avril, juin, août, octobre, décembre | idem |
-| Mois actifs (liquidité) | février, avril, juin, août, décembre (octobre ajouté comme mois « lead » en 2026) | idem |
+| Mois actifs (liquidité) | février, avril, juin, août, octobre, décembre (octobre est un mois « lead » de l'or COMEX depuis le 12 janvier 2026 : [SER#9637 du CME](https://www.cmegroup.com/content/dam/cmegroup/notices/ser/2025/12/ser-9637.pdf) ; GoldPilot roule donc d'août vers octobre, puis vers décembre) | idem |
 | Fin de négociation | 3e dernier jour ouvré du mois de livraison | idem |
 | Règlement | physique (ACE) ; les comptes FundedNext sont intraday uniquement | physique |
 
