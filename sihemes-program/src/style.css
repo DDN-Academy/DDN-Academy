@@ -260,10 +260,15 @@ table{width:100%;border-collapse:collapse}
 .tile{padding:2.8mm 3.8mm}
 /* densité finale SIHEME */
 .tr td{padding:1.3mm 3mm}
-.log td{height:7.8mm}
+.log td{height:7.1mm}
+.log th{padding-bottom:1.8mm}
 .log th:first-child{width:38mm}
 .ex{padding:.38mm 0}
 .wk td{padding:3mm 3mm}
 .bk{padding:3.6mm 4.2mm}
 .shop .h{white-space:nowrap}
 .shop .h span{white-space:nowrap}
+/* densité v2 — prise de masse */
+.mrow .mc{padding:2.8mm 4mm}
+.shop li{padding:.6mm 0}
+.mrow .mh{padding:2.8mm 4mm}
